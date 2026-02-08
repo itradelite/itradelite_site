@@ -76,7 +76,7 @@
         t += `<tr>
           <td>${r.symbol || "—"}</td>
           <td>${r.strategy || "—"}</td>
-          <td>${fmt(r.entry)}</td>
+          <td>${r.entry_text ? r.entry_text : fmt(r.entry)}</td>
           <td>${fmt(r.stop)}</td>
           <td>${r.risk ? "~" + Math.round(Number(r.risk)) : "—"}</td>
           <td><span class="pill ${cls}">${label}</span></td>
@@ -88,4 +88,5 @@
   </script>
 </body>
 </html>
+
 
