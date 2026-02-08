@@ -33,7 +33,7 @@
       return x.toFixed(2);
     }
 
-    fetch("..public/today.json", { cache: "no-store" })
+    fetch("../public/today.json", { cache: "no-store" })
       .then(r => r.json())
       .then(data => {
         const setups = (data.setups || []);
@@ -88,3 +88,4 @@
   </script>
 </body>
 </html>
+
