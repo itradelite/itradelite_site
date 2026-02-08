@@ -1,8 +1,130 @@
 {
   "date": "2026-02-08",
-  "risk_mode": "risk_on",
+  "risk_mode": "False",
+  "generated_at_utc": "2026-02-08T06:02:00Z",
+  "published": true,
+  "reason": null,
+  "source": "reports/watchlist_2026-02-08.csv",
   "setups": [
-    { "symbol": "ANZ.AX", "strategy": "Trend pullback", "entry": 36.76, "stop": 35.69, "risk": 1000, "status": "Valid" },
-    { "symbol": "RHC.AX", "strategy": "Trend pullback", "entry": null, "stop": null, "risk": null, "status": "Watch" }
+    {
+      "symbol": "BHP.AX",
+      "strategy": "Trend Pullback",
+      "entry": 49.221,
+      "stop": 47.6537,
+      "risk": 999.94,
+      "status": "Valid"
+    },
+    {
+      "symbol": "RHC.AX",
+      "strategy": "Trend Pullback",
+      "entry": 36.1077,
+      "stop": 34.9719,
+      "risk": 999.5,
+      "status": "Watch"
+    },
+    {
+      "symbol": "ANZ.AX",
+      "strategy": "Trend Pullback",
+      "entry": 36.7556,
+      "stop": 35.6864,
+      "risk": 999.63,
+      "status": "Valid"
+    },
+    {
+      "symbol": "AMC.AX",
+      "strategy": "Momentum",
+      "entry": null,
+      "stop": 61.8974,
+      "risk": 992.47,
+      "status": "Watch"
+    },
+    {
+      "symbol": "VAS.AX",
+      "strategy": "Mean Reversion",
+      "entry": 107.67,
+      "stop": 105.9439,
+      "risk": 999.4,
+      "status": "Valid"
+    },
+    {
+      "symbol": "WBC.AX",
+      "strategy": "Trend Pullback",
+      "entry": 39.0531,
+      "stop": 38.0721,
+      "risk": 999.68,
+      "status": "Watch"
+    },
+    {
+      "symbol": "QBE.AX",
+      "strategy": "Momentum",
+      "entry": null,
+      "stop": 19.2362,
+      "risk": 998.93,
+      "status": "Watch"
+    },
+    {
+      "symbol": "WOW.AX",
+      "strategy": "Momentum",
+      "entry": null,
+      "stop": 29.7546,
+      "risk": 997.84,
+      "status": "Watch"
+    },
+    {
+      "symbol": "CBA.AX",
+      "strategy": "Momentum",
+      "entry": null,
+      "stop": 147.4957,
+      "risk": 992.9,
+      "status": "Watch"
+    },
+    {
+      "symbol": "NAB.AX",
+      "strategy": "Trend Pullback",
+      "entry": 42.8675,
+      "stop": 41.8296,
+      "risk": 999.53,
+      "status": "Watch"
+    },
+    {
+      "symbol": "NST.AX",
+      "strategy": "Trend Pullback",
+      "entry": 27.3549,
+      "stop": 25.5964,
+      "risk": 998.82,
+      "status": "Watch"
+    },
+    {
+      "symbol": "RIO.AX",
+      "strategy": "Momentum",
+      "entry": null,
+      "stop": 147.0441,
+      "risk": 998.9,
+      "status": "Watch"
+    },
+    {
+      "symbol": "S32.AX",
+      "strategy": "Trend Pullback",
+      "entry": 4.3297,
+      "stop": 4.2441,
+      "risk": 999.93,
+      "status": "Watch"
+    },
+    {
+      "symbol": "QBTC.AX",
+      "strategy": "Mean Reversion",
+      "entry": 18.35,
+      "stop": 16.6925,
+      "risk": 999.47,
+      "status": "Watch"
+    },
+    {
+      "symbol": "ETPMAG.AX",
+      "strategy": "Trend Pullback",
+      "entry": 118.4795,
+      "stop": 82.4862,
+      "risk": 971.82,
+      "status": "Watch"
+    }
   ]
 }
