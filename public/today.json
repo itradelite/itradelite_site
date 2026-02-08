@@ -1,0 +1,8 @@
+{
+  "date": "2026-02-08",
+  "risk_mode": "risk_on",
+  "setups": [
+    { "symbol": "ANZ.AX", "strategy": "Trend pullback", "entry": 36.76, "stop": 35.69, "risk": 1000, "status": "Valid" },
+    { "symbol": "RHC.AX", "strategy": "Trend pullback", "entry": null, "stop": null, "risk": null, "status": "Watch" }
+  ]
+}

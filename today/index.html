@@ -1,0 +1,90 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>iTradeLite — Today</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 24px; max-width: 900px; }
+    h1 { margin-bottom: 6px; }
+    .sub { color: #555; margin-top: 0; }
+    table { border-collapse: collapse; width: 100%; margin-top: 18px; }
+    th, td { border: 1px solid #ddd; padding: 10px; text-align: left; }
+    th { background: #f6f6f6; }
+    .pill { display: inline-block; padding: 3px 10px; border-radius: 999px; font-size: 12px; }
+    .valid { background: #e8f5e9; }
+    .watch { background: #fff8e1; }
+    .footer { margin-top: 22px; color: #777; font-size: 12px; }
+  </style>
+</head>
+<body>
+  <h1>Today’s trading decision</h1>
+  <p class="sub">Rule-based. Same list for everyone.</p>
+
+  <div id="content">Loading…</div>
+
+  <p class="footer">Educational, rule-based output. No financial advice.</p>
+
+  <script>
+    function fmt(n) {
+      if (n === null || n === undefined || n === "") return "—";
+      const x = Number(n);
+      if (!Number.isFinite(x)) return String(n);
+      return x.toFixed(2);
+    }
+
+    fetch("/public/today.json", { cache: "no-store" })
+      .then(r => r.json())
+      .then(data => {
+        const setups = (data.setups || []);
+        const valid = setups.filter(s => s.status === "Valid");
+        const watch = setups.filter(s => s.status === "Watch");
+
+        if (valid.length === 0) {
+          document.getElementById("content").innerHTML =
+            `<h2>No valid setups today.</h2>
+             <p>Date: <b>${data.date || "—"}</b> • Risk mode: <b>${data.risk_mode || "—"}</b></p>
+             ${watch.length ? "<h3>Watchlist</h3>" : ""}`;
+          if (watch.length) {
+            document.getElementById("content").innerHTML += buildTable(watch, "Watch");
+          }
+          return;
+        }
+
+        let html = `<p>Date: <b>${data.date || "—"}</b> • Risk mode: <b>${data.risk_mode || "—"}</b></p>`;
+        html += "<h2>Valid</h2>";
+        html += buildTable(valid, "Valid");
+        if (watch.length) {
+          html += "<h2>Watch</h2>";
+          html += buildTable(watch, "Watch");
+        }
+        document.getElementById("content").innerHTML = html;
+      })
+      .catch(err => {
+        document.getElementById("content").textContent =
+          "Failed to load today.json (check GitHub Pages paths).";
+        console.error(err);
+      });
+
+    function buildTable(rows, label) {
+      const cls = label === "Valid" ? "valid" : "watch";
+      let t = `<table>
+        <thead><tr>
+          <th>Symbol</th><th>Setup</th><th>Entry</th><th>Stop</th><th>Risk (A$)</th><th>Status</th>
+        </tr></thead><tbody>`;
+      for (const r of rows) {
+        t += `<tr>
+          <td>${r.symbol || "—"}</td>
+          <td>${r.strategy || "—"}</td>
+          <td>${fmt(r.entry)}</td>
+          <td>${fmt(r.stop)}</td>
+          <td>${r.risk ? "~" + Math.round(Number(r.risk)) : "—"}</td>
+          <td><span class="pill ${cls}">${label}</span></td>
+        </tr>`;
+      }
+      t += "</tbody></table>";
+      return t;
+    }
+  </script>
+</body>
+</html>
