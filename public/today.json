@@ -1,7 +1,7 @@
 {
   "date": "2026-02-08",
-  "risk_mode": "False",
-  "generated_at_utc": "2026-02-08T06:02:00Z",
+  "risk_mode": "risk_on",
+  "generated_at_utc": "2026-02-08T06:22:46Z",
   "published": true,
   "reason": null,
   "source": "reports/watchlist_2026-02-08.csv",
