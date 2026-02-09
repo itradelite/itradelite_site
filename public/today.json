@@ -1,7 +1,7 @@
 {
   "date": "2026-02-09",
   "risk_mode": "risk_on",
-  "generated_at_utc": "2026-02-09T11:27:38Z",
+  "generated_at_utc": "2026-02-09T11:57:20Z",
   "published": true,
   "reason": null,
   "source": "reports/watchlist_2026-02-09.csv",
@@ -34,15 +34,6 @@
       "status": "Valid"
     },
     {
-      "symbol": "RHC.AX",
-      "strategy": "Trend Pullback",
-      "entry": 36.1215,
-      "entry_text": "36.1215",
-      "stop": 34.972,
-      "risk": 998.9,
-      "status": "Valid"
-    },
-    {
       "symbol": "VAS.AX",
       "strategy": "Trend Pullback",
       "entry": 109.6467,
@@ -52,12 +43,12 @@
       "status": "Valid"
     },
     {
-      "symbol": "QUB.AX",
+      "symbol": "RHC.AX",
       "strategy": "Trend Pullback",
-      "entry": 4.7862,
-      "entry_text": "4.7862",
-      "stop": 4.6732,
-      "risk": 999.91,
+      "entry": 36.1215,
+      "entry_text": "36.1215",
+      "stop": 34.972,
+      "risk": 998.9,
       "status": "Valid"
     },
     {
@@ -70,21 +61,21 @@
       "status": "Valid"
     },
     {
+      "symbol": "QUB.AX",
+      "strategy": "Trend Pullback",
+      "entry": 4.7862,
+      "entry_text": "4.7862",
+      "stop": 4.6732,
+      "risk": 999.91,
+      "status": "Valid"
+    },
+    {
       "symbol": "WGX.AX",
       "strategy": "Trend Pullback",
       "entry": 7.008,
       "entry_text": "7.008",
       "stop": 6.431,
       "risk": 999.98,
-      "status": "Valid"
-    },
-    {
-      "symbol": "CDA.AX",
-      "strategy": "Trend Pullback",
-      "entry": 36.4504,
-      "entry_text": "36.4504",
-      "stop": 33.9928,
-      "risk": 997.79,
       "status": "Valid"
     },
     {
@@ -97,12 +88,30 @@
       "status": "Valid"
     },
     {
+      "symbol": "CDA.AX",
+      "strategy": "Trend Pullback",
+      "entry": 36.4504,
+      "entry_text": "36.4504",
+      "stop": 33.9928,
+      "risk": 997.79,
+      "status": "Valid"
+    },
+    {
       "symbol": "RMS.AX",
       "strategy": "Trend Pullback",
       "entry": 4.5464,
       "entry_text": "4.5464",
       "stop": 4.1287,
       "risk": 999.91,
+      "status": "Valid"
+    },
+    {
+      "symbol": "CSC.AX",
+      "strategy": "Trend Pullback",
+      "entry": 15.8943,
+      "entry_text": "15.8943",
+      "stop": 14.9605,
+      "risk": 999.14,
       "status": "Valid"
     },
     {
@@ -115,13 +124,13 @@
       "status": "Watch"
     },
     {
-      "symbol": "CSC.AX",
+      "symbol": "BHP.AX",
       "strategy": "Trend Pullback",
-      "entry": 15.8943,
-      "entry_text": "15.8943",
-      "stop": 14.9605,
-      "risk": 999.14,
-      "status": "Valid"
+      "entry": 49.279,
+      "entry_text": "49.279",
+      "stop": 48.1161,
+      "risk": 998.95,
+      "status": "Watch"
     },
     {
       "symbol": "NEM.AX",
@@ -130,15 +139,6 @@
       "entry_text": "167.1001",
       "stop": 148.9407,
       "risk": 998.77,
-      "status": "Watch"
-    },
-    {
-      "symbol": "BHP.AX",
-      "strategy": "Trend Pullback",
-      "entry": 49.279,
-      "entry_text": "49.279",
-      "stop": 48.1161,
-      "risk": 998.95,
       "status": "Watch"
     }
   ]
