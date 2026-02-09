@@ -1,144 +1,144 @@
 {
-  "date": "2026-02-08",
+  "date": "2026-02-09",
   "risk_mode": "risk_on",
-  "generated_at_utc": "2026-02-08T08:36:46Z",
+  "generated_at_utc": "2026-02-09T11:27:38Z",
   "published": true,
   "reason": null,
-  "source": "reports/watchlist_2026-02-08.csv",
+  "source": "reports/watchlist_2026-02-09.csv",
   "setups": [
     {
-      "symbol": "BHP.AX",
+      "symbol": "CGF.AX",
+      "strategy": "Mean Reversion",
+      "entry": 8.6,
+      "entry_text": "8.6",
+      "stop": 8.2496,
+      "risk": 999.92,
+      "status": "Valid"
+    },
+    {
+      "symbol": "ARG.AX",
       "strategy": "Trend Pullback",
-      "entry": 49.221,
-      "entry_text": "49.221",
-      "stop": 47.6537,
-      "risk": 999.94,
+      "entry": 9.1376,
+      "entry_text": "9.1376",
+      "stop": 8.9913,
+      "risk": 999.88,
+      "status": "Valid"
+    },
+    {
+      "symbol": "AZJ.AX",
+      "strategy": "Trend Pullback",
+      "entry": 3.6086,
+      "entry_text": "3.6086",
+      "stop": 3.4905,
+      "risk": 999.95,
       "status": "Valid"
     },
     {
       "symbol": "RHC.AX",
       "strategy": "Trend Pullback",
-      "entry": 36.1077,
-      "entry_text": "36.1077",
-      "stop": 34.9719,
-      "risk": 999.5,
-      "status": "Watch"
-    },
-    {
-      "symbol": "ANZ.AX",
-      "strategy": "Trend Pullback",
-      "entry": 36.7556,
-      "entry_text": "36.7556",
-      "stop": 35.6864,
-      "risk": 999.63,
+      "entry": 36.1215,
+      "entry_text": "36.1215",
+      "stop": 34.972,
+      "risk": 998.9,
       "status": "Valid"
-    },
-    {
-      "symbol": "AMC.AX",
-      "strategy": "Momentum",
-      "entry": null,
-      "entry_text": "trigger=70.0997 limit=70.2399",
-      "stop": 61.8974,
-      "risk": 992.47,
-      "status": "Watch"
     },
     {
       "symbol": "VAS.AX",
-      "strategy": "Mean Reversion",
-      "entry": 107.67,
-      "entry_text": "107.67",
-      "stop": 105.9439,
-      "risk": 999.4,
+      "strategy": "Trend Pullback",
+      "entry": 109.6467,
+      "entry_text": "109.6467",
+      "stop": 107.1027,
+      "risk": 999.8,
       "status": "Valid"
     },
     {
-      "symbol": "WBC.AX",
+      "symbol": "QUB.AX",
       "strategy": "Trend Pullback",
-      "entry": 39.0531,
-      "entry_text": "39.0531",
-      "stop": 38.0721,
-      "risk": 999.68,
-      "status": "Watch"
+      "entry": 4.7862,
+      "entry_text": "4.7862",
+      "stop": 4.6732,
+      "risk": 999.91,
+      "status": "Valid"
     },
     {
-      "symbol": "QBE.AX",
-      "strategy": "Momentum",
-      "entry": null,
-      "entry_text": "trigger=20.3910 limit=20.4318",
-      "stop": 19.2362,
-      "risk": 998.93,
-      "status": "Watch"
-    },
-    {
-      "symbol": "WOW.AX",
-      "strategy": "Momentum",
-      "entry": null,
-      "entry_text": "trigger=32.2063 limit=32.2707",
-      "stop": 29.7546,
-      "risk": 997.84,
-      "status": "Watch"
-    },
-    {
-      "symbol": "CBA.AX",
-      "strategy": "Momentum",
-      "entry": null,
-      "entry_text": "trigger=160.5602 limit=160.8814",
-      "stop": 147.4957,
-      "risk": 992.9,
-      "status": "Watch"
-    },
-    {
-      "symbol": "NAB.AX",
+      "symbol": "FPH.AX",
       "strategy": "Trend Pullback",
-      "entry": 42.8675,
-      "entry_text": "42.8675",
-      "stop": 41.8296,
+      "entry": 33.4632,
+      "entry_text": "33.4632",
+      "stop": 32.2516,
       "risk": 999.53,
-      "status": "Watch"
+      "status": "Valid"
     },
     {
-      "symbol": "NST.AX",
+      "symbol": "WGX.AX",
       "strategy": "Trend Pullback",
-      "entry": 27.3549,
-      "entry_text": "27.3549",
-      "stop": 25.5964,
-      "risk": 998.82,
-      "status": "Watch"
+      "entry": 7.008,
+      "entry_text": "7.008",
+      "stop": 6.431,
+      "risk": 999.98,
+      "status": "Valid"
     },
     {
-      "symbol": "RIO.AX",
-      "strategy": "Momentum",
-      "entry": null,
-      "entry_text": "trigger=161.7337 limit=162.0572",
-      "stop": 147.0441,
-      "risk": 998.9,
-      "status": "Watch"
-    },
-    {
-      "symbol": "S32.AX",
+      "symbol": "CDA.AX",
       "strategy": "Trend Pullback",
-      "entry": 4.3297,
-      "entry_text": "4.3297",
-      "stop": 4.2441,
-      "risk": 999.93,
-      "status": "Watch"
+      "entry": 36.4504,
+      "entry_text": "36.4504",
+      "stop": 33.9928,
+      "risk": 997.79,
+      "status": "Valid"
     },
     {
-      "symbol": "QBTC.AX",
-      "strategy": "Mean Reversion",
-      "entry": 18.35,
-      "entry_text": "18.35",
-      "stop": 16.6925,
-      "risk": 999.47,
-      "status": "Watch"
-    },
-    {
-      "symbol": "ETPMAG.AX",
+      "symbol": "SFR.AX",
       "strategy": "Trend Pullback",
-      "entry": 118.4795,
-      "entry_text": "118.4795",
-      "stop": 82.4862,
-      "risk": 971.82,
+      "entry": 19.2573,
+      "entry_text": "19.2573",
+      "stop": 17.8159,
+      "risk": 998.93,
+      "status": "Valid"
+    },
+    {
+      "symbol": "RMS.AX",
+      "strategy": "Trend Pullback",
+      "entry": 4.5464,
+      "entry_text": "4.5464",
+      "stop": 4.1287,
+      "risk": 999.91,
+      "status": "Valid"
+    },
+    {
+      "symbol": "ALQ.AX",
+      "strategy": "Trend Pullback",
+      "entry": 23.7427,
+      "entry_text": "23.7427",
+      "stop": 22.7029,
+      "risk": 999.22,
+      "status": "Watch"
+    },
+    {
+      "symbol": "CSC.AX",
+      "strategy": "Trend Pullback",
+      "entry": 15.8943,
+      "entry_text": "15.8943",
+      "stop": 14.9605,
+      "risk": 999.14,
+      "status": "Valid"
+    },
+    {
+      "symbol": "NEM.AX",
+      "strategy": "Trend Pullback",
+      "entry": 167.1001,
+      "entry_text": "167.1001",
+      "stop": 148.9407,
+      "risk": 998.77,
+      "status": "Watch"
+    },
+    {
+      "symbol": "BHP.AX",
+      "strategy": "Trend Pullback",
+      "entry": 49.279,
+      "entry_text": "49.279",
+      "stop": 48.1161,
+      "risk": 998.95,
       "status": "Watch"
     }
   ]
