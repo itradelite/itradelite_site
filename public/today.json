@@ -1,7 +1,9 @@
 {
-  "date": "2026-02-10",
+  "date": "2026-02-11",
+  "generated": "2026-02-10",
+  "valid_for": "2026-02-11",
   "risk_mode": "risk_on",
-  "generated_at_utc": "2026-02-10T12:03:08Z",
+  "generated_at_utc": "2026-02-10T13:30:59Z",
   "published": true,
   "reason": null,
   "source": "reports/watchlist_2026-02-10.csv",
@@ -34,21 +36,21 @@
       "status": "Valid"
     },
     {
-      "symbol": "VAS.AX",
-      "strategy": "Trend Pullback",
-      "entry": 109.6975,
-      "entry_text": "109.6975",
-      "stop": 107.105,
-      "risk": 998.1,
-      "status": "Valid"
-    },
-    {
       "symbol": "AZJ.AX",
       "strategy": "Trend Pullback",
       "entry": 3.6104,
       "entry_text": "3.6104",
       "stop": 3.4907,
       "risk": 999.94,
+      "status": "Valid"
+    },
+    {
+      "symbol": "VAS.AX",
+      "strategy": "Trend Pullback",
+      "entry": 109.6975,
+      "entry_text": "109.6975",
+      "stop": 107.105,
+      "risk": 998.1,
       "status": "Valid"
     },
     {
@@ -70,15 +72,6 @@
       "status": "Valid"
     },
     {
-      "symbol": "QUB.AX",
-      "strategy": "Momentum",
-      "entry": null,
-      "entry_text": "trigger=4.9849 limit=4.9949",
-      "stop": 4.6714,
-      "risk": 999.69,
-      "status": "Valid"
-    },
-    {
       "symbol": "WBC.AX",
       "strategy": "Trend Pullback",
       "entry": 39.1715,
@@ -86,6 +79,15 @@
       "stop": 38.0567,
       "risk": 998.9,
       "status": "Watch"
+    },
+    {
+      "symbol": "QUB.AX",
+      "strategy": "Momentum",
+      "entry": null,
+      "entry_text": "trigger=4.9849 limit=4.9949",
+      "stop": 4.6714,
+      "risk": 999.69,
+      "status": "Valid"
     },
     {
       "symbol": "SFR.AX",
@@ -106,6 +108,15 @@
       "status": "Valid"
     },
     {
+      "symbol": "RHC.AX",
+      "strategy": "Momentum",
+      "entry": null,
+      "entry_text": "trigger=38.0388 limit=38.1149",
+      "stop": 34.9611,
+      "risk": 997.18,
+      "status": "Watch"
+    },
+    {
       "symbol": "FPH.AX",
       "strategy": "Trend Pullback",
       "entry": 33.4979,
@@ -122,15 +133,6 @@
       "stop": 78.5982,
       "risk": 997.7,
       "status": "Valid"
-    },
-    {
-      "symbol": "RHC.AX",
-      "strategy": "Momentum",
-      "entry": null,
-      "entry_text": "trigger=38.0388 limit=38.1149",
-      "stop": 34.9611,
-      "risk": 997.18,
-      "status": "Watch"
     },
     {
       "symbol": "ORI.AX",
