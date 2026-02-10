@@ -33,6 +33,14 @@
       return x.toFixed(2);
     }
 
+    // Build the header meta line using new fields if present; fall back to legacy "date"
+    function metaLine(data) {
+      const generated = data.generated || data.generated_local || data.generated_at_local || data.date || "—";
+      const validFor  = data.valid_for || data.date || "—";
+      const riskMode  = data.risk_mode || "—";
+      return `<p>Generated: <b>${generated}</b> • Valid for: <b>${validFor}</b> • Risk mode: <b>${riskMode}</b></p>`;
+    }
+
     fetch("../public/today.json", { cache: "no-store" })
       .then(r => r.json())
       .then(data => {
@@ -43,15 +51,16 @@
         if (valid.length === 0) {
           document.getElementById("content").innerHTML =
             `<h2>No valid setups today.</h2>
-             <p>Date: <b>${data.date || "—"}</b> • Risk mode: <b>${data.risk_mode || "—"}</b></p>
+             ${metaLine(data)}
              ${watch.length ? "<h3>Watchlist</h3>" : ""}`;
+
           if (watch.length) {
             document.getElementById("content").innerHTML += buildTable(watch, "Watch");
           }
           return;
         }
 
-        let html = `<p>Date: <b>${data.date || "—"}</b> • Risk mode: <b>${data.risk_mode || "—"}</b></p>`;
+        let html = `${metaLine(data)}`;
         html += "<h2>Valid</h2>";
         html += buildTable(valid, "Valid");
         if (watch.length) {
@@ -88,5 +97,3 @@
   </script>
 </body>
 </html>
-
-
