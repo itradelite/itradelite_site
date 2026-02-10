@@ -14,7 +14,27 @@
     .pill { display: inline-block; padding: 3px 10px; border-radius: 999px; font-size: 12px; }
     .valid { background: #e8f5e9; }
     .watch { background: #fff8e1; }
-    .footer { margin-top: 22px; color: #777; font-size: 12px; }
+    .footer { margin-top: 22px; color: #777; font-size: 12px; line-height: 1.4; }
+
+    /* Tooltip */
+    .tooltip {
+      position: relative;
+      cursor: help;
+      border-bottom: 1px dotted #999;
+    }
+    .tooltip:hover::after {
+      content: attr(data-tip);
+      position: absolute;
+      left: 0;
+      top: 120%;
+      background: #333;
+      color: #fff;
+      padding: 6px 8px;
+      border-radius: 4px;
+      font-size: 12px;
+      white-space: nowrap;
+      z-index: 10;
+    }
   </style>
 </head>
 <body>
@@ -23,7 +43,10 @@
 
   <div id="content">Loading…</div>
 
-  <p class="footer">Educational, rule-based output. No financial advice.</p>
+  <p class="footer">
+    Educational, rule-based output. No financial advice.<br>
+    <em>Risk (A$) assumes a model portfolio of A$100,000 and 1% risk per trade; position size derived from entry–stop distance and rounded to whole shares.</em>
+  </p>
 
   <script>
     function fmt(n) {
@@ -33,9 +56,8 @@
       return x.toFixed(2);
     }
 
-    // Build the header meta line using new fields if present; fall back to legacy "date"
     function metaLine(data) {
-      const generated = data.generated || data.generated_local || data.generated_at_local || data.date || "—";
+      const generated = data.generated || data.date || "—";
       const validFor  = data.valid_for || data.date || "—";
       const riskMode  = data.risk_mode || "—";
       return `<p>Generated: <b>${generated}</b> • Valid for: <b>${validFor}</b> • Risk mode: <b>${riskMode}</b></p>`;
@@ -79,7 +101,16 @@
       const cls = label === "Valid" ? "valid" : "watch";
       let t = `<table>
         <thead><tr>
-          <th>Symbol</th><th>Setup</th><th>Entry</th><th>Stop</th><th>Risk (A$)</th><th>Status</th>
+          <th>Symbol</th>
+          <th>Setup</th>
+          <th>Entry</th>
+          <th>Stop</th>
+          <th>
+            <span class="tooltip" data-tip="Assumes A$100k portfolio and 1% risk per trade">
+              Risk (A$)
+            </span>
+          </th>
+          <th>Status</th>
         </tr></thead><tbody>`;
       for (const r of rows) {
         t += `<tr>
@@ -97,5 +128,3 @@
   </script>
 </body>
 </html>
-
-
