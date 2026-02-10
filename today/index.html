@@ -8,6 +8,7 @@
     body { font-family: Arial, sans-serif; margin: 24px; max-width: 900px; }
     h1 { margin-bottom: 6px; }
     .sub { color: #555; margin-top: 0; }
+    .assump { margin: 10px 0 0 0; color: #666; font-size: 12px; }
     table { border-collapse: collapse; width: 100%; margin-top: 18px; }
     th, td { border: 1px solid #ddd; padding: 10px; text-align: left; }
     th { background: #f6f6f6; }
@@ -16,25 +17,30 @@
     .watch { background: #fff8e1; }
     .footer { margin-top: 22px; color: #777; font-size: 12px; line-height: 1.4; }
 
-    /* Tooltip */
-    .tooltip {
-      position: relative;
-      cursor: help;
-      border-bottom: 1px dotted #999;
+    /* Inline info badge */
+    .info {
+      display: inline-block;
+      margin-left: 6px;
+      padding: 0 6px;
+      border: 1px solid #aaa;
+      border-radius: 999px;
+      font-size: 11px;
+      color: #444;
+      cursor: pointer;
+      user-select: none;
     }
-    .tooltip:hover::after {
-      content: attr(data-tip);
-      position: absolute;
-      left: 0;
-      top: 120%;
-      background: #333;
-      color: #fff;
-      padding: 6px 8px;
-      border-radius: 4px;
+    .info[aria-expanded="true"] { background: #f0f0f0; }
+    .hint {
+      display: none;
+      margin-top: 8px;
+      padding: 10px;
+      border: 1px solid #ddd;
+      background: #fafafa;
+      color: #555;
       font-size: 12px;
-      white-space: nowrap;
-      z-index: 10;
+      border-radius: 6px;
     }
+    .hint.show { display: block; }
   </style>
 </head>
 <body>
@@ -44,8 +50,7 @@
   <div id="content">Loading…</div>
 
   <p class="footer">
-    Educational, rule-based output. No financial advice.<br>
-    <em>Risk (A$) assumes a model portfolio of A$100,000 and 1% risk per trade; position size derived from entry–stop distance and rounded to whole shares.</em>
+    Educational, rule-based output. No financial advice.
   </p>
 
   <script>
@@ -60,7 +65,44 @@
       const generated = data.generated || data.date || "—";
       const validFor  = data.valid_for || data.date || "—";
       const riskMode  = data.risk_mode || "—";
-      return `<p>Generated: <b>${generated}</b> • Valid for: <b>${validFor}</b> • Risk mode: <b>${riskMode}</b></p>`;
+
+      // Visible assumptions line (can’t miss it)
+      const assumptions =
+        `<p class="assump"><b>Model assumptions:</b> “Risk (A$)” uses a model portfolio of A$100,000 and 1% risk per trade; size derived from entry–stop distance and rounded to whole shares.</p>`;
+
+      // Click-to-toggle detail block (mobile-safe)
+      const riskInfo =
+        `<span class="info" id="riskInfoBtn" role="button" tabindex="0" aria-expanded="false" title="Click for details">ⓘ</span>
+         <div class="hint" id="riskHint">
+           <b>Risk (A$)</b> is the estimated dollar risk if the stop is hit, using a <b>A$100,000</b> model portfolio and <b>1%</b> risk per trade.
+           Position size is computed from the entry–stop distance and rounded to whole shares.
+         </div>`;
+
+      return `
+        <p>Generated: <b>${generated}</b> • Valid for: <b>${validFor}</b> • Risk mode: <b>${riskMode}</b></p>
+        ${assumptions}
+        ${riskInfo}
+      `;
+    }
+
+    function wireRiskInfoToggle() {
+      const btn = document.getElementById("riskInfoBtn");
+      const hint = document.getElementById("riskHint");
+      if (!btn || !hint) return;
+
+      function toggle() {
+        const expanded = btn.getAttribute("aria-expanded") === "true";
+        btn.setAttribute("aria-expanded", expanded ? "false" : "true");
+        hint.classList.toggle("show", !expanded);
+      }
+
+      btn.addEventListener("click", toggle);
+      btn.addEventListener("keydown", (e) => {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          toggle();
+        }
+      });
     }
 
     fetch("../public/today.json", { cache: "no-store" })
@@ -79,6 +121,8 @@
           if (watch.length) {
             document.getElementById("content").innerHTML += buildTable(watch, "Watch");
           }
+
+          wireRiskInfoToggle();
           return;
         }
 
@@ -90,6 +134,8 @@
           html += buildTable(watch, "Watch");
         }
         document.getElementById("content").innerHTML = html;
+
+        wireRiskInfoToggle();
       })
       .catch(err => {
         document.getElementById("content").textContent =
@@ -101,16 +147,7 @@
       const cls = label === "Valid" ? "valid" : "watch";
       let t = `<table>
         <thead><tr>
-          <th>Symbol</th>
-          <th>Setup</th>
-          <th>Entry</th>
-          <th>Stop</th>
-          <th>
-            <span class="tooltip" data-tip="Assumes A$100k portfolio and 1% risk per trade">
-              Risk (A$)
-            </span>
-          </th>
-          <th>Status</th>
+          <th>Symbol</th><th>Setup</th><th>Entry</th><th>Stop</th><th>Risk (A$)</th><th>Status</th>
         </tr></thead><tbody>`;
       for (const r of rows) {
         t += `<tr>
