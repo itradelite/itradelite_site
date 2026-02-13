@@ -48,17 +48,29 @@ a:hover{ text-decoration:underline; }
 .brand__mark{
   width:34px; height:34px; border-radius:10px;
   display:grid; place-items:center;
-  background: linear-gradient(135deg, rgba(94,234,212,.25), rgba(96,165,250,.25));
-  border:1px solid var(--line);
-  font-weight:800;
-}
-.brand__mark img{
-  display:block;
-  width:20px;
-  height:20px;
+
+  /* neutral, terminal-like */
+  background: rgba(255,255,255,.04);
+  border: 1px solid rgba(255,255,255,.08);
+
+  box-shadow: none;
 }
 
-.brand__name{ font-weight:800; letter-spacing:.2px; }
+.brand__mark img{
+  display:block;
+  width:18px;
+  height:18px;
+
+  /* helps on dark backgrounds */
+  image-rendering: auto;
+}
+
+
+.brand__name{
+  font-weight: 750; /* visually slightly calmer than 800 */
+  letter-spacing: .15px;
+}
+
 
 .nav{ display:flex; gap:14px; margin-left:8px; }
 .nav a{
@@ -343,4 +355,5 @@ tbody tr:hover{ background: rgba(255,255,255,.03); }
   .grid2{ grid-template-columns: 1fr; }
   .nav{ display:none; } /* keep it simple for now */
 }
+
 
