@@ -1,12 +1,197 @@
 <!doctype html>
-<html>
-  <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="refresh" content="0; url=/today/" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>iTradeLite</title>
-  </head>
-  <body>
-    <p>Redirecting to <a href="/today/">Today</a>…</p>
-  </body>
+<html lang="en-AU">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>iTradeLite | Daily ASX Trading Setups (Rule-Based, Transparent)</title>
+  <meta name="description" content="iTradeLite publishes daily rule-based ASX trading setups with clear entries, stops and modelled risk. Educational use only. No hype. Transparent logic." />
+  <meta name="robots" content="index,follow" />
+  <link rel="canonical" href="https://itradelite.com/" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="iTradeLite — Daily Rule-Based Trading Setups" />
+  <meta property="og:description" content="Daily ASX trading setups using transparent rules. Entry, stop and risk sizing shown clearly." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://itradelite.com/" />
+
+  <style>
+    :root {
+      --bg: #0b1220;
+      --card: rgba(255,255,255,0.06);
+      --card2: rgba(255,255,255,0.04);
+      --text: rgba(255,255,255,0.92);
+      --muted: rgba(255,255,255,0.70);
+      --border: rgba(255,255,255,0.12);
+      --accent: #77d4ff;
+      --shadow: 0 12px 40px rgba(0,0,0,0.35);
+      --radius: 14px;
+      --max: 1100px;
+      --sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: var(--sans);
+      background: radial-gradient(1000px 600px at 20% -10%, rgba(119,212,255,0.25), transparent 60%),
+                  radial-gradient(1000px 600px at 90% 10%, rgba(131,255,210,0.18), transparent 55%),
+                  var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    .wrap {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 40px 20px 60px;
+    }
+
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 40px;
+    }
+
+    .nav a {
+      margin-left: 18px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .hero {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    .hero h1 {
+      font-size: 34px;
+      margin-bottom: 12px;
+    }
+
+    .hero p {
+      color: var(--muted);
+      max-width: 650px;
+      margin: 0 auto 20px;
+    }
+
+    .cta {
+      display: inline-block;
+      padding: 14px 22px;
+      border-radius: 12px;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid var(--border);
+      font-weight: 600;
+    }
+
+    .grid {
+      display: grid;
+      gap: 20px;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      margin-top: 40px;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 20px;
+      box-shadow: var(--shadow);
+    }
+
+    .card h2 {
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+
+    .footer {
+      margin-top: 60px;
+      font-size: 12px;
+      color: var(--muted);
+      text-align: center;
+    }
+
+  </style>
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"WebSite",
+    "name":"iTradeLite",
+    "url":"https://itradelite.com/",
+    "description":"Daily rule-based ASX trading setups with transparent entries, stops and modelled risk.",
+    "inLanguage":"en-AU"
+  }
+  </script>
+</head>
+
+<body>
+  <div class="wrap">
+
+    <div class="nav">
+      <div><strong>iTradeLite</strong></div>
+      <div>
+        <a href="/today/">Today</a>
+        <a href="/how-it-works.html">How it works</a>
+        <a href="/about.html">About</a>
+      </div>
+    </div>
+
+    <div class="hero">
+      <h1>Daily Rule-Based Trading Setups</h1>
+      <p>
+        iTradeLite publishes daily ASX trading setups using transparent,
+        repeatable rules. Every setup shows entry, stop and modelled risk.
+        No hype. No discretionary guessing.
+      </p>
+      <a class="cta" href="/today/">View Today’s Trading List</a>
+    </div>
+
+    <div class="grid">
+      <div class="card">
+        <h2>Transparent Logic</h2>
+        <p>
+          Every setup is generated from fixed rules using end-of-day data.
+          The same rules produce the same list for everyone.
+        </p>
+      </div>
+
+      <div class="card">
+        <h2>Defined Risk</h2>
+        <p>
+          Each trade includes a clear stop and modelled position sizing
+          based on 1% portfolio risk (A$100,000 model account).
+        </p>
+      </div>
+
+      <div class="card">
+        <h2>Three Setup Types</h2>
+        <p>
+          Trend Pullback, Momentum Breakout and Mean Reversion —
+          each with defined conditions and scoring.
+        </p>
+      </div>
+
+      <div class="card">
+        <h2>Market Regime Filter</h2>
+        <p>
+          Risk-on / risk-off gating prevents aggressive setups during
+          weak market environments.
+        </p>
+      </div>
+    </div>
+
+    <div class="footer">
+      Educational content only. Not financial advice.
+      Markets involve risk. You are responsible for your decisions.
+    </div>
+
+  </div>
+</body>
 </html>
