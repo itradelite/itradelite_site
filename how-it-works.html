@@ -1,0 +1,273 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>How iTradeLite Works | Rule-Based Trading Setups (Education Only)</title>
+  <meta name="description" content="How iTradeLite generates daily rule-based trading setups from end-of-day data: market regime, setup types, entries, stops and risk sizing. Educational use only — not financial advice." />
+  <meta name="robots" content="index,follow" />
+  <link rel="canonical" href="https://itradelite.com/how-it-works.html" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="How iTradeLite Works" />
+  <meta property="og:description" content="Daily rule-based trading setups using end-of-day data. Market regime, entries, stops, and risk sizing explained." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://itradelite.com/how-it-works.html" />
+
+  <style>
+    :root {
+      --bg: #0b1220;
+      --card: rgba(255,255,255,0.06);
+      --card2: rgba(255,255,255,0.04);
+      --text: rgba(255,255,255,0.92);
+      --muted: rgba(255,255,255,0.70);
+      --border: rgba(255,255,255,0.12);
+      --accent: #77d4ff;
+      --ok: rgba(120, 255, 170, 0.14);
+      --warn: rgba(255, 220, 120, 0.14);
+      --shadow: 0 12px 40px rgba(0,0,0,0.35);
+      --radius: 14px;
+      --max: 980px;
+      --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      --sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: var(--sans);
+      background: radial-gradient(1200px 800px at 20% -10%, rgba(119, 212, 255, 0.25), transparent 60%),
+                  radial-gradient(1200px 800px at 90% 10%, rgba(131, 255, 210, 0.18), transparent 55%),
+                  var(--bg);
+      color: var(--text);
+      line-height: 1.55;
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    .wrap { max-width: var(--max); margin: 0 auto; padding: 28px 18px 48px; }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 22px;
+    }
+    .brand { display: flex; align-items: baseline; gap: 10px; }
+    .brand b { letter-spacing: 0.2px; }
+    .pill {
+      display: inline-flex;
+      gap: 8px;
+      align-items: center;
+      padding: 6px 10px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      background: rgba(255,255,255,0.04);
+      color: var(--muted);
+      font-size: 12px;
+      white-space: nowrap;
+    }
+    .links { display: flex; gap: 14px; flex-wrap: wrap; justify-content: flex-end; }
+
+    .hero {
+      border: 1px solid var(--border);
+      background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.03));
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 18px 18px;
+      margin-bottom: 18px;
+    }
+    h1 { margin: 0 0 6px; font-size: 26px; }
+    .sub { margin: 0; color: var(--muted); }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 14px;
+      margin-top: 14px;
+    }
+    @media (min-width: 860px) {
+      .grid { grid-template-columns: 1fr 1fr; }
+    }
+
+    .card {
+      border: 1px solid var(--border);
+      background: var(--card);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 16px;
+    }
+    h2 { margin: 0 0 10px; font-size: 18px; }
+    h3 { margin: 14px 0 8px; font-size: 15px; color: rgba(255,255,255,0.88); }
+    p { margin: 0 0 10px; color: rgba(255,255,255,0.86); }
+    ul { margin: 0; padding-left: 18px; color: rgba(255,255,255,0.86); }
+    li { margin: 6px 0; }
+    .muted { color: var(--muted); }
+    .mono { font-family: var(--mono); }
+
+    .callout {
+      border: 1px solid var(--border);
+      background: var(--card2);
+      border-radius: 12px;
+      padding: 12px;
+      margin-top: 10px;
+      color: rgba(255,255,255,0.86);
+    }
+    .tag {
+      display: inline-block;
+      padding: 3px 10px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      font-size: 12px;
+      color: var(--muted);
+      background: rgba(255,255,255,0.03);
+      margin-right: 8px;
+    }
+
+    .footer {
+      margin-top: 18px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+    .legal {
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.03);
+      border-radius: 12px;
+      padding: 12px;
+      margin-top: 14px;
+    }
+    .btnrow { margin-top: 10px; display: flex; gap: 10px; flex-wrap: wrap; }
+    .btn {
+      display: inline-block;
+      padding: 10px 12px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.05);
+      color: var(--text);
+      font-weight: 600;
+    }
+    .btn:hover { text-decoration: none; background: rgba(255,255,255,0.08); }
+  </style>
+
+  <!-- JSON-LD (basic structured data) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "How iTradeLite Works",
+    "url": "https://itradelite.com/how-it-works.html",
+    "description": "Explanation of how iTradeLite generates daily rule-based trading setups from end-of-day data.",
+    "inLanguage": "en-AU"
+  }
+  </script>
+</head>
+<body>
+  <div class="wrap">
+    <div class="nav">
+      <div class="brand">
+        <b>iTradeLite</b>
+        <span class="pill">Rule-based • End-of-day • Education only</span>
+      </div>
+      <div class="links">
+        <a href="/today/">Today</a>
+        <a href="/how-it-works.html">How it works</a>
+        <a href="/about.html">About</a>
+      </div>
+    </div>
+
+    <div class="hero">
+      <h1>How iTradeLite Works</h1>
+      <p class="sub">A transparent, rule-based daily list of setups. Built to be useful first, marketable later.</p>
+      <div class="btnrow">
+        <a class="btn" href="/today/">View Today’s List</a>
+      </div>
+    </div>
+
+    <div class="grid">
+      <div class="card">
+        <h2>What you’re looking at on the “Today” page</h2>
+        <p>
+          Each row is a <b>setup candidate</b> produced by fixed rules using <b>end-of-day (daily)</b> market data.
+          The list is the same for everyone.
+        </p>
+        <div class="callout">
+          <span class="tag">Entry</span>
+          <span class="tag">Stop</span>
+          <span class="tag">Risk (A$)</span>
+          <p class="muted" style="margin-top:8px;">
+            <b>Risk (A$)</b> is modelled using a A$100,000 portfolio and 1% risk per trade (position size derived from entry–stop distance).
+          </p>
+        </div>
+
+        <h3>“Valid” vs “Watch”</h3>
+        <ul>
+          <li><b>Valid</b>: the setup passes all required gates.</li>
+          <li><b>Watch</b>: interesting but missing one or more gates (e.g. not close enough to trigger, not enough volume confirmation, etc.).</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h2>Data model & constraints (important)</h2>
+        <ul>
+          <li><b>Daily bars</b> (OHLCV) with typical Yahoo Finance limitations.</li>
+          <li><b>No intraday confirmation</b> inside this page (unless you build it later).</li>
+          <li><b>Signals are educational</b> — execution, liquidity, spreads, and slippage are real.</li>
+        </ul>
+        <div class="legal">
+          <b>Practical note:</b> if Yahoo’s daily data is late (common), the site can show “stale” conditions and should not be treated as a same-day instruction set.
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>Setup types (current)</h2>
+
+        <h3>1) Trend Pullback</h3>
+        <p>
+          Looks for an uptrend plus a pullback toward a moving average area, aiming to enter with better
+          risk/reward than chasing highs.
+        </p>
+
+        <h3>2) Momentum Breakout</h3>
+        <p>
+          Looks for a breakout above prior highs with confirming strength conditions (e.g. RSI zone, volume).
+          Entry is typically via <span class="mono">STOP-LIMIT</span>.
+        </p>
+
+        <h3>3) Mean Reversion</h3>
+        <p>
+          Looks for oversold conditions inside a long-term uptrend (avoid “falling knives”) and targets a bounce
+          back toward the mean.
+        </p>
+      </div>
+
+      <div class="card">
+        <h2>Risk sizing (why positions differ)</h2>
+        <p>
+          Position size is calculated from:
+        </p>
+        <ul>
+          <li><b>Account equity</b> (modelled)</li>
+          <li><b>Risk per trade</b> (e.g. 1%)</li>
+          <li><b>Entry → stop distance</b></li>
+        </ul>
+        <div class="callout">
+          <p class="muted" style="margin:0;">
+            Smaller entry–stop distance ⇒ larger size. Larger distance ⇒ smaller size.
+          </p>
+        </div>
+
+        <h3>Market regime (Risk-On / Risk-Off)</h3>
+        <p>
+          Some setups can be gated by the market regime. If the regime is “risk-off”, the system can choose to avoid
+          trend/momentum style entries.
+        </p>
+      </div>
+    </div>
+
+    <p class="footer">
+      Educational, rule-based output. Not financial advice. No warranty. Use at your own risk.
+    </p>
+  </div>
+</body>
+</html>

@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>About iTradeLite | Transparent Rule-Based Trading Lists</title>
+  <meta name="description" content="About iTradeLite: a transparent rule-based daily trading list generated from end-of-day data. Built for clarity and repeatability — educational use only, not financial advice." />
+  <meta name="robots" content="index,follow" />
+  <link rel="canonical" href="https://itradelite.com/about.html" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="About iTradeLite" />
+  <meta property="og:description" content="Transparent rule-based daily trading lists generated from end-of-day data. Education only." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://itradelite.com/about.html" />
+
+  <style>
+    :root {
+      --bg: #0b1220;
+      --card: rgba(255,255,255,0.06);
+      --card2: rgba(255,255,255,0.04);
+      --text: rgba(255,255,255,0.92);
+      --muted: rgba(255,255,255,0.70);
+      --border: rgba(255,255,255,0.12);
+      --accent: #77d4ff;
+      --shadow: 0 12px 40px rgba(0,0,0,0.35);
+      --radius: 14px;
+      --max: 980px;
+      --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      --sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: var(--sans);
+      background: radial-gradient(1200px 800px at 20% -10%, rgba(119, 212, 255, 0.25), transparent 60%),
+                  radial-gradient(1200px 800px at 90% 10%, rgba(131, 255, 210, 0.18), transparent 55%),
+                  var(--bg);
+      color: var(--text);
+      line-height: 1.55;
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    .wrap { max-width: var(--max); margin: 0 auto; padding: 28px 18px 48px; }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 22px;
+    }
+    .brand { display: flex; align-items: baseline; gap: 10px; }
+    .brand b { letter-spacing: 0.2px; }
+    .pill {
+      display: inline-flex;
+      gap: 8px;
+      align-items: center;
+      padding: 6px 10px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      background: rgba(255,255,255,0.04);
+      color: var(--muted);
+      font-size: 12px;
+      white-space: nowrap;
+    }
+    .links { display: flex; gap: 14px; flex-wrap: wrap; justify-content: flex-end; }
+
+    .hero {
+      border: 1px solid var(--border);
+      background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.03));
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 18px 18px;
+      margin-bottom: 18px;
+    }
+    h1 { margin: 0 0 6px; font-size: 26px; }
+    .sub { margin: 0; color: var(--muted); }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 14px;
+      margin-top: 14px;
+    }
+    @media (min-width: 860px) {
+      .grid { grid-template-columns: 1fr 1fr; }
+    }
+
+    .card {
+      border: 1px solid var(--border);
+      background: var(--card);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 16px;
+    }
+    h2 { margin: 0 0 10px; font-size: 18px; }
+    p { margin: 0 0 10px; color: rgba(255,255,255,0.86); }
+    ul { margin: 0; padding-left: 18px; color: rgba(255,255,255,0.86); }
+    li { margin: 6px 0; }
+
+    .legal {
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.03);
+      border-radius: 12px;
+      padding: 12px;
+      margin-top: 12px;
+      color: rgba(255,255,255,0.86);
+    }
+
+    .btnrow { margin-top: 10px; display: flex; gap: 10px; flex-wrap: wrap; }
+    .btn {
+      display: inline-block;
+      padding: 10px 12px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.05);
+      color: var(--text);
+      font-weight: 600;
+    }
+    .btn:hover { text-decoration: none; background: rgba(255,255,255,0.08); }
+
+    .footer {
+      margin-top: 18px;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.4;
+    }
+  </style>
+
+  <!-- JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"AboutPage",
+    "name":"About iTradeLite",
+    "url":"https://itradelite.com/about.html",
+    "description":"About iTradeLite: a transparent rule-based daily trading list generated from end-of-day data.",
+    "inLanguage":"en-AU"
+  }
+  </script>
+</head>
+<body>
+  <div class="wrap">
+    <div class="nav">
+      <div class="brand">
+        <b>iTradeLite</b>
+        <span class="pill">Transparent rules • Repeatable process</span>
+      </div>
+      <div class="links">
+        <a href="/today/">Today</a>
+        <a href="/how-it-works.html">How it works</a>
+        <a href="/about.html">About</a>
+      </div>
+    </div>
+
+    <div class="hero">
+      <h1>About iTradeLite</h1>
+      <p class="sub">A small site that does one job: publish a daily rule-based list with clear entries, stops and modelled risk.</p>
+      <div class="btnrow">
+        <a class="btn" href="/today/">View Today’s List</a>
+      </div>
+    </div>
+
+    <div class="grid">
+      <div class="card">
+        <h2>What iTradeLite is</h2>
+        <p>
+          iTradeLite is a <b>rule-based scanner</b> that produces a daily list of setups from
+          <b>end-of-day market data</b>. The goal is clarity and repeatability:
+          the same rules produce the same outputs.
+        </p>
+        <ul>
+          <li>Simple daily workflow</li>
+          <li>Explicit entry + stop</li>
+          <li>Modelled position sizing (A$ risk)</li>
+          <li>Market regime gating (risk-on / risk-off)</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h2>What iTradeLite is not</h2>
+        <ul>
+          <li>Not financial advice</li>
+          <li>Not personalised to your portfolio, taxes, or risk profile</li>
+          <li>Not a promise of profitability</li>
+          <li>Not a high-frequency/intraday execution system</li>
+        </ul>
+        <div class="legal">
+          <b>Education only:</b> This site is for informational and educational purposes. Markets involve risk. You are responsible for your own decisions.
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>Why it exists</h2>
+        <p>
+          Most “signals” online are vague. iTradeLite is intentionally explicit:
+          show the setup, show the level, show the stop, show the modelled risk.
+        </p>
+        <p class="muted">
+          If it can’t be explained and repeated, it’s not a system — it’s vibes.
+        </p>
+      </div>
+
+      <div class="card">
+        <h2>Future direction (optional)</h2>
+        <p>
+          If real demand appears, the site can evolve into:
+        </p>
+        <ul>
+          <li>member accounts</li>
+          <li>alerts / notifications</li>
+          <li>saved watchlists</li>
+          <li>premium features (e.g., deeper analytics)</li>
+        </ul>
+        <p class="muted">
+          For now it’s deliberately lean: build usefulness first.
+        </p>
+      </div>
+    </div>
+
+    <p class="footer">
+      © iTradeLite. Educational output only — not financial advice.
+    </p>
+  </div>
+</body>
+</html>
