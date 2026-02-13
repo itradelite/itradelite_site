@@ -52,6 +52,12 @@ a:hover{ text-decoration:underline; }
   border:1px solid var(--line);
   font-weight:800;
 }
+.brand__mark img{
+  display:block;
+  width:20px;
+  height:20px;
+}
+
 .brand__name{ font-weight:800; letter-spacing:.2px; }
 
 .nav{ display:flex; gap:14px; margin-left:8px; }
@@ -337,3 +343,4 @@ tbody tr:hover{ background: rgba(255,255,255,.03); }
   .grid2{ grid-template-columns: 1fr; }
   .nav{ display:none; } /* keep it simple for now */
 }
+
