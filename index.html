@@ -4,194 +4,163 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <title>iTradeLite | Daily ASX Trading Setups (Rule-Based, Transparent)</title>
-  <meta name="description" content="iTradeLite publishes daily rule-based ASX trading setups with clear entries, stops and modelled risk. Educational use only. No hype. Transparent logic." />
+  <title>iTradeLite — Daily ASX watchlist & rule-based trade plans</title>
+  <meta name="description" content="iTradeLite publishes a daily rule-based ASX watchlist with entry, stop and risk sizing (model portfolio). Built for clarity, repeatability, and disciplined execution." />
   <meta name="robots" content="index,follow" />
-  <link rel="canonical" href="https://itradelite.com/" />
+
+  <link rel="canonical" href="https://www.itradelite.com/" />
+  <link rel="stylesheet" href="/assets/site.css?v=1" />
 
   <!-- Open Graph -->
-  <meta property="og:title" content="iTradeLite — Daily Rule-Based Trading Setups" />
-  <meta property="og:description" content="Daily ASX trading setups using transparent rules. Entry, stop and risk sizing shown clearly." />
+  <meta property="og:title" content="iTradeLite — Daily ASX watchlist & rule-based trade plans" />
+  <meta property="og:description" content="Daily rule-based watchlist with entries, stops, and model risk sizing. No hype. Just process." />
+  <meta property="og:url" content="https://www.itradelite.com/" />
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://itradelite.com/" />
 
-  <style>
-    :root {
-      --bg: #0b1220;
-      --card: rgba(255,255,255,0.06);
-      --card2: rgba(255,255,255,0.04);
-      --text: rgba(255,255,255,0.92);
-      --muted: rgba(255,255,255,0.70);
-      --border: rgba(255,255,255,0.12);
-      --accent: #77d4ff;
-      --shadow: 0 12px 40px rgba(0,0,0,0.35);
-      --radius: 14px;
-      --max: 1100px;
-      --sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
-    }
+  <!-- Optional: if you add /assets/og.png later -->
+  <!-- <meta property="og:image" content="https://www.itradelite.com/assets/og.png" /> -->
 
-    * { box-sizing: border-box; }
-
-    body {
-      margin: 0;
-      font-family: var(--sans);
-      background: radial-gradient(1000px 600px at 20% -10%, rgba(119,212,255,0.25), transparent 60%),
-                  radial-gradient(1000px 600px at 90% 10%, rgba(131,255,210,0.18), transparent 55%),
-                  var(--bg);
-      color: var(--text);
-      line-height: 1.6;
-    }
-
-    a { color: var(--accent); text-decoration: none; }
-    a:hover { text-decoration: underline; }
-
-    .wrap {
-      max-width: var(--max);
-      margin: 0 auto;
-      padding: 40px 20px 60px;
-    }
-
-    .nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 40px;
-    }
-
-    .nav a {
-      margin-left: 18px;
-      color: var(--muted);
-      font-size: 14px;
-    }
-
-    .hero {
-      text-align: center;
-      margin-bottom: 50px;
-    }
-
-    .hero h1 {
-      font-size: 34px;
-      margin-bottom: 12px;
-    }
-
-    .hero p {
-      color: var(--muted);
-      max-width: 650px;
-      margin: 0 auto 20px;
-    }
-
-    .cta {
-      display: inline-block;
-      padding: 14px 22px;
-      border-radius: 12px;
-      background: rgba(255,255,255,0.08);
-      border: 1px solid var(--border);
-      font-weight: 600;
-    }
-
-    .grid {
-      display: grid;
-      gap: 20px;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      margin-top: 40px;
-    }
-
-    .card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 20px;
-      box-shadow: var(--shadow);
-    }
-
-    .card h2 {
-      font-size: 18px;
-      margin-bottom: 10px;
-    }
-
-    .footer {
-      margin-top: 60px;
-      font-size: 12px;
-      color: var(--muted);
-      text-align: center;
-    }
-
-  </style>
-
-  <!-- Structured Data -->
+  <!-- JSON-LD (helps Google understand the site) -->
   <script type="application/ld+json">
   {
     "@context":"https://schema.org",
     "@type":"WebSite",
     "name":"iTradeLite",
-    "url":"https://itradelite.com/",
-    "description":"Daily rule-based ASX trading setups with transparent entries, stops and modelled risk.",
-    "inLanguage":"en-AU"
+    "url":"https://www.itradelite.com/",
+    "description":"Daily rule-based ASX watchlist with entry/stop plans and model risk sizing."
   }
   </script>
 </head>
 
 <body>
-  <div class="wrap">
+  <header class="topbar">
+    <div class="container topbar__inner">
+      <a class="brand" href="/">
+        <span class="brand__mark">iTL</span>
+        <span class="brand__name">iTradeLite</span>
+      </a>
 
-    <div class="nav">
-      <div><strong>iTradeLite</strong></div>
-      <div>
+      <nav class="nav">
         <a href="/today/">Today</a>
         <a href="/how-it-works.html">How it works</a>
         <a href="/about.html">About</a>
+      </nav>
+
+      <div class="topbar__cta">
+        <a class="btn btn--ghost" href="/today/">Open Today</a>
       </div>
     </div>
+  </header>
 
-    <div class="hero">
-      <h1>Daily Rule-Based Trading Setups</h1>
-      <p>
-        iTradeLite publishes daily ASX trading setups using transparent,
-        repeatable rules. Every setup shows entry, stop and modelled risk.
-        No hype. No discretionary guessing.
-      </p>
-      <a class="cta" href="/today/">View Today’s Trading List</a>
+  <main>
+    <section class="hero">
+      <div class="container hero__grid">
+        <div>
+          <h1>Daily ASX watchlist. Rule-based trade plans.</h1>
+          <p class="lead">
+            iTradeLite publishes a daily scan of liquid ASX symbols using transparent, rule-based logic.
+            Each setup includes an entry concept, a stop concept, and model position sizing (risk-based).
+          </p>
+
+          <div class="hero__buttons">
+            <a class="btn" href="/today/">View Today’s List</a>
+            <a class="btn btn--ghost" href="/how-it-works.html">See the Method</a>
+          </div>
+
+          <p class="note">
+            Educational tool. Not financial advice. Same list for everyone.
+          </p>
+        </div>
+
+        <div class="card hero__card">
+          <h2 class="card__title">What you get each day</h2>
+          <ul class="checklist">
+            <li><b>Valid setups</b> (trade candidates) + <b>Watch</b> list</li>
+            <li><b>Entry</b> and <b>Stop</b> concepts (per strategy)</li>
+            <li><b>Risk (A$)</b> using a model portfolio & risk-per-trade</li>
+            <li><b>Market regime gate</b> (risk-on / risk-off)</li>
+          </ul>
+
+          <div class="card__actions">
+            <a class="btn btn--small" href="/today/">Open Today</a>
+            <a class="btn btn--small btn--ghost" href="/sitemap.xml">Sitemap</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container grid3">
+        <div class="card">
+          <h3>Process over prediction</h3>
+          <p>
+            You’re not paying for “insider picks”. You’re using a repeatable pipeline that outputs
+            structured candidates, consistently.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Designed for execution</h3>
+          <p>
+            Entries and stops are framed as orders (limit / stop-limit) so you can place them cleanly
+            without staring at charts all day.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Built to scale later</h3>
+          <p>
+            The site can stay public and free, while future “Pro” features can live behind Stripe
+            without changing your core architecture.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--alt">
+      <div class="container">
+        <h2>Start here</h2>
+        <div class="grid2">
+          <a class="card linkcard" href="/today/">
+            <h3>Today</h3>
+            <p>See the latest generated list from <code>/public/today.json</code>.</p>
+          </a>
+
+          <a class="card linkcard" href="/how-it-works.html">
+            <h3>How it works</h3>
+            <p>Understand the strategies, scoring, and risk model in plain English.</p>
+          </a>
+
+          <a class="card linkcard" href="/about.html">
+            <h3>About</h3>
+            <p>Why this exists, what it is (and isn’t), and the roadmap.</p>
+          </a>
+
+          <a class="card linkcard" href="/today/">
+            <h3>Bookmark it</h3>
+            <p>Use it daily for your own discipline. Public traction can come later.</p>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div>
+        <div class="footer__brand">iTradeLite</div>
+        <div class="footer__small">
+          Educational, rule-based outputs only. Not financial advice.
+        </div>
+      </div>
+      <div class="footer__links">
+        <a href="/today/">Today</a>
+        <a href="/how-it-works.html">How it works</a>
+        <a href="/about.html">About</a>
+        <a href="/robots.txt">robots.txt</a>
+        <a href="/sitemap.xml">sitemap.xml</a>
+      </div>
     </div>
-
-    <div class="grid">
-      <div class="card">
-        <h2>Transparent Logic</h2>
-        <p>
-          Every setup is generated from fixed rules using end-of-day data.
-          The same rules produce the same list for everyone.
-        </p>
-      </div>
-
-      <div class="card">
-        <h2>Defined Risk</h2>
-        <p>
-          Each trade includes a clear stop and modelled position sizing
-          based on 1% portfolio risk (A$100,000 model account).
-        </p>
-      </div>
-
-      <div class="card">
-        <h2>Three Setup Types</h2>
-        <p>
-          Trend Pullback, Momentum Breakout and Mean Reversion —
-          each with defined conditions and scoring.
-        </p>
-      </div>
-
-      <div class="card">
-        <h2>Market Regime Filter</h2>
-        <p>
-          Risk-on / risk-off gating prevents aggressive setups during
-          weak market environments.
-        </p>
-      </div>
-    </div>
-
-    <div class="footer">
-      Educational content only. Not financial advice.
-      Markets involve risk. You are responsible for your decisions.
-    </div>
-
-  </div>
+  </footer>
 </body>
 </html>
