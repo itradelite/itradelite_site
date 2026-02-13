@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://itradelite.com/sitemap.xml
+Sitemap: https://www.itradelite.com/sitemap.xml
