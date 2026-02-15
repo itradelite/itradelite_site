@@ -3,7 +3,7 @@
   "generated": "2026-02-15",
   "valid_for": "2026-02-16",
   "risk_mode": "risk_on",
-  "generated_at_utc": "2026-02-15T10:31:17Z",
+  "generated_at_utc": "2026-02-15T11:21:29Z",
   "published": true,
   "reason": null,
   "source_watchlist": "reports/watchlist_latest.csv",
@@ -11,7 +11,30 @@
   "data_fresh": true,
   "axjo_last_bar": null,
   "universe_size": null,
-  "recommended_orders": [],
+  "recommended_orders": [
+    {
+      "symbol": "AIA.AX",
+      "strategy": "Trend Pullback",
+      "entry": 7.1585,
+      "entry_text": "7.1585",
+      "stop": 7.0163,
+      "risk": 999.96,
+      "score": 100.0,
+      "status": "Valid",
+      "plain_english": "Uptrend pullback (value entry): place a LIMIT buy at 7.16 (below/near last close 7.18) to catch a dip toward EMA20. Stop at 7.02. Score 100. Only trade when market is RISK-ON."
+    },
+    {
+      "symbol": "CGF.AX",
+      "strategy": "Mean Reversion",
+      "entry": 8.49,
+      "entry_text": "8.49",
+      "stop": 8.0443,
+      "risk": 999.74,
+      "score": 100.0,
+      "status": "Valid",
+      "plain_english": "Mean reversion bounce candidate. Place a LIMIT buy near 8.49. Stop at 8.0443 (~1.5 ATR). Score 100."
+    }
+  ],
   "setups": [
     {
       "symbol": "AIA.AX",
