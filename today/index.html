@@ -374,6 +374,12 @@
       if (r.entry !== null && r.entry !== undefined && r.entry !== "") return fmt(r.entry, 4);
       return "—";
     }
+    function parseLastClose(r){
+      if (r.last_close === null || r.last_close === undefined || r.last_close === "") return "—";
+      const x = Number(r.last_close);
+      if (!Number.isFinite(x)) return "—";
+      return fmt(x, 4);
+    }
 
     function parseRisk(r){
       if (r.risk === null || r.risk === undefined || r.risk === "") return "—";
@@ -417,6 +423,7 @@
                   <th style="width:120px;">Symbol</th>
                   <th style="width:160px;">Strategy</th>
                   <th>Entry</th>
+                  <th style="width:110px;">Last close</th>
                   <th style="width:110px;">Stop</th>
                   <th style="width:110px;">Risk (A$)</th>
                   <th style="width:90px;">Status</th>
@@ -429,6 +436,7 @@
         const sym = escapeHtml(safeText(r.symbol));
         const strat = escapeHtml(normalizeStrategyName(r.strategy));
         const entry = escapeHtml(parseEntry(r));
+        const lastClose = escapeHtml(parseLastClose(r));
         const stop = escapeHtml(fmt(r.stop, 2));
         const risk = escapeHtml(parseRisk(r));
         const pill = statusPill(r.status);
@@ -442,6 +450,7 @@
             <td class="mono"><b>${sym}</b>${noteHtml}</td>
             <td>${strat}</td>
             <td class="mono">${entry}</td>
+            <td class="mono">${lastClose}</td>
             <td class="mono">${stop}</td>
             <td class="mono">${risk}</td>
             <td>${pill}</td>
@@ -701,5 +710,6 @@
   </script>
 </body>
 </html>
+
 
 
