@@ -3,7 +3,7 @@
   "generated": "2026-02-15",
   "valid_for": "2026-02-16",
   "risk_mode": "risk_on",
-  "generated_at_utc": "2026-02-15T11:43:55Z",
+  "generated_at_utc": "2026-02-15T12:23:48Z",
   "published": true,
   "reason": null,
   "source_watchlist": "reports/watchlist_full_latest.csv",
@@ -21,7 +21,7 @@
       "risk": 999.96,
       "score": 100.0,
       "status": "Valid",
-      "plain_english": "Uptrend pullback (value entry): place a LIMIT buy at 7.16 (below/near last close 7.18) to catch a dip toward EMA20. Stop at 7.02. Score 100. Only trade when market is RISK-ON."
+      "plain_english": "Trend Pullback (buy the dip): LIMIT buy at 7.16 (~0.30% below last close 7.18) to catch a pullback toward EMA20. Stop 7.02. If price does not dip to your limit, do not chase. Score 100. Only trade when market is RISK-ON."
     },
     {
       "symbol": "CGF.AX",
@@ -32,7 +32,7 @@
       "risk": 999.74,
       "score": 100.0,
       "status": "Valid",
-      "plain_english": "Mean reversion bounce candidate. Place a LIMIT buy near 8.49. Stop at 8.0443 (~1.5 ATR). Score 100."
+      "plain_english": "Mean Reversion (bounce): LIMIT buy near 8.49. Stop 8.0443 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 100."
     }
   ],
   "setups": [
@@ -45,7 +45,7 @@
       "risk": 999.96,
       "score": 100.0,
       "status": "Valid",
-      "plain_english": "Uptrend pullback (value entry): place a LIMIT buy at 7.16 (below/near last close 7.18) to catch a dip toward EMA20. Stop at 7.02. Score 100. Only trade when market is RISK-ON."
+      "plain_english": "Trend Pullback (buy the dip): LIMIT buy at 7.16 (~0.30% below last close 7.18) to catch a pullback toward EMA20. Stop 7.02. If price does not dip to your limit, do not chase. Score 100. Only trade when market is RISK-ON."
     },
     {
       "symbol": "CGF.AX",
@@ -56,7 +56,7 @@
       "risk": 999.74,
       "score": 100.0,
       "status": "Valid",
-      "plain_english": "Mean reversion bounce candidate. Place a LIMIT buy near 8.49. Stop at 8.0443 (~1.5 ATR). Score 100."
+      "plain_english": "Mean Reversion (bounce): LIMIT buy near 8.49. Stop 8.0443 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 100."
     },
     {
       "symbol": "S32.AX",
@@ -67,7 +67,7 @@
       "risk": 999.8,
       "score": 99.0,
       "status": "Valid",
-      "plain_english": "Uptrend pullback (value entry): place a LIMIT buy at 4.42 (below/near last close 4.42) to catch a dip toward EMA20. Stop at 4.20. Score 99. Only trade when market is RISK-ON."
+      "plain_english": "Trend Pullback (buy the dip): LIMIT buy at 4.42 (~0.08% below last close 4.42) to catch a pullback toward EMA20. Stop 4.20. If price does not dip to your limit, do not chase. Score 99. Only trade when market is RISK-ON."
     },
     {
       "symbol": "VGE.AX",
@@ -78,7 +78,7 @@
       "risk": 998.83,
       "score": 99.0,
       "status": "Valid",
-      "plain_english": "Uptrend pullback (value entry): place a LIMIT buy at 89.70 (below/near last close 89.97) to catch a dip toward EMA20. Stop at 88.12. Score 99. Only trade when market is RISK-ON."
+      "plain_english": "Trend Pullback (buy the dip): LIMIT buy at 89.70 (~0.30% below last close 89.97) to catch a pullback toward EMA20. Stop 88.12. If price does not dip to your limit, do not chase. Score 99. Only trade when market is RISK-ON."
     },
     {
       "symbol": "VAS.AX",
@@ -89,7 +89,7 @@
       "risk": 997.16,
       "score": 98.0,
       "status": "Valid",
-      "plain_english": "Uptrend pullback (value entry): place a LIMIT buy at 110.14 (below/near last close 110.28) to catch a dip toward EMA20. Stop at 107.07. Score 98. Only trade when market is RISK-ON."
+      "plain_english": "Trend Pullback (buy the dip): LIMIT buy at 110.14 (~0.13% below last close 110.28) to catch a pullback toward EMA20. Stop 107.07. If price does not dip to your limit, do not chase. Score 98. Only trade when market is RISK-ON."
     },
     {
       "symbol": "ALQ.AX",
@@ -100,7 +100,7 @@
       "risk": 999.46,
       "score": 96.0,
       "status": "Valid",
-      "plain_english": "Uptrend pullback (value entry): place a LIMIT buy at 23.95 (below/near last close 24.02) to catch a dip toward EMA20. Stop at 22.68. Score 96. Only trade when market is RISK-ON."
+      "plain_english": "Trend Pullback (buy the dip): LIMIT buy at 23.95 (~0.29% below last close 24.02) to catch a pullback toward EMA20. Stop 22.68. If price does not dip to your limit, do not chase. Score 96. Only trade when market is RISK-ON."
     },
     {
       "symbol": "AZJ.AX",
@@ -111,7 +111,7 @@
       "risk": 999.98,
       "score": 96.0,
       "status": "Valid",
-      "plain_english": "Uptrend pullback (value entry): place a LIMIT buy at 3.58 (below/near last close 3.59) to catch a dip toward EMA20. Stop at 3.49. Score 96. Only trade when market is RISK-ON."
+      "plain_english": "Trend Pullback (buy the dip): LIMIT buy at 3.58 (~0.30% below last close 3.59) to catch a pullback toward EMA20. Stop 3.49. If price does not dip to your limit, do not chase. Score 96. Only trade when market is RISK-ON."
     },
     {
       "symbol": "AAI.AX",
@@ -122,7 +122,7 @@
       "risk": 995.23,
       "score": 95.0,
       "status": "Valid",
-      "plain_english": "Uptrend pullback (value entry): place a LIMIT buy at 86.29 (below/near last close 86.58) to catch a dip toward EMA20. Stop at 78.63. Score 95. Only trade when market is RISK-ON."
+      "plain_english": "Trend Pullback (buy the dip): LIMIT buy at 86.29 (~0.34% below last close 86.58) to catch a pullback toward EMA20. Stop 78.63. If price does not dip to your limit, do not chase. Score 95. Only trade when market is RISK-ON."
     },
     {
       "symbol": "ORI.AX",
@@ -133,7 +133,7 @@
       "risk": 999.42,
       "score": 95.0,
       "status": "Valid",
-      "plain_english": "Uptrend pullback (value entry): place a LIMIT buy at 25.72 (below/near last close 25.80) to catch a dip toward EMA20. Stop at 24.79. Score 95. Only trade when market is RISK-ON."
+      "plain_english": "Trend Pullback (buy the dip): LIMIT buy at 25.72 (~0.31% below last close 25.80) to catch a pullback toward EMA20. Stop 24.79. If price does not dip to your limit, do not chase. Score 95. Only trade when market is RISK-ON."
     },
     {
       "symbol": "CHC.AX",
@@ -144,7 +144,7 @@
       "risk": 999.83,
       "score": 93.0,
       "status": "Valid",
-      "plain_english": "Mean reversion bounce candidate. Place a LIMIT buy near 22.28. Stop at 21.432 (~1.5 ATR). Score 93."
+      "plain_english": "Mean Reversion (bounce): LIMIT buy near 22.28. Stop 21.432 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 93."
     },
     {
       "symbol": "NXT.AX",
@@ -155,7 +155,7 @@
       "risk": 998.46,
       "score": 93.0,
       "status": "Valid",
-      "plain_english": "Momentum breakout setup. Use STOP-LIMIT as shown (trigger=14.0219 limit=14.0500). Stop at 12.1966. Score 93. Only trade when market is RISK-ON."
+      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 14.02 (activates only if price breaks up). Limit 14.05 (max pay). Stop 12.1966. If trigger is not hit, no trade. Score 93. Only trade when market is RISK-ON."
     },
     {
       "symbol": "CDA.AX",
@@ -166,7 +166,7 @@
       "risk": 999.62,
       "score": 89.0,
       "status": "Valid",
-      "plain_english": "Mean reversion bounce candidate. Place a LIMIT buy near 34.22. Stop at 32.2046 (~1.5 ATR). Score 89."
+      "plain_english": "Mean Reversion (bounce): LIMIT buy near 34.22. Stop 32.2046 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 89."
     },
     {
       "symbol": "CSC.AX",
@@ -177,7 +177,7 @@
       "risk": 999.97,
       "score": 95.0,
       "status": "Watch",
-      "plain_english": "Uptrend pullback (value entry): place a LIMIT buy at 15.93 (below/near last close 15.98) to catch a dip toward EMA20. Stop at 14.95. Score 95. Only trade when market is RISK-ON."
+      "plain_english": "Trend Pullback (buy the dip): LIMIT buy at 15.93 (~0.30% below last close 15.98) to catch a pullback toward EMA20. Stop 14.95. If price does not dip to your limit, do not chase. Score 95. Only trade when market is RISK-ON."
     },
     {
       "symbol": "ANZ.AX",
@@ -188,7 +188,7 @@
       "risk": 999.86,
       "score": 92.0,
       "status": "Watch",
-      "plain_english": "Momentum breakout setup. Use STOP-LIMIT as shown (trigger=40.6917 limit=40.7731). Stop at 36.3633. Score 92. Only trade when market is RISK-ON."
+      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 40.69 (activates only if price breaks up). Limit 40.77 (max pay). Stop 36.3633. If trigger is not hit, no trade. Score 92. Only trade when market is RISK-ON."
     },
     {
       "symbol": "NEM.AX",
@@ -199,7 +199,7 @@
       "risk": 996.73,
       "score": 92.0,
       "status": "Watch",
-      "plain_english": "Uptrend pullback (value entry): place a LIMIT buy at 168.23 (below/near last close 169.12) to catch a dip toward EMA20. Stop at 149.07. Score 92. Only trade when market is RISK-ON."
+      "plain_english": "Trend Pullback (buy the dip): LIMIT buy at 168.23 (~0.52% below last close 169.12) to catch a pullback toward EMA20. Stop 149.07. If price does not dip to your limit, do not chase. Score 92. Only trade when market is RISK-ON."
     },
     {
       "symbol": "ORG.AX",
@@ -210,7 +210,7 @@
       "risk": 998.81,
       "score": 92.0,
       "status": "Watch",
-      "plain_english": "Momentum breakout setup. Use STOP-LIMIT as shown (trigger=12.1463 limit=12.1706). Stop at 10.7396. Score 92. Only trade when market is RISK-ON."
+      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 12.15 (activates only if price breaks up). Limit 12.17 (max pay). Stop 10.7396. If trigger is not hit, no trade. Score 92. Only trade when market is RISK-ON."
     },
     {
       "symbol": "ARG.AX",
@@ -221,7 +221,7 @@
       "risk": 999.9,
       "score": 89.0,
       "status": "Watch",
-      "plain_english": "Uptrend pullback (value entry): place a LIMIT buy at 8.98 (below/near last close 9.04) to catch a dip toward EMA20. Stop at 8.81. Score 89. Only trade when market is RISK-ON."
+      "plain_english": "Trend Pullback (buy the dip): LIMIT buy at 8.98 (~0.66% below last close 9.04) to catch a pullback toward EMA20. Stop 8.81. If price does not dip to your limit, do not chase. Score 89. Only trade when market is RISK-ON."
     },
     {
       "symbol": "QUB.AX",
@@ -232,7 +232,7 @@
       "risk": 999.94,
       "score": 87.0,
       "status": "Watch",
-      "plain_english": "Uptrend pullback (value entry): place a LIMIT buy at 4.82 (below/near last close 4.85) to catch a dip toward EMA20. Stop at 4.67. Score 87. Only trade when market is RISK-ON."
+      "plain_english": "Trend Pullback (buy the dip): LIMIT buy at 4.82 (~0.63% below last close 4.85) to catch a pullback toward EMA20. Stop 4.67. If price does not dip to your limit, do not chase. Score 87. Only trade when market is RISK-ON."
     },
     {
       "symbol": "RMS.AX",
@@ -243,7 +243,7 @@
       "risk": 999.98,
       "score": 86.0,
       "status": "Watch",
-      "plain_english": "Uptrend pullback (value entry): place a LIMIT buy at 4.51 (below/near last close 4.52) to catch a dip toward EMA20. Stop at 4.14. Score 86. Only trade when market is RISK-ON."
+      "plain_english": "Trend Pullback (buy the dip): LIMIT buy at 4.51 (~0.30% below last close 4.52) to catch a pullback toward EMA20. Stop 4.14. If price does not dip to your limit, do not chase. Score 86. Only trade when market is RISK-ON."
     },
     {
       "symbol": "RHC.AX",
@@ -254,7 +254,7 @@
       "risk": 999.94,
       "score": 84.0,
       "status": "Watch",
-      "plain_english": "Uptrend pullback (value entry): place a LIMIT buy at 36.56 (below/near last close 36.93) to catch a dip toward EMA20. Stop at 34.95. Score 84. Only trade when market is RISK-ON."
+      "plain_english": "Trend Pullback (buy the dip): LIMIT buy at 36.56 (~1.00% below last close 36.93) to catch a pullback toward EMA20. Stop 34.95. If price does not dip to your limit, do not chase. Score 84. Only trade when market is RISK-ON."
     },
     {
       "symbol": "WGX.AX",
@@ -265,7 +265,7 @@
       "risk": 999.56,
       "score": 84.0,
       "status": "Watch",
-      "plain_english": "Uptrend pullback (value entry): place a LIMIT buy at 7.09 (below/near last close 7.16) to catch a dip toward EMA20. Stop at 6.44. Score 84. Only trade when market is RISK-ON."
+      "plain_english": "Trend Pullback (buy the dip): LIMIT buy at 7.09 (~1.00% below last close 7.16) to catch a pullback toward EMA20. Stop 6.44. If price does not dip to your limit, do not chase. Score 84. Only trade when market is RISK-ON."
     },
     {
       "symbol": "BSL.AX",
@@ -276,7 +276,7 @@
       "risk": 999.8,
       "score": 82.0,
       "status": "Watch",
-      "plain_english": "Uptrend pullback (value entry): place a LIMIT buy at 29.16 (below/near last close 29.16) to catch a dip toward EMA20. Stop at 28.34. Score 82. Only trade when market is RISK-ON."
+      "plain_english": "Trend Pullback (buy the dip): LIMIT buy at 29.16 (~0.00% below last close 29.16) to catch a pullback toward EMA20. Stop 28.34. If price does not dip to your limit, do not chase. Score 82. Only trade when market is RISK-ON."
     },
     {
       "symbol": "REH.AX",
@@ -287,7 +287,7 @@
       "risk": 999.9,
       "score": 82.0,
       "status": "Watch",
-      "plain_english": "Uptrend pullback (value entry): place a LIMIT buy at 14.48 (below/near last close 14.54) to catch a dip toward EMA20. Stop at 13.94. Score 82. Only trade when market is RISK-ON."
+      "plain_english": "Trend Pullback (buy the dip): LIMIT buy at 14.48 (~0.43% below last close 14.54) to catch a pullback toward EMA20. Stop 13.94. If price does not dip to your limit, do not chase. Score 82. Only trade when market is RISK-ON."
     },
     {
       "symbol": "EVN.AX",
@@ -298,7 +298,7 @@
       "risk": 998.62,
       "score": 80.0,
       "status": "Watch",
-      "plain_english": "Uptrend pullback (value entry): place a LIMIT buy at 14.74 (below/near last close 15.44) to catch a dip toward EMA20. Stop at 13.08. Score 80. Only trade when market is RISK-ON."
+      "plain_english": "Trend Pullback (buy the dip): LIMIT buy at 14.74 (~4.53% below last close 15.44) to catch a pullback toward EMA20. Stop 13.08. If price does not dip to your limit, do not chase. Score 80. Only trade when market is RISK-ON."
     },
     {
       "symbol": "LYC.AX",
@@ -309,7 +309,7 @@
       "risk": 999.47,
       "score": 80.0,
       "status": "Watch",
-      "plain_english": "Uptrend pullback (value entry): place a LIMIT buy at 15.33 (below/near last close 15.97) to catch a dip toward EMA20. Stop at 13.91. Score 80. Only trade when market is RISK-ON."
+      "plain_english": "Trend Pullback (buy the dip): LIMIT buy at 15.33 (~3.99% below last close 15.97) to catch a pullback toward EMA20. Stop 13.91. If price does not dip to your limit, do not chase. Score 80. Only trade when market is RISK-ON."
     },
     {
       "symbol": "NST.AX",
@@ -320,7 +320,7 @@
       "risk": 998.51,
       "score": 80.0,
       "status": "Watch",
-      "plain_english": "Uptrend pullback (value entry): place a LIMIT buy at 27.80 (below/near last close 28.37) to catch a dip toward EMA20. Stop at 25.62. Score 80. Only trade when market is RISK-ON."
+      "plain_english": "Trend Pullback (buy the dip): LIMIT buy at 27.80 (~1.99% below last close 28.37) to catch a pullback toward EMA20. Stop 25.62. If price does not dip to your limit, do not chase. Score 80. Only trade when market is RISK-ON."
     },
     {
       "symbol": "SFR.AX",
@@ -331,7 +331,7 @@
       "risk": 999.88,
       "score": 80.0,
       "status": "Watch",
-      "plain_english": "Uptrend pullback (value entry): place a LIMIT buy at 18.82 (below/near last close 18.88) to catch a dip toward EMA20. Stop at 17.81. Score 80. Only trade when market is RISK-ON."
+      "plain_english": "Trend Pullback (buy the dip): LIMIT buy at 18.82 (~0.30% below last close 18.88) to catch a pullback toward EMA20. Stop 17.81. If price does not dip to your limit, do not chase. Score 80. Only trade when market is RISK-ON."
     },
     {
       "symbol": "WHC.AX",
@@ -342,7 +342,7 @@
       "risk": 999.79,
       "score": 80.0,
       "status": "Watch",
-      "plain_english": "Uptrend pullback (value entry): place a LIMIT buy at 8.57 (below/near last close 8.60) to catch a dip toward EMA20. Stop at 8.24. Score 80. Only trade when market is RISK-ON."
+      "plain_english": "Trend Pullback (buy the dip): LIMIT buy at 8.57 (~0.30% below last close 8.60) to catch a pullback toward EMA20. Stop 8.24. If price does not dip to your limit, do not chase. Score 80. Only trade when market is RISK-ON."
     },
     {
       "symbol": "APE.AX",
@@ -353,7 +353,7 @@
       "risk": 999.78,
       "score": 77.0,
       "status": "Watch",
-      "plain_english": "Mean reversion bounce candidate. Place a LIMIT buy near 24.67. Stop at 23.3334 (~1.5 ATR). Score 77."
+      "plain_english": "Mean Reversion (bounce): LIMIT buy near 24.67. Stop 23.3334 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 77."
     },
     {
       "symbol": "ARG.AX",
@@ -364,7 +364,7 @@
       "risk": 999.92,
       "score": 77.0,
       "status": "Watch",
-      "plain_english": "Momentum breakout setup. Use STOP-LIMIT as shown (trigger=9.1305 limit=9.1488). Stop at 8.8072. Score 77. Only trade when market is RISK-ON."
+      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 9.13 (activates only if price breaks up). Limit 9.15 (max pay). Stop 8.8072. If trigger is not hit, no trade. Score 77. Only trade when market is RISK-ON."
     },
     {
       "symbol": "360.AX",
@@ -375,7 +375,7 @@
       "risk": 997.92,
       "score": 75.0,
       "status": "Watch",
-      "plain_english": "Mean reversion bounce candidate. Place a LIMIT buy near 22.02. Stop at 19.38 (~1.5 ATR). Score 75."
+      "plain_english": "Mean Reversion (bounce): LIMIT buy near 22.02. Stop 19.38 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 75."
     },
     {
       "symbol": "ALL.AX",
@@ -386,7 +386,7 @@
       "risk": 999.03,
       "score": 75.0,
       "status": "Watch",
-      "plain_english": "Mean reversion bounce candidate. Place a LIMIT buy near 48.44. Stop at 46.1112 (~1.5 ATR). Score 75."
+      "plain_english": "Mean Reversion (bounce): LIMIT buy near 48.44. Stop 46.1112 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 75."
     },
     {
       "symbol": "COH.AX",
@@ -397,7 +397,7 @@
       "risk": 992.35,
       "score": 75.0,
       "status": "Watch",
-      "plain_english": "Mean reversion bounce candidate. Place a LIMIT buy near 199.22. Stop at 184.6266 (~1.5 ATR). Score 75."
+      "plain_english": "Mean Reversion (bounce): LIMIT buy near 199.22. Stop 184.6266 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 75."
     },
     {
       "symbol": "CSL.AX",
@@ -408,7 +408,7 @@
       "risk": 998.97,
       "score": 75.0,
       "status": "Watch",
-      "plain_english": "Mean reversion bounce candidate. Place a LIMIT buy near 150.01. Stop at 139.8164 (~1.5 ATR). Score 75."
+      "plain_english": "Mean Reversion (bounce): LIMIT buy near 150.01. Stop 139.8164 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 75."
     },
     {
       "symbol": "FPH.AX",
@@ -419,7 +419,7 @@
       "risk": 999.54,
       "score": 75.0,
       "status": "Watch",
-      "plain_english": "Mean reversion bounce candidate. Place a LIMIT buy near 31.12. Stop at 29.9618 (~1.5 ATR). Score 75."
+      "plain_english": "Mean Reversion (bounce): LIMIT buy near 31.12. Stop 29.9618 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 75."
     },
     {
       "symbol": "GMD.AX",
@@ -430,7 +430,7 @@
       "risk": 999.7,
       "score": 75.0,
       "status": "Watch",
-      "plain_english": "Uptrend pullback (value entry): place a LIMIT buy at 6.85 (below/near last close 6.87) to catch a dip toward EMA20. Stop at 6.16. Score 75. Only trade when market is RISK-ON."
+      "plain_english": "Trend Pullback (buy the dip): LIMIT buy at 6.85 (~0.30% below last close 6.87) to catch a pullback toward EMA20. Stop 6.16. If price does not dip to your limit, do not chase. Score 75. Only trade when market is RISK-ON."
     },
     {
       "symbol": "GYG.AX",
@@ -441,7 +441,7 @@
       "risk": 999.58,
       "score": 75.0,
       "status": "Watch",
-      "plain_english": "Mean reversion bounce candidate. Place a LIMIT buy near 19.31. Stop at 17.7457 (~1.5 ATR). Score 75."
+      "plain_english": "Mean Reversion (bounce): LIMIT buy near 19.31. Stop 17.7457 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 75."
     },
     {
       "symbol": "HUB.AX",
@@ -452,7 +452,7 @@
       "risk": 999.8,
       "score": 75.0,
       "status": "Watch",
-      "plain_english": "Mean reversion bounce candidate. Place a LIMIT buy near 76.57. Stop at 70.0354 (~1.5 ATR). Score 75."
+      "plain_english": "Mean Reversion (bounce): LIMIT buy near 76.57. Stop 70.0354 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 75."
     },
     {
       "symbol": "HVN.AX",
@@ -463,7 +463,7 @@
       "risk": 999.75,
       "score": 75.0,
       "status": "Watch",
-      "plain_english": "Mean reversion bounce candidate. Place a LIMIT buy near 6.2. Stop at 5.9514 (~1.5 ATR). Score 75."
+      "plain_english": "Mean Reversion (bounce): LIMIT buy near 6.2. Stop 5.9514 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 75."
     },
     {
       "symbol": "LNW.AX",
@@ -474,7 +474,7 @@
       "risk": 998.99,
       "score": 75.0,
       "status": "Watch",
-      "plain_english": "Mean reversion bounce candidate. Place a LIMIT buy near 138.03. Stop at 127.4025 (~1.5 ATR). Score 75."
+      "plain_english": "Mean Reversion (bounce): LIMIT buy near 138.03. Stop 127.4025 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 75."
     },
     {
       "symbol": "NXG.AX",
@@ -485,7 +485,7 @@
       "risk": 999.49,
       "score": 75.0,
       "status": "Watch",
-      "plain_english": "Uptrend pullback (value entry): place a LIMIT buy at 16.00 (below/near last close 16.05) to catch a dip toward EMA20. Stop at 15.30. Score 75. Only trade when market is RISK-ON."
+      "plain_english": "Trend Pullback (buy the dip): LIMIT buy at 16.00 (~0.30% below last close 16.05) to catch a pullback toward EMA20. Stop 15.30. If price does not dip to your limit, do not chase. Score 75. Only trade when market is RISK-ON."
     },
     {
       "symbol": "PME.AX",
@@ -496,7 +496,7 @@
       "risk": 986.76,
       "score": 75.0,
       "status": "Watch",
-      "plain_english": "Mean reversion bounce candidate. Place a LIMIT buy near 118.22. Stop at 102.3045 (~1.5 ATR). Score 75."
+      "plain_english": "Mean Reversion (bounce): LIMIT buy near 118.22. Stop 102.3045 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 75."
     },
     {
       "symbol": "REA.AX",
@@ -507,7 +507,7 @@
       "risk": 998.44,
       "score": 75.0,
       "status": "Watch",
-      "plain_english": "Mean reversion bounce candidate. Place a LIMIT buy near 158.09. Stop at 143.6198 (~1.5 ATR). Score 75."
+      "plain_english": "Mean Reversion (bounce): LIMIT buy near 158.09. Stop 143.6198 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 75."
     },
     {
       "symbol": "RMD.AX",
@@ -518,7 +518,7 @@
       "risk": 999.3,
       "score": 75.0,
       "status": "Watch",
-      "plain_english": "Mean reversion bounce candidate. Place a LIMIT buy near 34.17. Stop at 32.395 (~1.5 ATR). Score 75."
+      "plain_english": "Mean Reversion (bounce): LIMIT buy near 34.17. Stop 32.395 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 75."
     },
     {
       "symbol": "SEK.AX",
@@ -529,7 +529,7 @@
       "risk": 999.63,
       "score": 75.0,
       "status": "Watch",
-      "plain_english": "Mean reversion bounce candidate. Place a LIMIT buy near 15.84. Stop at 14.5264 (~1.5 ATR). Score 75."
+      "plain_english": "Mean Reversion (bounce): LIMIT buy near 15.84. Stop 14.5264 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 75."
     },
     {
       "symbol": "TNE.AX",
@@ -540,7 +540,7 @@
       "risk": 998.62,
       "score": 75.0,
       "status": "Watch",
-      "plain_english": "Mean reversion bounce candidate. Place a LIMIT buy near 20.17. Stop at 18.5029 (~1.5 ATR). Score 75."
+      "plain_english": "Mean Reversion (bounce): LIMIT buy near 20.17. Stop 18.5029 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 75."
     },
     {
       "symbol": "WTC.AX",
@@ -551,7 +551,7 @@
       "risk": 999.92,
       "score": 75.0,
       "status": "Watch",
-      "plain_english": "Mean reversion bounce candidate. Place a LIMIT buy near 42.62. Stop at 38.1361 (~1.5 ATR). Score 75."
+      "plain_english": "Mean Reversion (bounce): LIMIT buy near 42.62. Stop 38.1361 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 75."
     },
     {
       "symbol": "XRO.AX",
@@ -562,7 +562,7 @@
       "risk": 998.34,
       "score": 75.0,
       "status": "Watch",
-      "plain_english": "Mean reversion bounce candidate. Place a LIMIT buy near 73.49. Stop at 67.0491 (~1.5 ATR). Score 75."
+      "plain_english": "Mean Reversion (bounce): LIMIT buy near 73.49. Stop 67.0491 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 75."
     },
     {
       "symbol": "XYZ.AX",
@@ -573,7 +573,7 @@
       "risk": 996.6,
       "score": 75.0,
       "status": "Watch",
-      "plain_english": "Mean reversion bounce candidate. Place a LIMIT buy near 69.55. Stop at 63.8875 (~1.5 ATR). Score 75."
+      "plain_english": "Mean Reversion (bounce): LIMIT buy near 69.55. Stop 63.8875 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 75."
     },
     {
       "symbol": "AGL.AX",
@@ -584,7 +584,7 @@
       "risk": 999.78,
       "score": 74.0,
       "status": "Watch",
-      "plain_english": "Momentum breakout setup. Use STOP-LIMIT as shown (trigger=10.2005 limit=10.2209). Stop at 8.7599. Score 74. Only trade when market is RISK-ON."
+      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 10.20 (activates only if price breaks up). Limit 10.22 (max pay). Stop 8.7599. If trigger is not hit, no trade. Score 74. Only trade when market is RISK-ON."
     },
     {
       "symbol": "ETPMAG.AX",
@@ -595,7 +595,7 @@
       "risk": 998.53,
       "score": 74.0,
       "status": "Watch",
-      "plain_english": "Uptrend pullback (value entry): place a LIMIT buy at 100.09 (below/near last close 100.39) to catch a dip toward EMA20. Stop at 82.26. Score 74. Only trade when market is RISK-ON."
+      "plain_english": "Trend Pullback (buy the dip): LIMIT buy at 100.09 (~0.30% below last close 100.39) to catch a pullback toward EMA20. Stop 82.26. If price does not dip to your limit, do not chase. Score 74. Only trade when market is RISK-ON."
     },
     {
       "symbol": "SHL.AX",
@@ -606,7 +606,7 @@
       "risk": 999.98,
       "score": 74.0,
       "status": "Watch",
-      "plain_english": "Mean reversion bounce candidate. Place a LIMIT buy near 21.2. Stop at 20.4821 (~1.5 ATR). Score 74."
+      "plain_english": "Mean Reversion (bounce): LIMIT buy near 21.2. Stop 20.4821 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 74."
     },
     {
       "symbol": "WHC.AX",
@@ -617,7 +617,7 @@
       "risk": 999.67,
       "score": 74.0,
       "status": "Watch",
-      "plain_english": "Mean reversion bounce candidate. Place a LIMIT buy near 8.6. Stop at 8.0434 (~1.5 ATR). Score 74."
+      "plain_english": "Mean Reversion (bounce): LIMIT buy near 8.6. Stop 8.0434 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 74."
     },
     {
       "symbol": "BHP.AX",
@@ -628,7 +628,7 @@
       "risk": 999.07,
       "score": 73.0,
       "status": "Watch",
-      "plain_english": "Uptrend pullback (value entry): place a LIMIT buy at 49.94 (below/near last close 51.13) to catch a dip toward EMA20. Stop at 48.12. Score 73. Only trade when market is RISK-ON."
+      "plain_english": "Trend Pullback (buy the dip): LIMIT buy at 49.94 (~2.33% below last close 51.13) to catch a pullback toward EMA20. Stop 48.12. If price does not dip to your limit, do not chase. Score 73. Only trade when market is RISK-ON."
     },
     {
       "symbol": "TLS.AX",
@@ -639,7 +639,7 @@
       "risk": 999.92,
       "score": 73.0,
       "status": "Watch",
-      "plain_english": "Momentum breakout setup. Use STOP-LIMIT as shown (trigger=4.9849 limit=4.9949). Stop at 4.838. Score 73. Only trade when market is RISK-ON."
+      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 4.98 (activates only if price breaks up). Limit 4.99 (max pay). Stop 4.838. If trigger is not hit, no trade. Score 73. Only trade when market is RISK-ON."
     },
     {
       "symbol": "PRU.AX",
@@ -650,7 +650,7 @@
       "risk": 999.83,
       "score": 72.0,
       "status": "Watch",
-      "plain_english": "Uptrend pullback (value entry): place a LIMIT buy at 5.69 (below/near last close 5.71) to catch a dip toward EMA20. Stop at 5.25. Score 72. Only trade when market is RISK-ON."
+      "plain_english": "Trend Pullback (buy the dip): LIMIT buy at 5.69 (~0.30% below last close 5.71) to catch a pullback toward EMA20. Stop 5.25. If price does not dip to your limit, do not chase. Score 72. Only trade when market is RISK-ON."
     },
     {
       "symbol": "IAG.AX",
@@ -661,7 +661,7 @@
       "risk": 999.85,
       "score": 71.0,
       "status": "Watch",
-      "plain_english": "Mean reversion bounce candidate. Place a LIMIT buy near 6.87. Stop at 6.5121 (~1.5 ATR). Score 71."
+      "plain_english": "Mean Reversion (bounce): LIMIT buy near 6.87. Stop 6.5121 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 71."
     },
     {
       "symbol": "SIG.AX",
@@ -672,7 +672,7 @@
       "risk": 999.99,
       "score": 71.0,
       "status": "Watch",
-      "plain_english": "Uptrend pullback (value entry): place a LIMIT buy at 3.02 (below/near last close 3.03) to catch a dip toward EMA20. Stop at 2.99. Score 71. Only trade when market is RISK-ON."
+      "plain_english": "Trend Pullback (buy the dip): LIMIT buy at 3.02 (~0.30% below last close 3.03) to catch a pullback toward EMA20. Stop 2.99. If price does not dip to your limit, do not chase. Score 71. Only trade when market is RISK-ON."
     },
     {
       "symbol": "IGO.AX",
@@ -683,7 +683,7 @@
       "risk": 999.96,
       "score": 70.0,
       "status": "Watch",
-      "plain_english": "Uptrend pullback (value entry): place a LIMIT buy at 8.35 (below/near last close 8.38) to catch a dip toward EMA20. Stop at 7.76. Score 70. Only trade when market is RISK-ON."
+      "plain_english": "Trend Pullback (buy the dip): LIMIT buy at 8.35 (~0.30% below last close 8.38) to catch a pullback toward EMA20. Stop 7.76. If price does not dip to your limit, do not chase. Score 70. Only trade when market is RISK-ON."
     },
     {
       "symbol": "MGR.AX",
@@ -694,7 +694,7 @@
       "risk": 999.99,
       "score": 70.0,
       "status": "Watch",
-      "plain_english": "Mean reversion bounce candidate. Place a LIMIT buy near 1.905. Stop at 1.8461 (~1.5 ATR). Score 70."
+      "plain_english": "Mean Reversion (bounce): LIMIT buy near 1.905. Stop 1.8461 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 70."
     },
     {
       "symbol": "RIO.AX",
@@ -705,7 +705,7 @@
       "risk": 997.28,
       "score": 70.0,
       "status": "Watch",
-      "plain_english": "Momentum breakout setup. Use STOP-LIMIT as shown (trigger=169.3064 limit=169.6450). Stop at 155.0595. Score 70. Only trade when market is RISK-ON."
+      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 169.31 (activates only if price breaks up). Limit 169.65 (max pay). Stop 155.0595. If trigger is not hit, no trade. Score 70. Only trade when market is RISK-ON."
     },
     {
       "symbol": "DXS.AX",
@@ -716,7 +716,7 @@
       "risk": 999.99,
       "score": 69.0,
       "status": "Watch",
-      "plain_english": "Mean reversion bounce candidate. Place a LIMIT buy near 6.21. Stop at 6.0204 (~1.5 ATR). Score 69."
+      "plain_english": "Mean Reversion (bounce): LIMIT buy near 6.21. Stop 6.0204 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 69."
     },
     {
       "symbol": "WES.AX",
@@ -727,7 +727,7 @@
       "risk": 997.35,
       "score": 68.0,
       "status": "Watch",
-      "plain_english": "Momentum breakout setup. Use STOP-LIMIT as shown (trigger=89.2369 limit=89.4154). Stop at 84.1484. Score 68. Only trade when market is RISK-ON."
+      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 89.24 (activates only if price breaks up). Limit 89.42 (max pay). Stop 84.1484. If trigger is not hit, no trade. Score 68. Only trade when market is RISK-ON."
     },
     {
       "symbol": "BEN.AX",
@@ -738,7 +738,7 @@
       "risk": 999.58,
       "score": 67.0,
       "status": "Watch",
-      "plain_english": "Momentum breakout setup. Use STOP-LIMIT as shown (trigger=11.6348 limit=11.6581). Stop at 11.0363. Score 67. Only trade when market is RISK-ON."
+      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 11.63 (activates only if price breaks up). Limit 11.66 (max pay). Stop 11.0363. If trigger is not hit, no trade. Score 67. Only trade when market is RISK-ON."
     },
     {
       "symbol": "COL.AX",
@@ -749,7 +749,7 @@
       "risk": 999.7,
       "score": 67.0,
       "status": "Watch",
-      "plain_english": "Momentum breakout setup. Use STOP-LIMIT as shown (trigger=22.1362 limit=22.1805). Stop at 21.4648. Score 67. Only trade when market is RISK-ON."
+      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 22.14 (activates only if price breaks up). Limit 22.18 (max pay). Stop 21.4648. If trigger is not hit, no trade. Score 67. Only trade when market is RISK-ON."
     },
     {
       "symbol": "AMC.AX",
@@ -760,7 +760,7 @@
       "risk": 998.15,
       "score": 66.0,
       "status": "Watch",
-      "plain_english": "Momentum breakout setup. Use STOP-LIMIT as shown (trigger=70.5259 limit=70.6670). Stop at 67.3572. Score 66. Only trade when market is RISK-ON."
+      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 70.53 (activates only if price breaks up). Limit 70.67 (max pay). Stop 67.3572. If trigger is not hit, no trade. Score 66. Only trade when market is RISK-ON."
     },
     {
       "symbol": "WOW.AX",
@@ -771,7 +771,7 @@
       "risk": 999.52,
       "score": 66.0,
       "status": "Watch",
-      "plain_english": "Momentum breakout setup. Use STOP-LIMIT as shown (trigger=32.3768 limit=32.4416). Stop at 31.0804. Score 66. Only trade when market is RISK-ON."
+      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 32.38 (activates only if price breaks up). Limit 32.44 (max pay). Stop 31.0804. If trigger is not hit, no trade. Score 66. Only trade when market is RISK-ON."
     },
     {
       "symbol": "APA.AX",
@@ -782,7 +782,7 @@
       "risk": 999.9,
       "score": 65.0,
       "status": "Watch",
-      "plain_english": "Momentum breakout setup. Use STOP-LIMIT as shown (trigger=9.2276 limit=9.2461). Stop at 8.5838. Score 65. Only trade when market is RISK-ON."
+      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 9.23 (activates only if price breaks up). Limit 9.25 (max pay). Stop 8.5838. If trigger is not hit, no trade. Score 65. Only trade when market is RISK-ON."
     },
     {
       "symbol": "BPT.AX",
@@ -793,7 +793,7 @@
       "risk": 999.94,
       "score": 65.0,
       "status": "Watch",
-      "plain_english": "Mean reversion bounce candidate. Place a LIMIT buy near 1.075. Stop at 1.0134 (~1.5 ATR). Score 65."
+      "plain_english": "Mean Reversion (bounce): LIMIT buy near 1.075. Stop 1.0134 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 65."
     },
     {
       "symbol": "QUB.AX",
@@ -804,7 +804,7 @@
       "risk": 999.87,
       "score": 65.0,
       "status": "Watch",
-      "plain_english": "Momentum breakout setup. Use STOP-LIMIT as shown (trigger=4.9849 limit=4.9949). Stop at 4.7148. Score 65. Only trade when market is RISK-ON."
+      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 4.98 (activates only if price breaks up). Limit 4.99 (max pay). Stop 4.7148. If trigger is not hit, no trade. Score 65. Only trade when market is RISK-ON."
     },
     {
       "symbol": "SUN.AX",
@@ -815,7 +815,7 @@
       "risk": 999.8,
       "score": 65.0,
       "status": "Watch",
-      "plain_english": "Mean reversion bounce candidate. Place a LIMIT buy near 15.94. Stop at 15.4241 (~1.5 ATR). Score 65."
+      "plain_english": "Mean Reversion (bounce): LIMIT buy near 15.94. Stop 15.4241 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 65."
     },
     {
       "symbol": "TCL.AX",
@@ -826,7 +826,7 @@
       "risk": 999.87,
       "score": 65.0,
       "status": "Watch",
-      "plain_english": "Uptrend pullback (value entry): place a LIMIT buy at 13.90 (below/near last close 14.00) to catch a dip toward EMA20. Stop at 13.52. Score 65. Only trade when market is RISK-ON."
+      "plain_english": "Trend Pullback (buy the dip): LIMIT buy at 13.90 (~0.69% below last close 14.00) to catch a pullback toward EMA20. Stop 13.52. If price does not dip to your limit, do not chase. Score 65. Only trade when market is RISK-ON."
     },
     {
       "symbol": "MPL.AX",
@@ -837,7 +837,7 @@
       "risk": 999.88,
       "score": 64.0,
       "status": "Watch",
-      "plain_english": "Mean reversion bounce candidate. Place a LIMIT buy near 4.48. Stop at 4.3568 (~1.5 ATR). Score 64."
+      "plain_english": "Mean Reversion (bounce): LIMIT buy near 4.48. Stop 4.3568 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 64."
     },
     {
       "symbol": "VCX.AX",
@@ -848,7 +848,7 @@
       "risk": 999.94,
       "score": 64.0,
       "status": "Watch",
-      "plain_english": "Momentum breakout setup. Use STOP-LIMIT as shown (trigger=2.6028 limit=2.6080). Stop at 2.4776. Score 64. Only trade when market is RISK-ON."
+      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 2.60 (activates only if price breaks up). Limit 2.61 (max pay). Stop 2.4776. If trigger is not hit, no trade. Score 64. Only trade when market is RISK-ON."
     },
     {
       "symbol": "JBH.AX",
@@ -859,7 +859,7 @@
       "risk": 997.22,
       "score": 62.0,
       "status": "Watch",
-      "plain_english": "Mean reversion bounce candidate. Place a LIMIT buy near 76.68. Stop at 72.8148 (~1.5 ATR). Score 62."
+      "plain_english": "Mean Reversion (bounce): LIMIT buy near 76.68. Stop 72.8148 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 62."
     },
     {
       "symbol": "TPG.AX",
@@ -870,7 +870,7 @@
       "risk": 999.97,
       "score": 62.0,
       "status": "Watch",
-      "plain_english": "Mean reversion bounce candidate. Place a LIMIT buy near 3.8. Stop at 3.673 (~1.5 ATR). Score 62."
+      "plain_english": "Mean Reversion (bounce): LIMIT buy near 3.8. Stop 3.673 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 62."
     },
     {
       "symbol": "NWS.AX",
@@ -881,7 +881,7 @@
       "risk": 999.78,
       "score": 61.0,
       "status": "Watch",
-      "plain_english": "Mean reversion bounce candidate. Place a LIMIT buy near 36.36. Stop at 33.8668 (~1.5 ATR). Score 61."
+      "plain_english": "Mean Reversion (bounce): LIMIT buy near 36.36. Stop 33.8668 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 61."
     },
     {
       "symbol": "WBC.AX",
@@ -892,7 +892,7 @@
       "risk": 999.99,
       "score": 61.0,
       "status": "Watch",
-      "plain_english": "Uptrend pullback (value entry): place a LIMIT buy at 39.56 (below/near last close 40.52) to catch a dip toward EMA20. Stop at 38.12. Score 61. Only trade when market is RISK-ON."
+      "plain_english": "Trend Pullback (buy the dip): LIMIT buy at 39.56 (~2.36% below last close 40.52) to catch a pullback toward EMA20. Stop 38.12. If price does not dip to your limit, do not chase. Score 61. Only trade when market is RISK-ON."
     },
     {
       "symbol": "AIA.AX",
@@ -903,7 +903,7 @@
       "risk": 999.93,
       "score": 60.0,
       "status": "Watch",
-      "plain_english": "Mean reversion bounce candidate. Place a LIMIT buy near 7.18. Stop at 6.978 (~1.5 ATR). Score 60."
+      "plain_english": "Mean Reversion (bounce): LIMIT buy near 7.18. Stop 6.978 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 60."
     },
     {
       "symbol": "ALD.AX",
@@ -914,7 +914,7 @@
       "risk": 999.99,
       "score": 60.0,
       "status": "Watch",
-      "plain_english": "Mean reversion bounce candidate. Place a LIMIT buy near 28.91. Stop at 27.8289 (~1.5 ATR). Score 60."
+      "plain_english": "Mean Reversion (bounce): LIMIT buy near 28.91. Stop 27.8289 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 60."
     },
     {
       "symbol": "ALQ.AX",
@@ -925,7 +925,7 @@
       "risk": 999.19,
       "score": 60.0,
       "status": "Watch",
-      "plain_english": "Mean reversion bounce candidate. Place a LIMIT buy near 24.02. Stop at 23.0107 (~1.5 ATR). Score 60."
+      "plain_english": "Mean Reversion (bounce): LIMIT buy near 24.02. Stop 23.0107 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 60."
     },
     {
       "symbol": "ALX.AX",
@@ -936,7 +936,7 @@
       "risk": 999.81,
       "score": 60.0,
       "status": "Watch",
-      "plain_english": "Mean reversion bounce candidate. Place a LIMIT buy near 4.6. Stop at 4.3932 (~1.5 ATR). Score 60."
+      "plain_english": "Mean Reversion (bounce): LIMIT buy near 4.6. Stop 4.3932 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 60."
     },
     {
       "symbol": "ANZ.AX",
@@ -947,7 +947,7 @@
       "risk": 998.97,
       "score": 60.0,
       "status": "Watch",
-      "plain_english": "Uptrend pullback (value entry): place a LIMIT buy at 37.58 (below/near last close 40.89) to catch a dip toward EMA20. Stop at 35.86. Score 60. Only trade when market is RISK-ON."
+      "plain_english": "Trend Pullback (buy the dip): LIMIT buy at 37.58 (~8.10% below last close 40.89) to catch a pullback toward EMA20. Stop 35.86. If price does not dip to your limit, do not chase. Score 60. Only trade when market is RISK-ON."
     },
     {
       "symbol": "APA.AX",
@@ -958,7 +958,7 @@
       "risk": 999.79,
       "score": 60.0,
       "status": "Watch",
-      "plain_english": "Uptrend pullback (value entry): place a LIMIT buy at 8.91 (below/near last close 9.07) to catch a dip toward EMA20. Stop at 8.58. Score 60. Only trade when market is RISK-ON."
+      "plain_english": "Trend Pullback (buy the dip): LIMIT buy at 8.91 (~1.82% below last close 9.07) to catch a pullback toward EMA20. Stop 8.58. If price does not dip to your limit, do not chase. Score 60. Only trade when market is RISK-ON."
     },
     {
       "symbol": "APE.AX",
@@ -969,7 +969,7 @@
       "risk": 999.94,
       "score": 60.0,
       "status": "Watch",
-      "plain_english": "Uptrend pullback (value entry): place a LIMIT buy at 24.60 (below/near last close 24.67) to catch a dip toward EMA20. Stop at 24.28. Score 60. Only trade when market is RISK-ON."
+      "plain_english": "Trend Pullback (buy the dip): LIMIT buy at 24.60 (~0.30% below last close 24.67) to catch a pullback toward EMA20. Stop 24.28. If price does not dip to your limit, do not chase. Score 60. Only trade when market is RISK-ON."
     },
     {
       "symbol": "AZJ.AX",
@@ -980,7 +980,7 @@
       "risk": 999.9,
       "score": 60.0,
       "status": "Watch",
-      "plain_english": "Mean reversion bounce candidate. Place a LIMIT buy near 3.59. Stop at 3.4775 (~1.5 ATR). Score 60."
+      "plain_english": "Mean Reversion (bounce): LIMIT buy near 3.59. Stop 3.4775 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 60."
     },
     {
       "symbol": "BXB.AX",
@@ -991,7 +991,7 @@
       "risk": 998.76,
       "score": 60.0,
       "status": "Watch",
-      "plain_english": "Momentum breakout setup. Use STOP-LIMIT as shown (trigger=23.9918 limit=24.0397). Stop at 22.1002. Score 60. Only trade when market is RISK-ON."
+      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 23.99 (activates only if price breaks up). Limit 24.04 (max pay). Stop 22.1002. If trigger is not hit, no trade. Score 60. Only trade when market is RISK-ON."
     },
     {
       "symbol": "CDA.AX",
@@ -1002,7 +1002,7 @@
       "risk": 999.87,
       "score": 60.0,
       "status": "Watch",
-      "plain_english": "Uptrend pullback (value entry): place a LIMIT buy at 34.12 (below/near last close 34.22) to catch a dip toward EMA20. Stop at 33.88. Score 60. Only trade when market is RISK-ON."
+      "plain_english": "Trend Pullback (buy the dip): LIMIT buy at 34.12 (~0.30% below last close 34.22) to catch a pullback toward EMA20. Stop 33.88. If price does not dip to your limit, do not chase. Score 60. Only trade when market is RISK-ON."
     },
     {
       "symbol": "CEN.AX",
@@ -1013,7 +1013,7 @@
       "risk": 999.85,
       "score": 60.0,
       "status": "Watch",
-      "plain_english": "Uptrend pullback (value entry): place a LIMIT buy at 8.17 (below/near last close 8.31) to catch a dip toward EMA20. Stop at 7.74. Score 60. Only trade when market is RISK-ON."
+      "plain_english": "Trend Pullback (buy the dip): LIMIT buy at 8.17 (~1.63% below last close 8.31) to catch a pullback toward EMA20. Stop 7.74. If price does not dip to your limit, do not chase. Score 60. Only trade when market is RISK-ON."
     },
     {
       "symbol": "EDV.AX",
@@ -1024,7 +1024,7 @@
       "risk": 999.95,
       "score": 60.0,
       "status": "Watch",
-      "plain_english": "Uptrend pullback (value entry): place a LIMIT buy at 3.76 (below/near last close 3.83) to catch a dip toward EMA20. Stop at 3.60. Score 60. Only trade when market is RISK-ON."
+      "plain_english": "Trend Pullback (buy the dip): LIMIT buy at 3.76 (~1.72% below last close 3.83) to catch a pullback toward EMA20. Stop 3.60. If price does not dip to your limit, do not chase. Score 60. Only trade when market is RISK-ON."
     },
     {
       "symbol": "EVN.AX",
@@ -1035,7 +1035,7 @@
       "risk": 998.98,
       "score": 60.0,
       "status": "Watch",
-      "plain_english": "Mean reversion bounce candidate. Place a LIMIT buy near 15.44. Stop at 14.2379 (~1.5 ATR). Score 60."
+      "plain_english": "Mean Reversion (bounce): LIMIT buy near 15.44. Stop 14.2379 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 60."
     },
     {
       "symbol": "FMG.AX",
@@ -1046,7 +1046,7 @@
       "risk": 999.69,
       "score": 60.0,
       "status": "Watch",
-      "plain_english": "Uptrend pullback (value entry): place a LIMIT buy at 21.15 (below/near last close 21.21) to catch a dip toward EMA20. Stop at 20.48. Score 60. Only trade when market is RISK-ON."
+      "plain_english": "Trend Pullback (buy the dip): LIMIT buy at 21.15 (~0.30% below last close 21.21) to catch a pullback toward EMA20. Stop 20.48. If price does not dip to your limit, do not chase. Score 60. Only trade when market is RISK-ON."
     },
     {
       "symbol": "FMG.AX",
@@ -1057,7 +1057,7 @@
       "risk": 999.21,
       "score": 60.0,
       "status": "Watch",
-      "plain_english": "Mean reversion bounce candidate. Place a LIMIT buy near 21.21. Stop at 20.3668 (~1.5 ATR). Score 60."
+      "plain_english": "Mean Reversion (bounce): LIMIT buy near 21.21. Stop 20.3668 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 60."
     },
     {
       "symbol": "GMD.AX",
@@ -1068,7 +1068,7 @@
       "risk": 999.64,
       "score": 60.0,
       "status": "Watch",
-      "plain_english": "Mean reversion bounce candidate. Place a LIMIT buy near 6.87. Stop at 6.2154 (~1.5 ATR). Score 60."
+      "plain_english": "Mean Reversion (bounce): LIMIT buy near 6.87. Stop 6.2154 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 60."
     },
     {
       "symbol": "IGO.AX",
@@ -1079,7 +1079,7 @@
       "risk": 999.39,
       "score": 60.0,
       "status": "Watch",
-      "plain_english": "Mean reversion bounce candidate. Place a LIMIT buy near 8.38. Stop at 7.7195 (~1.5 ATR). Score 60."
+      "plain_english": "Mean Reversion (bounce): LIMIT buy near 8.38. Stop 7.7195 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 60."
     },
     {
       "symbol": "JHX.AX",
@@ -1090,7 +1090,7 @@
       "risk": 999.59,
       "score": 60.0,
       "status": "Watch",
-      "plain_english": "Uptrend pullback (value entry): place a LIMIT buy at 34.34 (below/near last close 36.54) to catch a dip toward EMA20. Stop at 31.90. Score 60. Only trade when market is RISK-ON."
+      "plain_english": "Trend Pullback (buy the dip): LIMIT buy at 34.34 (~6.03% below last close 36.54) to catch a pullback toward EMA20. Stop 31.90. If price does not dip to your limit, do not chase. Score 60. Only trade when market is RISK-ON."
     },
     {
       "symbol": "MIN.AX",
@@ -1101,7 +1101,7 @@
       "risk": 999.66,
       "score": 60.0,
       "status": "Watch",
-      "plain_english": "Uptrend pullback (value entry): place a LIMIT buy at 52.04 (below/near last close 52.20) to catch a dip toward EMA20. Stop at 49.90. Score 60. Only trade when market is RISK-ON."
+      "plain_english": "Trend Pullback (buy the dip): LIMIT buy at 52.04 (~0.30% below last close 52.20) to catch a pullback toward EMA20. Stop 49.90. If price does not dip to your limit, do not chase. Score 60. Only trade when market is RISK-ON."
     },
     {
       "symbol": "MQG.AX",
@@ -1112,7 +1112,7 @@
       "risk": 996.83,
       "score": 60.0,
       "status": "Watch",
-      "plain_english": "Mean reversion bounce candidate. Place a LIMIT buy near 216.17. Stop at 208.8404 (~1.5 ATR). Score 60."
+      "plain_english": "Mean Reversion (bounce): LIMIT buy near 216.17. Stop 208.8404 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 60."
     },
     {
       "symbol": "NAB.AX",
@@ -1123,7 +1123,7 @@
       "risk": 998.35,
       "score": 60.0,
       "status": "Watch",
-      "plain_english": "Uptrend pullback (value entry): place a LIMIT buy at 43.87 (below/near last close 46.01) to catch a dip toward EMA20. Stop at 42.03. Score 60. Only trade when market is RISK-ON."
+      "plain_english": "Trend Pullback (buy the dip): LIMIT buy at 43.87 (~4.64% below last close 46.01) to catch a pullback toward EMA20. Stop 42.03. If price does not dip to your limit, do not chase. Score 60. Only trade when market is RISK-ON."
     },
     {
       "symbol": "NXG.AX",
@@ -1134,7 +1134,7 @@
       "risk": 999.43,
       "score": 60.0,
       "status": "Watch",
-      "plain_english": "Mean reversion bounce candidate. Place a LIMIT buy near 16.05. Stop at 14.7504 (~1.5 ATR). Score 60."
+      "plain_english": "Mean Reversion (bounce): LIMIT buy near 16.05. Stop 14.7504 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 60."
     },
     {
       "symbol": "PLS.AX",
@@ -1145,7 +1145,7 @@
       "risk": 999.93,
       "score": 60.0,
       "status": "Watch",
-      "plain_english": "Uptrend pullback (value entry): place a LIMIT buy at 4.22 (below/near last close 4.23) to catch a dip toward EMA20. Stop at 3.87. Score 60. Only trade when market is RISK-ON."
+      "plain_english": "Trend Pullback (buy the dip): LIMIT buy at 4.22 (~0.30% below last close 4.23) to catch a pullback toward EMA20. Stop 3.87. If price does not dip to your limit, do not chase. Score 60. Only trade when market is RISK-ON."
     },
     {
       "symbol": "PRU.AX",
@@ -1156,7 +1156,7 @@
       "risk": 999.73,
       "score": 60.0,
       "status": "Watch",
-      "plain_english": "Mean reversion bounce candidate. Place a LIMIT buy near 5.71. Stop at 5.2798 (~1.5 ATR). Score 60."
+      "plain_english": "Mean Reversion (bounce): LIMIT buy near 5.71. Stop 5.2798 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 60."
     },
     {
       "symbol": "QUB.AX",
@@ -1167,7 +1167,7 @@
       "risk": 999.93,
       "score": 60.0,
       "status": "Watch",
-      "plain_english": "Mean reversion bounce candidate. Place a LIMIT buy near 4.85. Stop at 4.7289 (~1.5 ATR). Score 60."
+      "plain_english": "Mean Reversion (bounce): LIMIT buy near 4.85. Stop 4.7289 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 60."
     },
     {
       "symbol": "REH.AX",
@@ -1178,7 +1178,7 @@
       "risk": 999.8,
       "score": 60.0,
       "status": "Watch",
-      "plain_english": "Mean reversion bounce candidate. Place a LIMIT buy near 14.54. Stop at 13.8612 (~1.5 ATR). Score 60."
+      "plain_english": "Mean Reversion (bounce): LIMIT buy near 14.54. Stop 13.8612 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 60."
     },
     {
       "symbol": "RHC.AX",
@@ -1189,7 +1189,7 @@
       "risk": 999.29,
       "score": 60.0,
       "status": "Watch",
-      "plain_english": "Mean reversion bounce candidate. Place a LIMIT buy near 36.93. Stop at 35.7418 (~1.5 ATR). Score 60."
+      "plain_english": "Mean Reversion (bounce): LIMIT buy near 36.93. Stop 35.7418 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 60."
     },
     {
       "symbol": "RIO.AX",
@@ -1200,7 +1200,7 @@
       "risk": 990.6,
       "score": 60.0,
       "status": "Watch",
-      "plain_english": "Uptrend pullback (value entry): place a LIMIT buy at 157.59 (below/near last close 169.74) to catch a dip toward EMA20. Stop at 147.05. Score 60. Only trade when market is RISK-ON."
+      "plain_english": "Trend Pullback (buy the dip): LIMIT buy at 157.59 (~7.16% below last close 169.74) to catch a pullback toward EMA20. Stop 147.05. If price does not dip to your limit, do not chase. Score 60. Only trade when market is RISK-ON."
     },
     {
       "symbol": "RMS.AX",
@@ -1211,7 +1211,7 @@
       "risk": 999.92,
       "score": 60.0,
       "status": "Watch",
-      "plain_english": "Mean reversion bounce candidate. Place a LIMIT buy near 4.52. Stop at 4.1348 (~1.5 ATR). Score 60."
+      "plain_english": "Mean Reversion (bounce): LIMIT buy near 4.52. Stop 4.1348 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 60."
     },
     {
       "symbol": "S32.AX",
@@ -1222,7 +1222,7 @@
       "risk": 999.96,
       "score": 60.0,
       "status": "Watch",
-      "plain_english": "Mean reversion bounce candidate. Place a LIMIT buy near 4.42. Stop at 4.0921 (~1.5 ATR). Score 60."
+      "plain_english": "Mean Reversion (bounce): LIMIT buy near 4.42. Stop 4.0921 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 60."
     },
     {
       "symbol": "SFR.AX",
@@ -1233,7 +1233,7 @@
       "risk": 999.62,
       "score": 60.0,
       "status": "Watch",
-      "plain_english": "Mean reversion bounce candidate. Place a LIMIT buy near 18.88. Stop at 17.388 (~1.5 ATR). Score 60."
+      "plain_english": "Mean Reversion (bounce): LIMIT buy near 18.88. Stop 17.388 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 60."
     },
     {
       "symbol": "SHN.AX",
@@ -1244,7 +1244,7 @@
       "risk": 1000.0,
       "score": 60.0,
       "status": "Watch",
-      "plain_english": "Uptrend pullback (value entry): place a LIMIT buy at 0.04 (below/near last close 0.04) to catch a dip toward EMA20. Stop at 0.03. Score 60. Only trade when market is RISK-ON."
+      "plain_english": "Trend Pullback (buy the dip): LIMIT buy at 0.04 (~10.50% below last close 0.04) to catch a pullback toward EMA20. Stop 0.03. If price does not dip to your limit, do not chase. Score 60. Only trade when market is RISK-ON."
     },
     {
       "symbol": "SIG.AX",
@@ -1255,7 +1255,7 @@
       "risk": 999.98,
       "score": 60.0,
       "status": "Watch",
-      "plain_english": "Mean reversion bounce candidate. Place a LIMIT buy near 3.03. Stop at 2.9384 (~1.5 ATR). Score 60."
+      "plain_english": "Mean Reversion (bounce): LIMIT buy near 3.03. Stop 2.9384 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 60."
     },
     {
       "symbol": "SOL.AX",
@@ -1266,7 +1266,7 @@
       "risk": 999.69,
       "score": 60.0,
       "status": "Watch",
-      "plain_english": "Uptrend pullback (value entry): place a LIMIT buy at 37.90 (below/near last close 37.90) to catch a dip toward EMA20. Stop at 36.59. Score 60. Only trade when market is RISK-ON."
+      "plain_english": "Trend Pullback (buy the dip): LIMIT buy at 37.90 (~0.00% below last close 37.90) to catch a pullback toward EMA20. Stop 36.59. If price does not dip to your limit, do not chase. Score 60. Only trade when market is RISK-ON."
     },
     {
       "symbol": "TLS.AX",
@@ -1277,7 +1277,7 @@
       "risk": 999.99,
       "score": 60.0,
       "status": "Watch",
-      "plain_english": "Uptrend pullback (value entry): place a LIMIT buy at 4.88 (below/near last close 4.94) to catch a dip toward EMA20. Stop at 4.84. Score 60. Only trade when market is RISK-ON."
+      "plain_english": "Trend Pullback (buy the dip): LIMIT buy at 4.88 (~1.30% below last close 4.94) to catch a pullback toward EMA20. Stop 4.84. If price does not dip to your limit, do not chase. Score 60. Only trade when market is RISK-ON."
     },
     {
       "symbol": "VGE.AX",
@@ -1288,7 +1288,7 @@
       "risk": 999.89,
       "score": 60.0,
       "status": "Watch",
-      "plain_english": "Mean reversion bounce candidate. Place a LIMIT buy near 89.97. Stop at 88.2579 (~1.5 ATR). Score 60."
+      "plain_english": "Mean Reversion (bounce): LIMIT buy near 89.97. Stop 88.2579 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 60."
     },
     {
       "symbol": "WDS.AX",
@@ -1299,7 +1299,7 @@
       "risk": 999.35,
       "score": 60.0,
       "status": "Watch",
-      "plain_english": "Uptrend pullback (value entry): place a LIMIT buy at 25.24 (below/near last close 25.78) to catch a dip toward EMA20. Stop at 24.52. Score 60. Only trade when market is RISK-ON."
+      "plain_english": "Trend Pullback (buy the dip): LIMIT buy at 25.24 (~2.08% below last close 25.78) to catch a pullback toward EMA20. Stop 24.52. If price does not dip to your limit, do not chase. Score 60. Only trade when market is RISK-ON."
     },
     {
       "symbol": "WES.AX",
@@ -1310,7 +1310,7 @@
       "risk": 997.74,
       "score": 60.0,
       "status": "Watch",
-      "plain_english": "Mean reversion bounce candidate. Place a LIMIT buy near 87.69. Stop at 85.2204 (~1.5 ATR). Score 60."
+      "plain_english": "Mean Reversion (bounce): LIMIT buy near 87.69. Stop 85.2204 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 60."
     },
     {
       "symbol": "WOW.AX",
@@ -1321,7 +1321,7 @@
       "risk": 999.89,
       "score": 60.0,
       "status": "Watch",
-      "plain_english": "Uptrend pullback (value entry): place a LIMIT buy at 31.18 (below/near last close 31.94) to catch a dip toward EMA20. Stop at 30.62. Score 60. Only trade when market is RISK-ON."
+      "plain_english": "Trend Pullback (buy the dip): LIMIT buy at 31.18 (~2.37% below last close 31.94) to catch a pullback toward EMA20. Stop 30.62. If price does not dip to your limit, do not chase. Score 60. Only trade when market is RISK-ON."
     },
     {
       "symbol": "AMP.AX",
@@ -1332,7 +1332,7 @@
       "risk": 999.89,
       "score": 58.0,
       "status": "Watch",
-      "plain_english": "Mean reversion bounce candidate. Place a LIMIT buy near 1.395. Stop at 1.2463 (~1.5 ATR). Score 58."
+      "plain_english": "Mean Reversion (bounce): LIMIT buy near 1.395. Stop 1.2463 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 58."
     },
     {
       "symbol": "WBC.AX",
@@ -1343,7 +1343,7 @@
       "risk": 997.49,
       "score": 58.0,
       "status": "Watch",
-      "plain_english": "Momentum breakout setup. Use STOP-LIMIT as shown (trigger=41.8452 limit=41.9289). Stop at 38.6171. Score 58. Only trade when market is RISK-ON."
+      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 41.85 (activates only if price breaks up). Limit 41.93 (max pay). Stop 38.6171. If trigger is not hit, no trade. Score 58. Only trade when market is RISK-ON."
     },
     {
       "symbol": "CEN.AX",
@@ -1354,7 +1354,7 @@
       "risk": 999.84,
       "score": 57.0,
       "status": "Watch",
-      "plain_english": "Momentum breakout setup. Use STOP-LIMIT as shown (trigger=8.5255 limit=8.5426). Stop at 7.7395. Score 57. Only trade when market is RISK-ON."
+      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 8.53 (activates only if price breaks up). Limit 8.54 (max pay). Stop 7.7395. If trigger is not hit, no trade. Score 57. Only trade when market is RISK-ON."
     },
     {
       "symbol": "NDQ.AX",
@@ -1365,7 +1365,7 @@
       "risk": 999.62,
       "score": 57.0,
       "status": "Watch",
-      "plain_english": "Mean reversion bounce candidate. Place a LIMIT buy near 51.36. Stop at 50.2254 (~1.5 ATR). Score 57."
+      "plain_english": "Mean Reversion (bounce): LIMIT buy near 51.36. Stop 50.2254 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 57."
     },
     {
       "symbol": "QAN.AX",
@@ -1376,7 +1376,7 @@
       "risk": 999.93,
       "score": 57.0,
       "status": "Watch",
-      "plain_english": "Uptrend pullback (value entry): place a LIMIT buy at 10.34 (below/near last close 10.36) to catch a dip toward EMA20. Stop at 10.03. Score 57. Only trade when market is RISK-ON."
+      "plain_english": "Trend Pullback (buy the dip): LIMIT buy at 10.34 (~0.19% below last close 10.36) to catch a pullback toward EMA20. Stop 10.03. If price does not dip to your limit, do not chase. Score 57. Only trade when market is RISK-ON."
     },
     {
       "symbol": "AIA.AX",
@@ -1387,7 +1387,7 @@
       "risk": 999.99,
       "score": 56.0,
       "status": "Watch",
-      "plain_english": "Momentum breakout setup. Use STOP-LIMIT as shown (trigger=7.3821 limit=7.3968). Stop at 7.0263. Score 56. Only trade when market is RISK-ON."
+      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 7.38 (activates only if price breaks up). Limit 7.40 (max pay). Stop 7.0263. If trigger is not hit, no trade. Score 56. Only trade when market is RISK-ON."
     },
     {
       "symbol": "MQG.AX",
@@ -1398,7 +1398,7 @@
       "risk": 997.57,
       "score": 56.0,
       "status": "Watch",
-      "plain_english": "Momentum breakout setup. Use STOP-LIMIT as shown (trigger=222.1645 limit=222.6088). Stop at 205.5384. Score 56. Only trade when market is RISK-ON."
+      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 222.16 (activates only if price breaks up). Limit 222.61 (max pay). Stop 205.5384. If trigger is not hit, no trade. Score 56. Only trade when market is RISK-ON."
     },
     {
       "symbol": "SGH.AX",
@@ -1409,7 +1409,7 @@
       "risk": 997.36,
       "score": 56.0,
       "status": "Watch",
-      "plain_english": "Uptrend pullback (value entry): place a LIMIT buy at 47.77 (below/near last close 47.90) to catch a dip toward EMA20. Stop at 44.95. Score 56. Only trade when market is RISK-ON."
+      "plain_english": "Trend Pullback (buy the dip): LIMIT buy at 47.77 (~0.28% below last close 47.90) to catch a pullback toward EMA20. Stop 44.95. If price does not dip to your limit, do not chase. Score 56. Only trade when market is RISK-ON."
     },
     {
       "symbol": "CSC.AX",
@@ -1420,7 +1420,7 @@
       "risk": 998.7,
       "score": 55.0,
       "status": "Watch",
-      "plain_english": "Mean reversion bounce candidate. Place a LIMIT buy near 15.98. Stop at 14.5754 (~1.5 ATR). Score 55."
+      "plain_english": "Mean Reversion (bounce): LIMIT buy near 15.98. Stop 14.5754 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 55."
     },
     {
       "symbol": "MQG.AX",
@@ -1431,7 +1431,7 @@
       "risk": 995.55,
       "score": 55.0,
       "status": "Watch",
-      "plain_english": "Uptrend pullback (value entry): place a LIMIT buy at 213.08 (below/near last close 216.17) to catch a dip toward EMA20. Stop at 205.54. Score 55. Only trade when market is RISK-ON."
+      "plain_english": "Trend Pullback (buy the dip): LIMIT buy at 213.08 (~1.43% below last close 216.17) to catch a pullback toward EMA20. Stop 205.54. If price does not dip to your limit, do not chase. Score 55. Only trade when market is RISK-ON."
     },
     {
       "symbol": "CPU.AX",
@@ -1442,7 +1442,7 @@
       "risk": 998.98,
       "score": 54.0,
       "status": "Watch",
-      "plain_english": "Mean reversion bounce candidate. Place a LIMIT buy near 30.17. Stop at 28.3893 (~1.5 ATR). Score 54."
+      "plain_english": "Mean Reversion (bounce): LIMIT buy near 30.17. Stop 28.3893 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 54."
     },
     {
       "symbol": "MEZ.AX",
@@ -1453,7 +1453,7 @@
       "risk": 999.89,
       "score": 54.0,
       "status": "Watch",
-      "plain_english": "Uptrend pullback (value entry): place a LIMIT buy at 4.89 (below/near last close 4.91) to catch a dip toward EMA20. Stop at 4.77. Score 54. Only trade when market is RISK-ON."
+      "plain_english": "Trend Pullback (buy the dip): LIMIT buy at 4.89 (~0.42% below last close 4.91) to catch a pullback toward EMA20. Stop 4.77. If price does not dip to your limit, do not chase. Score 54. Only trade when market is RISK-ON."
     },
     {
       "symbol": "SGH.AX",
@@ -1464,7 +1464,7 @@
       "risk": 993.12,
       "score": 54.0,
       "status": "Watch",
-      "plain_english": "Momentum breakout setup. Use STOP-LIMIT as shown (trigger=52.1460 limit=52.2503). Stop at 44.9495. Score 54. Only trade when market is RISK-ON."
+      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 52.15 (activates only if price breaks up). Limit 52.25 (max pay). Stop 44.9495. If trigger is not hit, no trade. Score 54. Only trade when market is RISK-ON."
     },
     {
       "symbol": "STO.AX",
@@ -1475,7 +1475,7 @@
       "risk": 999.97,
       "score": 54.0,
       "status": "Watch",
-      "plain_english": "Uptrend pullback (value entry): place a LIMIT buy at 6.68 (below/near last close 6.70) to catch a dip toward EMA20. Stop at 6.60. Score 54. Only trade when market is RISK-ON."
+      "plain_english": "Trend Pullback (buy the dip): LIMIT buy at 6.68 (~0.30% below last close 6.70) to catch a pullback toward EMA20. Stop 6.60. If price does not dip to your limit, do not chase. Score 54. Only trade when market is RISK-ON."
     },
     {
       "symbol": "ASX.AX",
@@ -1486,7 +1486,7 @@
       "risk": 999.26,
       "score": 53.0,
       "status": "Watch",
-      "plain_english": "Uptrend pullback (value entry): place a LIMIT buy at 54.60 (below/near last close 54.76) to catch a dip toward EMA20. Stop at 52.43. Score 53. Only trade when market is RISK-ON."
+      "plain_english": "Trend Pullback (buy the dip): LIMIT buy at 54.60 (~0.30% below last close 54.76) to catch a pullback toward EMA20. Stop 52.43. If price does not dip to your limit, do not chase. Score 53. Only trade when market is RISK-ON."
     },
     {
       "symbol": "BHP.AX",
@@ -1497,7 +1497,7 @@
       "risk": 997.04,
       "score": 53.0,
       "status": "Watch",
-      "plain_english": "Momentum breakout setup. Use STOP-LIMIT as shown (trigger=52.7979 limit=52.9035). Stop at 48.117. Score 53. Only trade when market is RISK-ON."
+      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 52.80 (activates only if price breaks up). Limit 52.90 (max pay). Stop 48.117. If trigger is not hit, no trade. Score 53. Only trade when market is RISK-ON."
     },
     {
       "symbol": "CBA.AX",
@@ -1508,7 +1508,7 @@
       "risk": 979.95,
       "score": 53.0,
       "status": "Watch",
-      "plain_english": "Momentum breakout setup. Use STOP-LIMIT as shown (trigger=179.2762 limit=179.6348). Stop at 155.9441. Score 53. Only trade when market is RISK-ON."
+      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 179.28 (activates only if price breaks up). Limit 179.63 (max pay). Stop 155.9441. If trigger is not hit, no trade. Score 53. Only trade when market is RISK-ON."
     },
     {
       "symbol": "VAS.AX",
@@ -1519,7 +1519,7 @@
       "risk": 998.87,
       "score": 53.0,
       "status": "Watch",
-      "plain_english": "Mean reversion bounce candidate. Place a LIMIT buy near 110.28. Stop at 108.1682 (~1.5 ATR). Score 53."
+      "plain_english": "Mean Reversion (bounce): LIMIT buy near 110.28. Stop 108.1682 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 53."
     },
     {
       "symbol": "ALD.AX",
@@ -1530,7 +1530,7 @@
       "risk": 999.83,
       "score": 52.0,
       "status": "Watch",
-      "plain_english": "Uptrend pullback (value entry): place a LIMIT buy at 28.82 (below/near last close 28.91) to catch a dip toward EMA20. Stop at 28.07. Score 52. Only trade when market is RISK-ON."
+      "plain_english": "Trend Pullback (buy the dip): LIMIT buy at 28.82 (~0.30% below last close 28.91) to catch a pullback toward EMA20. Stop 28.07. If price does not dip to your limit, do not chase. Score 52. Only trade when market is RISK-ON."
     },
     {
       "symbol": "REH.AX",
@@ -1541,7 +1541,7 @@
       "risk": 999.3,
       "score": 52.0,
       "status": "Watch",
-      "plain_english": "Momentum breakout setup. Use STOP-LIMIT as shown (trigger=15.4261 limit=15.4570). Stop at 13.9369. Score 52. Only trade when market is RISK-ON."
+      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 15.43 (activates only if price breaks up). Limit 15.46 (max pay). Stop 13.9369. If trigger is not hit, no trade. Score 52. Only trade when market is RISK-ON."
     },
     {
       "symbol": "WGX.AX",
@@ -1552,7 +1552,7 @@
       "risk": 999.88,
       "score": 52.0,
       "status": "Watch",
-      "plain_english": "Mean reversion bounce candidate. Place a LIMIT buy near 7.16. Stop at 6.583 (~1.5 ATR). Score 52."
+      "plain_english": "Mean Reversion (bounce): LIMIT buy near 7.16. Stop 6.583 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 52."
     },
     {
       "symbol": "GMG.AX",
@@ -1563,7 +1563,7 @@
       "risk": 996.93,
       "score": 51.0,
       "status": "Watch",
-      "plain_english": "Momentum breakout setup. Use STOP-LIMIT as shown (trigger=31.9456 limit=32.0094). Stop at 28.6335. Score 51. Only trade when market is RISK-ON."
+      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 31.95 (activates only if price breaks up). Limit 32.01 (max pay). Stop 28.6335. If trigger is not hit, no trade. Score 51. Only trade when market is RISK-ON."
     },
     {
       "symbol": "IVV.AX",
@@ -1574,7 +1574,7 @@
       "risk": 998.96,
       "score": 51.0,
       "status": "Watch",
-      "plain_english": "Mean reversion bounce candidate. Place a LIMIT buy near 64.23. Stop at 63.0948 (~1.5 ATR). Score 51."
+      "plain_english": "Mean Reversion (bounce): LIMIT buy near 64.23. Stop 63.0948 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 51."
     },
     {
       "symbol": "NAB.AX",
@@ -1585,7 +1585,7 @@
       "risk": 998.85,
       "score": 51.0,
       "status": "Watch",
-      "plain_english": "Momentum breakout setup. Use STOP-LIMIT as shown (trigger=47.3917 limit=47.4865). Stop at 42.8515. Score 51. Only trade when market is RISK-ON."
+      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 47.39 (activates only if price breaks up). Limit 47.49 (max pay). Stop 42.8515. If trigger is not hit, no trade. Score 51. Only trade when market is RISK-ON."
     },
     {
       "symbol": "VAS.AX",
@@ -1596,7 +1596,7 @@
       "risk": 998.77,
       "score": 51.0,
       "status": "Watch",
-      "plain_english": "Momentum breakout setup. Use STOP-LIMIT as shown (trigger=112.9779 limit=113.2039). Stop at 107.068. Score 51. Only trade when market is RISK-ON."
+      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 112.98 (activates only if price breaks up). Limit 113.20 (max pay). Stop 107.068. If trigger is not hit, no trade. Score 51. Only trade when market is RISK-ON."
     },
     {
       "symbol": "WDS.AX",
@@ -1607,7 +1607,7 @@
       "risk": 999.26,
       "score": 51.0,
       "status": "Watch",
-      "plain_english": "Momentum breakout setup. Use STOP-LIMIT as shown (trigger=26.6898 limit=26.7432). Stop at 25.0781. Score 51. Only trade when market is RISK-ON."
+      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 26.69 (activates only if price breaks up). Limit 26.74 (max pay). Stop 25.0781. If trigger is not hit, no trade. Score 51. Only trade when market is RISK-ON."
     },
     {
       "symbol": "ASX.AX",
@@ -1618,7 +1618,7 @@
       "risk": 997.1,
       "score": 50.0,
       "status": "Watch",
-      "plain_english": "Momentum breakout setup. Use STOP-LIMIT as shown (trigger=58.4348 limit=58.5516). Stop at 52.4281. Score 50. Only trade when market is RISK-ON."
+      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 58.43 (activates only if price breaks up). Limit 58.55 (max pay). Stop 52.4281. If trigger is not hit, no trade. Score 50. Only trade when market is RISK-ON."
     },
     {
       "symbol": "CGF.AX",
@@ -1629,7 +1629,7 @@
       "risk": 999.88,
       "score": 50.0,
       "status": "Watch",
-      "plain_english": "Uptrend pullback (value entry): place a LIMIT buy at 8.46 (below/near last close 8.49) to catch a dip toward EMA20. Stop at 8.18. Score 50. Only trade when market is RISK-ON."
+      "plain_english": "Trend Pullback (buy the dip): LIMIT buy at 8.46 (~0.30% below last close 8.49) to catch a pullback toward EMA20. Stop 8.18. If price does not dip to your limit, do not chase. Score 50. Only trade when market is RISK-ON."
     },
     {
       "symbol": "CSC.AX",
@@ -1640,7 +1640,7 @@
       "risk": 998.78,
       "score": 50.0,
       "status": "Watch",
-      "plain_english": "Momentum breakout setup. Use STOP-LIMIT as shown (trigger=17.8835 limit=17.9193). Stop at 14.9459. Score 50. Only trade when market is RISK-ON."
+      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 17.88 (activates only if price breaks up). Limit 17.92 (max pay). Stop 14.9459. If trigger is not hit, no trade. Score 50. Only trade when market is RISK-ON."
     },
     {
       "symbol": "RHC.AX",
@@ -1651,7 +1651,7 @@
       "risk": 998.62,
       "score": 50.0,
       "status": "Watch",
-      "plain_english": "Momentum breakout setup. Use STOP-LIMIT as shown (trigger=38.1942 limit=38.2706). Stop at 34.952. Score 50. Only trade when market is RISK-ON."
+      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 38.19 (activates only if price breaks up). Limit 38.27 (max pay). Stop 34.952. If trigger is not hit, no trade. Score 50. Only trade when market is RISK-ON."
     },
     {
       "symbol": "SHN.AX",
@@ -1662,7 +1662,7 @@
       "risk": 999.99,
       "score": 50.0,
       "status": "Watch",
-      "plain_english": "Momentum breakout setup. Use STOP-LIMIT as shown (trigger=0.0451 limit=0.0452). Stop at 0.0319. Score 50. Only trade when market is RISK-ON."
+      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 0.05 (activates only if price breaks up). Limit 0.05 (max pay). Stop 0.0319. If trigger is not hit, no trade. Score 50. Only trade when market is RISK-ON."
     },
     {
       "symbol": "YAL.AX",
@@ -1673,7 +1673,7 @@
       "risk": 999.93,
       "score": 50.0,
       "status": "Watch",
-      "plain_english": "Momentum breakout setup. Use STOP-LIMIT as shown (trigger=6.3289 limit=6.3416). Stop at 5.8151. Score 50. Only trade when market is RISK-ON."
+      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 6.33 (activates only if price breaks up). Limit 6.34 (max pay). Stop 5.8151. If trigger is not hit, no trade. Score 50. Only trade when market is RISK-ON."
     },
     {
       "symbol": "JHX.AX",
@@ -1684,7 +1684,7 @@
       "risk": 995.19,
       "score": 48.0,
       "status": "Watch",
-      "plain_english": "Momentum breakout setup. Use STOP-LIMIT as shown (trigger=38.0037 limit=38.0797). Stop at 31.8982. Score 48. Only trade when market is RISK-ON."
+      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 38.00 (activates only if price breaks up). Limit 38.08 (max pay). Stop 31.8982. If trigger is not hit, no trade. Score 48. Only trade when market is RISK-ON."
     },
     {
       "symbol": "MEZ.AX",
@@ -1695,7 +1695,7 @@
       "risk": 999.88,
       "score": 48.0,
       "status": "Watch",
-      "plain_english": "Momentum breakout setup. Use STOP-LIMIT as shown (trigger=4.9849 limit=4.9949). Stop at 4.7968. Score 48. Only trade when market is RISK-ON."
+      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 4.98 (activates only if price breaks up). Limit 4.99 (max pay). Stop 4.7968. If trigger is not hit, no trade. Score 48. Only trade when market is RISK-ON."
     },
     {
       "symbol": "TCL.AX",
@@ -1706,7 +1706,7 @@
       "risk": 999.57,
       "score": 47.0,
       "status": "Watch",
-      "plain_english": "Momentum breakout setup. Use STOP-LIMIT as shown (trigger=14.2426 limit=14.2711). Stop at 13.5235. Score 47. Only trade when market is RISK-ON."
+      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 14.24 (activates only if price breaks up). Limit 14.27 (max pay). Stop 13.5235. If trigger is not hit, no trade. Score 47. Only trade when market is RISK-ON."
     },
     {
       "symbol": "AFI.AX",
@@ -1717,7 +1717,7 @@
       "risk": 999.91,
       "score": 46.0,
       "status": "Watch",
-      "plain_english": "Mean reversion bounce candidate. Place a LIMIT buy near 6.86. Stop at 6.7548 (~1.5 ATR). Score 46."
+      "plain_english": "Mean Reversion (bounce): LIMIT buy near 6.86. Stop 6.7548 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 46."
     },
     {
       "symbol": "VCX.AX",
@@ -1728,7 +1728,7 @@
       "risk": 999.96,
       "score": 46.0,
       "status": "Watch",
-      "plain_english": "Uptrend pullback (value entry): place a LIMIT buy at 2.53 (below/near last close 2.57) to catch a dip toward EMA20. Stop at 2.43. Score 46. Only trade when market is RISK-ON."
+      "plain_english": "Trend Pullback (buy the dip): LIMIT buy at 2.53 (~1.46% below last close 2.57) to catch a pullback toward EMA20. Stop 2.43. If price does not dip to your limit, do not chase. Score 46. Only trade when market is RISK-ON."
     },
     {
       "symbol": "GMG.AX",
@@ -1739,7 +1739,7 @@
       "risk": 999.71,
       "score": 45.0,
       "status": "Watch",
-      "plain_english": "Uptrend pullback (value entry): place a LIMIT buy at 30.71 (below/near last close 31.02) to catch a dip toward EMA20. Stop at 28.63. Score 45. Only trade when market is RISK-ON."
+      "plain_english": "Trend Pullback (buy the dip): LIMIT buy at 30.71 (~0.99% below last close 31.02) to catch a pullback toward EMA20. Stop 28.63. If price does not dip to your limit, do not chase. Score 45. Only trade when market is RISK-ON."
     },
     {
       "symbol": "ORI.AX",
@@ -1750,7 +1750,7 @@
       "risk": 999.71,
       "score": 45.0,
       "status": "Watch",
-      "plain_english": "Momentum breakout setup. Use STOP-LIMIT as shown (trigger=26.5494 limit=26.6025). Stop at 24.7862. Score 45. Only trade when market is RISK-ON."
+      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 26.55 (activates only if price breaks up). Limit 26.60 (max pay). Stop 24.7862. If trigger is not hit, no trade. Score 45. Only trade when market is RISK-ON."
     },
     {
       "symbol": "QBE.AX",
@@ -1761,7 +1761,7 @@
       "risk": 999.79,
       "score": 45.0,
       "status": "Watch",
-      "plain_english": "Mean reversion bounce candidate. Place a LIMIT buy near 19.48. Stop at 18.7804 (~1.5 ATR). Score 45."
+      "plain_english": "Mean Reversion (bounce): LIMIT buy near 19.48. Stop 18.7804 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 45."
     },
     {
       "symbol": "FPH.AX",
@@ -1772,7 +1772,7 @@
       "risk": 999.78,
       "score": 44.0,
       "status": "Watch",
-      "plain_english": "Uptrend pullback (value entry): place a LIMIT buy at 31.03 (below/near last close 31.12) to catch a dip toward EMA20. Stop at 30.80. Score 44. Only trade when market is RISK-ON."
+      "plain_english": "Trend Pullback (buy the dip): LIMIT buy at 31.03 (~0.30% below last close 31.12) to catch a pullback toward EMA20. Stop 30.80. If price does not dip to your limit, do not chase. Score 44. Only trade when market is RISK-ON."
     },
     {
       "symbol": "CHC.AX",
@@ -1783,7 +1783,7 @@
       "risk": 999.93,
       "score": 43.0,
       "status": "Watch",
-      "plain_english": "Uptrend pullback (value entry): place a LIMIT buy at 22.21 (below/near last close 22.28) to catch a dip toward EMA20. Stop at 22.02. Score 43. Only trade when market is RISK-ON."
+      "plain_english": "Trend Pullback (buy the dip): LIMIT buy at 22.21 (~0.30% below last close 22.28) to catch a pullback toward EMA20. Stop 22.02. If price does not dip to your limit, do not chase. Score 43. Only trade when market is RISK-ON."
     },
     {
       "symbol": "ETPMAG.AX",
@@ -1794,7 +1794,7 @@
       "risk": 986.48,
       "score": 43.0,
       "status": "Watch",
-      "plain_english": "Mean reversion bounce candidate. Place a LIMIT buy near 100.39. Stop at 81.7771 (~1.5 ATR). Score 43."
+      "plain_english": "Mean Reversion (bounce): LIMIT buy near 100.39. Stop 81.7771 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 43."
     },
     {
       "symbol": "S32.AX",
@@ -1805,7 +1805,7 @@
       "risk": 999.97,
       "score": 42.0,
       "status": "Watch",
-      "plain_english": "Momentum breakout setup. Use STOP-LIMIT as shown (trigger=4.9247 limit=4.9346). Stop at 4.1954. Score 42. Only trade when market is RISK-ON."
+      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 4.92 (activates only if price breaks up). Limit 4.93 (max pay). Stop 4.1954. If trigger is not hit, no trade. Score 42. Only trade when market is RISK-ON."
     },
     {
       "symbol": "WOR.AX",
@@ -1816,7 +1816,7 @@
       "risk": 999.85,
       "score": 42.0,
       "status": "Watch",
-      "plain_english": "Uptrend pullback (value entry): place a LIMIT buy at 12.99 (below/near last close 13.03) to catch a dip toward EMA20. Stop at 12.43. Score 42. Only trade when market is RISK-ON."
+      "plain_english": "Trend Pullback (buy the dip): LIMIT buy at 12.99 (~0.30% below last close 13.03) to catch a pullback toward EMA20. Stop 12.43. If price does not dip to your limit, do not chase. Score 42. Only trade when market is RISK-ON."
     },
     {
       "symbol": "YAL.AX",
@@ -1827,7 +1827,7 @@
       "risk": 999.89,
       "score": 42.0,
       "status": "Watch",
-      "plain_english": "Uptrend pullback (value entry): place a LIMIT buy at 5.86 (below/near last close 6.07) to catch a dip toward EMA20. Stop at 5.66. Score 42. Only trade when market is RISK-ON."
+      "plain_english": "Trend Pullback (buy the dip): LIMIT buy at 5.86 (~3.47% below last close 6.07) to catch a pullback toward EMA20. Stop 5.66. If price does not dip to your limit, do not chase. Score 42. Only trade when market is RISK-ON."
     },
     {
       "symbol": "WOR.AX",
@@ -1838,7 +1838,7 @@
       "risk": 999.23,
       "score": 41.0,
       "status": "Watch",
-      "plain_english": "Momentum breakout setup. Use STOP-LIMIT as shown (trigger=13.9618 limit=13.9897). Stop at 12.4292. Score 41. Only trade when market is RISK-ON."
+      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 13.96 (activates only if price breaks up). Limit 13.99 (max pay). Stop 12.4292. If trigger is not hit, no trade. Score 41. Only trade when market is RISK-ON."
     },
     {
       "symbol": "AGL.AX",
@@ -1849,7 +1849,7 @@
       "risk": 999.58,
       "score": 40.0,
       "status": "Watch",
-      "plain_english": "Uptrend pullback (value entry): place a LIMIT buy at 9.31 (below/near last close 10.42) to catch a dip toward EMA20. Stop at 8.76. Score 40. Only trade when market is RISK-ON."
+      "plain_english": "Trend Pullback (buy the dip): LIMIT buy at 9.31 (~10.67% below last close 10.42) to catch a pullback toward EMA20. Stop 8.76. If price does not dip to your limit, do not chase. Score 40. Only trade when market is RISK-ON."
     },
     {
       "symbol": "ALQ.AX",
@@ -1860,7 +1860,7 @@
       "risk": 997.42,
       "score": 40.0,
       "status": "Watch",
-      "plain_english": "Momentum breakout setup. Use STOP-LIMIT as shown (trigger=25.3558 limit=25.4066). Stop at 22.6818. Score 40. Only trade when market is RISK-ON."
+      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 25.36 (activates only if price breaks up). Limit 25.41 (max pay). Stop 22.6818. If trigger is not hit, no trade. Score 40. Only trade when market is RISK-ON."
     },
     {
       "symbol": "AMC.AX",
@@ -1871,7 +1871,7 @@
       "risk": 997.68,
       "score": 40.0,
       "status": "Watch",
-      "plain_english": "Uptrend pullback (value entry): place a LIMIT buy at 66.55 (below/near last close 70.06) to catch a dip toward EMA20. Stop at 62.67. Score 40. Only trade when market is RISK-ON."
+      "plain_english": "Trend Pullback (buy the dip): LIMIT buy at 66.55 (~5.01% below last close 70.06) to catch a pullback toward EMA20. Stop 62.67. If price does not dip to your limit, do not chase. Score 40. Only trade when market is RISK-ON."
     },
     {
       "symbol": "BXB.AX",
@@ -1882,7 +1882,7 @@
       "risk": 999.67,
       "score": 40.0,
       "status": "Watch",
-      "plain_english": "Uptrend pullback (value entry): place a LIMIT buy at 22.98 (below/near last close 23.30) to catch a dip toward EMA20. Stop at 21.88. Score 40. Only trade when market is RISK-ON."
+      "plain_english": "Trend Pullback (buy the dip): LIMIT buy at 22.98 (~1.38% below last close 23.30) to catch a pullback toward EMA20. Stop 21.88. If price does not dip to your limit, do not chase. Score 40. Only trade when market is RISK-ON."
     },
     {
       "symbol": "CBA.AX",
@@ -1893,7 +1893,7 @@
       "risk": 996.93,
       "score": 40.0,
       "status": "Watch",
-      "plain_english": "Uptrend pullback (value entry): place a LIMIT buy at 160.40 (below/near last close 176.20) to catch a dip toward EMA20. Stop at 148.80. Score 40. Only trade when market is RISK-ON."
+      "plain_english": "Trend Pullback (buy the dip): LIMIT buy at 160.40 (~8.97% below last close 176.20) to catch a pullback toward EMA20. Stop 148.80. If price does not dip to your limit, do not chase. Score 40. Only trade when market is RISK-ON."
     },
     {
       "symbol": "COL.AX",
@@ -1904,7 +1904,7 @@
       "risk": 999.92,
       "score": 40.0,
       "status": "Watch",
-      "plain_english": "Uptrend pullback (value entry): place a LIMIT buy at 21.60 (below/near last close 22.05) to catch a dip toward EMA20. Stop at 21.11. Score 40. Only trade when market is RISK-ON."
+      "plain_english": "Trend Pullback (buy the dip): LIMIT buy at 21.60 (~2.03% below last close 22.05) to catch a pullback toward EMA20. Stop 21.11. If price does not dip to your limit, do not chase. Score 40. Only trade when market is RISK-ON."
     },
     {
       "symbol": "EDV.AX",
@@ -1915,7 +1915,7 @@
       "risk": 999.69,
       "score": 40.0,
       "status": "Watch",
-      "plain_english": "Momentum breakout setup. Use STOP-LIMIT as shown (trigger=3.9719 limit=3.9798). Stop at 3.611. Score 40. Only trade when market is RISK-ON."
+      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 3.97 (activates only if price breaks up). Limit 3.98 (max pay). Stop 3.611. If trigger is not hit, no trade. Score 40. Only trade when market is RISK-ON."
     },
     {
       "symbol": "LNW.AX",
@@ -1926,7 +1926,7 @@
       "risk": 992.73,
       "score": 40.0,
       "status": "Watch",
-      "plain_english": "Uptrend pullback (value entry): place a LIMIT buy at 137.62 (below/near last close 138.03) to catch a dip toward EMA20. Stop at 129.48. Score 40. Only trade when market is RISK-ON."
+      "plain_english": "Trend Pullback (buy the dip): LIMIT buy at 137.62 (~0.30% below last close 138.03) to catch a pullback toward EMA20. Stop 129.48. If price does not dip to your limit, do not chase. Score 40. Only trade when market is RISK-ON."
     },
     {
       "symbol": "QBE.AX",
@@ -1937,7 +1937,7 @@
       "risk": 999.95,
       "score": 40.0,
       "status": "Watch",
-      "plain_english": "Uptrend pullback (value entry): place a LIMIT buy at 19.42 (below/near last close 19.48) to catch a dip toward EMA20. Stop at 19.22. Score 40. Only trade when market is RISK-ON."
+      "plain_english": "Trend Pullback (buy the dip): LIMIT buy at 19.42 (~0.30% below last close 19.48) to catch a pullback toward EMA20. Stop 19.22. If price does not dip to your limit, do not chase. Score 40. Only trade when market is RISK-ON."
     },
     {
       "symbol": "STO.AX",
@@ -1948,7 +1948,7 @@
       "risk": 999.79,
       "score": 40.0,
       "status": "Watch",
-      "plain_english": "Momentum breakout setup. Use STOP-LIMIT as shown (trigger=7.1012 limit=7.1154). Stop at 6.6048. Score 40. Only trade when market is RISK-ON."
+      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 7.10 (activates only if price breaks up). Limit 7.12 (max pay). Stop 6.6048. If trigger is not hit, no trade. Score 40. Only trade when market is RISK-ON."
     },
     {
       "symbol": "VGS.AX",
@@ -1959,7 +1959,7 @@
       "risk": 999.51,
       "score": 40.0,
       "status": "Watch",
-      "plain_english": "Mean reversion bounce candidate. Place a LIMIT buy near 146.74. Stop at 144.3882 (~1.5 ATR). Score 40."
+      "plain_english": "Mean Reversion (bounce): LIMIT buy near 146.74. Stop 144.3882 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 40."
     },
     {
       "symbol": "WES.AX",
@@ -1970,7 +1970,7 @@
       "risk": 997.55,
       "score": 40.0,
       "status": "Watch",
-      "plain_english": "Uptrend pullback (value entry): place a LIMIT buy at 85.21 (below/near last close 87.69) to catch a dip toward EMA20. Stop at 82.52. Score 40. Only trade when market is RISK-ON."
+      "plain_english": "Trend Pullback (buy the dip): LIMIT buy at 85.21 (~2.83% below last close 87.69) to catch a pullback toward EMA20. Stop 82.52. If price does not dip to your limit, do not chase. Score 40. Only trade when market is RISK-ON."
     },
     {
       "symbol": "A2M.AX",
@@ -1981,7 +1981,7 @@
       "risk": 999.92,
       "score": 39.0,
       "status": "Watch",
-      "plain_english": "Uptrend pullback (value entry): place a LIMIT buy at 8.49 (below/near last close 8.52) to catch a dip toward EMA20. Stop at 8.16. Score 39. Only trade when market is RISK-ON."
+      "plain_english": "Trend Pullback (buy the dip): LIMIT buy at 8.49 (~0.30% below last close 8.52) to catch a pullback toward EMA20. Stop 8.16. If price does not dip to your limit, do not chase. Score 39. Only trade when market is RISK-ON."
     },
     {
       "symbol": "EVN.AX",
@@ -1992,7 +1992,7 @@
       "risk": 999.44,
       "score": 38.0,
       "status": "Watch",
-      "plain_english": "Momentum breakout setup. Use STOP-LIMIT as shown (trigger=16.3489 limit=16.3816). Stop at 13.7796. Score 38. Only trade when market is RISK-ON."
+      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 16.35 (activates only if price breaks up). Limit 16.38 (max pay). Stop 13.7796. If trigger is not hit, no trade. Score 38. Only trade when market is RISK-ON."
     },
     {
       "symbol": "NEM.AX",
@@ -2003,7 +2003,7 @@
       "risk": 990.9,
       "score": 38.0,
       "status": "Watch",
-      "plain_english": "Mean reversion bounce candidate. Place a LIMIT buy near 169.12. Stop at 156.0818 (~1.5 ATR). Score 38."
+      "plain_english": "Mean Reversion (bounce): LIMIT buy near 169.12. Stop 156.0818 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 38."
     },
     {
       "symbol": "SFR.AX",
@@ -2014,7 +2014,7 @@
       "risk": 996.97,
       "score": 38.0,
       "status": "Watch",
-      "plain_english": "Momentum breakout setup. Use STOP-LIMIT as shown (trigger=21.8152 limit=21.8589). Stop at 17.8113. Score 38. Only trade when market is RISK-ON."
+      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 21.82 (activates only if price breaks up). Limit 21.86 (max pay). Stop 17.8113. If trigger is not hit, no trade. Score 38. Only trade when market is RISK-ON."
     },
     {
       "symbol": "NST.AX",
@@ -2025,7 +2025,7 @@
       "risk": 996.04,
       "score": 36.0,
       "status": "Watch",
-      "plain_english": "Momentum breakout setup. Use STOP-LIMIT as shown (trigger=30.3006 limit=30.3612). Stop at 25.97. Score 36. Only trade when market is RISK-ON."
+      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 30.30 (activates only if price breaks up). Limit 30.36 (max pay). Stop 25.97. If trigger is not hit, no trade. Score 36. Only trade when market is RISK-ON."
     },
     {
       "symbol": "NXT.AX",
@@ -2036,7 +2036,7 @@
       "risk": 999.71,
       "score": 36.0,
       "status": "Watch",
-      "plain_english": "Uptrend pullback (value entry): place a LIMIT buy at 13.34 (below/near last close 14.02) to catch a dip toward EMA20. Stop at 12.20. Score 36. Only trade when market is RISK-ON."
+      "plain_english": "Trend Pullback (buy the dip): LIMIT buy at 13.34 (~4.86% below last close 14.02) to catch a pullback toward EMA20. Stop 12.20. If price does not dip to your limit, do not chase. Score 36. Only trade when market is RISK-ON."
     },
     {
       "symbol": "ORG.AX",
@@ -2047,7 +2047,7 @@
       "risk": 999.81,
       "score": 36.0,
       "status": "Watch",
-      "plain_english": "Uptrend pullback (value entry): place a LIMIT buy at 11.42 (below/near last close 12.08) to catch a dip toward EMA20. Stop at 10.74. Score 36. Only trade when market is RISK-ON."
+      "plain_english": "Trend Pullback (buy the dip): LIMIT buy at 11.42 (~5.43% below last close 12.08) to catch a pullback toward EMA20. Stop 10.74. If price does not dip to your limit, do not chase. Score 36. Only trade when market is RISK-ON."
     },
     {
       "symbol": "A2M.AX",
@@ -2058,7 +2058,7 @@
       "risk": 999.86,
       "score": 35.0,
       "status": "Watch",
-      "plain_english": "Mean reversion bounce candidate. Place a LIMIT buy near 8.52. Stop at 8.1246 (~1.5 ATR). Score 35."
+      "plain_english": "Mean Reversion (bounce): LIMIT buy near 8.52. Stop 8.1246 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 35."
     },
     {
       "symbol": "CAR.AX",
@@ -2069,7 +2069,7 @@
       "risk": 999.01,
       "score": 35.0,
       "status": "Watch",
-      "plain_english": "Mean reversion bounce candidate. Place a LIMIT buy near 25.07. Stop at 23.1302 (~1.5 ATR). Score 35."
+      "plain_english": "Mean Reversion (bounce): LIMIT buy near 25.07. Stop 23.1302 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 35."
     },
     {
       "symbol": "QBTC.AX",
@@ -2080,7 +2080,7 @@
       "risk": 998.96,
       "score": 35.0,
       "status": "Watch",
-      "plain_english": "Mean reversion bounce candidate. Place a LIMIT buy near 18.29. Stop at 16.6111 (~1.5 ATR). Score 35."
+      "plain_english": "Mean Reversion (bounce): LIMIT buy near 18.29. Stop 16.6111 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 35."
     },
     {
       "symbol": "SGH.AX",
@@ -2091,7 +2091,7 @@
       "risk": 999.19,
       "score": 35.0,
       "status": "Watch",
-      "plain_english": "Mean reversion bounce candidate. Place a LIMIT buy near 47.9. Stop at 45.3768 (~1.5 ATR). Score 35."
+      "plain_english": "Mean Reversion (bounce): LIMIT buy near 47.9. Stop 45.3768 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 35."
     },
     {
       "symbol": "SOL.AX",
@@ -2102,7 +2102,7 @@
       "risk": 998.78,
       "score": 35.0,
       "status": "Watch",
-      "plain_english": "Mean reversion bounce candidate. Place a LIMIT buy near 37.9. Stop at 36.6593 (~1.5 ATR). Score 35."
+      "plain_english": "Mean Reversion (bounce): LIMIT buy near 37.9. Stop 36.6593 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 35."
     },
     {
       "symbol": "STO.AX",
@@ -2113,7 +2113,7 @@
       "risk": 999.98,
       "score": 35.0,
       "status": "Watch",
-      "plain_english": "Mean reversion bounce candidate. Place a LIMIT buy near 6.7. Stop at 6.4289 (~1.5 ATR). Score 35."
+      "plain_english": "Mean Reversion (bounce): LIMIT buy near 6.7. Stop 6.4289 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 35."
     },
     {
       "symbol": "TLC.AX",
@@ -2124,7 +2124,7 @@
       "risk": 999.98,
       "score": 35.0,
       "status": "Watch",
-      "plain_english": "Mean reversion bounce candidate. Place a LIMIT buy near 5.14. Stop at 4.9573 (~1.5 ATR). Score 35."
+      "plain_english": "Mean Reversion (bounce): LIMIT buy near 5.14. Stop 4.9573 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 35."
     },
     {
       "symbol": "CDA.AX",
@@ -2135,7 +2135,7 @@
       "risk": 998.57,
       "score": 32.0,
       "status": "Watch",
-      "plain_english": "Momentum breakout setup. Use STOP-LIMIT as shown (trigger=40.5413 limit=40.6223). Stop at 33.8841. Score 32. Only trade when market is RISK-ON."
+      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 40.54 (activates only if price breaks up). Limit 40.62 (max pay). Stop 33.8841. If trigger is not hit, no trade. Score 32. Only trade when market is RISK-ON."
     },
     {
       "symbol": "IFT.AX",
@@ -2146,7 +2146,7 @@
       "risk": 999.87,
       "score": 32.0,
       "status": "Watch",
-      "plain_english": "Momentum breakout setup. Use STOP-LIMIT as shown (trigger=9.8796 limit=9.8993). Stop at 8.7536. Score 32. Only trade when market is RISK-ON."
+      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 9.88 (activates only if price breaks up). Limit 9.90 (max pay). Stop 8.7536. If trigger is not hit, no trade. Score 32. Only trade when market is RISK-ON."
     },
     {
       "symbol": "TLC.AX",
@@ -2157,7 +2157,7 @@
       "risk": 999.99,
       "score": 32.0,
       "status": "Watch",
-      "plain_english": "Uptrend pullback (value entry): place a LIMIT buy at 5.12 (below/near last close 5.14) to catch a dip toward EMA20. Stop at 5.04. Score 32. Only trade when market is RISK-ON."
+      "plain_english": "Trend Pullback (buy the dip): LIMIT buy at 5.12 (~0.30% below last close 5.14) to catch a pullback toward EMA20. Stop 5.04. If price does not dip to your limit, do not chase. Score 32. Only trade when market is RISK-ON."
     },
     {
       "symbol": "AZJ.AX",
@@ -2168,7 +2168,7 @@
       "risk": 999.84,
       "score": 31.0,
       "status": "Watch",
-      "plain_english": "Momentum breakout setup. Use STOP-LIMIT as shown (trigger=3.7512 limit=3.7587). Stop at 3.4912. Score 31. Only trade when market is RISK-ON."
+      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 3.75 (activates only if price breaks up). Limit 3.76 (max pay). Stop 3.4912. If trigger is not hit, no trade. Score 31. Only trade when market is RISK-ON."
     },
     {
       "symbol": "QAN.AX",
@@ -2179,7 +2179,7 @@
       "risk": 999.79,
       "score": 31.0,
       "status": "Watch",
-      "plain_english": "Momentum breakout setup. Use STOP-LIMIT as shown (trigger=10.7221 limit=10.7435). Stop at 10.0363. Score 31. Only trade when market is RISK-ON."
+      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 10.72 (activates only if price breaks up). Limit 10.74 (max pay). Stop 10.0363. If trigger is not hit, no trade. Score 31. Only trade when market is RISK-ON."
     },
     {
       "symbol": "SOL.AX",
@@ -2190,7 +2190,7 @@
       "risk": 999.19,
       "score": 31.0,
       "status": "Watch",
-      "plain_english": "Momentum breakout setup. Use STOP-LIMIT as shown (trigger=39.8692 limit=39.9490). Stop at 36.5932. Score 31. Only trade when market is RISK-ON."
+      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 39.87 (activates only if price breaks up). Limit 39.95 (max pay). Stop 36.5932. If trigger is not hit, no trade. Score 31. Only trade when market is RISK-ON."
     },
     {
       "symbol": "TPG.AX",
@@ -2201,7 +2201,7 @@
       "risk": 999.98,
       "score": 31.0,
       "status": "Watch",
-      "plain_english": "Uptrend pullback (value entry): place a LIMIT buy at 3.79 (below/near last close 3.80) to catch a dip toward EMA20. Stop at 3.75. Score 31. Only trade when market is RISK-ON."
+      "plain_english": "Trend Pullback (buy the dip): LIMIT buy at 3.79 (~0.30% below last close 3.80) to catch a pullback toward EMA20. Stop 3.75. If price does not dip to your limit, do not chase. Score 31. Only trade when market is RISK-ON."
     },
     {
       "symbol": "AMP.AX",
@@ -2212,7 +2212,7 @@
       "risk": 999.46,
       "score": 30.0,
       "status": "Watch",
-      "plain_english": "Momentum breakout setup. Use STOP-LIMIT as shown (trigger=1.8380 limit=1.8417). Stop at 1.1752. Score 30. Only trade when market is RISK-ON."
+      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 1.84 (activates only if price breaks up). Limit 1.84 (max pay). Stop 1.1752. If trigger is not hit, no trade. Score 30. Only trade when market is RISK-ON."
     },
     {
       "symbol": "BSL.AX",
@@ -2223,7 +2223,7 @@
       "risk": 999.1,
       "score": 30.0,
       "status": "Watch",
-      "plain_english": "Momentum breakout setup. Use STOP-LIMIT as shown (trigger=31.5143 limit=31.5773). Stop at 28.3425. Score 30. Only trade when market is RISK-ON."
+      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 31.51 (activates only if price breaks up). Limit 31.58 (max pay). Stop 28.3425. If trigger is not hit, no trade. Score 30. Only trade when market is RISK-ON."
     },
     {
       "symbol": "COH.AX",
@@ -2234,7 +2234,7 @@
       "risk": 997.41,
       "score": 30.0,
       "status": "Watch",
-      "plain_english": "Momentum breakout setup. Use STOP-LIMIT as shown (trigger=279.1851 limit=279.7434). Stop at 196.0678. Score 30. Only trade when market is RISK-ON."
+      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 279.19 (activates only if price breaks up). Limit 279.74 (max pay). Stop 196.0678. If trigger is not hit, no trade. Score 30. Only trade when market is RISK-ON."
     },
     {
       "symbol": "IFT.AX",
@@ -2245,7 +2245,7 @@
       "risk": 999.75,
       "score": 30.0,
       "status": "Watch",
-      "plain_english": "Uptrend pullback (value entry): place a LIMIT buy at 9.53 (below/near last close 9.58) to catch a dip toward EMA20. Stop at 8.75. Score 30. Only trade when market is RISK-ON."
+      "plain_english": "Trend Pullback (buy the dip): LIMIT buy at 9.53 (~0.54% below last close 9.58) to catch a pullback toward EMA20. Stop 8.75. If price does not dip to your limit, do not chase. Score 30. Only trade when market is RISK-ON."
     },
     {
       "symbol": "IGO.AX",
@@ -2256,7 +2256,7 @@
       "risk": 999.96,
       "score": 30.0,
       "status": "Watch",
-      "plain_english": "Momentum breakout setup. Use STOP-LIMIT as shown (trigger=9.5285 limit=9.5476). Stop at 7.7649. Score 30. Only trade when market is RISK-ON."
+      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 9.53 (activates only if price breaks up). Limit 9.55 (max pay). Stop 7.7649. If trigger is not hit, no trade. Score 30. Only trade when market is RISK-ON."
     },
     {
       "symbol": "MCY.AX",
@@ -2267,7 +2267,7 @@
       "risk": 999.76,
       "score": 30.0,
       "status": "Watch",
-      "plain_english": "Momentum breakout setup. Use STOP-LIMIT as shown (trigger=5.6569 limit=5.6682). Stop at 5.3361. Score 30. Only trade when market is RISK-ON."
+      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 5.66 (activates only if price breaks up). Limit 5.67 (max pay). Stop 5.3361. If trigger is not hit, no trade. Score 30. Only trade when market is RISK-ON."
     },
     {
       "symbol": "NXG.AX",
@@ -2278,7 +2278,7 @@
       "risk": 998.55,
       "score": 30.0,
       "status": "Watch",
-      "plain_english": "Momentum breakout setup. Use STOP-LIMIT as shown (trigger=20.5314 limit=20.5725). Stop at 15.3034. Score 30. Only trade when market is RISK-ON."
+      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 20.53 (activates only if price breaks up). Limit 20.57 (max pay). Stop 15.3034. If trigger is not hit, no trade. Score 30. Only trade when market is RISK-ON."
     },
     {
       "symbol": "PME.AX",
@@ -2289,7 +2289,7 @@
       "risk": 994.16,
       "score": 30.0,
       "status": "Watch",
-      "plain_english": "Momentum breakout setup. Use STOP-LIMIT as shown (trigger=214.9830 limit=215.4130). Stop at 115.5674. Score 30. Only trade when market is RISK-ON."
+      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 214.98 (activates only if price breaks up). Limit 215.41 (max pay). Stop 115.5674. If trigger is not hit, no trade. Score 30. Only trade when market is RISK-ON."
     },
     {
       "symbol": "TLC.AX",
@@ -2300,7 +2300,7 @@
       "risk": 999.76,
       "score": 30.0,
       "status": "Watch",
-      "plain_english": "Momentum breakout setup. Use STOP-LIMIT as shown (trigger=5.3309 limit=5.3416). Stop at 5.0396. Score 30. Only trade when market is RISK-ON."
+      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 5.33 (activates only if price breaks up). Limit 5.34 (max pay). Stop 5.0396. If trigger is not hit, no trade. Score 30. Only trade when market is RISK-ON."
     },
     {
       "symbol": "TNE.AX",
@@ -2311,7 +2311,7 @@
       "risk": 998.9,
       "score": 30.0,
       "status": "Watch",
-      "plain_english": "Momentum breakout setup. Use STOP-LIMIT as shown (trigger=27.8533 limit=27.9090). Stop at 19.8621. Score 30. Only trade when market is RISK-ON."
+      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 27.85 (activates only if price breaks up). Limit 27.91 (max pay). Stop 19.8621. If trigger is not hit, no trade. Score 30. Only trade when market is RISK-ON."
     },
     {
       "symbol": "VGE.AX",
@@ -2322,7 +2322,7 @@
       "risk": 997.19,
       "score": 30.0,
       "status": "Watch",
-      "plain_english": "Momentum breakout setup. Use STOP-LIMIT as shown (trigger=93.2790 limit=93.4656). Stop at 88.4146. Score 30. Only trade when market is RISK-ON."
+      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 93.28 (activates only if price breaks up). Limit 93.47 (max pay). Stop 88.4146. If trigger is not hit, no trade. Score 30. Only trade when market is RISK-ON."
     },
     {
       "symbol": "WHC.AX",
@@ -2333,7 +2333,7 @@
       "risk": 998.85,
       "score": 30.0,
       "status": "Watch",
-      "plain_english": "Momentum breakout setup. Use STOP-LIMIT as shown (trigger=9.6188 limit=9.6380). Stop at 8.2372. Score 30. Only trade when market is RISK-ON."
+      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 9.62 (activates only if price breaks up). Limit 9.64 (max pay). Stop 8.2372. If trigger is not hit, no trade. Score 30. Only trade when market is RISK-ON."
     },
     {
       "symbol": "WTC.AX",
@@ -2344,7 +2344,7 @@
       "risk": 993.7,
       "score": 30.0,
       "status": "Watch",
-      "plain_english": "Momentum breakout setup. Use STOP-LIMIT as shown (trigger=68.2341 limit=68.3706). Stop at 39.8427. Score 30. Only trade when market is RISK-ON."
+      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 68.23 (activates only if price breaks up). Limit 68.37 (max pay). Stop 39.8427. If trigger is not hit, no trade. Score 30. Only trade when market is RISK-ON."
     },
     {
       "symbol": "MCY.AX",
@@ -2355,7 +2355,7 @@
       "risk": 999.98,
       "score": 28.0,
       "status": "Watch",
-      "plain_english": "Mean reversion bounce candidate. Place a LIMIT buy near 5.36. Stop at 5.2164 (~1.5 ATR). Score 28."
+      "plain_english": "Mean Reversion (bounce): LIMIT buy near 5.36. Stop 5.2164 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 28."
     },
     {
       "symbol": "AMP.AX",
@@ -2366,7 +2366,7 @@
       "risk": 999.91,
       "score": 27.0,
       "status": "Watch",
-      "plain_english": "Uptrend pullback (value entry): place a LIMIT buy at 1.39 (below/near last close 1.40) to catch a dip toward EMA20. Stop at 1.18. Score 27. Only trade when market is RISK-ON."
+      "plain_english": "Trend Pullback (buy the dip): LIMIT buy at 1.39 (~0.30% below last close 1.40) to catch a pullback toward EMA20. Stop 1.18. If price does not dip to your limit, do not chase. Score 27. Only trade when market is RISK-ON."
     },
     {
       "symbol": "BEN.AX",
@@ -2377,7 +2377,7 @@
       "risk": 999.88,
       "score": 26.0,
       "status": "Watch",
-      "plain_english": "Uptrend pullback (value entry): place a LIMIT buy at 11.20 (below/near last close 11.45) to catch a dip toward EMA20. Stop at 10.90. Score 26. Only trade when market is RISK-ON."
+      "plain_english": "Trend Pullback (buy the dip): LIMIT buy at 11.20 (~2.21% below last close 11.45) to catch a pullback toward EMA20. Stop 10.90. If price does not dip to your limit, do not chase. Score 26. Only trade when market is RISK-ON."
     },
     {
       "symbol": "BPT.AX",
@@ -2388,7 +2388,7 @@
       "risk": 999.99,
       "score": 26.0,
       "status": "Watch",
-      "plain_english": "Uptrend pullback (value entry): place a LIMIT buy at 1.07 (below/near last close 1.07) to catch a dip toward EMA20. Stop at 1.06. Score 26. Only trade when market is RISK-ON."
+      "plain_english": "Trend Pullback (buy the dip): LIMIT buy at 1.07 (~0.30% below last close 1.07) to catch a pullback toward EMA20. Stop 1.06. If price does not dip to your limit, do not chase. Score 26. Only trade when market is RISK-ON."
     },
     {
       "symbol": "GPT.AX",
@@ -2399,7 +2399,7 @@
       "risk": 999.96,
       "score": 26.0,
       "status": "Watch",
-      "plain_english": "Uptrend pullback (value entry): place a LIMIT buy at 5.01 (below/near last close 5.03) to catch a dip toward EMA20. Stop at 4.93. Score 26. Only trade when market is RISK-ON."
+      "plain_english": "Trend Pullback (buy the dip): LIMIT buy at 5.01 (~0.30% below last close 5.03) to catch a pullback toward EMA20. Stop 4.93. If price does not dip to your limit, do not chase. Score 26. Only trade when market is RISK-ON."
     },
     {
       "symbol": "AAI.AX",
@@ -2410,7 +2410,7 @@
       "risk": 997.38,
       "score": 25.0,
       "status": "Watch",
-      "plain_english": "Mean reversion bounce candidate. Place a LIMIT buy near 86.58. Stop at 80.6432 (~1.5 ATR). Score 25."
+      "plain_english": "Mean Reversion (bounce): LIMIT buy near 86.58. Stop 80.6432 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 25."
     },
     {
       "symbol": "AGL.AX",
@@ -2421,7 +2421,7 @@
       "risk": 999.77,
       "score": 25.0,
       "status": "Watch",
-      "plain_english": "Mean reversion bounce candidate. Place a LIMIT buy near 10.42. Stop at 10.0595 (~1.5 ATR). Score 25."
+      "plain_english": "Mean Reversion (bounce): LIMIT buy near 10.42. Stop 10.0595 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 25."
     },
     {
       "symbol": "AMC.AX",
@@ -2432,7 +2432,7 @@
       "risk": 998.07,
       "score": 25.0,
       "status": "Watch",
-      "plain_english": "Mean reversion bounce candidate. Place a LIMIT buy near 70.06. Stop at 67.5834 (~1.5 ATR). Score 25."
+      "plain_english": "Mean Reversion (bounce): LIMIT buy near 70.06. Stop 67.5834 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 25."
     },
     {
       "symbol": "ANZ.AX",
@@ -2443,7 +2443,7 @@
       "risk": 999.81,
       "score": 25.0,
       "status": "Watch",
-      "plain_english": "Mean reversion bounce candidate. Place a LIMIT buy near 40.89. Stop at 39.4698 (~1.5 ATR). Score 25."
+      "plain_english": "Mean Reversion (bounce): LIMIT buy near 40.89. Stop 39.4698 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 25."
     },
     {
       "symbol": "APA.AX",
@@ -2454,7 +2454,7 @@
       "risk": 999.83,
       "score": 25.0,
       "status": "Watch",
-      "plain_english": "Mean reversion bounce candidate. Place a LIMIT buy near 9.07. Stop at 8.7925 (~1.5 ATR). Score 25."
+      "plain_english": "Mean Reversion (bounce): LIMIT buy near 9.07. Stop 8.7925 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 25."
     },
     {
       "symbol": "ARG.AX",
@@ -2465,7 +2465,7 @@
       "risk": 999.97,
       "score": 25.0,
       "status": "Watch",
-      "plain_english": "Mean reversion bounce candidate. Place a LIMIT buy near 9.04. Stop at 8.9104 (~1.5 ATR). Score 25."
+      "plain_english": "Mean Reversion (bounce): LIMIT buy near 9.04. Stop 8.9104 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 25."
     },
     {
       "symbol": "BHP.AX",
@@ -2476,7 +2476,7 @@
       "risk": 999.72,
       "score": 25.0,
       "status": "Watch",
-      "plain_english": "Mean reversion bounce candidate. Place a LIMIT buy near 51.13. Stop at 48.8318 (~1.5 ATR). Score 25."
+      "plain_english": "Mean Reversion (bounce): LIMIT buy near 51.13. Stop 48.8318 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 25."
     },
     {
       "symbol": "BSL.AX",
@@ -2487,7 +2487,7 @@
       "risk": 998.97,
       "score": 25.0,
       "status": "Watch",
-      "plain_english": "Mean reversion bounce candidate. Place a LIMIT buy near 29.16. Stop at 28.095 (~1.5 ATR). Score 25."
+      "plain_english": "Mean Reversion (bounce): LIMIT buy near 29.16. Stop 28.095 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 25."
     },
     {
       "symbol": "CBA.AX",
@@ -2498,7 +2498,7 @@
       "risk": 995.83,
       "score": 25.0,
       "status": "Watch",
-      "plain_english": "Mean reversion bounce candidate. Place a LIMIT buy near 176.2. Stop at 170.1646 (~1.5 ATR). Score 25."
+      "plain_english": "Mean Reversion (bounce): LIMIT buy near 176.2. Stop 170.1646 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 25."
     },
     {
       "symbol": "CEN.AX",
@@ -2509,7 +2509,7 @@
       "risk": 999.63,
       "score": 25.0,
       "status": "Watch",
-      "plain_english": "Mean reversion bounce candidate. Place a LIMIT buy near 8.31. Stop at 7.8868 (~1.5 ATR). Score 25."
+      "plain_english": "Mean Reversion (bounce): LIMIT buy near 8.31. Stop 7.8868 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 25."
     },
     {
       "symbol": "COL.AX",
@@ -2520,7 +2520,7 @@
       "risk": 999.95,
       "score": 25.0,
       "status": "Watch",
-      "plain_english": "Mean reversion bounce candidate. Place a LIMIT buy near 22.05. Stop at 21.4789 (~1.5 ATR). Score 25."
+      "plain_english": "Mean Reversion (bounce): LIMIT buy near 22.05. Stop 21.4789 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 25."
     },
     {
       "symbol": "EDV.AX",
@@ -2531,7 +2531,7 @@
       "risk": 999.92,
       "score": 25.0,
       "status": "Watch",
-      "plain_english": "Mean reversion bounce candidate. Place a LIMIT buy near 3.83. Stop at 3.7159 (~1.5 ATR). Score 25."
+      "plain_english": "Mean Reversion (bounce): LIMIT buy near 3.83. Stop 3.7159 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 25."
     },
     {
       "symbol": "HVN.AX",
@@ -2542,7 +2542,7 @@
       "risk": 999.98,
       "score": 25.0,
       "status": "Watch",
-      "plain_english": "Uptrend pullback (value entry): place a LIMIT buy at 6.18 (below/near last close 6.20) to catch a dip toward EMA20. Stop at 6.15. Score 25. Only trade when market is RISK-ON."
+      "plain_english": "Trend Pullback (buy the dip): LIMIT buy at 6.18 (~0.30% below last close 6.20) to catch a pullback toward EMA20. Stop 6.15. If price does not dip to your limit, do not chase. Score 25. Only trade when market is RISK-ON."
     },
     {
       "symbol": "JBH.AX",
@@ -2553,7 +2553,7 @@
       "risk": 998.99,
       "score": 25.0,
       "status": "Watch",
-      "plain_english": "Momentum breakout setup. Use STOP-LIMIT as shown (trigger=91.2128 limit=91.3952). Stop at 75.3558. Score 25. Only trade when market is RISK-ON."
+      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 91.21 (activates only if price breaks up). Limit 91.40 (max pay). Stop 75.3558. If trigger is not hit, no trade. Score 25. Only trade when market is RISK-ON."
     },
     {
       "symbol": "JHX.AX",
@@ -2564,7 +2564,7 @@
       "risk": 999.51,
       "score": 25.0,
       "status": "Watch",
-      "plain_english": "Mean reversion bounce candidate. Place a LIMIT buy near 36.54. Stop at 34.7293 (~1.5 ATR). Score 25."
+      "plain_english": "Mean Reversion (bounce): LIMIT buy near 36.54. Stop 34.7293 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 25."
     },
     {
       "symbol": "LYC.AX",
@@ -2575,7 +2575,7 @@
       "risk": 999.41,
       "score": 25.0,
       "status": "Watch",
-      "plain_english": "Mean reversion bounce candidate. Place a LIMIT buy near 15.97. Stop at 14.485 (~1.5 ATR). Score 25."
+      "plain_english": "Mean Reversion (bounce): LIMIT buy near 15.97. Stop 14.485 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 25."
     },
     {
       "symbol": "MIN.AX",
@@ -2586,7 +2586,7 @@
       "risk": 996.87,
       "score": 25.0,
       "status": "Watch",
-      "plain_english": "Mean reversion bounce candidate. Place a LIMIT buy near 52.2. Stop at 47.6893 (~1.5 ATR). Score 25."
+      "plain_english": "Mean Reversion (bounce): LIMIT buy near 52.2. Stop 47.6893 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 25."
     },
     {
       "symbol": "NAB.AX",
@@ -2597,7 +2597,7 @@
       "risk": 999.38,
       "score": 25.0,
       "status": "Watch",
-      "plain_english": "Mean reversion bounce candidate. Place a LIMIT buy near 46.01. Stop at 44.6391 (~1.5 ATR). Score 25."
+      "plain_english": "Mean Reversion (bounce): LIMIT buy near 46.01. Stop 44.6391 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 25."
     },
     {
       "symbol": "NST.AX",
@@ -2608,7 +2608,7 @@
       "risk": 999.9,
       "score": 25.0,
       "status": "Watch",
-      "plain_english": "Mean reversion bounce candidate. Place a LIMIT buy near 28.37. Stop at 26.39 (~1.5 ATR). Score 25."
+      "plain_english": "Mean Reversion (bounce): LIMIT buy near 28.37. Stop 26.39 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 25."
     },
     {
       "symbol": "ORG.AX",
@@ -2619,7 +2619,7 @@
       "risk": 999.63,
       "score": 25.0,
       "status": "Watch",
-      "plain_english": "Mean reversion bounce candidate. Place a LIMIT buy near 12.08. Stop at 11.5973 (~1.5 ATR). Score 25."
+      "plain_english": "Mean Reversion (bounce): LIMIT buy near 12.08. Stop 11.5973 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 25."
     },
     {
       "symbol": "ORI.AX",
@@ -2630,7 +2630,7 @@
       "risk": 999.17,
       "score": 25.0,
       "status": "Watch",
-      "plain_english": "Mean reversion bounce candidate. Place a LIMIT buy near 25.8. Stop at 24.8475 (~1.5 ATR). Score 25."
+      "plain_english": "Mean Reversion (bounce): LIMIT buy near 25.8. Stop 24.8475 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 25."
     },
     {
       "symbol": "PLS.AX",
@@ -2641,7 +2641,7 @@
       "risk": 999.79,
       "score": 25.0,
       "status": "Watch",
-      "plain_english": "Mean reversion bounce candidate. Place a LIMIT buy near 4.23. Stop at 3.8336 (~1.5 ATR). Score 25."
+      "plain_english": "Mean Reversion (bounce): LIMIT buy near 4.23. Stop 3.8336 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 25."
     },
     {
       "symbol": "RIO.AX",
@@ -2652,7 +2652,7 @@
       "risk": 999.03,
       "score": 25.0,
       "status": "Watch",
-      "plain_english": "Mean reversion bounce candidate. Place a LIMIT buy near 169.74. Stop at 162.8973 (~1.5 ATR). Score 25."
+      "plain_english": "Mean Reversion (bounce): LIMIT buy near 169.74. Stop 162.8973 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 25."
     },
     {
       "symbol": "SHN.AX",
@@ -2663,7 +2663,7 @@
       "risk": 1000.0,
       "score": 25.0,
       "status": "Watch",
-      "plain_english": "Mean reversion bounce candidate. Place a LIMIT buy near 0.04. Stop at 0.0335 (~1.5 ATR). Score 25."
+      "plain_english": "Mean Reversion (bounce): LIMIT buy near 0.04. Stop 0.0335 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 25."
     },
     {
       "symbol": "TCL.AX",
@@ -2674,7 +2674,7 @@
       "risk": 999.76,
       "score": 25.0,
       "status": "Watch",
-      "plain_english": "Mean reversion bounce candidate. Place a LIMIT buy near 14.0. Stop at 13.6009 (~1.5 ATR). Score 25."
+      "plain_english": "Mean Reversion (bounce): LIMIT buy near 14.0. Stop 13.6009 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 25."
     },
     {
       "symbol": "TLS.AX",
@@ -2685,7 +2685,7 @@
       "risk": 999.94,
       "score": 25.0,
       "status": "Watch",
-      "plain_english": "Mean reversion bounce candidate. Place a LIMIT buy near 4.94. Stop at 4.8382 (~1.5 ATR). Score 25."
+      "plain_english": "Mean Reversion (bounce): LIMIT buy near 4.94. Stop 4.8382 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 25."
     },
     {
       "symbol": "VCX.AX",
@@ -2696,7 +2696,7 @@
       "risk": 999.98,
       "score": 25.0,
       "status": "Watch",
-      "plain_english": "Mean reversion bounce candidate. Place a LIMIT buy near 2.57. Stop at 2.4955 (~1.5 ATR). Score 25."
+      "plain_english": "Mean Reversion (bounce): LIMIT buy near 2.57. Stop 2.4955 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 25."
     },
     {
       "symbol": "WBC.AX",
@@ -2707,7 +2707,7 @@
       "risk": 999.97,
       "score": 25.0,
       "status": "Watch",
-      "plain_english": "Mean reversion bounce candidate. Place a LIMIT buy near 40.52. Stop at 39.0623 (~1.5 ATR). Score 25."
+      "plain_english": "Mean Reversion (bounce): LIMIT buy near 40.52. Stop 39.0623 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 25."
     },
     {
       "symbol": "WDS.AX",
@@ -2718,7 +2718,7 @@
       "risk": 999.35,
       "score": 25.0,
       "status": "Watch",
-      "plain_english": "Mean reversion bounce candidate. Place a LIMIT buy near 25.78. Stop at 24.9888 (~1.5 ATR). Score 25."
+      "plain_english": "Mean Reversion (bounce): LIMIT buy near 25.78. Stop 24.9888 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 25."
     },
     {
       "symbol": "WOW.AX",
@@ -2729,7 +2729,7 @@
       "risk": 999.64,
       "score": 25.0,
       "status": "Watch",
-      "plain_english": "Mean reversion bounce candidate. Place a LIMIT buy near 31.94. Stop at 31.1627 (~1.5 ATR). Score 25."
+      "plain_english": "Mean Reversion (bounce): LIMIT buy near 31.94. Stop 31.1627 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 25."
     },
     {
       "symbol": "YAL.AX",
@@ -2740,7 +2740,7 @@
       "risk": 999.92,
       "score": 25.0,
       "status": "Watch",
-      "plain_english": "Mean reversion bounce candidate. Place a LIMIT buy near 6.07. Stop at 5.7405 (~1.5 ATR). Score 25."
+      "plain_english": "Mean Reversion (bounce): LIMIT buy near 6.07. Stop 5.7405 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 25."
     },
     {
       "symbol": "VGS.AX",
@@ -2751,7 +2751,7 @@
       "risk": 999.9,
       "score": 24.0,
       "status": "Watch",
-      "plain_english": "Uptrend pullback (value entry): place a LIMIT buy at 146.30 (below/near last close 146.74) to catch a dip toward EMA20. Stop at 146.09. Score 24. Only trade when market is RISK-ON."
+      "plain_english": "Trend Pullback (buy the dip): LIMIT buy at 146.30 (~0.30% below last close 146.74) to catch a pullback toward EMA20. Stop 146.09. If price does not dip to your limit, do not chase. Score 24. Only trade when market is RISK-ON."
     },
     {
       "symbol": "AAI.AX",
@@ -2762,7 +2762,7 @@
       "risk": 994.34,
       "score": 23.0,
       "status": "Watch",
-      "plain_english": "Momentum breakout setup. Use STOP-LIMIT as shown (trigger=97.7524 limit=97.9479). Stop at 78.6305. Score 23. Only trade when market is RISK-ON."
+      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 97.75 (activates only if price breaks up). Limit 97.95 (max pay). Stop 78.6305. If trigger is not hit, no trade. Score 23. Only trade when market is RISK-ON."
     },
     {
       "symbol": "IFT.AX",
@@ -2773,7 +2773,7 @@
       "risk": 999.93,
       "score": 23.0,
       "status": "Watch",
-      "plain_english": "Mean reversion bounce candidate. Place a LIMIT buy near 9.58. Stop at 9.2114 (~1.5 ATR). Score 23."
+      "plain_english": "Mean Reversion (bounce): LIMIT buy near 9.58. Stop 9.2114 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 23."
     },
     {
       "symbol": "NDQ.AX",
@@ -2784,7 +2784,7 @@
       "risk": 998.82,
       "score": 22.0,
       "status": "Watch",
-      "plain_english": "Momentum breakout setup. Use STOP-LIMIT as shown (trigger=56.5792 limit=56.6924). Stop at 51.0609. Score 22. Only trade when market is RISK-ON."
+      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 56.58 (activates only if price breaks up). Limit 56.69 (max pay). Stop 51.0609. If trigger is not hit, no trade. Score 22. Only trade when market is RISK-ON."
     },
     {
       "symbol": "SEK.AX",
@@ -2795,7 +2795,7 @@
       "risk": 999.52,
       "score": 22.0,
       "status": "Watch",
-      "plain_english": "Momentum breakout setup. Use STOP-LIMIT as shown (trigger=23.3097 limit=23.3563). Stop at 15.6211. Score 22. Only trade when market is RISK-ON."
+      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 23.31 (activates only if price breaks up). Limit 23.36 (max pay). Stop 15.6211. If trigger is not hit, no trade. Score 22. Only trade when market is RISK-ON."
     },
     {
       "symbol": "CSL.AX",
@@ -2806,7 +2806,7 @@
       "risk": 995.57,
       "score": 21.0,
       "status": "Watch",
-      "plain_english": "Momentum breakout setup. Use STOP-LIMIT as shown (trigger=185.1739 limit=185.5442). Stop at 148.3011. Score 21. Only trade when market is RISK-ON."
+      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 185.17 (activates only if price breaks up). Limit 185.54 (max pay). Stop 148.3011. If trigger is not hit, no trade. Score 21. Only trade when market is RISK-ON."
     },
     {
       "symbol": "360.AX",
@@ -2817,7 +2817,7 @@
       "risk": 991.15,
       "score": 20.0,
       "status": "Watch",
-      "plain_english": "Momentum breakout setup. Use STOP-LIMIT as shown (trigger=34.7339 limit=34.8034). Stop at 21.34. Score 20. Only trade when market is RISK-ON."
+      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 34.73 (activates only if price breaks up). Limit 34.80 (max pay). Stop 21.34. If trigger is not hit, no trade. Score 20. Only trade when market is RISK-ON."
     },
     {
       "symbol": "A2M.AX",
@@ -2828,7 +2828,7 @@
       "risk": 998.84,
       "score": 20.0,
       "status": "Watch",
-      "plain_english": "Momentum breakout setup. Use STOP-LIMIT as shown (trigger=9.5084 limit=9.5275). Stop at 8.1641. Score 20. Only trade when market is RISK-ON."
+      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 9.51 (activates only if price breaks up). Limit 9.53 (max pay). Stop 8.1641. If trigger is not hit, no trade. Score 20. Only trade when market is RISK-ON."
     },
     {
       "symbol": "IVV.AX",
@@ -2839,7 +2839,7 @@
       "risk": 999.97,
       "score": 20.0,
       "status": "Watch",
-      "plain_english": "Uptrend pullback (value entry): place a LIMIT buy at 64.04 (below/near last close 64.23) to catch a dip toward EMA20. Stop at 63.94. Score 20. Only trade when market is RISK-ON."
+      "plain_english": "Trend Pullback (buy the dip): LIMIT buy at 64.04 (~0.30% below last close 64.23) to catch a pullback toward EMA20. Stop 63.94. If price does not dip to your limit, do not chase. Score 20. Only trade when market is RISK-ON."
     },
     {
       "symbol": "LNW.AX",
@@ -2850,7 +2850,7 @@
       "risk": 957.74,
       "score": 20.0,
       "status": "Watch",
-      "plain_english": "Momentum breakout setup. Use STOP-LIMIT as shown (trigger=182.6864 limit=183.0518). Stop at 129.4787. Score 20. Only trade when market is RISK-ON."
+      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 182.69 (activates only if price breaks up). Limit 183.05 (max pay). Stop 129.4787. If trigger is not hit, no trade. Score 20. Only trade when market is RISK-ON."
     },
     {
       "symbol": "LYC.AX",
@@ -2861,7 +2861,7 @@
       "risk": 999.71,
       "score": 20.0,
       "status": "Watch",
-      "plain_english": "Momentum breakout setup. Use STOP-LIMIT as shown (trigger=17.8434 limit=17.8791). Stop at 13.9075. Score 20. Only trade when market is RISK-ON."
+      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 17.84 (activates only if price breaks up). Limit 17.88 (max pay). Stop 13.9075. If trigger is not hit, no trade. Score 20. Only trade when market is RISK-ON."
     },
     {
       "symbol": "MCY.AX",
@@ -2872,7 +2872,7 @@
       "risk": 1000.0,
       "score": 20.0,
       "status": "Watch",
-      "plain_english": "Uptrend pullback (value entry): place a LIMIT buy at 5.34 (below/near last close 5.36) to catch a dip toward EMA20. Stop at 5.34. Score 20. Only trade when market is RISK-ON."
+      "plain_english": "Trend Pullback (buy the dip): LIMIT buy at 5.34 (~0.30% below last close 5.36) to catch a pullback toward EMA20. Stop 5.34. If price does not dip to your limit, do not chase. Score 20. Only trade when market is RISK-ON."
     },
     {
       "symbol": "MPL.AX",
@@ -2883,7 +2883,7 @@
       "risk": 999.98,
       "score": 20.0,
       "status": "Watch",
-      "plain_english": "Uptrend pullback (value entry): place a LIMIT buy at 4.47 (below/near last close 4.48) to catch a dip toward EMA20. Stop at 4.41. Score 20. Only trade when market is RISK-ON."
+      "plain_english": "Trend Pullback (buy the dip): LIMIT buy at 4.47 (~0.30% below last close 4.48) to catch a pullback toward EMA20. Stop 4.41. If price does not dip to your limit, do not chase. Score 20. Only trade when market is RISK-ON."
     },
     {
       "symbol": "MPL.AX",
@@ -2894,7 +2894,7 @@
       "risk": 999.73,
       "score": 20.0,
       "status": "Watch",
-      "plain_english": "Momentum breakout setup. Use STOP-LIMIT as shown (trigger=4.7442 limit=4.7537). Stop at 4.4145. Score 20. Only trade when market is RISK-ON."
+      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 4.74 (activates only if price breaks up). Limit 4.75 (max pay). Stop 4.4145. If trigger is not hit, no trade. Score 20. Only trade when market is RISK-ON."
     },
     {
       "symbol": "NDQ.AX",
@@ -2905,7 +2905,7 @@
       "risk": 999.97,
       "score": 20.0,
       "status": "Watch",
-      "plain_english": "Uptrend pullback (value entry): place a LIMIT buy at 51.21 (below/near last close 51.36) to catch a dip toward EMA20. Stop at 51.06. Score 20. Only trade when market is RISK-ON."
+      "plain_english": "Trend Pullback (buy the dip): LIMIT buy at 51.21 (~0.30% below last close 51.36) to catch a pullback toward EMA20. Stop 51.06. If price does not dip to your limit, do not chase. Score 20. Only trade when market is RISK-ON."
     },
     {
       "symbol": "NEM.AX",
@@ -2916,7 +2916,7 @@
       "risk": 967.03,
       "score": 20.0,
       "status": "Watch",
-      "plain_english": "Momentum breakout setup. Use STOP-LIMIT as shown (trigger=191.1116 limit=191.4938). Stop at 149.067. Score 20. Only trade when market is RISK-ON."
+      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 191.11 (activates only if price breaks up). Limit 191.49 (max pay). Stop 149.067. If trigger is not hit, no trade. Score 20. Only trade when market is RISK-ON."
     },
     {
       "symbol": "RMS.AX",
@@ -2927,7 +2927,7 @@
       "risk": 999.92,
       "score": 20.0,
       "status": "Watch",
-      "plain_english": "Momentum breakout setup. Use STOP-LIMIT as shown (trigger=5.1554 limit=5.1657). Stop at 4.1958. Score 20. Only trade when market is RISK-ON."
+      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 5.16 (activates only if price breaks up). Limit 5.17 (max pay). Stop 4.1958. If trigger is not hit, no trade. Score 20. Only trade when market is RISK-ON."
     },
     {
       "symbol": "SCG.AX",
@@ -2938,7 +2938,7 @@
       "risk": 999.93,
       "score": 20.0,
       "status": "Watch",
-      "plain_english": "Uptrend pullback (value entry): place a LIMIT buy at 3.78 (below/near last close 3.79) to catch a dip toward EMA20. Stop at 3.69. Score 20. Only trade when market is RISK-ON."
+      "plain_english": "Trend Pullback (buy the dip): LIMIT buy at 3.78 (~0.30% below last close 3.79) to catch a pullback toward EMA20. Stop 3.69. If price does not dip to your limit, do not chase. Score 20. Only trade when market is RISK-ON."
     },
     {
       "symbol": "SIG.AX",
@@ -2949,7 +2949,7 @@
       "risk": 999.81,
       "score": 20.0,
       "status": "Watch",
-      "plain_english": "Momentum breakout setup. Use STOP-LIMIT as shown (trigger=3.1996 limit=3.2060). Stop at 2.9947. Score 20. Only trade when market is RISK-ON."
+      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 3.20 (activates only if price breaks up). Limit 3.21 (max pay). Stop 2.9947. If trigger is not hit, no trade. Score 20. Only trade when market is RISK-ON."
     },
     {
       "symbol": "WGX.AX",
@@ -2960,7 +2960,7 @@
       "risk": 999.58,
       "score": 20.0,
       "status": "Watch",
-      "plain_english": "Momentum breakout setup. Use STOP-LIMIT as shown (trigger=7.9237 limit=7.9395). Stop at 6.5038. Score 20. Only trade when market is RISK-ON."
+      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 7.92 (activates only if price breaks up). Limit 7.94 (max pay). Stop 6.5038. If trigger is not hit, no trade. Score 20. Only trade when market is RISK-ON."
     },
     {
       "symbol": "SCG.AX",
@@ -2971,7 +2971,7 @@
       "risk": 999.57,
       "score": 19.0,
       "status": "Watch",
-      "plain_english": "Momentum breakout setup. Use STOP-LIMIT as shown (trigger=4.1419 limit=4.1502). Stop at 3.6906. Score 19. Only trade when market is RISK-ON."
+      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 4.14 (activates only if price breaks up). Limit 4.15 (max pay). Stop 3.6906. If trigger is not hit, no trade. Score 19. Only trade when market is RISK-ON."
     },
     {
       "symbol": "WOR.AX",
@@ -2982,7 +2982,7 @@
       "risk": 999.77,
       "score": 19.0,
       "status": "Watch",
-      "plain_english": "Mean reversion bounce candidate. Place a LIMIT buy near 13.03. Stop at 12.4252 (~1.5 ATR). Score 19."
+      "plain_english": "Mean Reversion (bounce): LIMIT buy near 13.03. Stop 12.4252 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 19."
     },
     {
       "symbol": "DXS.AX",
@@ -2993,7 +2993,7 @@
       "risk": 999.72,
       "score": 18.0,
       "status": "Watch",
-      "plain_english": "Momentum breakout setup. Use STOP-LIMIT as shown (trigger=7.0210 limit=7.0350). Stop at 6.1284. Score 18. Only trade when market is RISK-ON."
+      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 7.02 (activates only if price breaks up). Limit 7.04 (max pay). Stop 6.1284. If trigger is not hit, no trade. Score 18. Only trade when market is RISK-ON."
     },
     {
       "symbol": "RMD.AX",
@@ -3004,7 +3004,7 @@
       "risk": 995.25,
       "score": 18.0,
       "status": "Watch",
-      "plain_english": "Momentum breakout setup. Use STOP-LIMIT as shown (trigger=39.1564 limit=39.2347). Stop at 33.8342. Score 18. Only trade when market is RISK-ON."
+      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 39.16 (activates only if price breaks up). Limit 39.23 (max pay). Stop 33.8342. If trigger is not hit, no trade. Score 18. Only trade when market is RISK-ON."
     },
     {
       "symbol": "SUN.AX",
@@ -3015,7 +3015,7 @@
       "risk": 999.96,
       "score": 17.0,
       "status": "Watch",
-      "plain_english": "Uptrend pullback (value entry): place a LIMIT buy at 15.89 (below/near last close 15.94) to catch a dip toward EMA20. Stop at 15.78. Score 17. Only trade when market is RISK-ON."
+      "plain_english": "Trend Pullback (buy the dip): LIMIT buy at 15.89 (~0.30% below last close 15.94) to catch a pullback toward EMA20. Stop 15.78. If price does not dip to your limit, do not chase. Score 17. Only trade when market is RISK-ON."
     },
     {
       "symbol": "HUB.AX",
@@ -3026,7 +3026,7 @@
       "risk": 995.98,
       "score": 16.0,
       "status": "Watch",
-      "plain_english": "Momentum breakout setup. Use STOP-LIMIT as shown (trigger=107.0301 limit=107.2442). Stop at 73.8309. Score 16. Only trade when market is RISK-ON."
+      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 107.03 (activates only if price breaks up). Limit 107.24 (max pay). Stop 73.8309. If trigger is not hit, no trade. Score 16. Only trade when market is RISK-ON."
     },
     {
       "symbol": "IAG.AX",
@@ -3037,7 +3037,7 @@
       "risk": 999.61,
       "score": 16.0,
       "status": "Watch",
-      "plain_english": "Momentum breakout setup. Use STOP-LIMIT as shown (trigger=7.8936 limit=7.9094). Stop at 6.7204. Score 16. Only trade when market is RISK-ON."
+      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 7.89 (activates only if price breaks up). Limit 7.91 (max pay). Stop 6.7204. If trigger is not hit, no trade. Score 16. Only trade when market is RISK-ON."
     },
     {
       "symbol": "QBE.AX",
@@ -3048,7 +3048,7 @@
       "risk": 999.04,
       "score": 16.0,
       "status": "Watch",
-      "plain_english": "Momentum breakout setup. Use STOP-LIMIT as shown (trigger=20.6016 limit=20.6428). Stop at 19.2784. Score 16. Only trade when market is RISK-ON."
+      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 20.60 (activates only if price breaks up). Limit 20.64 (max pay). Stop 19.2784. If trigger is not hit, no trade. Score 16. Only trade when market is RISK-ON."
     },
     {
       "symbol": "ALX.AX",
@@ -3059,7 +3059,7 @@
       "risk": 999.83,
       "score": 15.0,
       "status": "Watch",
-      "plain_english": "Uptrend pullback (value entry): place a LIMIT buy at 4.59 (below/near last close 4.60) to catch a dip toward EMA20. Stop at 4.32. Score 15. Only trade when market is RISK-ON."
+      "plain_english": "Trend Pullback (buy the dip): LIMIT buy at 4.59 (~0.30% below last close 4.60) to catch a pullback toward EMA20. Stop 4.32. If price does not dip to your limit, do not chase. Score 15. Only trade when market is RISK-ON."
     },
     {
       "symbol": "CAR.AX",
@@ -3070,7 +3070,7 @@
       "risk": 997.47,
       "score": 15.0,
       "status": "Watch",
-      "plain_english": "Momentum breakout setup. Use STOP-LIMIT as shown (trigger=30.8322 limit=30.8939). Stop at 24.0467. Score 15. Only trade when market is RISK-ON."
+      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 30.83 (activates only if price breaks up). Limit 30.89 (max pay). Stop 24.0467. If trigger is not hit, no trade. Score 15. Only trade when market is RISK-ON."
     },
     {
       "symbol": "XYZ.AX",
@@ -3081,7 +3081,7 @@
       "risk": 983.05,
       "score": 15.0,
       "status": "Watch",
-      "plain_english": "Momentum breakout setup. Use STOP-LIMIT as shown (trigger=99.1766 limit=99.3750). Stop at 68.4563. Score 15. Only trade when market is RISK-ON."
+      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 99.18 (activates only if price breaks up). Limit 99.38 (max pay). Stop 68.4563. If trigger is not hit, no trade. Score 15. Only trade when market is RISK-ON."
     },
     {
       "symbol": "HVN.AX",
@@ -3092,7 +3092,7 @@
       "risk": 999.53,
       "score": 14.0,
       "status": "Watch",
-      "plain_english": "Momentum breakout setup. Use STOP-LIMIT as shown (trigger=6.8505 limit=6.8642). Stop at 6.1486. Score 14. Only trade when market is RISK-ON."
+      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 6.85 (activates only if price breaks up). Limit 6.86 (max pay). Stop 6.1486. If trigger is not hit, no trade. Score 14. Only trade when market is RISK-ON."
     },
     {
       "symbol": "IAG.AX",
@@ -3103,7 +3103,7 @@
       "risk": 999.87,
       "score": 14.0,
       "status": "Watch",
-      "plain_english": "Uptrend pullback (value entry): place a LIMIT buy at 6.85 (below/near last close 6.87) to catch a dip toward EMA20. Stop at 6.72. Score 14. Only trade when market is RISK-ON."
+      "plain_english": "Trend Pullback (buy the dip): LIMIT buy at 6.85 (~0.30% below last close 6.87) to catch a pullback toward EMA20. Stop 6.72. If price does not dip to your limit, do not chase. Score 14. Only trade when market is RISK-ON."
     },
     {
       "symbol": "IVV.AX",
@@ -3114,7 +3114,7 @@
       "risk": 998.51,
       "score": 14.0,
       "status": "Watch",
-      "plain_english": "Momentum breakout setup. Use STOP-LIMIT as shown (trigger=69.3675 limit=69.5062). Stop at 63.9408. Score 14. Only trade when market is RISK-ON."
+      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 69.37 (activates only if price breaks up). Limit 69.51 (max pay). Stop 63.9408. If trigger is not hit, no trade. Score 14. Only trade when market is RISK-ON."
     },
     {
       "symbol": "REA.AX",
@@ -3125,7 +3125,7 @@
       "risk": 950.81,
       "score": 14.0,
       "status": "Watch",
-      "plain_english": "Momentum breakout setup. Use STOP-LIMIT as shown (trigger=197.6412 limit=198.0364). Stop at 147.5983. Score 14. Only trade when market is RISK-ON."
+      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 197.64 (activates only if price breaks up). Limit 198.04 (max pay). Stop 147.5983. If trigger is not hit, no trade. Score 14. Only trade when market is RISK-ON."
     },
     {
       "symbol": "FPH.AX",
@@ -3136,7 +3136,7 @@
       "risk": 997.52,
       "score": 13.0,
       "status": "Watch",
-      "plain_english": "Momentum breakout setup. Use STOP-LIMIT as shown (trigger=34.6336 limit=34.7029). Stop at 30.797. Score 13. Only trade when market is RISK-ON."
+      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 34.63 (activates only if price breaks up). Limit 34.70 (max pay). Stop 30.797. If trigger is not hit, no trade. Score 13. Only trade when market is RISK-ON."
     },
     {
       "symbol": "RMD.AX",
@@ -3147,7 +3147,7 @@
       "risk": 999.98,
       "score": 13.0,
       "status": "Watch",
-      "plain_english": "Uptrend pullback (value entry): place a LIMIT buy at 34.07 (below/near last close 34.17) to catch a dip toward EMA20. Stop at 33.83. Score 13. Only trade when market is RISK-ON."
+      "plain_english": "Trend Pullback (buy the dip): LIMIT buy at 34.07 (~0.30% below last close 34.17) to catch a pullback toward EMA20. Stop 33.83. If price does not dip to your limit, do not chase. Score 13. Only trade when market is RISK-ON."
     },
     {
       "symbol": "ALL.AX",
@@ -3158,7 +3158,7 @@
       "risk": 999.52,
       "score": 12.0,
       "status": "Watch",
-      "plain_english": "Momentum breakout setup. Use STOP-LIMIT as shown (trigger=58.9162 limit=59.0341). Stop at 48.0519. Score 12. Only trade when market is RISK-ON."
+      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 58.92 (activates only if price breaks up). Limit 59.03 (max pay). Stop 48.0519. If trigger is not hit, no trade. Score 12. Only trade when market is RISK-ON."
     },
     {
       "symbol": "GPT.AX",
@@ -3169,7 +3169,7 @@
       "risk": 999.89,
       "score": 12.0,
       "status": "Watch",
-      "plain_english": "Mean reversion bounce candidate. Place a LIMIT buy near 5.03. Stop at 4.8591 (~1.5 ATR). Score 12."
+      "plain_english": "Mean Reversion (bounce): LIMIT buy near 5.03. Stop 4.8591 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 12."
     },
     {
       "symbol": "GYG.AX",
@@ -3180,7 +3180,7 @@
       "risk": 997.55,
       "score": 12.0,
       "status": "Watch",
-      "plain_english": "Momentum breakout setup. Use STOP-LIMIT as shown (trigger=24.2927 limit=24.3412). Stop at 18.3193. Score 12. Only trade when market is RISK-ON."
+      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 24.29 (activates only if price breaks up). Limit 24.34 (max pay). Stop 18.3193. If trigger is not hit, no trade. Score 12. Only trade when market is RISK-ON."
     },
     {
       "symbol": "MGR.AX",
@@ -3191,7 +3191,7 @@
       "risk": 999.99,
       "score": 12.0,
       "status": "Watch",
-      "plain_english": "Momentum breakout setup. Use STOP-LIMIT as shown (trigger=2.0561 limit=2.0603). Stop at 1.8802. Score 12. Only trade when market is RISK-ON."
+      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 2.06 (activates only if price breaks up). Limit 2.06 (max pay). Stop 1.8802. If trigger is not hit, no trade. Score 12. Only trade when market is RISK-ON."
     },
     {
       "symbol": "VGS.AX",
@@ -3202,7 +3202,7 @@
       "risk": 996.15,
       "score": 12.0,
       "status": "Watch",
-      "plain_english": "Momentum breakout setup. Use STOP-LIMIT as shown (trigger=156.3577 limit=156.6704). Stop at 146.088. Score 12. Only trade when market is RISK-ON."
+      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 156.36 (activates only if price breaks up). Limit 156.67 (max pay). Stop 146.088. If trigger is not hit, no trade. Score 12. Only trade when market is RISK-ON."
     },
     {
       "symbol": "AFI.AX",
@@ -3213,7 +3213,7 @@
       "risk": 999.88,
       "score": 10.0,
       "status": "Watch",
-      "plain_english": "Momentum breakout setup. Use STOP-LIMIT as shown (trigger=7.0944 limit=7.1086). Stop at 6.7775. Score 10. Only trade when market is RISK-ON."
+      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 7.09 (activates only if price breaks up). Limit 7.11 (max pay). Stop 6.7775. If trigger is not hit, no trade. Score 10. Only trade when market is RISK-ON."
     },
     {
       "symbol": "ALX.AX",
@@ -3224,7 +3224,7 @@
       "risk": 999.38,
       "score": 10.0,
       "status": "Watch",
-      "plain_english": "Momentum breakout setup. Use STOP-LIMIT as shown (trigger=4.9849 limit=4.9949). Stop at 4.3155. Score 10. Only trade when market is RISK-ON."
+      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 4.98 (activates only if price breaks up). Limit 4.99 (max pay). Stop 4.3155. If trigger is not hit, no trade. Score 10. Only trade when market is RISK-ON."
     },
     {
       "symbol": "CGF.AX",
@@ -3235,7 +3235,7 @@
       "risk": 999.14,
       "score": 10.0,
       "status": "Watch",
-      "plain_english": "Momentum breakout setup. Use STOP-LIMIT as shown (trigger=9.3781 limit=9.3968). Stop at 8.1757. Score 10. Only trade when market is RISK-ON."
+      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 9.38 (activates only if price breaks up). Limit 9.40 (max pay). Stop 8.1757. If trigger is not hit, no trade. Score 10. Only trade when market is RISK-ON."
     },
     {
       "symbol": "CPU.AX",
@@ -3246,7 +3246,7 @@
       "risk": 996.11,
       "score": 10.0,
       "status": "Watch",
-      "plain_english": "Momentum breakout setup. Use STOP-LIMIT as shown (trigger=35.7870 limit=35.8586). Stop at 29.7132. Score 10. Only trade when market is RISK-ON."
+      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 35.79 (activates only if price breaks up). Limit 35.86 (max pay). Stop 29.7132. If trigger is not hit, no trade. Score 10. Only trade when market is RISK-ON."
     },
     {
       "symbol": "ETPMAG.AX",
@@ -3257,7 +3257,7 @@
       "risk": 963.3,
       "score": 10.0,
       "status": "Watch",
-      "plain_english": "Momentum breakout setup. Use STOP-LIMIT as shown (trigger=156.3577 limit=156.6704). Stop at 82.2579. Score 10. Only trade when market is RISK-ON."
+      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 156.36 (activates only if price breaks up). Limit 156.67 (max pay). Stop 82.2579. If trigger is not hit, no trade. Score 10. Only trade when market is RISK-ON."
     },
     {
       "symbol": "MIN.AX",
@@ -3268,7 +3268,7 @@
       "risk": 997.53,
       "score": 10.0,
       "status": "Watch",
-      "plain_english": "Momentum breakout setup. Use STOP-LIMIT as shown (trigger=65.9874 limit=66.1193). Stop at 49.8982. Score 10. Only trade when market is RISK-ON."
+      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 65.99 (activates only if price breaks up). Limit 66.12 (max pay). Stop 49.8982. If trigger is not hit, no trade. Score 10. Only trade when market is RISK-ON."
     },
     {
       "symbol": "NWS.AX",
@@ -3279,7 +3279,7 @@
       "risk": 997.69,
       "score": 10.0,
       "status": "Watch",
-      "plain_english": "Momentum breakout setup. Use STOP-LIMIT as shown (trigger=46.2082 limit=46.3006). Stop at 35.5945. Score 10. Only trade when market is RISK-ON."
+      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 46.21 (activates only if price breaks up). Limit 46.30 (max pay). Stop 35.5945. If trigger is not hit, no trade. Score 10. Only trade when market is RISK-ON."
     },
     {
       "symbol": "PLS.AX",
@@ -3290,7 +3290,7 @@
       "risk": 999.59,
       "score": 10.0,
       "status": "Watch",
-      "plain_english": "Momentum breakout setup. Use STOP-LIMIT as shown (trigger=5.1755 limit=5.1858). Stop at 3.8739. Score 10. Only trade when market is RISK-ON."
+      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 5.18 (activates only if price breaks up). Limit 5.19 (max pay). Stop 3.8739. If trigger is not hit, no trade. Score 10. Only trade when market is RISK-ON."
     },
     {
       "symbol": "QBTC.AX",
@@ -3301,7 +3301,7 @@
       "risk": 995.99,
       "score": 10.0,
       "status": "Watch",
-      "plain_english": "Momentum breakout setup. Use STOP-LIMIT as shown (trigger=28.8864 limit=28.9442). Stop at 16.7402. Score 10. Only trade when market is RISK-ON."
+      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 28.89 (activates only if price breaks up). Limit 28.94 (max pay). Stop 16.7402. If trigger is not hit, no trade. Score 10. Only trade when market is RISK-ON."
     },
     {
       "symbol": "SGP.AX",
@@ -3312,7 +3312,7 @@
       "risk": 999.91,
       "score": 10.0,
       "status": "Watch",
-      "plain_english": "Momentum breakout setup. Use STOP-LIMIT as shown (trigger=5.5817 limit=5.5929). Stop at 5.035. Score 10. Only trade when market is RISK-ON."
+      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 5.58 (activates only if price breaks up). Limit 5.59 (max pay). Stop 5.035. If trigger is not hit, no trade. Score 10. Only trade when market is RISK-ON."
     },
     {
       "symbol": "SUN.AX",
@@ -3323,7 +3323,7 @@
       "risk": 999.42,
       "score": 10.0,
       "status": "Watch",
-      "plain_english": "Momentum breakout setup. Use STOP-LIMIT as shown (trigger=17.2516 limit=17.2861). Stop at 15.784. Score 10. Only trade when market is RISK-ON."
+      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 17.25 (activates only if price breaks up). Limit 17.29 (max pay). Stop 15.784. If trigger is not hit, no trade. Score 10. Only trade when market is RISK-ON."
     },
     {
       "symbol": "TPG.AX",
@@ -3334,7 +3334,7 @@
       "risk": 999.87,
       "score": 10.0,
       "status": "Watch",
-      "plain_english": "Momentum breakout setup. Use STOP-LIMIT as shown (trigger=3.9919 limit=3.9999). Stop at 3.7488. Score 10. Only trade when market is RISK-ON."
+      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 3.99 (activates only if price breaks up). Limit 4.00 (max pay). Stop 3.7488. If trigger is not hit, no trade. Score 10. Only trade when market is RISK-ON."
     },
     {
       "symbol": "AFI.AX",
@@ -3345,7 +3345,7 @@
       "risk": 999.96,
       "score": 9.0,
       "status": "Watch",
-      "plain_english": "Uptrend pullback (value entry): place a LIMIT buy at 6.84 (below/near last close 6.86) to catch a dip toward EMA20. Stop at 6.78. Score 9. Only trade when market is RISK-ON."
+      "plain_english": "Trend Pullback (buy the dip): LIMIT buy at 6.84 (~0.30% below last close 6.86) to catch a pullback toward EMA20. Stop 6.78. If price does not dip to your limit, do not chase. Score 9. Only trade when market is RISK-ON."
     },
     {
       "symbol": "QAN.AX",
@@ -3356,7 +3356,7 @@
       "risk": 999.7,
       "score": 9.0,
       "status": "Watch",
-      "plain_english": "Mean reversion bounce candidate. Place a LIMIT buy near 10.36. Stop at 10.038 (~1.5 ATR). Score 9."
+      "plain_english": "Mean Reversion (bounce): LIMIT buy near 10.36. Stop 10.038 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 9."
     },
     {
       "symbol": "ASX.AX",
@@ -3367,7 +3367,7 @@
       "risk": 998.98,
       "score": 8.0,
       "status": "Watch",
-      "plain_english": "Mean reversion bounce candidate. Place a LIMIT buy near 54.76. Stop at 52.4687 (~1.5 ATR). Score 8."
+      "plain_english": "Mean Reversion (bounce): LIMIT buy near 54.76. Stop 52.4687 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 8."
     },
     {
       "symbol": "GPT.AX",
@@ -3378,7 +3378,7 @@
       "risk": 999.86,
       "score": 7.0,
       "status": "Watch",
-      "plain_english": "Momentum breakout setup. Use STOP-LIMIT as shown (trigger=5.6268 limit=5.6381). Stop at 4.9315. Score 7. Only trade when market is RISK-ON."
+      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 5.63 (activates only if price breaks up). Limit 5.64 (max pay). Stop 4.9315. If trigger is not hit, no trade. Score 7. Only trade when market is RISK-ON."
     },
     {
       "symbol": "MGR.AX",
@@ -3389,7 +3389,7 @@
       "risk": 999.98,
       "score": 7.0,
       "status": "Watch",
-      "plain_english": "Uptrend pullback (value entry): place a LIMIT buy at 1.90 (below/near last close 1.91) to catch a dip toward EMA20. Stop at 1.88. Score 7. Only trade when market is RISK-ON."
+      "plain_english": "Trend Pullback (buy the dip): LIMIT buy at 1.90 (~0.30% below last close 1.91) to catch a pullback toward EMA20. Stop 1.88. If price does not dip to your limit, do not chase. Score 7. Only trade when market is RISK-ON."
     },
     {
       "symbol": "SGP.AX",
@@ -3400,7 +3400,7 @@
       "risk": 999.89,
       "score": 6.0,
       "status": "Watch",
-      "plain_english": "Uptrend pullback (value entry): place a LIMIT buy at 5.15 (below/near last close 5.17) to catch a dip toward EMA20. Stop at 5.04. Score 6. Only trade when market is RISK-ON."
+      "plain_english": "Trend Pullback (buy the dip): LIMIT buy at 5.15 (~0.30% below last close 5.17) to catch a pullback toward EMA20. Stop 5.04. If price does not dip to your limit, do not chase. Score 6. Only trade when market is RISK-ON."
     },
     {
       "symbol": "BPT.AX",
@@ -3411,7 +3411,7 @@
       "risk": 999.94,
       "score": 5.0,
       "status": "Watch",
-      "plain_english": "Momentum breakout setup. Use STOP-LIMIT as shown (trigger=1.2788 limit=1.2814). Stop at 1.0597. Score 5. Only trade when market is RISK-ON."
+      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 1.28 (activates only if price breaks up). Limit 1.28 (max pay). Stop 1.0597. If trigger is not hit, no trade. Score 5. Only trade when market is RISK-ON."
     },
     {
       "symbol": "REA.AX",
@@ -3422,7 +3422,7 @@
       "risk": 991.73,
       "score": 4.0,
       "status": "Watch",
-      "plain_english": "Uptrend pullback (value entry): place a LIMIT buy at 157.62 (below/near last close 158.09) to catch a dip toward EMA20. Stop at 147.60. Score 4. Only trade when market is RISK-ON."
+      "plain_english": "Trend Pullback (buy the dip): LIMIT buy at 157.62 (~0.30% below last close 158.09) to catch a pullback toward EMA20. Stop 147.60. If price does not dip to your limit, do not chase. Score 4. Only trade when market is RISK-ON."
     },
     {
       "symbol": "FMG.AX",
@@ -3433,7 +3433,7 @@
       "risk": 998.95,
       "score": 3.0,
       "status": "Watch",
-      "plain_english": "Momentum breakout setup. Use STOP-LIMIT as shown (trigger=23.1693 limit=23.2156). Stop at 20.9245. Score 3. Only trade when market is RISK-ON."
+      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 23.17 (activates only if price breaks up). Limit 23.22 (max pay). Stop 20.9245. If trigger is not hit, no trade. Score 3. Only trade when market is RISK-ON."
     },
     {
       "symbol": "NWSLV.AX",
@@ -3444,7 +3444,7 @@
       "risk": 999.99,
       "score": 3.0,
       "status": "Watch",
-      "plain_english": "Uptrend pullback (value entry): place a LIMIT buy at 37.39 (below/near last close 37.50) to catch a dip toward EMA20. Stop at 37.49. Score 3. Only trade when market is RISK-ON."
+      "plain_english": "Trend Pullback (buy the dip): LIMIT buy at 37.39 (~0.30% below last close 37.50) to catch a pullback toward EMA20. Stop 37.49. If price does not dip to your limit, do not chase. Score 3. Only trade when market is RISK-ON."
     },
     {
       "symbol": "XRO.AX",
@@ -3455,7 +3455,7 @@
       "risk": 983.68,
       "score": 3.0,
       "status": "Watch",
-      "plain_english": "Momentum breakout setup. Use STOP-LIMIT as shown (trigger=106.3180 limit=106.5306). Stop at 71.1865. Score 3. Only trade when market is RISK-ON."
+      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 106.32 (activates only if price breaks up). Limit 106.53 (max pay). Stop 71.1865. If trigger is not hit, no trade. Score 3. Only trade when market is RISK-ON."
     },
     {
       "symbol": "SHL.AX",
@@ -3466,7 +3466,7 @@
       "risk": 998.66,
       "score": 2.0,
       "status": "Watch",
-      "plain_english": "Momentum breakout setup. Use STOP-LIMIT as shown (trigger=23.8915 limit=23.9392). Stop at 20.7804. Score 2. Only trade when market is RISK-ON."
+      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 23.89 (activates only if price breaks up). Limit 23.94 (max pay). Stop 20.7804. If trigger is not hit, no trade. Score 2. Only trade when market is RISK-ON."
     },
     {
       "symbol": "CHC.AX",
@@ -3477,7 +3477,7 @@
       "risk": 999.06,
       "score": 1.0,
       "status": "Watch",
-      "plain_english": "Momentum breakout setup. Use STOP-LIMIT as shown (trigger=24.5936 limit=24.6427). Stop at 22.0187. Score 1. Only trade when market is RISK-ON."
+      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 24.59 (activates only if price breaks up). Limit 24.64 (max pay). Stop 22.0187. If trigger is not hit, no trade. Score 1. Only trade when market is RISK-ON."
     },
     {
       "symbol": "360.AX",
@@ -3488,7 +3488,7 @@
       "risk": 999.49,
       "score": 0.0,
       "status": "Watch",
-      "plain_english": "Uptrend pullback (value entry): place a LIMIT buy at 21.95 (below/near last close 22.02) to catch a dip toward EMA20. Stop at 21.34. Score 0. Only trade when market is RISK-ON."
+      "plain_english": "Trend Pullback (buy the dip): LIMIT buy at 21.95 (~0.30% below last close 22.02) to catch a pullback toward EMA20. Stop 21.34. If price does not dip to your limit, do not chase. Score 0. Only trade when market is RISK-ON."
     },
     {
       "symbol": "ALD.AX",
@@ -3499,7 +3499,7 @@
       "risk": 997.38,
       "score": 0.0,
       "status": "Watch",
-      "plain_english": "Momentum breakout setup. Use STOP-LIMIT as shown (trigger=30.8824 limit=30.9441). Stop at 28.1498. Score 0. Only trade when market is RISK-ON."
+      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 30.88 (activates only if price breaks up). Limit 30.94 (max pay). Stop 28.1498. If trigger is not hit, no trade. Score 0. Only trade when market is RISK-ON."
     },
     {
       "symbol": "ALL.AX",
@@ -3510,7 +3510,7 @@
       "risk": 999.87,
       "score": 0.0,
       "status": "Watch",
-      "plain_english": "Uptrend pullback (value entry): place a LIMIT buy at 48.29 (below/near last close 48.44) to catch a dip toward EMA20. Stop at 48.05. Score 0. Only trade when market is RISK-ON."
+      "plain_english": "Trend Pullback (buy the dip): LIMIT buy at 48.29 (~0.30% below last close 48.44) to catch a pullback toward EMA20. Stop 48.05. If price does not dip to your limit, do not chase. Score 0. Only trade when market is RISK-ON."
     },
     {
       "symbol": "APE.AX",
@@ -3521,7 +3521,7 @@
       "risk": 998.9,
       "score": 0.0,
       "status": "Watch",
-      "plain_english": "Momentum breakout setup. Use STOP-LIMIT as shown (trigger=29.3478 limit=29.4065). Stop at 24.2772. Score 0. Only trade when market is RISK-ON."
+      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 29.35 (activates only if price breaks up). Limit 29.41 (max pay). Stop 24.2772. If trigger is not hit, no trade. Score 0. Only trade when market is RISK-ON."
     },
     {
       "symbol": "BEN.AX",
@@ -3532,7 +3532,7 @@
       "risk": 999.75,
       "score": 0.0,
       "status": "Watch",
-      "plain_english": "Mean reversion bounce candidate. Place a LIMIT buy near 11.45. Stop at 11.1275 (~1.5 ATR). Score 0."
+      "plain_english": "Mean Reversion (bounce): LIMIT buy near 11.45. Stop 11.1275 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 0."
     },
     {
       "symbol": "BXB.AX",
@@ -3543,7 +3543,7 @@
       "risk": 999.16,
       "score": 0.0,
       "status": "Watch",
-      "plain_english": "Mean reversion bounce candidate. Place a LIMIT buy near 23.3. Stop at 22.4611 (~1.5 ATR). Score 0."
+      "plain_english": "Mean Reversion (bounce): LIMIT buy near 23.3. Stop 22.4611 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 0."
     },
     {
       "symbol": "CAR.AX",
@@ -3554,7 +3554,7 @@
       "risk": 999.29,
       "score": 0.0,
       "status": "Watch",
-      "plain_english": "Uptrend pullback (value entry): place a LIMIT buy at 24.99 (below/near last close 25.07) to catch a dip toward EMA20. Stop at 24.05. Score 0. Only trade when market is RISK-ON."
+      "plain_english": "Trend Pullback (buy the dip): LIMIT buy at 24.99 (~0.30% below last close 25.07) to catch a pullback toward EMA20. Stop 24.05. If price does not dip to your limit, do not chase. Score 0. Only trade when market is RISK-ON."
     },
     {
       "symbol": "COH.AX",
@@ -3565,7 +3565,7 @@
       "risk": 998.84,
       "score": 0.0,
       "status": "Watch",
-      "plain_english": "Uptrend pullback (value entry): place a LIMIT buy at 198.62 (below/near last close 199.22) to catch a dip toward EMA20. Stop at 196.07. Score 0. Only trade when market is RISK-ON."
+      "plain_english": "Trend Pullback (buy the dip): LIMIT buy at 198.62 (~0.30% below last close 199.22) to catch a pullback toward EMA20. Stop 196.07. If price does not dip to your limit, do not chase. Score 0. Only trade when market is RISK-ON."
     },
     {
       "symbol": "CPU.AX",
@@ -3576,7 +3576,7 @@
       "risk": 999.93,
       "score": 0.0,
       "status": "Watch",
-      "plain_english": "Uptrend pullback (value entry): place a LIMIT buy at 30.08 (below/near last close 30.17) to catch a dip toward EMA20. Stop at 29.71. Score 0. Only trade when market is RISK-ON."
+      "plain_english": "Trend Pullback (buy the dip): LIMIT buy at 30.08 (~0.30% below last close 30.17) to catch a pullback toward EMA20. Stop 29.71. If price does not dip to your limit, do not chase. Score 0. Only trade when market is RISK-ON."
     },
     {
       "symbol": "CSL.AX",
@@ -3587,7 +3587,7 @@
       "risk": 999.56,
       "score": 0.0,
       "status": "Watch",
-      "plain_english": "Uptrend pullback (value entry): place a LIMIT buy at 149.56 (below/near last close 150.01) to catch a dip toward EMA20. Stop at 148.30. Score 0. Only trade when market is RISK-ON."
+      "plain_english": "Trend Pullback (buy the dip): LIMIT buy at 149.56 (~0.30% below last close 150.01) to catch a pullback toward EMA20. Stop 148.30. If price does not dip to your limit, do not chase. Score 0. Only trade when market is RISK-ON."
     },
     {
       "symbol": "DXS.AX",
@@ -3598,7 +3598,7 @@
       "risk": 999.95,
       "score": 0.0,
       "status": "Watch",
-      "plain_english": "Uptrend pullback (value entry): place a LIMIT buy at 6.19 (below/near last close 6.21) to catch a dip toward EMA20. Stop at 6.13. Score 0. Only trade when market is RISK-ON."
+      "plain_english": "Trend Pullback (buy the dip): LIMIT buy at 6.19 (~0.30% below last close 6.21) to catch a pullback toward EMA20. Stop 6.13. If price does not dip to your limit, do not chase. Score 0. Only trade when market is RISK-ON."
     },
     {
       "symbol": "GMD.AX",
@@ -3609,7 +3609,7 @@
       "risk": 998.27,
       "score": 0.0,
       "status": "Watch",
-      "plain_english": "Momentum breakout setup. Use STOP-LIMIT as shown (trigger=8.4453 limit=8.4622). Stop at 6.1609. Score 0. Only trade when market is RISK-ON."
+      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 8.45 (activates only if price breaks up). Limit 8.46 (max pay). Stop 6.1609. If trigger is not hit, no trade. Score 0. Only trade when market is RISK-ON."
     },
     {
       "symbol": "GMG.AX",
@@ -3620,7 +3620,7 @@
       "risk": 998.88,
       "score": 0.0,
       "status": "Watch",
-      "plain_english": "Mean reversion bounce candidate. Place a LIMIT buy near 31.02. Stop at 29.4809 (~1.5 ATR). Score 0."
+      "plain_english": "Mean Reversion (bounce): LIMIT buy near 31.02. Stop 29.4809 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 0."
     },
     {
       "symbol": "GYG.AX",
@@ -3631,7 +3631,7 @@
       "risk": 999.94,
       "score": 0.0,
       "status": "Watch",
-      "plain_english": "Uptrend pullback (value entry): place a LIMIT buy at 19.25 (below/near last close 19.31) to catch a dip toward EMA20. Stop at 18.32. Score 0. Only trade when market is RISK-ON."
+      "plain_english": "Trend Pullback (buy the dip): LIMIT buy at 19.25 (~0.30% below last close 19.31) to catch a pullback toward EMA20. Stop 18.32. If price does not dip to your limit, do not chase. Score 0. Only trade when market is RISK-ON."
     },
     {
       "symbol": "HUB.AX",
@@ -3642,7 +3642,7 @@
       "risk": 998.74,
       "score": 0.0,
       "status": "Watch",
-      "plain_english": "Uptrend pullback (value entry): place a LIMIT buy at 76.34 (below/near last close 76.57) to catch a dip toward EMA20. Stop at 73.83. Score 0. Only trade when market is RISK-ON."
+      "plain_english": "Trend Pullback (buy the dip): LIMIT buy at 76.34 (~0.30% below last close 76.57) to catch a pullback toward EMA20. Stop 73.83. If price does not dip to your limit, do not chase. Score 0. Only trade when market is RISK-ON."
     },
     {
       "symbol": "JBH.AX",
@@ -3653,7 +3653,7 @@
       "risk": 998.96,
       "score": 0.0,
       "status": "Watch",
-      "plain_english": "Uptrend pullback (value entry): place a LIMIT buy at 76.45 (below/near last close 76.68) to catch a dip toward EMA20. Stop at 75.36. Score 0. Only trade when market is RISK-ON."
+      "plain_english": "Trend Pullback (buy the dip): LIMIT buy at 76.45 (~0.30% below last close 76.68) to catch a pullback toward EMA20. Stop 75.36. If price does not dip to your limit, do not chase. Score 0. Only trade when market is RISK-ON."
     },
     {
       "symbol": "MEZ.AX",
@@ -3664,7 +3664,7 @@
       "risk": 999.93,
       "score": 0.0,
       "status": "Watch",
-      "plain_english": "Mean reversion bounce candidate. Place a LIMIT buy near 4.91. Stop at 4.7707 (~1.5 ATR). Score 0."
+      "plain_english": "Mean Reversion (bounce): LIMIT buy near 4.91. Stop 4.7707 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 0."
     },
     {
       "symbol": "NWS.AX",
@@ -3675,7 +3675,7 @@
       "risk": 999.79,
       "score": 0.0,
       "status": "Watch",
-      "plain_english": "Uptrend pullback (value entry): place a LIMIT buy at 36.25 (below/near last close 36.36) to catch a dip toward EMA20. Stop at 35.59. Score 0. Only trade when market is RISK-ON."
+      "plain_english": "Trend Pullback (buy the dip): LIMIT buy at 36.25 (~0.30% below last close 36.36) to catch a pullback toward EMA20. Stop 35.59. If price does not dip to your limit, do not chase. Score 0. Only trade when market is RISK-ON."
     },
     {
       "symbol": "NWSLV.AX",
@@ -3686,7 +3686,7 @@
       "risk": 996.22,
       "score": 0.0,
       "status": "Watch",
-      "plain_english": "Momentum breakout setup. Use STOP-LIMIT as shown (trigger=41.8752 limit=41.9590). Stop at 37.4866. Score 0. Only trade when market is RISK-ON."
+      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 41.88 (activates only if price breaks up). Limit 41.96 (max pay). Stop 37.4866. If trigger is not hit, no trade. Score 0. Only trade when market is RISK-ON."
     },
     {
       "symbol": "NWSLV.AX",
@@ -3697,7 +3697,7 @@
       "risk": 999.96,
       "score": 0.0,
       "status": "Watch",
-      "plain_english": "Mean reversion bounce candidate. Place a LIMIT buy near 37.5. Stop at 37.4196 (~1.5 ATR). Score 0."
+      "plain_english": "Mean Reversion (bounce): LIMIT buy near 37.5. Stop 37.4196 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 0."
     },
     {
       "symbol": "NXT.AX",
@@ -3708,7 +3708,7 @@
       "risk": 999.73,
       "score": 0.0,
       "status": "Watch",
-      "plain_english": "Mean reversion bounce candidate. Place a LIMIT buy near 14.02. Stop at 13.1596 (~1.5 ATR). Score 0."
+      "plain_english": "Mean Reversion (bounce): LIMIT buy near 14.02. Stop 13.1596 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 0."
     },
     {
       "symbol": "PME.AX",
@@ -3719,7 +3719,7 @@
       "risk": 999.6,
       "score": 0.0,
       "status": "Watch",
-      "plain_english": "Uptrend pullback (value entry): place a LIMIT buy at 117.87 (below/near last close 118.22) to catch a dip toward EMA20. Stop at 115.57. Score 0. Only trade when market is RISK-ON."
+      "plain_english": "Trend Pullback (buy the dip): LIMIT buy at 117.87 (~0.30% below last close 118.22) to catch a pullback toward EMA20. Stop 115.57. If price does not dip to your limit, do not chase. Score 0. Only trade when market is RISK-ON."
     },
     {
       "symbol": "PRU.AX",
@@ -3730,7 +3730,7 @@
       "risk": 999.82,
       "score": 0.0,
       "status": "Watch",
-      "plain_english": "Momentum breakout setup. Use STOP-LIMIT as shown (trigger=6.6198 limit=6.6330). Stop at 5.2483. Score 0. Only trade when market is RISK-ON."
+      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 6.62 (activates only if price breaks up). Limit 6.63 (max pay). Stop 5.2483. If trigger is not hit, no trade. Score 0. Only trade when market is RISK-ON."
     },
     {
       "symbol": "QBTC.AX",
@@ -3741,7 +3741,7 @@
       "risk": 998.63,
       "score": 0.0,
       "status": "Watch",
-      "plain_english": "Uptrend pullback (value entry): place a LIMIT buy at 18.24 (below/near last close 18.29) to catch a dip toward EMA20. Stop at 16.74. Score 0. Only trade when market is RISK-ON."
+      "plain_english": "Trend Pullback (buy the dip): LIMIT buy at 18.24 (~0.30% below last close 18.29) to catch a pullback toward EMA20. Stop 16.74. If price does not dip to your limit, do not chase. Score 0. Only trade when market is RISK-ON."
     },
     {
       "symbol": "SCG.AX",
@@ -3752,7 +3752,7 @@
       "risk": 999.97,
       "score": 0.0,
       "status": "Watch",
-      "plain_english": "Mean reversion bounce candidate. Place a LIMIT buy near 3.79. Stop at 3.6737 (~1.5 ATR). Score 0."
+      "plain_english": "Mean Reversion (bounce): LIMIT buy near 3.79. Stop 3.6737 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 0."
     },
     {
       "symbol": "SEK.AX",
@@ -3763,7 +3763,7 @@
       "risk": 1000.0,
       "score": 0.0,
       "status": "Watch",
-      "plain_english": "Uptrend pullback (value entry): place a LIMIT buy at 15.79 (below/near last close 15.84) to catch a dip toward EMA20. Stop at 15.62. Score 0. Only trade when market is RISK-ON."
+      "plain_english": "Trend Pullback (buy the dip): LIMIT buy at 15.79 (~0.30% below last close 15.84) to catch a pullback toward EMA20. Stop 15.62. If price does not dip to your limit, do not chase. Score 0. Only trade when market is RISK-ON."
     },
     {
       "symbol": "SGP.AX",
@@ -3774,7 +3774,7 @@
       "risk": 999.9,
       "score": 0.0,
       "status": "Watch",
-      "plain_english": "Mean reversion bounce candidate. Place a LIMIT buy near 5.17. Stop at 5.02 (~1.5 ATR). Score 0."
+      "plain_english": "Mean Reversion (bounce): LIMIT buy near 5.17. Stop 5.02 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 0."
     },
     {
       "symbol": "SHL.AX",
@@ -3785,7 +3785,7 @@
       "risk": 999.77,
       "score": 0.0,
       "status": "Watch",
-      "plain_english": "Uptrend pullback (value entry): place a LIMIT buy at 21.14 (below/near last close 21.20) to catch a dip toward EMA20. Stop at 20.78. Score 0. Only trade when market is RISK-ON."
+      "plain_english": "Trend Pullback (buy the dip): LIMIT buy at 21.14 (~0.30% below last close 21.20) to catch a pullback toward EMA20. Stop 20.78. If price does not dip to your limit, do not chase. Score 0. Only trade when market is RISK-ON."
     },
     {
       "symbol": "TNE.AX",
@@ -3796,7 +3796,7 @@
       "risk": 999.78,
       "score": 0.0,
       "status": "Watch",
-      "plain_english": "Uptrend pullback (value entry): place a LIMIT buy at 20.11 (below/near last close 20.17) to catch a dip toward EMA20. Stop at 19.86. Score 0. Only trade when market is RISK-ON."
+      "plain_english": "Trend Pullback (buy the dip): LIMIT buy at 20.11 (~0.30% below last close 20.17) to catch a pullback toward EMA20. Stop 19.86. If price does not dip to your limit, do not chase. Score 0. Only trade when market is RISK-ON."
     },
     {
       "symbol": "WTC.AX",
@@ -3807,7 +3807,7 @@
       "risk": 998.85,
       "score": 0.0,
       "status": "Watch",
-      "plain_english": "Uptrend pullback (value entry): place a LIMIT buy at 42.49 (below/near last close 42.62) to catch a dip toward EMA20. Stop at 39.84. Score 0. Only trade when market is RISK-ON."
+      "plain_english": "Trend Pullback (buy the dip): LIMIT buy at 42.49 (~0.30% below last close 42.62) to catch a pullback toward EMA20. Stop 39.84. If price does not dip to your limit, do not chase. Score 0. Only trade when market is RISK-ON."
     },
     {
       "symbol": "XRO.AX",
@@ -3818,7 +3818,7 @@
       "risk": 999.84,
       "score": 0.0,
       "status": "Watch",
-      "plain_english": "Uptrend pullback (value entry): place a LIMIT buy at 73.27 (below/near last close 73.49) to catch a dip toward EMA20. Stop at 71.19. Score 0. Only trade when market is RISK-ON."
+      "plain_english": "Trend Pullback (buy the dip): LIMIT buy at 73.27 (~0.30% below last close 73.49) to catch a pullback toward EMA20. Stop 71.19. If price does not dip to your limit, do not chase. Score 0. Only trade when market is RISK-ON."
     },
     {
       "symbol": "XYZ.AX",
@@ -3829,7 +3829,7 @@
       "risk": 999.28,
       "score": 0.0,
       "status": "Watch",
-      "plain_english": "Uptrend pullback (value entry): place a LIMIT buy at 69.34 (below/near last close 69.55) to catch a dip toward EMA20. Stop at 68.46. Score 0. Only trade when market is RISK-ON."
+      "plain_english": "Trend Pullback (buy the dip): LIMIT buy at 69.34 (~0.30% below last close 69.55) to catch a pullback toward EMA20. Stop 68.46. If price does not dip to your limit, do not chase. Score 0. Only trade when market is RISK-ON."
     }
   ]
 }
