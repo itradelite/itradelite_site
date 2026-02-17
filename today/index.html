@@ -155,6 +155,49 @@
     @media (max-width: 520px){
       .field{ min-width: 100% !important; }
     }
+
+
+    .button[disabled]{ opacity:.65; cursor:wait; }
+
+    .spinner{
+      width: 12px;
+      height: 12px;
+      border: 2px solid rgba(231,236,246,.35);
+      border-top-color: rgba(231,236,246,.95);
+      border-radius: 999px;
+      display:none;
+      animation: spin .8s linear infinite;
+    }
+    .button[disabled] .spinner{ display:inline-block; }
+
+    @keyframes spin{ to { transform: rotate(360deg); } }
+
+
+    .toast{
+      position: fixed;
+      right: 16px;
+      bottom: 16px;
+      z-index: 120;
+      border: 1px solid rgba(94,234,212,.35);
+      background: rgba(17,26,46,.96);
+      color: rgba(231,236,246,1);
+      border-radius: 12px;
+      padding: 10px 12px;
+      box-shadow: 0 10px 30px rgba(0,0,0,.35);
+      max-width: min(92vw, 420px);
+      font-size: 13px;
+    }
+
+    .copyFallback{ margin-top:10px; }
+    .copyFallback input{ margin-top:6px; }
+
+    caption{
+      text-align:left;
+      font-size:12px;
+      color: rgba(231,236,246,.72);
+      padding: 8px 10px 2px;
+    }
+
   </style>
 
   <!-- JSON-LD -->
@@ -213,7 +256,7 @@
     <section class="card card--pad" aria-label="Daily briefing">
       <div class="briefHead">
         <div class="split">
-          <span class="pill" id="statusChip">Status: <b id="statusText">Loading…</b></span>
+          <span class="pill" id="statusChip" role="status" aria-live="polite" aria-atomic="true">Status: <b id="statusText">Loading…</b></span>
           <span class="pill">Generated: <b class="mono" id="generated">—</b></span>
           <span class="pill">Valid for: <b class="mono" id="validFor">—</b></span>
           <span class="pill">Risk mode: <b class="mono" id="riskMode">—</b></span>
@@ -221,8 +264,9 @@
         </div>
 
         <div class="split">
-          <button class="button button--primary" id="refreshBtn" type="button">Refresh</button>
+          <button class="button button--primary" id="refreshBtn" type="button"><span class="spinner" id="refreshSpinner" aria-hidden="true"></span><span id="refreshBtnLabel">Refresh</span></button>
           <button class="button" id="copyLinkBtn" type="button" title="Copy today.json URL">Copy data link</button>
+          <span class="small" id="lastUpdated" role="status" aria-live="polite" aria-atomic="true">Last updated: —</span>
         </div>
       </div>
 
@@ -290,7 +334,13 @@
         </div>
       </div>
 
-      <div id="errorBox" class="error" style="display:none; margin-top:12px;"></div>
+      <div id="errorBox" class="error" style="display:none; margin-top:12px;" role="status" aria-live="polite" aria-atomic="true"></div>
+
+      <div id="toast" class="toast" role="status" aria-live="polite" aria-atomic="true" hidden></div>
+      <div id="copyFallback" class="copyFallback" hidden>
+        <label for="copyFallbackInput">Copy this URL</label>
+        <input id="copyFallbackInput" type="text" readonly />
+      </div>
     </section>
 
     <!-- Tables -->
@@ -358,6 +408,51 @@
       chip.style.background  = ok ? "rgba(94,234,212,.12)" : "rgba(255,213,128,.10)";
     }
 
+
+
+    function setLoading(isLoading){
+      const btn = document.getElementById("refreshBtn");
+      const label = document.getElementById("refreshBtnLabel");
+      if (!btn || !label) return;
+      btn.disabled = isLoading;
+      label.textContent = isLoading ? "Refreshing…" : "Refresh";
+    }
+
+    function updateLastUpdated(now = new Date()){
+      const el = document.getElementById("lastUpdated");
+      if (!el) return;
+      window.__LAST_UPDATED_AT__ = now;
+      el.textContent = "Last updated: just now";
+    }
+
+    function refreshLastUpdatedLabel(){
+      const el = document.getElementById("lastUpdated");
+      const d = window.__LAST_UPDATED_AT__;
+      if (!el || !d) return;
+      const mins = Math.max(0, Math.round((Date.now() - d.getTime()) / 60000));
+      el.textContent = mins <= 0 ? "Last updated: just now" : `Last updated: ${mins} min ago`;
+    }
+
+    function showToast(msg){
+      const t = document.getElementById("toast");
+      if (!t) return;
+      t.textContent = msg;
+      t.hidden = false;
+      clearTimeout(window.__TOAST_TIMER__);
+      window.__TOAST_TIMER__ = setTimeout(()=>{ t.hidden = true; }, 2400);
+    }
+
+    function showCopyFallback(link){
+      const wrap = document.getElementById("copyFallback");
+      const input = document.getElementById("copyFallbackInput");
+      if (!wrap || !input) return;
+      wrap.hidden = false;
+      input.value = link;
+      input.focus();
+      input.select();
+      showToast("Clipboard unavailable. Copy from field below.");
+    }
+
     function computeDataAge(generatedAtUtc){
       if (!generatedAtUtc) return "—";
       const d = new Date(generatedAtUtc);
@@ -418,15 +513,16 @@
           </div>
           <div class="tableWrap">
             <table>
+              <caption>${escapeHtml(title)} — ${escapeHtml(subtitle || (count + " item(s)"))}</caption>
               <thead>
                 <tr>
-                  <th style="width:120px;">Symbol</th>
-                  <th style="width:160px;">Strategy</th>
-                  <th>Entry</th>
-                  <th style="width:110px;">Last close</th>
-                  <th style="width:110px;">Stop</th>
-                  <th style="width:110px;">Risk (A$)</th>
-                  <th style="width:90px;">Status</th>
+                  <th scope="col" style="width:120px;">Symbol</th>
+                  <th scope="col" style="width:160px;">Strategy</th>
+                  <th scope="col">Entry</th>
+                  <th scope="col" style="width:110px;">Last close</th>
+                  <th scope="col" style="width:110px;">Stop</th>
+                  <th scope="col" style="width:110px;">Risk (A$)</th>
+                  <th scope="col" style="width:90px;">Status</th>
                 </tr>
               </thead>
               <tbody>
@@ -538,7 +634,7 @@
               <b>Data freshness:</b> Yahoo daily bars not updated yet. Recommendations may be suppressed.
               <div class="muted" style="margin-top:4px;">This is a safety gate to avoid publishing stale signals.</div>
             </div>
-            <div class="pill">STale</div>
+            <div class="pill">Stale</div>
           </div>
         `;
       } else {
@@ -673,13 +769,17 @@
       q.addEventListener("input", onChange);
 
       document.getElementById("refreshBtn").addEventListener("click", async ()=>{
+        setLoading(true);
         try{
           const data = await load();
           window.__DATA__ = data;
           render(data);
+          updateLastUpdated();
         }catch(e){
           showError("Failed to load /public/today.json. (" + e.message + ")");
           console.error(e);
+        } finally {
+          setLoading(false);
         }
       });
 
@@ -687,9 +787,9 @@
         const link = location.origin + DATA_URL;
         try{
           await navigator.clipboard.writeText(link);
-          alert("Copied: " + link);
+          showToast("Copied data link.");
         }catch(_){
-          prompt("Copy this URL:", link);
+          showCopyFallback(link);
         }
       });
     }
@@ -697,19 +797,22 @@
     (async function(){
       loadPrefs();
       bindControls();
+      setLoading(true);
+      refreshLastUpdatedLabel();
+      setInterval(refreshLastUpdatedLabel, 60000);
 
       try{
         const data = await load();
         window.__DATA__ = data;
         render(data);
+        updateLastUpdated();
       }catch(e){
         showError("Failed to load /public/today.json. (" + e.message + ")");
         console.error(e);
+      } finally {
+        setLoading(false);
       }
     })();
   </script>
 </body>
 </html>
-
-
-
