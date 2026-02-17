@@ -37,6 +37,10 @@
   <style>
     .pagePad{ padding: 18px 0 46px; }
 
+    .pageIntro{ margin: 0 0 14px; }
+    .pageIntro h1{ margin:0; font-size: clamp(24px, 5vw, 34px); letter-spacing:.15px; }
+    .pageIntro p{ margin:6px 0 0; color: rgba(231,236,246,.72); font-size: 14px; }
+
     .banner{
       border-radius: 12px;
       padding: 12px 14px;
@@ -113,8 +117,9 @@
     .kpiBox{
       border-radius: 12px;
       padding: 12px 12px;
-      border: 1px solid rgba(255,255,255,.08);
-      background: rgba(255,255,255,.03);
+      border: 1px solid rgba(255,255,255,.10);
+      background: linear-gradient(180deg, rgba(255,255,255,.045), rgba(255,255,255,.015));
+      box-shadow: 0 8px 22px rgba(0,0,0,.16);
     }
     .kpiLabel{ font-size: 12px; opacity:.75; }
     .kpiValue{ font-size: 20px; font-weight: 650; margin-top: 4px; }
@@ -129,10 +134,10 @@
     .sectionTitle h2{ margin:0; font-size:16px; letter-spacing:.2px; }
     .sectionTitle .count{ font-size:12px; opacity:.75; }
 
-    .tableWrap{ overflow-x:auto; }
-    table{ width:100%; border-collapse: collapse; }
+    .tableWrap{ overflow-x:auto; border:1px solid rgba(255,255,255,.08); border-radius: 14px; background: rgba(7,12,24,.45); }
+    table{ width:100%; border-collapse: collapse; min-width: 740px; }
     th, td{ padding: 10px 10px; border-bottom: 1px solid rgba(255,255,255,.06); vertical-align: top; }
-    th{ font-size: 12px; opacity:.75; text-transform: uppercase; letter-spacing: .6px; }
+    th{ font-size: 12px; opacity:.78; text-transform: uppercase; letter-spacing: .6px; background: rgba(14,23,42,.88); }
     td b{ font-weight: 650; }
 
     .rowNote{
@@ -148,12 +153,29 @@
       gap:12px;
       align-items:center;
     }
+    .briefHead > .split:first-child{ flex:1; }
 
     @media (max-width: 980px){
       .kpiGrid{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
     }
+    @media (max-width: 680px){
+      .pagePad{ padding: 14px 0 36px; }
+      .briefHead{ gap:12px; }
+      .briefHead > .split{ width:100%; }
+      .briefHead > .split:last-child{ justify-content:space-between; }
+      #refreshBtn, #copyLinkBtn{ flex:1; justify-content:center; min-height:42px; }
+      #lastUpdated{ width:100%; }
+      .pill{ white-space: normal; }
+      .banner{ flex-direction:column; }
+    }
     @media (max-width: 520px){
       .field{ min-width: 100% !important; }
+      .kpiGrid{ grid-template-columns: 1fr; }
+      .kpiValue{ font-size: 18px; }
+      .sectionTitle{ flex-direction:column; align-items:flex-start; }
+      th, td{ padding: 9px 8px; font-size: 12px; }
+      caption{ padding: 8px 8px 2px; }
+      .toast{ left: 10px; right: 10px; bottom: 10px; max-width: none; }
     }
 
 
@@ -243,6 +265,11 @@
   </div>
 
   <main class="container pagePad">
+
+    <section class="pageIntro" aria-label="Page intro">
+      <h1>Daily ASX Briefing</h1>
+      <p>Actionable setups with transparent rule-based signals, optimized for quick scanning on desktop and iPhone.</p>
+    </section>
 
     <!-- Banners -->
     <div id="riskBanner"></div>
