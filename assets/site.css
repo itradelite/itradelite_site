@@ -147,15 +147,8 @@ input:focus-visible{
   outline-offset: 2px;
   box-shadow: 0 0 0 4px rgba(96,165,250,.20);
 }
-a:focus-visible,
-.btn:focus-visible,
-.button:focus-visible,
-select:focus-visible,
-input:focus-visible{
-  outline: 2px solid rgba(96,165,250,.85);
-  outline-offset: 2px;
-  box-shadow: 0 0 0 4px rgba(96,165,250,.20);
-}
+
+
 
 /* -----------------------------
    Sections / Cards
@@ -384,6 +377,7 @@ tbody tr:hover{ background: rgba(255,255,255,.03); }
   .topbar__cta .btn{ padding:8px 10px; border-radius:10px; font-size:12px; }
   .card{ padding:12px; border-radius:14px; }
 }
+
 
 
 
