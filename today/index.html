@@ -36,10 +36,12 @@
   <!-- Page-specific CSS: institutional polish, but small -->
   <style>
     .pagePad{ padding: 18px 0 46px; }
+    main.container.pagePad{ position:relative; }
+    main.container.pagePad::before{ content:""; position:absolute; inset:0 0 auto 0; height:260px; background: radial-gradient(700px 220px at 15% 0%, rgba(96,165,250,.18), transparent 70%), radial-gradient(700px 220px at 85% 0%, rgba(94,234,212,.12), transparent 70%); pointer-events:none; z-index:-1; }
 
-    .pageIntro{ margin: 0 0 14px; }
+    .pageIntro{ margin: 0 0 14px; padding: 12px 14px; border:1px solid rgba(255,255,255,.08); border-radius: 14px; background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02)); }
     .pageIntro h1{ margin:0; font-size: clamp(24px, 5vw, 34px); letter-spacing:.15px; }
-    .pageIntro p{ margin:6px 0 0; color: rgba(231,236,246,.72); font-size: 14px; }
+    .pageIntro p{ margin:6px 0 0; color: rgba(231,236,246,.78); font-size: 14px; max-width: 72ch; }
 
     .banner{
       border-radius: 12px;
@@ -134,18 +136,24 @@
     .sectionTitle h2{ margin:0; font-size:16px; letter-spacing:.2px; }
     .sectionTitle .count{ font-size:12px; opacity:.75; }
 
-    .tableWrap{ overflow-x:auto; border:1px solid rgba(255,255,255,.08); border-radius: 14px; background: rgba(7,12,24,.45); }
-    table{ width:100%; border-collapse: collapse; min-width: 740px; }
+    .tableWrap{ overflow-x:auto; border:1px solid rgba(255,255,255,.10); border-radius: 14px; background: linear-gradient(180deg, rgba(22,34,58,.74), rgba(11,18,33,.64)); }
+    table{ width:100%; border-collapse: collapse; min-width: 680px; }
     th, td{ padding: 10px 10px; border-bottom: 1px solid rgba(255,255,255,.06); vertical-align: top; }
     th{ font-size: 12px; opacity:.78; text-transform: uppercase; letter-spacing: .6px; background: rgba(14,23,42,.88); }
     td b{ font-weight: 650; }
 
     .rowNote{
+      display:block;
       font-size:12px;
-      opacity:.8;
-      margin-top: 4px;
-      line-height: 1.35;
+      color: rgba(231,236,246,.86);
+      margin-top: 6px;
+      line-height: 1.42;
+      max-width: 34ch;
+      white-space: normal;
+      word-break: break-word;
     }
+
+    .symbolCell{ min-width: 170px; }
 
     .split{
       display:flex;
@@ -154,6 +162,29 @@
       align-items:center;
     }
     .briefHead > .split:first-child{ flex:1; }
+
+    .viewTabs{
+      display:flex;
+      gap:8px;
+      flex-wrap:wrap;
+      margin-top: 10px;
+    }
+    .viewTab{
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.05);
+      color: rgba(231,236,246,.92);
+      border-radius: 999px;
+      padding: 7px 12px;
+      font-size: 12px;
+      font-weight: 700;
+      cursor:pointer;
+    }
+    .viewTab:hover{ background: rgba(255,255,255,.08); }
+    .viewTab.is-active{
+      border-color: rgba(94,234,212,.45);
+      background: linear-gradient(135deg, rgba(94,234,212,.18), rgba(96,165,250,.16));
+      color: rgba(231,236,246,1);
+    }
 
     @media (max-width: 980px){
       .kpiGrid{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
@@ -173,9 +204,17 @@
       .kpiGrid{ grid-template-columns: 1fr; }
       .kpiValue{ font-size: 18px; }
       .sectionTitle{ flex-direction:column; align-items:flex-start; }
-      th, td{ padding: 9px 8px; font-size: 12px; }
-      caption{ padding: 8px 8px 2px; }
       .toast{ left: 10px; right: 10px; bottom: 10px; max-width: none; }
+
+      table, thead, tbody, tr, th, td{ display:block; }
+      table{ min-width: 100%; }
+      thead{ position:absolute; left:-9999px; top:-9999px; }
+      tbody tr{ border-bottom:1px solid rgba(255,255,255,.08); padding: 8px 8px 10px; }
+      td{ border:none; padding: 6px 0; font-size: 12px; }
+      td::before{ content: attr(data-label); display:block; font-size:11px; text-transform:uppercase; letter-spacing:.5px; opacity:.66; margin-bottom:2px; }
+      .symbolCell{ min-width: 0; }
+      .symbolCell .rowNote{ max-width: 100%; }
+      caption{ padding: 8px 8px 6px; }
     }
 
 
@@ -359,6 +398,13 @@
             <option value="symbol_asc">Symbol (A→Z)</option>
           </select>
         </div>
+      </div>
+
+      <div class="viewTabs" id="viewTabs" role="tablist" aria-label="Quick views">
+        <button type="button" class="viewTab" data-view="all" role="tab">All</button>
+        <button type="button" class="viewTab" data-view="recommended" role="tab">Recommended</button>
+        <button type="button" class="viewTab" data-view="valid" role="tab">Valid</button>
+        <button type="button" class="viewTab" data-view="watch" role="tab">Watch</button>
       </div>
 
       <div id="errorBox" class="error" style="display:none; margin-top:12px;" role="status" aria-live="polite" aria-atomic="true"></div>
@@ -570,13 +616,13 @@
 
         html += `
           <tr>
-            <td class="mono"><b>${sym}</b>${noteHtml}</td>
-            <td>${strat}</td>
-            <td class="mono">${entry}</td>
-            <td class="mono">${lastClose}</td>
-            <td class="mono">${stop}</td>
-            <td class="mono">${risk}</td>
-            <td>${pill}</td>
+            <td class="mono symbolCell" data-label="Symbol"><b>${sym}</b>${noteHtml}</td>
+            <td data-label="Strategy">${strat}</td>
+            <td class="mono" data-label="Entry">${entry}</td>
+            <td class="mono" data-label="Last close">${lastClose}</td>
+            <td class="mono" data-label="Stop">${stop}</td>
+            <td class="mono" data-label="Risk (A$)">${risk}</td>
+            <td data-label="Status">${pill}</td>
           </tr>
         `;
       }
@@ -774,12 +820,22 @@
       const strategyFilter = document.getElementById("strategyFilter");
       const q = document.getElementById("q");
       const sortBy = document.getElementById("sortBy");
+      const viewTabs = [...document.querySelectorAll(".viewTab")];
+
+      function syncViewTabs(){
+        for (const tab of viewTabs){
+          const active = tab.dataset.view === prefs.view;
+          tab.classList.toggle("is-active", active);
+          tab.setAttribute("aria-selected", active ? "true" : "false");
+        }
+      }
 
       // init values
       viewMode.value = prefs.view;
       strategyFilter.value = prefs.strat;
       q.value = prefs.q;
       sortBy.value = prefs.sort;
+      syncViewTabs();
 
       function onChange(){
         prefs.view = viewMode.value;
@@ -787,7 +843,15 @@
         prefs.q = q.value.trim();
         prefs.sort = sortBy.value;
         savePrefs();
+        syncViewTabs();
         if (window.__DATA__) render(window.__DATA__);
+      }
+
+      for (const tab of viewTabs){
+        tab.addEventListener("click", ()=>{
+          viewMode.value = tab.dataset.view;
+          onChange();
+        });
       }
 
       viewMode.addEventListener("change", onChange);
