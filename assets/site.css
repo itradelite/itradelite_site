@@ -3,9 +3,10 @@
    ============================= */
 
 :root{
-  --bg:#0b1220;
-  --panel:#111a2e;
-  --card:#0f1830;
+--bg:#0e1626;
+--panel:#182235;
+--card:#1c2a42;
+
   --text:#e7ecf6;
   --muted:#aab6d3;
   --line:rgba(255,255,255,.10);
@@ -22,12 +23,14 @@
 html,body{ margin:0; padding:0; }
 body{
   font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-  background: radial-gradient(900px 500px at 20% 0%, rgba(96,165,250,.18), transparent 60%),
-              radial-gradient(900px 500px at 80% 10%, rgba(94,234,212,.14), transparent 60%),
-              var(--bg);
+  background:
+    radial-gradient(900px 400px at 20% 0%, rgba(96,165,250,.12), transparent 60%),
+    radial-gradient(900px 400px at 80% 0%, rgba(94,234,212,.10), transparent 60%),
+    var(--bg);
   color:var(--text);
-  line-height:1.45;
+  line-height:1.5;
 }
+
 
 .container{ width:min(1100px, calc(100% - 40px)); margin:0 auto; }
 
@@ -167,8 +170,8 @@ input:focus-visible{
 .section--alt{ border-top:1px solid var(--line); border-bottom:1px solid var(--line); background: rgba(255,255,255,.03); }
 
 .card{
-  background: rgba(17,26,46,.65);
-  border:1px solid var(--line);
+    background: var(--card);
+  border:1px solid rgba(255,255,255,.08);
   border-radius: var(--radius);
   padding:16px;
   box-shadow: var(--shadow);
@@ -223,6 +226,18 @@ input:focus-visible{
   color: var(--muted);
 }
 .chip b{ color: var(--text); font-weight:700; }
+.todayTableWrap {
+  background: #17243a;
+  border: 1px solid rgba(255,255,255,.08);
+}
+.todayTableWrap th {
+  background: #1e2d47;
+  color: #cbd5e1;
+}
+
+.card { margin-bottom: 18px; }
+.kpiGrid { margin-top: 18px; }
+.tables { margin-top: 20px; }
 
 .pill{
   display:inline-flex;
@@ -389,4 +404,5 @@ tbody tr:hover{ background: rgba(255,255,255,.03); }
   .topbar__cta .btn{ padding:8px 10px; border-radius:10px; font-size:12px; }
   .card{ padding:12px; border-radius:14px; }
 }
+
 
