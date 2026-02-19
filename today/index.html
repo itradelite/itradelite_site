@@ -32,11 +32,130 @@
 
   <!-- Shared site CSS -->
   <link rel="stylesheet" href="/assets/site.css?v=2" />
- 
-  
 
   <!-- Page-specific CSS: institutional polish, but small -->
+  <style>
+    .pagePad{ padding: 18px 0 46px; }
 
+    .banner{
+      border-radius: 12px;
+      padding: 12px 14px;
+      border: 1px solid rgba(255,255,255,.08);
+      background: rgba(255,255,255,.03);
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap:12px;
+      margin: 0 0 12px 0;
+    }
+    .banner b{ font-weight: 650; }
+    .banner--riskon{
+      border-color: rgba(94,234,212,.22);
+      background: rgba(94,234,212,.07);
+    }
+    .banner--riskoff{
+      border-color: rgba(255,120,120,.22);
+      background: rgba(255,120,120,.07);
+    }
+    .banner--stale{
+      border-color: rgba(255,213,128,.22);
+      background: rgba(255,213,128,.07);
+    }
+
+    .pill{
+      display:inline-flex;
+      align-items:center;
+      gap:6px;
+      border-radius: 999px;
+      padding: 4px 10px;
+      font-size: 12px;
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.04);
+      white-space:nowrap;
+    }
+    .pill--valid{
+      border-color: rgba(94,234,212,.35);
+      background: rgba(94,234,212,.12);
+      color: rgba(231,236,246,1);
+    }
+    .pill--watch{
+      border-color: rgba(255,213,128,.35);
+      background: rgba(255,213,128,.10);
+      color: rgba(231,236,246,.98);
+    }
+    .pill--riskon{
+      border-color: rgba(94,234,212,.35);
+      background: rgba(94,234,212,.12);
+    }
+    .pill--riskoff{
+      border-color: rgba(255,120,120,.35);
+      background: rgba(255,120,120,.12);
+    }
+
+    .mono{ font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; }
+    .muted{ opacity:.75; }
+
+    .briefHead{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      align-items:center;
+      justify-content:space-between;
+      margin-bottom: 10px;
+    }
+
+    .kpiGrid{
+      display:grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap:12px;
+      margin-top: 12px;
+    }
+    .kpiBox{
+      border-radius: 12px;
+      padding: 12px 12px;
+      border: 1px solid rgba(255,255,255,.08);
+      background: rgba(255,255,255,.03);
+    }
+    .kpiLabel{ font-size: 12px; opacity:.75; }
+    .kpiValue{ font-size: 20px; font-weight: 650; margin-top: 4px; }
+
+    .sectionTitle{
+      display:flex;
+      align-items:baseline;
+      justify-content:space-between;
+      gap:10px;
+      margin: 0 0 10px 0;
+    }
+    .sectionTitle h2{ margin:0; font-size:16px; letter-spacing:.2px; }
+    .sectionTitle .count{ font-size:12px; opacity:.75; }
+
+    .tableWrap{ overflow-x:auto; }
+    table{ width:100%; border-collapse: collapse; }
+    th, td{ padding: 10px 10px; border-bottom: 1px solid rgba(255,255,255,.06); vertical-align: top; }
+    th{ font-size: 12px; opacity:.75; text-transform: uppercase; letter-spacing: .6px; }
+    td b{ font-weight: 650; }
+
+    .rowNote{
+      font-size:12px;
+      opacity:.8;
+      margin-top: 4px;
+      line-height: 1.35;
+    }
+
+    .split{
+      display:flex;
+      flex-wrap:wrap;
+      gap:12px;
+      align-items:center;
+    }
+
+    @media (max-width: 980px){
+      .kpiGrid{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+    @media (max-width: 520px){
+      .field{ min-width: 100% !important; }
+    }
+  </style>
 
   <!-- JSON-LD -->
   <script type="application/ld+json">
@@ -80,12 +199,7 @@
     </div>
   </div>
 
-  <main class="container pagePad todayPage">
-
-    <section class="pageIntro" aria-label="Page intro">
-      <h1>Daily ASX Briefing</h1>
-      <p>Actionable setups with transparent rule-based signals, optimized for quick scanning on desktop and iPhone.</p>
-    </section>
+  <main class="container pagePad">
 
     <!-- Banners -->
     <div id="riskBanner"></div>
@@ -99,7 +213,7 @@
     <section class="card card--pad" aria-label="Daily briefing">
       <div class="briefHead">
         <div class="split">
-          <span class="pill" id="statusChip" role="status" aria-live="polite" aria-atomic="true">Status: <b id="statusText">Loading…</b></span>
+          <span class="pill" id="statusChip">Status: <b id="statusText">Loading…</b></span>
           <span class="pill">Generated: <b class="mono" id="generated">—</b></span>
           <span class="pill">Valid for: <b class="mono" id="validFor">—</b></span>
           <span class="pill">Risk mode: <b class="mono" id="riskMode">—</b></span>
@@ -107,9 +221,8 @@
         </div>
 
         <div class="split">
-          <button class="button button--primary" id="refreshBtn" type="button"><span class="spinner" id="refreshSpinner" aria-hidden="true"></span><span id="refreshBtnLabel">Refresh</span></button>
+          <button class="button button--primary" id="refreshBtn" type="button">Refresh</button>
           <button class="button" id="copyLinkBtn" type="button" title="Copy today.json URL">Copy data link</button>
-          <span class="small" id="lastUpdated" role="status" aria-live="polite" aria-atomic="true">Last updated: —</span>
         </div>
       </div>
 
@@ -177,20 +290,7 @@
         </div>
       </div>
 
-      <div class="viewTabs" id="viewTabs" role="tablist" aria-label="Quick views">
-        <button type="button" class="viewTab" data-view="all" role="tab">All</button>
-        <button type="button" class="viewTab" data-view="recommended" role="tab">Recommended</button>
-        <button type="button" class="viewTab" data-view="valid" role="tab">Valid</button>
-        <button type="button" class="viewTab" data-view="watch" role="tab">Watch</button>
-      </div>
-
-      <div id="errorBox" class="error" style="display:none; margin-top:12px;" role="status" aria-live="polite" aria-atomic="true"></div>
-
-      <div id="toast" class="toast" role="status" aria-live="polite" aria-atomic="true" hidden></div>
-      <div id="copyFallback" class="copyFallback" hidden>
-        <label for="copyFallbackInput">Copy this URL</label>
-        <input id="copyFallbackInput" type="text" readonly />
-      </div>
+      <div id="errorBox" class="error" style="display:none; margin-top:12px;"></div>
     </section>
 
     <!-- Tables -->
@@ -258,51 +358,6 @@
       chip.style.background  = ok ? "rgba(94,234,212,.12)" : "rgba(255,213,128,.10)";
     }
 
-
-
-    function setLoading(isLoading){
-      const btn = document.getElementById("refreshBtn");
-      const label = document.getElementById("refreshBtnLabel");
-      if (!btn || !label) return;
-      btn.disabled = isLoading;
-      label.textContent = isLoading ? "Refreshing…" : "Refresh";
-    }
-
-    function updateLastUpdated(now = new Date()){
-      const el = document.getElementById("lastUpdated");
-      if (!el) return;
-      window.__LAST_UPDATED_AT__ = now;
-      el.textContent = "Last updated: just now";
-    }
-
-    function refreshLastUpdatedLabel(){
-      const el = document.getElementById("lastUpdated");
-      const d = window.__LAST_UPDATED_AT__;
-      if (!el || !d) return;
-      const mins = Math.max(0, Math.round((Date.now() - d.getTime()) / 60000));
-      el.textContent = mins <= 0 ? "Last updated: just now" : `Last updated: ${mins} min ago`;
-    }
-
-    function showToast(msg){
-      const t = document.getElementById("toast");
-      if (!t) return;
-      t.textContent = msg;
-      t.hidden = false;
-      clearTimeout(window.__TOAST_TIMER__);
-      window.__TOAST_TIMER__ = setTimeout(()=>{ t.hidden = true; }, 2400);
-    }
-
-    function showCopyFallback(link){
-      const wrap = document.getElementById("copyFallback");
-      const input = document.getElementById("copyFallbackInput");
-      if (!wrap || !input) return;
-      wrap.hidden = false;
-      input.value = link;
-      input.focus();
-      input.select();
-      showToast("Clipboard unavailable. Copy from field below.");
-    }
-
     function computeDataAge(generatedAtUtc){
       if (!generatedAtUtc) return "—";
       const d = new Date(generatedAtUtc);
@@ -361,18 +416,17 @@
             <h2>${escapeHtml(title)}</h2>
             <div class="count">${escapeHtml(subtitle || (count + " item(s)"))}</div>
           </div>
-          <div class="todayTableWrap">
+          <div class="tableWrap">
             <table>
-              <caption>${escapeHtml(title)} — ${escapeHtml(subtitle || (count + " item(s)"))}</caption>
               <thead>
                 <tr>
-                  <th scope="col" style="width:120px;">Symbol</th>
-                  <th scope="col" style="width:160px;">Strategy</th>
-                  <th scope="col">Entry</th>
-                  <th scope="col" style="width:110px;">Last close</th>
-                  <th scope="col" style="width:110px;">Stop</th>
-                  <th scope="col" style="width:110px;">Risk (A$)</th>
-                  <th scope="col" style="width:90px;">Status</th>
+                  <th style="width:120px;">Symbol</th>
+                  <th style="width:160px;">Strategy</th>
+                  <th>Entry</th>
+                  <th style="width:110px;">Last close</th>
+                  <th style="width:110px;">Stop</th>
+                  <th style="width:110px;">Risk (A$)</th>
+                  <th style="width:90px;">Status</th>
                 </tr>
               </thead>
               <tbody>
@@ -393,13 +447,13 @@
 
         html += `
           <tr>
-            <td class="mono symbolCell" data-label="Symbol"><b>${sym}</b>${noteHtml}</td>
-            <td data-label="Strategy">${strat}</td>
-            <td class="mono" data-label="Entry">${entry}</td>
-            <td class="mono" data-label="Last close">${lastClose}</td>
-            <td class="mono" data-label="Stop">${stop}</td>
-            <td class="mono" data-label="Risk (A$)">${risk}</td>
-            <td data-label="Status">${pill}</td>
+            <td class="mono"><b>${sym}</b>${noteHtml}</td>
+            <td>${strat}</td>
+            <td class="mono">${entry}</td>
+            <td class="mono">${lastClose}</td>
+            <td class="mono">${stop}</td>
+            <td class="mono">${risk}</td>
+            <td>${pill}</td>
           </tr>
         `;
       }
@@ -484,7 +538,7 @@
               <b>Data freshness:</b> Yahoo daily bars not updated yet. Recommendations may be suppressed.
               <div class="muted" style="margin-top:4px;">This is a safety gate to avoid publishing stale signals.</div>
             </div>
-            <div class="pill">Stale</div>
+            <div class="pill">STale</div>
           </div>
         `;
       } else {
@@ -597,22 +651,12 @@
       const strategyFilter = document.getElementById("strategyFilter");
       const q = document.getElementById("q");
       const sortBy = document.getElementById("sortBy");
-      const viewTabs = [...document.querySelectorAll(".viewTab")];
-
-      function syncViewTabs(){
-        for (const tab of viewTabs){
-          const active = tab.dataset.view === prefs.view;
-          tab.classList.toggle("is-active", active);
-          tab.setAttribute("aria-selected", active ? "true" : "false");
-        }
-      }
 
       // init values
       viewMode.value = prefs.view;
       strategyFilter.value = prefs.strat;
       q.value = prefs.q;
       sortBy.value = prefs.sort;
-      syncViewTabs();
 
       function onChange(){
         prefs.view = viewMode.value;
@@ -620,15 +664,7 @@
         prefs.q = q.value.trim();
         prefs.sort = sortBy.value;
         savePrefs();
-        syncViewTabs();
         if (window.__DATA__) render(window.__DATA__);
-      }
-
-      for (const tab of viewTabs){
-        tab.addEventListener("click", ()=>{
-          viewMode.value = tab.dataset.view;
-          onChange();
-        });
       }
 
       viewMode.addEventListener("change", onChange);
@@ -637,17 +673,13 @@
       q.addEventListener("input", onChange);
 
       document.getElementById("refreshBtn").addEventListener("click", async ()=>{
-        setLoading(true);
         try{
           const data = await load();
           window.__DATA__ = data;
           render(data);
-          updateLastUpdated();
         }catch(e){
           showError("Failed to load /public/today.json. (" + e.message + ")");
           console.error(e);
-        } finally {
-          setLoading(false);
         }
       });
 
@@ -655,9 +687,9 @@
         const link = location.origin + DATA_URL;
         try{
           await navigator.clipboard.writeText(link);
-          showToast("Copied data link.");
+          alert("Copied: " + link);
         }catch(_){
-          showCopyFallback(link);
+          prompt("Copy this URL:", link);
         }
       });
     }
@@ -665,26 +697,19 @@
     (async function(){
       loadPrefs();
       bindControls();
-      setLoading(true);
-      refreshLastUpdatedLabel();
-      setInterval(refreshLastUpdatedLabel, 60000);
 
       try{
         const data = await load();
         window.__DATA__ = data;
         render(data);
-        updateLastUpdated();
       }catch(e){
         showError("Failed to load /public/today.json. (" + e.message + ")");
         console.error(e);
-      } finally {
-        setLoading(false);
       }
     })();
   </script>
 </body>
 </html>
-
 
 
 
