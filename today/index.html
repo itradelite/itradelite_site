@@ -1,5 +1,4 @@
-<!doctype html>
-<html lang="en-AU">
+<!doctype html><html lang="en-AU">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -36,6 +35,12 @@
   <!-- Page-specific CSS: institutional polish, but small -->
   <style>
     .pagePad{ padding: 18px 0 46px; }
+    main.container.pagePad{ position:relative; }
+    main.container.pagePad::before{ content:""; position:absolute; inset:0 0 auto 0; height:260px; background: radial-gradient(700px 220px at 15% 0%, rgba(96,165,250,.18), transparent 70%), radial-gradient(700px 220px at 85% 0%, rgba(94,234,212,.12), transparent 70%); pointer-events:none; z-index:-1; }
+
+    .pageIntro{ margin: 0 0 14px; padding: 12px 14px; border:1px solid rgba(255,255,255,.08); border-radius: 14px; background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02)); }
+    .pageIntro h1{ margin:0; font-size: clamp(24px, 5vw, 34px); letter-spacing:.15px; }
+    .pageIntro p{ margin:6px 0 0; color: rgba(231,236,246,.78); font-size: 14px; max-width: 72ch; }
 
     .banner{
       border-radius: 12px;
@@ -62,27 +67,6 @@
       background: rgba(255,213,128,.07);
     }
 
-    .pill{
-      display:inline-flex;
-      align-items:center;
-      gap:6px;
-      border-radius: 999px;
-      padding: 4px 10px;
-      font-size: 12px;
-      border: 1px solid rgba(255,255,255,.10);
-      background: rgba(255,255,255,.04);
-      white-space:nowrap;
-    }
-    .pill--valid{
-      border-color: rgba(94,234,212,.35);
-      background: rgba(94,234,212,.12);
-      color: rgba(231,236,246,1);
-    }
-    .pill--watch{
-      border-color: rgba(255,213,128,.35);
-      background: rgba(255,213,128,.10);
-      color: rgba(231,236,246,.98);
-    }
     .pill--riskon{
       border-color: rgba(94,234,212,.35);
       background: rgba(94,234,212,.12);
@@ -91,10 +75,6 @@
       border-color: rgba(255,120,120,.35);
       background: rgba(255,120,120,.12);
     }
-
-    .mono{ font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; }
-    .muted{ opacity:.75; }
-
     .briefHead{
       display:flex;
       flex-wrap:wrap;
@@ -113,34 +93,36 @@
     .kpiBox{
       border-radius: 12px;
       padding: 12px 12px;
-      border: 1px solid rgba(255,255,255,.08);
-      background: rgba(255,255,255,.03);
+      border: 1px solid rgba(255,255,255,.10);
+      background: linear-gradient(180deg, rgba(255,255,255,.045), rgba(255,255,255,.015));
+      box-shadow: 0 8px 22px rgba(0,0,0,.16);
     }
     .kpiLabel{ font-size: 12px; opacity:.75; }
     .kpiValue{ font-size: 20px; font-weight: 650; margin-top: 4px; }
+    .todayTableWrap{ overflow-x:auto; border:1px solid rgba(255,255,255,.10); border-radius: 14px; background: linear-gradient(180deg, rgba(30,45,72,.78), rgba(14,23,42,.66)); }
+    .todayTableWrap table{ width:100%; border-collapse: collapse; min-width: 640px; }
+    .todayTableWrap th, .todayTableWrap td{ padding: 10px 10px; border-bottom: 1px solid rgba(255,255,255,.06); vertical-align: top; }
+    .todayTableWrap th{ font-size: 12px; opacity:.82; text-transform: uppercase; letter-spacing: .6px; background: rgba(20,32,56,.92); }
+    .todayTableWrap td b{ font-weight: 650; }
 
-    .sectionTitle{
-      display:flex;
-      align-items:baseline;
-      justify-content:space-between;
-      gap:10px;
-      margin: 0 0 10px 0;
-    }
-    .sectionTitle h2{ margin:0; font-size:16px; letter-spacing:.2px; }
-    .sectionTitle .count{ font-size:12px; opacity:.75; }
+    .todayPage .muted{ color: rgba(231,236,246,.72); }
 
-    .tableWrap{ overflow-x:auto; }
-    table{ width:100%; border-collapse: collapse; }
-    th, td{ padding: 10px 10px; border-bottom: 1px solid rgba(255,255,255,.06); vertical-align: top; }
-    th{ font-size: 12px; opacity:.75; text-transform: uppercase; letter-spacing: .6px; }
-    td b{ font-weight: 650; }
+    .todayPage .pill{ background: rgba(255,255,255,.08); border-color: rgba(255,255,255,.14); }
+    .todayPage .card{ background: linear-gradient(180deg, rgba(31,47,77,.76), rgba(18,29,49,.66)); border-color: rgba(255,255,255,.12); }
+    .todayPage .card .small{ color: rgba(231,236,246,.78); }
 
     .rowNote{
+      display:block;
       font-size:12px;
-      opacity:.8;
-      margin-top: 4px;
-      line-height: 1.35;
+      color: rgba(231,236,246,.86);
+      margin-top: 6px;
+      line-height: 1.42;
+      max-width: 34ch;
+      white-space: normal;
+      word-break: break-word;
     }
+
+    .symbolCell{ min-width: 170px; }
 
     .split{
       display:flex;
@@ -148,13 +130,100 @@
       gap:12px;
       align-items:center;
     }
+    .briefHead > .split:first-child{ flex:1; }
+
+    .viewTabs{
+      display:flex;
+      gap:8px;
+      flex-wrap:wrap;
+      margin-top: 10px;
+    }
+    .viewTab{
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.05);
+      color: rgba(231,236,246,.92);
+      border-radius: 999px;
+      padding: 7px 12px;
+      font-size: 12px;
+      font-weight: 700;
+      cursor:pointer;
+    }
+    .viewTab:hover{ background: rgba(255,255,255,.08); }
+    .viewTab.is-active{
+      border-color: rgba(94,234,212,.45);
+      background: linear-gradient(135deg, rgba(94,234,212,.18), rgba(96,165,250,.16));
+      color: rgba(231,236,246,1);
+    }
 
     @media (max-width: 980px){
       .kpiGrid{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
     }
+    @media (max-width: 680px){
+      .pagePad{ padding: 14px 0 36px; }
+      .briefHead{ gap:12px; }
+      .briefHead > .split{ width:100%; }
+      .briefHead > .split:last-child{ justify-content:space-between; }
+      #refreshBtn, #copyLinkBtn{ flex:1; justify-content:center; min-height:42px; }
+      #lastUpdated{ width:100%; }
+      .pill{ white-space: normal; }
+      .banner{ flex-direction:column; }
+    }
     @media (max-width: 520px){
       .field{ min-width: 100% !important; }
+      .kpiGrid{ grid-template-columns: 1fr; }
+      .kpiValue{ font-size: 18px; }
+      .sectionTitle{ flex-direction:column; align-items:flex-start; }
+      .toast{ left: 10px; right: 10px; bottom: 10px; max-width: none; }
+
+      .todayTableWrap table, .todayTableWrap thead, .todayTableWrap tbody, .todayTableWrap tr, .todayTableWrap th, .todayTableWrap td{ display:block; }
+      .todayTableWrap table{ min-width: 100%; }
+      .todayTableWrap thead{ position:absolute; left:-9999px; top:-9999px; }
+      .todayTableWrap tbody tr{ border-bottom:1px solid rgba(255,255,255,.08); padding: 8px 8px 10px; }
+      .todayTableWrap td{ border:none; padding: 6px 0; font-size: 12px; }
+      .todayTableWrap td::before{ content: attr(data-label); display:block; font-size:11px; text-transform:uppercase; letter-spacing:.5px; opacity:.66; margin-bottom:2px; }
+      .symbolCell{ min-width: 0; }
+      .symbolCell .rowNote{ max-width: 100%; }
+      caption{ padding: 8px 8px 6px; }
     }
+    .button[disabled]{ opacity:.65; cursor:wait; }
+
+    .spinner{
+      width: 12px;
+      height: 12px;
+      border: 2px solid rgba(231,236,246,.35);
+      border-top-color: rgba(231,236,246,.95);
+      border-radius: 999px;
+      display:none;
+      animation: spin .8s linear infinite;
+    }
+    .button[disabled] .spinner{ display:inline-block; }
+
+    @keyframes spin{ to { transform: rotate(360deg); } }
+    .toast{
+      position: fixed;
+      right: 16px;
+      bottom: 16px;
+      z-index: 120;
+      border: 1px solid rgba(94,234,212,.35);
+      background: rgba(17,26,46,.96);
+      color: rgba(231,236,246,1);
+      border-radius: 12px;
+      padding: 10px 12px;
+      box-shadow: 0 10px 30px rgba(0,0,0,.35);
+      max-width: min(92vw, 420px);
+      font-size: 13px;
+    }
+
+    .copyFallback{ margin-top:10px; }
+    .copyFallback input{ margin-top:6px; }
+
+    caption{
+      text-align:left;
+      font-size:12px;
+      color: rgba(231,236,246,.72);
+      padding: 8px 10px 2px;
+    }
+
   </style>
 
   <!-- JSON-LD -->
@@ -186,121 +255,136 @@
         <span class="brand__name">iTradeLite</span>
       </a>
 
-      <nav class="nav" aria-label="Primary">
-        <a href="/">Home</a>
-        <a href="/today/" aria-current="page">Today</a>
-        <a href="/how-it-works.html">How it works</a>
-        <a href="/about.html">About</a>
-      </nav>
+  <nav class="nav" aria-label="Primary">
+    <a href="/">Home</a>
+    <a href="/today/" aria-current="page">Today</a>
+    <a href="/how-it-works.html">How it works</a>
+    <a href="/about.html">About</a>
+  </nav>
 
-      <div class="topbar__cta">
-        <a class="btn btn--small btn--ghost" href="/how-it-works.html">Rules</a>
+  <div class="topbar__cta">
+    <a class="btn btn--small btn--ghost" href="/how-it-works.html">Rules</a>
+  </div>
+</div>  </div>
+
+  <main class="container pagePad todayPage">
+
+<section class="pageIntro" aria-label="Page intro">
+  <h1>Daily ASX Briefing</h1>
+  <p>Actionable setups with transparent rule-based signals, optimized for quick scanning on desktop and iPhone.</p>
+</section>
+
+<!-- Banners -->
+<div id="riskBanner"></div>
+<div id="freshBanner"></div>
+<div class="small" style="margin: 8px 0 14px;">
+  <b>Order types:</b> LIMIT = buy only if price pulls back to your level. STOP-LIMIT = buy only if price breaks upward through trigger.
+</div>
+<!-- Briefing -->
+<section class="card card--pad" aria-label="Daily briefing">
+  <div class="briefHead">
+    <div class="split">
+      <span class="pill" id="statusChip" role="status" aria-live="polite" aria-atomic="true">Status: <b id="statusText">Loading…</b></span>
+      <span class="pill">Generated: <b class="mono" id="generated">—</b></span>
+      <span class="pill">Valid for: <b class="mono" id="validFor">—</b></span>
+      <span class="pill">Risk mode: <b class="mono" id="riskMode">—</b></span>
+      <span class="pill">Data age: <b class="mono" id="dataAge">—</b></span>
+    </div>
+
+    <div class="split">
+      <button class="button button--primary" id="refreshBtn" type="button"><span class="spinner" id="refreshSpinner" aria-hidden="true"></span><span id="refreshBtnLabel">Refresh</span></button>
+      <button class="button" id="copyLinkBtn" type="button" title="Copy today.json URL">Copy data link</button>
+      <span class="small" id="lastUpdated" role="status" aria-live="polite" aria-atomic="true">Last updated: —</span>
+    </div>
+  </div>
+
+  <div class="small">
+    <b>Model assumptions:</b>
+    “Risk (A$)” uses a model portfolio of <b>A$100,000</b> and <b>1%</b> risk per trade.
+    Position size is computed from entry–stop distance and rounded to whole shares.
+    <span class="muted">(Educational only. Not financial advice.)</span>
+  </div>
+
+  <div class="kpiGrid" aria-label="KPIs">
+    <div class="kpiBox">
+      <div class="kpiLabel">Recommended Orders</div>
+      <div class="kpiValue" id="kpiRecommended">—</div>
+    </div>
+    <div class="kpiBox">
+      <div class="kpiLabel">Valid setups</div>
+      <div class="kpiValue" id="kpiValid">—</div>
+    </div>
+    <div class="kpiBox">
+      <div class="kpiLabel">Watch candidates</div>
+      <div class="kpiValue" id="kpiWatch">—</div>
+    </div>
+    <div class="kpiBox">
+      <div class="kpiLabel">Universe / AXJO bar</div>
+      <div class="kpiValue" style="font-size:14px; line-height:1.25;">
+        <div><b id="kpiUniverse">—</b> symbols</div>
+        <div class="muted mono">AXJO: <span id="kpiAxjo">—</span></div>
       </div>
     </div>
   </div>
 
-  <main class="container pagePad">
-
-    <!-- Banners -->
-    <div id="riskBanner"></div>
-    <div id="freshBanner"></div>
-    <div class="small" style="margin: 8px 0 14px;">
-      <b>Order types:</b> LIMIT = buy only if price pulls back to your level. STOP-LIMIT = buy only if price breaks upward through trigger.
+  <!-- Controls -->
+  <div class="controls" aria-label="Filters" style="margin-top:14px;">
+    <div class="field">
+      <label for="viewMode">View</label>
+      <select id="viewMode">
+        <option value="all">All sections</option>
+        <option value="recommended">Recommended only</option>
+        <option value="valid">Valid only</option>
+        <option value="watch">Watch only</option>
+      </select>
     </div>
 
-
-    <!-- Briefing -->
-    <section class="card card--pad" aria-label="Daily briefing">
-      <div class="briefHead">
-        <div class="split">
-          <span class="pill" id="statusChip">Status: <b id="statusText">Loading…</b></span>
-          <span class="pill">Generated: <b class="mono" id="generated">—</b></span>
-          <span class="pill">Valid for: <b class="mono" id="validFor">—</b></span>
-          <span class="pill">Risk mode: <b class="mono" id="riskMode">—</b></span>
-          <span class="pill">Data age: <b class="mono" id="dataAge">—</b></span>
-        </div>
-
-        <div class="split">
-          <button class="button button--primary" id="refreshBtn" type="button">Refresh</button>
-          <button class="button" id="copyLinkBtn" type="button" title="Copy today.json URL">Copy data link</button>
-        </div>
-      </div>
-
-      <div class="small">
-        <b>Model assumptions:</b>
-        “Risk (A$)” uses a model portfolio of <b>A$100,000</b> and <b>1%</b> risk per trade.
-        Position size is computed from entry–stop distance and rounded to whole shares.
-        <span class="muted">(Educational only. Not financial advice.)</span>
-      </div>
-
-      <div class="kpiGrid" aria-label="KPIs">
-        <div class="kpiBox">
-          <div class="kpiLabel">Recommended Orders</div>
-          <div class="kpiValue" id="kpiRecommended">—</div>
-        </div>
-        <div class="kpiBox">
-          <div class="kpiLabel">Valid setups</div>
-          <div class="kpiValue" id="kpiValid">—</div>
-        </div>
-        <div class="kpiBox">
-          <div class="kpiLabel">Watch candidates</div>
-          <div class="kpiValue" id="kpiWatch">—</div>
-        </div>
-        <div class="kpiBox">
-          <div class="kpiLabel">Universe / AXJO bar</div>
-          <div class="kpiValue" style="font-size:14px; line-height:1.25;">
-            <div><b id="kpiUniverse">—</b> symbols</div>
-            <div class="muted mono">AXJO: <span id="kpiAxjo">—</span></div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Controls -->
-      <div class="controls" aria-label="Filters" style="margin-top:14px;">
-        <div class="field">
-          <label for="viewMode">View</label>
-          <select id="viewMode">
-            <option value="all">All sections</option>
-            <option value="recommended">Recommended only</option>
-            <option value="valid">Valid only</option>
-            <option value="watch">Watch only</option>
-          </select>
-        </div>
-
-        <div class="field">
-          <label for="strategyFilter">Strategy</label>
-          <select id="strategyFilter">
-            <option value="all">All strategies</option>
-          </select>
-        </div>
-
-        <div class="field" style="min-width:220px;">
-          <label for="q">Search symbol</label>
-          <input id="q" placeholder="e.g. ANZ.AX" autocomplete="off" />
-        </div>
-
-        <div class="field">
-          <label for="sortBy">Sort</label>
-          <select id="sortBy">
-            <option value="status_score">Status → score</option>
-            <option value="score_desc">Score (desc)</option>
-            <option value="risk_desc">Risk (desc)</option>
-            <option value="symbol_asc">Symbol (A→Z)</option>
-          </select>
-        </div>
-      </div>
-
-      <div id="errorBox" class="error" style="display:none; margin-top:12px;"></div>
-    </section>
-
-    <!-- Tables -->
-    <div class="tables" id="tables" style="margin-top:14px;"></div>
-
-    <div class="small" style="margin-top:18px;">
-      <b>Disclaimer:</b> Educational content only. This is a rule-based watchlist, not financial advice.
-      Markets are risky; results are not guaranteed.
+    <div class="field">
+      <label for="strategyFilter">Strategy</label>
+      <select id="strategyFilter">
+        <option value="all">All strategies</option>
+      </select>
     </div>
-  </main>
+
+    <div class="field" style="min-width:220px;">
+      <label for="q">Search symbol</label>
+      <input id="q" placeholder="e.g. ANZ.AX" autocomplete="off" />
+    </div>
+
+    <div class="field">
+      <label for="sortBy">Sort</label>
+      <select id="sortBy">
+        <option value="status_score">Status → score</option>
+        <option value="score_desc">Score (desc)</option>
+        <option value="risk_desc">Risk (desc)</option>
+        <option value="symbol_asc">Symbol (A→Z)</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="viewTabs" id="viewTabs" role="tablist" aria-label="Quick views">
+    <button type="button" class="viewTab" data-view="all" role="tab">All</button>
+    <button type="button" class="viewTab" data-view="recommended" role="tab">Recommended</button>
+    <button type="button" class="viewTab" data-view="valid" role="tab">Valid</button>
+    <button type="button" class="viewTab" data-view="watch" role="tab">Watch</button>
+  </div>
+
+  <div id="errorBox" class="error" style="display:none; margin-top:12px;" role="status" aria-live="polite" aria-atomic="true"></div>
+
+  <div id="toast" class="toast" role="status" aria-live="polite" aria-atomic="true" hidden></div>
+  <div id="copyFallback" class="copyFallback" hidden>
+    <label for="copyFallbackInput">Copy this URL</label>
+    <input id="copyFallbackInput" type="text" readonly />
+  </div>
+</section>
+
+<!-- Tables -->
+<div class="tables" id="tables" style="margin-top:14px;"></div>
+
+<div class="small" style="margin-top:18px;">
+  <b>Disclaimer:</b> Educational content only. This is a rule-based watchlist, not financial advice.
+  Markets are risky; results are not guaranteed.
+</div>  </main>
 
   <script>
     const DATA_URL = "/public/today.json";
@@ -331,11 +415,11 @@
 
     function escapeHtml(s){
       return String(s)
-        .replaceAll("&","&amp;")
-        .replaceAll("<","&lt;")
-        .replaceAll(">","&gt;")
-        .replaceAll('"',"&quot;")
-        .replaceAll("'","&#39;");
+        .replaceAll("&","&")
+        .replaceAll("<","<")
+        .replaceAll(">",">")
+        .replaceAll('"',""")
+        .replaceAll("'","'");
     }
 
     function showError(msg){
@@ -356,6 +440,48 @@
       statusText.textContent = text;
       chip.style.borderColor = ok ? "rgba(94,234,212,.35)" : "rgba(255,213,128,.35)";
       chip.style.background  = ok ? "rgba(94,234,212,.12)" : "rgba(255,213,128,.10)";
+    }
+    function setLoading(isLoading){
+      const btn = document.getElementById("refreshBtn");
+      const label = document.getElementById("refreshBtnLabel");
+      if (!btn || !label) return;
+      btn.disabled = isLoading;
+      label.textContent = isLoading ? "Refreshing…" : "Refresh";
+    }
+
+    function updateLastUpdated(now = new Date()){
+      const el = document.getElementById("lastUpdated");
+      if (!el) return;
+      window.__LAST_UPDATED_AT__ = now;
+      el.textContent = "Last updated: just now";
+    }
+
+    function refreshLastUpdatedLabel(){
+      const el = document.getElementById("lastUpdated");
+      const d = window.__LAST_UPDATED_AT__;
+      if (!el || !d) return;
+      const mins = Math.max(0, Math.round((Date.now() - d.getTime()) / 60000));
+      el.textContent = mins <= 0 ? "Last updated: just now" : `Last updated: ${mins} min ago`;
+    }
+
+    function showToast(msg){
+      const t = document.getElementById("toast");
+      if (!t) return;
+      t.textContent = msg;
+      t.hidden = false;
+      clearTimeout(window.__TOAST_TIMER__);
+      window.__TOAST_TIMER__ = setTimeout(()=>{ t.hidden = true; }, 2400);
+    }
+
+    function showCopyFallback(link){
+      const wrap = document.getElementById("copyFallback");
+      const input = document.getElementById("copyFallbackInput");
+      if (!wrap || !input) return;
+      wrap.hidden = false;
+      input.value = link;
+      input.focus();
+      input.select();
+      showToast("Clipboard unavailable. Copy from field below.");
     }
 
     function computeDataAge(generatedAtUtc){
@@ -416,17 +542,18 @@
             <h2>${escapeHtml(title)}</h2>
             <div class="count">${escapeHtml(subtitle || (count + " item(s)"))}</div>
           </div>
-          <div class="tableWrap">
+          <div class="todayTableWrap">
             <table>
+              <caption>${escapeHtml(title)} — ${escapeHtml(subtitle || (count + " item(s)"))}</caption>
               <thead>
                 <tr>
-                  <th style="width:120px;">Symbol</th>
-                  <th style="width:160px;">Strategy</th>
-                  <th>Entry</th>
-                  <th style="width:110px;">Last close</th>
-                  <th style="width:110px;">Stop</th>
-                  <th style="width:110px;">Risk (A$)</th>
-                  <th style="width:90px;">Status</th>
+                  <th scope="col" style="width:120px;">Symbol</th>
+                  <th scope="col" style="width:160px;">Strategy</th>
+                  <th scope="col">Entry</th>
+                  <th scope="col" style="width:110px;">Last close</th>
+                  <th scope="col" style="width:110px;">Stop</th>
+                  <th scope="col" style="width:110px;">Risk (A$)</th>
+                  <th scope="col" style="width:90px;">Status</th>
                 </tr>
               </thead>
               <tbody>
@@ -447,13 +574,13 @@
 
         html += `
           <tr>
-            <td class="mono"><b>${sym}</b>${noteHtml}</td>
-            <td>${strat}</td>
-            <td class="mono">${entry}</td>
-            <td class="mono">${lastClose}</td>
-            <td class="mono">${stop}</td>
-            <td class="mono">${risk}</td>
-            <td>${pill}</td>
+            <td class="mono symbolCell" data-label="Symbol"><b>${sym}</b>${noteHtml}</td>
+            <td data-label="Strategy">${strat}</td>
+            <td class="mono" data-label="Entry">${entry}</td>
+            <td class="mono" data-label="Last close">${lastClose}</td>
+            <td class="mono" data-label="Stop">${stop}</td>
+            <td class="mono" data-label="Risk (A$)">${risk}</td>
+            <td data-label="Status">${pill}</td>
           </tr>
         `;
       }
@@ -538,7 +665,7 @@
               <b>Data freshness:</b> Yahoo daily bars not updated yet. Recommendations may be suppressed.
               <div class="muted" style="margin-top:4px;">This is a safety gate to avoid publishing stale signals.</div>
             </div>
-            <div class="pill">STale</div>
+            <div class="pill">Stale</div>
           </div>
         `;
       } else {
@@ -651,12 +778,22 @@
       const strategyFilter = document.getElementById("strategyFilter");
       const q = document.getElementById("q");
       const sortBy = document.getElementById("sortBy");
+      const viewTabs = [...document.querySelectorAll(".viewTab")];
+
+      function syncViewTabs(){
+        for (const tab of viewTabs){
+          const active = tab.dataset.view === prefs.view;
+          tab.classList.toggle("is-active", active);
+          tab.setAttribute("aria-selected", active ? "true" : "false");
+        }
+      }
 
       // init values
       viewMode.value = prefs.view;
       strategyFilter.value = prefs.strat;
       q.value = prefs.q;
       sortBy.value = prefs.sort;
+      syncViewTabs();
 
       function onChange(){
         prefs.view = viewMode.value;
@@ -664,7 +801,15 @@
         prefs.q = q.value.trim();
         prefs.sort = sortBy.value;
         savePrefs();
+        syncViewTabs();
         if (window.__DATA__) render(window.__DATA__);
+      }
+
+      for (const tab of viewTabs){
+        tab.addEventListener("click", ()=>{
+          viewMode.value = tab.dataset.view;
+          onChange();
+        });
       }
 
       viewMode.addEventListener("change", onChange);
@@ -673,13 +818,17 @@
       q.addEventListener("input", onChange);
 
       document.getElementById("refreshBtn").addEventListener("click", async ()=>{
+        setLoading(true);
         try{
           const data = await load();
           window.__DATA__ = data;
           render(data);
+          updateLastUpdated();
         }catch(e){
           showError("Failed to load /public/today.json. (" + e.message + ")");
           console.error(e);
+        } finally {
+          setLoading(false);
         }
       });
 
@@ -687,9 +836,9 @@
         const link = location.origin + DATA_URL;
         try{
           await navigator.clipboard.writeText(link);
-          alert("Copied: " + link);
+          showToast("Copied data link.");
         }catch(_){
-          prompt("Copy this URL:", link);
+          showCopyFallback(link);
         }
       });
     }
@@ -697,19 +846,23 @@
     (async function(){
       loadPrefs();
       bindControls();
+      setLoading(true);
+      refreshLastUpdatedLabel();
+      setInterval(refreshLastUpdatedLabel, 60000);
 
       try{
         const data = await load();
         window.__DATA__ = data;
         render(data);
+        updateLastUpdated();
       }catch(e){
         showError("Failed to load /public/today.json. (" + e.message + ")");
         console.error(e);
+      } finally {
+        setLoading(false);
       }
     })();
   </script>
 </body>
 </html>
-
-
 
