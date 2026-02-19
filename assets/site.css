@@ -1,3 +1,7 @@
+/* =============================
+   site.css (FULL — corrected)
+   ============================= */
+
 :root{
   --bg:#0b1220;
   --panel:#111a2e;
@@ -65,12 +69,10 @@ a:hover{ text-decoration:underline; }
   image-rendering: auto;
 }
 
-
 .brand__name{
   font-weight: 750; /* visually slightly calmer than 800 */
   letter-spacing: .15px;
 }
-
 
 .nav{ display:flex; gap:14px; margin-left:8px; }
 .nav a{
@@ -148,8 +150,6 @@ input:focus-visible{
   box-shadow: 0 0 0 4px rgba(96,165,250,.20);
 }
 
-
-
 /* -----------------------------
    Sections / Cards
 ----------------------------- */
@@ -195,6 +195,7 @@ input:focus-visible{
 
 /* -----------------------------
    APP UI (Today page)
+   (Corrected: remove "black overlays")
 ----------------------------- */
 .appGrid{
   display:grid;
@@ -215,7 +216,10 @@ input:focus-visible{
   border-radius: 999px;
   font-size: 12px;
   border: 1px solid var(--line);
-  background: rgba(0,0,0,0.18);
+
+  /* was rgba(0,0,0,0.18) -> too "black" */
+  background: rgba(255,255,255,.05);
+
   color: var(--muted);
 }
 .chip b{ color: var(--text); font-weight:700; }
@@ -252,7 +256,10 @@ select, input{
   padding:10px 10px;
   border-radius: 12px;
   border: 1px solid var(--line);
-  background: rgba(0,0,0,0.22);
+
+  /* was rgba(0,0,0,0.22) -> too "black" */
+  background: rgba(255,255,255,.06);
+
   color: var(--text);
   outline: none;
 }
@@ -273,7 +280,10 @@ input::placeholder{ color: rgba(231,236,246,.45); }
 }
 .kpi .box{
   border:1px solid var(--line);
-  background: rgba(0,0,0,.18);
+
+  /* was rgba(0,0,0,0.18) -> too "black" */
+  background: rgba(255,255,255,.04);
+
   border-radius: var(--radiusSm);
   padding: 10px;
 }
@@ -305,7 +315,10 @@ input::placeholder{ color: rgba(231,236,246,.45); }
 
 .tableWrap{
   border:1px solid var(--line);
-  background: rgba(0,0,0,.18);
+
+  /* was rgba(0,0,0,0.18) -> too "black" */
+  background: rgba(255,255,255,.04);
+
   border-radius: var(--radius);
   overflow:hidden;
 }
@@ -368,7 +381,6 @@ tbody tr:hover{ background: rgba(255,255,255,.03); }
   .nav{ display:none; } /* keep it simple for now */
 }
 
-
 @media (max-width: 480px){
   .container{ width:min(1100px, calc(100% - 24px)); }
   .topbar__inner{ gap:10px; padding:10px 0; }
@@ -377,8 +389,4 @@ tbody tr:hover{ background: rgba(255,255,255,.03); }
   .topbar__cta .btn{ padding:8px 10px; border-radius:10px; font-size:12px; }
   .card{ padding:12px; border-radius:14px; }
 }
-
-
-
-
 
