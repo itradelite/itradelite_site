@@ -1,12 +1,7 @@
-/* =============================
-   site.css (FULL — corrected)
-   ============================= */
-
 :root{
---bg:#0e1626;
---panel:#182235;
---card:#1c2a42;
-
+  --bg:#0b1220;
+  --panel:#111a2e;
+  --card:#0f1830;
   --text:#e7ecf6;
   --muted:#aab6d3;
   --line:rgba(255,255,255,.10);
@@ -23,14 +18,12 @@
 html,body{ margin:0; padding:0; }
 body{
   font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-  background:
-    radial-gradient(900px 400px at 20% 0%, rgba(96,165,250,.12), transparent 60%),
-    radial-gradient(900px 400px at 80% 0%, rgba(94,234,212,.10), transparent 60%),
-    var(--bg);
+  background: radial-gradient(900px 500px at 20% 0%, rgba(96,165,250,.18), transparent 60%),
+              radial-gradient(900px 500px at 80% 10%, rgba(94,234,212,.14), transparent 60%),
+              var(--bg);
   color:var(--text);
-  line-height:1.5;
+  line-height:1.45;
 }
-
 
 .container{ width:min(1100px, calc(100% - 40px)); margin:0 auto; }
 
@@ -72,10 +65,12 @@ a:hover{ text-decoration:underline; }
   image-rendering: auto;
 }
 
+
 .brand__name{
   font-weight: 750; /* visually slightly calmer than 800 */
   letter-spacing: .15px;
 }
+
 
 .nav{ display:flex; gap:14px; margin-left:8px; }
 .nav a{
@@ -143,16 +138,6 @@ h1{
   background: rgba(94,234,212,.12);
 }
 
-a:focus-visible,
-.btn:focus-visible,
-.button:focus-visible,
-select:focus-visible,
-input:focus-visible{
-  outline: 2px solid rgba(96,165,250,.85);
-  outline-offset: 2px;
-  box-shadow: 0 0 0 4px rgba(96,165,250,.20);
-}
-
 /* -----------------------------
    Sections / Cards
 ----------------------------- */
@@ -170,8 +155,8 @@ input:focus-visible{
 .section--alt{ border-top:1px solid var(--line); border-bottom:1px solid var(--line); background: rgba(255,255,255,.03); }
 
 .card{
-    background: var(--card);
-  border:1px solid rgba(255,255,255,.08);
+  background: rgba(17,26,46,.65);
+  border:1px solid var(--line);
   border-radius: var(--radius);
   padding:16px;
   box-shadow: var(--shadow);
@@ -198,7 +183,6 @@ input:focus-visible{
 
 /* -----------------------------
    APP UI (Today page)
-   (Corrected: remove "black overlays")
 ----------------------------- */
 .appGrid{
   display:grid;
@@ -219,25 +203,10 @@ input:focus-visible{
   border-radius: 999px;
   font-size: 12px;
   border: 1px solid var(--line);
-
-  /* was rgba(0,0,0,0.18) -> too "black" */
-  background: rgba(255,255,255,.05);
-
+  background: rgba(0,0,0,0.18);
   color: var(--muted);
 }
 .chip b{ color: var(--text); font-weight:700; }
-.todayTableWrap {
-  background: #17243a;
-  border: 1px solid rgba(255,255,255,.08);
-}
-.todayTableWrap th {
-  background: #1e2d47;
-  color: #cbd5e1;
-}
-
-.card { margin-bottom: 18px; }
-.kpiGrid { margin-top: 18px; }
-.tables { margin-top: 20px; }
 
 .pill{
   display:inline-flex;
@@ -271,10 +240,7 @@ select, input{
   padding:10px 10px;
   border-radius: 12px;
   border: 1px solid var(--line);
-
-  /* was rgba(0,0,0,0.22) -> too "black" */
-  background: rgba(255,255,255,.06);
-
+  background: rgba(0,0,0,0.22);
   color: var(--text);
   outline: none;
 }
@@ -295,10 +261,7 @@ input::placeholder{ color: rgba(231,236,246,.45); }
 }
 .kpi .box{
   border:1px solid var(--line);
-
-  /* was rgba(0,0,0,0.18) -> too "black" */
-  background: rgba(255,255,255,.04);
-
+  background: rgba(0,0,0,.18);
   border-radius: var(--radiusSm);
   padding: 10px;
 }
@@ -330,10 +293,7 @@ input::placeholder{ color: rgba(231,236,246,.45); }
 
 .tableWrap{
   border:1px solid var(--line);
-
-  /* was rgba(0,0,0,0.18) -> too "black" */
-  background: rgba(255,255,255,.04);
-
+  background: rgba(0,0,0,.18);
   border-radius: var(--radius);
   overflow:hidden;
 }
@@ -394,15 +354,6 @@ tbody tr:hover{ background: rgba(255,255,255,.03); }
   .grid3{ grid-template-columns: 1fr; }
   .grid2{ grid-template-columns: 1fr; }
   .nav{ display:none; } /* keep it simple for now */
-}
-
-@media (max-width: 480px){
-  .container{ width:min(1100px, calc(100% - 24px)); }
-  .topbar__inner{ gap:10px; padding:10px 0; }
-  .brand__mark{ width:30px; height:30px; border-radius:9px; }
-  .brand__name{ font-size:15px; }
-  .topbar__cta .btn{ padding:8px 10px; border-radius:10px; font-size:12px; }
-  .card{ padding:12px; border-radius:14px; }
 }
 
 
