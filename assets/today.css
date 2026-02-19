@@ -361,3 +361,71 @@ caption {
   .symbolCell .rowNote { max-width: 100%; }
   caption { padding: 8px 8px 6px; }
 }
+/* Better mobile-friendly dark mode adjustments */
+
+body {
+  background: #0f172a;  /* lighter than #0b1220, still dark but less "void" */
+}
+
+.todayTableWrap,
+.card,
+.kpiBox,
+.banner {
+  background: #1e293b;   /* slate-800 — much better readability */
+  border-color: rgba(94,234,212, 0.12);
+}
+
+.todayTableWrap th {
+  background: #1e293b;
+  color: #e2e8f0;        /* brighter gray-white */
+  opacity: 1;
+}
+
+.todayTableWrap td {
+  color: #f1f5f9;        /* almost white for numbers/symbols */
+}
+
+.kpiValue {
+  color: #ffffff;
+  font-weight: 800;
+}
+
+.muted, .small, .rowNote {
+  color: #cbd5e1;        /* slate-300 — much easier to read */
+}
+
+.pill, .viewTab {
+  background: rgba(255,255,255, 0.06);
+  color: #e2e8f0;
+}
+
+.viewTab.is-active {
+  background: rgba(94,234,212, 0.22);
+  border-color: rgba(94,234,212, 0.55);
+  color: white;
+}
+
+/* Mobile-specific breathing room */
+@media (max-width: 680px) {
+  .pagePad {
+    padding: 16px 0 48px;
+  }
+  .kpiGrid {
+    gap: 12px;
+  }
+  .kpiBox {
+    padding: 14px 16px;
+  }
+  .todayTableWrap th, .todayTableWrap td {
+    padding: 10px 12px;
+  }
+  .field select, .field input {
+    padding: 12px 14px;
+    font-size: 15px;
+  }
+}
+
+/* Reduce eye strain on OLED screens */
+main.container.pagePad::before {
+  opacity: 0.7;   /* tone down the glow a bit */
+}
