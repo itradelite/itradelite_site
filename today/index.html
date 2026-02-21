@@ -340,7 +340,7 @@
           <br />
           <b>Sizing:</b> uses your Portfolio and Risk % to compute Qty. Qty is floor(risk_budget / (Entry − Stop)). Educational only.
           <br />
-          <span class="muted">Note: For STOP-LIMIT entries (trigger/limit text), Qty/TP are blank until a numeric entry is available.</span>
+          <span class="muted">Note: STOP-LIMIT rows now compute Qty/TP using the LIMIT price (conservative worst-case fill).</span>
         </div>
       </div>
     </section>
@@ -530,10 +530,57 @@
       return Number.isFinite(x) ? x : -1;
     }
 
+    // --- NEW: parse "trigger=... limit=..." from STOP-LIMIT entry text ---
+    function parseStopLimitEntryText(entryText){
+      const s = String(entryText || "").trim();
+      if (!s) return null;
+
+      // Explicit skip => no sizing
+      if (/^SKIP\b/i.test(s) || s.toUpperCase().includes("SKIP")) return { skip: true };
+
+      let trigger = null;
+      let limit = null;
+
+      try{
+        const mTrig = s.match(/trigger\s*=\s*([0-9]*\.?[0-9]+)/i);
+        const mLim  = s.match(/limit\s*=\s*([0-9]*\.?[0-9]+)/i);
+        if (mTrig) trigger = Number(mTrig[1]);
+        if (mLim)  limit   = Number(mLim[1]);
+      }catch(_){}
+
+      if (!Number.isFinite(trigger)) trigger = null;
+      if (!Number.isFinite(limit))   limit = null;
+
+      if (trigger === null && limit === null) return null;
+      return { trigger, limit, skip: false };
+    }
+
+    // --- NEW: choose a numeric entry for sizing ---
+    // Institutional/conservative choice: use LIMIT if available (worst-case fill),
+    // else use TRIGGER, else fall back to numeric entry.
+    function numericEntryForSizing(r){
+      // 1) if entry is numeric already (LIMIT strategies)
+      const direct = Number(r.entry);
+      if (Number.isFinite(direct)) return direct;
+
+      // 2) if entry is text STOP-LIMIT like "trigger=... limit=..."
+      const entryText = (r.entry_text !== undefined && r.entry_text !== null)
+        ? r.entry_text
+        : r.entry;
+
+      const parsed = parseStopLimitEntryText(entryText);
+      if (!parsed || parsed.skip) return null;
+
+      if (parsed.limit !== null) return parsed.limit;
+      if (parsed.trigger !== null) return parsed.trigger;
+
+      return null;
+    }
+
     function sizingForRow(r){
-      // Only compute when entry and stop are numeric (STOP-LIMIT text will be blank)
-      const entry = Number(r.entry);
+      const entry = numericEntryForSizing(r);
       const stop  = Number(r.stop);
+
       if (!Number.isFinite(entry) || !Number.isFinite(stop)) return null;
 
       const riskPerShare = Math.abs(entry - stop);
@@ -545,14 +592,14 @@
 
       const qty = Math.floor(riskBudget / riskPerShare);
       if (!Number.isFinite(qty) || qty <= 0) {
-        return { qty: 0, riskBudget, tp1: null, tp2: null, riskPerShare };
+        return { qty: 0, riskBudget, tp1: null, tp2: null, riskPerShare, entryUsed: entry };
       }
 
       // Long-only targets (your system is long-biased)
       const tp1 = entry + 2 * riskPerShare;
       const tp2 = entry + 3 * riskPerShare;
 
-      return { qty, riskBudget, tp1, tp2, riskPerShare };
+      return { qty, riskBudget, tp1, tp2, riskPerShare, entryUsed: entry };
     }
 
     function buildTable(title, rows, subtitle){
