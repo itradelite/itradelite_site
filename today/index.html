@@ -338,9 +338,9 @@
         <div class="small">
           <b>Order types:</b> LIMIT = buy only if price pulls back to your level. STOP-LIMIT = buy only if price breaks upward through trigger.
           <br />
-          <b>Sizing:</b> uses your Portfolio and Risk % to compute Qty. Qty is floor(risk_budget / (Entry − Stop)). Educational only.
+          <b>Institutional framing:</b> Targets shown are <b>ATR-based</b> and may be <b>capped by structural ceiling</b>. Setups are filtered by capped risk-efficiency (<b>min R multiple</b> + <b>min upside ATR</b>).
           <br />
-          <span class="muted">Note: STOP-LIMIT rows now compute Qty/TP using the LIMIT price (conservative worst-case fill).</span>
+          <b>Sizing:</b> uses your Portfolio and Risk % to compute Qty. Qty is floor(risk_budget / |Entry − Stop|). For STOP-LIMIT entries, sizing uses the <b>LIMIT</b> price (worst-case fill).
         </div>
       </div>
     </section>
@@ -374,7 +374,8 @@
         <select id="sortBy">
           <option value="status_score">Status Rank</option>
           <option value="score_desc">Highest Score</option>
-          <option value="risk_desc">Highest Risk</option>
+          <option value="risk_desc">Highest Risk (A$)</option>
+          <option value="r_mult_desc">Best R multiple</option>
           <option value="symbol_asc">Alphabetical</option>
         </select>
       </div>
@@ -410,7 +411,6 @@
     const DATA_URL = "/public/today.json";
 
     // Persist UI preferences
-    // Added: portfolio, riskPct
     const prefs = { view:"all", strat:"all", q:"", sort:"status_score", portfolio:100000, riskPct:1 };
 
     function clamp(n, lo, hi){
@@ -523,14 +523,7 @@
       return Number.isFinite(x) ? x : -1;
     }
 
-    // We keep this for sorting, but it's no longer "model risk".
-    // We'll compute "riskBudget" per user for display.
-    function rawRiskVal(r){
-      const x = Number((r.risk !== undefined) ? r.risk : (r["$risk"] !== undefined ? r["$risk"] : NaN));
-      return Number.isFinite(x) ? x : -1;
-    }
-
-    // --- NEW: parse "trigger=... limit=..." from STOP-LIMIT entry text ---
+    // --- Parse "trigger=... limit=..." from STOP-LIMIT entry text ---
     function parseStopLimitEntryText(entryText){
       const s = String(entryText || "").trim();
       if (!s) return null;
@@ -555,15 +548,13 @@
       return { trigger, limit, skip: false };
     }
 
-    // --- NEW: choose a numeric entry for sizing ---
-    // Institutional/conservative choice: use LIMIT if available (worst-case fill),
-    // else use TRIGGER, else fall back to numeric entry.
+    // Choose a numeric entry for sizing:
+    // - direct numeric entry (LIMIT strategies)
+    // - else STOP-LIMIT parse => use LIMIT (worst-case fill), else TRIGGER
     function numericEntryForSizing(r){
-      // 1) if entry is numeric already (LIMIT strategies)
       const direct = Number(r.entry);
       if (Number.isFinite(direct)) return direct;
 
-      // 2) if entry is text STOP-LIMIT like "trigger=... limit=..."
       const entryText = (r.entry_text !== undefined && r.entry_text !== null)
         ? r.entry_text
         : r.entry;
@@ -575,6 +566,52 @@
       if (parsed.trigger !== null) return parsed.trigger;
 
       return null;
+    }
+
+    // --- Institutional display helpers (prefer scan.py fields) ---
+    function numOrNull(x){
+      const n = Number(x);
+      return Number.isFinite(n) ? n : null;
+    }
+
+    function displayTp1(r){
+      // Prefer ATR target from scan output (tp1), else compute fallback from ATR if possible.
+      const t = numOrNull(r.tp1);
+      if (t !== null) return t;
+
+      const atr = numOrNull(r.atr14);
+      const entry = numericEntryForSizing(r);
+      if (atr !== null && entry !== null) return entry + 1.5 * atr;
+      return null;
+    }
+
+    function displayCapTarget(r){
+      // Prefer scan output cap_target
+      const c = numOrNull(r.cap_target);
+      if (c !== null) return c;
+
+      // fallback: min(tp2, ceiling) if available
+      const tp2 = displayTp2(r);
+      const ceil = numOrNull(r.ceiling);
+      if (tp2 !== null && ceil !== null) return Math.min(tp2, ceil);
+      if (tp2 !== null) return tp2;
+      return null;
+    }
+
+    function displayTp2(r){
+      // Prefer ATR target from scan output (tp2), else compute fallback from ATR if possible.
+      const t = numOrNull(r.tp2);
+      if (t !== null) return t;
+
+      const atr = numOrNull(r.atr14);
+      const entry = numericEntryForSizing(r);
+      if (atr !== null && entry !== null) return entry + 3.0 * atr;
+      return null;
+    }
+
+    function displayRmult(r){
+      const x = numOrNull(r.r_mult);
+      return x;
     }
 
     function sizingForRow(r){
@@ -592,14 +629,22 @@
 
       const qty = Math.floor(riskBudget / riskPerShare);
       if (!Number.isFinite(qty) || qty <= 0) {
-        return { qty: 0, riskBudget, tp1: null, tp2: null, riskPerShare, entryUsed: entry };
+        return { qty: 0, riskBudget, riskPerShare, entryUsed: entry };
       }
 
-      // Long-only targets (your system is long-biased)
-      const tp1 = entry + 2 * riskPerShare;
-      const tp2 = entry + 3 * riskPerShare;
+      return { qty, riskBudget, riskPerShare, entryUsed: entry };
+    }
 
-      return { qty, riskBudget, tp1, tp2, riskPerShare, entryUsed: entry };
+    // --- NEW: "Risk (A$)" for sorting + display is user risk budget per row (sizing truth = UI) ---
+    function riskBudgetForRow(r){
+      const s = sizingForRow(r);
+      if (!s) return null;
+      return s.riskBudget;
+    }
+
+    function rawRiskVal(r){
+      const rb = riskBudgetForRow(r);
+      return (rb !== null) ? rb : -1;
     }
 
     function buildTable(title, rows, subtitle){
@@ -622,8 +667,9 @@
                   <th style="width:110px;">Stop</th>
                   <th style="width:90px;">Qty</th>
                   <th style="width:120px;">Risk (A$)</th>
-                  <th style="width:120px;">TP1 (2R)</th>
-                  <th style="width:120px;">TP2 (3R)</th>
+                  <th style="width:120px;">TP1 (ATR)</th>
+                  <th style="width:130px;">Cap Target</th>
+                  <th style="width:110px;">R mult</th>
                   <th style="width:90px;">Status</th>
                 </tr>
               </thead>
@@ -641,8 +687,14 @@
         const s = sizingForRow(r);
         const qtyTxt = s ? (s.qty > 0 ? String(s.qty) : "—") : "—";
         const riskBudgetTxt = s ? ("~" + Math.round(s.riskBudget).toString()) : "—";
-        const tp1Txt = (s && s.tp1 !== null) ? fmt(s.tp1, 4) : "—";
-        const tp2Txt = (s && s.tp2 !== null) ? fmt(s.tp2, 4) : "—";
+
+        const tp1 = displayTp1(r);
+        const cap = displayCapTarget(r);
+        const rmult = displayRmult(r);
+
+        const tp1Txt = (tp1 !== null) ? fmt(tp1, 4) : "—";
+        const capTxt = (cap !== null) ? fmt(cap, 4) : "—";
+        const rmultTxt = (rmult !== null) ? fmt(rmult, 2) : "—";
 
         const note = r.plain_english || r.instruction || r.note || "";
         const noteHtml = note ? `<div class="rowNote">${escapeHtml(note)}</div>` : "";
@@ -657,7 +709,8 @@
             <td class="mono">${escapeHtml(qtyTxt)}</td>
             <td class="mono">${escapeHtml(riskBudgetTxt)}</td>
             <td class="mono">${escapeHtml(tp1Txt)}</td>
-            <td class="mono">${escapeHtml(tp2Txt)}</td>
+            <td class="mono">${escapeHtml(capTxt)}</td>
+            <td class="mono">${escapeHtml(rmultTxt)}</td>
             <td>${pill}</td>
           </tr>
         `;
@@ -702,8 +755,22 @@
 
       out.sort((a,b)=>{
         if (prefs.sort === "symbol_asc") return String(a.symbol||"").localeCompare(String(b.symbol||""));
-        if (prefs.sort === "risk_desc")  return rawRiskVal(b) - rawRiskVal(a);
+
+        if (prefs.sort === "risk_desc") {
+          // Sort by USER risk budget (A$) descending (truth = UI sizing)
+          return rawRiskVal(b) - rawRiskVal(a);
+        }
+
+        if (prefs.sort === "r_mult_desc") {
+          const ra = displayRmult(a);
+          const rb = displayRmult(b);
+          const va = (ra === null) ? -1 : ra;
+          const vb = (rb === null) ? -1 : rb;
+          return vb - va;
+        }
+
         if (prefs.sort === "score_desc") return scoreVal(b) - scoreVal(a);
+
         const ds = statusRank(b.status) - statusRank(a.status);
         if (ds !== 0) return ds;
         return scoreVal(b) - scoreVal(a);
