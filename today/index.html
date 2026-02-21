@@ -157,18 +157,34 @@
     .briefMeta__right { display:flex; gap: 10px; align-items:center; }
 
     /* Controls */
-    .controls {
-      background: var(--card-bg);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 16px;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 16px;
-      align-items: flex-end;
-      margin-bottom: 18px;
-    }
-    .field { display: flex; flex-direction: column; gap: 6px; }
+.controls {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 16px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;              /* was 16px */
+  align-items: flex-end;
+  margin-bottom: 18px;
+}
+
+.field { display: flex; flex-direction: column; gap: 6px; }
+
+/* Tight mobile stacking */
+@media (max-width: 860px) {
+  .controls {
+    gap: 10px;            /* tighter vertical gap */
+    padding: 14px;
+  }
+  .field {
+    width: 100% !important;
+    flex: 0 0 100% !important;
+  }
+  input, select {
+    width: 100%;
+  }
+}
     label { font-size: 11px; font-weight: 900; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.06em; }
     select, input {
       background: rgba(15,23,42,0.85);
@@ -773,3 +789,4 @@
   </script>
 </body>
 </html>
+
