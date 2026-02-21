@@ -291,9 +291,7 @@
 
   <main class="container" style="padding: 16px 0 24px;">
 
-    <!-- Banners (hydrated by JS) -->
-    <div id="riskBanner"></div>
-    <div id="freshBanner"></div>
+
 
     <!-- KPI Dashboard -->
     <div class="kpiGrid" aria-label="KPIs">
@@ -603,48 +601,29 @@
       return out;
     }
 
-    function renderBanners(data){
-      const rb = document.getElementById("riskBanner");
-      const rm = (data.risk_mode || "").toLowerCase();
+function renderBanners(data){
+  // NEVER render risk banner
+  const rb = document.getElementById("riskBanner");
+  if (rb) rb.innerHTML = "";
 
-      if (rb){
-        if (rm === "risk_on"){
-          rb.innerHTML = `
-            <div class="banner banner--riskon">
-              <div><b>Risk Regime:</b> RISK-ON</div>
-              <div class="pill">Trend + momentum setups enabled</div>
-            </div>
-          `;
-        } else if (rm === "risk_off"){
-          rb.innerHTML = `
-            <div class="banner banner--riskoff">
-              <div><b>Risk Regime:</b> RISK-OFF</div>
-              <div class="pill">Trend + momentum disabled</div>
-            </div>
-          `;
-        } else {
-          rb.innerHTML = "";
-        }
-      }
+  // Freshness banner only
+  const fb = document.getElementById("freshBanner");
+  if (!fb) return;
 
-      const fb = document.getElementById("freshBanner");
-      if (fb){
-        if (data.data_fresh === false){
-          fb.innerHTML = `
-            <div class="banner banner--stale">
-              <div>
-                <b>Data freshness:</b> Yahoo daily bars not updated yet. Recommendations may be suppressed.
-                <div class="small" style="margin-top:4px;">Safety gate to avoid publishing stale signals.</div>
-              </div>
-              <div class="pill">STALE</div>
-            </div>
-          `;
-        } else {
-          fb.innerHTML = "";
-        }
-      }
-    }
-
+  if (data.data_fresh === false){
+    fb.innerHTML = `
+      <div class="banner banner--stale">
+        <div>
+          <b>Data freshness:</b> Yahoo daily bars not updated yet. Recommendations may be suppressed.
+          <div class="small" style="margin-top:4px;">Safety gate to avoid publishing stale signals.</div>
+        </div>
+        <div class="pill">STALE</div>
+      </div>
+    `;
+  } else {
+    fb.innerHTML = "";
+  }
+}
     function extractRecommendedRows(data){
       if (Array.isArray(data.recommended_orders)) return data.recommended_orders;
       const setups = Array.isArray(data.setups) ? data.setups : [];
@@ -789,4 +768,5 @@
   </script>
 </body>
 </html>
+
 
