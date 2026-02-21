@@ -88,8 +88,6 @@
       align-items: center;
       gap: 12px;
     }
-    .banner--riskon { border-left-color: var(--accent-green); background: linear-gradient(90deg, rgba(16,185,129,0.12) 0%, rgba(30,41,59,0.0) 100%); }
-    .banner--riskoff { border-left-color: var(--accent-red); background: linear-gradient(90deg, rgba(244,63,94,0.12) 0%, rgba(30,41,59,0.0) 100%); }
     .banner--stale { border-left-color: var(--accent-gold); background: linear-gradient(90deg, rgba(245,158,11,0.12) 0%, rgba(30,41,59,0.0) 100%); }
 
     /* Pills */
@@ -157,34 +155,35 @@
     .briefMeta__right { display:flex; gap: 10px; align-items:center; }
 
     /* Controls */
-.controls {
-  background: var(--card-bg);
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  padding: 16px;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;              /* was 16px */
-  align-items: flex-end;
-  margin-bottom: 18px;
-}
+    .controls {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 16px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: flex-end;
+      margin-bottom: 18px;
+    }
 
-.field { display: flex; flex-direction: column; gap: 6px; }
+    .field { display: flex; flex-direction: column; gap: 6px; }
 
-/* Tight mobile stacking */
-@media (max-width: 860px) {
-  .controls {
-    gap: 10px;            /* tighter vertical gap */
-    padding: 14px;
-  }
-  .field {
-    width: 100% !important;
-    flex: 0 0 100% !important;
-  }
-  input, select {
-    width: 100%;
-  }
-}
+    /* Tight mobile stacking */
+    @media (max-width: 860px) {
+      .controls {
+        gap: 10px;
+        padding: 14px;
+      }
+      .field {
+        width: 100% !important;
+        flex: 0 0 100% !important;
+      }
+      input, select {
+        width: 100%;
+      }
+    }
+
     label { font-size: 11px; font-weight: 900; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.06em; }
     select, input {
       background: rgba(15,23,42,0.85);
@@ -290,9 +289,6 @@
   </header>
 
   <main class="container" style="padding: 16px 0 24px;">
-
-
-
     <!-- KPI Dashboard -->
     <div class="kpiGrid" aria-label="KPIs">
       <div class="kpiBox">
@@ -316,7 +312,7 @@
       </div>
     </div>
 
-    <!-- Briefing meta + tools (keeps legacy IDs so the JS never breaks) -->
+    <!-- Briefing meta + tools -->
     <section class="card card--pad" aria-label="Daily briefing">
       <div class="sectionTitle">
         <h2>Daily Briefing</h2>
@@ -342,12 +338,14 @@
         <div class="small">
           <b>Order types:</b> LIMIT = buy only if price pulls back to your level. STOP-LIMIT = buy only if price breaks upward through trigger.
           <br />
-          <b>Risk (A$):</b> assumes A$100,000 model equity and 1% risk per trade. Educational only.
+          <b>Sizing:</b> uses your Portfolio and Risk % to compute Qty. Qty is floor(risk_budget / (Entry − Stop)). Educational only.
+          <br />
+          <span class="muted">Note: For STOP-LIMIT entries (trigger/limit text), Qty/TP are blank until a numeric entry is available.</span>
         </div>
       </div>
     </section>
 
-    <!-- Filters -->
+    <!-- Filters + sizing -->
     <section class="controls" aria-label="Filters">
       <div class="field">
         <label for="viewMode">View Mode</label>
@@ -380,6 +378,24 @@
           <option value="symbol_asc">Alphabetical</option>
         </select>
       </div>
+
+      <div class="field" style="min-width: 200px;">
+        <label for="portfolio">Portfolio (A$)</label>
+        <input id="portfolio" inputmode="decimal" placeholder="100000" />
+      </div>
+
+      <div class="field" style="min-width: 180px;">
+        <label for="riskPct">Risk / trade (%)</label>
+        <select id="riskPct">
+          <option value="0.5">0.5%</option>
+          <option value="0.75">0.75%</option>
+          <option value="1">1.0%</option>
+          <option value="1.5">1.5%</option>
+          <option value="2">2.0%</option>
+          <option value="2.5">2.5%</option>
+          <option value="3">3.0%</option>
+        </select>
+      </div>
     </section>
 
     <!-- Tables injected here -->
@@ -394,7 +410,21 @@
     const DATA_URL = "/public/today.json";
 
     // Persist UI preferences
-    const prefs = { view:"all", strat:"all", q:"", sort:"status_score" };
+    // Added: portfolio, riskPct
+    const prefs = { view:"all", strat:"all", q:"", sort:"status_score", portfolio:100000, riskPct:1 };
+
+    function clamp(n, lo, hi){
+      const x = Number(n);
+      if (!Number.isFinite(x)) return lo;
+      return Math.min(hi, Math.max(lo, x));
+    }
+
+    function readMoneyLike(s){
+      const raw = String(s ?? "").replace(/[^0-9.\-]/g, "");
+      if (!raw) return null;
+      const x = Number(raw);
+      return Number.isFinite(x) ? x : null;
+    }
 
     function loadPrefs(){
       try{
@@ -403,7 +433,11 @@
         const obj = JSON.parse(raw);
         Object.assign(prefs, obj || {});
       }catch(_){}
+      // normalize
+      prefs.portfolio = clamp(prefs.portfolio ?? 100000, 1000, 100000000);
+      prefs.riskPct = clamp(prefs.riskPct ?? 1, 0.25, 3);
     }
+
     function savePrefs(){
       try{ localStorage.setItem("itradelite_today_prefs", JSON.stringify(prefs)); }catch(_){}
     }
@@ -474,15 +508,6 @@
       return fmt(x, 4);
     }
 
-    function parseRisk(r){
-      // your snapshot uses "$risk" sometimes, older uses "risk"
-      const v = (r.risk !== undefined) ? r.risk : (r["$risk"] !== undefined ? r["$risk"] : null);
-      if (v === null || v === undefined || v === "") return "—";
-      const x = Number(v);
-      if (!Number.isFinite(x)) return "—";
-      return "~" + Math.round(x).toString();
-    }
-
     function statusPill(status){
       if (status === "Valid") return `<span><span class="status-dot dot--valid"></span>Valid</span>`;
       if (status === "Watch") return `<span><span class="status-dot dot--watch"></span>Watch</span>`;
@@ -497,9 +522,37 @@
       const x = Number(r.score);
       return Number.isFinite(x) ? x : -1;
     }
-    function riskVal(r){
+
+    // We keep this for sorting, but it's no longer "model risk".
+    // We'll compute "riskBudget" per user for display.
+    function rawRiskVal(r){
       const x = Number((r.risk !== undefined) ? r.risk : (r["$risk"] !== undefined ? r["$risk"] : NaN));
       return Number.isFinite(x) ? x : -1;
+    }
+
+    function sizingForRow(r){
+      // Only compute when entry and stop are numeric (STOP-LIMIT text will be blank)
+      const entry = Number(r.entry);
+      const stop  = Number(r.stop);
+      if (!Number.isFinite(entry) || !Number.isFinite(stop)) return null;
+
+      const riskPerShare = Math.abs(entry - stop);
+      if (!Number.isFinite(riskPerShare) || riskPerShare <= 0) return null;
+
+      const portfolio = clamp(prefs.portfolio, 1000, 100000000);
+      const riskPct = clamp(prefs.riskPct, 0.25, 3);
+      const riskBudget = portfolio * (riskPct / 100);
+
+      const qty = Math.floor(riskBudget / riskPerShare);
+      if (!Number.isFinite(qty) || qty <= 0) {
+        return { qty: 0, riskBudget, tp1: null, tp2: null, riskPerShare };
+      }
+
+      // Long-only targets (your system is long-biased)
+      const tp1 = entry + 2 * riskPerShare;
+      const tp2 = entry + 3 * riskPerShare;
+
+      return { qty, riskBudget, tp1, tp2, riskPerShare };
     }
 
     function buildTable(title, rows, subtitle){
@@ -520,7 +573,10 @@
                   <th>Entry</th>
                   <th style="width:110px;">Last close</th>
                   <th style="width:110px;">Stop</th>
-                  <th style="width:110px;">Risk (A$)</th>
+                  <th style="width:90px;">Qty</th>
+                  <th style="width:120px;">Risk (A$)</th>
+                  <th style="width:120px;">TP1 (2R)</th>
+                  <th style="width:120px;">TP2 (3R)</th>
                   <th style="width:90px;">Status</th>
                 </tr>
               </thead>
@@ -530,11 +586,16 @@
       for (const r of rows){
         const sym = escapeHtml(safeText(r.symbol));
         const strat = escapeHtml(normalizeStrategyName(r.strategy));
-        const entry = escapeHtml(parseEntry(r));
+        const entryTxt = escapeHtml(parseEntry(r));
         const lastClose = escapeHtml(parseLastClose(r));
-        const stop = escapeHtml(fmt(r.stop, 4));
-        const risk = escapeHtml(parseRisk(r));
+        const stopTxt = escapeHtml(fmt(r.stop, 4));
         const pill = statusPill(r.status);
+
+        const s = sizingForRow(r);
+        const qtyTxt = s ? (s.qty > 0 ? String(s.qty) : "—") : "—";
+        const riskBudgetTxt = s ? ("~" + Math.round(s.riskBudget).toString()) : "—";
+        const tp1Txt = (s && s.tp1 !== null) ? fmt(s.tp1, 4) : "—";
+        const tp2Txt = (s && s.tp2 !== null) ? fmt(s.tp2, 4) : "—";
 
         const note = r.plain_english || r.instruction || r.note || "";
         const noteHtml = note ? `<div class="rowNote">${escapeHtml(note)}</div>` : "";
@@ -543,10 +604,13 @@
           <tr>
             <td class="mono"><span class="symbol-cell">${sym}</span>${noteHtml}</td>
             <td>${strat || "—"}</td>
-            <td class="mono">${entry}</td>
+            <td class="mono">${entryTxt}</td>
             <td class="mono">${lastClose}</td>
-            <td class="mono">${stop}</td>
-            <td class="mono">${risk}</td>
+            <td class="mono">${stopTxt}</td>
+            <td class="mono">${escapeHtml(qtyTxt)}</td>
+            <td class="mono">${escapeHtml(riskBudgetTxt)}</td>
+            <td class="mono">${escapeHtml(tp1Txt)}</td>
+            <td class="mono">${escapeHtml(tp2Txt)}</td>
             <td>${pill}</td>
           </tr>
         `;
@@ -591,7 +655,7 @@
 
       out.sort((a,b)=>{
         if (prefs.sort === "symbol_asc") return String(a.symbol||"").localeCompare(String(b.symbol||""));
-        if (prefs.sort === "risk_desc")  return riskVal(b) - riskVal(a);
+        if (prefs.sort === "risk_desc")  return rawRiskVal(b) - rawRiskVal(a);
         if (prefs.sort === "score_desc") return scoreVal(b) - scoreVal(a);
         const ds = statusRank(b.status) - statusRank(a.status);
         if (ds !== 0) return ds;
@@ -601,29 +665,30 @@
       return out;
     }
 
-function renderBanners(data){
-  // NEVER render risk banner
-  const rb = document.getElementById("riskBanner");
-  if (rb) rb.innerHTML = "";
+    function renderBanners(data){
+      // NEVER render risk banner
+      const rb = document.getElementById("riskBanner");
+      if (rb) rb.innerHTML = "";
 
-  // Freshness banner only
-  const fb = document.getElementById("freshBanner");
-  if (!fb) return;
+      // Freshness banner only
+      const fb = document.getElementById("freshBanner");
+      if (!fb) return;
 
-  if (data.data_fresh === false){
-    fb.innerHTML = `
-      <div class="banner banner--stale">
-        <div>
-          <b>Data freshness:</b> Yahoo daily bars not updated yet. Recommendations may be suppressed.
-          <div class="small" style="margin-top:4px;">Safety gate to avoid publishing stale signals.</div>
-        </div>
-        <div class="pill">STALE</div>
-      </div>
-    `;
-  } else {
-    fb.innerHTML = "";
-  }
-}
+      if (data.data_fresh === false){
+        fb.innerHTML = `
+          <div class="banner banner--stale">
+            <div>
+              <b>Data freshness:</b> Yahoo daily bars not updated yet. Recommendations may be suppressed.
+              <div class="small" style="margin-top:4px;">Safety gate to avoid publishing stale signals.</div>
+            </div>
+            <div class="pill">STALE</div>
+          </div>
+        `;
+      } else {
+        fb.innerHTML = "";
+      }
+    }
+
     function extractRecommendedRows(data){
       if (Array.isArray(data.recommended_orders)) return data.recommended_orders;
       const setups = Array.isArray(data.setups) ? data.setups : [];
@@ -642,8 +707,6 @@ function renderBanners(data){
       const recommended = extractRecommendedRows(data);
 
       const validCount = setups.filter(s => s.status === "Valid").length;
-      const watchCount = setups.filter(s => s.status === "Watch").length;
-
       document.getElementById("kpiRecommended").textContent = String(recommended.length);
       document.getElementById("kpiValid").textContent = String(validCount);
 
@@ -710,17 +773,31 @@ function renderBanners(data){
       const strategyFilter = document.getElementById("strategyFilter");
       const q = document.getElementById("q");
       const sortBy = document.getElementById("sortBy");
+      const portfolio = document.getElementById("portfolio");
+      const riskPct = document.getElementById("riskPct");
 
       viewMode.value = prefs.view;
       strategyFilter.value = prefs.strat;
       q.value = prefs.q;
       sortBy.value = prefs.sort;
 
+      // sizing fields
+      portfolio.value = String(prefs.portfolio ?? 100000);
+      // match select option if possible
+      const rp = String(prefs.riskPct ?? 1);
+      if ([...riskPct.options].some(o => o.value === rp)) riskPct.value = rp;
+
       function onChange(){
         prefs.view = viewMode.value;
         prefs.strat = strategyFilter.value;
         prefs.q = q.value.trim();
         prefs.sort = sortBy.value;
+
+        // sizing
+        const p = readMoneyLike(portfolio.value);
+        prefs.portfolio = clamp(p ?? 100000, 1000, 100000000);
+        prefs.riskPct = clamp(Number(riskPct.value), 0.25, 3);
+
         savePrefs();
         if (window.__DATA__) render(window.__DATA__);
       }
@@ -729,6 +806,9 @@ function renderBanners(data){
       strategyFilter.addEventListener("change", onChange);
       sortBy.addEventListener("change", onChange);
       q.addEventListener("input", onChange);
+
+      portfolio.addEventListener("input", onChange);
+      riskPct.addEventListener("change", onChange);
 
       document.getElementById("refreshBtn").addEventListener("click", async ()=>{
         try{
@@ -768,5 +848,3 @@ function renderBanners(data){
   </script>
 </body>
 </html>
-
-
