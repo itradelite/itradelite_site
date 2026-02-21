@@ -1,9 +1,9 @@
 {
   "date": "2026-02-23",
-  "generated": "2026-02-20",
+  "generated": "2026-02-21",
   "valid_for": "2026-02-23",
   "risk_mode": "always",
-  "generated_at_utc": "2026-02-20T11:08:42Z",
+  "generated_at_utc": "2026-02-21T11:30:29Z",
   "published": true,
   "reason": null,
   "source_watchlist": "reports/watchlist_full_latest.csv",
@@ -13,6 +13,18 @@
   "universe_size": 117,
   "recommended_orders": [
     {
+      "symbol": "AAI.AX",
+      "strategy": "Trend Pullback",
+      "entry": 85.3453,
+      "entry_text": "85.3453",
+      "last_close": 84.81,
+      "stop": 80.2336,
+      "risk": 996.79,
+      "score": 100.0,
+      "status": "Valid",
+      "plain_english": "Trend Pullback (confirmation): do NOT buy yet. Only buy if price rebounds to 85.35 (~0.63% above last close 84.81). Stop 80.23. If it never rebounds to that level, no trade. Score 100. Only trade when market is RISK-ON."
+    },
+    {
       "symbol": "ORI.AX",
       "strategy": "Mean Reversion",
       "entry": 24.75,
@@ -23,22 +35,22 @@
       "score": 100.0,
       "status": "Valid",
       "plain_english": "Mean Reversion (bounce): LIMIT buy near 24.75. Stop 23.79 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 100."
-    },
-    {
-      "symbol": "WHC.AX",
-      "strategy": "Mean Reversion",
-      "entry": 7.81,
-      "entry_text": "7.81",
-      "last_close": 7.81,
-      "stop": 7.3198,
-      "risk": 999.96,
-      "score": 100.0,
-      "status": "Valid",
-      "plain_english": "Mean Reversion (bounce): LIMIT buy near 7.81. Stop 7.3198 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 100."
     }
   ],
   "setups": [
     {
+      "symbol": "AAI.AX",
+      "strategy": "Trend Pullback",
+      "entry": 85.3453,
+      "entry_text": "85.3453",
+      "last_close": 84.81,
+      "stop": 80.2336,
+      "risk": 996.79,
+      "score": 100.0,
+      "status": "Valid",
+      "plain_english": "Trend Pullback (confirmation): do NOT buy yet. Only buy if price rebounds to 85.35 (~0.63% above last close 84.81). Stop 80.23. If it never rebounds to that level, no trade. Score 100. Only trade when market is RISK-ON."
+    },
+    {
       "symbol": "ORI.AX",
       "strategy": "Mean Reversion",
       "entry": 24.75,
@@ -56,35 +68,11 @@
       "entry": 7.81,
       "entry_text": "7.81",
       "last_close": 7.81,
-      "stop": 7.3198,
-      "risk": 999.96,
+      "stop": 7.3187,
+      "risk": 999.69,
       "score": 100.0,
       "status": "Valid",
-      "plain_english": "Mean Reversion (bounce): LIMIT buy near 7.81. Stop 7.3198 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 100."
-    },
-    {
-      "symbol": "S32.AX",
-      "strategy": "Trend Pullback",
-      "entry": 4.4072,
-      "entry_text": "4.4072",
-      "last_close": 4.39,
-      "stop": 4.2036,
-      "risk": 999.92,
-      "score": 97.0,
-      "status": "Valid",
-      "plain_english": "Trend Pullback (confirmation): do NOT buy yet. Only buy if price rebounds to 4.41 (~0.39% above last close 4.39). Stop 4.20. If it never rebounds to that level, no trade. Score 97. Only trade when market is RISK-ON."
-    },
-    {
-      "symbol": "RMS.AX",
-      "strategy": "Trend Pullback",
-      "entry": 4.5418,
-      "entry_text": "4.5418",
-      "last_close": 4.51,
-      "stop": 4.2938,
-      "risk": 999.94,
-      "score": 92.0,
-      "status": "Valid",
-      "plain_english": "Trend Pullback (confirmation): do NOT buy yet. Only buy if price rebounds to 4.54 (~0.71% above last close 4.51). Stop 4.29. If it never rebounds to that level, no trade. Score 92. Only trade when market is RISK-ON."
+      "plain_english": "Mean Reversion (bounce): LIMIT buy near 7.81. Stop 7.3187 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 100."
     },
     {
       "symbol": "CHC.AX",
@@ -99,54 +87,6 @@
       "plain_english": "Mean Reversion (bounce): LIMIT buy near 22.24. Stop 21.0277 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 86."
     },
     {
-      "symbol": "QBE.AX",
-      "strategy": "Momentum",
-      "entry": null,
-      "entry_text": "SKIP (late > trigger)",
-      "last_close": 21.48,
-      "stop": 19.1821,
-      "risk": 999.61,
-      "score": 100.0,
-      "status": "Watch",
-      "plain_english": "Momentum (breakout): Use STOP-LIMIT as shown (SKIP (late > trigger)). Order activates only if price breaks upward. Stop 19.1821. If it never triggers, no trade. Score 100. Only trade when market is RISK-ON."
-    },
-    {
-      "symbol": "RHC.AX",
-      "strategy": "Momentum",
-      "entry": null,
-      "entry_text": "SKIP (late > trigger)",
-      "last_close": 38.62,
-      "stop": 35.886,
-      "risk": 997.92,
-      "score": 100.0,
-      "status": "Watch",
-      "plain_english": "Momentum (breakout): Use STOP-LIMIT as shown (SKIP (late > trigger)). Order activates only if price breaks upward. Stop 35.886. If it never triggers, no trade. Score 100. Only trade when market is RISK-ON."
-    },
-    {
-      "symbol": "AAI.AX",
-      "strategy": "Trend Pullback",
-      "entry": 85.2328,
-      "entry_text": "85.2328",
-      "last_close": 84.81,
-      "stop": 80.2336,
-      "risk": 999.85,
-      "score": 95.0,
-      "status": "Watch",
-      "plain_english": "Trend Pullback (confirmation): do NOT buy yet. Only buy if price rebounds to 85.23 (~0.50% above last close 84.81). Stop 80.23. If it never rebounds to that level, no trade. Score 95. Only trade when market is RISK-ON."
-    },
-    {
-      "symbol": "WOW.AX",
-      "strategy": "Trend Pullback",
-      "entry": 31.381,
-      "entry_text": "31.381",
-      "last_close": 31.23,
-      "stop": 31.0847,
-      "risk": 999.74,
-      "score": 94.0,
-      "status": "Watch",
-      "plain_english": "Trend Pullback (confirmation): do NOT buy yet. Only buy if price rebounds to 31.38 (~0.48% above last close 31.23). Stop 31.08. If it never rebounds to that level, no trade. Score 94. Only trade when market is RISK-ON."
-    },
-    {
       "symbol": "WBC.AX",
       "strategy": "Momentum",
       "entry": null,
@@ -156,187 +96,79 @@
       "risk": 998.66,
       "score": 89.0,
       "status": "Watch",
-      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 42.57 (activates only if price breaks up). Limit 42.65 (max pay). Stop 39.7778. If trigger is not hit, no trade. Score 89. Only trade when market is RISK-ON."
+      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 42.57 (activates only if price breaks up). Limit 42.65 (max pay). Stop 39.78. If trigger is not hit, no trade. Score 89. Only trade when market is RISK-ON."
     },
     {
-      "symbol": "AIA.AX",
-      "strategy": "Momentum",
-      "entry": null,
-      "entry_text": "SKIP (late > trigger)",
-      "last_close": 7.54,
-      "stop": 7.0926,
-      "risk": 999.96,
-      "score": 88.0,
-      "status": "Watch",
-      "plain_english": "Momentum (breakout): Use STOP-LIMIT as shown (SKIP (late > trigger)). Order activates only if price breaks upward. Stop 7.0926. If it never triggers, no trade. Score 88. Only trade when market is RISK-ON."
-    },
-    {
-      "symbol": "ORG.AX",
-      "strategy": "Momentum",
-      "entry": null,
-      "entry_text": "SKIP (late > trigger)",
-      "last_close": 12.2,
-      "stop": 11.2189,
-      "risk": 999.71,
-      "score": 81.0,
-      "status": "Watch",
-      "plain_english": "Momentum (breakout): Use STOP-LIMIT as shown (SKIP (late > trigger)). Order activates only if price breaks upward. Stop 11.2189. If it never triggers, no trade. Score 81. Only trade when market is RISK-ON."
-    },
-    {
-      "symbol": "SFR.AX",
+      "symbol": "EVN.AX",
       "strategy": "Trend Pullback",
-      "entry": 19.1128,
-      "entry_text": "19.1128",
-      "last_close": 18.84,
-      "stop": 18.1386,
-      "risk": 999.52,
-      "score": 81.0,
-      "status": "Watch",
-      "plain_english": "Trend Pullback (confirmation): do NOT buy yet. Only buy if price rebounds to 19.11 (~1.45% above last close 18.84). Stop 18.14. If it never rebounds to that level, no trade. Score 81. Only trade when market is RISK-ON."
-    },
-    {
-      "symbol": "ALQ.AX",
-      "strategy": "Trend Pullback",
-      "entry": 24.0226,
-      "entry_text": "24.0226",
-      "last_close": 24.57,
-      "stop": 22.6916,
-      "risk": 999.58,
+      "entry": 15.3754,
+      "entry_text": "15.3754",
+      "last_close": 15.05,
+      "stop": 14.1412,
+      "risk": 999.73,
       "score": 80.0,
       "status": "Watch",
-      "plain_english": "Trend Pullback (buy the dip): LIMIT buy at 24.02 (~2.23% below last close 24.57) to catch a pullback toward EMA20. Stop 22.69. If price does not dip to your limit, do not chase. Score 80. Only trade when market is RISK-ON."
-    },
-    {
-      "symbol": "APE.AX",
-      "strategy": "Trend Pullback",
-      "entry": 25.9522,
-      "entry_text": "25.9522",
-      "last_close": 25.57,
-      "stop": 23.8803,
-      "risk": 998.68,
-      "score": 80.0,
-      "status": "Watch",
-      "plain_english": "Trend Pullback (confirmation): do NOT buy yet. Only buy if price rebounds to 25.95 (~1.49% above last close 25.57). Stop 23.88. If it never rebounds to that level, no trade. Score 80. Only trade when market is RISK-ON."
-    },
-    {
-      "symbol": "BSL.AX",
-      "strategy": "Trend Pullback",
-      "entry": 28.3491,
-      "entry_text": "28.3491",
-      "last_close": 29.0,
-      "stop": 27.0123,
-      "risk": 999.96,
-      "score": 80.0,
-      "status": "Watch",
-      "plain_english": "Trend Pullback (buy the dip): LIMIT buy at 28.35 (~2.24% below last close 29.00) to catch a pullback toward EMA20. Stop 27.01. If price does not dip to your limit, do not chase. Score 80. Only trade when market is RISK-ON."
-    },
-    {
-      "symbol": "CSC.AX",
-      "strategy": "Trend Pullback",
-      "entry": 15.4722,
-      "entry_text": "15.4722",
-      "last_close": 14.07,
-      "stop": 12.4777,
-      "risk": 997.16,
-      "score": 80.0,
-      "status": "Watch",
-      "plain_english": "Trend Pullback (confirmation): do NOT buy yet. Only buy if price rebounds to 15.47 (~9.97% above last close 14.07). Stop 12.48. If it never rebounds to that level, no trade. Score 80. Only trade when market is RISK-ON."
-    },
-    {
-      "symbol": "IGO.AX",
-      "strategy": "Trend Pullback",
-      "entry": 8.3758,
-      "entry_text": "8.3758",
-      "last_close": 7.9,
-      "stop": 7.7285,
-      "risk": 999.45,
-      "score": 80.0,
-      "status": "Watch",
-      "plain_english": "Trend Pullback (confirmation): do NOT buy yet. Only buy if price rebounds to 8.38 (~6.02% above last close 7.90). Stop 7.73. If it never rebounds to that level, no trade. Score 80. Only trade when market is RISK-ON."
-    },
-    {
-      "symbol": "NXG.AX",
-      "strategy": "Trend Pullback",
-      "entry": 16.7576,
-      "entry_text": "16.7576",
-      "last_close": 17.64,
-      "stop": 15.3587,
-      "risk": 998.85,
-      "score": 80.0,
-      "status": "Watch",
-      "plain_english": "Trend Pullback (buy the dip): LIMIT buy at 16.76 (~5.00% below last close 17.64) to catch a pullback toward EMA20. Stop 15.36. If price does not dip to your limit, do not chase. Score 80. Only trade when market is RISK-ON."
-    },
-    {
-      "symbol": "ORI.AX",
-      "strategy": "Trend Pullback",
-      "entry": 25.6056,
-      "entry_text": "25.6056",
-      "last_close": 24.75,
-      "stop": 24.59,
-      "risk": 999.32,
-      "score": 80.0,
-      "status": "Watch",
-      "plain_english": "Trend Pullback (confirmation): do NOT buy yet. Only buy if price rebounds to 25.61 (~3.46% above last close 24.75). Stop 24.59. If it never rebounds to that level, no trade. Score 80. Only trade when market is RISK-ON."
-    },
-    {
-      "symbol": "VGE.AX",
-      "strategy": "Trend Pullback",
-      "entry": 90.2386,
-      "entry_text": "90.2386",
-      "last_close": 90.4,
-      "stop": 89.3568,
-      "risk": 999.99,
-      "score": 80.0,
-      "status": "Watch",
-      "plain_english": "Trend Pullback (buy the dip): LIMIT buy at 90.24 (~0.18% below last close 90.40) to catch a pullback toward EMA20. Stop 89.36. If price does not dip to your limit, do not chase. Score 80. Only trade when market is RISK-ON."
-    },
-    {
-      "symbol": "REH.AX",
-      "strategy": "Trend Pullback",
-      "entry": 14.2674,
-      "entry_text": "14.2674",
-      "last_close": 13.94,
-      "stop": 13.1824,
-      "risk": 999.31,
-      "score": 78.0,
-      "status": "Watch",
-      "plain_english": "Trend Pullback (confirmation): do NOT buy yet. Only buy if price rebounds to 14.27 (~2.35% above last close 13.94). Stop 13.18. If it never rebounds to that level, no trade. Score 78. Only trade when market is RISK-ON."
-    },
-    {
-      "symbol": "VGS.AX",
-      "strategy": "Trend Pullback",
-      "entry": 149.0068,
-      "entry_text": "149.0068",
-      "last_close": 148.52,
-      "stop": 145.9596,
-      "risk": 999.46,
-      "score": 78.0,
-      "status": "Watch",
-      "plain_english": "Trend Pullback (confirmation): do NOT buy yet. Only buy if price rebounds to 149.01 (~0.33% above last close 148.52). Stop 145.96. If it never rebounds to that level, no trade. Score 78. Only trade when market is RISK-ON."
+      "plain_english": "Trend Pullback (confirmation): do NOT buy yet. Only buy if price rebounds to 15.38 (~2.16% above last close 15.05). Stop 14.14. If it never rebounds to that level, no trade. Score 80. Only trade when market is RISK-ON."
     },
     {
       "symbol": "NEM.AX",
       "strategy": "Trend Pullback",
-      "entry": 169.7515,
-      "entry_text": "169.7515",
+      "entry": 178.158,
+      "entry_text": "178.158",
       "last_close": 167.6,
       "stop": 159.4768,
-      "risk": 996.65,
-      "score": 77.0,
+      "risk": 990.1,
+      "score": 80.0,
       "status": "Watch",
-      "plain_english": "Trend Pullback (confirmation): do NOT buy yet. Only buy if price rebounds to 169.75 (~1.28% above last close 167.60). Stop 159.48. If it never rebounds to that level, no trade. Score 77. Only trade when market is RISK-ON."
+      "plain_english": "Trend Pullback (confirmation): do NOT buy yet. Only buy if price rebounds to 178.16 (~6.30% above last close 167.60). Stop 159.48. If it never rebounds to that level, no trade. Score 80. Only trade when market is RISK-ON."
     },
     {
-      "symbol": "PRU.AX",
+      "symbol": "RMS.AX",
       "strategy": "Trend Pullback",
-      "entry": 5.7514,
-      "entry_text": "5.7514",
-      "last_close": 5.87,
-      "stop": 5.3827,
-      "risk": 999.98,
-      "score": 77.0,
+      "entry": 4.6046,
+      "entry_text": "4.6046",
+      "last_close": 4.51,
+      "stop": 4.2938,
+      "risk": 999.72,
+      "score": 80.0,
       "status": "Watch",
-      "plain_english": "Trend Pullback (buy the dip): LIMIT buy at 5.75 (~2.02% below last close 5.87) to catch a pullback toward EMA20. Stop 5.38. If price does not dip to your limit, do not chase. Score 77. Only trade when market is RISK-ON."
+      "plain_english": "Trend Pullback (confirmation): do NOT buy yet. Only buy if price rebounds to 4.60 (~2.10% above last close 4.51). Stop 4.29. If it never rebounds to that level, no trade. Score 80. Only trade when market is RISK-ON."
+    },
+    {
+      "symbol": "S32.AX",
+      "strategy": "Trend Pullback",
+      "entry": 4.4244,
+      "entry_text": "4.4244",
+      "last_close": 4.39,
+      "stop": 4.2036,
+      "risk": 999.91,
+      "score": 80.0,
+      "status": "Watch",
+      "plain_english": "Trend Pullback (confirmation): do NOT buy yet. Only buy if price rebounds to 4.42 (~0.78% above last close 4.39). Stop 4.20. If it never rebounds to that level, no trade. Score 80. Only trade when market is RISK-ON."
+    },
+    {
+      "symbol": "SFR.AX",
+      "strategy": "Trend Pullback",
+      "entry": 18.9589,
+      "entry_text": "18.9589",
+      "last_close": 18.84,
+      "stop": 18.1386,
+      "risk": 999.98,
+      "score": 80.0,
+      "status": "Watch",
+      "plain_english": "Trend Pullback (confirmation): do NOT buy yet. Only buy if price rebounds to 18.96 (~0.63% above last close 18.84). Stop 18.14. If it never rebounds to that level, no trade. Score 80. Only trade when market is RISK-ON."
+    },
+    {
+      "symbol": "WOW.AX",
+      "strategy": "Trend Pullback",
+      "entry": 31.8819,
+      "entry_text": "31.8819",
+      "last_close": 31.23,
+      "stop": 31.0847,
+      "risk": 999.65,
+      "score": 80.0,
+      "status": "Watch",
+      "plain_english": "Trend Pullback (confirmation): do NOT buy yet. Only buy if price rebounds to 31.88 (~2.09% above last close 31.23). Stop 31.08. If it never rebounds to that level, no trade. Score 80. Only trade when market is RISK-ON."
     },
     {
       "symbol": "TCL.AX",
@@ -348,19 +180,7 @@
       "risk": 999.67,
       "score": 77.0,
       "status": "Watch",
-      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 14.32 (activates only if price breaks up). Limit 14.35 (max pay). Stop 13.6796. If trigger is not hit, no trade. Score 77. Only trade when market is RISK-ON."
-    },
-    {
-      "symbol": "VCX.AX",
-      "strategy": "Trend Pullback",
-      "entry": 2.5407,
-      "entry_text": "2.5407",
-      "last_close": 2.55,
-      "stop": 2.4922,
-      "risk": 999.98,
-      "score": 77.0,
-      "status": "Watch",
-      "plain_english": "Trend Pullback (buy the dip): LIMIT buy at 2.54 (~0.36% below last close 2.55) to catch a pullback toward EMA20. Stop 2.49. If price does not dip to your limit, do not chase. Score 77. Only trade when market is RISK-ON."
+      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 14.32 (activates only if price breaks up). Limit 14.35 (max pay). Stop 13.68. If trigger is not hit, no trade. Score 77. Only trade when market is RISK-ON."
     },
     {
       "symbol": "ANZ.AX",
@@ -372,7 +192,7 @@
       "risk": 997.88,
       "score": 76.0,
       "status": "Watch",
-      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 41.12 (activates only if price breaks up). Limit 41.21 (max pay). Stop 38.8654. If trigger is not hit, no trade. Score 76. Only trade when market is RISK-ON."
+      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 41.12 (activates only if price breaks up). Limit 41.21 (max pay). Stop 38.87. If trigger is not hit, no trade. Score 76. Only trade when market is RISK-ON."
     },
     {
       "symbol": "AZJ.AX",
@@ -384,19 +204,7 @@
       "risk": 999.54,
       "score": 76.0,
       "status": "Watch",
-      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 4.07 (activates only if price breaks up). Limit 4.08 (max pay). Stop 3.5546. If trigger is not hit, no trade. Score 76. Only trade when market is RISK-ON."
-    },
-    {
-      "symbol": "LYC.AX",
-      "strategy": "Trend Pullback",
-      "entry": 15.4035,
-      "entry_text": "15.4035",
-      "last_close": 15.68,
-      "stop": 14.4529,
-      "risk": 999.95,
-      "score": 76.0,
-      "status": "Watch",
-      "plain_english": "Trend Pullback (buy the dip): LIMIT buy at 15.40 (~1.76% below last close 15.68) to catch a pullback toward EMA20. Stop 14.45. If price does not dip to your limit, do not chase. Score 76. Only trade when market is RISK-ON."
+      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 4.07 (activates only if price breaks up). Limit 4.08 (max pay). Stop 3.55. If trigger is not hit, no trade. Score 76. Only trade when market is RISK-ON."
     },
     {
       "symbol": "GYG.AX",
@@ -411,42 +219,6 @@
       "plain_english": "Mean Reversion (bounce): LIMIT buy near 17.53. Stop 15.8082 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 75."
     },
     {
-      "symbol": "WGX.AX",
-      "strategy": "Trend Pullback",
-      "entry": 7.1066,
-      "entry_text": "7.1066",
-      "last_close": 7.27,
-      "stop": 6.718,
-      "risk": 999.82,
-      "score": 75.0,
-      "status": "Watch",
-      "plain_english": "Trend Pullback (buy the dip): LIMIT buy at 7.11 (~2.25% below last close 7.27) to catch a pullback toward EMA20. Stop 6.72. If price does not dip to your limit, do not chase. Score 75. Only trade when market is RISK-ON."
-    },
-    {
-      "symbol": "APA.AX",
-      "strategy": "Trend Pullback",
-      "entry": 8.9794,
-      "entry_text": "8.9794",
-      "last_close": 9.14,
-      "stop": 8.6086,
-      "risk": 999.7,
-      "score": 74.0,
-      "status": "Watch",
-      "plain_english": "Trend Pullback (buy the dip): LIMIT buy at 8.98 (~1.76% below last close 9.14) to catch a pullback toward EMA20. Stop 8.61. If price does not dip to your limit, do not chase. Score 74. Only trade when market is RISK-ON."
-    },
-    {
-      "symbol": "ARG.AX",
-      "strategy": "Trend Pullback",
-      "entry": 9.0058,
-      "entry_text": "9.0058",
-      "last_close": 9.06,
-      "stop": 8.826,
-      "risk": 999.94,
-      "score": 74.0,
-      "status": "Watch",
-      "plain_english": "Trend Pullback (buy the dip): LIMIT buy at 9.01 (~0.60% below last close 9.06) to catch a pullback toward EMA20. Stop 8.83. If price does not dip to your limit, do not chase. Score 74. Only trade when market is RISK-ON."
-    },
-    {
       "symbol": "NAB.AX",
       "strategy": "Momentum",
       "entry": null,
@@ -456,7 +228,7 @@
       "risk": 999.34,
       "score": 73.0,
       "status": "Watch",
-      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 48.83 (activates only if price breaks up). Limit 48.92 (max pay). Stop 44.9824. If trigger is not hit, no trade. Score 73. Only trade when market is RISK-ON."
+      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 48.83 (activates only if price breaks up). Limit 48.92 (max pay). Stop 44.98. If trigger is not hit, no trade. Score 73. Only trade when market is RISK-ON."
     },
     {
       "symbol": "AGL.AX",
@@ -468,31 +240,7 @@
       "risk": 999.48,
       "score": 72.0,
       "status": "Watch",
-      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 10.61 (activates only if price breaks up). Limit 10.63 (max pay). Stop 9.7494. If trigger is not hit, no trade. Score 72. Only trade when market is RISK-ON."
-    },
-    {
-      "symbol": "NST.AX",
-      "strategy": "Trend Pullback",
-      "entry": 27.9577,
-      "entry_text": "27.9577",
-      "last_close": 28.33,
-      "stop": 26.9149,
-      "risk": 998.97,
-      "score": 72.0,
-      "status": "Watch",
-      "plain_english": "Trend Pullback (buy the dip): LIMIT buy at 27.96 (~1.31% below last close 28.33) to catch a pullback toward EMA20. Stop 26.91. If price does not dip to your limit, do not chase. Score 72. Only trade when market is RISK-ON."
-    },
-    {
-      "symbol": "WDS.AX",
-      "strategy": "Momentum",
-      "entry": null,
-      "entry_text": "SKIP (late > trigger)",
-      "last_close": 27.43,
-      "stop": 25.4437,
-      "risk": 999.13,
-      "score": 72.0,
-      "status": "Watch",
-      "plain_english": "Momentum (breakout): Use STOP-LIMIT as shown (SKIP (late > trigger)). Order activates only if price breaks upward. Stop 25.4437. If it never triggers, no trade. Score 72. Only trade when market is RISK-ON."
+      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 10.61 (activates only if price breaks up). Limit 10.63 (max pay). Stop 9.75. If trigger is not hit, no trade. Score 72. Only trade when market is RISK-ON."
     },
     {
       "symbol": "ARG.AX",
@@ -504,7 +252,7 @@
       "risk": 999.94,
       "score": 71.0,
       "status": "Watch",
-      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 9.17 (activates only if price breaks up). Limit 9.19 (max pay). Stop 8.826. If trigger is not hit, no trade. Score 71. Only trade when market is RISK-ON."
+      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 9.17 (activates only if price breaks up). Limit 9.19 (max pay). Stop 8.83. If trigger is not hit, no trade. Score 71. Only trade when market is RISK-ON."
     },
     {
       "symbol": "QUB.AX",
@@ -516,55 +264,91 @@
       "risk": 999.86,
       "score": 71.0,
       "status": "Watch",
-      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 5.09 (activates only if price breaks up). Limit 5.10 (max pay). Stop 4.7799. If trigger is not hit, no trade. Score 71. Only trade when market is RISK-ON."
+      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 5.09 (activates only if price breaks up). Limit 5.10 (max pay). Stop 4.78. If trigger is not hit, no trade. Score 71. Only trade when market is RISK-ON."
     },
     {
-      "symbol": "ALD.AX",
+      "symbol": "ALQ.AX",
       "strategy": "Trend Pullback",
-      "entry": 29.2199,
-      "entry_text": "29.2199",
-      "last_close": 28.98,
-      "stop": 27.9881,
-      "risk": 998.94,
+      "entry": 24.6546,
+      "entry_text": "24.6546",
+      "last_close": 24.57,
+      "stop": 22.6916,
+      "risk": 999.16,
       "score": 70.0,
       "status": "Watch",
-      "plain_english": "Trend Pullback (confirmation): do NOT buy yet. Only buy if price rebounds to 29.22 (~0.83% above last close 28.98). Stop 27.99. If it never rebounds to that level, no trade. Score 70. Only trade when market is RISK-ON."
+      "plain_english": "Trend Pullback (confirmation): do NOT buy yet. Only buy if price rebounds to 24.65 (~0.34% above last close 24.57). Stop 22.69. If it never rebounds to that level, no trade. Score 70. Only trade when market is RISK-ON."
     },
     {
-      "symbol": "EVN.AX",
+      "symbol": "AZJ.AX",
       "strategy": "Trend Pullback",
-      "entry": 14.7987,
-      "entry_text": "14.7987",
-      "last_close": 15.05,
-      "stop": 14.1412,
-      "risk": 999.43,
+      "entry": 4.0741,
+      "entry_text": "4.0741",
+      "last_close": 4.01,
+      "stop": 3.4846,
+      "risk": 999.87,
       "score": 70.0,
       "status": "Watch",
-      "plain_english": "Trend Pullback (buy the dip): LIMIT buy at 14.80 (~1.67% below last close 15.05) to catch a pullback toward EMA20. Stop 14.14. If price does not dip to your limit, do not chase. Score 70. Only trade when market is RISK-ON."
+      "plain_english": "Trend Pullback (confirmation): do NOT buy yet. Only buy if price rebounds to 4.07 (~1.60% above last close 4.01). Stop 3.48. If it never rebounds to that level, no trade. Score 70. Only trade when market is RISK-ON."
     },
     {
-      "symbol": "CDA.AX",
+      "symbol": "BSL.AX",
       "strategy": "Trend Pullback",
-      "entry": 35.4545,
-      "entry_text": "35.4545",
-      "last_close": 34.69,
-      "stop": 31.955,
-      "risk": 997.37,
-      "score": 69.0,
+      "entry": 28.4284,
+      "entry_text": "28.4284",
+      "last_close": 29.0,
+      "stop": 27.0123,
+      "risk": 999.78,
+      "score": 70.0,
       "status": "Watch",
-      "plain_english": "Trend Pullback (confirmation): do NOT buy yet. Only buy if price rebounds to 35.45 (~2.20% above last close 34.69). Stop 31.95. If it never rebounds to that level, no trade. Score 69. Only trade when market is RISK-ON."
+      "plain_english": "Trend Pullback (buy the dip): LIMIT buy at 28.43 (~1.97% below last close 29.00) to catch a pullback toward EMA20. Stop 27.01. If price does not dip to your limit, do not chase. Score 70. Only trade when market is RISK-ON."
     },
     {
-      "symbol": "CGF.AX",
+      "symbol": "CSC.AX",
       "strategy": "Trend Pullback",
-      "entry": 8.9102,
-      "entry_text": "8.9102",
-      "last_close": 8.99,
-      "stop": 7.9279,
-      "risk": 999.91,
-      "score": 69.0,
+      "entry": 14.3644,
+      "entry_text": "14.3644",
+      "last_close": 14.07,
+      "stop": 12.4777,
+      "risk": 999.96,
+      "score": 70.0,
       "status": "Watch",
-      "plain_english": "Trend Pullback (buy the dip): LIMIT buy at 8.91 (~0.89% below last close 8.99) to catch a pullback toward EMA20. Stop 7.93. If price does not dip to your limit, do not chase. Score 69. Only trade when market is RISK-ON."
+      "plain_english": "Trend Pullback (confirmation): do NOT buy yet. Only buy if price rebounds to 14.36 (~2.09% above last close 14.07). Stop 12.48. If it never rebounds to that level, no trade. Score 70. Only trade when market is RISK-ON."
+    },
+    {
+      "symbol": "ETPMAG.AX",
+      "strategy": "Trend Pullback",
+      "entry": 102.8928,
+      "entry_text": "102.8928",
+      "last_close": 102.3,
+      "stop": 82.728,
+      "risk": 988.07,
+      "score": 70.0,
+      "status": "Watch",
+      "plain_english": "Trend Pullback (confirmation): do NOT buy yet. Only buy if price rebounds to 102.89 (~0.58% above last close 102.30). Stop 82.73. If it never rebounds to that level, no trade. Score 70. Only trade when market is RISK-ON."
+    },
+    {
+      "symbol": "SGH.AX",
+      "strategy": "Trend Pullback",
+      "entry": 47.8878,
+      "entry_text": "47.8878",
+      "last_close": 47.7,
+      "stop": 45.3288,
+      "risk": 998.0,
+      "score": 70.0,
+      "status": "Watch",
+      "plain_english": "Trend Pullback (confirmation): do NOT buy yet. Only buy if price rebounds to 47.89 (~0.39% above last close 47.70). Stop 45.33. If it never rebounds to that level, no trade. Score 70. Only trade when market is RISK-ON."
+    },
+    {
+      "symbol": "WGX.AX",
+      "strategy": "Trend Pullback",
+      "entry": 7.4474,
+      "entry_text": "7.4474",
+      "last_close": 7.27,
+      "stop": 6.718,
+      "risk": 999.96,
+      "score": 70.0,
+      "status": "Watch",
+      "plain_english": "Trend Pullback (confirmation): do NOT buy yet. Only buy if price rebounds to 7.45 (~2.44% above last close 7.27). Stop 6.72. If it never rebounds to that level, no trade. Score 70. Only trade when market is RISK-ON."
     },
     {
       "symbol": "BHP.AX",
@@ -576,7 +360,7 @@
       "risk": 996.89,
       "score": 68.0,
       "status": "Watch",
-      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 54.36 (activates only if price breaks up). Limit 54.47 (max pay). Stop 49.4275. If trigger is not hit, no trade. Score 68. Only trade when market is RISK-ON."
+      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 54.36 (activates only if price breaks up). Limit 54.47 (max pay). Stop 49.43. If trigger is not hit, no trade. Score 68. Only trade when market is RISK-ON."
     },
     {
       "symbol": "CBA.AX",
@@ -588,19 +372,7 @@
       "risk": 993.71,
       "score": 68.0,
       "status": "Watch",
-      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 180.74 (activates only if price breaks up). Limit 181.10 (max pay). Stop 167.6654. If trigger is not hit, no trade. Score 68. Only trade when market is RISK-ON."
-    },
-    {
-      "symbol": "SHN.AX",
-      "strategy": "Trend Pullback",
-      "entry": 0.0369,
-      "entry_text": "0.0369",
-      "last_close": 0.039,
-      "stop": 0.0361,
-      "risk": 1000.0,
-      "score": 68.0,
-      "status": "Watch",
-      "plain_english": "Trend Pullback (buy the dip): LIMIT buy at 0.04 (~5.38% below last close 0.04) to catch a pullback toward EMA20. Stop 0.04. If price does not dip to your limit, do not chase. Score 68. Only trade when market is RISK-ON."
+      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 180.74 (activates only if price breaks up). Limit 181.10 (max pay). Stop 167.67. If trigger is not hit, no trade. Score 68. Only trade when market is RISK-ON."
     },
     {
       "symbol": "SIG.AX",
@@ -624,7 +396,7 @@
       "risk": 999.23,
       "score": 66.0,
       "status": "Watch",
-      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 113.34 (activates only if price breaks up). Limit 113.57 (max pay). Stop 109.8695. If trigger is not hit, no trade. Score 66. Only trade when market is RISK-ON."
+      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 113.34 (activates only if price breaks up). Limit 113.57 (max pay). Stop 109.87. If trigger is not hit, no trade. Score 66. Only trade when market is RISK-ON."
     },
     {
       "symbol": "APA.AX",
@@ -636,19 +408,7 @@
       "risk": 999.97,
       "score": 65.0,
       "status": "Watch",
-      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 9.31 (activates only if price breaks up). Limit 9.33 (max pay). Stop 8.7486. If trigger is not hit, no trade. Score 65. Only trade when market is RISK-ON."
-    },
-    {
-      "symbol": "BHP.AX",
-      "strategy": "Trend Pullback",
-      "entry": 50.8935,
-      "entry_text": "50.8935",
-      "last_close": 53.33,
-      "stop": 49.2075,
-      "risk": 999.79,
-      "score": 65.0,
-      "status": "Watch",
-      "plain_english": "Trend Pullback (buy the dip): LIMIT buy at 50.89 (~4.57% below last close 53.33) to catch a pullback toward EMA20. Stop 49.21. If price does not dip to your limit, do not chase. Score 65. Only trade when market is RISK-ON."
+      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 9.31 (activates only if price breaks up). Limit 9.33 (max pay). Stop 8.75. If trigger is not hit, no trade. Score 65. Only trade when market is RISK-ON."
     },
     {
       "symbol": "TLC.AX",
@@ -660,31 +420,7 @@
       "risk": 999.53,
       "score": 64.0,
       "status": "Watch",
-      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 5.71 (activates only if price breaks up). Limit 5.72 (max pay). Stop 5.0367. If trigger is not hit, no trade. Score 64. Only trade when market is RISK-ON."
-    },
-    {
-      "symbol": "WOR.AX",
-      "strategy": "Trend Pullback",
-      "entry": 13.2177,
-      "entry_text": "13.2177",
-      "last_close": 13.39,
-      "stop": 12.5528,
-      "risk": 999.99,
-      "score": 63.0,
-      "status": "Watch",
-      "plain_english": "Trend Pullback (buy the dip): LIMIT buy at 13.22 (~1.29% below last close 13.39) to catch a pullback toward EMA20. Stop 12.55. If price does not dip to your limit, do not chase. Score 63. Only trade when market is RISK-ON."
-    },
-    {
-      "symbol": "JHX.AX",
-      "strategy": "Trend Pullback",
-      "entry": 34.7938,
-      "entry_text": "34.7938",
-      "last_close": 35.01,
-      "stop": 32.5857,
-      "risk": 998.05,
-      "score": 62.0,
-      "status": "Watch",
-      "plain_english": "Trend Pullback (buy the dip): LIMIT buy at 34.79 (~0.62% below last close 35.01) to catch a pullback toward EMA20. Stop 32.59. If price does not dip to your limit, do not chase. Score 62. Only trade when market is RISK-ON."
+      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 5.71 (activates only if price breaks up). Limit 5.72 (max pay). Stop 5.04. If trigger is not hit, no trade. Score 64. Only trade when market is RISK-ON."
     },
     {
       "symbol": "TLS.AX",
@@ -696,7 +432,7 @@
       "risk": 999.93,
       "score": 62.0,
       "status": "Watch",
-      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 5.28 (activates only if price breaks up). Limit 5.29 (max pay). Stop 4.8496. If trigger is not hit, no trade. Score 62. Only trade when market is RISK-ON."
+      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 5.28 (activates only if price breaks up). Limit 5.29 (max pay). Stop 4.85. If trigger is not hit, no trade. Score 62. Only trade when market is RISK-ON."
     },
     {
       "symbol": "MQG.AX",
@@ -708,31 +444,7 @@
       "risk": 995.63,
       "score": 61.0,
       "status": "Watch",
-      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 224.18 (activates only if price breaks up). Limit 224.62 (max pay). Stop 214.3178. If trigger is not hit, no trade. Score 61. Only trade when market is RISK-ON."
-    },
-    {
-      "symbol": "VAS.AX",
-      "strategy": "Trend Pullback",
-      "entry": 110.621,
-      "entry_text": "110.621",
-      "last_close": 112.5,
-      "stop": 108.5695,
-      "risk": 999.1,
-      "score": 61.0,
-      "status": "Watch",
-      "plain_english": "Trend Pullback (buy the dip): LIMIT buy at 110.62 (~1.67% below last close 112.50) to catch a pullback toward EMA20. Stop 108.57. If price does not dip to your limit, do not chase. Score 61. Only trade when market is RISK-ON."
-    },
-    {
-      "symbol": "A2M.AX",
-      "strategy": "Trend Pullback",
-      "entry": 8.9528,
-      "entry_text": "8.9528",
-      "last_close": 9.46,
-      "stop": 8.1526,
-      "risk": 999.42,
-      "score": 60.0,
-      "status": "Watch",
-      "plain_english": "Trend Pullback (buy the dip): LIMIT buy at 8.95 (~5.36% below last close 9.46) to catch a pullback toward EMA20. Stop 8.15. If price does not dip to your limit, do not chase. Score 60. Only trade when market is RISK-ON."
+      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 224.18 (activates only if price breaks up). Limit 224.62 (max pay). Stop 214.32. If trigger is not hit, no trade. Score 61. Only trade when market is RISK-ON."
     },
     {
       "symbol": "A2M.AX",
@@ -747,30 +459,6 @@
       "plain_english": "Mean Reversion (bounce): LIMIT buy near 9.46. Stop 8.9355 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 60."
     },
     {
-      "symbol": "AGL.AX",
-      "strategy": "Trend Pullback",
-      "entry": 9.7777,
-      "entry_text": "9.7777",
-      "last_close": 10.6,
-      "stop": 8.7594,
-      "risk": 999.01,
-      "score": 60.0,
-      "status": "Watch",
-      "plain_english": "Trend Pullback (buy the dip): LIMIT buy at 9.78 (~7.76% below last close 10.60) to catch a pullback toward EMA20. Stop 8.76. If price does not dip to your limit, do not chase. Score 60. Only trade when market is RISK-ON."
-    },
-    {
-      "symbol": "AIA.AX",
-      "strategy": "Trend Pullback",
-      "entry": 7.2393,
-      "entry_text": "7.2393",
-      "last_close": 7.54,
-      "stop": 7.0626,
-      "risk": 999.92,
-      "score": 60.0,
-      "status": "Watch",
-      "plain_english": "Trend Pullback (buy the dip): LIMIT buy at 7.24 (~3.99% below last close 7.54) to catch a pullback toward EMA20. Stop 7.06. If price does not dip to your limit, do not chase. Score 60. Only trade when market is RISK-ON."
-    },
-    {
       "symbol": "AMC.AX",
       "strategy": "Momentum",
       "entry": null,
@@ -780,43 +468,19 @@
       "risk": 998.84,
       "score": 60.0,
       "status": "Watch",
-      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 71.28 (activates only if price breaks up). Limit 71.43 (max pay). Stop 69.1535. If trigger is not hit, no trade. Score 60. Only trade when market is RISK-ON."
+      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 71.28 (activates only if price breaks up). Limit 71.43 (max pay). Stop 69.15. If trigger is not hit, no trade. Score 60. Only trade when market is RISK-ON."
     },
     {
-      "symbol": "ANZ.AX",
+      "symbol": "APE.AX",
       "strategy": "Trend Pullback",
-      "entry": 38.4293,
-      "entry_text": "38.4293",
-      "last_close": 40.7,
-      "stop": 36.3354,
-      "risk": 998.82,
+      "entry": 26.2262,
+      "entry_text": "26.2262",
+      "last_close": 25.57,
+      "stop": 23.8803,
+      "risk": 999.37,
       "score": 60.0,
       "status": "Watch",
-      "plain_english": "Trend Pullback (buy the dip): LIMIT buy at 38.43 (~5.58% below last close 40.70) to catch a pullback toward EMA20. Stop 36.34. If price does not dip to your limit, do not chase. Score 60. Only trade when market is RISK-ON."
-    },
-    {
-      "symbol": "AZJ.AX",
-      "strategy": "Trend Pullback",
-      "entry": 3.7514,
-      "entry_text": "3.7514",
-      "last_close": 4.01,
-      "stop": 3.4846,
-      "risk": 999.85,
-      "score": 60.0,
-      "status": "Watch",
-      "plain_english": "Trend Pullback (buy the dip): LIMIT buy at 3.75 (~6.45% below last close 4.01) to catch a pullback toward EMA20. Stop 3.48. If price does not dip to your limit, do not chase. Score 60. Only trade when market is RISK-ON."
-    },
-    {
-      "symbol": "CHC.AX",
-      "strategy": "Trend Pullback",
-      "entry": 23.1129,
-      "entry_text": "23.1129",
-      "last_close": 22.24,
-      "stop": 21.7879,
-      "risk": 999.02,
-      "score": 60.0,
-      "status": "Watch",
-      "plain_english": "Trend Pullback (confirmation): do NOT buy yet. Only buy if price rebounds to 23.11 (~3.92% above last close 22.24). Stop 21.79. If it never rebounds to that level, no trade. Score 60. Only trade when market is RISK-ON."
+      "plain_english": "Trend Pullback (confirmation): do NOT buy yet. Only buy if price rebounds to 26.23 (~2.57% above last close 25.57). Stop 23.88. If it never rebounds to that level, no trade. Score 60. Only trade when market is RISK-ON."
     },
     {
       "symbol": "EDV.AX",
@@ -828,31 +492,7 @@
       "risk": 999.99,
       "score": 60.0,
       "status": "Watch",
-      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 3.92 (activates only if price breaks up). Limit 3.93 (max pay). Stop 3.7836. If trigger is not hit, no trade. Score 60. Only trade when market is RISK-ON."
-    },
-    {
-      "symbol": "ETPMAG.AX",
-      "strategy": "Trend Pullback",
-      "entry": 109.6146,
-      "entry_text": "109.6146",
-      "last_close": 101.82,
-      "stop": 82.5271,
-      "risk": 975.15,
-      "score": 60.0,
-      "status": "Watch",
-      "plain_english": "Trend Pullback (confirmation): do NOT buy yet. Only buy if price rebounds to 109.61 (~7.66% above last close 101.82). Stop 82.53. If it never rebounds to that level, no trade. Score 60. Only trade when market is RISK-ON."
-    },
-    {
-      "symbol": "GMD.AX",
-      "strategy": "Trend Pullback",
-      "entry": 7.1709,
-      "entry_text": "7.1709",
-      "last_close": 6.87,
-      "stop": 6.5654,
-      "risk": 999.68,
-      "score": 60.0,
-      "status": "Watch",
-      "plain_english": "Trend Pullback (confirmation): do NOT buy yet. Only buy if price rebounds to 7.17 (~4.38% above last close 6.87). Stop 6.57. If it never rebounds to that level, no trade. Score 60. Only trade when market is RISK-ON."
+      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 3.92 (activates only if price breaks up). Limit 3.93 (max pay). Stop 3.78. If trigger is not hit, no trade. Score 60. Only trade when market is RISK-ON."
     },
     {
       "symbol": "IGO.AX",
@@ -867,28 +507,16 @@
       "plain_english": "Mean Reversion (bounce): LIMIT buy near 7.9. Stop 7.3509 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 60."
     },
     {
-      "symbol": "NAB.AX",
+      "symbol": "LYC.AX",
       "strategy": "Trend Pullback",
-      "entry": 45.088,
-      "entry_text": "45.088",
-      "last_close": 48.32,
-      "stop": 43.0824,
-      "risk": 998.8,
+      "entry": 16.3063,
+      "entry_text": "16.3063",
+      "last_close": 15.68,
+      "stop": 14.4529,
+      "risk": 998.96,
       "score": 60.0,
       "status": "Watch",
-      "plain_english": "Trend Pullback (buy the dip): LIMIT buy at 45.09 (~6.69% below last close 48.32) to catch a pullback toward EMA20. Stop 43.08. If price does not dip to your limit, do not chase. Score 60. Only trade when market is RISK-ON."
-    },
-    {
-      "symbol": "PLS.AX",
-      "strategy": "Trend Pullback",
-      "entry": 4.3749,
-      "entry_text": "4.3749",
-      "last_close": 4.18,
-      "stop": 3.9522,
-      "risk": 999.6,
-      "score": 60.0,
-      "status": "Watch",
-      "plain_english": "Trend Pullback (confirmation): do NOT buy yet. Only buy if price rebounds to 4.37 (~4.66% above last close 4.18). Stop 3.95. If it never rebounds to that level, no trade. Score 60. Only trade when market is RISK-ON."
+      "plain_english": "Trend Pullback (confirmation): do NOT buy yet. Only buy if price rebounds to 16.31 (~3.99% above last close 15.68). Stop 14.45. If it never rebounds to that level, no trade. Score 60. Only trade when market is RISK-ON."
     },
     {
       "symbol": "PLS.AX",
@@ -901,90 +529,6 @@
       "score": 60.0,
       "status": "Watch",
       "plain_english": "Mean Reversion (bounce): LIMIT buy near 4.18. Stop 3.8334 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 60."
-    },
-    {
-      "symbol": "QUB.AX",
-      "strategy": "Trend Pullback",
-      "entry": 4.9001,
-      "entry_text": "4.9001",
-      "last_close": 5.06,
-      "stop": 4.7299,
-      "risk": 999.91,
-      "score": 60.0,
-      "status": "Watch",
-      "plain_english": "Trend Pullback (buy the dip): LIMIT buy at 4.90 (~3.16% below last close 5.06) to catch a pullback toward EMA20. Stop 4.73. If price does not dip to your limit, do not chase. Score 60. Only trade when market is RISK-ON."
-    },
-    {
-      "symbol": "RHC.AX",
-      "strategy": "Trend Pullback",
-      "entry": 36.9035,
-      "entry_text": "36.9035",
-      "last_close": 38.62,
-      "stop": 35.686,
-      "risk": 999.57,
-      "score": 60.0,
-      "status": "Watch",
-      "plain_english": "Trend Pullback (buy the dip): LIMIT buy at 36.90 (~4.44% below last close 38.62) to catch a pullback toward EMA20. Stop 35.69. If price does not dip to your limit, do not chase. Score 60. Only trade when market is RISK-ON."
-    },
-    {
-      "symbol": "RIO.AX",
-      "strategy": "Trend Pullback",
-      "entry": 160.1918,
-      "entry_text": "160.1918",
-      "last_close": 163.3,
-      "stop": 157.0626,
-      "risk": 998.21,
-      "score": 60.0,
-      "status": "Watch",
-      "plain_english": "Trend Pullback (buy the dip): LIMIT buy at 160.19 (~1.90% below last close 163.30) to catch a pullback toward EMA20. Stop 157.06. If price does not dip to your limit, do not chase. Score 60. Only trade when market is RISK-ON."
-    },
-    {
-      "symbol": "TLS.AX",
-      "strategy": "Trend Pullback",
-      "entry": 4.9316,
-      "entry_text": "4.9316",
-      "last_close": 5.11,
-      "stop": 4.8346,
-      "risk": 999.93,
-      "score": 60.0,
-      "status": "Watch",
-      "plain_english": "Trend Pullback (buy the dip): LIMIT buy at 4.93 (~3.49% below last close 5.11) to catch a pullback toward EMA20. Stop 4.83. If price does not dip to your limit, do not chase. Score 60. Only trade when market is RISK-ON."
-    },
-    {
-      "symbol": "WBC.AX",
-      "strategy": "Trend Pullback",
-      "entry": 40.2462,
-      "entry_text": "40.2462",
-      "last_close": 42.54,
-      "stop": 38.5878,
-      "risk": 998.36,
-      "score": 60.0,
-      "status": "Watch",
-      "plain_english": "Trend Pullback (buy the dip): LIMIT buy at 40.25 (~5.39% below last close 42.54) to catch a pullback toward EMA20. Stop 38.59. If price does not dip to your limit, do not chase. Score 60. Only trade when market is RISK-ON."
-    },
-    {
-      "symbol": "WDS.AX",
-      "strategy": "Trend Pullback",
-      "entry": 25.7158,
-      "entry_text": "25.7158",
-      "last_close": 27.43,
-      "stop": 25.4437,
-      "risk": 999.97,
-      "score": 60.0,
-      "status": "Watch",
-      "plain_english": "Trend Pullback (buy the dip): LIMIT buy at 25.72 (~6.25% below last close 27.43) to catch a pullback toward EMA20. Stop 25.44. If price does not dip to your limit, do not chase. Score 60. Only trade when market is RISK-ON."
-    },
-    {
-      "symbol": "WHC.AX",
-      "strategy": "Trend Pullback",
-      "entry": 8.6087,
-      "entry_text": "8.6087",
-      "last_close": 7.81,
-      "stop": 7.6633,
-      "risk": 999.31,
-      "score": 60.0,
-      "status": "Watch",
-      "plain_english": "Trend Pullback (confirmation): do NOT buy yet. Only buy if price rebounds to 8.61 (~10.23% above last close 7.81). Stop 7.66. If it never rebounds to that level, no trade. Score 60. Only trade when market is RISK-ON."
     },
     {
       "symbol": "WOW.AX",
@@ -1020,7 +564,7 @@
       "risk": 995.98,
       "score": 58.0,
       "status": "Watch",
-      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 170.70 (activates only if price breaks up). Limit 171.04 (max pay). Stop 159.3826. If trigger is not hit, no trade. Score 58. Only trade when market is RISK-ON."
+      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 170.70 (activates only if price breaks up). Limit 171.04 (max pay). Stop 159.38. If trigger is not hit, no trade. Score 58. Only trade when market is RISK-ON."
     },
     {
       "symbol": "SHL.AX",
@@ -1032,55 +576,7 @@
       "risk": 998.75,
       "score": 58.0,
       "status": "Watch",
-      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 24.34 (activates only if price breaks up). Limit 24.39 (max pay). Stop 20.7372. If trigger is not hit, no trade. Score 58. Only trade when market is RISK-ON."
-    },
-    {
-      "symbol": "SOL.AX",
-      "strategy": "Trend Pullback",
-      "entry": 37.8105,
-      "entry_text": "37.8105",
-      "last_close": 37.94,
-      "stop": 36.5702,
-      "risk": 999.72,
-      "score": 58.0,
-      "status": "Watch",
-      "plain_english": "Trend Pullback (buy the dip): LIMIT buy at 37.81 (~0.34% below last close 37.94) to catch a pullback toward EMA20. Stop 36.57. If price does not dip to your limit, do not chase. Score 58. Only trade when market is RISK-ON."
-    },
-    {
-      "symbol": "STO.AX",
-      "strategy": "Trend Pullback",
-      "entry": 6.7449,
-      "entry_text": "6.7449",
-      "last_close": 6.94,
-      "stop": 6.3756,
-      "risk": 999.99,
-      "score": 57.0,
-      "status": "Watch",
-      "plain_english": "Trend Pullback (buy the dip): LIMIT buy at 6.74 (~2.81% below last close 6.94) to catch a pullback toward EMA20. Stop 6.38. If price does not dip to your limit, do not chase. Score 57. Only trade when market is RISK-ON."
-    },
-    {
-      "symbol": "FMG.AX",
-      "strategy": "Trend Pullback",
-      "entry": 21.1015,
-      "entry_text": "21.1015",
-      "last_close": 20.04,
-      "stop": 19.7633,
-      "risk": 999.6,
-      "score": 55.0,
-      "status": "Watch",
-      "plain_english": "Trend Pullback (confirmation): do NOT buy yet. Only buy if price rebounds to 21.10 (~5.30% above last close 20.04). Stop 19.76. If it never rebounds to that level, no trade. Score 55. Only trade when market is RISK-ON."
-    },
-    {
-      "symbol": "SGH.AX",
-      "strategy": "Trend Pullback",
-      "entry": 47.5861,
-      "entry_text": "47.5861",
-      "last_close": 47.7,
-      "stop": 45.3288,
-      "risk": 999.97,
-      "score": 55.0,
-      "status": "Watch",
-      "plain_english": "Trend Pullback (buy the dip): LIMIT buy at 47.59 (~0.24% below last close 47.70) to catch a pullback toward EMA20. Stop 45.33. If price does not dip to your limit, do not chase. Score 55. Only trade when market is RISK-ON."
+      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 24.34 (activates only if price breaks up). Limit 24.39 (max pay). Stop 20.74. If trigger is not hit, no trade. Score 58. Only trade when market is RISK-ON."
     },
     {
       "symbol": "QAN.AX",
@@ -1092,7 +588,7 @@
       "risk": 999.58,
       "score": 54.0,
       "status": "Watch",
-      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 10.87 (activates only if price breaks up). Limit 10.89 (max pay). Stop 10.2634. If trigger is not hit, no trade. Score 54. Only trade when market is RISK-ON."
+      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 10.87 (activates only if price breaks up). Limit 10.89 (max pay). Stop 10.26. If trigger is not hit, no trade. Score 54. Only trade when market is RISK-ON."
     },
     {
       "symbol": "SFR.AX",
@@ -1107,18 +603,6 @@
       "plain_english": "Mean Reversion (bounce): LIMIT buy near 18.84. Stop 17.6914 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 54."
     },
     {
-      "symbol": "TPG.AX",
-      "strategy": "Trend Pullback",
-      "entry": 3.878,
-      "entry_text": "3.878",
-      "last_close": 3.9,
-      "stop": 3.7418,
-      "risk": 999.99,
-      "score": 54.0,
-      "status": "Watch",
-      "plain_english": "Trend Pullback (buy the dip): LIMIT buy at 3.88 (~0.56% below last close 3.90) to catch a pullback toward EMA20. Stop 3.74. If price does not dip to your limit, do not chase. Score 54. Only trade when market is RISK-ON."
-    },
-    {
       "symbol": "VGE.AX",
       "strategy": "Momentum",
       "entry": null,
@@ -1128,7 +612,7 @@
       "risk": 999.96,
       "score": 54.0,
       "status": "Watch",
-      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 92.17 (activates only if price breaks up). Limit 92.35 (max pay). Stop 89.3568. If trigger is not hit, no trade. Score 54. Only trade when market is RISK-ON."
+      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 92.17 (activates only if price breaks up). Limit 92.35 (max pay). Stop 89.36. If trigger is not hit, no trade. Score 54. Only trade when market is RISK-ON."
     },
     {
       "symbol": "BEN.AX",
@@ -1140,7 +624,7 @@
       "risk": 999.27,
       "score": 53.0,
       "status": "Watch",
-      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 11.62 (activates only if price breaks up). Limit 11.65 (max pay). Stop 10.6234. If trigger is not hit, no trade. Score 53. Only trade when market is RISK-ON."
+      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 11.62 (activates only if price breaks up). Limit 11.65 (max pay). Stop 10.62. If trigger is not hit, no trade. Score 53. Only trade when market is RISK-ON."
     },
     {
       "symbol": "FMG.AX",
@@ -1155,30 +639,6 @@
       "plain_english": "Mean Reversion (bounce): LIMIT buy near 20.04. Stop 19.2198 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 53."
     },
     {
-      "symbol": "IVV.AX",
-      "strategy": "Trend Pullback",
-      "entry": 65.5684,
-      "entry_text": "65.5684",
-      "last_close": 65.13,
-      "stop": 63.9449,
-      "risk": 998.43,
-      "score": 53.0,
-      "status": "Watch",
-      "plain_english": "Trend Pullback (confirmation): do NOT buy yet. Only buy if price rebounds to 65.57 (~0.67% above last close 65.13). Stop 63.94. If it never rebounds to that level, no trade. Score 53. Only trade when market is RISK-ON."
-    },
-    {
-      "symbol": "ORG.AX",
-      "strategy": "Trend Pullback",
-      "entry": 11.6389,
-      "entry_text": "11.6389",
-      "last_close": 12.2,
-      "stop": 10.7389,
-      "risk": 999.91,
-      "score": 53.0,
-      "status": "Watch",
-      "plain_english": "Trend Pullback (buy the dip): LIMIT buy at 11.64 (~4.60% below last close 12.20) to catch a pullback toward EMA20. Stop 10.74. If price does not dip to your limit, do not chase. Score 53. Only trade when market is RISK-ON."
-    },
-    {
       "symbol": "VCX.AX",
       "strategy": "Momentum",
       "entry": null,
@@ -1188,7 +648,7 @@
       "risk": 999.98,
       "score": 53.0,
       "status": "Watch",
-      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 2.63 (activates only if price breaks up). Limit 2.63 (max pay). Stop 2.4922. If trigger is not hit, no trade. Score 53. Only trade when market is RISK-ON."
+      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 2.63 (activates only if price breaks up). Limit 2.63 (max pay). Stop 2.49. If trigger is not hit, no trade. Score 53. Only trade when market is RISK-ON."
     },
     {
       "symbol": "BXB.AX",
@@ -1200,43 +660,7 @@
       "risk": 998.39,
       "score": 52.0,
       "status": "Watch",
-      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 25.07 (activates only if price breaks up). Limit 25.13 (max pay). Stop 22.7746. If trigger is not hit, no trade. Score 52. Only trade when market is RISK-ON."
-    },
-    {
-      "symbol": "COL.AX",
-      "strategy": "Trend Pullback",
-      "entry": 21.6952,
-      "entry_text": "21.6952",
-      "last_close": 21.52,
-      "stop": 21.2275,
-      "risk": 999.93,
-      "score": 51.0,
-      "status": "Watch",
-      "plain_english": "Trend Pullback (confirmation): do NOT buy yet. Only buy if price rebounds to 21.70 (~0.81% above last close 21.52). Stop 21.23. If it never rebounds to that level, no trade. Score 51. Only trade when market is RISK-ON."
-    },
-    {
-      "symbol": "MEZ.AX",
-      "strategy": "Trend Pullback",
-      "entry": 4.8488,
-      "entry_text": "4.8488",
-      "last_close": 4.81,
-      "stop": 4.7064,
-      "risk": 999.97,
-      "score": 51.0,
-      "status": "Watch",
-      "plain_english": "Trend Pullback (confirmation): do NOT buy yet. Only buy if price rebounds to 4.85 (~0.81% above last close 4.81). Stop 4.71. If it never rebounds to that level, no trade. Score 51. Only trade when market is RISK-ON."
-    },
-    {
-      "symbol": "MQG.AX",
-      "strategy": "Trend Pullback",
-      "entry": 215.4097,
-      "entry_text": "215.4097",
-      "last_close": 219.39,
-      "stop": 208.1878,
-      "risk": 996.63,
-      "score": 51.0,
-      "status": "Watch",
-      "plain_english": "Trend Pullback (buy the dip): LIMIT buy at 215.41 (~1.81% below last close 219.39) to catch a pullback toward EMA20. Stop 208.19. If price does not dip to your limit, do not chase. Score 51. Only trade when market is RISK-ON."
+      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 25.07 (activates only if price breaks up). Limit 25.13 (max pay). Stop 22.77. If trigger is not hit, no trade. Score 52. Only trade when market is RISK-ON."
     },
     {
       "symbol": "WES.AX",
@@ -1248,7 +672,19 @@
       "risk": 995.49,
       "score": 51.0,
       "status": "Watch",
-      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 89.74 (activates only if price breaks up). Limit 89.92 (max pay). Stop 83.3159. If trigger is not hit, no trade. Score 51. Only trade when market is RISK-ON."
+      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 89.74 (activates only if price breaks up). Limit 89.92 (max pay). Stop 83.32. If trigger is not hit, no trade. Score 51. Only trade when market is RISK-ON."
+    },
+    {
+      "symbol": "A2M.AX",
+      "strategy": "Trend Pullback",
+      "entry": 9.5796,
+      "entry_text": "9.5796",
+      "last_close": 9.46,
+      "stop": 8.1526,
+      "risk": 998.91,
+      "score": 50.0,
+      "status": "Watch",
+      "plain_english": "Trend Pullback (confirmation): do NOT buy yet. Only buy if price rebounds to 9.58 (~1.26% above last close 9.46). Stop 8.15. If it never rebounds to that level, no trade. Score 50. Only trade when market is RISK-ON."
     },
     {
       "symbol": "A2M.AX",
@@ -1260,7 +696,283 @@
       "risk": 999.47,
       "score": 50.0,
       "status": "Watch",
-      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 9.95 (activates only if price breaks up). Limit 9.97 (max pay). Stop 8.4026. If trigger is not hit, no trade. Score 50. Only trade when market is RISK-ON."
+      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 9.95 (activates only if price breaks up). Limit 9.97 (max pay). Stop 8.40. If trigger is not hit, no trade. Score 50. Only trade when market is RISK-ON."
+    },
+    {
+      "symbol": "AFI.AX",
+      "strategy": "Trend Pullback",
+      "entry": 6.967,
+      "entry_text": "6.967",
+      "last_close": 6.92,
+      "stop": 6.8012,
+      "risk": 999.84,
+      "score": 50.0,
+      "status": "Watch",
+      "plain_english": "Trend Pullback (confirmation): do NOT buy yet. Only buy if price rebounds to 6.97 (~0.68% above last close 6.92). Stop 6.80. If it never rebounds to that level, no trade. Score 50. Only trade when market is RISK-ON."
+    },
+    {
+      "symbol": "AGL.AX",
+      "strategy": "Trend Pullback",
+      "entry": 10.6406,
+      "entry_text": "10.6406",
+      "last_close": 10.6,
+      "stop": 8.7594,
+      "risk": 998.93,
+      "score": 50.0,
+      "status": "Watch",
+      "plain_english": "Trend Pullback (confirmation): do NOT buy yet. Only buy if price rebounds to 10.64 (~0.38% above last close 10.60). Stop 8.76. If it never rebounds to that level, no trade. Score 50. Only trade when market is RISK-ON."
+    },
+    {
+      "symbol": "AIA.AX",
+      "strategy": "Trend Pullback",
+      "entry": 7.5676,
+      "entry_text": "7.5676",
+      "last_close": 7.54,
+      "stop": 7.0626,
+      "risk": 999.92,
+      "score": 50.0,
+      "status": "Watch",
+      "plain_english": "Trend Pullback (confirmation): do NOT buy yet. Only buy if price rebounds to 7.57 (~0.37% above last close 7.54). Stop 7.06. If it never rebounds to that level, no trade. Score 50. Only trade when market is RISK-ON."
+    },
+    {
+      "symbol": "ALX.AX",
+      "strategy": "Trend Pullback",
+      "entry": 4.7948,
+      "entry_text": "4.7948",
+      "last_close": 4.78,
+      "stop": 4.4872,
+      "risk": 999.9,
+      "score": 50.0,
+      "status": "Watch",
+      "plain_english": "Trend Pullback (confirmation): do NOT buy yet. Only buy if price rebounds to 4.79 (~0.31% above last close 4.78). Stop 4.49. If it never rebounds to that level, no trade. Score 50. Only trade when market is RISK-ON."
+    },
+    {
+      "symbol": "ANZ.AX",
+      "strategy": "Trend Pullback",
+      "entry": 40.7407,
+      "entry_text": "40.7407",
+      "last_close": 40.7,
+      "stop": 36.3354,
+      "risk": 995.61,
+      "score": 50.0,
+      "status": "Watch",
+      "plain_english": "Trend Pullback (confirmation): do NOT buy yet. Only buy if price rebounds to 40.74 (~0.10% above last close 40.70). Stop 36.34. If it never rebounds to that level, no trade. Score 50. Only trade when market is RISK-ON."
+    },
+    {
+      "symbol": "ARG.AX",
+      "strategy": "Trend Pullback",
+      "entry": 9.1091,
+      "entry_text": "9.1091",
+      "last_close": 9.06,
+      "stop": 8.826,
+      "risk": 999.82,
+      "score": 50.0,
+      "status": "Watch",
+      "plain_english": "Trend Pullback (confirmation): do NOT buy yet. Only buy if price rebounds to 9.11 (~0.54% above last close 9.06). Stop 8.83. If it never rebounds to that level, no trade. Score 50. Only trade when market is RISK-ON."
+    },
+    {
+      "symbol": "BEN.AX",
+      "strategy": "Trend Pullback",
+      "entry": 11.0811,
+      "entry_text": "11.0811",
+      "last_close": 11.05,
+      "stop": 10.6234,
+      "risk": 999.55,
+      "score": 50.0,
+      "status": "Watch",
+      "plain_english": "Trend Pullback (confirmation): do NOT buy yet. Only buy if price rebounds to 11.08 (~0.28% above last close 11.05). Stop 10.62. If it never rebounds to that level, no trade. Score 50. Only trade when market is RISK-ON."
+    },
+    {
+      "symbol": "BHP.AX",
+      "strategy": "Trend Pullback",
+      "entry": 53.9839,
+      "entry_text": "53.9839",
+      "last_close": 53.33,
+      "stop": 49.2075,
+      "risk": 998.27,
+      "score": 50.0,
+      "status": "Watch",
+      "plain_english": "Trend Pullback (confirmation): do NOT buy yet. Only buy if price rebounds to 53.98 (~1.23% above last close 53.33). Stop 49.21. If it never rebounds to that level, no trade. Score 50. Only trade when market is RISK-ON."
+    },
+    {
+      "symbol": "CDA.AX",
+      "strategy": "Trend Pullback",
+      "entry": 34.7847,
+      "entry_text": "34.7847",
+      "last_close": 34.69,
+      "stop": 31.955,
+      "risk": 998.88,
+      "score": 50.0,
+      "status": "Watch",
+      "plain_english": "Trend Pullback (confirmation): do NOT buy yet. Only buy if price rebounds to 34.78 (~0.27% above last close 34.69). Stop 31.95. If it never rebounds to that level, no trade. Score 50. Only trade when market is RISK-ON."
+    },
+    {
+      "symbol": "CGF.AX",
+      "strategy": "Trend Pullback",
+      "entry": 9.0791,
+      "entry_text": "9.0791",
+      "last_close": 8.99,
+      "stop": 7.9279,
+      "risk": 999.2,
+      "score": 50.0,
+      "status": "Watch",
+      "plain_english": "Trend Pullback (confirmation): do NOT buy yet. Only buy if price rebounds to 9.08 (~0.99% above last close 8.99). Stop 7.93. If it never rebounds to that level, no trade. Score 50. Only trade when market is RISK-ON."
+    },
+    {
+      "symbol": "IGO.AX",
+      "strategy": "Trend Pullback",
+      "entry": 8.0581,
+      "entry_text": "8.0581",
+      "last_close": 7.9,
+      "stop": 7.7285,
+      "risk": 999.73,
+      "score": 50.0,
+      "status": "Watch",
+      "plain_english": "Trend Pullback (confirmation): do NOT buy yet. Only buy if price rebounds to 8.06 (~2.00% above last close 7.90). Stop 7.73. If it never rebounds to that level, no trade. Score 50. Only trade when market is RISK-ON."
+    },
+    {
+      "symbol": "JBH.AX",
+      "strategy": "Trend Pullback",
+      "entry": 85.5855,
+      "entry_text": "85.5855",
+      "last_close": 84.79,
+      "stop": 71.3459,
+      "risk": 996.77,
+      "score": 50.0,
+      "status": "Watch",
+      "plain_english": "Trend Pullback (confirmation): do NOT buy yet. Only buy if price rebounds to 85.59 (~0.94% above last close 84.79). Stop 71.35. If it never rebounds to that level, no trade. Score 50. Only trade when market is RISK-ON."
+    },
+    {
+      "symbol": "MGR.AX",
+      "strategy": "Trend Pullback",
+      "entry": 2.017,
+      "entry_text": "2.017",
+      "last_close": 2.0,
+      "stop": 1.8772,
+      "risk": 999.94,
+      "score": 50.0,
+      "status": "Watch",
+      "plain_english": "Trend Pullback (confirmation): do NOT buy yet. Only buy if price rebounds to 2.02 (~0.85% above last close 2.00). Stop 1.88. If it never rebounds to that level, no trade. Score 50. Only trade when market is RISK-ON."
+    },
+    {
+      "symbol": "NAB.AX",
+      "strategy": "Trend Pullback",
+      "entry": 48.4784,
+      "entry_text": "48.4784",
+      "last_close": 48.32,
+      "stop": 43.0824,
+      "risk": 998.26,
+      "score": 50.0,
+      "status": "Watch",
+      "plain_english": "Trend Pullback (confirmation): do NOT buy yet. Only buy if price rebounds to 48.48 (~0.33% above last close 48.32). Stop 43.08. If it never rebounds to that level, no trade. Score 50. Only trade when market is RISK-ON."
+    },
+    {
+      "symbol": "NST.AX",
+      "strategy": "Trend Pullback",
+      "entry": 28.8188,
+      "entry_text": "28.8188",
+      "last_close": 28.33,
+      "stop": 26.9149,
+      "risk": 999.54,
+      "score": 50.0,
+      "status": "Watch",
+      "plain_english": "Trend Pullback (confirmation): do NOT buy yet. Only buy if price rebounds to 28.82 (~1.73% above last close 28.33). Stop 26.91. If it never rebounds to that level, no trade. Score 50. Only trade when market is RISK-ON."
+    },
+    {
+      "symbol": "NXG.AX",
+      "strategy": "Trend Pullback",
+      "entry": 17.6576,
+      "entry_text": "17.6576",
+      "last_close": 17.64,
+      "stop": 15.3587,
+      "risk": 997.74,
+      "score": 50.0,
+      "status": "Watch",
+      "plain_english": "Trend Pullback (confirmation): do NOT buy yet. Only buy if price rebounds to 17.66 (~0.10% above last close 17.64). Stop 15.36. If it never rebounds to that level, no trade. Score 50. Only trade when market is RISK-ON."
+    },
+    {
+      "symbol": "ORI.AX",
+      "strategy": "Trend Pullback",
+      "entry": 25.5455,
+      "entry_text": "25.5455",
+      "last_close": 24.75,
+      "stop": 24.59,
+      "risk": 999.45,
+      "score": 50.0,
+      "status": "Watch",
+      "plain_english": "Trend Pullback (confirmation): do NOT buy yet. Only buy if price rebounds to 25.55 (~3.21% above last close 24.75). Stop 24.59. If it never rebounds to that level, no trade. Score 50. Only trade when market is RISK-ON."
+    },
+    {
+      "symbol": "PRU.AX",
+      "strategy": "Trend Pullback",
+      "entry": 6.0761,
+      "entry_text": "6.0761",
+      "last_close": 5.87,
+      "stop": 5.3827,
+      "risk": 999.91,
+      "score": 50.0,
+      "status": "Watch",
+      "plain_english": "Trend Pullback (confirmation): do NOT buy yet. Only buy if price rebounds to 6.08 (~3.51% above last close 5.87). Stop 5.38. If it never rebounds to that level, no trade. Score 50. Only trade when market is RISK-ON."
+    },
+    {
+      "symbol": "QUB.AX",
+      "strategy": "Trend Pullback",
+      "entry": 5.0751,
+      "entry_text": "5.0751",
+      "last_close": 5.06,
+      "stop": 4.7299,
+      "risk": 999.67,
+      "score": 50.0,
+      "status": "Watch",
+      "plain_english": "Trend Pullback (confirmation): do NOT buy yet. Only buy if price rebounds to 5.08 (~0.30% above last close 5.06). Stop 4.73. If it never rebounds to that level, no trade. Score 50. Only trade when market is RISK-ON."
+    },
+    {
+      "symbol": "REH.AX",
+      "strategy": "Trend Pullback",
+      "entry": 14.034,
+      "entry_text": "14.034",
+      "last_close": 13.94,
+      "stop": 13.1824,
+      "risk": 999.77,
+      "score": 50.0,
+      "status": "Watch",
+      "plain_english": "Trend Pullback (confirmation): do NOT buy yet. Only buy if price rebounds to 14.03 (~0.67% above last close 13.94). Stop 13.18. If it never rebounds to that level, no trade. Score 50. Only trade when market is RISK-ON."
+    },
+    {
+      "symbol": "RHC.AX",
+      "strategy": "Trend Pullback",
+      "entry": 39.2292,
+      "entry_text": "39.2292",
+      "last_close": 38.62,
+      "stop": 35.686,
+      "risk": 999.19,
+      "score": 50.0,
+      "status": "Watch",
+      "plain_english": "Trend Pullback (confirmation): do NOT buy yet. Only buy if price rebounds to 39.23 (~1.58% above last close 38.62). Stop 35.69. If it never rebounds to that level, no trade. Score 50. Only trade when market is RISK-ON."
+    },
+    {
+      "symbol": "RIO.AX",
+      "strategy": "Trend Pullback",
+      "entry": 165.3652,
+      "entry_text": "165.3652",
+      "last_close": 163.3,
+      "stop": 157.0626,
+      "risk": 996.31,
+      "score": 50.0,
+      "status": "Watch",
+      "plain_english": "Trend Pullback (confirmation): do NOT buy yet. Only buy if price rebounds to 165.37 (~1.26% above last close 163.30). Stop 157.06. If it never rebounds to that level, no trade. Score 50. Only trade when market is RISK-ON."
+    },
+    {
+      "symbol": "RMD.AX",
+      "strategy": "Trend Pullback",
+      "entry": 36.5365,
+      "entry_text": "36.5365",
+      "last_close": 36.3,
+      "stop": 33.8606,
+      "risk": 998.1,
+      "score": 50.0,
+      "status": "Watch",
+      "plain_english": "Trend Pullback (confirmation): do NOT buy yet. Only buy if price rebounds to 36.54 (~0.65% above last close 36.30). Stop 33.86. If it never rebounds to that level, no trade. Score 50. Only trade when market is RISK-ON."
     },
     {
       "symbol": "SGH.AX",
@@ -1272,7 +984,19 @@
       "risk": 997.46,
       "score": 50.0,
       "status": "Watch",
-      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 52.15 (activates only if price breaks up). Limit 52.25 (max pay). Stop 45.9888. If trigger is not hit, no trade. Score 50. Only trade when market is RISK-ON."
+      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 52.15 (activates only if price breaks up). Limit 52.25 (max pay). Stop 45.99. If trigger is not hit, no trade. Score 50. Only trade when market is RISK-ON."
+    },
+    {
+      "symbol": "SOL.AX",
+      "strategy": "Trend Pullback",
+      "entry": 37.9779,
+      "entry_text": "37.9779",
+      "last_close": 37.94,
+      "stop": 36.5702,
+      "risk": 999.48,
+      "score": 50.0,
+      "status": "Watch",
+      "plain_english": "Trend Pullback (confirmation): do NOT buy yet. Only buy if price rebounds to 37.98 (~0.10% above last close 37.94). Stop 36.57. If it never rebounds to that level, no trade. Score 50. Only trade when market is RISK-ON."
     },
     {
       "symbol": "STO.AX",
@@ -1284,43 +1008,67 @@
       "risk": 999.9,
       "score": 50.0,
       "status": "Watch",
-      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 7.10 (activates only if price breaks up). Limit 7.12 (max pay). Stop 6.3756. If trigger is not hit, no trade. Score 50. Only trade when market is RISK-ON."
+      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 7.10 (activates only if price breaks up). Limit 7.12 (max pay). Stop 6.38. If trigger is not hit, no trade. Score 50. Only trade when market is RISK-ON."
     },
     {
-      "symbol": "TCL.AX",
+      "symbol": "VAS.AX",
       "strategy": "Trend Pullback",
-      "entry": 13.9581,
-      "entry_text": "13.9581",
-      "last_close": 14.24,
-      "stop": 13.5196,
-      "risk": 999.8,
-      "score": 49.0,
+      "entry": 112.6425,
+      "entry_text": "112.6425",
+      "last_close": 112.5,
+      "stop": 108.5695,
+      "risk": 997.89,
+      "score": 50.0,
       "status": "Watch",
-      "plain_english": "Trend Pullback (buy the dip): LIMIT buy at 13.96 (~1.98% below last close 14.24) to catch a pullback toward EMA20. Stop 13.52. If price does not dip to your limit, do not chase. Score 49. Only trade when market is RISK-ON."
+      "plain_english": "Trend Pullback (confirmation): do NOT buy yet. Only buy if price rebounds to 112.64 (~0.13% above last close 112.50). Stop 108.57. If it never rebounds to that level, no trade. Score 50. Only trade when market is RISK-ON."
     },
     {
-      "symbol": "GMG.AX",
+      "symbol": "VCX.AX",
       "strategy": "Trend Pullback",
-      "entry": 30.6214,
-      "entry_text": "30.6214",
-      "last_close": 30.32,
-      "stop": 28.4025,
-      "risk": 998.53,
-      "score": 48.0,
+      "entry": 2.5726,
+      "entry_text": "2.5726",
+      "last_close": 2.55,
+      "stop": 2.4922,
+      "risk": 999.94,
+      "score": 50.0,
       "status": "Watch",
-      "plain_english": "Trend Pullback (confirmation): do NOT buy yet. Only buy if price rebounds to 30.62 (~0.99% above last close 30.32). Stop 28.40. If it never rebounds to that level, no trade. Score 48. Only trade when market is RISK-ON."
+      "plain_english": "Trend Pullback (confirmation): do NOT buy yet. Only buy if price rebounds to 2.57 (~0.89% above last close 2.55). Stop 2.49. If it never rebounds to that level, no trade. Score 50. Only trade when market is RISK-ON."
     },
     {
-      "symbol": "YAL.AX",
+      "symbol": "WBC.AX",
       "strategy": "Trend Pullback",
-      "entry": 5.937,
-      "entry_text": "5.937",
-      "last_close": 6.1,
-      "stop": 5.8396,
-      "risk": 999.96,
-      "score": 47.0,
+      "entry": 42.5825,
+      "entry_text": "42.5825",
+      "last_close": 42.54,
+      "stop": 38.5878,
+      "risk": 998.68,
+      "score": 50.0,
       "status": "Watch",
-      "plain_english": "Trend Pullback (buy the dip): LIMIT buy at 5.94 (~2.67% below last close 6.10) to catch a pullback toward EMA20. Stop 5.84. If price does not dip to your limit, do not chase. Score 47. Only trade when market is RISK-ON."
+      "plain_english": "Trend Pullback (confirmation): do NOT buy yet. Only buy if price rebounds to 42.58 (~0.10% above last close 42.54). Stop 38.59. If it never rebounds to that level, no trade. Score 50. Only trade when market is RISK-ON."
+    },
+    {
+      "symbol": "WHC.AX",
+      "strategy": "Trend Pullback",
+      "entry": 8.0981,
+      "entry_text": "8.0981",
+      "last_close": 7.81,
+      "stop": 7.6531,
+      "risk": 999.86,
+      "score": 50.0,
+      "status": "Watch",
+      "plain_english": "Trend Pullback (confirmation): do NOT buy yet. Only buy if price rebounds to 8.10 (~3.69% above last close 7.81). Stop 7.65. If it never rebounds to that level, no trade. Score 50. Only trade when market is RISK-ON."
+    },
+    {
+      "symbol": "WOR.AX",
+      "strategy": "Trend Pullback",
+      "entry": 13.5135,
+      "entry_text": "13.5135",
+      "last_close": 13.39,
+      "stop": 12.5528,
+      "risk": 999.16,
+      "score": 50.0,
+      "status": "Watch",
+      "plain_english": "Trend Pullback (confirmation): do NOT buy yet. Only buy if price rebounds to 13.51 (~0.92% above last close 13.39). Stop 12.55. If it never rebounds to that level, no trade. Score 50. Only trade when market is RISK-ON."
     },
     {
       "symbol": "NXT.AX",
@@ -1332,7 +1080,7 @@
       "risk": 999.13,
       "score": 46.0,
       "status": "Watch",
-      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 14.68 (activates only if price breaks up). Limit 14.71 (max pay). Stop 13.3301. If trigger is not hit, no trade. Score 46. Only trade when market is RISK-ON."
+      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 14.68 (activates only if price breaks up). Limit 14.71 (max pay). Stop 13.33. If trigger is not hit, no trade. Score 46. Only trade when market is RISK-ON."
     },
     {
       "symbol": "HUB.AX",
@@ -1344,7 +1092,7 @@
       "risk": 981.21,
       "score": 45.0,
       "status": "Watch",
-      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 106.22 (activates only if price breaks up). Limit 106.43 (max pay). Stop 73.5106. If trigger is not hit, no trade. Score 45. Only trade when market is RISK-ON."
+      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 106.22 (activates only if price breaks up). Limit 106.43 (max pay). Stop 73.51. If trigger is not hit, no trade. Score 45. Only trade when market is RISK-ON."
     },
     {
       "symbol": "WOW.AX",
@@ -1356,7 +1104,7 @@
       "risk": 998.97,
       "score": 45.0,
       "status": "Watch",
-      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 32.55 (activates only if price breaks up). Limit 32.61 (max pay). Stop 31.0847. If trigger is not hit, no trade. Score 45. Only trade when market is RISK-ON."
+      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 32.55 (activates only if price breaks up). Limit 32.61 (max pay). Stop 31.08. If trigger is not hit, no trade. Score 45. Only trade when market is RISK-ON."
     },
     {
       "symbol": "MPL.AX",
@@ -1383,18 +1131,6 @@
       "plain_english": "Mean Reversion (bounce): LIMIT buy near 35.01. Stop 33.3043 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 43."
     },
     {
-      "symbol": "MIN.AX",
-      "strategy": "Trend Pullback",
-      "entry": 54.3826,
-      "entry_text": "54.3826",
-      "last_close": 51.25,
-      "stop": 49.6939,
-      "risk": 998.68,
-      "score": 43.0,
-      "status": "Watch",
-      "plain_english": "Trend Pullback (confirmation): do NOT buy yet. Only buy if price rebounds to 54.38 (~6.11% above last close 51.25). Stop 49.69. If it never rebounds to that level, no trade. Score 43. Only trade when market is RISK-ON."
-    },
-    {
       "symbol": "COL.AX",
       "strategy": "Momentum",
       "entry": null,
@@ -1404,19 +1140,7 @@
       "risk": 998.89,
       "score": 42.0,
       "status": "Watch",
-      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 22.45 (activates only if price breaks up). Limit 22.49 (max pay). Stop 21.2275. If trigger is not hit, no trade. Score 42. Only trade when market is RISK-ON."
-    },
-    {
-      "symbol": "NDQ.AX",
-      "strategy": "Trend Pullback",
-      "entry": 52.8264,
-      "entry_text": "52.8264",
-      "last_close": 52.09,
-      "stop": 50.9943,
-      "risk": 998.53,
-      "score": 41.0,
-      "status": "Watch",
-      "plain_english": "Trend Pullback (confirmation): do NOT buy yet. Only buy if price rebounds to 52.83 (~1.41% above last close 52.09). Stop 50.99. If it never rebounds to that level, no trade. Score 41. Only trade when market is RISK-ON."
+      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 22.45 (activates only if price breaks up). Limit 22.49 (max pay). Stop 21.23. If trigger is not hit, no trade. Score 42. Only trade when market is RISK-ON."
     },
     {
       "symbol": "NEM.AX",
@@ -1428,7 +1152,7 @@
       "risk": 996.65,
       "score": 41.0,
       "status": "Watch",
-      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 191.11 (activates only if price breaks up). Limit 191.49 (max pay). Stop 163.4268. If trigger is not hit, no trade. Score 41. Only trade when market is RISK-ON."
+      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 191.11 (activates only if price breaks up). Limit 191.49 (max pay). Stop 163.43. If trigger is not hit, no trade. Score 41. Only trade when market is RISK-ON."
     },
     {
       "symbol": "AAI.AX",
@@ -1440,79 +1164,7 @@
       "risk": 992.69,
       "score": 40.0,
       "status": "Watch",
-      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 95.51 (activates only if price breaks up). Limit 95.70 (max pay). Stop 80.2336. If trigger is not hit, no trade. Score 40. Only trade when market is RISK-ON."
-    },
-    {
-      "symbol": "AFI.AX",
-      "strategy": "Trend Pullback",
-      "entry": 6.9238,
-      "entry_text": "6.9238",
-      "last_close": 6.92,
-      "stop": 6.8012,
-      "risk": 999.96,
-      "score": 40.0,
-      "status": "Watch",
-      "plain_english": "Trend Pullback (confirmation): do NOT buy yet. Only buy if price rebounds to 6.92 (~0.05% above last close 6.92). Stop 6.80. If it never rebounds to that level, no trade. Score 40. Only trade when market is RISK-ON."
-    },
-    {
-      "symbol": "AMC.AX",
-      "strategy": "Trend Pullback",
-      "entry": 68.0583,
-      "entry_text": "68.0583",
-      "last_close": 70.8,
-      "stop": 67.4135,
-      "risk": 999.47,
-      "score": 40.0,
-      "status": "Watch",
-      "plain_english": "Trend Pullback (buy the dip): LIMIT buy at 68.06 (~3.87% below last close 70.80) to catch a pullback toward EMA20. Stop 67.41. If price does not dip to your limit, do not chase. Score 40. Only trade when market is RISK-ON."
-    },
-    {
-      "symbol": "BXB.AX",
-      "strategy": "Trend Pullback",
-      "entry": 23.3166,
-      "entry_text": "23.3166",
-      "last_close": 24.22,
-      "stop": 22.7746,
-      "risk": 999.62,
-      "score": 40.0,
-      "status": "Watch",
-      "plain_english": "Trend Pullback (buy the dip): LIMIT buy at 23.32 (~3.73% below last close 24.22) to catch a pullback toward EMA20. Stop 22.77. If price does not dip to your limit, do not chase. Score 40. Only trade when market is RISK-ON."
-    },
-    {
-      "symbol": "CBA.AX",
-      "strategy": "Trend Pullback",
-      "entry": 165.6442,
-      "entry_text": "165.6442",
-      "last_close": 179.67,
-      "stop": 155.3403,
-      "risk": 999.48,
-      "score": 40.0,
-      "status": "Watch",
-      "plain_english": "Trend Pullback (buy the dip): LIMIT buy at 165.64 (~7.81% below last close 179.67) to catch a pullback toward EMA20. Stop 155.34. If price does not dip to your limit, do not chase. Score 40. Only trade when market is RISK-ON."
-    },
-    {
-      "symbol": "CEN.AX",
-      "strategy": "Trend Pullback",
-      "entry": 7.9736,
-      "entry_text": "7.9736",
-      "last_close": 7.81,
-      "stop": 7.604,
-      "risk": 999.8,
-      "score": 40.0,
-      "status": "Watch",
-      "plain_english": "Trend Pullback (confirmation): do NOT buy yet. Only buy if price rebounds to 7.97 (~2.09% above last close 7.81). Stop 7.60. If it never rebounds to that level, no trade. Score 40. Only trade when market is RISK-ON."
-    },
-    {
-      "symbol": "EDV.AX",
-      "strategy": "Trend Pullback",
-      "entry": 3.7983,
-      "entry_text": "3.7983",
-      "last_close": 3.87,
-      "stop": 3.6336,
-      "risk": 999.89,
-      "score": 40.0,
-      "status": "Watch",
-      "plain_english": "Trend Pullback (buy the dip): LIMIT buy at 3.80 (~1.85% below last close 3.87) to catch a pullback toward EMA20. Stop 3.63. If price does not dip to your limit, do not chase. Score 40. Only trade when market is RISK-ON."
+      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 95.51 (activates only if price breaks up). Limit 95.70 (max pay). Stop 80.23. If trigger is not hit, no trade. Score 40. Only trade when market is RISK-ON."
     },
     {
       "symbol": "EVN.AX",
@@ -1524,7 +1176,7 @@
       "risk": 997.9,
       "score": 40.0,
       "status": "Watch",
-      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 16.35 (activates only if price breaks up). Limit 16.38 (max pay). Stop 14.1412. If trigger is not hit, no trade. Score 40. Only trade when market is RISK-ON."
+      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 16.35 (activates only if price breaks up). Limit 16.38 (max pay). Stop 14.14. If trigger is not hit, no trade. Score 40. Only trade when market is RISK-ON."
     },
     {
       "symbol": "JHX.AX",
@@ -1536,7 +1188,7 @@
       "risk": 997.69,
       "score": 40.0,
       "status": "Watch",
-      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 38.00 (activates only if price breaks up). Limit 38.08 (max pay). Stop 34.3757. If trigger is not hit, no trade. Score 40. Only trade when market is RISK-ON."
+      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 38.00 (activates only if price breaks up). Limit 38.08 (max pay). Stop 34.38. If trigger is not hit, no trade. Score 40. Only trade when market is RISK-ON."
     },
     {
       "symbol": "LYC.AX",
@@ -1548,7 +1200,7 @@
       "risk": 999.14,
       "score": 40.0,
       "status": "Watch",
-      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 17.84 (activates only if price breaks up). Limit 17.88 (max pay). Stop 14.8429. If trigger is not hit, no trade. Score 40. Only trade when market is RISK-ON."
+      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 17.84 (activates only if price breaks up). Limit 17.88 (max pay). Stop 14.84. If trigger is not hit, no trade. Score 40. Only trade when market is RISK-ON."
     },
     {
       "symbol": "NST.AX",
@@ -1560,7 +1212,7 @@
       "risk": 999.22,
       "score": 40.0,
       "status": "Watch",
-      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 30.30 (activates only if price breaks up). Limit 30.36 (max pay). Stop 27.2449. If trigger is not hit, no trade. Score 40. Only trade when market is RISK-ON."
+      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 30.30 (activates only if price breaks up). Limit 30.36 (max pay). Stop 27.24. If trigger is not hit, no trade. Score 40. Only trade when market is RISK-ON."
     },
     {
       "symbol": "PRU.AX",
@@ -1572,67 +1224,7 @@
       "risk": 999.59,
       "score": 40.0,
       "status": "Watch",
-      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 6.62 (activates only if price breaks up). Limit 6.63 (max pay). Stop 5.3827. If trigger is not hit, no trade. Score 40. Only trade when market is RISK-ON."
-    },
-    {
-      "symbol": "QAN.AX",
-      "strategy": "Trend Pullback",
-      "entry": 10.4335,
-      "entry_text": "10.4335",
-      "last_close": 10.61,
-      "stop": 10.1334,
-      "risk": 999.87,
-      "score": 40.0,
-      "status": "Watch",
-      "plain_english": "Trend Pullback (buy the dip): LIMIT buy at 10.43 (~1.66% below last close 10.61) to catch a pullback toward EMA20. Stop 10.13. If price does not dip to your limit, do not chase. Score 40. Only trade when market is RISK-ON."
-    },
-    {
-      "symbol": "QBE.AX",
-      "strategy": "Trend Pullback",
-      "entry": 19.9629,
-      "entry_text": "19.9629",
-      "last_close": 21.48,
-      "stop": 19.1821,
-      "risk": 999.43,
-      "score": 40.0,
-      "status": "Watch",
-      "plain_english": "Trend Pullback (buy the dip): LIMIT buy at 19.96 (~7.06% below last close 21.48) to catch a pullback toward EMA20. Stop 19.18. If price does not dip to your limit, do not chase. Score 40. Only trade when market is RISK-ON."
-    },
-    {
-      "symbol": "SHN.AX",
-      "strategy": "Momentum",
-      "entry": null,
-      "entry_text": "trigger=0.0451 limit=0.0452",
-      "last_close": 0.039,
-      "stop": 0.0361,
-      "risk": 999.99,
-      "score": 40.0,
-      "status": "Watch",
-      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 0.05 (activates only if price breaks up). Limit 0.05 (max pay). Stop 0.0361. If trigger is not hit, no trade. Score 40. Only trade when market is RISK-ON."
-    },
-    {
-      "symbol": "TLC.AX",
-      "strategy": "Trend Pullback",
-      "entry": 5.2698,
-      "entry_text": "5.2698",
-      "last_close": 5.58,
-      "stop": 5.0367,
-      "risk": 999.97,
-      "score": 40.0,
-      "status": "Watch",
-      "plain_english": "Trend Pullback (buy the dip): LIMIT buy at 5.27 (~5.56% below last close 5.58) to catch a pullback toward EMA20. Stop 5.04. If price does not dip to your limit, do not chase. Score 40. Only trade when market is RISK-ON."
-    },
-    {
-      "symbol": "WES.AX",
-      "strategy": "Trend Pullback",
-      "entry": 85.7104,
-      "entry_text": "85.7104",
-      "last_close": 83.99,
-      "stop": 83.3159,
-      "risk": 998.53,
-      "score": 40.0,
-      "status": "Watch",
-      "plain_english": "Trend Pullback (confirmation): do NOT buy yet. Only buy if price rebounds to 85.71 (~2.05% above last close 83.99). Stop 83.32. If it never rebounds to that level, no trade. Score 40. Only trade when market is RISK-ON."
+      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 6.62 (activates only if price breaks up). Limit 6.63 (max pay). Stop 5.38. If trigger is not hit, no trade. Score 40. Only trade when market is RISK-ON."
     },
     {
       "symbol": "WGX.AX",
@@ -1644,7 +1236,7 @@
       "risk": 998.95,
       "score": 40.0,
       "status": "Watch",
-      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 7.92 (activates only if price breaks up). Limit 7.94 (max pay). Stop 6.723. If trigger is not hit, no trade. Score 40. Only trade when market is RISK-ON."
+      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 7.92 (activates only if price breaks up). Limit 7.94 (max pay). Stop 6.72. If trigger is not hit, no trade. Score 40. Only trade when market is RISK-ON."
     },
     {
       "symbol": "YAL.AX",
@@ -1656,31 +1248,7 @@
       "risk": 999.81,
       "score": 40.0,
       "status": "Watch",
-      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 6.33 (activates only if price breaks up). Limit 6.34 (max pay). Stop 5.8996. If trigger is not hit, no trade. Score 40. Only trade when market is RISK-ON."
-    },
-    {
-      "symbol": "BEN.AX",
-      "strategy": "Trend Pullback",
-      "entry": 10.9494,
-      "entry_text": "10.9494",
-      "last_close": 11.05,
-      "stop": 10.6234,
-      "risk": 999.9,
-      "score": 39.0,
-      "status": "Watch",
-      "plain_english": "Trend Pullback (buy the dip): LIMIT buy at 10.95 (~0.91% below last close 11.05) to catch a pullback toward EMA20. Stop 10.62. If price does not dip to your limit, do not chase. Score 39. Only trade when market is RISK-ON."
-    },
-    {
-      "symbol": "BPT.AX",
-      "strategy": "Trend Pullback",
-      "entry": 1.1393,
-      "entry_text": "1.1393",
-      "last_close": 1.14,
-      "stop": 1.0607,
-      "risk": 999.98,
-      "score": 39.0,
-      "status": "Watch",
-      "plain_english": "Trend Pullback (buy the dip): LIMIT buy at 1.14 (~0.06% below last close 1.14) to catch a pullback toward EMA20. Stop 1.06. If price does not dip to your limit, do not chase. Score 39. Only trade when market is RISK-ON."
+      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 6.33 (activates only if price breaks up). Limit 6.34 (max pay). Stop 5.90. If trigger is not hit, no trade. Score 40. Only trade when market is RISK-ON."
     },
     {
       "symbol": "BSL.AX",
@@ -1692,19 +1260,7 @@
       "risk": 997.93,
       "score": 39.0,
       "status": "Watch",
-      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 30.81 (activates only if price breaks up). Limit 30.87 (max pay). Stop 27.0123. If trigger is not hit, no trade. Score 39. Only trade when market is RISK-ON."
-    },
-    {
-      "symbol": "HVN.AX",
-      "strategy": "Trend Pullback",
-      "entry": 6.4682,
-      "entry_text": "6.4682",
-      "last_close": 6.36,
-      "stop": 6.1329,
-      "risk": 999.95,
-      "score": 39.0,
-      "status": "Watch",
-      "plain_english": "Trend Pullback (confirmation): do NOT buy yet. Only buy if price rebounds to 6.47 (~1.70% above last close 6.36). Stop 6.13. If it never rebounds to that level, no trade. Score 39. Only trade when market is RISK-ON."
+      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 30.81 (activates only if price breaks up). Limit 30.87 (max pay). Stop 27.01. If trigger is not hit, no trade. Score 39. Only trade when market is RISK-ON."
     },
     {
       "symbol": "NEM.AX",
@@ -1728,7 +1284,7 @@
       "risk": 999.62,
       "score": 38.0,
       "status": "Watch",
-      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 39.87 (activates only if price breaks up). Limit 39.95 (max pay). Stop 36.5702. If trigger is not hit, no trade. Score 38. Only trade when market is RISK-ON."
+      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 39.87 (activates only if price breaks up). Limit 39.95 (max pay). Stop 36.57. If trigger is not hit, no trade. Score 38. Only trade when market is RISK-ON."
     },
     {
       "symbol": "ALQ.AX",
@@ -1740,19 +1296,7 @@
       "risk": 998.26,
       "score": 37.0,
       "status": "Watch",
-      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 25.36 (activates only if price breaks up). Limit 25.41 (max pay). Stop 23.4616. If trigger is not hit, no trade. Score 37. Only trade when market is RISK-ON."
-    },
-    {
-      "symbol": "CPU.AX",
-      "strategy": "Trend Pullback",
-      "entry": 31.5917,
-      "entry_text": "31.5917",
-      "last_close": 31.46,
-      "stop": 29.2057,
-      "risk": 999.74,
-      "score": 37.0,
-      "status": "Watch",
-      "plain_english": "Trend Pullback (confirmation): do NOT buy yet. Only buy if price rebounds to 31.59 (~0.42% above last close 31.46). Stop 29.21. If it never rebounds to that level, no trade. Score 37. Only trade when market is RISK-ON."
+      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 25.36 (activates only if price breaks up). Limit 25.41 (max pay). Stop 23.46. If trigger is not hit, no trade. Score 37. Only trade when market is RISK-ON."
     },
     {
       "symbol": "CSC.AX",
@@ -1776,19 +1320,7 @@
       "risk": 999.43,
       "score": 37.0,
       "status": "Watch",
-      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 5.16 (activates only if price breaks up). Limit 5.17 (max pay). Stop 4.2938. If trigger is not hit, no trade. Score 37. Only trade when market is RISK-ON."
-    },
-    {
-      "symbol": "SCG.AX",
-      "strategy": "Trend Pullback",
-      "entry": 3.8728,
-      "entry_text": "3.8728",
-      "last_close": 3.81,
-      "stop": 3.6917,
-      "risk": 999.87,
-      "score": 37.0,
-      "status": "Watch",
-      "plain_english": "Trend Pullback (confirmation): do NOT buy yet. Only buy if price rebounds to 3.87 (~1.65% above last close 3.81). Stop 3.69. If it never rebounds to that level, no trade. Score 37. Only trade when market is RISK-ON."
+      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 5.16 (activates only if price breaks up). Limit 5.17 (max pay). Stop 4.29. If trigger is not hit, no trade. Score 37. Only trade when market is RISK-ON."
     },
     {
       "symbol": "SGP.AX",
@@ -1824,7 +1356,7 @@
       "risk": 999.88,
       "score": 36.0,
       "status": "Watch",
-      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 3.98 (activates only if price breaks up). Limit 3.99 (max pay). Stop 3.7418. If trigger is not hit, no trade. Score 36. Only trade when market is RISK-ON."
+      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 3.98 (activates only if price breaks up). Limit 3.99 (max pay). Stop 3.74. If trigger is not hit, no trade. Score 36. Only trade when market is RISK-ON."
     },
     {
       "symbol": "ALL.AX",
@@ -1873,18 +1405,6 @@
       "score": 35.0,
       "status": "Watch",
       "plain_english": "Mean Reversion (bounce): LIMIT buy near 21.52. Stop 21.025 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 35."
-    },
-    {
-      "symbol": "GPT.AX",
-      "strategy": "Trend Pullback",
-      "entry": 5.1395,
-      "entry_text": "5.1395",
-      "last_close": 5.01,
-      "stop": 4.8615,
-      "risk": 999.74,
-      "score": 35.0,
-      "status": "Watch",
-      "plain_english": "Trend Pullback (confirmation): do NOT buy yet. Only buy if price rebounds to 5.14 (~2.58% above last close 5.01). Stop 4.86. If it never rebounds to that level, no trade. Score 35. Only trade when market is RISK-ON."
     },
     {
       "symbol": "HVN.AX",
@@ -1947,42 +1467,6 @@
       "plain_english": "Mean Reversion (bounce): LIMIT buy near 83.99. Stop 81.2654 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 35."
     },
     {
-      "symbol": "JBH.AX",
-      "strategy": "Trend Pullback",
-      "entry": 84.2831,
-      "entry_text": "84.2831",
-      "last_close": 84.79,
-      "stop": 71.3459,
-      "risk": 996.17,
-      "score": 34.0,
-      "status": "Watch",
-      "plain_english": "Trend Pullback (buy the dip): LIMIT buy at 84.28 (~0.60% below last close 84.79) to catch a pullback toward EMA20. Stop 71.35. If price does not dip to your limit, do not chase. Score 34. Only trade when market is RISK-ON."
-    },
-    {
-      "symbol": "MCY.AX",
-      "strategy": "Mean Reversion",
-      "entry": 5.17,
-      "entry_text": "5.17",
-      "last_close": 5.17,
-      "stop": 5.0157,
-      "risk": 999.93,
-      "score": 34.0,
-      "status": "Watch",
-      "plain_english": "Mean Reversion (bounce): LIMIT buy near 5.17. Stop 5.0157 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 34."
-    },
-    {
-      "symbol": "RMD.AX",
-      "strategy": "Trend Pullback",
-      "entry": 36.5135,
-      "entry_text": "36.5135",
-      "last_close": 36.3,
-      "stop": 33.8606,
-      "risk": 997.47,
-      "score": 34.0,
-      "status": "Watch",
-      "plain_english": "Trend Pullback (confirmation): do NOT buy yet. Only buy if price rebounds to 36.51 (~0.59% above last close 36.30). Stop 33.86. If it never rebounds to that level, no trade. Score 34. Only trade when market is RISK-ON."
-    },
-    {
       "symbol": "REH.AX",
       "strategy": "Momentum",
       "entry": null,
@@ -1992,7 +1476,7 @@
       "risk": 998.46,
       "score": 33.0,
       "status": "Watch",
-      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 15.43 (activates only if price breaks up). Limit 15.46 (max pay). Stop 13.1824. If trigger is not hit, no trade. Score 33. Only trade when market is RISK-ON."
+      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 15.43 (activates only if price breaks up). Limit 15.46 (max pay). Stop 13.18. If trigger is not hit, no trade. Score 33. Only trade when market is RISK-ON."
     },
     {
       "symbol": "WOR.AX",
@@ -2004,7 +1488,7 @@
       "risk": 999.17,
       "score": 33.0,
       "status": "Watch",
-      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 13.96 (activates only if price breaks up). Limit 13.99 (max pay). Stop 12.7328. If trigger is not hit, no trade. Score 33. Only trade when market is RISK-ON."
+      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 13.96 (activates only if price breaks up). Limit 13.99 (max pay). Stop 12.73. If trigger is not hit, no trade. Score 33. Only trade when market is RISK-ON."
     },
     {
       "symbol": "CDA.AX",
@@ -2016,19 +1500,7 @@
       "risk": 996.01,
       "score": 32.0,
       "status": "Watch",
-      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 40.54 (activates only if price breaks up). Limit 40.62 (max pay). Stop 31.955. If trigger is not hit, no trade. Score 32. Only trade when market is RISK-ON."
-    },
-    {
-      "symbol": "MEZ.AX",
-      "strategy": "Momentum",
-      "entry": null,
-      "entry_text": "trigger=4.9648 limit=4.9748",
-      "last_close": 4.81,
-      "stop": 4.7064,
-      "risk": 999.83,
-      "score": 31.0,
-      "status": "Watch",
-      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 4.96 (activates only if price breaks up). Limit 4.97 (max pay). Stop 4.7064. If trigger is not hit, no trade. Score 31. Only trade when market is RISK-ON."
+      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 40.54 (activates only if price breaks up). Limit 40.62 (max pay). Stop 31.95. If trigger is not hit, no trade. Score 32. Only trade when market is RISK-ON."
     },
     {
       "symbol": "NXG.AX",
@@ -2040,7 +1512,19 @@
       "risk": 998.31,
       "score": 31.0,
       "status": "Watch",
-      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 20.53 (activates only if price breaks up). Limit 20.57 (max pay). Stop 15.7087. If trigger is not hit, no trade. Score 31. Only trade when market is RISK-ON."
+      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 20.53 (activates only if price breaks up). Limit 20.57 (max pay). Stop 15.71. If trigger is not hit, no trade. Score 31. Only trade when market is RISK-ON."
+    },
+    {
+      "symbol": "ALD.AX",
+      "strategy": "Trend Pullback",
+      "entry": 29.3393,
+      "entry_text": "29.3393",
+      "last_close": 28.98,
+      "stop": 27.9881,
+      "risk": 999.87,
+      "score": 30.0,
+      "status": "Watch",
+      "plain_english": "Trend Pullback (confirmation): do NOT buy yet. Only buy if price rebounds to 29.34 (~1.24% above last close 28.98). Stop 27.99. If it never rebounds to that level, no trade. Score 30. Only trade when market is RISK-ON."
     },
     {
       "symbol": "ALL.AX",
@@ -2052,7 +1536,19 @@
       "risk": 994.69,
       "score": 30.0,
       "status": "Watch",
-      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 57.95 (activates only if price breaks up). Limit 58.07 (max pay). Stop 47.3715. If trigger is not hit, no trade. Score 30. Only trade when market is RISK-ON."
+      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 57.95 (activates only if price breaks up). Limit 58.07 (max pay). Stop 47.37. If trigger is not hit, no trade. Score 30. Only trade when market is RISK-ON."
+    },
+    {
+      "symbol": "APA.AX",
+      "strategy": "Trend Pullback",
+      "entry": 9.2092,
+      "entry_text": "9.2092",
+      "last_close": 9.14,
+      "stop": 8.6086,
+      "risk": 999.45,
+      "score": 30.0,
+      "status": "Watch",
+      "plain_english": "Trend Pullback (confirmation): do NOT buy yet. Only buy if price rebounds to 9.21 (~0.76% above last close 9.14). Stop 8.61. If it never rebounds to that level, no trade. Score 30. Only trade when market is RISK-ON."
     },
     {
       "symbol": "APE.AX",
@@ -2064,7 +1560,31 @@
       "risk": 995.09,
       "score": 30.0,
       "status": "Watch",
-      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 29.35 (activates only if price breaks up). Limit 29.41 (max pay). Stop 23.8803. If trigger is not hit, no trade. Score 30. Only trade when market is RISK-ON."
+      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 29.35 (activates only if price breaks up). Limit 29.41 (max pay). Stop 23.88. If trigger is not hit, no trade. Score 30. Only trade when market is RISK-ON."
+    },
+    {
+      "symbol": "CPU.AX",
+      "strategy": "Trend Pullback",
+      "entry": 31.5115,
+      "entry_text": "31.5115",
+      "last_close": 31.46,
+      "stop": 29.2057,
+      "risk": 998.41,
+      "score": 30.0,
+      "status": "Watch",
+      "plain_english": "Trend Pullback (confirmation): do NOT buy yet. Only buy if price rebounds to 31.51 (~0.16% above last close 31.46). Stop 29.21. If it never rebounds to that level, no trade. Score 30. Only trade when market is RISK-ON."
+    },
+    {
+      "symbol": "GMG.AX",
+      "strategy": "Trend Pullback",
+      "entry": 30.5505,
+      "entry_text": "30.5505",
+      "last_close": 30.32,
+      "stop": 28.4025,
+      "risk": 998.82,
+      "score": 30.0,
+      "status": "Watch",
+      "plain_english": "Trend Pullback (confirmation): do NOT buy yet. Only buy if price rebounds to 30.55 (~0.76% above last close 30.32). Stop 28.40. If it never rebounds to that level, no trade. Score 30. Only trade when market is RISK-ON."
     },
     {
       "symbol": "GYG.AX",
@@ -2076,7 +1596,79 @@
       "risk": 992.93,
       "score": 30.0,
       "status": "Watch",
-      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 24.29 (activates only if price breaks up). Limit 24.34 (max pay). Stop 16.713. If trigger is not hit, no trade. Score 30. Only trade when market is RISK-ON."
+      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 24.29 (activates only if price breaks up). Limit 24.34 (max pay). Stop 16.71. If trigger is not hit, no trade. Score 30. Only trade when market is RISK-ON."
+    },
+    {
+      "symbol": "IAG.AX",
+      "strategy": "Trend Pullback",
+      "entry": 7.1371,
+      "entry_text": "7.1371",
+      "last_close": 7.08,
+      "stop": 6.6025,
+      "risk": 999.71,
+      "score": 30.0,
+      "status": "Watch",
+      "plain_english": "Trend Pullback (confirmation): do NOT buy yet. Only buy if price rebounds to 7.14 (~0.81% above last close 7.08). Stop 6.60. If it never rebounds to that level, no trade. Score 30. Only trade when market is RISK-ON."
+    },
+    {
+      "symbol": "TLS.AX",
+      "strategy": "Trend Pullback",
+      "entry": 5.1251,
+      "entry_text": "5.1251",
+      "last_close": 5.11,
+      "stop": 4.8346,
+      "risk": 999.77,
+      "score": 30.0,
+      "status": "Watch",
+      "plain_english": "Trend Pullback (confirmation): do NOT buy yet. Only buy if price rebounds to 5.13 (~0.30% above last close 5.11). Stop 4.83. If it never rebounds to that level, no trade. Score 30. Only trade when market is RISK-ON."
+    },
+    {
+      "symbol": "TPG.AX",
+      "strategy": "Trend Pullback",
+      "entry": 3.9389,
+      "entry_text": "3.9389",
+      "last_close": 3.9,
+      "stop": 3.7418,
+      "risk": 999.96,
+      "score": 30.0,
+      "status": "Watch",
+      "plain_english": "Trend Pullback (confirmation): do NOT buy yet. Only buy if price rebounds to 3.94 (~1.00% above last close 3.90). Stop 3.74. If it never rebounds to that level, no trade. Score 30. Only trade when market is RISK-ON."
+    },
+    {
+      "symbol": "VGE.AX",
+      "strategy": "Trend Pullback",
+      "entry": 90.6906,
+      "entry_text": "90.6906",
+      "last_close": 90.4,
+      "stop": 89.3568,
+      "risk": 999.03,
+      "score": 30.0,
+      "status": "Watch",
+      "plain_english": "Trend Pullback (confirmation): do NOT buy yet. Only buy if price rebounds to 90.69 (~0.32% above last close 90.40). Stop 89.36. If it never rebounds to that level, no trade. Score 30. Only trade when market is RISK-ON."
+    },
+    {
+      "symbol": "VGS.AX",
+      "strategy": "Trend Pullback",
+      "entry": 148.9688,
+      "entry_text": "148.9688",
+      "last_close": 148.52,
+      "stop": 145.9596,
+      "risk": 999.04,
+      "score": 30.0,
+      "status": "Watch",
+      "plain_english": "Trend Pullback (confirmation): do NOT buy yet. Only buy if price rebounds to 148.97 (~0.30% above last close 148.52). Stop 145.96. If it never rebounds to that level, no trade. Score 30. Only trade when market is RISK-ON."
+    },
+    {
+      "symbol": "WDS.AX",
+      "strategy": "Trend Pullback",
+      "entry": 27.5075,
+      "entry_text": "27.5075",
+      "last_close": 27.43,
+      "stop": 25.4437,
+      "risk": 998.9,
+      "score": 30.0,
+      "status": "Watch",
+      "plain_english": "Trend Pullback (confirmation): do NOT buy yet. Only buy if price rebounds to 27.51 (~0.28% above last close 27.43). Stop 25.44. If it never rebounds to that level, no trade. Score 30. Only trade when market is RISK-ON."
     },
     {
       "symbol": "JBH.AX",
@@ -2088,7 +1680,7 @@
       "risk": 990.83,
       "score": 29.0,
       "status": "Watch",
-      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 90.40 (activates only if price breaks up). Limit 90.58 (max pay). Stop 71.3459. If trigger is not hit, no trade. Score 29. Only trade when market is RISK-ON."
+      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 90.40 (activates only if price breaks up). Limit 90.58 (max pay). Stop 71.35. If trigger is not hit, no trade. Score 29. Only trade when market is RISK-ON."
     },
     {
       "symbol": "AFI.AX",
@@ -2100,7 +1692,7 @@
       "risk": 999.88,
       "score": 28.0,
       "status": "Watch",
-      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 7.06 (activates only if price breaks up). Limit 7.08 (max pay). Stop 6.8012. If trigger is not hit, no trade. Score 28. Only trade when market is RISK-ON."
+      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 7.06 (activates only if price breaks up). Limit 7.08 (max pay). Stop 6.80. If trigger is not hit, no trade. Score 28. Only trade when market is RISK-ON."
     },
     {
       "symbol": "S32.AX",
@@ -2112,55 +1704,7 @@
       "risk": 999.53,
       "score": 28.0,
       "status": "Watch",
-      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 4.92 (activates only if price breaks up). Limit 4.93 (max pay). Stop 4.2036. If trigger is not hit, no trade. Score 28. Only trade when market is RISK-ON."
-    },
-    {
-      "symbol": "MGR.AX",
-      "strategy": "Trend Pullback",
-      "entry": 1.9796,
-      "entry_text": "1.9796",
-      "last_close": 2.0,
-      "stop": 1.8772,
-      "risk": 999.94,
-      "score": 27.0,
-      "status": "Watch",
-      "plain_english": "Trend Pullback (buy the dip): LIMIT buy at 1.98 (~1.02% below last close 2.00) to catch a pullback toward EMA20. Stop 1.88. If price does not dip to your limit, do not chase. Score 27. Only trade when market is RISK-ON."
-    },
-    {
-      "symbol": "NXT.AX",
-      "strategy": "Trend Pullback",
-      "entry": 13.5606,
-      "entry_text": "13.5606",
-      "last_close": 13.92,
-      "stop": 12.9101,
-      "risk": 999.81,
-      "score": 27.0,
-      "status": "Watch",
-      "plain_english": "Trend Pullback (buy the dip): LIMIT buy at 13.56 (~2.58% below last close 13.92) to catch a pullback toward EMA20. Stop 12.91. If price does not dip to your limit, do not chase. Score 27. Only trade when market is RISK-ON."
-    },
-    {
-      "symbol": "ALX.AX",
-      "strategy": "Trend Pullback",
-      "entry": 4.7282,
-      "entry_text": "4.7282",
-      "last_close": 4.78,
-      "stop": 4.4872,
-      "risk": 999.81,
-      "score": 26.0,
-      "status": "Watch",
-      "plain_english": "Trend Pullback (buy the dip): LIMIT buy at 4.73 (~1.08% below last close 4.78) to catch a pullback toward EMA20. Stop 4.49. If price does not dip to your limit, do not chase. Score 26. Only trade when market is RISK-ON."
-    },
-    {
-      "symbol": "IAG.AX",
-      "strategy": "Trend Pullback",
-      "entry": 7.1612,
-      "entry_text": "7.1612",
-      "last_close": 7.08,
-      "stop": 6.6025,
-      "risk": 999.61,
-      "score": 26.0,
-      "status": "Watch",
-      "plain_english": "Trend Pullback (confirmation): do NOT buy yet. Only buy if price rebounds to 7.16 (~1.15% above last close 7.08). Stop 6.60. If it never rebounds to that level, no trade. Score 26. Only trade when market is RISK-ON."
+      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 4.92 (activates only if price breaks up). Limit 4.93 (max pay). Stop 4.20. If trigger is not hit, no trade. Score 28. Only trade when market is RISK-ON."
     },
     {
       "symbol": "MGR.AX",
@@ -2172,7 +1716,7 @@
       "risk": 999.89,
       "score": 26.0,
       "status": "Watch",
-      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 2.08 (activates only if price breaks up). Limit 2.08 (max pay). Stop 1.8772. If trigger is not hit, no trade. Score 26. Only trade when market is RISK-ON."
+      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 2.08 (activates only if price breaks up). Limit 2.08 (max pay). Stop 1.88. If trigger is not hit, no trade. Score 26. Only trade when market is RISK-ON."
     },
     {
       "symbol": "AAI.AX",
@@ -2295,18 +1839,6 @@
       "plain_english": "Mean Reversion (bounce): LIMIT buy near 9.06. Stop 8.9162 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 25."
     },
     {
-      "symbol": "ASX.AX",
-      "strategy": "Trend Pullback",
-      "entry": 53.8912,
-      "entry_text": "53.8912",
-      "last_close": 53.27,
-      "stop": 51.5454,
-      "risk": 999.33,
-      "score": 25.0,
-      "status": "Watch",
-      "plain_english": "Trend Pullback (confirmation): do NOT buy yet. Only buy if price rebounds to 53.89 (~1.17% above last close 53.27). Stop 51.55. If it never rebounds to that level, no trade. Score 25. Only trade when market is RISK-ON."
-    },
-    {
       "symbol": "AZJ.AX",
       "strategy": "Mean Reversion",
       "entry": 4.01,
@@ -2405,14 +1937,14 @@
     {
       "symbol": "ETPMAG.AX",
       "strategy": "Mean Reversion",
-      "entry": 101.82,
-      "entry_text": "101.82",
-      "last_close": 101.82,
-      "stop": 84.8229,
-      "risk": 985.83,
+      "entry": 102.3,
+      "entry_text": "102.3",
+      "last_close": 102.3,
+      "stop": 86.5082,
+      "risk": 994.88,
       "score": 25.0,
       "status": "Watch",
-      "plain_english": "Mean Reversion (bounce): LIMIT buy near 101.82. Stop 84.8229 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 25."
+      "plain_english": "Mean Reversion (bounce): LIMIT buy near 102.3. Stop 86.5082 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 25."
     },
     {
       "symbol": "EVN.AX",
@@ -2628,19 +2160,7 @@
       "risk": 996.38,
       "score": 25.0,
       "status": "Watch",
-      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 21.82 (activates only if price breaks up). Limit 21.86 (max pay). Stop 18.1386. If trigger is not hit, no trade. Score 25. Only trade when market is RISK-ON."
-    },
-    {
-      "symbol": "SHN.AX",
-      "strategy": "Mean Reversion",
-      "entry": 0.039,
-      "entry_text": "0.039",
-      "last_close": 0.039,
-      "stop": 0.0338,
-      "risk": 1000.0,
-      "score": 25.0,
-      "status": "Watch",
-      "plain_english": "Mean Reversion (bounce): LIMIT buy near 0.039. Stop 0.0338 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 25."
+      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 21.82 (activates only if price breaks up). Limit 21.86 (max pay). Stop 18.14. If trigger is not hit, no trade. Score 25. Only trade when market is RISK-ON."
     },
     {
       "symbol": "STO.AX",
@@ -2799,18 +2319,6 @@
       "plain_english": "Mean Reversion (bounce): LIMIT buy near 6.1. Stop 5.7979 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 25."
     },
     {
-      "symbol": "AMP.AX",
-      "strategy": "Trend Pullback",
-      "entry": 1.5458,
-      "entry_text": "1.5458",
-      "last_close": 1.36,
-      "stop": 1.1767,
-      "risk": 999.77,
-      "score": 24.0,
-      "status": "Watch",
-      "plain_english": "Trend Pullback (confirmation): do NOT buy yet. Only buy if price rebounds to 1.55 (~13.66% above last close 1.36). Stop 1.18. If it never rebounds to that level, no trade. Score 24. Only trade when market is RISK-ON."
-    },
-    {
       "symbol": "ASX.AX",
       "strategy": "Mean Reversion",
       "entry": 53.27,
@@ -2832,7 +2340,7 @@
       "risk": 998.52,
       "score": 22.0,
       "status": "Watch",
-      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 30.88 (activates only if price breaks up). Limit 30.94 (max pay). Stop 27.9881. If trigger is not hit, no trade. Score 22. Only trade when market is RISK-ON."
+      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 30.88 (activates only if price breaks up). Limit 30.94 (max pay). Stop 27.99. If trigger is not hit, no trade. Score 22. Only trade when market is RISK-ON."
     },
     {
       "symbol": "TNE.AX",
@@ -2844,7 +2352,7 @@
       "risk": 997.26,
       "score": 22.0,
       "status": "Watch",
-      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 27.85 (activates only if price breaks up). Limit 27.91 (max pay). Stop 19.8109. If trigger is not hit, no trade. Score 22. Only trade when market is RISK-ON."
+      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 27.85 (activates only if price breaks up). Limit 27.91 (max pay). Stop 19.81. If trigger is not hit, no trade. Score 22. Only trade when market is RISK-ON."
     },
     {
       "symbol": "ASX.AX",
@@ -2856,7 +2364,7 @@
       "risk": 998.73,
       "score": 21.0,
       "status": "Watch",
-      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 57.35 (activates only if price breaks up). Limit 57.47 (max pay). Stop 52.5268. If trigger is not hit, no trade. Score 21. Only trade when market is RISK-ON."
+      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 57.35 (activates only if price breaks up). Limit 57.47 (max pay). Stop 52.53. If trigger is not hit, no trade. Score 21. Only trade when market is RISK-ON."
     },
     {
       "symbol": "DXS.AX",
@@ -2868,7 +2376,7 @@
       "risk": 999.44,
       "score": 21.0,
       "status": "Watch",
-      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 6.97 (activates only if price breaks up). Limit 6.98 (max pay). Stop 6.1159. If trigger is not hit, no trade. Score 21. Only trade when market is RISK-ON."
+      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 6.97 (activates only if price breaks up). Limit 6.98 (max pay). Stop 6.12. If trigger is not hit, no trade. Score 21. Only trade when market is RISK-ON."
     },
     {
       "symbol": "XRO.AX",
@@ -2883,16 +2391,112 @@
       "plain_english": "Mean Reversion (bounce): LIMIT buy near 77.54. Stop 70.947 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 21."
     },
     {
-      "symbol": "DXS.AX",
+      "symbol": "360.AX",
       "strategy": "Trend Pullback",
-      "entry": 6.5768,
-      "entry_text": "6.5768",
-      "last_close": 6.69,
-      "stop": 6.1159,
-      "risk": 999.74,
+      "entry": 24.034,
+      "entry_text": "24.034",
+      "last_close": 23.84,
+      "stop": 21.4199,
+      "risk": 998.58,
       "score": 20.0,
       "status": "Watch",
-      "plain_english": "Trend Pullback (buy the dip): LIMIT buy at 6.58 (~1.69% below last close 6.69) to catch a pullback toward EMA20. Stop 6.12. If price does not dip to your limit, do not chase. Score 20. Only trade when market is RISK-ON."
+      "plain_english": "Trend Pullback (confirmation): do NOT buy yet. Only buy if price rebounds to 24.03 (~0.81% above last close 23.84). Stop 21.42. If it never rebounds to that level, no trade. Score 20. Only trade when market is RISK-ON."
+    },
+    {
+      "symbol": "AMC.AX",
+      "strategy": "Trend Pullback",
+      "entry": 70.9108,
+      "entry_text": "70.9108",
+      "last_close": 70.8,
+      "stop": 67.4135,
+      "risk": 996.74,
+      "score": 20.0,
+      "status": "Watch",
+      "plain_english": "Trend Pullback (confirmation): do NOT buy yet. Only buy if price rebounds to 70.91 (~0.16% above last close 70.80). Stop 67.41. If it never rebounds to that level, no trade. Score 20. Only trade when market is RISK-ON."
+    },
+    {
+      "symbol": "AMP.AX",
+      "strategy": "Trend Pullback",
+      "entry": 1.3714,
+      "entry_text": "1.3714",
+      "last_close": 1.36,
+      "stop": 1.1767,
+      "risk": 999.84,
+      "score": 20.0,
+      "status": "Watch",
+      "plain_english": "Trend Pullback (confirmation): do NOT buy yet. Only buy if price rebounds to 1.37 (~0.84% above last close 1.36). Stop 1.18. If it never rebounds to that level, no trade. Score 20. Only trade when market is RISK-ON."
+    },
+    {
+      "symbol": "CBA.AX",
+      "strategy": "Trend Pullback",
+      "entry": 180.2601,
+      "entry_text": "180.2601",
+      "last_close": 179.67,
+      "stop": 155.3403,
+      "risk": 996.79,
+      "score": 20.0,
+      "status": "Watch",
+      "plain_english": "Trend Pullback (confirmation): do NOT buy yet. Only buy if price rebounds to 180.26 (~0.33% above last close 179.67). Stop 155.34. If it never rebounds to that level, no trade. Score 20. Only trade when market is RISK-ON."
+    },
+    {
+      "symbol": "COH.AX",
+      "strategy": "Trend Pullback",
+      "entry": 202.202,
+      "entry_text": "202.202",
+      "last_close": 198.76,
+      "stop": 192.2877,
+      "risk": 991.43,
+      "score": 20.0,
+      "status": "Watch",
+      "plain_english": "Trend Pullback (confirmation): do NOT buy yet. Only buy if price rebounds to 202.20 (~1.73% above last close 198.76). Stop 192.29. If it never rebounds to that level, no trade. Score 20. Only trade when market is RISK-ON."
+    },
+    {
+      "symbol": "DXS.AX",
+      "strategy": "Trend Pullback",
+      "entry": 6.6967,
+      "entry_text": "6.6967",
+      "last_close": 6.69,
+      "stop": 6.1159,
+      "risk": 999.57,
+      "score": 20.0,
+      "status": "Watch",
+      "plain_english": "Trend Pullback (confirmation): do NOT buy yet. Only buy if price rebounds to 6.70 (~0.10% above last close 6.69). Stop 6.12. If it never rebounds to that level, no trade. Score 20. Only trade when market is RISK-ON."
+    },
+    {
+      "symbol": "EDV.AX",
+      "strategy": "Trend Pullback",
+      "entry": 3.9039,
+      "entry_text": "3.9039",
+      "last_close": 3.87,
+      "stop": 3.6336,
+      "risk": 999.95,
+      "score": 20.0,
+      "status": "Watch",
+      "plain_english": "Trend Pullback (confirmation): do NOT buy yet. Only buy if price rebounds to 3.90 (~0.88% above last close 3.87). Stop 3.63. If it never rebounds to that level, no trade. Score 20. Only trade when market is RISK-ON."
+    },
+    {
+      "symbol": "FPH.AX",
+      "strategy": "Trend Pullback",
+      "entry": 31.8819,
+      "entry_text": "31.8819",
+      "last_close": 31.66,
+      "stop": 30.0516,
+      "risk": 999.34,
+      "score": 20.0,
+      "status": "Watch",
+      "plain_english": "Trend Pullback (confirmation): do NOT buy yet. Only buy if price rebounds to 31.88 (~0.70% above last close 31.66). Stop 30.05. If it never rebounds to that level, no trade. Score 20. Only trade when market is RISK-ON."
+    },
+    {
+      "symbol": "GMD.AX",
+      "strategy": "Trend Pullback",
+      "entry": 7.2272,
+      "entry_text": "7.2272",
+      "last_close": 6.87,
+      "stop": 6.5654,
+      "risk": 999.91,
+      "score": 20.0,
+      "status": "Watch",
+      "plain_english": "Trend Pullback (confirmation): do NOT buy yet. Only buy if price rebounds to 7.23 (~5.20% above last close 6.87). Stop 6.57. If it never rebounds to that level, no trade. Score 20. Only trade when market is RISK-ON."
     },
     {
       "symbol": "GMG.AX",
@@ -2904,127 +2508,211 @@
       "risk": 999.14,
       "score": 20.0,
       "status": "Watch",
-      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 31.95 (activates only if price breaks up). Limit 32.01 (max pay). Stop 28.4025. If trigger is not hit, no trade. Score 20. Only trade when market is RISK-ON."
+      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 31.95 (activates only if price breaks up). Limit 32.01 (max pay). Stop 28.40. If trigger is not hit, no trade. Score 20. Only trade when market is RISK-ON."
     },
     {
-      "symbol": "HUB.AX",
+      "symbol": "GPT.AX",
       "strategy": "Trend Pullback",
-      "entry": 90.3451,
-      "entry_text": "90.3451",
-      "last_close": 97.5,
-      "stop": 73.5106,
-      "risk": 993.24,
+      "entry": 5.025,
+      "entry_text": "5.025",
+      "last_close": 5.01,
+      "stop": 4.8615,
+      "risk": 999.86,
       "score": 20.0,
       "status": "Watch",
-      "plain_english": "Trend Pullback (buy the dip): LIMIT buy at 90.35 (~7.34% below last close 97.50) to catch a pullback toward EMA20. Stop 73.51. If price does not dip to your limit, do not chase. Score 20. Only trade when market is RISK-ON."
+      "plain_english": "Trend Pullback (confirmation): do NOT buy yet. Only buy if price rebounds to 5.03 (~0.30% above last close 5.01). Stop 4.86. If it never rebounds to that level, no trade. Score 20. Only trade when market is RISK-ON."
+    },
+    {
+      "symbol": "HVN.AX",
+      "strategy": "Trend Pullback",
+      "entry": 6.3964,
+      "entry_text": "6.3964",
+      "last_close": 6.36,
+      "stop": 6.1329,
+      "risk": 999.81,
+      "score": 20.0,
+      "status": "Watch",
+      "plain_english": "Trend Pullback (confirmation): do NOT buy yet. Only buy if price rebounds to 6.40 (~0.57% above last close 6.36). Stop 6.13. If it never rebounds to that level, no trade. Score 20. Only trade when market is RISK-ON."
     },
     {
       "symbol": "IFT.AX",
       "strategy": "Trend Pullback",
-      "entry": 9.4366,
-      "entry_text": "9.4366",
+      "entry": 9.4094,
+      "entry_text": "9.4094",
       "last_close": 9.27,
       "stop": 9.0556,
-      "risk": 999.76,
+      "risk": 999.77,
       "score": 20.0,
       "status": "Watch",
-      "plain_english": "Trend Pullback (confirmation): do NOT buy yet. Only buy if price rebounds to 9.44 (~1.80% above last close 9.27). Stop 9.06. If it never rebounds to that level, no trade. Score 20. Only trade when market is RISK-ON."
+      "plain_english": "Trend Pullback (confirmation): do NOT buy yet. Only buy if price rebounds to 9.41 (~1.50% above last close 9.27). Stop 9.06. If it never rebounds to that level, no trade. Score 20. Only trade when market is RISK-ON."
+    },
+    {
+      "symbol": "JHX.AX",
+      "strategy": "Trend Pullback",
+      "entry": 35.4254,
+      "entry_text": "35.4254",
+      "last_close": 35.01,
+      "stop": 32.5857,
+      "risk": 999.57,
+      "score": 20.0,
+      "status": "Watch",
+      "plain_english": "Trend Pullback (confirmation): do NOT buy yet. Only buy if price rebounds to 35.43 (~1.19% above last close 35.01). Stop 32.59. If it never rebounds to that level, no trade. Score 20. Only trade when market is RISK-ON."
     },
     {
       "symbol": "LNW.AX",
       "strategy": "Trend Pullback",
-      "entry": 153.1157,
-      "entry_text": "153.1157",
+      "entry": 137.8277,
+      "entry_text": "137.8277",
       "last_close": 136.32,
       "stop": 127.5693,
-      "risk": 996.31,
+      "risk": 995.07,
       "score": 20.0,
       "status": "Watch",
-      "plain_english": "Trend Pullback (confirmation): do NOT buy yet. Only buy if price rebounds to 153.12 (~12.32% above last close 136.32). Stop 127.57. If it never rebounds to that level, no trade. Score 20. Only trade when market is RISK-ON."
+      "plain_english": "Trend Pullback (confirmation): do NOT buy yet. Only buy if price rebounds to 137.83 (~1.11% above last close 136.32). Stop 127.57. If it never rebounds to that level, no trade. Score 20. Only trade when market is RISK-ON."
     },
     {
       "symbol": "MPL.AX",
       "strategy": "Trend Pullback",
-      "entry": 4.5849,
-      "entry_text": "4.5849",
+      "entry": 4.5445,
+      "entry_text": "4.5445",
       "last_close": 4.47,
       "stop": 4.4062,
-      "risk": 999.86,
+      "risk": 999.96,
       "score": 20.0,
       "status": "Watch",
-      "plain_english": "Trend Pullback (confirmation): do NOT buy yet. Only buy if price rebounds to 4.58 (~2.57% above last close 4.47). Stop 4.41. If it never rebounds to that level, no trade. Score 20. Only trade when market is RISK-ON."
+      "plain_english": "Trend Pullback (confirmation): do NOT buy yet. Only buy if price rebounds to 4.54 (~1.67% above last close 4.47). Stop 4.41. If it never rebounds to that level, no trade. Score 20. Only trade when market is RISK-ON."
     },
     {
-      "symbol": "SIG.AX",
+      "symbol": "MQG.AX",
       "strategy": "Trend Pullback",
-      "entry": 3.0271,
-      "entry_text": "3.0271",
-      "last_close": 2.94,
-      "stop": 2.9239,
+      "entry": 221.9217,
+      "entry_text": "221.9217",
+      "last_close": 219.39,
+      "stop": 208.1878,
+      "risk": 988.84,
+      "score": 20.0,
+      "status": "Watch",
+      "plain_english": "Trend Pullback (confirmation): do NOT buy yet. Only buy if price rebounds to 221.92 (~1.15% above last close 219.39). Stop 208.19. If it never rebounds to that level, no trade. Score 20. Only trade when market is RISK-ON."
+    },
+    {
+      "symbol": "NWS.AX",
+      "strategy": "Trend Pullback",
+      "entry": 37.3473,
+      "entry_text": "37.3473",
+      "last_close": 37.25,
+      "stop": 35.6209,
+      "risk": 999.59,
+      "score": 20.0,
+      "status": "Watch",
+      "plain_english": "Trend Pullback (confirmation): do NOT buy yet. Only buy if price rebounds to 37.35 (~0.26% above last close 37.25). Stop 35.62. If it never rebounds to that level, no trade. Score 20. Only trade when market is RISK-ON."
+    },
+    {
+      "symbol": "ORG.AX",
+      "strategy": "Trend Pullback",
+      "entry": 12.3624,
+      "entry_text": "12.3624",
+      "last_close": 12.2,
+      "stop": 10.7389,
+      "risk": 998.44,
+      "score": 20.0,
+      "status": "Watch",
+      "plain_english": "Trend Pullback (confirmation): do NOT buy yet. Only buy if price rebounds to 12.36 (~1.33% above last close 12.20). Stop 10.74. If it never rebounds to that level, no trade. Score 20. Only trade when market is RISK-ON."
+    },
+    {
+      "symbol": "PME.AX",
+      "strategy": "Trend Pullback",
+      "entry": 129.6195,
+      "entry_text": "129.6195",
+      "last_close": 126.51,
+      "stop": 111.1142,
+      "risk": 999.29,
+      "score": 20.0,
+      "status": "Watch",
+      "plain_english": "Trend Pullback (confirmation): do NOT buy yet. Only buy if price rebounds to 129.62 (~2.46% above last close 126.51). Stop 111.11. If it never rebounds to that level, no trade. Score 20. Only trade when market is RISK-ON."
+    },
+    {
+      "symbol": "QAN.AX",
+      "strategy": "Trend Pullback",
+      "entry": 10.7007,
+      "entry_text": "10.7007",
+      "last_close": 10.61,
+      "stop": 10.1334,
+      "risk": 999.59,
+      "score": 20.0,
+      "status": "Watch",
+      "plain_english": "Trend Pullback (confirmation): do NOT buy yet. Only buy if price rebounds to 10.70 (~0.85% above last close 10.61). Stop 10.13. If it never rebounds to that level, no trade. Score 20. Only trade when market is RISK-ON."
+    },
+    {
+      "symbol": "QBE.AX",
+      "strategy": "Trend Pullback",
+      "entry": 21.982,
+      "entry_text": "21.982",
+      "last_close": 21.48,
+      "stop": 19.1821,
+      "risk": 999.58,
+      "score": 20.0,
+      "status": "Watch",
+      "plain_english": "Trend Pullback (confirmation): do NOT buy yet. Only buy if price rebounds to 21.98 (~2.34% above last close 21.48). Stop 19.18. If it never rebounds to that level, no trade. Score 20. Only trade when market is RISK-ON."
+    },
+    {
+      "symbol": "SCG.AX",
+      "strategy": "Trend Pullback",
+      "entry": 3.8238,
+      "entry_text": "3.8238",
+      "last_close": 3.81,
+      "stop": 3.6917,
       "risk": 999.92,
       "score": 20.0,
       "status": "Watch",
-      "plain_english": "Trend Pullback (confirmation): do NOT buy yet. Only buy if price rebounds to 3.03 (~2.96% above last close 2.94). Stop 2.92. If it never rebounds to that level, no trade. Score 20. Only trade when market is RISK-ON."
+      "plain_english": "Trend Pullback (confirmation): do NOT buy yet. Only buy if price rebounds to 3.82 (~0.36% above last close 3.81). Stop 3.69. If it never rebounds to that level, no trade. Score 20. Only trade when market is RISK-ON."
+    },
+    {
+      "symbol": "SEK.AX",
+      "strategy": "Trend Pullback",
+      "entry": 16.4364,
+      "entry_text": "16.4364",
+      "last_close": 16.27,
+      "stop": 15.5543,
+      "risk": 999.44,
+      "score": 20.0,
+      "status": "Watch",
+      "plain_english": "Trend Pullback (confirmation): do NOT buy yet. Only buy if price rebounds to 16.44 (~1.02% above last close 16.27). Stop 15.55. If it never rebounds to that level, no trade. Score 20. Only trade when market is RISK-ON."
     },
     {
       "symbol": "TNE.AX",
       "strategy": "Trend Pullback",
-      "entry": 23.8632,
-      "entry_text": "23.8632",
+      "entry": 25.5255,
+      "entry_text": "25.5255",
       "last_close": 24.75,
       "stop": 19.8109,
-      "risk": 996.86,
+      "risk": 994.34,
       "score": 20.0,
       "status": "Watch",
-      "plain_english": "Trend Pullback (buy the dip): LIMIT buy at 23.86 (~3.58% below last close 24.75) to catch a pullback toward EMA20. Stop 19.81. If price does not dip to your limit, do not chase. Score 20. Only trade when market is RISK-ON."
+      "plain_english": "Trend Pullback (confirmation): do NOT buy yet. Only buy if price rebounds to 25.53 (~3.13% above last close 24.75). Stop 19.81. If it never rebounds to that level, no trade. Score 20. Only trade when market is RISK-ON."
     },
     {
-      "symbol": "MCY.AX",
+      "symbol": "WTC.AX",
       "strategy": "Trend Pullback",
-      "entry": 5.3926,
-      "entry_text": "5.3926",
-      "last_close": 5.17,
-      "stop": 5.1443,
-      "risk": 999.78,
-      "score": 18.0,
+      "entry": 47.5375,
+      "entry_text": "47.5375",
+      "last_close": 47.1,
+      "stop": 39.7568,
+      "risk": 995.93,
+      "score": 20.0,
       "status": "Watch",
-      "plain_english": "Trend Pullback (confirmation): do NOT buy yet. Only buy if price rebounds to 5.39 (~4.31% above last close 5.17). Stop 5.14. If it never rebounds to that level, no trade. Score 18. Only trade when market is RISK-ON."
+      "plain_english": "Trend Pullback (confirmation): do NOT buy yet. Only buy if price rebounds to 47.54 (~0.93% above last close 47.10). Stop 39.76. If it never rebounds to that level, no trade. Score 20. Only trade when market is RISK-ON."
     },
     {
-      "symbol": "MCY.AX",
-      "strategy": "Momentum",
-      "entry": null,
-      "entry_text": "trigger=5.6168 limit=5.6280",
-      "last_close": 5.17,
-      "stop": 5.1443,
-      "risk": 999.84,
-      "score": 18.0,
-      "status": "Watch",
-      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 5.62 (activates only if price breaks up). Limit 5.63 (max pay). Stop 5.1443. If trigger is not hit, no trade. Score 18. Only trade when market is RISK-ON."
-    },
-    {
-      "symbol": "CAR.AX",
+      "symbol": "YAL.AX",
       "strategy": "Trend Pullback",
-      "entry": 26.7854,
-      "entry_text": "26.7854",
-      "last_close": 25.44,
-      "stop": 24.2555,
-      "risk": 999.3,
-      "score": 17.0,
+      "entry": 6.1461,
+      "entry_text": "6.1461",
+      "last_close": 6.1,
+      "stop": 5.8396,
+      "risk": 999.97,
+      "score": 20.0,
       "status": "Watch",
-      "plain_english": "Trend Pullback (confirmation): do NOT buy yet. Only buy if price rebounds to 26.79 (~5.29% above last close 25.44). Stop 24.26. If it never rebounds to that level, no trade. Score 17. Only trade when market is RISK-ON."
-    },
-    {
-      "symbol": "SHL.AX",
-      "strategy": "Trend Pullback",
-      "entry": 22.3205,
-      "entry_text": "22.3205",
-      "last_close": 23.37,
-      "stop": 20.7372,
-      "risk": 999.04,
-      "score": 17.0,
-      "status": "Watch",
-      "plain_english": "Trend Pullback (buy the dip): LIMIT buy at 22.32 (~4.49% below last close 23.37) to catch a pullback toward EMA20. Stop 20.74. If price does not dip to your limit, do not chase. Score 17. Only trade when market is RISK-ON."
+      "plain_english": "Trend Pullback (confirmation): do NOT buy yet. Only buy if price rebounds to 6.15 (~0.76% above last close 6.10). Stop 5.84. If it never rebounds to that level, no trade. Score 20. Only trade when market is RISK-ON."
     },
     {
       "symbol": "ORI.AX",
@@ -3048,19 +2736,7 @@
       "risk": 999.12,
       "score": 15.0,
       "status": "Watch",
-      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 9.38 (activates only if price breaks up). Limit 9.40 (max pay). Stop 7.9279. If trigger is not hit, no trade. Score 15. Only trade when market is RISK-ON."
-    },
-    {
-      "symbol": "360.AX",
-      "strategy": "Trend Pullback",
-      "entry": 25.8643,
-      "entry_text": "25.8643",
-      "last_close": 23.84,
-      "stop": 21.4199,
-      "risk": 999.98,
-      "score": 14.0,
-      "status": "Watch",
-      "plain_english": "Trend Pullback (confirmation): do NOT buy yet. Only buy if price rebounds to 25.86 (~8.49% above last close 23.84). Stop 21.42. If it never rebounds to that level, no trade. Score 14. Only trade when market is RISK-ON."
+      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 9.38 (activates only if price breaks up). Limit 9.40 (max pay). Stop 7.93. If trigger is not hit, no trade. Score 15. Only trade when market is RISK-ON."
     },
     {
       "symbol": "CHC.AX",
@@ -3072,19 +2748,7 @@
       "risk": 999.03,
       "score": 14.0,
       "status": "Watch",
-      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 25.59 (activates only if price breaks up). Limit 25.64 (max pay). Stop 21.7879. If trigger is not hit, no trade. Score 14. Only trade when market is RISK-ON."
-    },
-    {
-      "symbol": "FPH.AX",
-      "strategy": "Trend Pullback",
-      "entry": 32.451,
-      "entry_text": "32.451",
-      "last_close": 31.66,
-      "stop": 30.0516,
-      "risk": 998.14,
-      "score": 14.0,
-      "status": "Watch",
-      "plain_english": "Trend Pullback (confirmation): do NOT buy yet. Only buy if price rebounds to 32.45 (~2.50% above last close 31.66). Stop 30.05. If it never rebounds to that level, no trade. Score 14. Only trade when market is RISK-ON."
+      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 25.59 (activates only if price breaks up). Limit 25.64 (max pay). Stop 21.79. If trigger is not hit, no trade. Score 14. Only trade when market is RISK-ON."
     },
     {
       "symbol": "IAG.AX",
@@ -3096,7 +2760,7 @@
       "risk": 999.73,
       "score": 14.0,
       "status": "Watch",
-      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 7.76 (activates only if price breaks up). Limit 7.77 (max pay). Stop 6.6025. If trigger is not hit, no trade. Score 14. Only trade when market is RISK-ON."
+      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 7.76 (activates only if price breaks up). Limit 7.77 (max pay). Stop 6.60. If trigger is not hit, no trade. Score 14. Only trade when market is RISK-ON."
     },
     {
       "symbol": "MPL.AX",
@@ -3108,7 +2772,7 @@
       "risk": 999.88,
       "score": 14.0,
       "status": "Watch",
-      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 4.87 (activates only if price breaks up). Limit 4.88 (max pay). Stop 4.4062. If trigger is not hit, no trade. Score 14. Only trade when market is RISK-ON."
+      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 4.87 (activates only if price breaks up). Limit 4.88 (max pay). Stop 4.41. If trigger is not hit, no trade. Score 14. Only trade when market is RISK-ON."
     },
     {
       "symbol": "SOL.AX",
@@ -3132,7 +2796,7 @@
       "risk": 999.24,
       "score": 14.0,
       "status": "Watch",
-      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 17.25 (activates only if price breaks up). Limit 17.29 (max pay). Stop 15.0162. If trigger is not hit, no trade. Score 14. Only trade when market is RISK-ON."
+      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 17.25 (activates only if price breaks up). Limit 17.29 (max pay). Stop 15.02. If trigger is not hit, no trade. Score 14. Only trade when market is RISK-ON."
     },
     {
       "symbol": "WHC.AX",
@@ -3140,35 +2804,11 @@
       "entry": null,
       "entry_text": "trigger=9.6188 limit=9.6380",
       "last_close": 7.81,
-      "stop": 7.6633,
-      "risk": 999.24,
+      "stop": 7.6531,
+      "risk": 998.55,
       "score": 14.0,
       "status": "Watch",
-      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 9.62 (activates only if price breaks up). Limit 9.64 (max pay). Stop 7.6633. If trigger is not hit, no trade. Score 14. Only trade when market is RISK-ON."
-    },
-    {
-      "symbol": "ALL.AX",
-      "strategy": "Trend Pullback",
-      "entry": 51.8219,
-      "entry_text": "51.8219",
-      "last_close": 48.0,
-      "stop": 47.3715,
-      "risk": 996.88,
-      "score": 12.0,
-      "status": "Watch",
-      "plain_english": "Trend Pullback (confirmation): do NOT buy yet. Only buy if price rebounds to 51.82 (~7.96% above last close 48.00). Stop 47.37. If it never rebounds to that level, no trade. Score 12. Only trade when market is RISK-ON."
-    },
-    {
-      "symbol": "XYZ.AX",
-      "strategy": "Trend Pullback",
-      "entry": 80.2326,
-      "entry_text": "80.2326",
-      "last_close": 74.0,
-      "stop": 68.5195,
-      "risk": 995.62,
-      "score": 12.0,
-      "status": "Watch",
-      "plain_english": "Trend Pullback (confirmation): do NOT buy yet. Only buy if price rebounds to 80.23 (~8.42% above last close 74.00). Stop 68.52. If it never rebounds to that level, no trade. Score 12. Only trade when market is RISK-ON."
+      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 9.62 (activates only if price breaks up). Limit 9.64 (max pay). Stop 7.65. If trigger is not hit, no trade. Score 14. Only trade when market is RISK-ON."
     },
     {
       "symbol": "SGP.AX",
@@ -3180,31 +2820,7 @@
       "risk": 999.81,
       "score": 11.0,
       "status": "Watch",
-      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 5.48 (activates only if price breaks up). Limit 5.49 (max pay). Stop 4.8816. If trigger is not hit, no trade. Score 11. Only trade when market is RISK-ON."
-    },
-    {
-      "symbol": "WTC.AX",
-      "strategy": "Trend Pullback",
-      "entry": 52.0472,
-      "entry_text": "52.0472",
-      "last_close": 47.1,
-      "stop": 39.7568,
-      "risk": 995.52,
-      "score": 11.0,
-      "status": "Watch",
-      "plain_english": "Trend Pullback (confirmation): do NOT buy yet. Only buy if price rebounds to 52.05 (~10.50% above last close 47.10). Stop 39.76. If it never rebounds to that level, no trade. Score 11. Only trade when market is RISK-ON."
-    },
-    {
-      "symbol": "CEN.AX",
-      "strategy": "Momentum",
-      "entry": null,
-      "entry_text": "trigger=8.3885 limit=8.4052",
-      "last_close": 7.81,
-      "stop": 7.604,
-      "risk": 999.46,
-      "score": 10.0,
-      "status": "Watch",
-      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 8.39 (activates only if price breaks up). Limit 8.41 (max pay). Stop 7.604. If trigger is not hit, no trade. Score 10. Only trade when market is RISK-ON."
+      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 5.48 (activates only if price breaks up). Limit 5.49 (max pay). Stop 4.88. If trigger is not hit, no trade. Score 11. Only trade when market is RISK-ON."
     },
     {
       "symbol": "FPH.AX",
@@ -3216,7 +2832,7 @@
       "risk": 998.87,
       "score": 10.0,
       "status": "Watch",
-      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 34.63 (activates only if price breaks up). Limit 34.70 (max pay). Stop 30.0516. If trigger is not hit, no trade. Score 10. Only trade when market is RISK-ON."
+      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 34.63 (activates only if price breaks up). Limit 34.70 (max pay). Stop 30.05. If trigger is not hit, no trade. Score 10. Only trade when market is RISK-ON."
     },
     {
       "symbol": "LNW.AX",
@@ -3228,19 +2844,7 @@
       "risk": 955.3,
       "score": 10.0,
       "status": "Watch",
-      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 175.33 (activates only if price breaks up). Limit 175.69 (max pay). Stop 127.5693. If trigger is not hit, no trade. Score 10. Only trade when market is RISK-ON."
-    },
-    {
-      "symbol": "NWSLV.AX",
-      "strategy": "Momentum",
-      "entry": null,
-      "entry_text": "trigger=41.6245 limit=41.7077",
-      "last_close": 32.3,
-      "stop": 31.8909,
-      "risk": 992.83,
-      "score": 10.0,
-      "status": "Watch",
-      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 41.62 (activates only if price breaks up). Limit 41.71 (max pay). Stop 31.8909. If trigger is not hit, no trade. Score 10. Only trade when market is RISK-ON."
+      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 175.33 (activates only if price breaks up). Limit 175.69 (max pay). Stop 127.57. If trigger is not hit, no trade. Score 10. Only trade when market is RISK-ON."
     },
     {
       "symbol": "SEK.AX",
@@ -3252,7 +2856,7 @@
       "risk": 995.28,
       "score": 10.0,
       "status": "Watch",
-      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 23.27 (activates only if price breaks up). Limit 23.32 (max pay). Stop 15.5543. If trigger is not hit, no trade. Score 10. Only trade when market is RISK-ON."
+      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 23.27 (activates only if price breaks up). Limit 23.32 (max pay). Stop 15.55. If trigger is not hit, no trade. Score 10. Only trade when market is RISK-ON."
     },
     {
       "symbol": "SIG.AX",
@@ -3264,7 +2868,7 @@
       "risk": 999.75,
       "score": 10.0,
       "status": "Watch",
-      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 3.20 (activates only if price breaks up). Limit 3.21 (max pay). Stop 2.9239. If trigger is not hit, no trade. Score 10. Only trade when market is RISK-ON."
+      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 3.20 (activates only if price breaks up). Limit 3.21 (max pay). Stop 2.92. If trigger is not hit, no trade. Score 10. Only trade when market is RISK-ON."
     },
     {
       "symbol": "WTC.AX",
@@ -3276,7 +2880,7 @@
       "risk": 984.98,
       "score": 10.0,
       "status": "Watch",
-      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 63.78 (activates only if price breaks up). Limit 63.91 (max pay). Stop 39.7568. If trigger is not hit, no trade. Score 10. Only trade when market is RISK-ON."
+      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 63.78 (activates only if price breaks up). Limit 63.91 (max pay). Stop 39.76. If trigger is not hit, no trade. Score 10. Only trade when market is RISK-ON."
     },
     {
       "symbol": "XRO.AX",
@@ -3288,31 +2892,7 @@
       "risk": 996.27,
       "score": 10.0,
       "status": "Watch",
-      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 103.30 (activates only if price breaks up). Limit 103.51 (max pay). Stop 71.1612. If trigger is not hit, no trade. Score 10. Only trade when market is RISK-ON."
-    },
-    {
-      "symbol": "QBTC.AX",
-      "strategy": "Trend Pullback",
-      "entry": 20.5803,
-      "entry_text": "20.5803",
-      "last_close": 18.7,
-      "stop": 17.9205,
-      "risk": 997.42,
-      "score": 9.0,
-      "status": "Watch",
-      "plain_english": "Trend Pullback (confirmation): do NOT buy yet. Only buy if price rebounds to 20.58 (~10.06% above last close 18.70). Stop 17.92. If it never rebounds to that level, no trade. Score 9. Only trade when market is RISK-ON."
-    },
-    {
-      "symbol": "SGP.AX",
-      "strategy": "Trend Pullback",
-      "entry": 5.2411,
-      "entry_text": "5.2411",
-      "last_close": 5.06,
-      "stop": 4.8816,
-      "risk": 999.8,
-      "score": 9.0,
-      "status": "Watch",
-      "plain_english": "Trend Pullback (confirmation): do NOT buy yet. Only buy if price rebounds to 5.24 (~3.58% above last close 5.06). Stop 4.88. If it never rebounds to that level, no trade. Score 9. Only trade when market is RISK-ON."
+      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 103.30 (activates only if price breaks up). Limit 103.51 (max pay). Stop 71.16. If trigger is not hit, no trade. Score 10. Only trade when market is RISK-ON."
     },
     {
       "symbol": "XYZ.AX",
@@ -3324,7 +2904,7 @@
       "risk": 988.05,
       "score": 8.0,
       "status": "Watch",
-      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 96.75 (activates only if price breaks up). Limit 96.94 (max pay). Stop 68.5195. If trigger is not hit, no trade. Score 8. Only trade when market is RISK-ON."
+      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 96.75 (activates only if price breaks up). Limit 96.94 (max pay). Stop 68.52. If trigger is not hit, no trade. Score 8. Only trade when market is RISK-ON."
     },
     {
       "symbol": "GMD.AX",
@@ -3336,7 +2916,7 @@
       "risk": 998.18,
       "score": 7.0,
       "status": "Watch",
-      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 8.45 (activates only if price breaks up). Limit 8.46 (max pay). Stop 6.5654. If trigger is not hit, no trade. Score 7. Only trade when market is RISK-ON."
+      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 8.45 (activates only if price breaks up). Limit 8.46 (max pay). Stop 6.57. If trigger is not hit, no trade. Score 7. Only trade when market is RISK-ON."
     },
     {
       "symbol": "VGS.AX",
@@ -3348,7 +2928,7 @@
       "risk": 998.43,
       "score": 7.0,
       "status": "Watch",
-      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 153.76 (activates only if price breaks up). Limit 154.07 (max pay). Stop 145.9596. If trigger is not hit, no trade. Score 7. Only trade when market is RISK-ON."
+      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 153.76 (activates only if price breaks up). Limit 154.07 (max pay). Stop 145.96. If trigger is not hit, no trade. Score 7. Only trade when market is RISK-ON."
     },
     {
       "symbol": "GPT.AX",
@@ -3372,7 +2952,7 @@
       "risk": 997.64,
       "score": 5.0,
       "status": "Watch",
-      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 34.94 (activates only if price breaks up). Limit 35.01 (max pay). Stop 29.2057. If trigger is not hit, no trade. Score 5. Only trade when market is RISK-ON."
+      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 34.94 (activates only if price breaks up). Limit 35.01 (max pay). Stop 29.21. If trigger is not hit, no trade. Score 5. Only trade when market is RISK-ON."
     },
     {
       "symbol": "ALX.AX",
@@ -3384,19 +2964,7 @@
       "risk": 999.83,
       "score": 4.0,
       "status": "Watch",
-      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 4.98 (activates only if price breaks up). Limit 4.99 (max pay). Stop 4.4872. If trigger is not hit, no trade. Score 4. Only trade when market is RISK-ON."
-    },
-    {
-      "symbol": "REA.AX",
-      "strategy": "Trend Pullback",
-      "entry": 172.0106,
-      "entry_text": "172.0106",
-      "last_close": 162.0,
-      "stop": 155.5051,
-      "risk": 990.33,
-      "score": 4.0,
-      "status": "Watch",
-      "plain_english": "Trend Pullback (confirmation): do NOT buy yet. Only buy if price rebounds to 172.01 (~6.18% above last close 162.00). Stop 155.51. If it never rebounds to that level, no trade. Score 4. Only trade when market is RISK-ON."
+      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 4.98 (activates only if price breaks up). Limit 4.99 (max pay). Stop 4.49. If trigger is not hit, no trade. Score 4. Only trade when market is RISK-ON."
     },
     {
       "symbol": "RMD.AX",
@@ -3408,19 +2976,7 @@
       "risk": 998.23,
       "score": 4.0,
       "status": "Watch",
-      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 39.01 (activates only if price breaks up). Limit 39.08 (max pay). Stop 33.8606. If trigger is not hit, no trade. Score 4. Only trade when market is RISK-ON."
-    },
-    {
-      "symbol": "XRO.AX",
-      "strategy": "Trend Pullback",
-      "entry": 85.6198,
-      "entry_text": "85.6198",
-      "last_close": 77.54,
-      "stop": 71.1612,
-      "risk": 997.65,
-      "score": 4.0,
-      "status": "Watch",
-      "plain_english": "Trend Pullback (confirmation): do NOT buy yet. Only buy if price rebounds to 85.62 (~10.42% above last close 77.54). Stop 71.16. If it never rebounds to that level, no trade. Score 4. Only trade when market is RISK-ON."
+      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 39.01 (activates only if price breaks up). Limit 39.08 (max pay). Stop 33.86. If trigger is not hit, no trade. Score 4. Only trade when market is RISK-ON."
     },
     {
       "symbol": "COH.AX",
@@ -3432,7 +2988,7 @@
       "risk": 955.87,
       "score": 2.0,
       "status": "Watch",
-      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 279.19 (activates only if price breaks up). Limit 279.74 (max pay). Stop 192.2877. If trigger is not hit, no trade. Score 2. Only trade when market is RISK-ON."
+      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 279.19 (activates only if price breaks up). Limit 279.74 (max pay). Stop 192.29. If trigger is not hit, no trade. Score 2. Only trade when market is RISK-ON."
     },
     {
       "symbol": "GMG.AX",
@@ -3456,19 +3012,7 @@
       "risk": 993.9,
       "score": 2.0,
       "status": "Watch",
-      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 65.99 (activates only if price breaks up). Limit 66.12 (max pay). Stop 49.6939. If trigger is not hit, no trade. Score 2. Only trade when market is RISK-ON."
-    },
-    {
-      "symbol": "MEZ.AX",
-      "strategy": "Mean Reversion",
-      "entry": 4.81,
-      "entry_text": "4.81",
-      "last_close": 4.81,
-      "stop": 4.6686,
-      "risk": 999.9,
-      "score": 1.0,
-      "status": "Watch",
-      "plain_english": "Mean Reversion (bounce): LIMIT buy near 4.81. Stop 4.6686 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 1."
+      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 65.99 (activates only if price breaks up). Limit 66.12 (max pay). Stop 49.69. If trigger is not hit, no trade. Score 2. Only trade when market is RISK-ON."
     },
     {
       "symbol": "360.AX",
@@ -3480,7 +3024,7 @@
       "risk": 998.55,
       "score": 0.0,
       "status": "Watch",
-      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 34.73 (activates only if price breaks up). Limit 34.80 (max pay). Stop 21.4199. If trigger is not hit, no trade. Score 0. Only trade when market is RISK-ON."
+      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 34.73 (activates only if price breaks up). Limit 34.80 (max pay). Stop 21.42. If trigger is not hit, no trade. Score 0. Only trade when market is RISK-ON."
     },
     {
       "symbol": "360.AX",
@@ -3507,6 +3051,18 @@
       "plain_english": "Mean Reversion (bounce): LIMIT buy near 6.92. Stop 6.807 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 0."
     },
     {
+      "symbol": "ALL.AX",
+      "strategy": "Trend Pullback",
+      "entry": 49.7197,
+      "entry_text": "49.7197",
+      "last_close": 48.0,
+      "stop": 47.3715,
+      "risk": 997.98,
+      "score": 0.0,
+      "status": "Watch",
+      "plain_english": "Trend Pullback (confirmation): do NOT buy yet. Only buy if price rebounds to 49.72 (~3.58% above last close 48.00). Stop 47.37. If it never rebounds to that level, no trade. Score 0. Only trade when market is RISK-ON."
+    },
+    {
       "symbol": "ALX.AX",
       "strategy": "Mean Reversion",
       "entry": 4.78,
@@ -3528,7 +3084,19 @@
       "risk": 999.7,
       "score": 0.0,
       "status": "Watch",
-      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 1.77 (activates only if price breaks up). Limit 1.77 (max pay). Stop 1.1767. If trigger is not hit, no trade. Score 0. Only trade when market is RISK-ON."
+      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 1.77 (activates only if price breaks up). Limit 1.77 (max pay). Stop 1.18. If trigger is not hit, no trade. Score 0. Only trade when market is RISK-ON."
+    },
+    {
+      "symbol": "ASX.AX",
+      "strategy": "Trend Pullback",
+      "entry": 53.9939,
+      "entry_text": "53.9939",
+      "last_close": 53.27,
+      "stop": 51.5454,
+      "risk": 999.0,
+      "score": 0.0,
+      "status": "Watch",
+      "plain_english": "Trend Pullback (confirmation): do NOT buy yet. Only buy if price rebounds to 53.99 (~1.36% above last close 53.27). Stop 51.55. If it never rebounds to that level, no trade. Score 0. Only trade when market is RISK-ON."
     },
     {
       "symbol": "BEN.AX",
@@ -3544,6 +3112,18 @@
     },
     {
       "symbol": "BPT.AX",
+      "strategy": "Trend Pullback",
+      "entry": 1.1511,
+      "entry_text": "1.1511",
+      "last_close": 1.14,
+      "stop": 1.0607,
+      "risk": 999.94,
+      "score": 0.0,
+      "status": "Watch",
+      "plain_english": "Trend Pullback (confirmation): do NOT buy yet. Only buy if price rebounds to 1.15 (~0.97% above last close 1.14). Stop 1.06. If it never rebounds to that level, no trade. Score 0. Only trade when market is RISK-ON."
+    },
+    {
+      "symbol": "BPT.AX",
       "strategy": "Momentum",
       "entry": null,
       "entry_text": "trigger=1.2788 limit=1.2814",
@@ -3552,7 +3132,7 @@
       "risk": 999.82,
       "score": 0.0,
       "status": "Watch",
-      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 1.28 (activates only if price breaks up). Limit 1.28 (max pay). Stop 1.0607. If trigger is not hit, no trade. Score 0. Only trade when market is RISK-ON."
+      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 1.28 (activates only if price breaks up). Limit 1.28 (max pay). Stop 1.06. If trigger is not hit, no trade. Score 0. Only trade when market is RISK-ON."
     },
     {
       "symbol": "BPT.AX",
@@ -3567,6 +3147,30 @@
       "plain_english": "Mean Reversion (bounce): LIMIT buy near 1.14. Stop 1.0843 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 0."
     },
     {
+      "symbol": "BXB.AX",
+      "strategy": "Trend Pullback",
+      "entry": 24.5145,
+      "entry_text": "24.5145",
+      "last_close": 24.22,
+      "stop": 22.7746,
+      "risk": 998.73,
+      "score": 0.0,
+      "status": "Watch",
+      "plain_english": "Trend Pullback (confirmation): do NOT buy yet. Only buy if price rebounds to 24.51 (~1.22% above last close 24.22). Stop 22.77. If it never rebounds to that level, no trade. Score 0. Only trade when market is RISK-ON."
+    },
+    {
+      "symbol": "CAR.AX",
+      "strategy": "Trend Pullback",
+      "entry": 25.6756,
+      "entry_text": "25.6756",
+      "last_close": 25.44,
+      "stop": 24.2555,
+      "risk": 999.73,
+      "score": 0.0,
+      "status": "Watch",
+      "plain_english": "Trend Pullback (confirmation): do NOT buy yet. Only buy if price rebounds to 25.68 (~0.93% above last close 25.44). Stop 24.26. If it never rebounds to that level, no trade. Score 0. Only trade when market is RISK-ON."
+    },
+    {
       "symbol": "CAR.AX",
       "strategy": "Momentum",
       "entry": null,
@@ -3576,31 +3180,19 @@
       "risk": 998.8,
       "score": 0.0,
       "status": "Watch",
-      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 30.42 (activates only if price breaks up). Limit 30.48 (max pay). Stop 24.2555. If trigger is not hit, no trade. Score 0. Only trade when market is RISK-ON."
+      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 30.42 (activates only if price breaks up). Limit 30.48 (max pay). Stop 24.26. If trigger is not hit, no trade. Score 0. Only trade when market is RISK-ON."
     },
     {
-      "symbol": "CEN.AX",
-      "strategy": "Mean Reversion",
-      "entry": 7.81,
-      "entry_text": "7.81",
-      "last_close": 7.81,
-      "stop": 7.386,
-      "risk": 999.78,
-      "score": 0.0,
-      "status": "Watch",
-      "plain_english": "Mean Reversion (bounce): LIMIT buy near 7.81. Stop 7.386 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 0."
-    },
-    {
-      "symbol": "COH.AX",
+      "symbol": "CHC.AX",
       "strategy": "Trend Pullback",
-      "entry": 232.9334,
-      "entry_text": "232.9334",
-      "last_close": 198.76,
-      "stop": 192.2877,
-      "risk": 975.5,
+      "entry": 23.063,
+      "entry_text": "23.063",
+      "last_close": 22.24,
+      "stop": 21.7879,
+      "risk": 999.64,
       "score": 0.0,
       "status": "Watch",
-      "plain_english": "Trend Pullback (confirmation): do NOT buy yet. Only buy if price rebounds to 232.93 (~17.19% above last close 198.76). Stop 192.29. If it never rebounds to that level, no trade. Score 0. Only trade when market is RISK-ON."
+      "plain_english": "Trend Pullback (confirmation): do NOT buy yet. Only buy if price rebounds to 23.06 (~3.70% above last close 22.24). Stop 21.79. If it never rebounds to that level, no trade. Score 0. Only trade when market is RISK-ON."
     },
     {
       "symbol": "COH.AX",
@@ -3613,6 +3205,18 @@
       "score": 0.0,
       "status": "Watch",
       "plain_english": "Mean Reversion (bounce): LIMIT buy near 198.76. Stop 184.2861 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 0."
+    },
+    {
+      "symbol": "COL.AX",
+      "strategy": "Trend Pullback",
+      "entry": 21.8919,
+      "entry_text": "21.8919",
+      "last_close": 21.52,
+      "stop": 21.2275,
+      "risk": 999.92,
+      "score": 0.0,
+      "status": "Watch",
+      "plain_english": "Trend Pullback (confirmation): do NOT buy yet. Only buy if price rebounds to 21.89 (~1.73% above last close 21.52). Stop 21.23. If it never rebounds to that level, no trade. Score 0. Only trade when market is RISK-ON."
     },
     {
       "symbol": "CPU.AX",
@@ -3636,19 +3240,19 @@
       "risk": 994.67,
       "score": 0.0,
       "status": "Watch",
-      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 17.88 (activates only if price breaks up). Limit 17.92 (max pay). Stop 12.4777. If trigger is not hit, no trade. Score 0. Only trade when market is RISK-ON."
+      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 17.88 (activates only if price breaks up). Limit 17.92 (max pay). Stop 12.48. If trigger is not hit, no trade. Score 0. Only trade when market is RISK-ON."
     },
     {
       "symbol": "CSL.AX",
       "strategy": "Trend Pullback",
-      "entry": 164.4358,
-      "entry_text": "164.4358",
+      "entry": 154.2541,
+      "entry_text": "154.2541",
       "last_close": 153.27,
       "stop": 148.2849,
-      "risk": 985.2,
+      "risk": 996.85,
       "score": 0.0,
       "status": "Watch",
-      "plain_english": "Trend Pullback (confirmation): do NOT buy yet. Only buy if price rebounds to 164.44 (~7.29% above last close 153.27). Stop 148.28. If it never rebounds to that level, no trade. Score 0. Only trade when market is RISK-ON."
+      "plain_english": "Trend Pullback (confirmation): do NOT buy yet. Only buy if price rebounds to 154.25 (~0.64% above last close 153.27). Stop 148.28. If it never rebounds to that level, no trade. Score 0. Only trade when market is RISK-ON."
     },
     {
       "symbol": "CSL.AX",
@@ -3660,7 +3264,7 @@
       "risk": 996.0,
       "score": 0.0,
       "status": "Watch",
-      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 185.17 (activates only if price breaks up). Limit 185.54 (max pay). Stop 148.2849. If trigger is not hit, no trade. Score 0. Only trade when market is RISK-ON."
+      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 185.17 (activates only if price breaks up). Limit 185.54 (max pay). Stop 148.28. If trigger is not hit, no trade. Score 0. Only trade when market is RISK-ON."
     },
     {
       "symbol": "CSL.AX",
@@ -3691,12 +3295,24 @@
       "strategy": "Momentum",
       "entry": null,
       "entry_text": "trigger=156.3577 limit=156.6704",
-      "last_close": 101.82,
-      "stop": 91.0471,
-      "risk": 979.66,
+      "last_close": 102.3,
+      "stop": 91.248,
+      "risk": 976.64,
       "score": 0.0,
       "status": "Watch",
-      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 156.36 (activates only if price breaks up). Limit 156.67 (max pay). Stop 91.0471. If trigger is not hit, no trade. Score 0. Only trade when market is RISK-ON."
+      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 156.36 (activates only if price breaks up). Limit 156.67 (max pay). Stop 91.25. If trigger is not hit, no trade. Score 0. Only trade when market is RISK-ON."
+    },
+    {
+      "symbol": "FMG.AX",
+      "strategy": "Trend Pullback",
+      "entry": 20.5405,
+      "entry_text": "20.5405",
+      "last_close": 20.04,
+      "stop": 19.7633,
+      "risk": 999.48,
+      "score": 0.0,
+      "status": "Watch",
+      "plain_english": "Trend Pullback (confirmation): do NOT buy yet. Only buy if price rebounds to 20.54 (~2.50% above last close 20.04). Stop 19.76. If it never rebounds to that level, no trade. Score 0. Only trade when market is RISK-ON."
     },
     {
       "symbol": "FMG.AX",
@@ -3708,7 +3324,7 @@
       "risk": 998.73,
       "score": 0.0,
       "status": "Watch",
-      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 22.81 (activates only if price breaks up). Limit 22.85 (max pay). Stop 19.7633. If trigger is not hit, no trade. Score 0. Only trade when market is RISK-ON."
+      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 22.81 (activates only if price breaks up). Limit 22.85 (max pay). Stop 19.76. If trigger is not hit, no trade. Score 0. Only trade when market is RISK-ON."
     },
     {
       "symbol": "FPH.AX",
@@ -3732,19 +3348,31 @@
       "risk": 999.56,
       "score": 0.0,
       "status": "Watch",
-      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 5.56 (activates only if price breaks up). Limit 5.57 (max pay). Stop 4.8615. If trigger is not hit, no trade. Score 0. Only trade when market is RISK-ON."
+      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 5.56 (activates only if price breaks up). Limit 5.57 (max pay). Stop 4.86. If trigger is not hit, no trade. Score 0. Only trade when market is RISK-ON."
     },
     {
       "symbol": "GYG.AX",
       "strategy": "Trend Pullback",
-      "entry": 20.4832,
-      "entry_text": "20.4832",
+      "entry": 19.6546,
+      "entry_text": "19.6546",
       "last_close": 17.53,
       "stop": 16.713,
-      "risk": 999.08,
+      "risk": 997.19,
       "score": 0.0,
       "status": "Watch",
-      "plain_english": "Trend Pullback (confirmation): do NOT buy yet. Only buy if price rebounds to 20.48 (~16.85% above last close 17.53). Stop 16.71. If it never rebounds to that level, no trade. Score 0. Only trade when market is RISK-ON."
+      "plain_english": "Trend Pullback (confirmation): do NOT buy yet. Only buy if price rebounds to 19.65 (~12.12% above last close 17.53). Stop 16.71. If it never rebounds to that level, no trade. Score 0. Only trade when market is RISK-ON."
+    },
+    {
+      "symbol": "HUB.AX",
+      "strategy": "Trend Pullback",
+      "entry": 102.0019,
+      "entry_text": "102.0019",
+      "last_close": 97.5,
+      "stop": 73.5106,
+      "risk": 997.19,
+      "score": 0.0,
+      "status": "Watch",
+      "plain_english": "Trend Pullback (confirmation): do NOT buy yet. Only buy if price rebounds to 102.00 (~4.62% above last close 97.50). Stop 73.51. If it never rebounds to that level, no trade. Score 0. Only trade when market is RISK-ON."
     },
     {
       "symbol": "HUB.AX",
@@ -3768,7 +3396,7 @@
       "risk": 999.92,
       "score": 0.0,
       "status": "Watch",
-      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 6.72 (activates only if price breaks up). Limit 6.73 (max pay). Stop 6.1329. If trigger is not hit, no trade. Score 0. Only trade when market is RISK-ON."
+      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 6.72 (activates only if price breaks up). Limit 6.73 (max pay). Stop 6.13. If trigger is not hit, no trade. Score 0. Only trade when market is RISK-ON."
     },
     {
       "symbol": "IAG.AX",
@@ -3792,7 +3420,7 @@
       "risk": 999.57,
       "score": 0.0,
       "status": "Watch",
-      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 9.77 (activates only if price breaks up). Limit 9.79 (max pay). Stop 9.0906. If trigger is not hit, no trade. Score 0. Only trade when market is RISK-ON."
+      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 9.77 (activates only if price breaks up). Limit 9.79 (max pay). Stop 9.09. If trigger is not hit, no trade. Score 0. Only trade when market is RISK-ON."
     },
     {
       "symbol": "IFT.AX",
@@ -3816,7 +3444,19 @@
       "risk": 999.01,
       "score": 0.0,
       "status": "Watch",
-      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 9.53 (activates only if price breaks up). Limit 9.55 (max pay). Stop 7.7285. If trigger is not hit, no trade. Score 0. Only trade when market is RISK-ON."
+      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 9.53 (activates only if price breaks up). Limit 9.55 (max pay). Stop 7.73. If trigger is not hit, no trade. Score 0. Only trade when market is RISK-ON."
+    },
+    {
+      "symbol": "IVV.AX",
+      "strategy": "Trend Pullback",
+      "entry": 65.3052,
+      "entry_text": "65.3052",
+      "last_close": 65.13,
+      "stop": 63.9449,
+      "risk": 999.81,
+      "score": 0.0,
+      "status": "Watch",
+      "plain_english": "Trend Pullback (confirmation): do NOT buy yet. Only buy if price rebounds to 65.31 (~0.27% above last close 65.13). Stop 63.94. If it never rebounds to that level, no trade. Score 0. Only trade when market is RISK-ON."
     },
     {
       "symbol": "IVV.AX",
@@ -3828,7 +3468,7 @@
       "risk": 998.74,
       "score": 0.0,
       "status": "Watch",
-      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 68.12 (activates only if price breaks up). Limit 68.26 (max pay). Stop 63.9449. If trigger is not hit, no trade. Score 0. Only trade when market is RISK-ON."
+      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 68.12 (activates only if price breaks up). Limit 68.26 (max pay). Stop 63.94. If trigger is not hit, no trade. Score 0. Only trade when market is RISK-ON."
     },
     {
       "symbol": "IVV.AX",
@@ -3843,6 +3483,30 @@
       "plain_english": "Mean Reversion (bounce): LIMIT buy near 65.13. Stop 64.1395 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 0."
     },
     {
+      "symbol": "MIN.AX",
+      "strategy": "Trend Pullback",
+      "entry": 56.4664,
+      "entry_text": "56.4664",
+      "last_close": 51.25,
+      "stop": 49.6939,
+      "risk": 995.55,
+      "score": 0.0,
+      "status": "Watch",
+      "plain_english": "Trend Pullback (confirmation): do NOT buy yet. Only buy if price rebounds to 56.47 (~10.18% above last close 51.25). Stop 49.69. If it never rebounds to that level, no trade. Score 0. Only trade when market is RISK-ON."
+    },
+    {
+      "symbol": "NDQ.AX",
+      "strategy": "Trend Pullback",
+      "entry": 52.2222,
+      "entry_text": "52.2222",
+      "last_close": 52.09,
+      "stop": 50.9943,
+      "risk": 999.52,
+      "score": 0.0,
+      "status": "Watch",
+      "plain_english": "Trend Pullback (confirmation): do NOT buy yet. Only buy if price rebounds to 52.22 (~0.25% above last close 52.09). Stop 50.99. If it never rebounds to that level, no trade. Score 0. Only trade when market is RISK-ON."
+    },
+    {
       "symbol": "NDQ.AX",
       "strategy": "Momentum",
       "entry": null,
@@ -3852,7 +3516,7 @@
       "risk": 998.06,
       "score": 0.0,
       "status": "Watch",
-      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 55.64 (activates only if price breaks up). Limit 55.75 (max pay). Stop 50.9943. If trigger is not hit, no trade. Score 0. Only trade when market is RISK-ON."
+      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 55.64 (activates only if price breaks up). Limit 55.75 (max pay). Stop 50.99. If trigger is not hit, no trade. Score 0. Only trade when market is RISK-ON."
     },
     {
       "symbol": "NDQ.AX",
@@ -3868,18 +3532,6 @@
     },
     {
       "symbol": "NWS.AX",
-      "strategy": "Trend Pullback",
-      "entry": 39.5695,
-      "entry_text": "39.5695",
-      "last_close": 37.25,
-      "stop": 35.6209,
-      "risk": 999.0,
-      "score": 0.0,
-      "status": "Watch",
-      "plain_english": "Trend Pullback (confirmation): do NOT buy yet. Only buy if price rebounds to 39.57 (~6.23% above last close 37.25). Stop 35.62. If it never rebounds to that level, no trade. Score 0. Only trade when market is RISK-ON."
-    },
-    {
-      "symbol": "NWS.AX",
       "strategy": "Momentum",
       "entry": null,
       "entry_text": "trigger=45.9274 limit=46.0192",
@@ -3888,7 +3540,7 @@
       "risk": 999.73,
       "score": 0.0,
       "status": "Watch",
-      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 45.93 (activates only if price breaks up). Limit 46.02 (max pay). Stop 35.6209. If trigger is not hit, no trade. Score 0. Only trade when market is RISK-ON."
+      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 45.93 (activates only if price breaks up). Limit 46.02 (max pay). Stop 35.62. If trigger is not hit, no trade. Score 0. Only trade when market is RISK-ON."
     },
     {
       "symbol": "NWS.AX",
@@ -3903,28 +3555,16 @@
       "plain_english": "Mean Reversion (bounce): LIMIT buy near 37.25. Stop 34.9154 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 0."
     },
     {
-      "symbol": "NWSLV.AX",
+      "symbol": "NXT.AX",
       "strategy": "Trend Pullback",
-      "entry": 35.7567,
-      "entry_text": "35.7567",
-      "last_close": 32.3,
-      "stop": 31.8909,
-      "risk": 997.38,
+      "entry": 13.994,
+      "entry_text": "13.994",
+      "last_close": 13.92,
+      "stop": 12.9101,
+      "risk": 999.37,
       "score": 0.0,
       "status": "Watch",
-      "plain_english": "Trend Pullback (confirmation): do NOT buy yet. Only buy if price rebounds to 35.76 (~10.70% above last close 32.30). Stop 31.89. If it never rebounds to that level, no trade. Score 0. Only trade when market is RISK-ON."
-    },
-    {
-      "symbol": "NWSLV.AX",
-      "strategy": "Mean Reversion",
-      "entry": 32.3,
-      "entry_text": "32.3",
-      "last_close": 32.3,
-      "stop": 31.6454,
-      "risk": 999.64,
-      "score": 0.0,
-      "status": "Watch",
-      "plain_english": "Mean Reversion (bounce): LIMIT buy near 32.3. Stop 31.6454 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 0."
+      "plain_english": "Trend Pullback (confirmation): do NOT buy yet. Only buy if price rebounds to 13.99 (~0.53% above last close 13.92). Stop 12.91. If it never rebounds to that level, no trade. Score 0. Only trade when market is RISK-ON."
     },
     {
       "symbol": "NXT.AX",
@@ -3940,6 +3580,18 @@
     },
     {
       "symbol": "PLS.AX",
+      "strategy": "Trend Pullback",
+      "entry": 4.4444,
+      "entry_text": "4.4444",
+      "last_close": 4.18,
+      "stop": 3.9522,
+      "risk": 999.59,
+      "score": 0.0,
+      "status": "Watch",
+      "plain_english": "Trend Pullback (confirmation): do NOT buy yet. Only buy if price rebounds to 4.44 (~6.33% above last close 4.18). Stop 3.95. If it never rebounds to that level, no trade. Score 0. Only trade when market is RISK-ON."
+    },
+    {
+      "symbol": "PLS.AX",
       "strategy": "Momentum",
       "entry": null,
       "entry_text": "trigger=5.1755 limit=5.1858",
@@ -3948,19 +3600,7 @@
       "risk": 999.69,
       "score": 0.0,
       "status": "Watch",
-      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 5.18 (activates only if price breaks up). Limit 5.19 (max pay). Stop 4.0522. If trigger is not hit, no trade. Score 0. Only trade when market is RISK-ON."
-    },
-    {
-      "symbol": "PME.AX",
-      "strategy": "Trend Pullback",
-      "entry": 152.4744,
-      "entry_text": "152.4744",
-      "last_close": 126.51,
-      "stop": 111.1142,
-      "risk": 992.65,
-      "score": 0.0,
-      "status": "Watch",
-      "plain_english": "Trend Pullback (confirmation): do NOT buy yet. Only buy if price rebounds to 152.47 (~20.52% above last close 126.51). Stop 111.11. If it never rebounds to that level, no trade. Score 0. Only trade when market is RISK-ON."
+      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 5.18 (activates only if price breaks up). Limit 5.19 (max pay). Stop 4.05. If trigger is not hit, no trade. Score 0. Only trade when market is RISK-ON."
     },
     {
       "symbol": "PME.AX",
@@ -3972,7 +3612,7 @@
       "risk": 927.52,
       "score": 0.0,
       "status": "Watch",
-      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 195.43 (activates only if price breaks up). Limit 195.83 (max pay). Stop 111.1142. If trigger is not hit, no trade. Score 0. Only trade when market is RISK-ON."
+      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 195.43 (activates only if price breaks up). Limit 195.83 (max pay). Stop 111.11. If trigger is not hit, no trade. Score 0. Only trade when market is RISK-ON."
     },
     {
       "symbol": "PME.AX",
@@ -3987,28 +3627,16 @@
       "plain_english": "Mean Reversion (bounce): LIMIT buy near 126.51. Stop 111.1752 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 0."
     },
     {
-      "symbol": "QBTC.AX",
-      "strategy": "Momentum",
-      "entry": null,
-      "entry_text": "trigger=26.4892 limit=26.5422",
-      "last_close": 18.7,
-      "stop": 17.9205,
-      "risk": 993.97,
+      "symbol": "REA.AX",
+      "strategy": "Trend Pullback",
+      "entry": 163.0429,
+      "entry_text": "163.0429",
+      "last_close": 162.0,
+      "stop": 155.5051,
+      "risk": 994.99,
       "score": 0.0,
       "status": "Watch",
-      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 26.49 (activates only if price breaks up). Limit 26.54 (max pay). Stop 17.9205. If trigger is not hit, no trade. Score 0. Only trade when market is RISK-ON."
-    },
-    {
-      "symbol": "QBTC.AX",
-      "strategy": "Mean Reversion",
-      "entry": 18.7,
-      "entry_text": "18.7",
-      "last_close": 18.7,
-      "stop": 17.3232,
-      "risk": 999.55,
-      "score": 0.0,
-      "status": "Watch",
-      "plain_english": "Mean Reversion (bounce): LIMIT buy near 18.7. Stop 17.3232 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 0."
+      "plain_english": "Trend Pullback (confirmation): do NOT buy yet. Only buy if price rebounds to 163.04 (~0.64% above last close 162.00). Stop 155.51. If it never rebounds to that level, no trade. Score 0. Only trade when market is RISK-ON."
     },
     {
       "symbol": "REA.AX",
@@ -4020,7 +3648,7 @@
       "risk": 969.13,
       "score": 0.0,
       "status": "Watch",
-      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 197.64 (activates only if price breaks up). Limit 198.04 (max pay). Stop 155.5051. If trigger is not hit, no trade. Score 0. Only trade when market is RISK-ON."
+      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 197.64 (activates only if price breaks up). Limit 198.04 (max pay). Stop 155.51. If trigger is not hit, no trade. Score 0. Only trade when market is RISK-ON."
     },
     {
       "symbol": "RMD.AX",
@@ -4044,7 +3672,7 @@
       "risk": 999.86,
       "score": 0.0,
       "status": "Watch",
-      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 4.10 (activates only if price breaks up). Limit 4.11 (max pay). Stop 3.6917. If trigger is not hit, no trade. Score 0. Only trade when market is RISK-ON."
+      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 4.10 (activates only if price breaks up). Limit 4.11 (max pay). Stop 3.69. If trigger is not hit, no trade. Score 0. Only trade when market is RISK-ON."
     },
     {
       "symbol": "SCG.AX",
@@ -4057,18 +3685,6 @@
       "score": 0.0,
       "status": "Watch",
       "plain_english": "Mean Reversion (bounce): LIMIT buy near 3.81. Stop 3.7004 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 0."
-    },
-    {
-      "symbol": "SEK.AX",
-      "strategy": "Trend Pullback",
-      "entry": 18.5659,
-      "entry_text": "18.5659",
-      "last_close": 16.27,
-      "stop": 15.5543,
-      "risk": 999.85,
-      "score": 0.0,
-      "status": "Watch",
-      "plain_english": "Trend Pullback (confirmation): do NOT buy yet. Only buy if price rebounds to 18.57 (~14.11% above last close 16.27). Stop 15.55. If it never rebounds to that level, no trade. Score 0. Only trade when market is RISK-ON."
     },
     {
       "symbol": "SEK.AX",
@@ -4095,6 +3711,30 @@
       "plain_english": "Mean Reversion (bounce): LIMIT buy near 47.7. Stop 45.113 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 0."
     },
     {
+      "symbol": "SGP.AX",
+      "strategy": "Trend Pullback",
+      "entry": 5.0651,
+      "entry_text": "5.0651",
+      "last_close": 5.06,
+      "stop": 4.8816,
+      "risk": 999.85,
+      "score": 0.0,
+      "status": "Watch",
+      "plain_english": "Trend Pullback (confirmation): do NOT buy yet. Only buy if price rebounds to 5.07 (~0.10% above last close 5.06). Stop 4.88. If it never rebounds to that level, no trade. Score 0. Only trade when market is RISK-ON."
+    },
+    {
+      "symbol": "SHL.AX",
+      "strategy": "Trend Pullback",
+      "entry": 23.5535,
+      "entry_text": "23.5535",
+      "last_close": 23.37,
+      "stop": 20.7372,
+      "risk": 999.78,
+      "score": 0.0,
+      "status": "Watch",
+      "plain_english": "Trend Pullback (confirmation): do NOT buy yet. Only buy if price rebounds to 23.55 (~0.79% above last close 23.37). Stop 20.74. If it never rebounds to that level, no trade. Score 0. Only trade when market is RISK-ON."
+    },
+    {
       "symbol": "SHL.AX",
       "strategy": "Mean Reversion",
       "entry": 23.37,
@@ -4107,16 +3747,40 @@
       "plain_english": "Mean Reversion (bounce): LIMIT buy near 23.37. Stop 22.3934 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 0."
     },
     {
-      "symbol": "SUN.AX",
+      "symbol": "SIG.AX",
       "strategy": "Trend Pullback",
-      "entry": 16.1981,
-      "entry_text": "16.1981",
-      "last_close": 15.52,
-      "stop": 15.0162,
-      "risk": 999.95,
+      "entry": 3.043,
+      "entry_text": "3.043",
+      "last_close": 2.94,
+      "stop": 2.9239,
+      "risk": 999.96,
       "score": 0.0,
       "status": "Watch",
-      "plain_english": "Trend Pullback (confirmation): do NOT buy yet. Only buy if price rebounds to 16.20 (~4.37% above last close 15.52). Stop 15.02. If it never rebounds to that level, no trade. Score 0. Only trade when market is RISK-ON."
+      "plain_english": "Trend Pullback (confirmation): do NOT buy yet. Only buy if price rebounds to 3.04 (~3.50% above last close 2.94). Stop 2.92. If it never rebounds to that level, no trade. Score 0. Only trade when market is RISK-ON."
+    },
+    {
+      "symbol": "STO.AX",
+      "strategy": "Trend Pullback",
+      "entry": 7.0871,
+      "entry_text": "7.0871",
+      "last_close": 6.94,
+      "stop": 6.3756,
+      "risk": 999.62,
+      "score": 0.0,
+      "status": "Watch",
+      "plain_english": "Trend Pullback (confirmation): do NOT buy yet. Only buy if price rebounds to 7.09 (~2.12% above last close 6.94). Stop 6.38. If it never rebounds to that level, no trade. Score 0. Only trade when market is RISK-ON."
+    },
+    {
+      "symbol": "SUN.AX",
+      "strategy": "Trend Pullback",
+      "entry": 15.6757,
+      "entry_text": "15.6757",
+      "last_close": 15.52,
+      "stop": 15.0162,
+      "risk": 999.86,
+      "score": 0.0,
+      "status": "Watch",
+      "plain_english": "Trend Pullback (confirmation): do NOT buy yet. Only buy if price rebounds to 15.68 (~1.00% above last close 15.52). Stop 15.02. If it never rebounds to that level, no trade. Score 0. Only trade when market is RISK-ON."
     },
     {
       "symbol": "SUN.AX",
@@ -4129,6 +3793,30 @@
       "score": 0.0,
       "status": "Watch",
       "plain_english": "Mean Reversion (bounce): LIMIT buy near 15.52. Stop 14.897 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 0."
+    },
+    {
+      "symbol": "TCL.AX",
+      "strategy": "Trend Pullback",
+      "entry": 14.3944,
+      "entry_text": "14.3944",
+      "last_close": 14.24,
+      "stop": 13.5196,
+      "risk": 999.95,
+      "score": 0.0,
+      "status": "Watch",
+      "plain_english": "Trend Pullback (confirmation): do NOT buy yet. Only buy if price rebounds to 14.39 (~1.08% above last close 14.24). Stop 13.52. If it never rebounds to that level, no trade. Score 0. Only trade when market is RISK-ON."
+    },
+    {
+      "symbol": "TLC.AX",
+      "strategy": "Trend Pullback",
+      "entry": 5.5856,
+      "entry_text": "5.5856",
+      "last_close": 5.58,
+      "stop": 5.0367,
+      "risk": 999.55,
+      "score": 0.0,
+      "status": "Watch",
+      "plain_english": "Trend Pullback (confirmation): do NOT buy yet. Only buy if price rebounds to 5.59 (~0.10% above last close 5.58). Stop 5.04. If it never rebounds to that level, no trade. Score 0. Only trade when market is RISK-ON."
     },
     {
       "symbol": "TNE.AX",
@@ -4155,6 +3843,18 @@
       "plain_english": "Mean Reversion (bounce): LIMIT buy near 3.9. Stop 3.7907 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 0."
     },
     {
+      "symbol": "WES.AX",
+      "strategy": "Trend Pullback",
+      "entry": 85.125,
+      "entry_text": "85.125",
+      "last_close": 83.99,
+      "stop": 83.3159,
+      "risk": 998.63,
+      "score": 0.0,
+      "status": "Watch",
+      "plain_english": "Trend Pullback (confirmation): do NOT buy yet. Only buy if price rebounds to 85.12 (~1.35% above last close 83.99). Stop 83.32. If it never rebounds to that level, no trade. Score 0. Only trade when market is RISK-ON."
+    },
+    {
       "symbol": "WTC.AX",
       "strategy": "Mean Reversion",
       "entry": 47.1,
@@ -4165,6 +3865,30 @@
       "score": 0.0,
       "status": "Watch",
       "plain_english": "Mean Reversion (bounce): LIMIT buy near 47.1. Stop 42.1007 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 0."
+    },
+    {
+      "symbol": "XRO.AX",
+      "strategy": "Trend Pullback",
+      "entry": 80.9409,
+      "entry_text": "80.9409",
+      "last_close": 77.54,
+      "stop": 71.1612,
+      "risk": 997.53,
+      "score": 0.0,
+      "status": "Watch",
+      "plain_english": "Trend Pullback (confirmation): do NOT buy yet. Only buy if price rebounds to 80.94 (~4.39% above last close 77.54). Stop 71.16. If it never rebounds to that level, no trade. Score 0. Only trade when market is RISK-ON."
+    },
+    {
+      "symbol": "XYZ.AX",
+      "strategy": "Trend Pullback",
+      "entry": 75.055,
+      "entry_text": "75.055",
+      "last_close": 74.0,
+      "stop": 68.5195,
+      "risk": 999.94,
+      "score": 0.0,
+      "status": "Watch",
+      "plain_english": "Trend Pullback (confirmation): do NOT buy yet. Only buy if price rebounds to 75.06 (~1.43% above last close 74.00). Stop 68.52. If it never rebounds to that level, no trade. Score 0. Only trade when market is RISK-ON."
     },
     {
       "symbol": "XYZ.AX",
