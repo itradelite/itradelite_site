@@ -3,7 +3,7 @@
   "generated": "2026-02-22",
   "valid_for": "2026-02-23",
   "risk_mode": "risk_on",
-  "generated_at_utc": "2026-02-21T22:15:23Z",
+  "generated_at_utc": "2026-02-22T00:19:02Z",
   "published": true,
   "reason": null,
   "source_watchlist": "reports/watchlist_full_latest.csv",
@@ -18,12 +18,12 @@
       "entry": 7.81,
       "entry_text": "7.81",
       "last_close": 7.81,
-      "stop": 7.3198,
+      "stop": 7.3187,
       "risk": null,
       "risk_gate": "always",
       "score": 100.0,
       "status": "Valid",
-      "plain_english": "Mean Reversion (bounce): LIMIT buy near 7.81. Stop 7.3198 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 100."
+      "plain_english": "Mean Reversion (bounce): LIMIT buy near 7.81. Stop 7.3187 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 100."
     },
     {
       "symbol": "CHC.AX",
@@ -46,12 +46,12 @@
       "entry": 7.81,
       "entry_text": "7.81",
       "last_close": 7.81,
-      "stop": 7.3198,
+      "stop": 7.3187,
       "risk": null,
       "risk_gate": "always",
       "score": 100.0,
       "status": "Valid",
-      "plain_english": "Mean Reversion (bounce): LIMIT buy near 7.81. Stop 7.3198 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 100."
+      "plain_english": "Mean Reversion (bounce): LIMIT buy near 7.81. Stop 7.3187 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 100."
     },
     {
       "symbol": "CHC.AX",
@@ -1138,12 +1138,12 @@
       "entry": 8.0981,
       "entry_text": "8.0981",
       "last_close": 7.81,
-      "stop": 7.6633,
+      "stop": 7.6531,
       "risk": null,
       "risk_gate": "risk_on",
       "score": 50.0,
       "status": "Watch",
-      "plain_english": "Trend Pullback (confirmation): do NOT buy yet. Only buy if price rebounds to 8.10 (~3.69% above last close 7.81). Stop 7.66. If it never rebounds to that level, no trade. Score 50. Only trade when market is RISK-ON."
+      "plain_english": "Trend Pullback (confirmation): do NOT buy yet. Only buy if price rebounds to 8.10 (~3.69% above last close 7.81). Stop 7.65. If it never rebounds to that level, no trade. Score 50. Only trade when market is RISK-ON."
     },
     {
       "symbol": "WOR.AX",
@@ -3036,12 +3036,12 @@
       "entry": null,
       "entry_text": "trigger=9.6188 limit=9.6380",
       "last_close": 7.81,
-      "stop": 7.6633,
+      "stop": 7.6531,
       "risk": null,
       "risk_gate": "risk_on",
       "score": 14.0,
       "status": "Watch",
-      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 9.62 (activates only if price breaks up). Limit 9.64 (max pay). Stop 7.66. If trigger is not hit, no trade. Score 14. Only trade when market is RISK-ON."
+      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 9.62 (activates only if price breaks up). Limit 9.64 (max pay). Stop 7.65. If trigger is not hit, no trade. Score 14. Only trade when market is RISK-ON."
     },
     {
       "symbol": "SGP.AX",
