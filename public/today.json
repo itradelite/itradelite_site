@@ -3,7 +3,7 @@
   "generated": "2026-02-22",
   "valid_for": "2026-02-22",
   "risk_mode": "risk_on",
-  "generated_at_utc": "2026-02-22T01:03:53Z",
+  "generated_at_utc": "2026-02-22T01:27:48Z",
   "published": true,
   "reason": null,
   "data_fresh": true,
@@ -14,51 +14,66 @@
   "universe_size": 117,
   "recommended_orders": [
     {
+      "symbol": "ORI.AX",
+      "strategy": "MEAN_REVERSION",
+      "entry": 24.75,
+      "entry_text": "24.75",
+      "last_close": 24.75,
+      "stop": 23.982,
+      "risk": null,
+      "score": 100.0,
+      "status": "Valid",
+      "plain_english": "Mean Reversion (bounce): LIMIT buy near 24.75. Stop 23.982 (~1.2 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 100.",
+      "tp1": 25.71,
+      "cap_target": 26.47,
+      "r_mult": 2.2396
+    },
+    {
       "symbol": "WHC.AX",
       "strategy": "MEAN_REVERSION",
       "entry": 7.81,
       "entry_text": "7.81",
       "last_close": 7.81,
-      "stop": 7.3187,
+      "stop": 7.417,
       "risk": null,
       "score": 100.0,
       "status": "Valid",
-      "plain_english": "Mean Reversion (bounce): LIMIT buy near 7.81. Stop 7.3187 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 100.",
+      "plain_english": "Mean Reversion (bounce): LIMIT buy near 7.81. Stop 7.417 (~1.2 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 100.",
       "tp1": 8.3012,
       "cap_target": 8.7925,
-      "r_mult": 2.0
-    },
-    {
-      "symbol": "CHC.AX",
-      "strategy": "MEAN_REVERSION",
-      "entry": 22.24,
-      "entry_text": "22.24",
-      "last_close": 22.24,
-      "stop": 21.0277,
-      "risk": null,
-      "score": 86.0,
-      "status": "Valid",
-      "plain_english": "Mean Reversion (bounce): LIMIT buy near 22.24. Stop 21.0277 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 86.",
-      "tp1": 23.4523,
-      "cap_target": 24.6646,
-      "r_mult": 2.0
+      "r_mult": 2.5
     }
   ],
   "setups": [
     {
+      "symbol": "ORI.AX",
+      "strategy": "MEAN_REVERSION",
+      "entry": 24.75,
+      "entry_text": "24.75",
+      "last_close": 24.75,
+      "stop": 23.982,
+      "risk": null,
+      "score": 100.0,
+      "status": "Valid",
+      "plain_english": "Mean Reversion (bounce): LIMIT buy near 24.75. Stop 23.982 (~1.2 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 100.",
+      "tp1": 25.71,
+      "cap_target": 26.47,
+      "r_mult": 2.2396
+    },
+    {
       "symbol": "WHC.AX",
       "strategy": "MEAN_REVERSION",
       "entry": 7.81,
       "entry_text": "7.81",
       "last_close": 7.81,
-      "stop": 7.3187,
+      "stop": 7.417,
       "risk": null,
       "score": 100.0,
       "status": "Valid",
-      "plain_english": "Mean Reversion (bounce): LIMIT buy near 7.81. Stop 7.3187 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 100.",
+      "plain_english": "Mean Reversion (bounce): LIMIT buy near 7.81. Stop 7.417 (~1.2 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 100.",
       "tp1": 8.3012,
       "cap_target": 8.7925,
-      "r_mult": 2.0
+      "r_mult": 2.5
     },
     {
       "symbol": "CHC.AX",
@@ -66,14 +81,14 @@
       "entry": 22.24,
       "entry_text": "22.24",
       "last_close": 22.24,
-      "stop": 21.0277,
+      "stop": 21.2701,
       "risk": null,
       "score": 86.0,
       "status": "Valid",
-      "plain_english": "Mean Reversion (bounce): LIMIT buy near 22.24. Stop 21.0277 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 86.",
+      "plain_english": "Mean Reversion (bounce): LIMIT buy near 22.24. Stop 21.2701 (~1.2 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 86.",
       "tp1": 23.4523,
       "cap_target": 24.6646,
-      "r_mult": 2.0
+      "r_mult": 2.5
     },
     {
       "symbol": "AAI.AX",
@@ -91,21 +106,6 @@
       "r_mult": 1.7992
     },
     {
-      "symbol": "ORI.AX",
-      "strategy": "MEAN_REVERSION",
-      "entry": 24.75,
-      "entry_text": "24.75",
-      "last_close": 24.75,
-      "stop": 23.79,
-      "risk": null,
-      "score": 100.0,
-      "status": "Watch",
-      "plain_english": "Signal detected but rejected: capped upside fails risk-efficiency (1.79R vs min 1.8R; ceiling 26.47).",
-      "tp1": 25.71,
-      "cap_target": 26.47,
-      "r_mult": 1.7917
-    },
-    {
       "symbol": "WBC.AX",
       "strategy": "MOMENTUM",
       "entry": null,
@@ -117,8 +117,8 @@
       "status": "Watch",
       "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 42.57 (activates only if price breaks up). Limit 42.65 (max pay). Stop 39.78. If trigger is not hit, no trade. Score 89. Only trade when market is RISK-ON.",
       "tp1": 44.2858,
-      "cap_target": 42.54,
-      "r_mult": -0.0391
+      "cap_target": 45.9192,
+      "r_mult": 1.1364
     },
     {
       "symbol": "EVN.AX",
@@ -222,8 +222,8 @@
       "status": "Watch",
       "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 14.32 (activates only if price breaks up). Limit 14.35 (max pay). Stop 13.68. If trigger is not hit, no trade. Score 77. Only trade when market is RISK-ON.",
       "tp1": 14.7742,
-      "cap_target": 14.8804,
-      "r_mult": 0.7872
+      "cap_target": 15.1968,
+      "r_mult": 1.2581
     },
     {
       "symbol": "ANZ.AX",
@@ -237,8 +237,8 @@
       "status": "Watch",
       "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 41.12 (activates only if price breaks up). Limit 41.21 (max pay). Stop 38.87. If trigger is not hit, no trade. Score 76. Only trade when market is RISK-ON.",
       "tp1": 42.7931,
-      "cap_target": 41.0,
-      "r_mult": -0.0877
+      "cap_target": 44.381,
+      "r_mult": 1.3572
     },
     {
       "symbol": "AZJ.AX",
@@ -252,8 +252,8 @@
       "status": "Watch",
       "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 4.07 (activates only if price breaks up). Limit 4.08 (max pay). Stop 3.55. If trigger is not hit, no trade. Score 76. Only trade when market is RISK-ON.",
       "tp1": 4.233,
-      "cap_target": 4.07,
-      "r_mult": -0.0196
+      "cap_target": 4.3857,
+      "r_mult": 0.5808
     },
     {
       "symbol": "GYG.AX",
@@ -261,31 +261,46 @@
       "entry": 17.53,
       "entry_text": "17.53",
       "last_close": 17.53,
-      "stop": 15.8082,
+      "stop": 16.1526,
       "risk": null,
       "score": 75.0,
       "status": "Watch",
-      "plain_english": "Mean Reversion (bounce): LIMIT buy near 17.53. Stop 15.8082 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 75.",
+      "plain_english": "Mean Reversion (bounce): LIMIT buy near 17.53. Stop 16.1526 (~1.2 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 75.",
       "tp1": 19.2518,
       "cap_target": 20.9736,
-      "r_mult": 2.0
+      "r_mult": 2.5
     }
   ],
   "watchlist_full": [
     {
+      "symbol": "ORI.AX",
+      "strategy": "MEAN_REVERSION",
+      "entry": 24.75,
+      "entry_text": "24.75",
+      "last_close": 24.75,
+      "stop": 23.982,
+      "risk": null,
+      "score": 100.0,
+      "status": "Valid",
+      "plain_english": "Mean Reversion (bounce): LIMIT buy near 24.75. Stop 23.982 (~1.2 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 100.",
+      "tp1": 25.71,
+      "cap_target": 26.47,
+      "r_mult": 2.2396
+    },
+    {
       "symbol": "WHC.AX",
       "strategy": "MEAN_REVERSION",
       "entry": 7.81,
       "entry_text": "7.81",
       "last_close": 7.81,
-      "stop": 7.3187,
+      "stop": 7.417,
       "risk": null,
       "score": 100.0,
       "status": "Valid",
-      "plain_english": "Mean Reversion (bounce): LIMIT buy near 7.81. Stop 7.3187 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 100.",
+      "plain_english": "Mean Reversion (bounce): LIMIT buy near 7.81. Stop 7.417 (~1.2 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 100.",
       "tp1": 8.3012,
       "cap_target": 8.7925,
-      "r_mult": 2.0
+      "r_mult": 2.5
     },
     {
       "symbol": "CHC.AX",
@@ -293,14 +308,14 @@
       "entry": 22.24,
       "entry_text": "22.24",
       "last_close": 22.24,
-      "stop": 21.0277,
+      "stop": 21.2701,
       "risk": null,
       "score": 86.0,
       "status": "Valid",
-      "plain_english": "Mean Reversion (bounce): LIMIT buy near 22.24. Stop 21.0277 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 86.",
+      "plain_english": "Mean Reversion (bounce): LIMIT buy near 22.24. Stop 21.2701 (~1.2 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 86.",
       "tp1": 23.4523,
       "cap_target": 24.6646,
-      "r_mult": 2.0
+      "r_mult": 2.5
     },
     {
       "symbol": "AAI.AX",
@@ -318,21 +333,6 @@
       "r_mult": 1.7992
     },
     {
-      "symbol": "ORI.AX",
-      "strategy": "MEAN_REVERSION",
-      "entry": 24.75,
-      "entry_text": "24.75",
-      "last_close": 24.75,
-      "stop": 23.79,
-      "risk": null,
-      "score": 100.0,
-      "status": "Watch",
-      "plain_english": "Signal detected but rejected: capped upside fails risk-efficiency (1.79R vs min 1.8R; ceiling 26.47).",
-      "tp1": 25.71,
-      "cap_target": 26.47,
-      "r_mult": 1.7917
-    },
-    {
       "symbol": "WBC.AX",
       "strategy": "MOMENTUM",
       "entry": null,
@@ -344,8 +344,8 @@
       "status": "Watch",
       "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 42.57 (activates only if price breaks up). Limit 42.65 (max pay). Stop 39.78. If trigger is not hit, no trade. Score 89. Only trade when market is RISK-ON.",
       "tp1": 44.2858,
-      "cap_target": 42.54,
-      "r_mult": -0.0391
+      "cap_target": 45.9192,
+      "r_mult": 1.1364
     },
     {
       "symbol": "EVN.AX",
@@ -449,8 +449,8 @@
       "status": "Watch",
       "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 14.32 (activates only if price breaks up). Limit 14.35 (max pay). Stop 13.68. If trigger is not hit, no trade. Score 77. Only trade when market is RISK-ON.",
       "tp1": 14.7742,
-      "cap_target": 14.8804,
-      "r_mult": 0.7872
+      "cap_target": 15.1968,
+      "r_mult": 1.2581
     },
     {
       "symbol": "ANZ.AX",
@@ -464,8 +464,8 @@
       "status": "Watch",
       "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 41.12 (activates only if price breaks up). Limit 41.21 (max pay). Stop 38.87. If trigger is not hit, no trade. Score 76. Only trade when market is RISK-ON.",
       "tp1": 42.7931,
-      "cap_target": 41.0,
-      "r_mult": -0.0877
+      "cap_target": 44.381,
+      "r_mult": 1.3572
     },
     {
       "symbol": "AZJ.AX",
@@ -479,8 +479,8 @@
       "status": "Watch",
       "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 4.07 (activates only if price breaks up). Limit 4.08 (max pay). Stop 3.55. If trigger is not hit, no trade. Score 76. Only trade when market is RISK-ON.",
       "tp1": 4.233,
-      "cap_target": 4.07,
-      "r_mult": -0.0196
+      "cap_target": 4.3857,
+      "r_mult": 0.5808
     },
     {
       "symbol": "GYG.AX",
@@ -488,14 +488,14 @@
       "entry": 17.53,
       "entry_text": "17.53",
       "last_close": 17.53,
-      "stop": 15.8082,
+      "stop": 16.1526,
       "risk": null,
       "score": 75.0,
       "status": "Watch",
-      "plain_english": "Mean Reversion (bounce): LIMIT buy near 17.53. Stop 15.8082 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 75.",
+      "plain_english": "Mean Reversion (bounce): LIMIT buy near 17.53. Stop 16.1526 (~1.2 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 75.",
       "tp1": 19.2518,
       "cap_target": 20.9736,
-      "r_mult": 2.0
+      "r_mult": 2.5
     },
     {
       "symbol": "NAB.AX",
@@ -509,8 +509,8 @@
       "status": "Watch",
       "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 48.83 (activates only if price breaks up). Limit 48.92 (max pay). Stop 44.98. If trigger is not hit, no trade. Score 73. Only trade when market is RISK-ON.",
       "tp1": 50.5892,
-      "cap_target": 48.68,
-      "r_mult": -0.0618
+      "cap_target": 52.2548,
+      "r_mult": 0.8452
     },
     {
       "symbol": "AGL.AX",
@@ -524,8 +524,8 @@
       "status": "Watch",
       "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 10.61 (activates only if price breaks up). Limit 10.63 (max pay). Stop 9.75. If trigger is not hit, no trade. Score 72. Only trade when market is RISK-ON.",
       "tp1": 10.9967,
-      "cap_target": 10.63,
-      "r_mult": -0.0034
+      "cap_target": 11.3605,
+      "r_mult": 0.8233
     },
     {
       "symbol": "ARG.AX",
@@ -539,8 +539,8 @@
       "status": "Watch",
       "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 9.17 (activates only if price breaks up). Limit 9.19 (max pay). Stop 8.83. If trigger is not hit, no trade. Score 71. Only trade when market is RISK-ON.",
       "tp1": 9.3296,
-      "cap_target": 9.14,
-      "r_mult": -0.1272
+      "cap_target": 9.4512,
+      "r_mult": 0.7378
     },
     {
       "symbol": "QUB.AX",
@@ -554,8 +554,8 @@
       "status": "Watch",
       "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 5.09 (activates only if price breaks up). Limit 5.10 (max pay). Stop 4.78. If trigger is not hit, no trade. Score 71. Only trade when market is RISK-ON.",
       "tp1": 5.2159,
-      "cap_target": 5.07,
-      "r_mult": -0.0805
+      "cap_target": 5.3365,
+      "r_mult": 0.7642
     },
     {
       "symbol": "ALQ.AX",
@@ -674,8 +674,8 @@
       "status": "Watch",
       "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 54.36 (activates only if price breaks up). Limit 54.47 (max pay). Stop 49.43. If trigger is not hit, no trade. Score 68. Only trade when market is RISK-ON.",
       "tp1": 56.8863,
-      "cap_target": 54.2,
-      "r_mult": -0.0538
+      "cap_target": 59.3013,
+      "r_mult": 0.9576
     },
     {
       "symbol": "CBA.AX",
@@ -689,8 +689,8 @@
       "status": "Watch",
       "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 180.74 (activates only if price breaks up). Limit 181.10 (max pay). Stop 167.67. If trigger is not hit, no trade. Score 68. Only trade when market is RISK-ON.",
       "tp1": 187.3295,
-      "cap_target": 180.2,
-      "r_mult": -0.0671
+      "cap_target": 193.5569,
+      "r_mult": 0.9269
     },
     {
       "symbol": "SIG.AX",
@@ -698,14 +698,14 @@
       "entry": 2.94,
       "entry_text": "2.94",
       "last_close": 2.94,
-      "stop": 2.8436,
+      "stop": 2.8629,
       "risk": null,
       "score": 67.0,
       "status": "Watch",
-      "plain_english": "Mean Reversion (bounce): LIMIT buy near 2.94. Stop 2.8436 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 67.",
+      "plain_english": "Mean Reversion (bounce): LIMIT buy near 2.94. Stop 2.8629 (~1.2 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 67.",
       "tp1": 3.0364,
       "cap_target": 3.1329,
-      "r_mult": 2.0
+      "r_mult": 2.5
     },
     {
       "symbol": "VAS.AX",
@@ -719,8 +719,8 @@
       "status": "Watch",
       "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 113.34 (activates only if price breaks up). Limit 113.57 (max pay). Stop 109.87. If trigger is not hit, no trade. Score 66. Only trade when market is RISK-ON.",
       "tp1": 115.4289,
-      "cap_target": 113.0,
-      "r_mult": -0.153
+      "cap_target": 117.2921,
+      "r_mult": 1.0082
     },
     {
       "symbol": "APA.AX",
@@ -734,8 +734,8 @@
       "status": "Watch",
       "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 9.31 (activates only if price breaks up). Limit 9.33 (max pay). Stop 8.75. If trigger is not hit, no trade. Score 65. Only trade when market is RISK-ON.",
       "tp1": 9.635,
-      "cap_target": 9.28,
-      "r_mult": -0.0804
+      "cap_target": 9.93,
+      "r_mult": 1.0444
     },
     {
       "symbol": "TLC.AX",
@@ -749,8 +749,8 @@
       "status": "Watch",
       "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 5.71 (activates only if price breaks up). Limit 5.72 (max pay). Stop 5.04. If trigger is not hit, no trade. Score 64. Only trade when market is RISK-ON.",
       "tp1": 5.9183,
-      "cap_target": 5.69,
-      "r_mult": -0.0418
+      "cap_target": 6.1181,
+      "r_mult": 0.5862
     },
     {
       "symbol": "TLS.AX",
@@ -764,8 +764,8 @@
       "status": "Watch",
       "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 5.28 (activates only if price breaks up). Limit 5.29 (max pay). Stop 4.85. If trigger is not hit, no trade. Score 62. Only trade when market is RISK-ON.",
       "tp1": 5.409,
-      "cap_target": 5.26,
-      "r_mult": -0.0603
+      "cap_target": 5.5317,
+      "r_mult": 0.5617
     },
     {
       "symbol": "MQG.AX",
@@ -779,8 +779,8 @@
       "status": "Watch",
       "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 224.18 (activates only if price breaks up). Limit 224.62 (max pay). Stop 214.32. If trigger is not hit, no trade. Score 61. Only trade when market is RISK-ON.",
       "tp1": 231.7173,
-      "cap_target": 223.505,
-      "r_mult": -0.1086
+      "cap_target": 238.8107,
+      "r_mult": 1.3765
     },
     {
       "symbol": "A2M.AX",
@@ -788,14 +788,14 @@
       "entry": 9.46,
       "entry_text": "9.46",
       "last_close": 9.46,
-      "stop": 8.9355,
+      "stop": 9.0404,
       "risk": null,
       "score": 60.0,
       "status": "Watch",
-      "plain_english": "Mean Reversion (bounce): LIMIT buy near 9.46. Stop 8.9355 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 60.",
+      "plain_english": "Mean Reversion (bounce): LIMIT buy near 9.46. Stop 9.0404 (~1.2 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 60.",
       "tp1": 9.9845,
       "cap_target": 9.92,
-      "r_mult": 0.8771
+      "r_mult": 1.0964
     },
     {
       "symbol": "AMC.AX",
@@ -809,8 +809,8 @@
       "status": "Watch",
       "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 71.28 (activates only if price breaks up). Limit 71.43 (max pay). Stop 69.15. If trigger is not hit, no trade. Score 60. Only trade when market is RISK-ON.",
       "tp1": 73.5649,
-      "cap_target": 71.07,
-      "r_mult": -0.1566
+      "cap_target": 75.704,
+      "r_mult": 1.8828
     },
     {
       "symbol": "APE.AX",
@@ -839,8 +839,8 @@
       "status": "Watch",
       "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 3.92 (activates only if price breaks up). Limit 3.93 (max pay). Stop 3.78. If trigger is not hit, no trade. Score 60. Only trade when market is RISK-ON.",
       "tp1": 4.0281,
-      "cap_target": 3.96,
-      "r_mult": 0.2084
+      "cap_target": 4.1267,
+      "r_mult": 1.3503
     },
     {
       "symbol": "IGO.AX",
@@ -848,14 +848,14 @@
       "entry": 7.9,
       "entry_text": "7.9",
       "last_close": 7.9,
-      "stop": 7.3509,
+      "stop": 7.4607,
       "risk": null,
       "score": 60.0,
       "status": "Watch",
-      "plain_english": "Mean Reversion (bounce): LIMIT buy near 7.9. Stop 7.3509 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 60.",
+      "plain_english": "Mean Reversion (bounce): LIMIT buy near 7.9. Stop 7.4607 (~1.2 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 60.",
       "tp1": 8.4491,
       "cap_target": 8.9982,
-      "r_mult": 2.0
+      "r_mult": 2.5
     },
     {
       "symbol": "LYC.AX",
@@ -878,14 +878,14 @@
       "entry": 4.18,
       "entry_text": "4.18",
       "last_close": 4.18,
-      "stop": 3.8334,
+      "stop": 3.9027,
       "risk": null,
       "score": 60.0,
       "status": "Watch",
-      "plain_english": "Mean Reversion (bounce): LIMIT buy near 4.18. Stop 3.8334 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 60.",
+      "plain_english": "Mean Reversion (bounce): LIMIT buy near 4.18. Stop 3.9027 (~1.2 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 60.",
       "tp1": 4.5266,
       "cap_target": 4.8732,
-      "r_mult": 2.0
+      "r_mult": 2.5
     },
     {
       "symbol": "WOW.AX",
@@ -893,14 +893,14 @@
       "entry": 31.23,
       "entry_text": "31.23",
       "last_close": 31.23,
-      "stop": 30.5384,
+      "stop": 30.6767,
       "risk": null,
       "score": 60.0,
       "status": "Watch",
-      "plain_english": "Mean Reversion (bounce): LIMIT buy near 31.23. Stop 30.5384 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 60.",
+      "plain_english": "Mean Reversion (bounce): LIMIT buy near 31.23. Stop 30.6767 (~1.2 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 60.",
       "tp1": 31.9216,
       "cap_target": 32.45,
-      "r_mult": 1.764
+      "r_mult": 2.205
     },
     {
       "symbol": "MIN.AX",
@@ -908,14 +908,14 @@
       "entry": 51.25,
       "entry_text": "51.25",
       "last_close": 51.25,
-      "stop": 47.5536,
+      "stop": 48.2929,
       "risk": null,
       "score": 59.0,
       "status": "Watch",
-      "plain_english": "Mean Reversion (bounce): LIMIT buy near 51.25. Stop 47.5536 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 59.",
+      "plain_english": "Mean Reversion (bounce): LIMIT buy near 51.25. Stop 48.2929 (~1.2 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 59.",
       "tp1": 54.9464,
       "cap_target": 58.6429,
-      "r_mult": 2.0
+      "r_mult": 2.5
     },
     {
       "symbol": "RIO.AX",
@@ -929,8 +929,8 @@
       "status": "Watch",
       "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 170.70 (activates only if price breaks up). Limit 171.04 (max pay). Stop 159.38. If trigger is not hit, no trade. Score 58. Only trade when market is RISK-ON.",
       "tp1": 178.4664,
-      "cap_target": 170.19,
-      "r_mult": -0.0731
+      "cap_target": 185.8909,
+      "r_mult": 1.2736
     },
     {
       "symbol": "SHL.AX",
@@ -944,8 +944,8 @@
       "status": "Watch",
       "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 24.34 (activates only if price breaks up). Limit 24.39 (max pay). Stop 20.74. If trigger is not hit, no trade. Score 58. Only trade when market is RISK-ON.",
       "tp1": 25.3681,
-      "cap_target": 24.27,
-      "r_mult": -0.0332
+      "cap_target": 26.3447,
+      "r_mult": 0.5345
     },
     {
       "symbol": "QAN.AX",
@@ -959,8 +959,8 @@
       "status": "Watch",
       "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 10.87 (activates only if price breaks up). Limit 10.89 (max pay). Stop 10.26. If trigger is not hit, no trade. Score 54. Only trade when market is RISK-ON.",
       "tp1": 11.1739,
-      "cap_target": 10.84,
-      "r_mult": -0.086
+      "cap_target": 11.4536,
+      "r_mult": 0.8865
     },
     {
       "symbol": "SFR.AX",
@@ -968,14 +968,14 @@
       "entry": 18.84,
       "entry_text": "18.84",
       "last_close": 18.84,
-      "stop": 17.6914,
+      "stop": 17.9211,
       "risk": null,
       "score": 54.0,
       "status": "Watch",
-      "plain_english": "Mean Reversion (bounce): LIMIT buy near 18.84. Stop 17.6914 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 54.",
+      "plain_english": "Mean Reversion (bounce): LIMIT buy near 18.84. Stop 17.9211 (~1.2 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 54.",
       "tp1": 19.9886,
       "cap_target": 21.1371,
-      "r_mult": 2.0
+      "r_mult": 2.5
     },
     {
       "symbol": "VGE.AX",
@@ -989,8 +989,8 @@
       "status": "Watch",
       "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 92.17 (activates only if price breaks up). Limit 92.35 (max pay). Stop 89.36. If trigger is not hit, no trade. Score 54. Only trade when market is RISK-ON.",
       "tp1": 93.9893,
-      "cap_target": 93.0,
-      "r_mult": 0.2172
+      "cap_target": 94.59,
+      "r_mult": 0.7484
     },
     {
       "symbol": "BEN.AX",
@@ -1004,8 +1004,8 @@
       "status": "Watch",
       "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 11.62 (activates only if price breaks up). Limit 11.65 (max pay). Stop 10.62. If trigger is not hit, no trade. Score 53. Only trade when market is RISK-ON.",
       "tp1": 12.0577,
-      "cap_target": 11.5879,
-      "r_mult": -0.0567
+      "cap_target": 12.4696,
+      "r_mult": 0.8055
     },
     {
       "symbol": "FMG.AX",
@@ -1013,14 +1013,14 @@
       "entry": 20.04,
       "entry_text": "20.04",
       "last_close": 20.04,
-      "stop": 19.2198,
+      "stop": 19.3839,
       "risk": null,
       "score": 53.0,
       "status": "Watch",
-      "plain_english": "Mean Reversion (bounce): LIMIT buy near 20.04. Stop 19.2198 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 53.",
+      "plain_english": "Mean Reversion (bounce): LIMIT buy near 20.04. Stop 19.3839 (~1.2 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 53.",
       "tp1": 20.8602,
       "cap_target": 21.6804,
-      "r_mult": 2.0
+      "r_mult": 2.5
     },
     {
       "symbol": "VCX.AX",
@@ -1034,8 +1034,8 @@
       "status": "Watch",
       "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 2.63 (activates only if price breaks up). Limit 2.63 (max pay). Stop 2.49. If trigger is not hit, no trade. Score 53. Only trade when market is RISK-ON.",
       "tp1": 2.7097,
-      "cap_target": 2.665,
-      "r_mult": 0.2263
+      "cap_target": 2.7863,
+      "r_mult": 1.0875
     },
     {
       "symbol": "BXB.AX",
@@ -1049,8 +1049,8 @@
       "status": "Watch",
       "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 25.07 (activates only if price breaks up). Limit 25.13 (max pay). Stop 22.77. If trigger is not hit, no trade. Score 52. Only trade when market is RISK-ON.",
       "tp1": 25.9978,
-      "cap_target": 25.0,
-      "r_mult": -0.0532
+      "cap_target": 26.8705,
+      "r_mult": 0.7425
     },
     {
       "symbol": "WES.AX",
@@ -1064,8 +1064,8 @@
       "status": "Watch",
       "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 89.74 (activates only if price breaks up). Limit 89.92 (max pay). Stop 83.32. If trigger is not hit, no trade. Score 51. Only trade when market is RISK-ON.",
       "tp1": 92.6425,
-      "cap_target": 89.47,
-      "r_mult": -0.0678
+      "cap_target": 95.3672,
+      "r_mult": 0.8254
     },
     {
       "symbol": "A2M.AX",
@@ -1094,8 +1094,8 @@
       "status": "Watch",
       "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 9.95 (activates only if price breaks up). Limit 9.97 (max pay). Stop 8.40. If trigger is not hit, no trade. Score 50. Only trade when market is RISK-ON.",
       "tp1": 10.4941,
-      "cap_target": 9.92,
-      "r_mult": -0.0317
+      "cap_target": 11.0186,
+      "r_mult": 0.6694
     },
     {
       "symbol": "AFI.AX",
@@ -1454,8 +1454,8 @@
       "status": "Watch",
       "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 52.15 (activates only if price breaks up). Limit 52.25 (max pay). Stop 45.99. If trigger is not hit, no trade. Score 50. Only trade when market is RISK-ON.",
       "tp1": 54.8372,
-      "cap_target": 51.99,
-      "r_mult": -0.0416
+      "cap_target": 57.4242,
+      "r_mult": 0.8263
     },
     {
       "symbol": "SOL.AX",
@@ -1484,8 +1484,8 @@
       "status": "Watch",
       "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 7.10 (activates only if price breaks up). Limit 7.12 (max pay). Stop 6.38. If trigger is not hit, no trade. Score 50. Only trade when market is RISK-ON.",
       "tp1": 7.3817,
-      "cap_target": 7.08,
-      "r_mult": -0.0479
+      "cap_target": 7.6479,
+      "r_mult": 0.7198
     },
     {
       "symbol": "VAS.AX",
@@ -1574,8 +1574,8 @@
       "status": "Watch",
       "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 14.68 (activates only if price breaks up). Limit 14.71 (max pay). Stop 13.33. If trigger is not hit, no trade. Score 46. Only trade when market is RISK-ON.",
       "tp1": 15.5528,
-      "cap_target": 14.9,
-      "r_mult": 0.135
+      "cap_target": 16.3922,
+      "r_mult": 1.2138
     },
     {
       "symbol": "HUB.AX",
@@ -1589,8 +1589,8 @@
       "status": "Watch",
       "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 106.22 (activates only if price breaks up). Limit 106.43 (max pay). Stop 73.51. If trigger is not hit, no trade. Score 45. Only trade when market is RISK-ON.",
       "tp1": 114.8864,
-      "cap_target": 106.71,
-      "r_mult": 0.0085
+      "cap_target": 123.3426,
+      "r_mult": 0.5138
     },
     {
       "symbol": "WOW.AX",
@@ -1604,8 +1604,8 @@
       "status": "Watch",
       "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 32.55 (activates only if price breaks up). Limit 32.61 (max pay). Stop 31.08. If trigger is not hit, no trade. Score 45. Only trade when market is RISK-ON.",
       "tp1": 33.3041,
-      "cap_target": 32.45,
-      "r_mult": -0.1063
+      "cap_target": 33.9957,
+      "r_mult": 0.9054
     },
     {
       "symbol": "MPL.AX",
@@ -1613,14 +1613,14 @@
       "entry": 4.47,
       "entry_text": "4.47",
       "last_close": 4.47,
-      "stop": 4.2975,
+      "stop": 4.332,
       "risk": null,
       "score": 44.0,
       "status": "Watch",
-      "plain_english": "Mean Reversion (bounce): LIMIT buy near 4.47. Stop 4.2975 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 44.",
+      "plain_english": "Mean Reversion (bounce): LIMIT buy near 4.47. Stop 4.332 (~1.2 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 44.",
       "tp1": 4.6425,
       "cap_target": 4.815,
-      "r_mult": 2.0
+      "r_mult": 2.5
     },
     {
       "symbol": "JHX.AX",
@@ -1628,14 +1628,14 @@
       "entry": 35.01,
       "entry_text": "35.01",
       "last_close": 35.01,
-      "stop": 33.3043,
+      "stop": 33.6454,
       "risk": null,
       "score": 43.0,
       "status": "Watch",
-      "plain_english": "Mean Reversion (bounce): LIMIT buy near 35.01. Stop 33.3043 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 43.",
+      "plain_english": "Mean Reversion (bounce): LIMIT buy near 35.01. Stop 33.6454 (~1.2 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 43.",
       "tp1": 36.7157,
       "cap_target": 37.89,
-      "r_mult": 1.6884
+      "r_mult": 2.1106
     },
     {
       "symbol": "COL.AX",
@@ -1649,8 +1649,8 @@
       "status": "Watch",
       "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 22.45 (activates only if price breaks up). Limit 22.49 (max pay). Stop 21.23. If trigger is not hit, no trade. Score 42. Only trade when market is RISK-ON.",
       "tp1": 22.987,
-      "cap_target": 22.62,
-      "r_mult": 0.1012
+      "cap_target": 23.482,
+      "r_mult": 0.7829
     },
     {
       "symbol": "NEM.AX",
@@ -1664,8 +1664,8 @@
       "status": "Watch",
       "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 191.11 (activates only if price breaks up). Limit 191.49 (max pay). Stop 163.43. If trigger is not hit, no trade. Score 41. Only trade when market is RISK-ON.",
       "tp1": 202.4331,
-      "cap_target": 190.54,
-      "r_mult": -0.034
+      "cap_target": 213.3724,
+      "r_mult": 0.7795
     },
     {
       "symbol": "AAI.AX",
@@ -1679,8 +1679,8 @@
       "status": "Watch",
       "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 95.51 (activates only if price breaks up). Limit 95.70 (max pay). Stop 80.23. If trigger is not hit, no trade. Score 40. Only trade when market is RISK-ON.",
       "tp1": 100.2952,
-      "cap_target": 98.32,
-      "r_mult": 0.1697
+      "cap_target": 104.8938,
+      "r_mult": 0.5948
     },
     {
       "symbol": "EVN.AX",
@@ -1694,8 +1694,8 @@
       "status": "Watch",
       "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 16.35 (activates only if price breaks up). Limit 16.38 (max pay). Stop 14.14. If trigger is not hit, no trade. Score 40. Only trade when market is RISK-ON.",
       "tp1": 17.3946,
-      "cap_target": 16.3,
-      "r_mult": -0.0364
+      "cap_target": 18.4077,
+      "r_mult": 0.9043
     },
     {
       "symbol": "JHX.AX",
@@ -1709,8 +1709,8 @@
       "status": "Watch",
       "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 38.00 (activates only if price breaks up). Limit 38.08 (max pay). Stop 34.38. If trigger is not hit, no trade. Score 40. Only trade when market is RISK-ON.",
       "tp1": 39.7854,
-      "cap_target": 37.89,
-      "r_mult": -0.0512
+      "cap_target": 41.4911,
+      "r_mult": 0.921
     },
     {
       "symbol": "LYC.AX",
@@ -1724,8 +1724,8 @@
       "status": "Watch",
       "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 17.84 (activates only if price breaks up). Limit 17.88 (max pay). Stop 14.84. If trigger is not hit, no trade. Score 40. Only trade when market is RISK-ON.",
       "tp1": 19.0614,
-      "cap_target": 17.79,
-      "r_mult": -0.0293
+      "cap_target": 20.2437,
+      "r_mult": 0.7788
     },
     {
       "symbol": "NST.AX",
@@ -1739,8 +1739,8 @@
       "status": "Watch",
       "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 30.30 (activates only if price breaks up). Limit 30.36 (max pay). Stop 27.24. If trigger is not hit, no trade. Score 40. Only trade when market is RISK-ON.",
       "tp1": 31.9518,
-      "cap_target": 30.21,
-      "r_mult": -0.0485
+      "cap_target": 33.5423,
+      "r_mult": 1.0208
     },
     {
       "symbol": "PRU.AX",
@@ -1754,8 +1754,8 @@
       "status": "Watch",
       "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 6.62 (activates only if price breaks up). Limit 6.63 (max pay). Stop 5.38. If trigger is not hit, no trade. Score 40. Only trade when market is RISK-ON.",
       "tp1": 6.977,
-      "cap_target": 6.6,
-      "r_mult": -0.0264
+      "cap_target": 7.3209,
+      "r_mult": 0.5501
     },
     {
       "symbol": "WGX.AX",
@@ -1769,8 +1769,8 @@
       "status": "Watch",
       "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 7.92 (activates only if price breaks up). Limit 7.94 (max pay). Stop 6.72. If trigger is not hit, no trade. Score 40. Only trade when market is RISK-ON.",
       "tp1": 8.4013,
-      "cap_target": 7.9,
-      "r_mult": -0.0325
+      "cap_target": 8.8631,
+      "r_mult": 0.7592
     },
     {
       "symbol": "YAL.AX",
@@ -1784,8 +1784,8 @@
       "status": "Watch",
       "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 6.33 (activates only if price breaks up). Limit 6.34 (max pay). Stop 5.90. If trigger is not hit, no trade. Score 40. Only trade when market is RISK-ON.",
       "tp1": 6.6437,
-      "cap_target": 6.31,
-      "r_mult": -0.0715
+      "cap_target": 6.9459,
+      "r_mult": 1.3673
     },
     {
       "symbol": "BSL.AX",
@@ -1799,8 +1799,8 @@
       "status": "Watch",
       "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 30.81 (activates only if price breaks up). Limit 30.87 (max pay). Stop 27.01. If trigger is not hit, no trade. Score 39. Only trade when market is RISK-ON.",
       "tp1": 32.0841,
-      "cap_target": 30.7145,
-      "r_mult": -0.0399
+      "cap_target": 33.2999,
+      "r_mult": 0.6306
     },
     {
       "symbol": "NEM.AX",
@@ -1808,14 +1808,14 @@
       "entry": 167.6,
       "entry_text": "167.6",
       "last_close": 167.6,
-      "stop": 156.6607,
+      "stop": 158.8486,
       "risk": null,
       "score": 39.0,
       "status": "Watch",
-      "plain_english": "Mean Reversion (bounce): LIMIT buy near 167.6. Stop 156.6607 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 39.",
+      "plain_english": "Mean Reversion (bounce): LIMIT buy near 167.6. Stop 158.8486 (~1.2 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 39.",
       "tp1": 178.5393,
       "cap_target": 189.4786,
-      "r_mult": 2.0
+      "r_mult": 2.5
     },
     {
       "symbol": "SOL.AX",
@@ -1829,8 +1829,8 @@
       "status": "Watch",
       "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 39.87 (activates only if price breaks up). Limit 39.95 (max pay). Stop 36.57. If trigger is not hit, no trade. Score 38. Only trade when market is RISK-ON.",
       "tp1": 41.0279,
-      "cap_target": 39.75,
-      "r_mult": -0.0589
+      "cap_target": 42.1068,
+      "r_mult": 0.6386
     },
     {
       "symbol": "ALQ.AX",
@@ -1844,8 +1844,8 @@
       "status": "Watch",
       "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 25.36 (activates only if price breaks up). Limit 25.41 (max pay). Stop 23.46. If trigger is not hit, no trade. Score 37. Only trade when market is RISK-ON.",
       "tp1": 26.3569,
-      "cap_target": 25.28,
-      "r_mult": -0.0651
+      "cap_target": 27.3073,
+      "r_mult": 0.9773
     },
     {
       "symbol": "CSC.AX",
@@ -1853,14 +1853,14 @@
       "entry": 14.07,
       "entry_text": "14.07",
       "last_close": 14.07,
-      "stop": 12.6761,
+      "stop": 12.9549,
       "risk": null,
       "score": 37.0,
       "status": "Watch",
-      "plain_english": "Mean Reversion (bounce): LIMIT buy near 14.07. Stop 12.6761 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 37.",
+      "plain_english": "Mean Reversion (bounce): LIMIT buy near 14.07. Stop 12.9549 (~1.2 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 37.",
       "tp1": 15.4639,
       "cap_target": 16.8579,
-      "r_mult": 2.0
+      "r_mult": 2.5
     },
     {
       "symbol": "RMS.AX",
@@ -1874,8 +1874,8 @@
       "status": "Watch",
       "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 5.16 (activates only if price breaks up). Limit 5.17 (max pay). Stop 4.29. If trigger is not hit, no trade. Score 37. Only trade when market is RISK-ON.",
       "tp1": 5.4727,
-      "cap_target": 5.14,
-      "r_mult": -0.0295
+      "cap_target": 5.7797,
+      "r_mult": 0.7041
     },
     {
       "symbol": "SGP.AX",
@@ -1883,14 +1883,14 @@
       "entry": 5.06,
       "entry_text": "5.06",
       "last_close": 5.06,
-      "stop": 4.8596,
+      "stop": 4.8997,
       "risk": null,
       "score": 37.0,
       "status": "Watch",
-      "plain_english": "Mean Reversion (bounce): LIMIT buy near 5.06. Stop 4.8596 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 37.",
+      "plain_english": "Mean Reversion (bounce): LIMIT buy near 5.06. Stop 4.8997 (~1.2 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 37.",
       "tp1": 5.2604,
       "cap_target": 5.4607,
-      "r_mult": 2.0
+      "r_mult": 2.5
     },
     {
       "symbol": "LNW.AX",
@@ -1898,14 +1898,14 @@
       "entry": 136.32,
       "entry_text": "136.32",
       "last_close": 136.32,
-      "stop": 124.1957,
+      "stop": 126.6206,
       "risk": null,
       "score": 36.0,
       "status": "Watch",
-      "plain_english": "Mean Reversion (bounce): LIMIT buy near 136.32. Stop 124.1957 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 36.",
+      "plain_english": "Mean Reversion (bounce): LIMIT buy near 136.32. Stop 126.6206 (~1.2 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 36.",
       "tp1": 148.4443,
       "cap_target": 160.5686,
-      "r_mult": 2.0
+      "r_mult": 2.5
     },
     {
       "symbol": "TPG.AX",
@@ -1919,8 +1919,8 @@
       "status": "Watch",
       "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 3.98 (activates only if price breaks up). Limit 3.99 (max pay). Stop 3.74. If trigger is not hit, no trade. Score 36. Only trade when market is RISK-ON.",
       "tp1": 4.0992,
-      "cap_target": 4.03,
-      "r_mult": 0.1617
+      "cap_target": 4.18,
+      "r_mult": 0.7664
     },
     {
       "symbol": "ALL.AX",
@@ -1928,14 +1928,14 @@
       "entry": 48.0,
       "entry_text": "48.0",
       "last_close": 48.0,
-      "stop": 45.5491,
+      "stop": 46.0393,
       "risk": null,
       "score": 35.0,
       "status": "Watch",
-      "plain_english": "Mean Reversion (bounce): LIMIT buy near 48.0. Stop 45.5491 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 35.",
+      "plain_english": "Mean Reversion (bounce): LIMIT buy near 48.0. Stop 46.0393 (~1.2 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 35.",
       "tp1": 50.4509,
       "cap_target": 52.9018,
-      "r_mult": 2.0
+      "r_mult": 2.5
     },
     {
       "symbol": "AMP.AX",
@@ -1943,14 +1943,14 @@
       "entry": 1.36,
       "entry_text": "1.36",
       "last_close": 1.36,
-      "stop": 1.2199,
+      "stop": 1.2479,
       "risk": null,
       "score": 35.0,
       "status": "Watch",
-      "plain_english": "Mean Reversion (bounce): LIMIT buy near 1.36. Stop 1.2199 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 35.",
+      "plain_english": "Mean Reversion (bounce): LIMIT buy near 1.36. Stop 1.2479 (~1.2 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 35.",
       "tp1": 1.5001,
       "cap_target": 1.6402,
-      "r_mult": 2.0
+      "r_mult": 2.5
     },
     {
       "symbol": "CAR.AX",
@@ -1958,14 +1958,14 @@
       "entry": 25.44,
       "entry_text": "25.44",
       "last_close": 25.44,
-      "stop": 23.6132,
+      "stop": 23.9786,
       "risk": null,
       "score": 35.0,
       "status": "Watch",
-      "plain_english": "Mean Reversion (bounce): LIMIT buy near 25.44. Stop 23.6132 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 35.",
+      "plain_english": "Mean Reversion (bounce): LIMIT buy near 25.44. Stop 23.9786 (~1.2 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 35.",
       "tp1": 27.2668,
       "cap_target": 29.0936,
-      "r_mult": 2.0
+      "r_mult": 2.5
     },
     {
       "symbol": "COL.AX",
@@ -1973,14 +1973,14 @@
       "entry": 21.52,
       "entry_text": "21.52",
       "last_close": 21.52,
-      "stop": 21.025,
+      "stop": 21.124,
       "risk": null,
       "score": 35.0,
       "status": "Watch",
-      "plain_english": "Mean Reversion (bounce): LIMIT buy near 21.52. Stop 21.025 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 35.",
+      "plain_english": "Mean Reversion (bounce): LIMIT buy near 21.52. Stop 21.124 (~1.2 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 35.",
       "tp1": 22.015,
       "cap_target": 22.38,
-      "r_mult": 1.7374
+      "r_mult": 2.1717
     },
     {
       "symbol": "HVN.AX",
@@ -1988,14 +1988,14 @@
       "entry": 6.36,
       "entry_text": "6.36",
       "last_close": 6.36,
-      "stop": 6.1377,
+      "stop": 6.1821,
       "risk": null,
       "score": 35.0,
       "status": "Watch",
-      "plain_english": "Mean Reversion (bounce): LIMIT buy near 6.36. Stop 6.1377 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 35.",
+      "plain_english": "Mean Reversion (bounce): LIMIT buy near 6.36. Stop 6.1821 (~1.2 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 35.",
       "tp1": 6.5823,
       "cap_target": 6.8046,
-      "r_mult": 2.0
+      "r_mult": 2.5
     },
     {
       "symbol": "JBH.AX",
@@ -2003,14 +2003,14 @@
       "entry": 84.79,
       "entry_text": "84.79",
       "last_close": 84.79,
-      "stop": 79.3054,
+      "stop": 80.4023,
       "risk": null,
       "score": 35.0,
       "status": "Watch",
-      "plain_english": "Mean Reversion (bounce): LIMIT buy near 84.79. Stop 79.3054 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 35.",
+      "plain_english": "Mean Reversion (bounce): LIMIT buy near 84.79. Stop 80.4023 (~1.2 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 35.",
       "tp1": 90.2746,
       "cap_target": 95.7593,
-      "r_mult": 2.0
+      "r_mult": 2.5
     },
     {
       "symbol": "MGR.AX",
@@ -2018,14 +2018,14 @@
       "entry": 2.0,
       "entry_text": "2.0",
       "last_close": 2.0,
-      "stop": 1.9231,
+      "stop": 1.9385,
       "risk": null,
       "score": 35.0,
       "status": "Watch",
-      "plain_english": "Mean Reversion (bounce): LIMIT buy near 2.0. Stop 1.9231 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 35.",
+      "plain_english": "Mean Reversion (bounce): LIMIT buy near 2.0. Stop 1.9385 (~1.2 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 35.",
       "tp1": 2.0769,
       "cap_target": 2.07,
-      "r_mult": 0.9106
+      "r_mult": 1.1382
     },
     {
       "symbol": "REA.AX",
@@ -2033,14 +2033,14 @@
       "entry": 162.0,
       "entry_text": "162.0",
       "last_close": 162.0,
-      "stop": 148.5905,
+      "stop": 151.2724,
       "risk": null,
       "score": 35.0,
       "status": "Watch",
-      "plain_english": "Mean Reversion (bounce): LIMIT buy near 162.0. Stop 148.5905 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 35.",
+      "plain_english": "Mean Reversion (bounce): LIMIT buy near 162.0. Stop 151.2724 (~1.2 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 35.",
       "tp1": 175.4095,
       "cap_target": 188.8189,
-      "r_mult": 2.0
+      "r_mult": 2.5
     },
     {
       "symbol": "WES.AX",
@@ -2048,14 +2048,14 @@
       "entry": 83.99,
       "entry_text": "83.99",
       "last_close": 83.99,
-      "stop": 81.2654,
+      "stop": 81.8103,
       "risk": null,
       "score": 35.0,
       "status": "Watch",
-      "plain_english": "Mean Reversion (bounce): LIMIT buy near 83.99. Stop 81.2654 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 35.",
+      "plain_english": "Mean Reversion (bounce): LIMIT buy near 83.99. Stop 81.8103 (~1.2 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 35.",
       "tp1": 86.7146,
       "cap_target": 89.4393,
-      "r_mult": 2.0
+      "r_mult": 2.5
     },
     {
       "symbol": "REH.AX",
@@ -2069,8 +2069,8 @@
       "status": "Watch",
       "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 15.43 (activates only if price breaks up). Limit 15.46 (max pay). Stop 13.18. If trigger is not hit, no trade. Score 33. Only trade when market is RISK-ON.",
       "tp1": 16.1625,
-      "cap_target": 15.38,
-      "r_mult": -0.0338
+      "cap_target": 16.8681,
+      "r_mult": 0.6204
     },
     {
       "symbol": "WOR.AX",
@@ -2084,8 +2084,8 @@
       "status": "Watch",
       "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 13.96 (activates only if price breaks up). Limit 13.99 (max pay). Stop 12.73. If trigger is not hit, no trade. Score 33. Only trade when market is RISK-ON.",
       "tp1": 14.5731,
-      "cap_target": 13.92,
-      "r_mult": -0.0554
+      "cap_target": 15.1565,
+      "r_mult": 0.9283
     },
     {
       "symbol": "CDA.AX",
@@ -2099,8 +2099,8 @@
       "status": "Watch",
       "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 40.54 (activates only if price breaks up). Limit 40.62 (max pay). Stop 31.95. If trigger is not hit, no trade. Score 32. Only trade when market is RISK-ON.",
       "tp1": 43.1123,
-      "cap_target": 40.42,
-      "r_mult": -0.0233
+      "cap_target": 45.6023,
+      "r_mult": 0.5746
     },
     {
       "symbol": "NXG.AX",
@@ -2114,8 +2114,8 @@
       "status": "Watch",
       "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 20.53 (activates only if price breaks up). Limit 20.57 (max pay). Stop 15.71. If trigger is not hit, no trade. Score 31. Only trade when market is RISK-ON.",
       "tp1": 21.5405,
-      "cap_target": 20.47,
-      "r_mult": -0.0211
+      "cap_target": 22.5085,
+      "r_mult": 0.3981
     },
     {
       "symbol": "ALD.AX",
@@ -2144,8 +2144,8 @@
       "status": "Watch",
       "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 57.95 (activates only if price breaks up). Limit 58.07 (max pay). Stop 47.37. If trigger is not hit, no trade. Score 30. Only trade when market is RISK-ON.",
       "tp1": 60.5201,
-      "cap_target": 61.0,
-      "r_mult": 0.274
+      "cap_target": 62.971,
+      "r_mult": 0.4582
     },
     {
       "symbol": "APA.AX",
@@ -2174,8 +2174,8 @@
       "status": "Watch",
       "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 29.35 (activates only if price breaks up). Limit 29.41 (max pay). Stop 23.88. If trigger is not hit, no trade. Score 30. Only trade when market is RISK-ON.",
       "tp1": 31.0249,
-      "cap_target": 30.89,
-      "r_mult": 0.2685
+      "cap_target": 32.6433,
+      "r_mult": 0.5857
     },
     {
       "symbol": "CPU.AX",
@@ -2219,8 +2219,8 @@
       "status": "Watch",
       "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 24.29 (activates only if price breaks up). Limit 24.34 (max pay). Stop 16.71. If trigger is not hit, no trade. Score 30. Only trade when market is RISK-ON.",
       "tp1": 26.063,
-      "cap_target": 24.22,
-      "r_mult": -0.0159
+      "cap_target": 27.7848,
+      "r_mult": 0.4514
     },
     {
       "symbol": "IAG.AX",
@@ -2324,8 +2324,8 @@
       "status": "Watch",
       "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 90.40 (activates only if price breaks up). Limit 90.58 (max pay). Stop 71.35. If trigger is not hit, no trade. Score 29. Only trade when market is RISK-ON.",
       "tp1": 96.0658,
-      "cap_target": 100.89,
-      "r_mult": 0.5359
+      "cap_target": 101.5505,
+      "r_mult": 0.5703
     },
     {
       "symbol": "AFI.AX",
@@ -2339,8 +2339,8 @@
       "status": "Watch",
       "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 7.06 (activates only if price breaks up). Limit 7.08 (max pay). Stop 6.80. If trigger is not hit, no trade. Score 28. Only trade when market is RISK-ON.",
       "tp1": 7.1921,
-      "cap_target": 7.0928,
-      "r_mult": 0.0494
+      "cap_target": 7.273,
+      "r_mult": 0.6979
     },
     {
       "symbol": "S32.AX",
@@ -2354,8 +2354,8 @@
       "status": "Watch",
       "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 4.92 (activates only if price breaks up). Limit 4.93 (max pay). Stop 4.20. If trigger is not hit, no trade. Score 28. Only trade when market is RISK-ON.",
       "tp1": 5.2132,
-      "cap_target": 4.91,
-      "r_mult": -0.0336
+      "cap_target": 5.4917,
+      "r_mult": 0.7622
     },
     {
       "symbol": "MGR.AX",
@@ -2378,14 +2378,14 @@
       "entry": 84.81,
       "entry_text": "84.81",
       "last_close": 84.81,
-      "stop": 80.2114,
+      "stop": 81.1311,
       "risk": null,
       "score": 25.0,
       "status": "Watch",
-      "plain_english": "Mean Reversion (bounce): LIMIT buy near 84.81. Stop 80.2114 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 25.",
+      "plain_english": "Mean Reversion (bounce): LIMIT buy near 84.81. Stop 81.1311 (~1.2 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 25.",
       "tp1": 89.4086,
       "cap_target": 94.0071,
-      "r_mult": 2.0
+      "r_mult": 2.5
     },
     {
       "symbol": "AGL.AX",
@@ -2393,14 +2393,14 @@
       "entry": 10.6,
       "entry_text": "10.6",
       "last_close": 10.6,
-      "stop": 10.2363,
+      "stop": 10.309,
       "risk": null,
       "score": 25.0,
       "status": "Watch",
-      "plain_english": "Mean Reversion (bounce): LIMIT buy near 10.6. Stop 10.2363 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 25.",
+      "plain_english": "Mean Reversion (bounce): LIMIT buy near 10.6. Stop 10.309 (~1.2 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 25.",
       "tp1": 10.9638,
       "cap_target": 10.63,
-      "r_mult": 0.0825
+      "r_mult": 0.1031
     },
     {
       "symbol": "AIA.AX",
@@ -2408,14 +2408,14 @@
       "entry": 7.54,
       "entry_text": "7.54",
       "last_close": 7.54,
-      "stop": 7.3155,
+      "stop": 7.3604,
       "risk": null,
       "score": 25.0,
       "status": "Watch",
-      "plain_english": "Mean Reversion (bounce): LIMIT buy near 7.54. Stop 7.3155 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 25.",
+      "plain_english": "Mean Reversion (bounce): LIMIT buy near 7.54. Stop 7.3604 (~1.2 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 25.",
       "tp1": 7.7645,
       "cap_target": 7.56,
-      "r_mult": 0.0891
+      "r_mult": 0.1114
     },
     {
       "symbol": "ALD.AX",
@@ -2423,14 +2423,14 @@
       "entry": 28.98,
       "entry_text": "28.98",
       "last_close": 28.98,
-      "stop": 28.0687,
+      "stop": 28.251,
       "risk": null,
       "score": 25.0,
       "status": "Watch",
-      "plain_english": "Mean Reversion (bounce): LIMIT buy near 28.98. Stop 28.0687 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 25.",
+      "plain_english": "Mean Reversion (bounce): LIMIT buy near 28.98. Stop 28.251 (~1.2 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 25.",
       "tp1": 29.8912,
       "cap_target": 30.8025,
-      "r_mult": 2.0
+      "r_mult": 2.5
     },
     {
       "symbol": "ALQ.AX",
@@ -2438,14 +2438,14 @@
       "entry": 24.57,
       "entry_text": "24.57",
       "last_close": 24.57,
-      "stop": 23.6196,
+      "stop": 23.8097,
       "risk": null,
       "score": 25.0,
       "status": "Watch",
-      "plain_english": "Mean Reversion (bounce): LIMIT buy near 24.57. Stop 23.6196 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 25.",
+      "plain_english": "Mean Reversion (bounce): LIMIT buy near 24.57. Stop 23.8097 (~1.2 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 25.",
       "tp1": 25.5204,
       "cap_target": 25.28,
-      "r_mult": 0.7471
+      "r_mult": 0.9339
     },
     {
       "symbol": "AMC.AX",
@@ -2453,14 +2453,14 @@
       "entry": 70.8,
       "entry_text": "70.8",
       "last_close": 70.8,
-      "stop": 68.6609,
+      "stop": 69.0887,
       "risk": null,
       "score": 25.0,
       "status": "Watch",
-      "plain_english": "Mean Reversion (bounce): LIMIT buy near 70.8. Stop 68.6609 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 25.",
+      "plain_english": "Mean Reversion (bounce): LIMIT buy near 70.8. Stop 69.0887 (~1.2 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 25.",
       "tp1": 72.9391,
       "cap_target": 71.07,
-      "r_mult": 0.1262
+      "r_mult": 0.1578
     },
     {
       "symbol": "ANZ.AX",
@@ -2468,14 +2468,14 @@
       "entry": 40.7,
       "entry_text": "40.7",
       "last_close": 40.7,
-      "stop": 39.1121,
+      "stop": 39.4297,
       "risk": null,
       "score": 25.0,
       "status": "Watch",
-      "plain_english": "Mean Reversion (bounce): LIMIT buy near 40.7. Stop 39.1121 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 25.",
+      "plain_english": "Mean Reversion (bounce): LIMIT buy near 40.7. Stop 39.4297 (~1.2 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 25.",
       "tp1": 42.2879,
       "cap_target": 41.0,
-      "r_mult": 0.1889
+      "r_mult": 0.2362
     },
     {
       "symbol": "APA.AX",
@@ -2483,14 +2483,14 @@
       "entry": 9.14,
       "entry_text": "9.14",
       "last_close": 9.14,
-      "stop": 8.8314,
+      "stop": 8.8931,
       "risk": null,
       "score": 25.0,
       "status": "Watch",
-      "plain_english": "Mean Reversion (bounce): LIMIT buy near 9.14. Stop 8.8314 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 25.",
+      "plain_english": "Mean Reversion (bounce): LIMIT buy near 9.14. Stop 8.8931 (~1.2 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 25.",
       "tp1": 9.4486,
       "cap_target": 9.28,
-      "r_mult": 0.4537
+      "r_mult": 0.5671
     },
     {
       "symbol": "APE.AX",
@@ -2498,14 +2498,14 @@
       "entry": 25.57,
       "entry_text": "25.57",
       "last_close": 25.57,
-      "stop": 23.9516,
+      "stop": 24.2753,
       "risk": null,
       "score": 25.0,
       "status": "Watch",
-      "plain_english": "Mean Reversion (bounce): LIMIT buy near 25.57. Stop 23.9516 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 25.",
+      "plain_english": "Mean Reversion (bounce): LIMIT buy near 25.57. Stop 24.2753 (~1.2 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 25.",
       "tp1": 27.1884,
       "cap_target": 28.8068,
-      "r_mult": 2.0
+      "r_mult": 2.5
     },
     {
       "symbol": "ARG.AX",
@@ -2513,14 +2513,14 @@
       "entry": 9.06,
       "entry_text": "9.06",
       "last_close": 9.06,
-      "stop": 8.9162,
+      "stop": 8.9449,
       "risk": null,
       "score": 25.0,
       "status": "Watch",
-      "plain_english": "Mean Reversion (bounce): LIMIT buy near 9.06. Stop 8.9162 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 25.",
+      "plain_english": "Mean Reversion (bounce): LIMIT buy near 9.06. Stop 8.9449 (~1.2 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 25.",
       "tp1": 9.2038,
       "cap_target": 9.14,
-      "r_mult": 0.5562
+      "r_mult": 0.6952
     },
     {
       "symbol": "AZJ.AX",
@@ -2528,14 +2528,14 @@
       "entry": 4.01,
       "entry_text": "4.01",
       "last_close": 4.01,
-      "stop": 3.8573,
+      "stop": 3.8879,
       "risk": null,
       "score": 25.0,
       "status": "Watch",
-      "plain_english": "Mean Reversion (bounce): LIMIT buy near 4.01. Stop 3.8573 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 25.",
+      "plain_english": "Mean Reversion (bounce): LIMIT buy near 4.01. Stop 3.8879 (~1.2 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 25.",
       "tp1": 4.1627,
       "cap_target": 4.07,
-      "r_mult": 0.393
+      "r_mult": 0.4912
     },
     {
       "symbol": "BHP.AX",
@@ -2543,14 +2543,14 @@
       "entry": 53.33,
       "entry_text": "53.33",
       "last_close": 53.33,
-      "stop": 50.915,
+      "stop": 51.398,
       "risk": null,
       "score": 25.0,
       "status": "Watch",
-      "plain_english": "Mean Reversion (bounce): LIMIT buy near 53.33. Stop 50.915 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 25.",
+      "plain_english": "Mean Reversion (bounce): LIMIT buy near 53.33. Stop 51.398 (~1.2 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 25.",
       "tp1": 55.745,
       "cap_target": 54.2,
-      "r_mult": 0.3602
+      "r_mult": 0.4503
     },
     {
       "symbol": "BSL.AX",
@@ -2558,14 +2558,14 @@
       "entry": 29.0,
       "entry_text": "29.0",
       "last_close": 29.0,
-      "stop": 27.7842,
+      "stop": 28.0273,
       "risk": null,
       "score": 25.0,
       "status": "Watch",
-      "plain_english": "Mean Reversion (bounce): LIMIT buy near 29.0. Stop 27.7842 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 25.",
+      "plain_english": "Mean Reversion (bounce): LIMIT buy near 29.0. Stop 28.0273 (~1.2 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 25.",
       "tp1": 30.2158,
       "cap_target": 30.7145,
-      "r_mult": 1.4102
+      "r_mult": 1.7627
     },
     {
       "symbol": "BXB.AX",
@@ -2573,14 +2573,14 @@
       "entry": 24.22,
       "entry_text": "24.22",
       "last_close": 24.22,
-      "stop": 23.3473,
+      "stop": 23.5219,
       "risk": null,
       "score": 25.0,
       "status": "Watch",
-      "plain_english": "Mean Reversion (bounce): LIMIT buy near 24.22. Stop 23.3473 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 25.",
+      "plain_english": "Mean Reversion (bounce): LIMIT buy near 24.22. Stop 23.5219 (~1.2 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 25.",
       "tp1": 25.0927,
       "cap_target": 25.0,
-      "r_mult": 0.8938
+      "r_mult": 1.1173
     },
     {
       "symbol": "CBA.AX",
@@ -2588,14 +2588,14 @@
       "entry": 179.67,
       "entry_text": "179.67",
       "last_close": 179.67,
-      "stop": 173.4426,
+      "stop": 174.6881,
       "risk": null,
       "score": 25.0,
       "status": "Watch",
-      "plain_english": "Mean Reversion (bounce): LIMIT buy near 179.67. Stop 173.4426 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 25.",
+      "plain_english": "Mean Reversion (bounce): LIMIT buy near 179.67. Stop 174.6881 (~1.2 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 25.",
       "tp1": 185.8974,
       "cap_target": 180.2,
-      "r_mult": 0.0851
+      "r_mult": 0.1064
     },
     {
       "symbol": "CDA.AX",
@@ -2603,14 +2603,14 @@
       "entry": 34.69,
       "entry_text": "34.69",
       "last_close": 34.69,
-      "stop": 32.2,
+      "stop": 32.698,
       "risk": null,
       "score": 25.0,
       "status": "Watch",
-      "plain_english": "Mean Reversion (bounce): LIMIT buy near 34.69. Stop 32.2 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 25.",
+      "plain_english": "Mean Reversion (bounce): LIMIT buy near 34.69. Stop 32.698 (~1.2 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 25.",
       "tp1": 37.18,
       "cap_target": 39.67,
-      "r_mult": 2.0
+      "r_mult": 2.5
     },
     {
       "symbol": "CGF.AX",
@@ -2618,14 +2618,14 @@
       "entry": 8.99,
       "entry_text": "8.99",
       "last_close": 8.99,
-      "stop": 8.4377,
+      "stop": 8.5481,
       "risk": null,
       "score": 25.0,
       "status": "Watch",
-      "plain_english": "Mean Reversion (bounce): LIMIT buy near 8.99. Stop 8.4377 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 25.",
+      "plain_english": "Mean Reversion (bounce): LIMIT buy near 8.99. Stop 8.5481 (~1.2 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 25.",
       "tp1": 9.5423,
       "cap_target": 9.55,
-      "r_mult": 1.0139
+      "r_mult": 1.2674
     },
     {
       "symbol": "EDV.AX",
@@ -2633,14 +2633,14 @@
       "entry": 3.87,
       "entry_text": "3.87",
       "last_close": 3.87,
-      "stop": 3.7714,
+      "stop": 3.7911,
       "risk": null,
       "score": 25.0,
       "status": "Watch",
-      "plain_english": "Mean Reversion (bounce): LIMIT buy near 3.87. Stop 3.7714 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 25.",
+      "plain_english": "Mean Reversion (bounce): LIMIT buy near 3.87. Stop 3.7911 (~1.2 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 25.",
       "tp1": 3.9686,
       "cap_target": 3.96,
-      "r_mult": 0.913
+      "r_mult": 1.1413
     },
     {
       "symbol": "ETPMAG.AX",
@@ -2648,14 +2648,14 @@
       "entry": 102.3,
       "entry_text": "102.3",
       "last_close": 102.3,
-      "stop": 86.5082,
+      "stop": 89.6666,
       "risk": null,
       "score": 25.0,
       "status": "Watch",
-      "plain_english": "Mean Reversion (bounce): LIMIT buy near 102.3. Stop 86.5082 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 25.",
+      "plain_english": "Mean Reversion (bounce): LIMIT buy near 102.3. Stop 89.6666 (~1.2 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 25.",
       "tp1": 118.0918,
       "cap_target": 133.8836,
-      "r_mult": 2.0
+      "r_mult": 2.5
     },
     {
       "symbol": "EVN.AX",
@@ -2663,14 +2663,14 @@
       "entry": 15.05,
       "entry_text": "15.05",
       "last_close": 15.05,
-      "stop": 14.037,
+      "stop": 14.2396,
       "risk": null,
       "score": 25.0,
       "status": "Watch",
-      "plain_english": "Mean Reversion (bounce): LIMIT buy near 15.05. Stop 14.037 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 25.",
+      "plain_english": "Mean Reversion (bounce): LIMIT buy near 15.05. Stop 14.2396 (~1.2 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 25.",
       "tp1": 16.063,
       "cap_target": 16.3,
-      "r_mult": 1.2339
+      "r_mult": 1.5424
     },
     {
       "symbol": "GMD.AX",
@@ -2678,14 +2678,14 @@
       "entry": 6.87,
       "entry_text": "6.87",
       "last_close": 6.87,
-      "stop": 6.3027,
+      "stop": 6.4161,
       "risk": null,
       "score": 25.0,
       "status": "Watch",
-      "plain_english": "Mean Reversion (bounce): LIMIT buy near 6.87. Stop 6.3027 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 25.",
+      "plain_english": "Mean Reversion (bounce): LIMIT buy near 6.87. Stop 6.4161 (~1.2 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 25.",
       "tp1": 7.4373,
       "cap_target": 8.0046,
-      "r_mult": 2.0
+      "r_mult": 2.5
     },
     {
       "symbol": "LYC.AX",
@@ -2693,14 +2693,14 @@
       "entry": 15.68,
       "entry_text": "15.68",
       "last_close": 15.68,
-      "stop": 14.4977,
+      "stop": 14.7341,
       "risk": null,
       "score": 25.0,
       "status": "Watch",
-      "plain_english": "Mean Reversion (bounce): LIMIT buy near 15.68. Stop 14.4977 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 25.",
+      "plain_english": "Mean Reversion (bounce): LIMIT buy near 15.68. Stop 14.7341 (~1.2 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 25.",
       "tp1": 16.8623,
       "cap_target": 17.79,
-      "r_mult": 1.7846
+      "r_mult": 2.2308
     },
     {
       "symbol": "MQG.AX",
@@ -2708,14 +2708,14 @@
       "entry": 219.39,
       "entry_text": "219.39",
       "last_close": 219.39,
-      "stop": 212.2966,
+      "stop": 213.7153,
       "risk": null,
       "score": 25.0,
       "status": "Watch",
-      "plain_english": "Mean Reversion (bounce): LIMIT buy near 219.39. Stop 212.2966 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 25.",
+      "plain_english": "Mean Reversion (bounce): LIMIT buy near 219.39. Stop 213.7153 (~1.2 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 25.",
       "tp1": 226.4834,
       "cap_target": 223.505,
-      "r_mult": 0.5801
+      "r_mult": 0.7251
     },
     {
       "symbol": "NAB.AX",
@@ -2723,14 +2723,14 @@
       "entry": 48.32,
       "entry_text": "48.32",
       "last_close": 48.32,
-      "stop": 46.6545,
+      "stop": 46.9876,
       "risk": null,
       "score": 25.0,
       "status": "Watch",
-      "plain_english": "Mean Reversion (bounce): LIMIT buy near 48.32. Stop 46.6545 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 25.",
+      "plain_english": "Mean Reversion (bounce): LIMIT buy near 48.32. Stop 46.9876 (~1.2 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 25.",
       "tp1": 49.9855,
       "cap_target": 48.68,
-      "r_mult": 0.2161
+      "r_mult": 0.2702
     },
     {
       "symbol": "NST.AX",
@@ -2738,14 +2738,14 @@
       "entry": 28.33,
       "entry_text": "28.33",
       "last_close": 28.33,
-      "stop": 26.7395,
+      "stop": 27.0576,
       "risk": null,
       "score": 25.0,
       "status": "Watch",
-      "plain_english": "Mean Reversion (bounce): LIMIT buy near 28.33. Stop 26.7395 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 25.",
+      "plain_english": "Mean Reversion (bounce): LIMIT buy near 28.33. Stop 27.0576 (~1.2 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 25.",
       "tp1": 29.9205,
       "cap_target": 30.21,
-      "r_mult": 1.182
+      "r_mult": 1.4775
     },
     {
       "symbol": "NXG.AX",
@@ -2753,14 +2753,14 @@
       "entry": 17.64,
       "entry_text": "17.64",
       "last_close": 17.64,
-      "stop": 16.672,
+      "stop": 16.8656,
       "risk": null,
       "score": 25.0,
       "status": "Watch",
-      "plain_english": "Mean Reversion (bounce): LIMIT buy near 17.64. Stop 16.672 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 25.",
+      "plain_english": "Mean Reversion (bounce): LIMIT buy near 17.64. Stop 16.8656 (~1.2 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 25.",
       "tp1": 18.608,
       "cap_target": 19.5761,
-      "r_mult": 2.0
+      "r_mult": 2.5
     },
     {
       "symbol": "ORG.AX",
@@ -2768,14 +2768,14 @@
       "entry": 12.2,
       "entry_text": "12.2",
       "last_close": 12.2,
-      "stop": 11.7136,
+      "stop": 11.8109,
       "risk": null,
       "score": 25.0,
       "status": "Watch",
-      "plain_english": "Mean Reversion (bounce): LIMIT buy near 12.2. Stop 11.7136 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 25.",
+      "plain_english": "Mean Reversion (bounce): LIMIT buy near 12.2. Stop 11.8109 (~1.2 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 25.",
       "tp1": 12.6864,
       "cap_target": 12.35,
-      "r_mult": 0.3084
+      "r_mult": 0.3855
     },
     {
       "symbol": "PRU.AX",
@@ -2783,14 +2783,14 @@
       "entry": 5.87,
       "entry_text": "5.87",
       "last_close": 5.87,
-      "stop": 5.5261,
+      "stop": 5.5949,
       "risk": null,
       "score": 25.0,
       "status": "Watch",
-      "plain_english": "Mean Reversion (bounce): LIMIT buy near 5.87. Stop 5.5261 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 25.",
+      "plain_english": "Mean Reversion (bounce): LIMIT buy near 5.87. Stop 5.5949 (~1.2 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 25.",
       "tp1": 6.2139,
       "cap_target": 6.5579,
-      "r_mult": 2.0
+      "r_mult": 2.5
     },
     {
       "symbol": "QAN.AX",
@@ -2798,14 +2798,14 @@
       "entry": 10.61,
       "entry_text": "10.61",
       "last_close": 10.61,
-      "stop": 10.3304,
+      "stop": 10.3863,
       "risk": null,
       "score": 25.0,
       "status": "Watch",
-      "plain_english": "Mean Reversion (bounce): LIMIT buy near 10.61. Stop 10.3304 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 25.",
+      "plain_english": "Mean Reversion (bounce): LIMIT buy near 10.61. Stop 10.3863 (~1.2 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 25.",
       "tp1": 10.8896,
       "cap_target": 10.84,
-      "r_mult": 0.8225
+      "r_mult": 1.0281
     },
     {
       "symbol": "QBE.AX",
@@ -2813,14 +2813,14 @@
       "entry": 21.48,
       "entry_text": "21.48",
       "last_close": 21.48,
-      "stop": 20.5923,
+      "stop": 20.7699,
       "risk": null,
       "score": 25.0,
       "status": "Watch",
-      "plain_english": "Mean Reversion (bounce): LIMIT buy near 21.48. Stop 20.5923 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 25.",
+      "plain_english": "Mean Reversion (bounce): LIMIT buy near 21.48. Stop 20.7699 (~1.2 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 25.",
       "tp1": 22.3677,
       "cap_target": 21.96,
-      "r_mult": 0.5407
+      "r_mult": 0.6759
     },
     {
       "symbol": "QUB.AX",
@@ -2828,14 +2828,14 @@
       "entry": 5.06,
       "entry_text": "5.06",
       "last_close": 5.06,
-      "stop": 4.9395,
+      "stop": 4.9636,
       "risk": null,
       "score": 25.0,
       "status": "Watch",
-      "plain_english": "Mean Reversion (bounce): LIMIT buy near 5.06. Stop 4.9395 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 25.",
+      "plain_english": "Mean Reversion (bounce): LIMIT buy near 5.06. Stop 4.9636 (~1.2 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 25.",
       "tp1": 5.1805,
       "cap_target": 5.07,
-      "r_mult": 0.083
+      "r_mult": 0.1037
     },
     {
       "symbol": "REH.AX",
@@ -2843,14 +2843,14 @@
       "entry": 13.94,
       "entry_text": "13.94",
       "last_close": 13.94,
-      "stop": 13.2345,
+      "stop": 13.3756,
       "risk": null,
       "score": 25.0,
       "status": "Watch",
-      "plain_english": "Mean Reversion (bounce): LIMIT buy near 13.94. Stop 13.2345 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 25.",
+      "plain_english": "Mean Reversion (bounce): LIMIT buy near 13.94. Stop 13.3756 (~1.2 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 25.",
       "tp1": 14.6455,
       "cap_target": 15.3511,
-      "r_mult": 2.0
+      "r_mult": 2.5
     },
     {
       "symbol": "RHC.AX",
@@ -2858,14 +2858,14 @@
       "entry": 38.62,
       "entry_text": "38.62",
       "last_close": 38.62,
-      "stop": 37.2159,
+      "stop": 37.4967,
       "risk": null,
       "score": 25.0,
       "status": "Watch",
-      "plain_english": "Mean Reversion (bounce): LIMIT buy near 38.62. Stop 37.2159 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 25.",
+      "plain_english": "Mean Reversion (bounce): LIMIT buy near 38.62. Stop 37.4967 (~1.2 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 25.",
       "tp1": 40.0241,
       "cap_target": 39.19,
-      "r_mult": 0.406
+      "r_mult": 0.5074
     },
     {
       "symbol": "RIO.AX",
@@ -2873,14 +2873,14 @@
       "entry": 163.3,
       "entry_text": "163.3",
       "last_close": 163.3,
-      "stop": 155.8755,
+      "stop": 157.3604,
       "risk": null,
       "score": 25.0,
       "status": "Watch",
-      "plain_english": "Mean Reversion (bounce): LIMIT buy near 163.3. Stop 155.8755 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 25.",
+      "plain_english": "Mean Reversion (bounce): LIMIT buy near 163.3. Stop 157.3604 (~1.2 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 25.",
       "tp1": 170.7245,
       "cap_target": 170.19,
-      "r_mult": 0.928
+      "r_mult": 1.16
     },
     {
       "symbol": "RMS.AX",
@@ -2888,14 +2888,14 @@
       "entry": 4.51,
       "entry_text": "4.51",
       "last_close": 4.51,
-      "stop": 4.203,
+      "stop": 4.2644,
       "risk": null,
       "score": 25.0,
       "status": "Watch",
-      "plain_english": "Mean Reversion (bounce): LIMIT buy near 4.51. Stop 4.203 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 25.",
+      "plain_english": "Mean Reversion (bounce): LIMIT buy near 4.51. Stop 4.2644 (~1.2 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 25.",
       "tp1": 4.817,
       "cap_target": 5.1239,
-      "r_mult": 2.0
+      "r_mult": 2.5
     },
     {
       "symbol": "S32.AX",
@@ -2903,14 +2903,14 @@
       "entry": 4.39,
       "entry_text": "4.39",
       "last_close": 4.39,
-      "stop": 4.1114,
+      "stop": 4.1671,
       "risk": null,
       "score": 25.0,
       "status": "Watch",
-      "plain_english": "Mean Reversion (bounce): LIMIT buy near 4.39. Stop 4.1114 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 25.",
+      "plain_english": "Mean Reversion (bounce): LIMIT buy near 4.39. Stop 4.1671 (~1.2 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 25.",
       "tp1": 4.6686,
       "cap_target": 4.91,
-      "r_mult": 1.8667
+      "r_mult": 2.3333
     },
     {
       "symbol": "SFR.AX",
@@ -2924,8 +2924,8 @@
       "status": "Watch",
       "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 21.82 (activates only if price breaks up). Limit 21.86 (max pay). Stop 18.14. If trigger is not hit, no trade. Score 25. Only trade when market is RISK-ON.",
       "tp1": 23.0075,
-      "cap_target": 21.75,
-      "r_mult": -0.0293
+      "cap_target": 24.156,
+      "r_mult": 0.6175
     },
     {
       "symbol": "STO.AX",
@@ -2933,14 +2933,14 @@
       "entry": 6.94,
       "entry_text": "6.94",
       "last_close": 6.94,
-      "stop": 6.6738,
+      "stop": 6.727,
       "risk": null,
       "score": 25.0,
       "status": "Watch",
-      "plain_english": "Mean Reversion (bounce): LIMIT buy near 6.94. Stop 6.6738 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 25.",
+      "plain_english": "Mean Reversion (bounce): LIMIT buy near 6.94. Stop 6.727 (~1.2 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 25.",
       "tp1": 7.2063,
       "cap_target": 7.08,
-      "r_mult": 0.5258
+      "r_mult": 0.6573
     },
     {
       "symbol": "TCL.AX",
@@ -2948,14 +2948,14 @@
       "entry": 14.24,
       "entry_text": "14.24",
       "last_close": 14.24,
-      "stop": 13.8173,
+      "stop": 13.9019,
       "risk": null,
       "score": 25.0,
       "status": "Watch",
-      "plain_english": "Mean Reversion (bounce): LIMIT buy near 14.24. Stop 13.8173 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 25.",
+      "plain_english": "Mean Reversion (bounce): LIMIT buy near 14.24. Stop 13.9019 (~1.2 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 25.",
       "tp1": 14.6627,
       "cap_target": 14.38,
-      "r_mult": 0.3312
+      "r_mult": 0.414
     },
     {
       "symbol": "TLC.AX",
@@ -2963,14 +2963,14 @@
       "entry": 5.58,
       "entry_text": "5.58",
       "last_close": 5.58,
-      "stop": 5.3802,
+      "stop": 5.4201,
       "risk": null,
       "score": 25.0,
       "status": "Watch",
-      "plain_english": "Mean Reversion (bounce): LIMIT buy near 5.58. Stop 5.3802 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 25.",
+      "plain_english": "Mean Reversion (bounce): LIMIT buy near 5.58. Stop 5.4201 (~1.2 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 25.",
       "tp1": 5.7798,
       "cap_target": 5.69,
-      "r_mult": 0.5505
+      "r_mult": 0.6881
     },
     {
       "symbol": "TLS.AX",
@@ -2978,14 +2978,14 @@
       "entry": 5.11,
       "entry_text": "5.11",
       "last_close": 5.11,
-      "stop": 4.9873,
+      "stop": 5.0119,
       "risk": null,
       "score": 25.0,
       "status": "Watch",
-      "plain_english": "Mean Reversion (bounce): LIMIT buy near 5.11. Stop 4.9873 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 25.",
+      "plain_english": "Mean Reversion (bounce): LIMIT buy near 5.11. Stop 5.0119 (~1.2 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 25.",
       "tp1": 5.2327,
       "cap_target": 5.26,
-      "r_mult": 1.2227
+      "r_mult": 1.5284
     },
     {
       "symbol": "VAS.AX",
@@ -2993,14 +2993,14 @@
       "entry": 112.5,
       "entry_text": "112.5",
       "last_close": 112.5,
-      "stop": 110.6368,
+      "stop": 111.0094,
       "risk": null,
       "score": 25.0,
       "status": "Watch",
-      "plain_english": "Mean Reversion (bounce): LIMIT buy near 112.5. Stop 110.6368 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 25.",
+      "plain_english": "Mean Reversion (bounce): LIMIT buy near 112.5. Stop 111.0094 (~1.2 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 25.",
       "tp1": 114.3632,
       "cap_target": 113.0,
-      "r_mult": 0.2684
+      "r_mult": 0.3354
     },
     {
       "symbol": "VCX.AX",
@@ -3008,14 +3008,14 @@
       "entry": 2.55,
       "entry_text": "2.55",
       "last_close": 2.55,
-      "stop": 2.4734,
+      "stop": 2.4887,
       "risk": null,
       "score": 25.0,
       "status": "Watch",
-      "plain_english": "Mean Reversion (bounce): LIMIT buy near 2.55. Stop 2.4734 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 25.",
+      "plain_english": "Mean Reversion (bounce): LIMIT buy near 2.55. Stop 2.4887 (~1.2 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 25.",
       "tp1": 2.6266,
       "cap_target": 2.665,
-      "r_mult": 1.5012
+      "r_mult": 1.8765
     },
     {
       "symbol": "VGE.AX",
@@ -3023,14 +3023,14 @@
       "entry": 90.4,
       "entry_text": "90.4",
       "last_close": 90.4,
-      "stop": 88.7607,
+      "stop": 89.0886,
       "risk": null,
       "score": 25.0,
       "status": "Watch",
-      "plain_english": "Mean Reversion (bounce): LIMIT buy near 90.4. Stop 88.7607 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 25.",
+      "plain_english": "Mean Reversion (bounce): LIMIT buy near 90.4. Stop 89.0886 (~1.2 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 25.",
       "tp1": 92.0393,
       "cap_target": 93.0,
-      "r_mult": 1.5861
+      "r_mult": 1.9826
     },
     {
       "symbol": "VGS.AX",
@@ -3038,14 +3038,14 @@
       "entry": 148.52,
       "entry_text": "148.52",
       "last_close": 148.52,
-      "stop": 146.2979,
+      "stop": 146.7423,
       "risk": null,
       "score": 25.0,
       "status": "Watch",
-      "plain_english": "Mean Reversion (bounce): LIMIT buy near 148.52. Stop 146.2979 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 25.",
+      "plain_english": "Mean Reversion (bounce): LIMIT buy near 148.52. Stop 146.7423 (~1.2 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 25.",
       "tp1": 150.7421,
       "cap_target": 152.9643,
-      "r_mult": 2.0
+      "r_mult": 2.5
     },
     {
       "symbol": "WBC.AX",
@@ -3053,11 +3053,11 @@
       "entry": 42.54,
       "entry_text": "42.54",
       "last_close": 42.54,
-      "stop": 40.9066,
+      "stop": 41.2333,
       "risk": null,
       "score": 25.0,
       "status": "Watch",
-      "plain_english": "Mean Reversion (bounce): LIMIT buy near 42.54. Stop 40.9066 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 25.",
+      "plain_english": "Mean Reversion (bounce): LIMIT buy near 42.54. Stop 41.2333 (~1.2 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 25.",
       "tp1": 44.1734,
       "cap_target": 42.54,
       "r_mult": 0.0
@@ -3068,14 +3068,14 @@
       "entry": 27.43,
       "entry_text": "27.43",
       "last_close": 27.43,
-      "stop": 26.642,
+      "stop": 26.7996,
       "risk": null,
       "score": 25.0,
       "status": "Watch",
-      "plain_english": "Mean Reversion (bounce): LIMIT buy near 27.43. Stop 26.642 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 25.",
+      "plain_english": "Mean Reversion (bounce): LIMIT buy near 27.43. Stop 26.7996 (~1.2 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 25.",
       "tp1": 28.218,
       "cap_target": 27.48,
-      "r_mult": 0.0634
+      "r_mult": 0.0793
     },
     {
       "symbol": "WGX.AX",
@@ -3083,14 +3083,14 @@
       "entry": 7.27,
       "entry_text": "7.27",
       "last_close": 7.27,
-      "stop": 6.8082,
+      "stop": 6.9006,
       "risk": null,
       "score": 25.0,
       "status": "Watch",
-      "plain_english": "Mean Reversion (bounce): LIMIT buy near 7.27. Stop 6.8082 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 25.",
+      "plain_english": "Mean Reversion (bounce): LIMIT buy near 7.27. Stop 6.9006 (~1.2 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 25.",
       "tp1": 7.7318,
       "cap_target": 7.9,
-      "r_mult": 1.3643
+      "r_mult": 1.7053
     },
     {
       "symbol": "WOR.AX",
@@ -3098,14 +3098,14 @@
       "entry": 13.39,
       "entry_text": "13.39",
       "last_close": 13.39,
-      "stop": 12.8066,
+      "stop": 12.9233,
       "risk": null,
       "score": 25.0,
       "status": "Watch",
-      "plain_english": "Mean Reversion (bounce): LIMIT buy near 13.39. Stop 12.8066 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 25.",
+      "plain_english": "Mean Reversion (bounce): LIMIT buy near 13.39. Stop 12.9233 (~1.2 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 25.",
       "tp1": 13.9734,
       "cap_target": 13.92,
-      "r_mult": 0.9085
+      "r_mult": 1.1356
     },
     {
       "symbol": "YAL.AX",
@@ -3113,14 +3113,14 @@
       "entry": 6.1,
       "entry_text": "6.1",
       "last_close": 6.1,
-      "stop": 5.7979,
+      "stop": 5.8583,
       "risk": null,
       "score": 25.0,
       "status": "Watch",
-      "plain_english": "Mean Reversion (bounce): LIMIT buy near 6.1. Stop 5.7979 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 25.",
+      "plain_english": "Mean Reversion (bounce): LIMIT buy near 6.1. Stop 5.8583 (~1.2 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 25.",
       "tp1": 6.4021,
       "cap_target": 6.31,
-      "r_mult": 0.695
+      "r_mult": 0.8688
     },
     {
       "symbol": "ASX.AX",
@@ -3128,14 +3128,14 @@
       "entry": 53.27,
       "entry_text": "53.27",
       "last_close": 53.27,
-      "stop": 51.5556,
+      "stop": 51.8985,
       "risk": null,
       "score": 23.0,
       "status": "Watch",
-      "plain_english": "Mean Reversion (bounce): LIMIT buy near 53.27. Stop 51.5556 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 23.",
+      "plain_english": "Mean Reversion (bounce): LIMIT buy near 53.27. Stop 51.8985 (~1.2 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 23.",
       "tp1": 54.9844,
       "cap_target": 56.6989,
-      "r_mult": 2.0
+      "r_mult": 2.5
     },
     {
       "symbol": "ALD.AX",
@@ -3164,8 +3164,8 @@
       "status": "Watch",
       "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 27.85 (activates only if price breaks up). Limit 27.91 (max pay). Stop 19.81. If trigger is not hit, no trade. Score 22. Only trade when market is RISK-ON.",
       "tp1": 29.8837,
-      "cap_target": 30.56,
-      "r_mult": 0.3274
+      "cap_target": 31.8583,
+      "r_mult": 0.4877
     },
     {
       "symbol": "ASX.AX",
@@ -3179,8 +3179,8 @@
       "status": "Watch",
       "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 57.35 (activates only if price breaks up). Limit 57.47 (max pay). Stop 52.53. If trigger is not hit, no trade. Score 21. Only trade when market is RISK-ON.",
       "tp1": 59.1808,
-      "cap_target": 57.4942,
-      "r_mult": 0.0056
+      "cap_target": 60.8952,
+      "r_mult": 0.6942
     },
     {
       "symbol": "DXS.AX",
@@ -3194,8 +3194,8 @@
       "status": "Watch",
       "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 6.97 (activates only if price breaks up). Limit 6.98 (max pay). Stop 6.12. If trigger is not hit, no trade. Score 21. Only trade when market is RISK-ON.",
       "tp1": 7.2494,
-      "cap_target": 7.2332,
-      "r_mult": 0.2859
+      "cap_target": 7.5141,
+      "r_mult": 0.6091
     },
     {
       "symbol": "XRO.AX",
@@ -3203,14 +3203,14 @@
       "entry": 77.54,
       "entry_text": "77.54",
       "last_close": 77.54,
-      "stop": 70.947,
+      "stop": 72.2656,
       "risk": null,
       "score": 21.0,
       "status": "Watch",
-      "plain_english": "Mean Reversion (bounce): LIMIT buy near 77.54. Stop 70.947 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 21.",
+      "plain_english": "Mean Reversion (bounce): LIMIT buy near 77.54. Stop 72.2656 (~1.2 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 21.",
       "tp1": 84.133,
       "cap_target": 90.7261,
-      "r_mult": 2.0
+      "r_mult": 2.5
     },
     {
       "symbol": "360.AX",
@@ -3359,8 +3359,8 @@
       "status": "Watch",
       "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 31.95 (activates only if price breaks up). Limit 32.01 (max pay). Stop 28.40. If trigger is not hit, no trade. Score 20. Only trade when market is RISK-ON.",
       "tp1": 33.6744,
-      "cap_target": 31.87,
-      "r_mult": -0.0387
+      "cap_target": 35.02,
+      "r_mult": 0.8347
     },
     {
       "symbol": "GPT.AX",
@@ -3629,8 +3629,8 @@
       "status": "Watch",
       "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 26.53 (activates only if price breaks up). Limit 26.58 (max pay). Stop 24.59. If trigger is not hit, no trade. Score 16. Only trade when market is RISK-ON.",
       "tp1": 27.5424,
-      "cap_target": 26.47,
-      "r_mult": -0.0564
+      "cap_target": 28.15,
+      "r_mult": 0.7868
     },
     {
       "symbol": "CGF.AX",
@@ -3644,8 +3644,8 @@
       "status": "Watch",
       "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 9.38 (activates only if price breaks up). Limit 9.40 (max pay). Stop 7.93. If trigger is not hit, no trade. Score 15. Only trade when market is RISK-ON.",
       "tp1": 9.9491,
-      "cap_target": 9.6,
-      "r_mult": 0.1383
+      "cap_target": 10.5014,
+      "r_mult": 0.752
     },
     {
       "symbol": "CHC.AX",
@@ -3659,8 +3659,8 @@
       "status": "Watch",
       "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 25.59 (activates only if price breaks up). Limit 25.64 (max pay). Stop 21.79. If trigger is not hit, no trade. Score 14. Only trade when market is RISK-ON.",
       "tp1": 26.85,
-      "cap_target": 25.6905,
-      "r_mult": 0.0137
+      "cap_target": 28.0623,
+      "r_mult": 0.6298
     },
     {
       "symbol": "IAG.AX",
@@ -3674,8 +3674,8 @@
       "status": "Watch",
       "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 7.76 (activates only if price breaks up). Limit 7.77 (max pay). Stop 6.60. If trigger is not hit, no trade. Score 14. Only trade when market is RISK-ON.",
       "tp1": 8.133,
-      "cap_target": 7.9499,
-      "r_mult": 0.1517
+      "cap_target": 8.4937,
+      "r_mult": 0.6165
     },
     {
       "symbol": "MPL.AX",
@@ -3689,8 +3689,8 @@
       "status": "Watch",
       "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 4.87 (activates only if price breaks up). Limit 4.88 (max pay). Stop 4.41. If trigger is not hit, no trade. Score 14. Only trade when market is RISK-ON.",
       "tp1": 5.0568,
-      "cap_target": 4.89,
-      "r_mult": 0.0119
+      "cap_target": 5.2293,
+      "r_mult": 0.7216
     },
     {
       "symbol": "SOL.AX",
@@ -3698,14 +3698,14 @@
       "entry": 37.94,
       "entry_text": "37.94",
       "last_close": 37.94,
-      "stop": 36.8611,
+      "stop": 37.0769,
       "risk": null,
       "score": 14.0,
       "status": "Watch",
-      "plain_english": "Mean Reversion (bounce): LIMIT buy near 37.94. Stop 36.8611 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 14.",
+      "plain_english": "Mean Reversion (bounce): LIMIT buy near 37.94. Stop 37.0769 (~1.2 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 14.",
       "tp1": 39.0189,
       "cap_target": 39.75,
-      "r_mult": 1.6776
+      "r_mult": 2.097
     },
     {
       "symbol": "SUN.AX",
@@ -3734,8 +3734,8 @@
       "status": "Watch",
       "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 9.62 (activates only if price breaks up). Limit 9.64 (max pay). Stop 7.65. If trigger is not hit, no trade. Score 14. Only trade when market is RISK-ON.",
       "tp1": 10.1293,
-      "cap_target": 9.59,
-      "r_mult": -0.0242
+      "cap_target": 10.6205,
+      "r_mult": 0.495
     },
     {
       "symbol": "SGP.AX",
@@ -3764,8 +3764,8 @@
       "status": "Watch",
       "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 34.63 (activates only if price breaks up). Limit 34.70 (max pay). Stop 30.05. If trigger is not hit, no trade. Score 10. Only trade when market is RISK-ON.",
       "tp1": 35.9532,
-      "cap_target": 35.025,
-      "r_mult": 0.0693
+      "cap_target": 37.2036,
+      "r_mult": 0.5376
     },
     {
       "symbol": "LNW.AX",
@@ -3779,8 +3779,8 @@
       "status": "Watch",
       "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 175.33 (activates only if price breaks up). Limit 175.69 (max pay). Stop 127.57. If trigger is not hit, no trade. Score 10. Only trade when market is RISK-ON.",
       "tp1": 187.8094,
-      "cap_target": 193.0,
-      "r_mult": 0.3599
+      "cap_target": 199.9337,
+      "r_mult": 0.504
     },
     {
       "symbol": "SEK.AX",
@@ -3794,8 +3794,8 @@
       "status": "Watch",
       "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 23.27 (activates only if price breaks up). Limit 23.32 (max pay). Stop 15.55. If trigger is not hit, no trade. Score 10. Only trade when market is RISK-ON.",
       "tp1": 24.8504,
-      "cap_target": 25.6,
-      "r_mult": 0.2942
+      "cap_target": 26.3847,
+      "r_mult": 0.3953
     },
     {
       "symbol": "SIG.AX",
@@ -3809,8 +3809,8 @@
       "status": "Watch",
       "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 3.20 (activates only if price breaks up). Limit 3.21 (max pay). Stop 2.92. If trigger is not hit, no trade. Score 10. Only trade when market is RISK-ON.",
       "tp1": 3.3024,
-      "cap_target": 3.19,
-      "r_mult": -0.0566
+      "cap_target": 3.3988,
+      "r_mult": 0.6838
     },
     {
       "symbol": "WTC.AX",
@@ -3869,8 +3869,8 @@
       "status": "Watch",
       "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 8.45 (activates only if price breaks up). Limit 8.46 (max pay). Stop 6.57. If trigger is not hit, no trade. Score 7. Only trade when market is RISK-ON.",
       "tp1": 9.0295,
-      "cap_target": 8.42,
-      "r_mult": -0.0222
+      "cap_target": 9.5968,
+      "r_mult": 0.5982
     },
     {
       "symbol": "VGS.AX",
@@ -3884,8 +3884,8 @@
       "status": "Watch",
       "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 153.76 (activates only if price breaks up). Limit 154.07 (max pay). Stop 145.96. If trigger is not hit, no trade. Score 7. Only trade when market is RISK-ON.",
       "tp1": 156.2896,
-      "cap_target": 156.1,
-      "r_mult": 0.2507
+      "cap_target": 157.95,
+      "r_mult": 0.4789
     },
     {
       "symbol": "GPT.AX",
@@ -3893,14 +3893,14 @@
       "entry": 5.01,
       "entry_text": "5.01",
       "last_close": 5.01,
-      "stop": 4.8391,
+      "stop": 4.8733,
       "risk": null,
       "score": 6.0,
       "status": "Watch",
-      "plain_english": "Mean Reversion (bounce): LIMIT buy near 5.01. Stop 4.8391 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 6.",
+      "plain_english": "Mean Reversion (bounce): LIMIT buy near 5.01. Stop 4.8733 (~1.2 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 6.",
       "tp1": 5.1809,
       "cap_target": 5.3518,
-      "r_mult": 2.0
+      "r_mult": 2.5
     },
     {
       "symbol": "CPU.AX",
@@ -3914,8 +3914,8 @@
       "status": "Watch",
       "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 34.94 (activates only if price breaks up). Limit 35.01 (max pay). Stop 29.21. If trigger is not hit, no trade. Score 5. Only trade when market is RISK-ON.",
       "tp1": 36.7098,
-      "cap_target": 35.7191,
-      "r_mult": 0.1223
+      "cap_target": 38.4105,
+      "r_mult": 0.5861
     },
     {
       "symbol": "ALX.AX",
@@ -3929,8 +3929,8 @@
       "status": "Watch",
       "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 4.98 (activates only if price breaks up). Limit 4.99 (max pay). Stop 4.49. If trigger is not hit, no trade. Score 4. Only trade when market is RISK-ON.",
       "tp1": 5.1915,
-      "cap_target": 5.12,
-      "r_mult": 0.2465
+      "cap_target": 5.3881,
+      "r_mult": 0.7746
     },
     {
       "symbol": "RMD.AX",
@@ -3944,8 +3944,8 @@
       "status": "Watch",
       "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 39.01 (activates only if price breaks up). Limit 39.08 (max pay). Stop 33.86. If trigger is not hit, no trade. Score 4. Only trade when market is RISK-ON.",
       "tp1": 40.7005,
-      "cap_target": 39.8779,
-      "r_mult": 0.152
+      "cap_target": 42.3168,
+      "r_mult": 0.6189
     },
     {
       "symbol": "COH.AX",
@@ -3959,8 +3959,8 @@
       "status": "Watch",
       "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 279.19 (activates only if price breaks up). Limit 279.74 (max pay). Stop 192.29. If trigger is not hit, no trade. Score 2. Only trade when market is RISK-ON.",
       "tp1": 294.2173,
-      "cap_target": 284.88,
-      "r_mult": 0.0587
+      "cap_target": 308.6913,
+      "r_mult": 0.331
     },
     {
       "symbol": "GMG.AX",
@@ -3968,14 +3968,14 @@
       "entry": 30.32,
       "entry_text": "30.32",
       "last_close": 30.32,
-      "stop": 28.655,
+      "stop": 28.988,
       "risk": null,
       "score": 2.0,
       "status": "Watch",
-      "plain_english": "Mean Reversion (bounce): LIMIT buy near 30.32. Stop 28.655 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 2.",
+      "plain_english": "Mean Reversion (bounce): LIMIT buy near 30.32. Stop 28.988 (~1.2 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 2.",
       "tp1": 31.985,
       "cap_target": 31.87,
-      "r_mult": 0.9309
+      "r_mult": 1.1637
     },
     {
       "symbol": "MIN.AX",
@@ -3989,8 +3989,8 @@
       "status": "Watch",
       "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 65.99 (activates only if price breaks up). Limit 66.12 (max pay). Stop 49.69. If trigger is not hit, no trade. Score 2. Only trade when market is RISK-ON.",
       "tp1": 69.8158,
-      "cap_target": 65.79,
-      "r_mult": -0.0201
+      "cap_target": 73.5122,
+      "r_mult": 0.4501
     },
     {
       "symbol": "360.AX",
@@ -4013,14 +4013,14 @@
       "entry": 23.84,
       "entry_text": "23.84",
       "last_close": 23.84,
-      "stop": 21.6795,
+      "stop": 22.1116,
       "risk": null,
       "score": 0.0,
       "status": "Watch",
-      "plain_english": "Mean Reversion (bounce): LIMIT buy near 23.84. Stop 21.6795 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 0.",
+      "plain_english": "Mean Reversion (bounce): LIMIT buy near 23.84. Stop 22.1116 (~1.2 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 0.",
       "tp1": 26.0005,
       "cap_target": 28.1611,
-      "r_mult": 2.0
+      "r_mult": 2.5
     },
     {
       "symbol": "AFI.AX",
@@ -4028,14 +4028,14 @@
       "entry": 6.92,
       "entry_text": "6.92",
       "last_close": 6.92,
-      "stop": 6.807,
+      "stop": 6.8296,
       "risk": null,
       "score": 0.0,
       "status": "Watch",
-      "plain_english": "Mean Reversion (bounce): LIMIT buy near 6.92. Stop 6.807 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 0.",
+      "plain_english": "Mean Reversion (bounce): LIMIT buy near 6.92. Stop 6.8296 (~1.2 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 0.",
       "tp1": 7.033,
       "cap_target": 7.0928,
-      "r_mult": 1.5284
+      "r_mult": 1.9105
     },
     {
       "symbol": "ALL.AX",
@@ -4058,14 +4058,14 @@
       "entry": 4.78,
       "entry_text": "4.78",
       "last_close": 4.78,
-      "stop": 4.5834,
+      "stop": 4.6227,
       "risk": null,
       "score": 0.0,
       "status": "Watch",
-      "plain_english": "Mean Reversion (bounce): LIMIT buy near 4.78. Stop 4.5834 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 0.",
+      "plain_english": "Mean Reversion (bounce): LIMIT buy near 4.78. Stop 4.6227 (~1.2 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 0.",
       "tp1": 4.9766,
       "cap_target": 4.98,
-      "r_mult": 1.0173
+      "r_mult": 1.2716
     },
     {
       "symbol": "AMP.AX",
@@ -4079,8 +4079,8 @@
       "status": "Watch",
       "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 1.77 (activates only if price breaks up). Limit 1.77 (max pay). Stop 1.18. If trigger is not hit, no trade. Score 0. Only trade when market is RISK-ON.",
       "tp1": 1.9139,
-      "cap_target": 1.875,
-      "r_mult": 0.1694
+      "cap_target": 2.054,
+      "r_mult": 0.4692
     },
     {
       "symbol": "ASX.AX",
@@ -4103,14 +4103,14 @@
       "entry": 11.05,
       "entry_text": "11.05",
       "last_close": 11.05,
-      "stop": 10.6382,
+      "stop": 10.7206,
       "risk": null,
       "score": 0.0,
       "status": "Watch",
-      "plain_english": "Mean Reversion (bounce): LIMIT buy near 11.05. Stop 10.6382 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 0.",
+      "plain_english": "Mean Reversion (bounce): LIMIT buy near 11.05. Stop 10.7206 (~1.2 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 0.",
       "tp1": 11.4618,
       "cap_target": 11.5879,
-      "r_mult": 1.3063
+      "r_mult": 1.6329
     },
     {
       "symbol": "BPT.AX",
@@ -4139,8 +4139,8 @@
       "status": "Watch",
       "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 1.28 (activates only if price breaks up). Limit 1.28 (max pay). Stop 1.06. If trigger is not hit, no trade. Score 0. Only trade when market is RISK-ON.",
       "tp1": 1.3371,
-      "cap_target": 1.275,
-      "r_mult": -0.0289
+      "cap_target": 1.3928,
+      "r_mult": 0.505
     },
     {
       "symbol": "BPT.AX",
@@ -4148,14 +4148,14 @@
       "entry": 1.14,
       "entry_text": "1.14",
       "last_close": 1.14,
-      "stop": 1.0843,
+      "stop": 1.0954,
       "risk": null,
       "score": 0.0,
       "status": "Watch",
-      "plain_english": "Mean Reversion (bounce): LIMIT buy near 1.14. Stop 1.0843 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 0.",
+      "plain_english": "Mean Reversion (bounce): LIMIT buy near 1.14. Stop 1.0954 (~1.2 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 0.",
       "tp1": 1.1957,
       "cap_target": 1.2514,
-      "r_mult": 2.0
+      "r_mult": 2.5
     },
     {
       "symbol": "BXB.AX",
@@ -4223,14 +4223,14 @@
       "entry": 198.76,
       "entry_text": "198.76",
       "last_close": 198.76,
-      "stop": 184.2861,
+      "stop": 187.1809,
       "risk": null,
       "score": 0.0,
       "status": "Watch",
-      "plain_english": "Mean Reversion (bounce): LIMIT buy near 198.76. Stop 184.2861 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 0.",
+      "plain_english": "Mean Reversion (bounce): LIMIT buy near 198.76. Stop 187.1809 (~1.2 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 0.",
       "tp1": 213.2339,
       "cap_target": 227.7078,
-      "r_mult": 2.0
+      "r_mult": 2.5
     },
     {
       "symbol": "COL.AX",
@@ -4253,14 +4253,14 @@
       "entry": 31.46,
       "entry_text": "31.46",
       "last_close": 31.46,
-      "stop": 29.7593,
+      "stop": 30.0994,
       "risk": null,
       "score": 0.0,
       "status": "Watch",
-      "plain_english": "Mean Reversion (bounce): LIMIT buy near 31.46. Stop 29.7593 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 0.",
+      "plain_english": "Mean Reversion (bounce): LIMIT buy near 31.46. Stop 30.0994 (~1.2 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 0.",
       "tp1": 33.1607,
       "cap_target": 34.8614,
-      "r_mult": 2.0
+      "r_mult": 2.5
     },
     {
       "symbol": "CSC.AX",
@@ -4274,8 +4274,8 @@
       "status": "Watch",
       "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 17.88 (activates only if price breaks up). Limit 17.92 (max pay). Stop 12.48. If trigger is not hit, no trade. Score 0. Only trade when market is RISK-ON.",
       "tp1": 19.3132,
-      "cap_target": 17.83,
-      "r_mult": -0.0164
+      "cap_target": 20.7071,
+      "r_mult": 0.5123
     },
     {
       "symbol": "CSL.AX",
@@ -4304,8 +4304,8 @@
       "status": "Watch",
       "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 185.17 (activates only if price breaks up). Limit 185.54 (max pay). Stop 148.28. If trigger is not hit, no trade. Score 0. Only trade when market is RISK-ON.",
       "tp1": 194.9347,
-      "cap_target": 188.67,
-      "r_mult": 0.0839
+      "cap_target": 204.3253,
+      "r_mult": 0.5041
     },
     {
       "symbol": "CSL.AX",
@@ -4313,14 +4313,14 @@
       "entry": 153.27,
       "entry_text": "153.27",
       "last_close": 153.27,
-      "stop": 143.8795,
+      "stop": 145.7576,
       "risk": null,
       "score": 0.0,
       "status": "Watch",
-      "plain_english": "Mean Reversion (bounce): LIMIT buy near 153.27. Stop 143.8795 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 0.",
+      "plain_english": "Mean Reversion (bounce): LIMIT buy near 153.27. Stop 145.7576 (~1.2 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 0.",
       "tp1": 162.6605,
       "cap_target": 172.0511,
-      "r_mult": 2.0
+      "r_mult": 2.5
     },
     {
       "symbol": "DXS.AX",
@@ -4328,14 +4328,14 @@
       "entry": 6.69,
       "entry_text": "6.69",
       "last_close": 6.69,
-      "stop": 6.4254,
+      "stop": 6.4783,
       "risk": null,
       "score": 0.0,
       "status": "Watch",
-      "plain_english": "Mean Reversion (bounce): LIMIT buy near 6.69. Stop 6.4254 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 0.",
+      "plain_english": "Mean Reversion (bounce): LIMIT buy near 6.69. Stop 6.4783 (~1.2 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 0.",
       "tp1": 6.9546,
       "cap_target": 7.06,
-      "r_mult": 1.3981
+      "r_mult": 1.7476
     },
     {
       "symbol": "ETPMAG.AX",
@@ -4349,8 +4349,8 @@
       "status": "Watch",
       "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 156.36 (activates only if price breaks up). Limit 156.67 (max pay). Stop 91.25. If trigger is not hit, no trade. Score 0. Only trade when market is RISK-ON.",
       "tp1": 172.4622,
-      "cap_target": 155.89,
-      "r_mult": -0.0119
+      "cap_target": 188.254,
+      "r_mult": 0.4828
     },
     {
       "symbol": "FMG.AX",
@@ -4379,8 +4379,8 @@
       "status": "Watch",
       "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 22.81 (activates only if price breaks up). Limit 22.85 (max pay). Stop 19.76. If trigger is not hit, no trade. Score 0. Only trade when market is RISK-ON.",
       "tp1": 23.674,
-      "cap_target": 23.38,
-      "r_mult": 0.1702
+      "cap_target": 24.4942,
+      "r_mult": 0.5308
     },
     {
       "symbol": "FPH.AX",
@@ -4388,14 +4388,14 @@
       "entry": 31.66,
       "entry_text": "31.66",
       "last_close": 31.66,
-      "stop": 30.4096,
+      "stop": 30.6597,
       "risk": null,
       "score": 0.0,
       "status": "Watch",
-      "plain_english": "Mean Reversion (bounce): LIMIT buy near 31.66. Stop 30.4096 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 0.",
+      "plain_english": "Mean Reversion (bounce): LIMIT buy near 31.66. Stop 30.6597 (~1.2 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 0.",
       "tp1": 32.9104,
       "cap_target": 34.1607,
-      "r_mult": 2.0
+      "r_mult": 2.5
     },
     {
       "symbol": "GPT.AX",
@@ -4409,8 +4409,8 @@
       "status": "Watch",
       "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 5.56 (activates only if price breaks up). Limit 5.57 (max pay). Stop 4.86. If trigger is not hit, no trade. Score 0. Only trade when market is RISK-ON.",
       "tp1": 5.7386,
-      "cap_target": 5.6259,
-      "r_mult": 0.0824
+      "cap_target": 5.9095,
+      "r_mult": 0.484
     },
     {
       "symbol": "GYG.AX",
@@ -4448,14 +4448,14 @@
       "entry": 97.5,
       "entry_text": "97.5",
       "last_close": 97.5,
-      "stop": 89.0438,
+      "stop": 90.735,
       "risk": null,
       "score": 0.0,
       "status": "Watch",
-      "plain_english": "Mean Reversion (bounce): LIMIT buy near 97.5. Stop 89.0438 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 0.",
+      "plain_english": "Mean Reversion (bounce): LIMIT buy near 97.5. Stop 90.735 (~1.2 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 0.",
       "tp1": 105.9562,
       "cap_target": 106.71,
-      "r_mult": 1.0891
+      "r_mult": 1.3614
     },
     {
       "symbol": "HVN.AX",
@@ -4478,14 +4478,14 @@
       "entry": 7.08,
       "entry_text": "7.08",
       "last_close": 7.08,
-      "stop": 6.7194,
+      "stop": 6.7915,
       "risk": null,
       "score": 0.0,
       "status": "Watch",
-      "plain_english": "Mean Reversion (bounce): LIMIT buy near 7.08. Stop 6.7194 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 0.",
+      "plain_english": "Mean Reversion (bounce): LIMIT buy near 7.08. Stop 6.7915 (~1.2 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 0.",
       "tp1": 7.4406,
       "cap_target": 7.8012,
-      "r_mult": 2.0
+      "r_mult": 2.5
     },
     {
       "symbol": "IFT.AX",
@@ -4499,8 +4499,8 @@
       "status": "Watch",
       "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 9.77 (activates only if price breaks up). Limit 9.79 (max pay). Stop 9.09. If trigger is not hit, no trade. Score 0. Only trade when market is RISK-ON.",
       "tp1": 10.145,
-      "cap_target": 10.455,
-      "r_mult": 0.9543
+      "cap_target": 10.5013,
+      "r_mult": 1.0206
     },
     {
       "symbol": "IFT.AX",
@@ -4508,14 +4508,14 @@
       "entry": 9.27,
       "entry_text": "9.27",
       "last_close": 9.27,
-      "stop": 8.9138,
+      "stop": 8.985,
       "risk": null,
       "score": 0.0,
       "status": "Watch",
-      "plain_english": "Mean Reversion (bounce): LIMIT buy near 9.27. Stop 8.9138 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 0.",
+      "plain_english": "Mean Reversion (bounce): LIMIT buy near 9.27. Stop 8.985 (~1.2 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 0.",
       "tp1": 9.6263,
       "cap_target": 9.9825,
-      "r_mult": 2.0
+      "r_mult": 2.5
     },
     {
       "symbol": "IGO.AX",
@@ -4529,8 +4529,8 @@
       "status": "Watch",
       "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 9.53 (activates only if price breaks up). Limit 9.55 (max pay). Stop 7.73. If trigger is not hit, no trade. Score 0. Only trade when market is RISK-ON.",
       "tp1": 10.0967,
-      "cap_target": 9.5,
-      "r_mult": -0.0261
+      "cap_target": 10.6458,
+      "r_mult": 0.6037
     },
     {
       "symbol": "IVV.AX",
@@ -4559,8 +4559,8 @@
       "status": "Watch",
       "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 68.12 (activates only if price breaks up). Limit 68.26 (max pay). Stop 63.94. If trigger is not hit, no trade. Score 0. Only trade when market is RISK-ON.",
       "tp1": 69.2505,
-      "cap_target": 69.635,
-      "r_mult": 0.3187
+      "cap_target": 70.2411,
+      "r_mult": 0.4591
     },
     {
       "symbol": "IVV.AX",
@@ -4568,14 +4568,14 @@
       "entry": 65.13,
       "entry_text": "65.13",
       "last_close": 65.13,
-      "stop": 64.1395,
+      "stop": 64.3376,
       "risk": null,
       "score": 0.0,
       "status": "Watch",
-      "plain_english": "Mean Reversion (bounce): LIMIT buy near 65.13. Stop 64.1395 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 0.",
+      "plain_english": "Mean Reversion (bounce): LIMIT buy near 65.13. Stop 64.3376 (~1.2 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 0.",
       "tp1": 66.1205,
       "cap_target": 67.1111,
-      "r_mult": 2.0
+      "r_mult": 2.5
     },
     {
       "symbol": "MIN.AX",
@@ -4619,8 +4619,8 @@
       "status": "Watch",
       "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 55.64 (activates only if price breaks up). Limit 55.75 (max pay). Stop 50.99. If trigger is not hit, no trade. Score 0. Only trade when market is RISK-ON.",
       "tp1": 56.802,
-      "cap_target": 57.45,
-      "r_mult": 0.3581
+      "cap_target": 57.8563,
+      "r_mult": 0.4436
     },
     {
       "symbol": "NDQ.AX",
@@ -4628,14 +4628,14 @@
       "entry": 52.09,
       "entry_text": "52.09",
       "last_close": 52.09,
-      "stop": 51.0357,
+      "stop": 51.2466,
       "risk": null,
       "score": 0.0,
       "status": "Watch",
-      "plain_english": "Mean Reversion (bounce): LIMIT buy near 52.09. Stop 51.0357 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 0.",
+      "plain_english": "Mean Reversion (bounce): LIMIT buy near 52.09. Stop 51.2466 (~1.2 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 0.",
       "tp1": 53.1443,
       "cap_target": 54.1986,
-      "r_mult": 2.0
+      "r_mult": 2.5
     },
     {
       "symbol": "NWS.AX",
@@ -4649,8 +4649,8 @@
       "status": "Watch",
       "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 45.93 (activates only if price breaks up). Limit 46.02 (max pay). Stop 35.62. If trigger is not hit, no trade. Score 0. Only trade when market is RISK-ON.",
       "tp1": 48.3539,
-      "cap_target": 46.07,
-      "r_mult": 0.0049
+      "cap_target": 50.6885,
+      "r_mult": 0.449
     },
     {
       "symbol": "NWS.AX",
@@ -4658,14 +4658,14 @@
       "entry": 37.25,
       "entry_text": "37.25",
       "last_close": 37.25,
-      "stop": 34.9154,
+      "stop": 35.3823,
       "risk": null,
       "score": 0.0,
       "status": "Watch",
-      "plain_english": "Mean Reversion (bounce): LIMIT buy near 37.25. Stop 34.9154 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 0.",
+      "plain_english": "Mean Reversion (bounce): LIMIT buy near 37.25. Stop 35.3823 (~1.2 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 0.",
       "tp1": 39.5846,
       "cap_target": 41.9193,
-      "r_mult": 2.0
+      "r_mult": 2.5
     },
     {
       "symbol": "NXT.AX",
@@ -4688,14 +4688,14 @@
       "entry": 13.92,
       "entry_text": "13.92",
       "last_close": 13.92,
-      "stop": 13.0805,
+      "stop": 13.2484,
       "risk": null,
       "score": 0.0,
       "status": "Watch",
-      "plain_english": "Mean Reversion (bounce): LIMIT buy near 13.92. Stop 13.0805 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 0.",
+      "plain_english": "Mean Reversion (bounce): LIMIT buy near 13.92. Stop 13.2484 (~1.2 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 0.",
       "tp1": 14.7595,
       "cap_target": 14.64,
-      "r_mult": 0.8577
+      "r_mult": 1.0721
     },
     {
       "symbol": "PLS.AX",
@@ -4724,8 +4724,8 @@
       "status": "Watch",
       "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 5.18 (activates only if price breaks up). Limit 5.19 (max pay). Stop 4.05. If trigger is not hit, no trade. Score 0. Only trade when market is RISK-ON.",
       "tp1": 5.5324,
-      "cap_target": 5.16,
-      "r_mult": -0.0228
+      "cap_target": 5.879,
+      "r_mult": 0.6115
     },
     {
       "symbol": "PME.AX",
@@ -4748,14 +4748,14 @@
       "entry": 126.51,
       "entry_text": "126.51",
       "last_close": 126.51,
-      "stop": 111.1752,
+      "stop": 114.2421,
       "risk": null,
       "score": 0.0,
       "status": "Watch",
-      "plain_english": "Mean Reversion (bounce): LIMIT buy near 126.51. Stop 111.1752 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 0.",
+      "plain_english": "Mean Reversion (bounce): LIMIT buy near 126.51. Stop 114.2421 (~1.2 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 0.",
       "tp1": 141.8448,
       "cap_target": 157.1796,
-      "r_mult": 2.0
+      "r_mult": 2.5
     },
     {
       "symbol": "REA.AX",
@@ -4784,8 +4784,8 @@
       "status": "Watch",
       "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 197.64 (activates only if price breaks up). Limit 198.04 (max pay). Stop 155.51. If trigger is not hit, no trade. Score 0. Only trade when market is RISK-ON.",
       "tp1": 211.4459,
-      "cap_target": 204.28,
-      "r_mult": 0.1468
+      "cap_target": 224.8554,
+      "r_mult": 0.6306
     },
     {
       "symbol": "RMD.AX",
@@ -4793,14 +4793,14 @@
       "entry": 36.3,
       "entry_text": "36.3",
       "last_close": 36.3,
-      "stop": 34.6837,
+      "stop": 35.007,
       "risk": null,
       "score": 0.0,
       "status": "Watch",
-      "plain_english": "Mean Reversion (bounce): LIMIT buy near 36.3. Stop 34.6837 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 0.",
+      "plain_english": "Mean Reversion (bounce): LIMIT buy near 36.3. Stop 35.007 (~1.2 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 0.",
       "tp1": 37.9163,
       "cap_target": 39.0392,
-      "r_mult": 1.6948
+      "r_mult": 2.1184
     },
     {
       "symbol": "SCG.AX",
@@ -4814,8 +4814,8 @@
       "status": "Watch",
       "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 4.10 (activates only if price breaks up). Limit 4.11 (max pay). Stop 3.69. If trigger is not hit, no trade. Score 0. Only trade when market is RISK-ON.",
       "tp1": 4.2205,
-      "cap_target": 4.1539,
-      "r_mult": 0.1027
+      "cap_target": 4.3302,
+      "r_mult": 0.5231
     },
     {
       "symbol": "SCG.AX",
@@ -4823,14 +4823,14 @@
       "entry": 3.81,
       "entry_text": "3.81",
       "last_close": 3.81,
-      "stop": 3.7004,
+      "stop": 3.7223,
       "risk": null,
       "score": 0.0,
       "status": "Watch",
-      "plain_english": "Mean Reversion (bounce): LIMIT buy near 3.81. Stop 3.7004 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 0.",
+      "plain_english": "Mean Reversion (bounce): LIMIT buy near 3.81. Stop 3.7223 (~1.2 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 0.",
       "tp1": 3.9196,
       "cap_target": 4.0293,
-      "r_mult": 2.0
+      "r_mult": 2.5
     },
     {
       "symbol": "SEK.AX",
@@ -4838,14 +4838,14 @@
       "entry": 16.27,
       "entry_text": "16.27",
       "last_close": 16.27,
-      "stop": 14.7357,
+      "stop": 15.0426,
       "risk": null,
       "score": 0.0,
       "status": "Watch",
-      "plain_english": "Mean Reversion (bounce): LIMIT buy near 16.27. Stop 14.7357 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 0.",
+      "plain_english": "Mean Reversion (bounce): LIMIT buy near 16.27. Stop 15.0426 (~1.2 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 0.",
       "tp1": 17.8043,
       "cap_target": 19.3386,
-      "r_mult": 2.0
+      "r_mult": 2.5
     },
     {
       "symbol": "SGH.AX",
@@ -4853,14 +4853,14 @@
       "entry": 47.7,
       "entry_text": "47.7",
       "last_close": 47.7,
-      "stop": 45.113,
+      "stop": 45.6304,
       "risk": null,
       "score": 0.0,
       "status": "Watch",
-      "plain_english": "Mean Reversion (bounce): LIMIT buy near 47.7. Stop 45.113 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 0.",
+      "plain_english": "Mean Reversion (bounce): LIMIT buy near 47.7. Stop 45.6304 (~1.2 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 0.",
       "tp1": 50.287,
       "cap_target": 51.99,
-      "r_mult": 1.6583
+      "r_mult": 2.0729
     },
     {
       "symbol": "SGP.AX",
@@ -4898,14 +4898,14 @@
       "entry": 23.37,
       "entry_text": "23.37",
       "last_close": 23.37,
-      "stop": 22.3934,
+      "stop": 22.5887,
       "risk": null,
       "score": 0.0,
       "status": "Watch",
-      "plain_english": "Mean Reversion (bounce): LIMIT buy near 23.37. Stop 22.3934 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 0.",
+      "plain_english": "Mean Reversion (bounce): LIMIT buy near 23.37. Stop 22.5887 (~1.2 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 0.",
       "tp1": 24.3466,
       "cap_target": 24.27,
-      "r_mult": 0.9216
+      "r_mult": 1.1519
     },
     {
       "symbol": "SIG.AX",
@@ -4958,14 +4958,14 @@
       "entry": 15.52,
       "entry_text": "15.52",
       "last_close": 15.52,
-      "stop": 14.897,
+      "stop": 15.0216,
       "risk": null,
       "score": 0.0,
       "status": "Watch",
-      "plain_english": "Mean Reversion (bounce): LIMIT buy near 15.52. Stop 14.897 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 0.",
+      "plain_english": "Mean Reversion (bounce): LIMIT buy near 15.52. Stop 15.0216 (~1.2 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 0.",
       "tp1": 16.143,
       "cap_target": 16.7661,
-      "r_mult": 2.0
+      "r_mult": 2.5
     },
     {
       "symbol": "TCL.AX",
@@ -5003,14 +5003,14 @@
       "entry": 24.75,
       "entry_text": "24.75",
       "last_close": 24.75,
-      "stop": 22.7754,
+      "stop": 23.1703,
       "risk": null,
       "score": 0.0,
       "status": "Watch",
-      "plain_english": "Mean Reversion (bounce): LIMIT buy near 24.75. Stop 22.7754 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 0.",
+      "plain_english": "Mean Reversion (bounce): LIMIT buy near 24.75. Stop 23.1703 (~1.2 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 0.",
       "tp1": 26.7246,
       "cap_target": 28.6993,
-      "r_mult": 2.0
+      "r_mult": 2.5
     },
     {
       "symbol": "TPG.AX",
@@ -5018,14 +5018,14 @@
       "entry": 3.9,
       "entry_text": "3.9",
       "last_close": 3.9,
-      "stop": 3.7907,
+      "stop": 3.8126,
       "risk": null,
       "score": 0.0,
       "status": "Watch",
-      "plain_english": "Mean Reversion (bounce): LIMIT buy near 3.9. Stop 3.7907 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 0.",
+      "plain_english": "Mean Reversion (bounce): LIMIT buy near 3.9. Stop 3.8126 (~1.2 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 0.",
       "tp1": 4.0093,
       "cap_target": 4.03,
-      "r_mult": 1.1895
+      "r_mult": 1.4869
     },
     {
       "symbol": "WES.AX",
@@ -5048,14 +5048,14 @@
       "entry": 47.1,
       "entry_text": "47.1",
       "last_close": 47.1,
-      "stop": 42.1007,
+      "stop": 43.1006,
       "risk": null,
       "score": 0.0,
       "status": "Watch",
-      "plain_english": "Mean Reversion (bounce): LIMIT buy near 47.1. Stop 42.1007 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 0.",
+      "plain_english": "Mean Reversion (bounce): LIMIT buy near 47.1. Stop 43.1006 (~1.2 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 0.",
       "tp1": 52.0993,
       "cap_target": 57.0986,
-      "r_mult": 2.0
+      "r_mult": 2.5
     },
     {
       "symbol": "XRO.AX",
@@ -5093,14 +5093,14 @@
       "entry": 74.0,
       "entry_text": "74.0",
       "last_close": 74.0,
-      "stop": 68.7168,
+      "stop": 69.7734,
       "risk": null,
       "score": 0.0,
       "status": "Watch",
-      "plain_english": "Mean Reversion (bounce): LIMIT buy near 74.0. Stop 68.7168 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 0.",
+      "plain_english": "Mean Reversion (bounce): LIMIT buy near 74.0. Stop 69.7734 (~1.2 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 0.",
       "tp1": 79.2832,
       "cap_target": 84.5664,
-      "r_mult": 2.0
+      "r_mult": 2.5
     },
     {
       "symbol": "QBE.AX",
@@ -5182,7 +5182,7 @@
     "repo_root": "/home/runner/work/itradelite/itradelite",
     "reports_dir": "/home/runner/work/itradelite/itradelite/reports",
     "last_run_output": {
-      "timestamp": "2026-02-22 11:03:53",
+      "timestamp": "2026-02-22 11:27:48",
       "risk_mode": "risk_on",
       "data_fresh": true,
       "risk_on": true,
@@ -5191,7 +5191,7 @@
       "axjo_last_bar": "2026-02-20",
       "watchlist_rows_display": "15",
       "watchlist_rows_full": "327",
-      "trade_candidates_rows": "2",
+      "trade_candidates_rows": "3",
       "recommended_rows": "2"
     }
   }
