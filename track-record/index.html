@@ -203,10 +203,10 @@
     }
 
     async function main(){
-      const res = await fetch("/metrics.json", { cache: "no-store" });
+      const res = await fetch("/track-record/metrics.json", { cache: "no-store" });
       if(!res.ok){
         document.getElementById("kpis").innerHTML =
-          `<div class="small muted">Could not load /metrics.json (${res.status}). Publish metrics first.</div>`;
+          `<div class="small muted">Could not load /track-record/metrics.json (${res.status}). Publish metrics first.</div>`;
         return;
       }
       const data = await res.json();
@@ -224,4 +224,5 @@
     main();
   </script>
 </body>
+
 </html>
