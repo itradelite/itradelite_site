@@ -202,27 +202,55 @@
       t.innerHTML = head + body;
     }
 
-    async function main(){
-      const res = await fetch("/track-record/metrics.json", { cache: "no-store" });
-      if(!res.ok){
-        document.getElementById("kpis").innerHTML =
-          `<div class="small muted">Could not load /track-record/metrics.json (${res.status}). Publish metrics first.</div>`;
-        return;
-      }
-      const data = await res.json();
+async function main(){
+  const res = await fetch("/track-record/metrics.json", { cache: "no-store" });
+  if(!res.ok){
+    document.getElementById("kpis").innerHTML =
+      `<div class="small muted">Could not load /track-record/metrics.json (${res.status}). Publish metrics first.</div>`;
+    return;
+  }
+  const data = await res.json();
 
-      renderKpis(data.summary);
-      renderStrategyTable(data.by_strategy_5d || []);
-      renderRecentTable(data.recent_signals || []);
+  renderKpis(data.summary);
+  renderStrategyTable(data.by_strategy_5d || []);
+  renderRecentTable(data.recent_signals || []);
 
-      const series = (data.equity_curve_proxy_5d || []).map(d => d.equity);
-      if(series.length >= 2){
-        drawLine(document.getElementById("equity"), null, series);
-        window.addEventListener("resize", () => drawLine(document.getElementById("equity"), null, series));
+  // >>> INSERT THIS BLOCK HERE <<<
+  try{
+    const rRes = await fetch("/track-record/r_summary_5d.json", { cache: "no-store" });
+    if(rRes.ok){
+      const rData = await rRes.json();
+      const st = (rData && rData.stats) ? rData.stats : null;
+      if(st && typeof st.n === "number" && st.n > 0){
+        const el = document.getElementById("kpis");
+        const extra = [
+          ["R trades (5D)", st.n],
+          ["Mean R (5D)", fmtNum(st.mean_r, 2)],
+          ["Std R (5D)", fmtNum(st.std_r, 2)],
+          ["Win R (5D)", fmtPct(st.winrate)],
+        ];
+        el.insertAdjacentHTML("beforeend", extra.map(([k,v]) => `
+          <div class="kpi">
+            <div class="small muted">${k}</div>
+            <div class="v">${v ?? "—"}</div>
+          </div>
+        `).join(""));
       }
     }
+  }catch(e){
+    // silent fail (page still works without R files)
+  }
+
+  const series = (data.equity_curve_proxy_5d || []).map(d => d.equity);
+  if(series.length >= 2){
+    drawLine(document.getElementById("equity"), null, series);
+    window.addEventListener("resize", () => drawLine(document.getElementById("equity"), null, series));
+  }
+}
+    
     main();
   </script>
 </body>
 
 </html>
+
