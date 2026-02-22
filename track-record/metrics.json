@@ -1,6 +1,6 @@
 {
   "summary": {
-    "as_of": "2026-02-22 21:21:12 AEST",
+    "as_of": "2026-02-22 22:08:13 AEST",
     "since": "2026-02-11",
     "until": "2026-02-22",
     "total_signals_with_entry": 18,
@@ -92,7 +92,7 @@
       "ret_1d": null,
       "ret_5d": null,
       "ret_20d": null,
-      "risk_gate": "nan"
+      "risk_gate": "unknown"
     },
     {
       "date": "2026-02-21",
@@ -107,7 +107,7 @@
       "ret_1d": null,
       "ret_5d": null,
       "ret_20d": null,
-      "risk_gate": "nan"
+      "risk_gate": "unknown"
     },
     {
       "date": "2026-02-20",
@@ -122,7 +122,7 @@
       "ret_1d": null,
       "ret_5d": null,
       "ret_20d": null,
-      "risk_gate": "nan"
+      "risk_gate": "unknown"
     },
     {
       "date": "2026-02-20",
@@ -137,7 +137,7 @@
       "ret_1d": null,
       "ret_5d": null,
       "ret_20d": null,
-      "risk_gate": "nan"
+      "risk_gate": "unknown"
     },
     {
       "date": "2026-02-19",
@@ -152,7 +152,7 @@
       "ret_1d": -0.004535143224154603,
       "ret_5d": null,
       "ret_20d": null,
-      "risk_gate": "nan"
+      "risk_gate": "unknown"
     },
     {
       "date": "2026-02-19",
@@ -167,7 +167,7 @@
       "ret_1d": -0.027397235056974,
       "ret_5d": null,
       "ret_20d": null,
-      "risk_gate": "nan"
+      "risk_gate": "unknown"
     },
     {
       "date": "2026-02-18",
@@ -182,7 +182,7 @@
       "ret_1d": 0.02882199713100997,
       "ret_5d": null,
       "ret_20d": null,
-      "risk_gate": "nan"
+      "risk_gate": "unknown"
     },
     {
       "date": "2026-02-17",
@@ -197,7 +197,7 @@
       "ret_1d": 0.0037735912431187124,
       "ret_5d": null,
       "ret_20d": null,
-      "risk_gate": "nan"
+      "risk_gate": "unknown"
     },
     {
       "date": "2026-02-16",
@@ -212,7 +212,7 @@
       "ret_1d": -0.005442786144777334,
       "ret_5d": null,
       "ret_20d": null,
-      "risk_gate": "nan"
+      "risk_gate": "unknown"
     },
     {
       "date": "2026-02-15",
@@ -227,7 +227,7 @@
       "ret_1d": -0.023752946253317142,
       "ret_5d": null,
       "ret_20d": null,
-      "risk_gate": "nan"
+      "risk_gate": "unknown"
     },
     {
       "date": "2026-02-15",
@@ -242,7 +242,7 @@
       "ret_1d": 0.0027972000922729112,
       "ret_5d": null,
       "ret_20d": null,
-      "risk_gate": "nan"
+      "risk_gate": "unknown"
     },
     {
       "date": "2026-02-13",
@@ -320,6 +320,29 @@
       "risk_gate": "risk_on"
     }
   ],
+  "r_5d": {
+    "summary": {
+      "as_of": "2026-02-22 22:08:13 AEST",
+      "coverage": {
+        "since": "2026-02-11",
+        "until": "2026-02-22"
+      },
+      "horizon_trading_days": 5,
+      "method": "Stop-first within horizon using auto-adjusted OHLC from yfinance. If Low <= stop at any point from t..t+h, exit=stop (R=-1). Else exit=Close[t+h]. R=(exit-entry)/(entry-stop). Long-only R where stop < entry.",
+      "stats": {
+        "n": 5,
+        "mean_r": 0.3633754808277345,
+        "median_r": 0.07186186170851289,
+        "std_r": 1.3988444486041651,
+        "winrate": 0.6,
+        "avg_win_r": 1.0538830447961474,
+        "avg_loss_r": -0.6723858651248844,
+        "min_r": -1.0,
+        "max_r": 2.682840800654202
+      }
+    },
+    "n_results": 5
+  },
   "notes": {
     "method": "Signal performance proxy from published recommended_orders CSVs. Forward returns use close-to-close trading bars from yfinance. Equity curve compounds each day\u2019s average 5D return (proxy, not realized portfolio P&L).",
     "entry_used": "entry_ref if numeric else entry if numeric",
@@ -327,6 +350,7 @@
       1,
       5,
       20
-    ]
+    ],
+    "risk_gate_normalization": "nan/None/empty -> 'unknown'"
   }
 }

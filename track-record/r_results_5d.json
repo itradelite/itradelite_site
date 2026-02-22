@@ -1,0 +1,76 @@
+{
+  "as_of": "2026-02-22 22:08:13 AEST",
+  "horizon_trading_days": 5,
+  "results": [
+    {
+      "date": "2026-02-13",
+      "symbol": "AIA.AX",
+      "class": "Transportation",
+      "strategy": "TREND_PULLBACK",
+      "score": 100,
+      "order": "LIMIT",
+      "risk_gate": "risk_on",
+      "entry_px": 7.1585,
+      "stop": 7.0163,
+      "exit_type_5d": "H5_CLOSE",
+      "exit_px_5d": 7.539999961853027,
+      "r_5d": 2.682840800654202
+    },
+    {
+      "date": "2026-02-13",
+      "symbol": "CGF.AX",
+      "class": "Financial Services",
+      "strategy": "MEAN_REVERSION",
+      "score": 100,
+      "order": "LIMIT",
+      "risk_gate": "always",
+      "entry_px": 8.49,
+      "stop": 8.0443,
+      "exit_type_5d": "STOP",
+      "exit_px_5d": 8.0443,
+      "r_5d": -1.0
+    },
+    {
+      "date": "2026-02-12",
+      "symbol": "VGE.AX",
+      "class": "ETF",
+      "strategy": "TREND_PULLBACK",
+      "score": 100,
+      "order": "LIMIT",
+      "risk_gate": "risk_on",
+      "entry_px": 90.4344,
+      "stop": 88.13,
+      "exit_type_5d": "H5_CLOSE",
+      "exit_px_5d": 90.5999984741211,
+      "r_5d": 0.07186186170851289
+    },
+    {
+      "date": "2026-02-12",
+      "symbol": "ORI.AX",
+      "class": "Materials",
+      "strategy": "TREND_PULLBACK",
+      "score": 96,
+      "order": "LIMIT",
+      "risk_gate": "risk_on",
+      "entry_px": 25.7055,
+      "stop": 24.7904,
+      "exit_type_5d": "H5_CLOSE",
+      "exit_px_5d": 25.389999389648438,
+      "r_5d": -0.3447717302497689
+    },
+    {
+      "date": "2026-02-11",
+      "symbol": "ORI.AX",
+      "class": "Materials",
+      "strategy": "TREND_PULLBACK",
+      "score": 100,
+      "order": "LIMIT",
+      "risk_gate": "risk_on",
+      "entry_px": 25.6933,
+      "stop": 24.7922,
+      "exit_type_5d": "H5_CLOSE",
+      "exit_px_5d": 26.059999465942383,
+      "r_5d": 0.40694647202572665
+    }
+  ]
+}
