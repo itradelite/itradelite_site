@@ -3,7 +3,7 @@
   "generated": "2026-02-22",
   "valid_for": "2026-02-22",
   "risk_mode": "risk_on",
-  "generated_at_utc": "2026-02-22T00:55:24Z",
+  "generated_at_utc": "2026-02-22T01:03:53Z",
   "published": true,
   "reason": null,
   "data_fresh": true,
@@ -19,13 +19,13 @@
       "entry": 7.81,
       "entry_text": "7.81",
       "last_close": 7.81,
-      "stop": 7.3198,
+      "stop": 7.3187,
       "risk": null,
       "score": 100.0,
-      "status": null,
-      "plain_english": "Mean Reversion (bounce): LIMIT buy near 7.81. Stop 7.3198 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 100.",
-      "tp1": 8.3002,
-      "cap_target": 8.7904,
+      "status": "Valid",
+      "plain_english": "Mean Reversion (bounce): LIMIT buy near 7.81. Stop 7.3187 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 100.",
+      "tp1": 8.3012,
+      "cap_target": 8.7925,
       "r_mult": 2.0
     },
     {
@@ -37,7 +37,7 @@
       "stop": 21.0277,
       "risk": null,
       "score": 86.0,
-      "status": null,
+      "status": "Valid",
       "plain_english": "Mean Reversion (bounce): LIMIT buy near 22.24. Stop 21.0277 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 86.",
       "tp1": 23.4523,
       "cap_target": 24.6646,
@@ -51,13 +51,13 @@
       "entry": 7.81,
       "entry_text": "7.81",
       "last_close": 7.81,
-      "stop": 7.3198,
+      "stop": 7.3187,
       "risk": null,
       "score": 100.0,
       "status": "Valid",
-      "plain_english": "Mean Reversion (bounce): LIMIT buy near 7.81. Stop 7.3198 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 100.",
-      "tp1": 8.3002,
-      "cap_target": 8.7904,
+      "plain_english": "Mean Reversion (bounce): LIMIT buy near 7.81. Stop 7.3187 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 100.",
+      "tp1": 8.3012,
+      "cap_target": 8.7925,
       "r_mult": 2.0
     },
     {
@@ -278,13 +278,13 @@
       "entry": 7.81,
       "entry_text": "7.81",
       "last_close": 7.81,
-      "stop": 7.3198,
+      "stop": 7.3187,
       "risk": null,
       "score": 100.0,
       "status": "Valid",
-      "plain_english": "Mean Reversion (bounce): LIMIT buy near 7.81. Stop 7.3198 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 100.",
-      "tp1": 8.3002,
-      "cap_target": 8.7904,
+      "plain_english": "Mean Reversion (bounce): LIMIT buy near 7.81. Stop 7.3187 (~1.5 ATR). This assumes a short-term oversold rebound; still respect portfolio risk limits. Score 100.",
+      "tp1": 8.3012,
+      "cap_target": 8.7925,
       "r_mult": 2.0
     },
     {
@@ -1538,14 +1538,14 @@
       "entry": 8.0981,
       "entry_text": "8.0981",
       "last_close": 7.81,
-      "stop": 7.6633,
+      "stop": 7.6531,
       "risk": null,
       "score": 50.0,
       "status": "Watch",
-      "plain_english": "Trend Pullback (confirmation): do NOT buy yet. Only buy if price rebounds to 8.10 (~3.69% above last close 7.81). Stop 7.66. If it never rebounds to that level, no trade. Score 50. Only trade when market is RISK-ON.",
-      "tp1": 8.5883,
-      "cap_target": 9.0785,
-      "r_mult": 2.2547
+      "plain_english": "Trend Pullback (confirmation): do NOT buy yet. Only buy if price rebounds to 8.10 (~3.69% above last close 7.81). Stop 7.65. If it never rebounds to that level, no trade. Score 50. Only trade when market is RISK-ON.",
+      "tp1": 8.5894,
+      "cap_target": 9.0806,
+      "r_mult": 2.208
     },
     {
       "symbol": "WOR.AX",
@@ -3728,14 +3728,14 @@
       "entry": null,
       "entry_text": "trigger=9.6188 limit=9.6380",
       "last_close": 7.81,
-      "stop": 7.6633,
+      "stop": 7.6531,
       "risk": null,
       "score": 14.0,
       "status": "Watch",
-      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 9.62 (activates only if price breaks up). Limit 9.64 (max pay). Stop 7.66. If trigger is not hit, no trade. Score 14. Only trade when market is RISK-ON.",
-      "tp1": 10.1282,
+      "plain_english": "Momentum (breakout): Use STOP-LIMIT. Trigger 9.62 (activates only if price breaks up). Limit 9.64 (max pay). Stop 7.65. If trigger is not hit, no trade. Score 14. Only trade when market is RISK-ON.",
+      "tp1": 10.1293,
       "cap_target": 9.59,
-      "r_mult": -0.0243
+      "r_mult": -0.0242
     },
     {
       "symbol": "SGP.AX",
@@ -5182,7 +5182,9 @@
     "repo_root": "/home/runner/work/itradelite/itradelite",
     "reports_dir": "/home/runner/work/itradelite/itradelite/reports",
     "last_run_output": {
-      "timestamp": "2026-02-22 10:55:23",
+      "timestamp": "2026-02-22 11:03:53",
+      "risk_mode": "risk_on",
+      "data_fresh": true,
       "risk_on": true,
       "fresh": true,
       "universe_size": "117",
@@ -5190,9 +5192,7 @@
       "watchlist_rows_display": "15",
       "watchlist_rows_full": "327",
       "trade_candidates_rows": "2",
-      "recommended_rows": "2",
-      "risk_mode": "risk_on",
-      "data_fresh": true
+      "recommended_rows": "2"
     }
   }
 }
