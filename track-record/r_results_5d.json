@@ -1,7 +1,49 @@
 {
-  "as_of": "2026-02-22 22:08:13 AEST",
+  "as_of": "2026-02-23 21:53:20 AEST",
   "horizon_trading_days": 5,
   "results": [
+    {
+      "date": "2026-02-16",
+      "symbol": "FMG.AX",
+      "class": "Materials",
+      "strategy": "MEAN_REVERSION",
+      "score": 100,
+      "order": "LIMIT",
+      "risk_gate": "unknown",
+      "entry_px": 20.21,
+      "stop": 19.2982,
+      "exit_type_5d": "H5_CLOSE",
+      "exit_px_5d": 19.979999542236328,
+      "r_5d": -0.2522488021097531
+    },
+    {
+      "date": "2026-02-15",
+      "symbol": "AIA.AX",
+      "class": "Transportation",
+      "strategy": "TREND_PULLBACK",
+      "score": 100,
+      "order": "LIMIT",
+      "risk_gate": "unknown",
+      "entry_px": 7.1585,
+      "stop": 7.0163,
+      "exit_type_5d": "H5_CLOSE",
+      "exit_px_5d": 7.570000171661377,
+      "r_5d": 2.8938127402347202
+    },
+    {
+      "date": "2026-02-15",
+      "symbol": "CGF.AX",
+      "class": "Financial Services",
+      "strategy": "MEAN_REVERSION",
+      "score": 100,
+      "order": "LIMIT",
+      "risk_gate": "unknown",
+      "entry_px": 8.49,
+      "stop": 8.0443,
+      "exit_type_5d": "STOP",
+      "exit_px_5d": 8.0443,
+      "r_5d": -1.0
+    },
     {
       "date": "2026-02-13",
       "symbol": "AIA.AX",
