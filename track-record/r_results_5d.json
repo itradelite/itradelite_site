@@ -1,7 +1,21 @@
 {
-  "as_of": "2026-02-23 21:53:20 AEST",
+  "as_of": "2026-02-24 21:56:30 AEST",
   "horizon_trading_days": 5,
   "results": [
+    {
+      "date": "2026-02-17",
+      "symbol": "ALQ.AX",
+      "class": "Commercial & Professional Services",
+      "strategy": "TREND_PULLBACK",
+      "score": 100,
+      "order": "LIMIT",
+      "risk_gate": "unknown",
+      "entry_px": 23.7785,
+      "stop": 22.6849,
+      "exit_type_5d": "H5_CLOSE",
+      "exit_px_5d": 24.940000534057617,
+      "r_5d": 1.0620890033445627
+    },
     {
       "date": "2026-02-16",
       "symbol": "FMG.AX",
