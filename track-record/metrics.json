@@ -1,18 +1,18 @@
 {
   "summary": {
-    "as_of": "2026-02-24 21:56:30 AEST",
+    "as_of": "2026-02-25 21:52:58 AEST",
     "since": "2026-02-11",
     "until": "2026-02-24",
     "total_signals_with_entry": 21,
-    "total_signals_with_5d": 9,
-    "avg_ret_1d": -0.0024556406406572697,
-    "avg_ret_5d": 0.03387600526958866,
+    "total_signals_with_5d": 10,
+    "avg_ret_1d": -0.001981710660605183,
+    "avg_ret_5d": 0.036169268036964984,
     "avg_ret_20d": null,
-    "winrate_1d": 0.4,
-    "winrate_5d": 0.7777777777777778,
+    "winrate_1d": 0.42857142857142855,
+    "winrate_5d": 0.8,
     "winrate_20d": null,
     "equity_curve_proxy_start": 1.0,
-    "equity_curve_proxy_end": 1.1879573345727825,
+    "equity_curve_proxy_end": 1.2554435667448904,
     "equity_curve_proxy_max_drawdown": -0.011380482565832462
   },
   "by_strategy_5d": [
@@ -25,10 +25,10 @@
     },
     {
       "strategy": "TREND_PULLBACK",
-      "trades": 6,
-      "avg_5d": 0.026664086638421198,
-      "win_5d": 0.8333333333333334,
-      "avg_score": 99.33333333333333
+      "trades": 7,
+      "avg_5d": 0.030970450396268445,
+      "win_5d": 0.8571428571428571,
+      "avg_score": 99.42857142857143
     }
   ],
   "equity_curve_proxy_5d": [
@@ -61,6 +61,11 @@
       "date": "2026-02-17",
       "equity": 1.1879573345727825,
       "avg_5d_return": 0.04570231174649231
+    },
+    {
+      "date": "2026-02-18",
+      "equity": 1.2554435667448904,
+      "avg_5d_return": 0.05680863294335192
     }
   ],
   "recent_signals": [
@@ -74,7 +79,7 @@
       "entry_px": 24.01,
       "entry_src": "entry",
       "stop": 23.1554,
-      "ret_1d": null,
+      "ret_1d": 0.007496888940436541,
       "ret_5d": null,
       "ret_20d": null,
       "risk_gate": "always"
@@ -240,7 +245,7 @@
       "entry_src": "entry",
       "stop": 22.6837,
       "ret_1d": 0.02882199713100997,
-      "ret_5d": null,
+      "ret_5d": 0.05680863294335192,
       "ret_20d": null,
       "risk_gate": "unknown"
     },
@@ -382,7 +387,7 @@
   ],
   "r_5d": {
     "summary": {
-      "as_of": "2026-02-24 21:56:30 AEST",
+      "as_of": "2026-02-25 21:52:58 AEST",
       "coverage": {
         "since": "2026-02-11",
         "until": "2026-02-24"
@@ -390,18 +395,18 @@
       "horizon_trading_days": 5,
       "method": "Stop-first within horizon using auto-adjusted OHLC from yfinance. If Low <= stop at any point from t..t+h, exit=stop (R=-1). Else exit=Close[t+h]. R=(exit-entry)/(entry-stop). Long-only R where stop < entry.",
       "stats": {
-        "n": 9,
-        "mean_r": 0.5022811495120225,
-        "median_r": 0.07186186170851289,
-        "std_r": 1.448383123185845,
-        "winrate": 0.5555555555555556,
-        "avg_win_r": 1.4235101755935449,
+        "n": 10,
+        "mean_r": 0.5603073716666506,
+        "median_r": 0.23940416686711977,
+        "std_r": 1.3778220814594437,
+        "winrate": 0.6,
+        "avg_win_r": 1.3666823748376713,
         "avg_loss_r": -0.6492551330898805,
         "min_r": -1.0,
         "max_r": 2.8938127402347202
       }
     },
-    "n_results": 9
+    "n_results": 10
   },
   "notes": {
     "method": "Signal performance proxy from published recommended_orders CSVs. Forward returns use close-to-close trading bars from yfinance. Equity curve compounds each day\u2019s average 5D return (proxy, not realized portfolio P&L).",
