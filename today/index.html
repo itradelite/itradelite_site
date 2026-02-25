@@ -223,9 +223,12 @@
 
     .rowNote{
       font-size: 12px;
-      color: rgba(255,255,255,0.72);
+      color: rgba(255,255,255,0.78);
       margin-top: 6px;
-      line-height: 1.35;
+      line-height: 1.4;
+      padding-left: 0;
+      white-space: normal;           /* very important */
+      word-break: break-word;        /* helps long words/urls */
     }
 
     /* Status dots */
@@ -267,6 +270,51 @@
       .briefMeta { align-items: flex-start; }
       .briefMeta__right { width: 100%; justify-content: flex-start; }
     }
+
+/* ────────────────────────────────────────
+   Better mobile table behavior
+   ──────────────────────────────────────── */
+@media (max-width: 768px) {
+  /* Let Symbol take the space it needs */
+  th:nth-child(1),
+  td:nth-child(1) {
+    width: auto !important;
+    min-width: 110px;
+    max-width: 45vw;                /* prevents it from becoming ridiculous */
+  }
+
+  /* Remove fixed widths on most columns — let content decide */
+  th, td {
+    width: auto !important;
+    min-width: unset !important;
+  }
+
+  /* Hide less critical columns on phones */
+  th:nth-child(8), td:nth-child(8),   /* TP1 (ATR) */
+  th:nth-child(9), td:nth-child(9),   /* Cap Target */
+  th:nth-child(10), td:nth-child(10)  /* R mult */
+  {
+    display: none;
+  }
+
+  /* Slightly wider status & qty on small screens */
+  th:nth-child(6), td:nth-child(6) {  /* Qty */
+    min-width: 60px;
+  }
+  th:nth-child(11), td:nth-child(11) { /* Status */
+    min-width: 80px;
+  }
+
+  /* Tighter padding so more content fits */
+  th, td {
+    padding: 12px 10px;
+  }
+
+  .tableWrap {
+    margin: 0 -10px;   /* compensates tighter padding */
+  }
+}
+
   </style>
 </head>
 
@@ -660,7 +708,7 @@
             <table>
               <thead>
                 <tr>
-                  <th style="width:120px;">Symbol</th>
+                  <th>Symbol</th>
                   <th style="width:160px;">Strategy</th>
                   <th>Entry</th>
                   <th style="width:110px;">Last close</th>
@@ -701,7 +749,12 @@
 
         html += `
           <tr>
-            <td class="mono"><span class="symbol-cell">${sym}</span>${noteHtml}</td>
+            <td class="mono">
+ 	    <div class="symbol-cell" style="margin-bottom: 6px;">${sym}</div>
+  	    ${noteHtml}
+	    </td>
+
+
             <td>${strat || "—"}</td>
             <td class="mono">${entryTxt}</td>
             <td class="mono">${lastClose}</td>
