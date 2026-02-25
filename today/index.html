@@ -299,21 +299,23 @@
    Better mobile table behavior
    ──────────────────────────────────────── */
 @media (max-width: 768px) {
-  /* Let Symbol take the space it needs */
+  /* Give Symbol column natural width + breathing room on left */
   th:nth-child(1),
   td:nth-child(1) {
     width: auto !important;
-    min-width: 110px;
-    max-width: 45vw;                /* prevents it from becoming ridiculous */
+    min-width: 120px;               /* a bit more generous than 110px */
+    max-width: 48vw;                /* still constrained, but allows growth */
+    padding-left: 16px !important;  /* ← key fix: stops hugging left edge */
+    padding-right: 8px !important;
   }
 
-  /* Remove fixed widths on most columns — let content decide */
+  /* Let other columns size naturally */
   th, td {
     width: auto !important;
     min-width: unset !important;
   }
 
-  /* Hide less critical columns on phones */
+  /* Hide less critical columns on small screens */
   th:nth-child(8), td:nth-child(8),   /* TP1 (ATR) */
   th:nth-child(9), td:nth-child(9),   /* Cap Target */
   th:nth-child(10), td:nth-child(10)  /* R mult */
@@ -321,21 +323,27 @@
     display: none;
   }
 
-  /* Slightly wider status & qty on small screens */
+  /* Ensure Qty and Status remain readable */
   th:nth-child(6), td:nth-child(6) {  /* Qty */
-    min-width: 60px;
+    min-width: 64px;
   }
   th:nth-child(11), td:nth-child(11) { /* Status */
-    min-width: 80px;
+    min-width: 84px;
   }
 
-  /* Tighter padding so more content fits */
+  /* Balanced tight padding */
   th, td {
     padding: 12px 10px;
   }
 
+  /* Pull table slightly wider to use full viewport width */
   .tableWrap {
-    margin: 0 -10px;   /* compensates tighter padding */
+    margin: 0 -12px;                /* matches tighter container padding */
+  }
+
+  /* Align note rows under the symbol column */
+  .note-row td {
+    padding-left: 36px !important;  /* aligns nicely with symbol padding */
   }
 }
 
