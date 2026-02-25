@@ -231,6 +231,30 @@
       word-break: break-word;        /* helps long words/urls */
     }
 
+.note-row {
+  background: rgba(56, 189, 248, 0.04);     /* subtle blue tint to distinguish */
+}
+
+.note-row td {
+  padding: 8px 18px 12px 18px;
+  font-size: 13px;
+  line-height: 1.45;
+  color: #cbd5e1;                           /* slightly lighter than main text */
+  border-bottom: 1px solid var(--border);
+}
+
+/* Optional: make notes slightly indented */
+.note-row td {
+  padding-left: 32px;   /* aligns under symbol column */
+}
+
+/* On very small screens, reduce padding */
+@media (max-width: 480px) {
+  .note-row td {
+    padding: 8px 12px 10px 24px;
+  }
+}
+
     /* Status dots */
     .status-dot {
       height: 9px;
@@ -745,16 +769,13 @@
         const rmultTxt = (rmult !== null) ? fmt(rmult, 2) : "—";
 
         const note = r.plain_english || r.instruction || r.note || "";
-        const noteHtml = note ? `<div class="rowNote">${escapeHtml(note)}</div>` : "";
+        const noteHtml = note 
+          ? `<tr class="note-row"><td colspan="11">${escapeHtml(note)}</td></tr>`
+          : "";
 
         html += `
           <tr>
-            <td class="mono">
- 	    <div class="symbol-cell" style="margin-bottom: 6px;">${sym}</div>
-  	    ${noteHtml}
-	    </td>
-
-
+            <td class="mono symbol-cell">${sym}</td>
             <td>${strat || "—"}</td>
             <td class="mono">${entryTxt}</td>
             <td class="mono">${lastClose}</td>
@@ -766,6 +787,7 @@
             <td class="mono">${escapeHtml(rmultTxt)}</td>
             <td>${pill}</td>
           </tr>
+          ${noteHtml}
         `;
       }
 
