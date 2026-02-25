@@ -248,12 +248,6 @@
   padding-left: 32px;   /* aligns under symbol column */
 }
 
-/* On very small screens, reduce padding */
-@media (max-width: 480px) {
-  .note-row td {
-    padding: 8px 12px 10px 24px;
-  }
-}
 
     /* Status dots */
     .status-dot {
@@ -296,57 +290,66 @@
     }
 
 /* ────────────────────────────────────────
-   Better mobile table behavior
+   Mobile optimizations: responsive table + breathing room
    ──────────────────────────────────────── */
 @media (max-width: 768px) {
-  /* Give Symbol column natural width + breathing room on left */
-  th:nth-child(1),
-  td:nth-child(1) {
-    width: auto !important;
-    min-width: 120px;               /* a bit more generous than 110px */
-    max-width: 48vw;                /* still constrained, but allows growth */
-    padding-left: 16px !important;  /* ← key fix: stops hugging left edge */
-    padding-right: 8px !important;
+  /* Container breathing room — prevents content from touching screen edge */
+  .container {
+    padding-left:  14px !important;
+    padding-right: 14px !important;
   }
 
-  /* Let other columns size naturally */
+  /* Table wrapper pulls content edge-to-edge but with safe margins */
+  .tableWrap {
+    margin: 0 -14px !important;
+  }
+
+  /* Table itself: no negative left margin, no left border */
+  .tableWrap table {
+    margin-left: 0 !important;
+    border-left: none !important;
+  }
+
+  /* General cell padding — tighter but readable */
   th, td {
-    width: auto !important;
-    min-width: unset !important;
+    padding: 12px 10px !important;
   }
 
-  /* Hide less critical columns on small screens */
-  th:nth-child(8), td:nth-child(8),   /* TP1 (ATR) */
+  /* Symbol column: generous left padding + natural sizing */
+  th:first-child,
+  td:first-child,
+  td.mono.symbol-cell {
+    padding-left: 20px !important;      /* ← this is what stops hugging */
+    padding-right: 8px !important;
+    min-width: 120px;
+    max-width: 48vw;
+    width: auto !important;
+  }
+
+  /* Note rows align under symbol with matching offset */
+  .note-row td {
+    padding-left: 40px !important;
+  }
+
+  /* Hide less important columns to reduce horizontal scroll */
+  th:nth-child(8), td:nth-child(8),   /* TP1 */
   th:nth-child(9), td:nth-child(9),   /* Cap Target */
   th:nth-child(10), td:nth-child(10)  /* R mult */
   {
-    display: none;
+    display: none !important;
   }
 
-  /* Ensure Qty and Status remain readable */
-  th:nth-child(6), td:nth-child(6) {  /* Qty */
-    min-width: 64px;
-  }
-  th:nth-child(11), td:nth-child(11) { /* Status */
-    min-width: 84px;
-  }
+  /* Keep Qty & Status usable */
+  th:nth-child(6), td:nth-child(6)  { min-width: 64px !important; }   /* Qty */
+  th:nth-child(11), td:nth-child(11){ min-width: 84px !important; }   /* Status */
 
-  /* Balanced tight padding */
-  th, td {
-    padding: 12px 10px;
-  }
-
-  /* Pull table slightly wider to use full viewport width */
-  .tableWrap {
-    margin: 0 -12px;                /* matches tighter container padding */
-  }
-
-  /* Align note rows under the symbol column */
-  .note-row td {
-    padding-left: 36px !important;  /* aligns nicely with symbol padding */
+  /* No rounded corners on first/last cells if they touch edge */
+  table tr td:first-child,
+  table tr th:first-child {
+    border-top-left-radius: 0 !important;
+    border-bottom-left-radius: 0 !important;
   }
 }
-
   </style>
 </head>
 
