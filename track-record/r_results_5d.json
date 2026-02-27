@@ -1,7 +1,35 @@
 {
-  "as_of": "2026-02-26 21:55:55 AEST",
+  "as_of": "2026-02-27 21:09:59 AEST",
   "horizon_trading_days": 5,
   "results": [
+    {
+      "date": "2026-02-20",
+      "symbol": "ORI.AX",
+      "class": "Materials",
+      "strategy": "MEAN_REVERSION",
+      "score": 100,
+      "order": "LIMIT",
+      "risk_gate": "unknown",
+      "entry_px": 24.75,
+      "stop": 23.79,
+      "exit_type_5d": "STOP",
+      "exit_px_5d": 23.79,
+      "r_5d": -1.0
+    },
+    {
+      "date": "2026-02-20",
+      "symbol": "WHC.AX",
+      "class": "Energy",
+      "strategy": "MEAN_REVERSION",
+      "score": 100,
+      "order": "LIMIT",
+      "risk_gate": "unknown",
+      "entry_px": 7.81,
+      "stop": 7.3187,
+      "exit_type_5d": "H5_CLOSE",
+      "exit_px_5d": 7.809999942779541,
+      "r_5d": -1.1646745083162327e-07
+    },
     {
       "date": "2026-02-19",
       "symbol": "S32.AX",
