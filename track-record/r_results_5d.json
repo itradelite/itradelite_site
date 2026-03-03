@@ -1,7 +1,21 @@
 {
-  "as_of": "2026-03-02 21:24:15 AEST",
+  "as_of": "2026-03-03 21:09:02 AEST",
   "horizon_trading_days": 5,
   "results": [
+    {
+      "date": "2026-02-24",
+      "symbol": "ORI.AX",
+      "class": "Materials",
+      "strategy": "MEAN_REVERSION",
+      "score": 100,
+      "order": "LIMIT",
+      "risk_gate": "always",
+      "entry_px": 24.01,
+      "stop": 23.1554,
+      "exit_type_5d": "H5_CLOSE",
+      "exit_px_5d": 23.81999969482422,
+      "r_5d": -0.22232659159347357
+    },
     {
       "date": "2026-02-23",
       "symbol": "S32.AX",
