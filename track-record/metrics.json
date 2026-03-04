@@ -1,14 +1,14 @@
 {
   "summary": {
-    "as_of": "2026-03-03 21:09:02 AEST",
+    "as_of": "2026-03-04 21:06:19 AEST",
     "since": "2026-02-11",
-    "until": "2026-03-03",
-    "total_signals_with_entry": 24,
+    "until": "2026-03-04",
+    "total_signals_with_entry": 26,
     "total_signals_with_5d": 21,
-    "avg_ret_1d": -0.00011858296821288705,
+    "avg_ret_1d": 0.0005037744052149712,
     "avg_ret_5d": 0.026474904069381303,
     "avg_ret_20d": null,
-    "winrate_1d": 0.45454545454545453,
+    "winrate_1d": 0.4583333333333333,
     "winrate_5d": 0.7619047619047619,
     "winrate_20d": null,
     "equity_curve_proxy_start": 1.0,
@@ -100,6 +100,36 @@
   ],
   "recent_signals": [
     {
+      "date": "2026-03-04",
+      "symbol": "ORI.AX",
+      "class": "Materials",
+      "strategy": "MEAN_REVERSION",
+      "score": 96,
+      "order": "LIMIT",
+      "entry_px": 23.29,
+      "entry_src": "entry",
+      "stop": 22.4894,
+      "ret_1d": null,
+      "ret_5d": null,
+      "ret_20d": null,
+      "risk_gate": "always"
+    },
+    {
+      "date": "2026-03-04",
+      "symbol": "AGL.AX",
+      "class": "Utilities",
+      "strategy": "TREND_PULLBACK",
+      "score": 100,
+      "order": "STOP",
+      "entry_px": 9.8048,
+      "entry_src": "entry",
+      "stop": 9.5141,
+      "ret_1d": null,
+      "ret_5d": null,
+      "ret_20d": null,
+      "risk_gate": "risk_on"
+    },
+    {
       "date": "2026-03-03",
       "symbol": "BSL.AX",
       "class": "Materials",
@@ -109,7 +139,7 @@
       "entry_px": 26.9,
       "entry_src": "entry",
       "stop": 25.9373,
-      "ret_1d": null,
+      "ret_1d": 0.033085550543427766,
       "ret_5d": null,
       "ret_20d": null,
       "risk_gate": "always"
@@ -124,7 +154,7 @@
       "entry_px": 9.8398,
       "entry_src": "entry",
       "stop": 9.5819,
-      "ret_1d": null,
+      "ret_1d": -0.018386139517584943,
       "ret_5d": null,
       "ret_20d": null,
       "risk_gate": "risk_on"
@@ -221,21 +251,6 @@
     },
     {
       "date": "2026-02-21",
-      "symbol": "ORI.AX",
-      "class": "Materials",
-      "strategy": "MEAN_REVERSION",
-      "score": 100,
-      "order": "LIMIT",
-      "entry_px": 24.75,
-      "entry_src": "entry",
-      "stop": 23.79,
-      "ret_1d": -0.017995931301750923,
-      "ret_5d": 0.010224948556195601,
-      "ret_20d": null,
-      "risk_gate": "unknown"
-    },
-    {
-      "date": "2026-02-21",
       "symbol": "AAI.AX",
       "class": "Materials",
       "strategy": "TREND_PULLBACK",
@@ -246,6 +261,21 @@
       "stop": 80.2336,
       "ret_1d": 0.01961011225980136,
       "ret_5d": 0.06969877636771438,
+      "ret_20d": null,
+      "risk_gate": "unknown"
+    },
+    {
+      "date": "2026-02-21",
+      "symbol": "ORI.AX",
+      "class": "Materials",
+      "strategy": "MEAN_REVERSION",
+      "score": 100,
+      "order": "LIMIT",
+      "entry_px": 24.75,
+      "entry_src": "entry",
+      "stop": 23.79,
+      "ret_1d": -0.017995931301750923,
+      "ret_5d": 0.010224948556195601,
       "ret_20d": null,
       "risk_gate": "unknown"
     },
@@ -462,10 +492,10 @@
   ],
   "r_5d": {
     "summary": {
-      "as_of": "2026-03-03 21:09:02 AEST",
+      "as_of": "2026-03-04 21:06:19 AEST",
       "coverage": {
         "since": "2026-02-11",
-        "until": "2026-03-03"
+        "until": "2026-03-04"
       },
       "horizon_trading_days": 5,
       "method": "Stop-first within horizon using auto-adjusted OHLC from yfinance. If Low <= stop at any point from t..t+h, exit=stop (R=-1). Else exit=Close[t+h]. R=(exit-entry)/(entry-stop). Long-only R where stop < entry.",
