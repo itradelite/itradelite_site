@@ -1,72 +1,80 @@
-/* site.css - High-Performance FinTech UI */
-:root {
-  --bg: #050a15;
-  --bg-card: rgba(16, 24, 39, 0.7);
-  --border: rgba(255, 255, 255, 0.08);
-  --accent: #3b82f6;
-  --accent-glow: rgba(59, 130, 246, 0.4);
-  --text: #f3f4f6;
-  --text-muted: #9ca3af;
-  --success: #10b981;
-  --warning: #f59e0b;
-  --danger: #ef4444;
-  --font: 'Inter', system-ui, -apple-system, sans-serif;
-}
+<style>
+  /* Base Layout & Deep Navy Variables */
+  :root {
+    --bg-deep: #060912;
+    --accent: #3b82f6;
+    --glass: rgba(255, 255, 255, 0.03);
+    --glass-border: rgba(255, 255, 255, 0.08);
+    --text-muted: #94a3b8;
+  }
 
-body {
-  margin: 0;
-  background-color: var(--bg);
-  background-image: 
-    radial-gradient(circle at 0% 0%, rgba(59, 130, 246, 0.1) 0%, transparent 40%),
-    radial-gradient(circle at 100% 100%, rgba(16, 185, 129, 0.05) 0%, transparent 40%);
-  color: var(--text);
-  font-family: var(--font);
-  line-height: 1.6;
-  min-height: 100vh;
-}
+  body { background-color: var(--bg-deep); color: #e2e8f0; }
+  .pagePad { padding: 40px 0 80px; }
 
-.container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+  /* Institutional Banners with Backdrop Blur */
+  .banner {
+    border-radius: 12px;
+    padding: 16px;
+    border: 1px solid var(--glass-border);
+    background: var(--glass);
+    backdrop-filter: blur(8px);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+  
+  .banner--riskon { border-color: rgba(16, 185, 129, 0.3); background: rgba(16, 185, 129, 0.05); color: #10b981; }
+  .banner--riskoff { border-color: rgba(239, 68, 68, 0.3); background: rgba(239, 68, 68, 0.05); color: #ef4444; }
+  .banner--stale { border-color: rgba(245, 158, 11, 0.3); background: rgba(245, 158, 11, 0.05); color: #f59e0b; }
 
-/* Institutional Topbar */
-.topbar {
-  border-bottom: 1px solid var(--border);
-  background: rgba(5, 10, 21, 0.8);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  padding: 12px 0;
-}
+  /* KPI Boxes: The "Terminal" Look */
+  .kpiGrid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin: 24px 0; }
+  .kpiBox {
+    background: var(--glass);
+    border: 1px solid var(--glass-border);
+    border-radius: 16px;
+    padding: 20px;
+    transition: transform 0.2s ease;
+  }
+  .kpiBox:hover { transform: translateY(-2px); border-color: rgba(255,255,255,0.2); }
+  .kpiLabel { font-size: 11px; text-transform: uppercase; letter-spacing: 1px; color: var(--text-muted); margin-bottom: 8px; }
+  .kpiValue { font-size: 24px; font-weight: 800; font-family: ui-monospace, monospace; color: #fff; }
 
-.topbar__inner { display: flex; justify-content: space-between; align-items: center; }
+  /* Tables: Floating Row Design */
+  .tableWrap { overflow-x: auto; margin-top: 10px; }
+  table { width: 100%; border-collapse: separate; border-spacing: 0 8px; }
+  th { text-align: left; font-size: 11px; text-transform: uppercase; letter-spacing: 1.5px; color: var(--text-muted); padding: 0 12px; }
+  td { 
+    padding: 16px 12px; 
+    background: rgba(255, 255, 255, 0.02); 
+    border-top: 1px solid var(--glass-border); 
+    border-bottom: 1px solid var(--glass-border); 
+    vertical-align: middle;
+  }
+  td:first-child { border-left: 1px solid var(--glass-border); border-radius: 10px 0 0 10px; }
+  td:last-child { border-right: 1px solid var(--glass-border); border-radius: 0 10px 10px 0; }
+  
+  tr:hover td { background: rgba(255, 255, 255, 0.05); border-color: rgba(255,255,255,0.15); }
 
-.brand { display: flex; align-items: center; gap: 10px; text-decoration: none; color: white; font-weight: 800; font-size: 1.1rem; }
+  /* Typography & Utilities */
+  .mono { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 0.9em; }
+  .pill {
+    padding: 4px 12px;
+    border-radius: 6px;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.1);
+  }
+  .pill--valid { color: #10b981; background: rgba(16, 185, 129, 0.1); border-color: rgba(16, 185, 129, 0.2); }
+  .pill--watch { color: #f59e0b; background: rgba(245, 158, 11, 0.1); border-color: rgba(245, 158, 11, 0.2); }
 
-.nav a { color: var(--text-muted); text-decoration: none; margin-left: 20px; font-size: 0.85rem; font-weight: 500; transition: 0.2s; }
-.nav a:hover, .nav a[aria-current="page"] { color: var(--accent); }
-
-/* Buttons & Inputs */
-.btn, .button {
-  display: inline-flex; align-items: center; padding: 8px 16px; border-radius: 6px; 
-  font-weight: 600; font-size: 0.85rem; cursor: pointer; transition: 0.2s; border: none; text-decoration: none;
-}
-.btn--primary, .button--primary { background: var(--accent); color: white; box-shadow: 0 4px 12px var(--accent-glow); }
-.btn--ghost, .button { background: rgba(255,255,255,0.05); color: var(--text); border: 1px solid var(--border); }
-.btn:hover, .button:hover { filter: brightness(1.2); transform: translateY(-1px); }
-
-select, input {
-  background: rgba(255,255,255,0.05); border: 1px solid var(--border); color: white;
-  padding: 8px 12px; border-radius: 6px; font-size: 0.9rem; outline: none;
-}
-select:focus, input:focus { border-color: var(--accent); }
-
-/* Table System */
-.tableWrap { overflow-x: auto; margin-top: 10px; }
-table { width: 100%; border-collapse: separate; border-spacing: 0 4px; }
-th { text-align: left; padding: 12px; font-size: 11px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; }
-td { padding: 14px 12px; background: rgba(255,255,255,0.02); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
-td:first-child { border-left: 1px solid var(--border); border-radius: 8px 0 0 8px; }
-td:last-child { border-right: 1px solid var(--border); border-radius: 0 8px 8px 0; }
-
-.footer { padding: 60px 0 40px; border-top: 1px solid var(--border); color: var(--text-muted); font-size: 0.8rem; margin-top: 60px; }
+  /* Responsive Fixes */
+  @media (max-width: 900px) {
+    .kpiGrid { grid-template-columns: repeat(2, 1fr); }
+    .briefHead { flex-direction: column; align-items: flex-start; }
+  }
+</style>
