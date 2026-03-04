@@ -7,98 +7,73 @@
   <link rel="stylesheet" href="/assets/site.css" />
 
   <style>
-    /* Specific layout for this page only */
-    .hero-split { 
-      display: grid; 
-      grid-template-columns: 1.2fr 0.8fr; 
-      gap: 60px; 
-      padding: 100px 0; 
-      align-items: center; 
+    .hero { padding: 100px 0; display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 60px; align-items: center; }
+    
+    .hero h1 { 
+      font-size: 4.5rem; line-height: 1; letter-spacing: -3px; margin: 0;
+      background: linear-gradient(to bottom right, #fff, #64748b);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
     }
 
-    .hero-text h1 { 
-      font-size: 4rem; 
-      line-height: 1.05; 
-      margin-bottom: 24px; 
-      background: linear-gradient(to bottom right, #fff, #94a3b8); 
-      -webkit-background-clip: text; 
-      -webkit-text-fill-color: transparent; 
+    .feature-item {
+      display: flex; align-items: center; gap: 15px; padding: 15px;
+      border-bottom: 1px solid var(--border);
     }
-
-    .glass-panel {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      backdrop-filter: blur(12px);
-      padding: 40px;
-      border-radius: 24px;
-    }
-
-    .feature-row {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-      padding: 16px;
-      background: rgba(255,255,255,0.02);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      margin-bottom: 12px;
-    }
-
-    @media (max-width: 900px) { 
-      .hero-split { grid-template-columns: 1fr; text-align: center; } 
-    }
+    .feature-item:last-child { border: none; }
+    
+    .num { color: var(--accent); font-family: monospace; font-weight: bold; }
   </style>
 </head>
 
 <body>
   <header class="topbar">
     <div class="container topbar__inner">
-      <a class="brand" href="/" style="color:#fff; text-decoration:none; font-weight:800;">iTradeLite</a>
+      <a class="brand" href="/">iTradeLite</a>
       <nav class="nav">
-        <a href="/today/">Dashboard</a>
+        <a href="/today/">Today</a>
         <a href="/track-record/">Performance</a>
+        <a href="/about.html">About</a>
         <a class="btn btn--primary" href="/today/">Launch Terminal</a>
       </nav>
     </div>
   </header>
 
   <main class="container">
-    <section class="hero-split">
-      <div class="hero-text">
-        <h1>ASX Watchlist.<br>Rule-Based Execution.</h1>
-        <p style="color: var(--text-muted); max-width: 550px; font-size: 1.2rem;">A transparent daily pipeline that converts raw data into disciplined trade plans.</p>
-        
-        <div style="display: flex; gap: 16px; margin-top: 40px;">
-          <a class="btn btn--primary" href="/today/">View Today's List</a>
-          <a class="btn btn--ghost" href="/how-it-works.html">Methodology</a>
-        </div>
+    <section class="hero">
+      <div>
+        <h1>ASX Data.<br>Pure Logic.</h1>
+        <p style="font-size: 1.25rem; color: var(--text-muted); margin: 25px 0 40px;">Rule-based daily watchlists with explicit entry, stop, and risk levels. No vibes, just execution.</p>
+        <a class="btn btn--primary" style="padding: 15px 30px; font-size: 1rem;" href="/today/">View Today's List</a>
       </div>
 
-      <div class="glass-panel">
-        <h2 style="font-size: 0.8rem; text-transform: uppercase; color: var(--accent); margin-bottom: 24px;">Daily Output</h2>
-        <div class="feature-row">
-          <div style="color: var(--accent); font-weight: bold;">01</div>
-          <div>Modelled A$ Risk Sizing</div>
+      <div class="card">
+        <div class="feature-item">
+          <span class="num">01</span>
+          <span style="font-weight: 600;">Modelled Risk Management</span>
         </div>
-        <div class="feature-row">
-          <div style="color: var(--accent); font-weight: bold;">02</div>
-          <div>Rule-Based Entry/Stops</div>
+        <div class="feature-item">
+          <span class="num">02</span>
+          <span style="font-weight: 600;">Transparent Rule-Set</span>
+        </div>
+        <div class="feature-item">
+          <span class="num">03</span>
+          <span style="font-weight: 600;">Verified Track Record</span>
         </div>
       </div>
     </section>
 
     <div class="grid3">
       <div class="card">
-        <h3>Institutional Process</h3>
-        <p style="color: var(--text-muted); font-size: 0.9rem;">No "vibes." Only math-driven setups repeatable across any liquid symbol.</p>
+        <h3 style="color: #fff;">Institutional Grade</h3>
+        <p class="small" style="color: var(--text-muted);">Built using the same mathematical principles used by professional prop desks.</p>
       </div>
       <div class="card">
-        <h3>Public Audit</h3>
-        <p style="color: var(--text-muted); font-size: 0.9rem;">Signals tracked against yfinance close data for accountability.</p>
+        <h3 style="color: #fff;">Daily Accountability</h3>
+        <p class="small" style="color: var(--text-muted);">Every trade is logged and audited using public yfinance data.</p>
       </div>
       <div class="card">
-        <h3>Execution Ready</h3>
-        <p style="color: var(--text-muted); font-size: 0.9rem;">Place your Limit and Stop orders and walk away from screens.</p>
+        <h3 style="color: #fff;">Clean Execution</h3>
+        <p class="small" style="color: var(--text-muted);">Direct entry and exit levels designed for easy order entry.</p>
       </div>
     </div>
   </main>
