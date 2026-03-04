@@ -7,28 +7,35 @@
   <link rel="stylesheet" href="/assets/site.css" />
 
   <style>
-    .hero { padding: 100px 0; display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 60px; align-items: center; }
+    .hero { padding: 120px 0; display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 80px; align-items: center; }
     
     .hero h1 { 
-      font-size: 4.5rem; line-height: 1; letter-spacing: -3px; margin: 0;
-      background: linear-gradient(to bottom right, #fff, #64748b);
+      font-size: 4.8rem; line-height: 0.95; letter-spacing: -4px; margin: 0;
+      background: linear-gradient(to bottom right, #ffffff 30%, #475569);
       -webkit-background-clip: text; -webkit-text-fill-color: transparent;
     }
 
     .feature-item {
-      display: flex; align-items: center; gap: 15px; padding: 15px;
+      display: flex; align-items: center; gap: 15px; padding: 20px 0;
       border-bottom: 1px solid var(--border);
     }
     .feature-item:last-child { border: none; }
+    .num { color: var(--accent); font-family: ui-monospace, monospace; font-weight: 800; font-size: 0.9rem; }
     
-    .num { color: var(--accent); font-family: monospace; font-weight: bold; }
+    @media (max-width: 900px) {
+      .hero { grid-template-columns: 1fr; text-align: center; padding: 60px 0; }
+      .hero h1 { font-size: 3.5rem; }
+    }
   </style>
 </head>
 
 <body>
   <header class="topbar">
     <div class="container topbar__inner">
-      <a class="brand" href="/">iTradeLite</a>
+      <a class="brand" href="/">
+        <img src="/assets/logo.png" alt="iTradeLite Logo">
+        <span>iTradeLite</span>
+      </a>
       <nav class="nav">
         <a href="/today/">Today</a>
         <a href="/track-record/">Performance</a>
@@ -42,11 +49,15 @@
     <section class="hero">
       <div>
         <h1>ASX Data.<br>Pure Logic.</h1>
-        <p style="font-size: 1.25rem; color: var(--text-muted); margin: 25px 0 40px;">Rule-based daily watchlists with explicit entry, stop, and risk levels. No vibes, just execution.</p>
-        <a class="btn btn--primary" style="padding: 15px 30px; font-size: 1rem;" href="/today/">View Today's List</a>
+        <p style="font-size: 1.3rem; color: var(--text-muted); margin: 30px 0 45px; line-height: 1.5; max-width: 520px;">
+          Institutional daily watchlists for the ASX. Rule-based entries, stops, and risk levels—generated directly from end-of-day data.
+        </p>
+        <div style="display: flex; gap: 20px;">
+          <a class="btn btn--primary" style="padding: 16px 36px; font-size: 1rem;" href="/today/">View Today's List</a>
+        </div>
       </div>
 
-      <div class="card">
+      <div class="card" style="padding: 10px 40px;">
         <div class="feature-item">
           <span class="num">01</span>
           <span style="font-weight: 600;">Modelled Risk Management</span>
@@ -64,18 +75,30 @@
 
     <div class="grid3">
       <div class="card">
-        <h3 style="color: #fff;">Institutional Grade</h3>
-        <p class="small" style="color: var(--text-muted);">Built using the same mathematical principles used by professional prop desks.</p>
+        <h3 style="color: #fff; margin-top: 0;">Institutional Grade</h3>
+        <p style="color: var(--text-muted); font-size: 0.9rem;">Built using the same mathematical principles used by professional proprietary trading desks.</p>
       </div>
       <div class="card">
-        <h3 style="color: #fff;">Daily Accountability</h3>
-        <p class="small" style="color: var(--text-muted);">Every trade is logged and audited using public yfinance data.</p>
+        <h3 style="color: #fff; margin-top: 0;">Daily Audit</h3>
+        <p style="color: var(--text-muted); font-size: 0.9rem;">Every signal is logged and performance is verified against public yfinance pricing data.</p>
       </div>
       <div class="card">
-        <h3 style="color: #fff;">Clean Execution</h3>
-        <p class="small" style="color: var(--text-muted);">Direct entry and exit levels designed for easy order entry.</p>
+        <h3 style="color: #fff; margin-top: 0;">Clean Execution</h3>
+        <p style="color: var(--text-muted); font-size: 0.9rem;">Direct entry and exit levels designed for set-and-forget order placement.</p>
       </div>
     </div>
   </main>
+
+  <footer>
+    <div class="container">
+      <div style="font-weight: 800; color: #fff; font-size: 1.2rem; margin-bottom: 10px;">iTradeLite</div>
+      <div class="footer-small">
+        Rule-based daily ASX trade plans. This is an educational data output provided for informational purposes only.
+      </div>
+      <div class="footer-small" style="opacity: 0.6;">
+        © 2026 iTradeLite. Not financial advice. Past performance is not indicative of future results.
+      </div>
+    </div>
+  </footer>
 </body>
 </html>
