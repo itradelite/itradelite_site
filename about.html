@@ -3,36 +3,17 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>About iTradeLite | Transparent Rule-Based Trading Lists</title>
-  <meta name="description" content="About iTradeLite: a transparent rule-based daily trading list built for clarity and repeatability." />
-  
-  <link rel="stylesheet" href="/assets/site.css?v=3" />
-
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"AboutPage",
-    "name":"About iTradeLite",
-    "url":"https://itradelite.com/about.html",
-    "description":"About iTradeLite: a transparent rule-based daily trading list generated from end-of-day data.",
-    "inLanguage":"en-AU"
-  }
-  </script>
-
+  <title>About iTradeLite | Rule-Based Trading</title>
+  <link rel="stylesheet" href="/assets/site.css" />
   <style>
-    .about-hero { padding: 60px 0; border-bottom: 1px solid var(--border); margin-bottom: 40px; }
-    .status-pill { display: inline-flex; align-items: center; gap: 8px; padding: 6px 12px; background: rgba(255,255,255,0.05); border: 1px solid var(--border); border-radius: 999px; font-size: 12px; color: var(--text-muted); margin-bottom: 20px; }
-    .status-pill::before { content: ""; width: 8px; height: 8px; background: var(--success); border-radius: 50%; box-shadow: 0 0 10px var(--success); }
+    .about-header { padding: 60px 0; border-bottom: 1px solid var(--border); margin-bottom: 40px; }
+    .legal-notice { background: rgba(239, 68, 68, 0.05); border: 1px solid rgba(239, 68, 68, 0.2); padding: 20px; border-radius: 12px; margin-top: 20px; }
   </style>
 </head>
-
 <body>
   <header class="topbar">
     <div class="container topbar__inner">
-      <a class="brand" href="/">
-        <img src="/assets/mark.svg" alt="" width="20" height="20" />
-        <span>iTradeLite</span>
-      </a>
+      <a class="brand" href="/"><span>iTradeLite</span></a>
       <nav class="nav">
         <a href="/today/">Today</a>
         <a href="/how-it-works.html">Method</a>
@@ -42,54 +23,30 @@
   </header>
 
   <main class="container">
-    <section class="about-hero">
-      <div class="status-pill">Transparent rules • Repeatable process</div>
-      <h1 style="font-size: 3rem; margin: 0; line-height: 1.1;">About iTradeLite</h1>
-      <p class="lead" style="max-width: 600px;">A lean system that does one job: publish a daily rule-based list with explicit entries, stops, and modelled risk.</p>
-      <a class="btn btn--primary" href="/today/" style="margin-top: 20px;">View Today's List</a>
+    <section class="about-header">
+      <h1 style="font-size: 3rem; margin: 0;">Clarity & Discipline.</h1>
+      <p class="lead">A lean system that publishes daily rule-based lists with explicit entries, stops, and modelled risk.</p>
     </section>
 
     <div class="grid2">
       <div class="card">
-        <h2 style="color: var(--accent); font-size: 1.25rem;">What iTradeLite is</h2>
-        <p>A <b>rule-based scanner</b> producing daily setups from end-of-day data. Clarity and repeatability are the core pillars.</p>
-        <ul style="padding-left: 20px; font-size: 0.9rem; color: var(--text-muted);">
-          <li style="margin-bottom: 8px;">Simple daily workflow</li>
-          <li style="margin-bottom: 8px;">Explicit entry + stop levels</li>
-          <li style="margin-bottom: 8px;">Modelled A$ risk positioning</li>
-          <li style="margin-bottom: 8px;">Market regime gating</li>
+        <h2 style="color: var(--accent);">The Philosophy</h2>
+        <p>Most signals are vague. iTradeLite is intentionally explicit. If it can’t be explained and repeated, it’s not a system—it’s vibes.</p>
+        <ul style="color: var(--text-muted); font-size: 0.9rem; line-height: 1.8;">
+          <li>Simple daily workflow</li>
+          <li>Explicit entry + stop levels</li>
+          <li>Market regime gating</li>
         </ul>
       </div>
 
-      <div class="card" style="border-color: rgba(239, 68, 68, 0.2);">
-        <h2 style="color: var(--danger); font-size: 1.25rem;">What iTradeLite is not</h2>
-        <ul style="padding-left: 20px; font-size: 0.9rem; color: var(--text-muted);">
-          <li style="margin-bottom: 8px;">Not financial advice</li>
-          <li style="margin-bottom: 8px;">Not personalised to your profile or taxes</li>
-          <li style="margin-bottom: 8px;">Not a promise of profitability</li>
-          <li style="margin-bottom: 8px;">Not an intraday execution system</li>
-        </ul>
-        <div style="background: rgba(239, 68, 68, 0.05); border: 1px solid rgba(239, 68, 68, 0.2); padding: 12px; border-radius: 8px; font-size: 12px; margin-top: 15px;">
-          <b>Education only:</b> This site is for informational purposes. Markets involve risk. You are responsible for your own decisions.
+      <div class="card">
+        <h2 style="color: var(--danger);">What it is NOT</h2>
+        <p>iTradeLite is an educational data output. It is not a financial advisory service.</p>
+        <div class="legal-notice">
+          <small><b>Education only:</b> This site is for informational purposes. Markets involve risk. You are responsible for your own decisions.</small>
         </div>
-      </div>
-
-      <div class="card">
-        <h3 style="font-size: 1.1rem; margin-bottom: 12px;">Why it exists</h3>
-        <p style="font-size: 0.9rem; color: var(--text-muted);">Most "signals" are vague. iTradeLite is intentionally explicit. If it can’t be explained and repeated, it’s not a system—it’s vibes.</p>
-      </div>
-
-      <div class="card">
-        <h3 style="font-size: 1.1rem; margin-bottom: 12px;">Future direction</h3>
-        <p style="font-size: 0.9rem; color: var(--text-muted);">Member personalisation, alerts, saved watchlists, and premium analytics are planned. For now, it is deliberately lean.</p>
       </div>
     </div>
   </main>
-
-  <footer class="footer">
-    <div class="container">
-      <div style="opacity: 0.6;">© iTradeLite. Educational output only — not financial advice.</div>
-    </div>
-  </footer>
 </body>
 </html>
