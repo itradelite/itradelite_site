@@ -5,159 +5,433 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Today — iTradeLite Daily ASX Briefing</title>
 
-  <link rel="stylesheet" href="/assets/site.css?v=3" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
   <style>
-    /* Page-specific layout overrides to match index.html logic */
-    .kpiValue--small { 
-      font-size: 16px; 
-      color: #fff; 
-      font-family: ui-monospace, monospace; 
-      font-weight: 700; 
-      text-transform: uppercase; 
+    :root {
+      --bg: #0f172a;
+      --card-bg: #1e293b;
+      --border: rgba(255, 255, 255, 0.08);
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --accent-green: #10b981;
+      --accent-red: #f43f5e;
+      --accent-gold: #f59e0b;
+      --brand-primary: #38bdf8;
+      --mono-font: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
     }
 
-    /* Keep the specialized Briefing Card styles */
-    .sectionTitle {
-      padding: 16px 24px;
-      border-bottom: 1px solid var(--border);
-      background: rgba(255, 255, 255, 0.02);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
+    * { box-sizing: border-box; }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text-main);
+      font-family: 'Inter', -apple-system, system-ui, sans-serif;
+      margin: 0;
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
     }
-    
-    .sectionTitle h2 { margin: 0; font-size: 1.1rem; }
+
+    a { color: inherit; }
+
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+
+    /* Topbar */
+    .topbar {
+      background: rgba(15, 23, 42, 0.80);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      padding: 12px 0;
+    }
+    .topbar__inner { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+    .brand { display: flex; align-items: center; gap: 10px; text-decoration: none; color: white; font-weight: 700; font-size: 18px; }
+    .nav { display:flex; gap: 16px; font-size: 14px; }
+    .nav a { text-decoration: none; color: var(--text-muted); }
+    .nav a[aria-current="page"] { color: var(--brand-primary); }
+
+    /* Buttons */
+    .btn {
+      background: var(--brand-primary);
+      color: var(--bg);
+      border: none;
+      padding: 8px 16px;
+      border-radius: 8px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: opacity 0.2s, transform 0.08s;
+      user-select: none;
+    }
+    .btn:active { transform: translateY(1px); }
+    .btn--ghost { background: transparent; border: 1px solid var(--border); color: white; }
+    .btn:hover { opacity: 0.85; }
+
+    /* Utility */
+    .mono { font-family: var(--mono-font); font-size: 13px; }
+    .muted { color: var(--text-muted); }
+    .small { font-size: 12px; color: var(--text-muted); }
+
+    /* Banners */
+    .banner {
+      border-radius: 12px;
+      padding: 16px;
+      margin: 20px 0 14px;
+      border-left: 4px solid var(--border);
+      background: var(--card-bg);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+    }
+    .banner--stale { border-left-color: var(--accent-gold); background: linear-gradient(90deg, rgba(245,158,11,0.12) 0%, rgba(30,41,59,0.0) 100%); }
+
+    /* Pills */
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border-radius: 999px;
+      padding: 5px 10px;
+      font-size: 12px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.03);
+      white-space: nowrap;
+    }
+
+    /* KPI dashboard */
+    .kpiGrid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+      margin: 18px 0 18px;
+    }
+    .kpiBox {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 18px;
+      transition: transform 0.2s, border-color 0.2s;
+    }
+    .kpiBox:hover { transform: translateY(-1px); border-color: rgba(56,189,248,0.25); }
+    .kpiLabel { font-size: 12px; font-weight: 800; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.06em; }
+    .kpiValue { font-family: var(--mono-font); font-size: 28px; font-weight: 500; margin-top: 8px; color: var(--brand-primary); }
+    .kpiValue--small { font-size: 16px; color: var(--text-main); font-family: 'Inter', system-ui, sans-serif; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; }
+
+    /* Briefing card */
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      overflow: hidden;
+      margin-bottom: 18px;
+    }
+    .card--pad { padding: 0; }
+    .sectionTitle {
+      padding: 16px 18px;
+      border-bottom: 1px solid var(--border);
+      background: rgba(255,255,255,0.02);
+      display:flex;
+      align-items:center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+    .sectionTitle h2 { margin: 0; font-size: 16px; display:flex; align-items:center; gap: 10px; }
+    .count { font-size: 12px; color: var(--text-muted); }
 
     .briefMeta {
-      padding: 16px 24px;
+      padding: 14px 18px;
+      display:flex;
+      flex-wrap:wrap;
+      gap: 10px;
+      align-items:center;
+      justify-content: space-between;
+    }
+    .briefMeta__left { display:flex; flex-wrap:wrap; gap: 10px; align-items:center; }
+    .briefMeta__right { display:flex; gap: 10px; align-items:center; }
+
+    /* Controls */
+    .controls {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 16px;
       display: flex;
       flex-wrap: wrap;
       gap: 12px;
+      align-items: flex-end;
+      margin-bottom: 18px;
     }
 
-    /* Pills & Status */
-    .pill {
-      background: rgba(255, 255, 255, 0.05);
+    .field { display: flex; flex-direction: column; gap: 6px; }
+
+    /* Tight mobile stacking */
+    @media (max-width: 860px) {
+      .controls {
+        gap: 10px;
+        padding: 14px;
+      }
+      .field {
+        width: 100% !important;
+        flex: 0 0 100% !important;
+      }
+      input, select {
+        width: 100%;
+      }
+    }
+
+    label { font-size: 11px; font-weight: 900; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.06em; }
+    select, input {
+      background: rgba(15,23,42,0.85);
       border: 1px solid var(--border);
-      padding: 4px 12px;
-      border-radius: 99px;
-      font-size: 0.8rem;
+      color: white;
+      padding: 10px 12px;
+      border-radius: 10px;
+      font-size: 14px;
+      outline: none;
+      min-width: 160px;
+    }
+    input { min-width: 240px; width: 100%; }
+    select:focus, input:focus { border-color: rgba(56,189,248,0.65); box-shadow: 0 0 0 3px rgba(56,189,248,0.15); }
+
+    /* Table */
+    .tableWrap { overflow-x: auto; }
+    table { width: 100%; border-collapse: collapse; }
+    th {
+      text-align: left;
+      padding: 12px 18px;
+      font-size: 11px;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      border-bottom: 1px solid var(--border);
+      white-space: nowrap;
+    }
+    td {
+      padding: 14px 18px;
+      border-bottom: 1px solid var(--border);
+      font-size: 14px;
+      vertical-align: top;
+    }
+    tr:hover { background: rgba(255,255,255,0.02); }
+
+    .symbol-cell { font-family: var(--mono-font); font-weight: 700; color: var(--brand-primary); }
+
+    .rowNote{
+      font-size: 12px;
+      color: rgba(255,255,255,0.78);
+      margin-top: 6px;
+      line-height: 1.4;
+      padding-left: 0;
+      white-space: normal;           /* very important */
+      word-break: break-word;        /* helps long words/urls */
     }
 
+.note-row {
+  background: rgba(56, 189, 248, 0.04);     /* subtle blue tint to distinguish */
+}
+
+.note-row td {
+  padding: 8px 18px 12px 18px;
+  font-size: 13px;
+  line-height: 1.45;
+  color: #cbd5e1;                           /* slightly lighter than main text */
+  border-bottom: 1px solid var(--border);
+}
+
+/* Optional: make notes slightly indented */
+.note-row td {
+  padding-left: 32px;   /* aligns under symbol column */
+}
+
+
+    /* Status dots */
     .status-dot {
-      height: 8px;
-      width: 8px;
+      height: 9px;
+      width: 9px;
       border-radius: 50%;
       display: inline-block;
       margin-right: 8px;
+      transform: translateY(1px);
     }
-    .dot--valid { background: var(--success); box-shadow: 0 0 8px var(--success); }
-    .dot--watch { background: #fbbf24; box-shadow: 0 0 8px #fbbf24; }
+    .dot--valid { background-color: var(--accent-green); box-shadow: 0 0 10px rgba(16,185,129,0.55); }
+    .dot--watch { background-color: var(--accent-gold); box-shadow: 0 0 10px rgba(245,158,11,0.35); }
 
-    /* Controls Layout */
-    .controls {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 24px;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 20px;
-      margin-bottom: 30px;
-    }
-
-    .field { display: flex; flex-direction: column; gap: 8px; flex: 1; min-width: 150px; }
-    .field label { font-size: 11px; text-transform: uppercase; color: var(--text-muted); font-weight: 700; }
-    
-    select, input {
-      background: rgba(0, 0, 0, 0.2);
-      border: 1px solid var(--border);
-      color: #fff;
-      padding: 10px;
-      border-radius: 8px;
+    /* Error */
+    .errorBox {
+      display:none;
+      margin: 0 18px 16px;
+      padding: 12px 12px;
+      border: 1px solid rgba(244,63,94,0.35);
+      background: rgba(244,63,94,0.10);
+      border-radius: 10px;
+      color: rgba(255,255,255,0.92);
+      font-size: 13px;
     }
 
-    /* Specialized Table Styling for Notes */
-    .note-row td {
-      background: rgba(59, 130, 246, 0.03);
-      padding: 12px 24px 12px 40px;
-      font-size: 0.85rem;
+    footer {
+      padding: 34px 0;
+      border-top: 1px solid var(--border);
+      margin-top: 28px;
       color: var(--text-muted);
-      border-bottom: 1px solid var(--border);
+      font-size: 12px;
     }
 
-    .symbol-cell { color: var(--accent); font-weight: 700; }
-
-    @media (max-width: 768px) {
-      .controls { flex-direction: column; }
-      .field { width: 100%; }
+    @media (max-width: 860px) {
+      .nav { display:none; }
+      .controls { flex-direction: column; align-items: stretch; }
+      select, input { width: 100%; min-width: 0; }
+      .briefMeta { align-items: flex-start; }
+      .briefMeta__right { width: 100%; justify-content: flex-start; }
     }
+
+/* ────────────────────────────────────────
+   Mobile optimizations: responsive table + breathing room
+   ──────────────────────────────────────── */
+@media (max-width: 768px) {
+  /* Container breathing room — prevents content from touching screen edge */
+  .container {
+    padding-left:  14px !important;
+    padding-right: 14px !important;
+  }
+
+  /* Table wrapper pulls content edge-to-edge but with safe margins */
+  .tableWrap {
+    margin: 0 -14px !important;
+  }
+
+  /* Table itself: no negative left margin, no left border */
+  .tableWrap table {
+    margin-left: 0 !important;
+    border-left: none !important;
+  }
+
+  /* General cell padding — tighter but readable */
+  th, td {
+    padding: 12px 10px !important;
+  }
+
+  /* Symbol column: generous left padding + natural sizing */
+  th:first-child,
+  td:first-child,
+  td.mono.symbol-cell {
+    padding-left: 20px !important;      /* ← this is what stops hugging */
+    padding-right: 8px !important;
+    min-width: 120px;
+    max-width: 48vw;
+    width: auto !important;
+  }
+
+  /* Note rows align under symbol with matching offset */
+  .note-row td {
+    padding-left: 40px !important;
+  }
+
+  /* Hide less important columns to reduce horizontal scroll */
+  th:nth-child(8), td:nth-child(8),   /* TP1 */
+  th:nth-child(9), td:nth-child(9),   /* Cap Target */
+  th:nth-child(10), td:nth-child(10)  /* R mult */
+  {
+    display: none !important;
+  }
+
+  /* Keep Qty & Status usable */
+  th:nth-child(6), td:nth-child(6)  { min-width: 64px !important; }   /* Qty */
+  th:nth-child(11), td:nth-child(11){ min-width: 84px !important; }   /* Status */
+
+  /* No rounded corners on first/last cells if they touch edge */
+  table tr td:first-child,
+  table tr th:first-child {
+    border-top-left-radius: 0 !important;
+    border-bottom-left-radius: 0 !important;
+  }
+}
   </style>
 </head>
 
 <body>
   <header class="topbar">
     <div class="container topbar__inner">
-      <a class="brand" href="/"><span>iTradeLite</span></a>
-      <nav class="nav">
-        <a href="/today/" aria-current="page">Dashboard</a>
-        <a href="/track-record/">Performance</a>
-        <a href="/how-it-works.html">Method</a>
-        <button class="btn btn--primary btn--small" id="refreshBtn">Refresh Data</button>
+      <a class="brand" href="/" aria-label="iTradeLite home">
+        <img src="/assets/mark.svg" alt="" width="24" height="24" />
+        <span>iTradeLite <span style="font-weight: 400; opacity: 0.65;">Briefing</span></span>
+      </a>
+
+      <nav class="nav" aria-label="Primary">
+        <a href="/today/" aria-current="page">Today</a>
+        <a href="/how-it-works.html">Rules</a>
+        <a href="/about.html">About</a>
       </nav>
+
+      <button class="btn btn--ghost" id="refreshBtn" type="button">Refresh Data</button>
     </div>
   </header>
 
-  <main class="container pagePad">
-    <header style="margin-bottom: 40px;">
-      <h1 style="font-size: 3.5rem; letter-spacing: -2px; margin: 0; background: linear-gradient(to bottom right, #fff, #64748b); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Daily Briefing</h1>
-      <p class="lead">Algorithmic ASX setups and sizing terminal.</p>
-    </header>
-
+  <main class="container" style="padding: 16px 0 24px;">
+    <!-- KPI Dashboard -->
     <div class="kpiGrid" aria-label="KPIs">
       <div class="kpiBox">
         <div class="kpiLabel">Recommended</div>
         <div class="kpiValue" id="kpiRecommended">—</div>
       </div>
+
       <div class="kpiBox">
         <div class="kpiLabel">Valid Setups</div>
         <div class="kpiValue" id="kpiValid">—</div>
       </div>
+
       <div class="kpiBox">
         <div class="kpiLabel">Risk Regime</div>
         <div class="kpiValue kpiValue--small" id="riskMode">Loading…</div>
       </div>
+
       <div class="kpiBox">
         <div class="kpiLabel">Data Age</div>
         <div class="kpiValue kpiValue--small" id="dataAge">—</div>
       </div>
     </div>
 
-    <section class="card" style="padding:0; overflow:hidden;">
+    <!-- Briefing meta + tools -->
+    <section class="card card--pad" aria-label="Daily briefing">
       <div class="sectionTitle">
-        <h2 style="color:var(--accent)">System Status</h2>
+        <h2>Daily Briefing</h2>
         <span class="pill" id="statusChip">Status: <b id="statusText">Loading…</b></span>
       </div>
 
       <div class="briefMeta">
-        <span class="pill">Generated: <b class="mono" id="generated">—</b></span>
-        <span class="pill">Valid for: <b class="mono" id="validFor">—</b></span>
-        <span class="pill">Universe: <b class="mono" id="kpiUniverse">—</b></span>
-        <span class="pill">AXJO bar: <b class="mono" id="kpiAxjo">—</b></span>
-        <button class="btn btn--ghost btn--small" id="copyLinkBtn" style="margin-left:auto">Copy Data URL</button>
+        <div class="briefMeta__left">
+          <span class="pill">Generated: <b class="mono" id="generated">—</b></span>
+          <span class="pill">Valid for: <b class="mono" id="validFor">—</b></span>
+          <span class="pill">Universe: <b class="mono" id="kpiUniverse">—</b></span>
+          <span class="pill">AXJO bar: <b class="mono" id="kpiAxjo">—</b></span>
+        </div>
+
+        <div class="briefMeta__right">
+          <button class="btn btn--ghost" id="copyLinkBtn" type="button" title="Copy today.json URL">Copy data link</button>
+        </div>
       </div>
 
-      <div id="errorBox" style="display:none; margin: 20px; padding: 15px; border-radius: 8px; background: rgba(239, 68, 68, 0.1); color: var(--danger); border: 1px solid var(--danger);"></div>
+      <div class="errorBox" id="errorBox"></div>
 
-      <div style="padding: 10px 24px 24px;" class="small muted">
-        <b>Institutional Framing:</b> Sizing uses <b>floor(risk_budget / |Entry − Stop|)</b>. For STOP-LIMIT entries, sizing uses the LIMIT price (worst-case fill). Targets are ATR-based and may be capped by structural ceilings.
+      <div style="padding: 0 18px 14px;">
+        <div class="small">
+          <b>Order types:</b> LIMIT = buy only if price pulls back to your level. STOP-LIMIT = buy only if price breaks upward through trigger.
+          <br />
+          <b>Institutional framing:</b> Targets shown are <b>ATR-based</b> and may be <b>capped by structural ceiling</b>. Setups are filtered by capped risk-efficiency (<b>min R multiple</b> + <b>min upside ATR</b>).
+          <br />
+          <b>Sizing:</b> uses your Portfolio and Risk % to compute Qty. Qty is floor(risk_budget / |Entry − Stop|). For STOP-LIMIT entries, sizing uses the <b>LIMIT</b> price (worst-case fill).
+        </div>
       </div>
     </section>
 
-    <section class="controls">
+    <!-- Filters + sizing -->
+    <section class="controls" aria-label="Filters">
       <div class="field">
-        <label>View Mode</label>
+        <label for="viewMode">View Mode</label>
         <select id="viewMode">
           <option value="all">All Sections</option>
           <option value="recommended">Recommended Only</option>
@@ -165,18 +439,21 @@
           <option value="watch">Watchlist</option>
         </select>
       </div>
+
       <div class="field">
-        <label>Strategy</label>
+        <label for="strategyFilter">Strategy</label>
         <select id="strategyFilter">
           <option value="all">All Strategies</option>
         </select>
       </div>
-      <div class="field" style="flex: 2;">
-        <label>Search Symbol</label>
-        <input id="q" placeholder="CBA.AX..." autocomplete="off" />
+
+      <div class="field" style="flex: 1 1 320px; min-width: 260px;">
+        <label for="q">Search Symbol</label>
+        <input id="q" placeholder="Search (e.g. CBA.AX)..." autocomplete="off" />
       </div>
+
       <div class="field">
-        <label>Sort By</label>
+        <label for="sortBy">Sort By</label>
         <select id="sortBy">
           <option value="status_score">Status Rank</option>
           <option value="score_desc">Highest Score</option>
@@ -185,29 +462,33 @@
           <option value="symbol_asc">Alphabetical</option>
         </select>
       </div>
-      <div class="field">
-        <label>Portfolio (A$)</label>
+
+      <div class="field" style="min-width: 200px;">
+        <label for="portfolio">Portfolio (A$)</label>
         <input id="portfolio" inputmode="decimal" placeholder="100000" />
       </div>
-      <div class="field">
-        <label>Risk (%)</label>
+
+      <div class="field" style="min-width: 180px;">
+        <label for="riskPct">Risk / trade (%)</label>
         <select id="riskPct">
           <option value="0.5">0.5%</option>
-          <option value="1" selected>1.0%</option>
+          <option value="0.75">0.75%</option>
+          <option value="1">1.0%</option>
           <option value="1.5">1.5%</option>
           <option value="2">2.0%</option>
+          <option value="2.5">2.5%</option>
+          <option value="3">3.0%</option>
         </select>
       </div>
     </section>
 
+    <!-- Tables injected here -->
     <div id="tables"></div>
 
-    <footer class="pagePad" style="border-top: 1px solid var(--border); text-align: center; margin-top: 40px;">
-      <p class="small muted">© iTradeLite. Educational output only — not financial advice.</p>
+    <footer>
+      <p><b>Disclaimer:</b> Educational purpose only. iTradeLite is a rule-based algorithmic scanner. Trading involves significant risk of loss. Always consult a licensed professional.</p>
     </footer>
   </main>
-
-  
 
   <script>
     const DATA_URL = "/public/today.json";
