@@ -10,36 +10,37 @@
 
 body {
   background-color: var(--bg-deep);
-  /* This radial gradient gives that "high-end terminal" look */
+  /* The "FinTech Glow" background */
   background-image: radial-gradient(circle at 50% -20%, #1e293b 0%, #050810 100%);
   color: var(--text-main);
-  font-family: 'Inter', -apple-system, sans-serif;
+  font-family: 'Inter', -apple-system, system-ui, sans-serif;
   margin: 0;
+  line-height: 1.6;
   -webkit-font-smoothing: antialiased;
 }
 
 .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
 
-/* Fixed Navigation & Logo */
+/* Fixed Navigation & Logo Logic */
 .topbar { 
   background: rgba(5, 8, 16, 0.8); 
   backdrop-filter: blur(20px); 
   border-bottom: 1px solid var(--border); 
-  padding: 12px 0; 
+  padding: 14px 0; 
   position: sticky; top: 0; z-index: 100;
 }
 .topbar__inner { display: flex; justify-content: space-between; align-items: center; }
 
-.brand { display: flex; align-items: center; gap: 10px; text-decoration: none; }
-/* This stops the "hilarious" giant logo */
+.brand { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+/* This stops the "hilarious" logo size issue */
 .brand img { height: 28px; width: auto; object-fit: contain; }
-.brand span { font-weight: 800; font-size: 1.1rem; color: #fff; letter-spacing: -0.5px; }
+.brand span { font-weight: 800; font-size: 1.2rem; color: #fff; letter-spacing: -0.5px; }
 
-.nav { display: flex; gap: 28px; align-items: center; }
-.nav a { color: var(--text-muted); text-decoration: none; font-size: 0.85rem; font-weight: 500; transition: 0.3s; }
-.nav a:hover { color: #fff; }
+.nav { display: flex; gap: 32px; align-items: center; }
+.nav a { color: var(--text-muted); text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: 0.3s; }
+.nav a:hover, .nav a[aria-current="page"] { color: #fff; }
 
-/* Glass Cards with Hover Effects */
+/* Premium Glass Cards */
 .card {
   background: var(--bg-card);
   border: 1px solid var(--border);
@@ -47,28 +48,30 @@ body {
   padding: 32px;
   border-radius: 20px;
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
 }
 
 .card:hover {
-  transform: translateY(-4px);
+  transform: translateY(-5px);
   background: rgba(255, 255, 255, 0.05);
   border-color: rgba(59, 130, 246, 0.4);
   box-shadow: 0 20px 40px rgba(0,0,0,0.4), 0 0 20px var(--accent-glow);
 }
 
-/* Button & Grid */
+/* Button & Utilities */
 .btn {
   display: inline-flex;
   padding: 12px 24px;
-  border-radius: 8px;
+  border-radius: 10px;
   font-weight: 600;
   text-decoration: none;
   transition: 0.3s;
+  font-size: 0.9rem;
 }
-.btn--primary { background: var(--accent); color: #fff; }
+.btn--primary { background: var(--accent); color: #fff; box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3); }
 .btn--primary:hover { transform: scale(1.02); background: #2563eb; }
 
-.grid3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin: 40px 0; }
+.grid3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin: 60px 0; }
+@media (max-width: 800px) { .grid3 { grid-template-columns: 1fr; } }
 
-/* Footer */
-footer { border-top: 1px solid var(--border); padding: 40px 0; margin-top: 80px; text-align: center; font-size: 0.8rem; color: var(--text-muted); }
+footer { border-top: 1px solid var(--border); padding: 60px 0; margin-top: 100px; text-align: center; }
