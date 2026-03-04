@@ -4,52 +4,48 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Track Record — iTradeLite Audit</title>
-  <meta name="description" content="Public accountability: performance proxies of published iTradeLite signals." />
-  <link rel="stylesheet" href="/assets/site.css" />
-  <style>
-    /* Institutional Palette */
-    :root {
-      --bg-deep: #060912;
-      --glass: rgba(255, 255, 255, 0.03);
-      --glass-border: rgba(255, 255, 255, 0.08);
-      --accent-glow: rgba(59, 130, 246, 0.15);
-    }
+  
+  <link rel="stylesheet" href="/assets/site.css?v=3" />
 
-    body { background-color: var(--bg-deep); color: #e2e8f0; margin: 0; }
-    .wrap { max-width: 1100px; margin: 0 auto; padding: 60px 20px; }
-    
-    /* KPI Dashboard */
-    .kpis { display: grid; gap: 16px; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); margin-bottom: 30px; }
-    .kpi { background: var(--glass); border: 1px solid var(--glass-border); border-radius: 12px; padding: 20px; backdrop-filter: blur(4px); }
-    .kpi .v { font-size: 26px; font-weight: 800; color: #fff; margin-top: 8px; font-family: ui-monospace, monospace; }
-    
-    /* Glowing Chart Panel */
+  <style>
+    /* Page-specific overrides for the Chart and Table layout */
     .chart-panel {
-      background: var(--glass);
-      border: 1px solid var(--glass-border);
+      background: var(--bg-card);
+      border: 1px solid var(--border);
       border-radius: 20px;
       padding: 30px;
       margin: 30px 0 40px;
-      box-shadow: inset 0 0 40px rgba(59, 130, 246, 0.05);
+      backdrop-filter: blur(12px);
+      box-shadow: inset 0 0 40px rgba(59, 130, 246, 0.03);
     }
-    #equity { filter: drop-shadow(0 0 8px rgba(59, 130, 246, 0.3)); width: 100%; height: 250px; }
 
-    /* Floating Tables */
-    .table-container { overflow-x: auto; margin-top: 20px; }
-    table { width: 100%; border-collapse: separate; border-spacing: 0 8px; min-width: 800px; }
-    th { text-align: left; font-size: 11px; text-transform: uppercase; letter-spacing: 1px; color: #64748b; padding: 0 16px; }
-    td { padding: 16px; background: rgba(255,255,255,0.02); border-top: 1px solid var(--glass-border); border-bottom: 1px solid var(--glass-border); }
-    td:first-child { border-left: 1px solid var(--glass-border); border-radius: 12px 0 0 12px; }
-    td:last-child { border-right: 1px solid var(--glass-border); border-radius: 0 12px 12px 0; }
-    
-    tr:hover td { background: rgba(255,255,255,0.05); border-color: rgba(255,255,255,0.2); }
+    #equity { 
+      filter: drop-shadow(0 0 12px rgba(59, 130, 246, 0.2)); 
+      width: 100%; 
+      height: 300px; 
+      display: block;
+    }
 
-    .mono { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 0.85rem; }
-    .right { text-align: right; }
-    .warn { background: rgba(255,180,0,0.05); border: 1px solid rgba(255,180,0,0.2); border-radius: 12px; padding: 16px; margin-bottom: 30px; font-size: 0.85rem; line-height: 1.5; color: #fbbf24; }
-    
-    .tag-up { color: #10b981; }
-    .tag-down { color: #ef4444; }
+    .table-container { 
+      overflow-x: auto; 
+      margin-top: 20px; 
+      -webkit-overflow-scrolling: touch;
+    }
+
+    /* Use the Global Institutional Table Look */
+    .warn-panel { 
+      background: rgba(251, 191, 36, 0.05); 
+      border: 1px solid rgba(251, 191, 36, 0.2); 
+      border-radius: 12px; 
+      padding: 20px; 
+      margin-bottom: 30px; 
+      font-size: 0.85rem; 
+      line-height: 1.6; 
+      color: #fbbf24; 
+    }
+
+    .tag-up { color: var(--success); }
+    .tag-down { color: var(--danger); }
   </style>
 </head>
 
@@ -58,176 +54,161 @@
     <div class="container topbar__inner">
       <a class="brand" href="/"><span>iTradeLite</span></a>
       <nav class="nav">
-        <a href="/today/">Today</a>
+        <a href="/today/">Dashboard</a>
         <a href="/track-record/" aria-current="page">Performance</a>
         <a href="/how-it-works.html">Method</a>
-        <a href="/about.html">About</a>
+        <a class="btn btn--primary btn--small" href="/today/">Launch Terminal</a>
       </nav>
     </div>
   </header>
 
-  <div class="wrap">
-    <h1 style="font-size: 3rem; letter-spacing: -2px; margin: 0 0 10px;">Audit Terminal</h1>
-    <p style="color: #94a3b8; font-size: 1.1rem; margin-bottom: 40px;">Live performance proxies and statistical accountability.</p>
+  <main class="container pagePad">
+    <header style="margin-bottom: 40px;">
+      <h1 style="font-size: 3.5rem; letter-spacing: -2px; margin: 0; background: linear-gradient(to bottom right, #fff, #64748b); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Audit Terminal</h1>
+      <p class="lead">Live performance proxies and statistical accountability.</p>
+    </header>
 
-    <div class="warn">
-      <b style="text-transform: uppercase; font-size: 0.75rem; display: block; margin-bottom: 4px;">Methodology Note:</b>
-      Returns are close-to-close forward returns from yfinance. The equity curve compounds the average 5D return of published signals. This is a <b>proxy</b>, not a managed portfolio.
+    <div class="warn-panel">
+      <b style="text-transform: uppercase; font-size: 0.7rem; letter-spacing: 1px; display: block; margin-bottom: 6px;">Mathematical Proxy Disclaimer:</b>
+      Returns are calculated using close-to-close forward returns. The equity curve represents a compounded average of published signals. This is an <b>institutional proxy</b> for system efficacy, not a guarantee of future returns.
     </div>
 
-    <div id="kpis" class="kpis"></div>
-    <div id="asof" style="font-size: 11px; color: #64748b; margin-top: -10px; margin-bottom: 30px; text-align: right;"></div>
+    <div id="kpis" class="kpiGrid"></div>
+    <div id="asof" style="font-size: 11px; color: var(--text-muted); margin-top: -10px; margin-bottom: 30px; text-align: right; font-family: ui-monospace, monospace;"></div>
 
     <div class="chart-panel">
-      <h2 style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; color: var(--accent); margin-bottom: 20px;">Equity Curve Proxy (5-Day Horizon)</h2>
+      <h2 style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 2px; color: var(--accent); margin-bottom: 24px;">Compounded Equity Curve (5D Horizon)</h2>
       <canvas id="equity"></canvas>
     </div>
 
+    
+
     <div style="margin-top: 60px;">
-      <h2 style="font-size: 1.2rem; color: #fff;">Strategy Attribution</h2>
+      <h2 style="font-size: 1.25rem; color: #fff; margin-bottom: 20px;">Strategy Attribution</h2>
       <div class="table-container">
         <table id="tblStrategy"></table>
       </div>
     </div>
 
     <div style="margin-top: 60px;">
-      <h2 style="font-size: 1.2rem; color: #fff;">Signal Log</h2>
+      <h2 style="font-size: 1.25rem; color: #fff; margin-bottom: 20px;">Signal Log</h2>
       <div class="table-container">
         <table id="tblRecent"></table>
       </div>
     </div>
-  </div>
+  </main>
+
+  <footer class="pagePad" style="border-top: 1px solid var(--border); text-align: center;">
+    <p class="small muted">© iTradeLite. Educational output only — not financial advice.</p>
+  </footer>
 
   <script>
-    function fmtPct(x){
-      if (x === null || x === undefined || Number.isNaN(x)) return "—";
+    // Formatting Helpers
+    const fmtPct = (x) => {
+      if (x == null || isNaN(x)) return "—";
       const val = (x * 100).toFixed(2);
       const cls = x >= 0 ? 'tag-up' : 'tag-down';
-      return `<span class="${cls}">${val}%</span>`;
-    }
+      return `<span class="${cls}">${x >= 0 ? '+' : ''}${val}%</span>`;
+    };
     
-    function fmtNum(x, d=2){
-      if (x === null || x === undefined || Number.isNaN(x)) return "—";
-      return Number(x).toFixed(d);
-    }
+    const fmtNum = (x, d=2) => (x == null || isNaN(x)) ? "—" : Number(x).toFixed(d);
 
-    function renderKpis(summary){
+    // Render Logic
+    function renderKpis(summary) {
       const el = document.getElementById("kpis");
       const items = [
         ["Total Signals", summary.total_signals_with_entry],
         ["Avg 5D Return", fmtPct(summary.avg_ret_5d)],
-        ["Win Rate 5D", summary.winrate_5d === null ? "—" : fmtPct(summary.winrate_5d)],
+        ["Win Rate (5D)", fmtPct(summary.winrate_5d)],
         ["Max Drawdown", fmtPct(summary.equity_curve_proxy_max_drawdown)],
       ];
       el.innerHTML = items.map(([k,v]) => `
-        <div class="kpi">
-          <div style="font-size: 11px; text-transform: uppercase; letter-spacing: 1px; color: #64748b;">${k}</div>
-          <div class="v">${v ?? "—"}</div>
+        <div class="kpiBox">
+          <div class="kpiLabel">${k}</div>
+          <div class="kpiValue">${v}</div>
         </div>
       `).join("");
-      document.getElementById("asof").textContent = `Archive: ${summary.since} → ${summary.until}`;
+      document.getElementById("asof").textContent = `DATA_WINDOW: ${summary.since} TO ${summary.until}`;
     }
 
-    function drawLine(canvas, labels, values){
+    function drawLine(canvas, values) {
       const ctx = canvas.getContext("2d");
       const dpr = window.devicePixelRatio || 1;
-      const w = canvas.width = canvas.clientWidth * dpr;
-      const h = canvas.height = canvas.clientHeight * dpr;
-      ctx.clearRect(0,0,w,h);
+      const rect = canvas.getBoundingClientRect();
+      canvas.width = rect.width * dpr;
+      canvas.height = rect.height * dpr;
+      ctx.scale(dpr, dpr);
 
-      const pad = 40 * dpr;
-      const minV = Math.min(...values);
-      const maxV = Math.max(...values);
-      const span = (maxV - minV) || 1;
+      const w = rect.width;
+      const h = rect.height;
+      const pad = 30;
+      const minV = Math.min(...values) * 0.995;
+      const maxV = Math.max(...values) * 1.005;
+      const range = maxV - minV;
 
-      function x(i){ return pad + (i/(values.length-1 || 1)) * (w - pad*2); }
-      function y(v){ return pad + (1 - (v - minV)/span) * (h - pad*2); }
+      const getX = (i) => pad + (i / (values.length - 1)) * (w - pad * 2);
+      const getY = (v) => h - pad - ((v - minV) / range) * (h - pad * 2);
 
-      // Gradient Fill
+      // Area Fill
       const grad = ctx.createLinearGradient(0, 0, 0, h);
-      grad.addColorStop(0, 'rgba(59, 130, 246, 0.2)');
+      grad.addColorStop(0, 'rgba(59, 130, 246, 0.15)');
       grad.addColorStop(1, 'rgba(59, 130, 246, 0)');
       
       ctx.beginPath();
-      values.forEach((v,i)=> { i===0 ? ctx.moveTo(x(i), h) : ctx.lineTo(x(i), y(v)); });
-      ctx.lineTo(x(values.length-1), h);
+      ctx.moveTo(getX(0), h - pad);
+      values.forEach((v, i) => ctx.lineTo(getX(i), getY(v)));
+      ctx.lineTo(getX(values.length - 1), h - pad);
       ctx.fillStyle = grad;
       ctx.fill();
 
-      // Line
+      // Path
       ctx.beginPath();
-      values.forEach((v,i)=>{ i===0 ? ctx.moveTo(x(i), y(v)) : ctx.lineTo(x(i), y(v)); });
+      values.forEach((v, i) => i === 0 ? ctx.moveTo(getX(i), getY(v)) : ctx.lineTo(getX(i), getY(v)));
       ctx.strokeStyle = '#3b82f6';
-      ctx.lineWidth = 3 * dpr;
+      ctx.lineWidth = 2.5;
+      ctx.lineJoin = "round";
       ctx.stroke();
-
-      ctx.fillStyle = "#64748b";
-      ctx.font = `${10*dpr}px monospace`;
-      ctx.fillText(`Proxy Final: ${values[values.length-1].toFixed(3)}`, pad, pad/2);
     }
 
-    function renderStrategyTable(rows){
-      const t = document.getElementById("tblStrategy");
-      t.innerHTML = `
-        <thead>
-          <tr>
-            <th>Strategy</th><th class="right">Trades</th><th class="right">Avg 5D</th><th class="right">Win 5D</th><th class="right">Avg Score</th>
-          </tr>
-        </thead>
-        <tbody>
-          ${rows.map(r => `
-            <tr>
-              <td class="mono" style="color:var(--accent)">${r.strategy}</td>
-              <td class="right">${r.trades}</td>
-              <td class="right">${fmtPct(r.avg_5d)}</td>
-              <td class="right">${fmtPct(r.win_5d)}</td>
-              <td class="right mono">${r.avg_score == null ? "—" : fmtNum(r.avg_score,1)}</td>
-            </tr>`).join("")}
-        </tbody>`;
-    }
-
-    function renderRecentTable(rows){
-      const t = document.getElementById("tblRecent");
-      t.innerHTML = `
-        <thead>
-          <tr>
-            <th>Date</th><th>Symbol</th><th>Strategy</th><th class="right">Entry</th><th class="right">1D</th><th class="right">5D</th><th class="right">20D</th>
-          </tr>
-        </thead>
-        <tbody>
-          ${rows.map(r => `
-            <tr>
-              <td class="mono">${r.date}</td>
-              <td class="mono" style="font-weight:bold; color:#fff;">${r.symbol}</td>
-              <td class="mono">${r.strategy}</td>
-              <td class="right mono">${r.entry_px == null ? "—" : fmtNum(r.entry_px,3)}</td>
-              <td class="right">${fmtPct(r.ret_1d)}</td>
-              <td class="right">${fmtPct(r.ret_5d)}</td>
-              <td class="right">${fmtPct(r.ret_20d)}</td>
-            </tr>`).join("")}
-        </tbody>`;
-    }
-
-    async function main(){
+    async function main() {
       try {
         const res = await fetch("/track-record/metrics.json", { cache: "no-store" });
-        if(!res.ok) throw new Error("Metrics not found");
         const data = await res.json();
 
         renderKpis(data.summary);
-        renderStrategyTable(data.by_strategy_5d || []);
-        renderRecentTable(data.recent_signals || []);
+        
+        // Strategy Table
+        document.getElementById("tblStrategy").innerHTML = `
+          <thead><tr><th>Strategy</th><th class="right">Trades</th><th class="right">Avg 5D</th><th class="right">Win 5D</th></tr></thead>
+          <tbody>${(data.by_strategy_5d || []).map(r => `
+            <tr>
+              <td class="mono" style="color:var(--accent)">${r.strategy}</td>
+              <td class="right mono">${r.trades}</td>
+              <td class="right mono">${fmtPct(r.avg_5d)}</td>
+              <td class="right mono">${fmtPct(r.win_5d)}</td>
+            </tr>`).join("")}</tbody>`;
+
+        // Recent Signal Log
+        document.getElementById("tblRecent").innerHTML = `
+          <thead><tr><th>Date</th><th>Symbol</th><th>Strategy</th><th class="right">Entry</th><th class="right">5D</th></tr></thead>
+          <tbody>${(data.recent_signals || []).map(r => `
+            <tr>
+              <td class="mono small">${r.date}</td>
+              <td class="mono" style="color:#fff; font-weight:700;">${r.symbol}</td>
+              <td class="small muted">${r.strategy}</td>
+              <td class="right mono">${fmtNum(r.entry_px, 3)}</td>
+              <td class="right mono">${fmtPct(r.ret_5d)}</td>
+            </tr>`).join("")}</tbody>`;
 
         const series = (data.equity_curve_proxy_5d || []).map(d => d.equity);
-        if(series.length >= 2){
-          drawLine(document.getElementById("equity"), null, series);
-          window.addEventListener("resize", () => drawLine(document.getElementById("equity"), null, series));
+        if(series.length > 1) {
+          drawLine(document.getElementById("equity"), series);
+          window.addEventListener("resize", () => drawLine(document.getElementById("equity"), series));
         }
       } catch(e) {
-        document.getElementById("kpis").innerHTML = `<div class="warn">Data stream offline. Run metrics update.</div>`;
+        document.getElementById("kpis").innerHTML = `<div class="warn-panel" style="color:var(--danger)">ERROR: Data stream offline.</div>`;
       }
     }
-    
     main();
   </script>
 </body>
