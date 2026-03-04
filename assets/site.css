@@ -1,57 +1,85 @@
 :root {
   --bg-deep: #060912;
-  --bg-card: rgba(255, 255, 255, 0.04);
+  --bg-card: rgba(255, 255, 255, 0.03);
   --accent: #3b82f6;
-  --border: rgba(255, 255, 255, 0.1);
+  --border: rgba(255, 255, 255, 0.08);
   --text-main: #f8fafc;
   --text-muted: #94a3b8;
+  --glass-glow: rgba(59, 130, 246, 0.1);
 }
 
 body {
   background-color: var(--bg-deep);
+  background-image: radial-gradient(circle at 50% -20%, #1e293b 0%, #060912 100%);
   color: var(--text-main);
-  font-family: -apple-system, BlinkMacSystemFont, "Inter", sans-serif;
+  font-family: 'Inter', -apple-system, sans-serif;
   margin: 0;
-  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
 }
 
 .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
 
-/* Navigation */
+/* Navigation & Logo */
 .topbar { 
   background: rgba(6, 9, 18, 0.8); 
   backdrop-filter: blur(12px); 
   border-bottom: 1px solid var(--border); 
-  padding: 20px 0; 
+  padding: 16px 0; 
   position: sticky; top: 0; z-index: 100;
 }
 .topbar__inner { display: flex; justify-content: space-between; align-items: center; }
-.brand { font-weight: 800; font-size: 1.4rem; color: #fff; text-decoration: none; letter-spacing: -1px; }
+
+.brand { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+.brand img { height: 32px; width: auto; }
+.brand span { font-weight: 800; font-size: 1.25rem; color: #fff; letter-spacing: -1px; }
+
 .nav { display: flex; gap: 32px; align-items: center; }
-.nav a { color: var(--text-muted); text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: 0.2s; }
-.nav a:hover { color: #fff; }
+.nav a { color: var(--text-muted); text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
+.nav a:hover { color: var(--accent); }
+
+/* The Modern Glass Card */
+.card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  backdrop-filter: blur(12px);
+  padding: 32px;
+  border-radius: 20px;
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(59, 130, 246, 0.4);
+  background: rgba(255, 255, 255, 0.05);
+  box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.5), 0 0 20px var(--glass-glow);
+}
+
+/* Feature Grid */
+.grid3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin: 60px 0; }
 
 /* Buttons */
 .btn {
   display: inline-flex;
-  padding: 10px 22px;
-  border-radius: 8px;
+  padding: 12px 24px;
+  border-radius: 10px;
   font-weight: 600;
   text-decoration: none;
-  transition: 0.2s;
+  transition: 0.3s;
   font-size: 0.9rem;
 }
-.btn--primary { background: var(--accent); color: #fff; box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3); }
-.btn--primary:hover { transform: translateY(-1px); background: #2563eb; }
-
-/* Glass Cards */
-.card {
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  backdrop-filter: blur(10px);
-  padding: 30px;
-  border-radius: 16px;
+.btn--primary { 
+  background: var(--accent); 
+  color: #fff; 
+  box-shadow: 0 8px 16px -4px rgba(59, 130, 246, 0.4);
 }
-.grid3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin: 40px 0; }
+.btn--primary:hover { 
+  background: #2563eb; 
+  box-shadow: 0 12px 20px -4px rgba(59, 130, 246, 0.5);
+  transform: translateY(-2px);
+}
 
-@media (max-width: 800px) { .grid3 { grid-template-columns: 1fr; } }
+/* Footer */
+footer { border-top: 1px solid var(--border); padding: 60px 0; margin-top: 100px; text-align: center; }
+.footer-small { font-size: 0.8rem; color: var(--text-muted); max-width: 600px; margin: 20px auto; }
