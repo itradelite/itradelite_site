@@ -4,51 +4,115 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>How it Works | iTradeLite Methodology</title>
-  <link rel="stylesheet" href="/assets/site.css" />
+  
+  <link rel="stylesheet" href="/assets/site.css?v=3" />
+
   <style>
-    .formula { background: var(--bg-card); border: 1px solid var(--accent); padding: 20px; border-radius: 8px; font-family: monospace; color: var(--accent); text-align: center; margin: 20px 0; }
-    .setup-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-top: 40px; }
+    /* Page-specific technical styling */
+    .formula-container {
+      background: rgba(59, 130, 246, 0.05);
+      border: 1px dashed var(--accent);
+      padding: 30px;
+      border-radius: 12px;
+      margin: 24px 0;
+      text-align: center;
+    }
+
+    .formula-text {
+      font-family: ui-monospace, monospace;
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    .math-label {
+      color: var(--accent);
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 8px;
+    }
+
+    .setup-number {
+      font-family: ui-monospace, monospace;
+      font-size: 0.8rem;
+      color: var(--accent);
+      margin-bottom: 8px;
+      display: block;
+    }
   </style>
 </head>
+
 <body>
   <header class="topbar">
     <div class="container topbar__inner">
       <a class="brand" href="/"><span>iTradeLite</span></a>
       <nav class="nav">
-        <a href="/today/">Today</a>
+        <a href="/today/">Dashboard</a>
         <a href="/how-it-works.html" aria-current="page">Method</a>
         <a href="/about.html">About</a>
+        <a class="btn btn--primary btn--small" href="/today/">Launch Terminal</a>
       </nav>
     </div>
   </header>
 
-  <main class="container" style="padding-top: 60px;">
-    <h1>The Methodology</h1>
-    <p class="lead">How we move from raw end-of-day data to a disciplined trade plan.</p>
+  <main class="container pagePad">
+    <header style="margin-bottom: 60px;">
+      <h1 style="font-size: 3rem; margin-bottom: 16px; background: linear-gradient(to bottom right, #fff, #94a3b8); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">The Methodology</h1>
+      <p class="lead" style="max-width: 700px;">Our process moves from raw end-of-day market data to a disciplined, rule-based trade plan using institutional risk management.</p>
+    </header>
 
-    <div class="card">
-      <h2>Risk Model</h2>
-      <p>Position size is derived mathematically based on the distance between your entry and your stop-loss.</p>
-      <div class="formula">
-        Position Size = (Equity × Risk %) / (Entry Price - Stop Price)
+    <section class="card" style="margin-bottom: 40px; padding: 40px;">
+      <h2 style="margin-top: 0;">01. Risk Sizing Model</h2>
+      <p>Position sizing is the most critical component of the system. We do not use arbitrary share counts. Instead, size is derived mathematically based on the "Risk-to-Stop" distance.</p>
+      
+      
+
+      <div class="formula-container">
+        <div class="math-label">Institutional Calculation</div>
+        <div class="formula-text">
+          Shares = (Portfolio Equity × Risk %) ÷ (Entry - Stop)
+        </div>
       </div>
-      <p style="font-size: 0.85rem; color: var(--text-muted);">We model this using a standard A$100,000 portfolio and a 1% risk-per-trade constraint.</p>
+      
+      <p class="small muted">
+        <strong>Example:</strong> On a $100k portfolio risking 1% ($1,000), if the distance between your entry and stop is $0.50, the system mandates a size of 2,000 shares.
+      </p>
+    </section>
+
+    <h2 style="margin-bottom: 24px;">02. Setup Archetypes</h2>
+    <div class="grid3">
+      <div class="card">
+        <span class="setup-number">TYPE_01</span>
+        <h3 style="color: #fff;">Trend Pullback</h3>
+        <p class="small muted">Identifying institutional "buy zones" within established uptrends. We look for price to mean-revert to key moving averages before resuming the primary trend.</p>
+      </div>
+      
+      <div class="card">
+        <span class="setup-number">TYPE_02</span>
+        <h3 style="color: #fff;">Momentum Breakout</h3>
+        <p class="small muted">Scanning for high-volume expansions above defined resistance levels. These setups utilize <strong>Stop-Limit</strong> orders to ensure we only enter on confirmed strength.</p>
+      </div>
+
+      <div class="card">
+        <span class="setup-number">TYPE_03</span>
+        <h3 style="color: #fff;">Mean Reversion</h3>
+        <p class="small muted">Spotting extreme oversold conditions within long-term bullish structures. This targets "rubber band" effects where price has stretched too far from its value area.</p>
+      </div>
     </div>
 
-    <div class="setup-grid">
-      <div class="card">
-        <h3>1. Trend Pullback</h3>
-        <p class="small muted">Identifying pullbacks in established uptrends to capture better R:R ratios.</p>
-      </div>
-      <div class="card">
-        <h3>2. Momentum Breakout</h3>
-        <p class="small muted">Scanning for high-volume breaks of resistance with RSI confirmation.</p>
-      </div>
-      <div class="card">
-        <h3>3. Mean Reversion</h3>
-        <p class="small muted">Spotting oversold conditions within long-term bullish structures.</p>
-      </div>
-    </div>
+    <section class="card" style="margin-top: 40px; border-left: 4px solid var(--accent);">
+      <h2 style="margin-top: 0;">03. Market Regime Gating</h2>
+      <p>Strategy execution is binary based on the <strong>Market Regime</strong>. We utilize a proprietary filter (Risk-On / Risk-Off) to determine participation:</p>
+      <ul class="small muted" style="line-height: 2;">
+        <li><strong style="color: var(--success);">Risk-On:</strong> All strategies active. Full exposure allowed.</li>
+        <li><strong style="color: var(--danger);">Risk-Off:</strong> Momentum and Breakout setups are gated. Only high-conviction pullbacks or cash positions are recommended.</li>
+      </ul>
+    </section>
   </main>
+
+  <footer class="pagePad" style="border-top: 1px solid var(--border); text-align: center;">
+    <p class="small muted">© iTradeLite. Educational output only — not financial advice.</p>
+  </footer>
 </body>
 </html>
