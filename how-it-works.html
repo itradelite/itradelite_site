@@ -34,6 +34,7 @@
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
+      animation: fadeInUp 1s cubic-bezier(0.4, 0, 0.2, 1);
     }
     
     .page-header .lead {
@@ -41,6 +42,7 @@
       font-size: 1.2rem;
       line-height: 1.8;
       color: var(--text-muted);
+      animation: fadeInUp 1s cubic-bezier(0.4, 0, 0.2, 1) 0.2s backwards;
     }
 
     .formula-container {
@@ -229,15 +231,47 @@
 <body>
   <header class="topbar">
     <div class="container topbar__inner">
-      <a class="brand" href="/"><span>iTradeLite</span></a>
-      <nav class="nav">
+      <a class="brand" href="/">
+        <img src="/assets/logo.png" alt="iTradeLite" style="height: 28px;">
+        <span>iTradeLite</span>
+      </a>
+      <nav class="nav" id="mainNav">
         <a href="/today/">Dashboard</a>
+        <a href="/track-record/">Performance</a>
         <a href="/how-it-works.html" aria-current="page">Method</a>
         <a href="/about.html">About</a>
         <a class="btn btn--primary btn--small" href="/today/">Launch Terminal</a>
       </nav>
+      <button class="hamburger" id="hamburgerBtn" aria-label="Toggle menu">☰</button>
     </div>
   </header>
+
+  <script>
+    // Hamburger menu toggle
+    const hamburger = document.getElementById('hamburgerBtn');
+    const nav = document.getElementById('mainNav');
+    
+    hamburger.addEventListener('click', () => {
+      nav.classList.toggle('active');
+      hamburger.textContent = nav.classList.contains('active') ? '✕' : '☰';
+    });
+    
+    // Close menu when clicking outside
+    document.addEventListener('click', (e) => {
+      if (!e.target.closest('.topbar')) {
+        nav.classList.remove('active');
+        hamburger.textContent = '☰';
+      }
+    });
+    
+    // Close menu when link clicked
+    nav.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        nav.classList.remove('active');
+        hamburger.textContent = '☰';
+      });
+    });
+  </script>
 
   <main class="container pagePad">
     <header class="page-header">
