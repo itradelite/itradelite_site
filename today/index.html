@@ -367,19 +367,50 @@
   <header class="topbar">
     <div class="container topbar__inner">
       <a class="brand" href="/" aria-label="iTradeLite home">
-        <img src="/assets/logo.png" alt="" width="24" height="24" />
+        <img src="/assets/logo.png" alt="iTradeLite" style="height: 28px;" />
         <span>iTradeLite <span style="font-weight: 400; opacity: 0.65;">Briefing</span></span>
       </a>
 
-      <nav class="nav" aria-label="Primary">
+      <nav class="nav" id="mainNav" aria-label="Primary">
         <a href="/today/" aria-current="page">Today</a>
+        <a href="/track-record/">Performance</a>
         <a href="/how-it-works.html">Rules</a>
         <a href="/about.html">About</a>
       </nav>
 
+      <button class="hamburger" id="hamburgerBtn" aria-label="Toggle menu">☰</button>
       <button class="btn btn--ghost" id="refreshBtn" type="button">Refresh Data</button>
     </div>
   </header>
+
+  <script>
+    // Hamburger menu toggle
+    const hamburger = document.getElementById('hamburgerBtn');
+    const nav = document.getElementById('mainNav');
+    
+    if (hamburger && nav) {
+      hamburger.addEventListener('click', () => {
+        nav.classList.toggle('active');
+        hamburger.textContent = nav.classList.contains('active') ? '✕' : '☰';
+      });
+      
+      // Close menu when clicking outside
+      document.addEventListener('click', (e) => {
+        if (!e.target.closest('.topbar')) {
+          nav.classList.remove('active');
+          hamburger.textContent = '☰';
+        }
+      });
+      
+      // Close menu when link clicked
+      nav.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          nav.classList.remove('active');
+          hamburger.textContent = '☰';
+        });
+      });
+    }
+  </script>
 
   <main class="container" style="padding: 16px 0 24px;">
     <!-- KPI Dashboard -->
