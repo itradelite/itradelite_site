@@ -141,15 +141,43 @@
         <span>iTradeLite</span>
       </a>
 
-      <nav class="nav">
+      <nav class="nav" id="mainNav">
         <a href="/today/">Dashboard</a>
         <a href="/track-record/">Performance</a>
         <a href="/how-it-works.html">Method</a>
         <a href="/about.html" aria-current="page">About</a>
         <a class="btn btn--primary btn--small" href="/today/">Launch Terminal</a>
       </nav>
+      <button class="hamburger" id="hamburgerBtn" aria-label="Toggle menu">☰</button>
     </div>
   </header>
+
+  <script>
+    // Hamburger menu toggle
+    const hamburger = document.getElementById('hamburgerBtn');
+    const nav = document.getElementById('mainNav');
+    
+    hamburger.addEventListener('click', () => {
+      nav.classList.toggle('active');
+      hamburger.textContent = nav.classList.contains('active') ? '✕' : '☰';
+    });
+    
+    // Close menu when clicking outside
+    document.addEventListener('click', (e) => {
+      if (!e.target.closest('.topbar')) {
+        nav.classList.remove('active');
+        hamburger.textContent = '☰';
+      }
+    });
+    
+    // Close menu when link clicked
+    nav.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        nav.classList.remove('active');
+        hamburger.textContent = '☰';
+      });
+    });
+  </script>
 
   <main class="container">
     <section class="about-header">
