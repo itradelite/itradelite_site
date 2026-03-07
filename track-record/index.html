@@ -168,12 +168,12 @@
     }
 
     .tag-up { 
-      color: var(--success); 
+      color: #10b981 !important;
       font-weight: 700;
     }
     
     .tag-down { 
-      color: var(--danger);
+      color: #ef4444 !important;
       font-weight: 700;
     }
 
@@ -376,49 +376,101 @@
 
       const w = rect.width;
       const h = rect.height;
-      const pad = 60;
+      const padLeft = 80;
+      const padRight = 40;
+      const padTop = 40;
+      const padBottom = 60;
+      
       const minV = Math.min(...values) * 0.99;
       const maxV = Math.max(...values) * 1.01;
       const range = maxV - minV;
 
-      const getX = (i) => pad + (i / (values.length - 1)) * (w - pad * 2);
-      const getY = (v) => h - pad - ((v - minV) / range) * (h - pad * 2);
+      const getX = (i) => padLeft + (i / (values.length - 1)) * (w - padLeft - padRight);
+      const getY = (v) => h - padBottom - ((v - minV) / range) * (h - padTop - padBottom);
 
-      // Enhanced Area Glow
+      // Clear canvas
+      ctx.clearRect(0, 0, w, h);
+
+      // Draw grid lines and Y-axis labels
+      ctx.strokeStyle = 'rgba(255, 255, 255, 0.08)';
+      ctx.lineWidth = 1;
+      ctx.font = '11px JetBrains Mono, monospace';
+      ctx.fillStyle = '#94a3b8';
+      ctx.textAlign = 'right';
+      
+      for(let i = 0; i <= 5; i++) {
+        const value = minV + (range * i / 5);
+        const y = h - padBottom - (i / 5) * (h - padTop - padBottom);
+        
+        // Grid line
+        ctx.beginPath();
+        ctx.moveTo(padLeft, y);
+        ctx.lineTo(w - padRight, y);
+        ctx.stroke();
+        
+        // Y-axis label
+        ctx.fillText('$' + value.toFixed(2), padLeft - 10, y + 4);
+      }
+
+      // X-axis labels (show first, middle, last dates)
+      ctx.textAlign = 'center';
+      const labelIndices = [0, Math.floor(values.length / 2), values.length - 1];
+      labelIndices.forEach(i => {
+        const x = getX(i);
+        ctx.fillText(`Day ${i}`, x, h - padBottom + 25);
+      });
+
+      // Enhanced Area Glow - determine if overall trend is up or down
+      const isPositive = values[values.length - 1] >= values[0];
       const grad = ctx.createLinearGradient(0, 0, 0, h);
-      grad.addColorStop(0, 'rgba(59, 130, 246, 0.25)');
-      grad.addColorStop(0.5, 'rgba(139, 92, 246, 0.15)');
-      grad.addColorStop(1, 'rgba(5, 8, 16, 0)');
+      
+      if (isPositive) {
+        grad.addColorStop(0, 'rgba(16, 185, 129, 0.25)');
+        grad.addColorStop(0.5, 'rgba(16, 185, 129, 0.15)');
+        grad.addColorStop(1, 'rgba(5, 8, 16, 0)');
+      } else {
+        grad.addColorStop(0, 'rgba(239, 68, 68, 0.25)');
+        grad.addColorStop(0.5, 'rgba(239, 68, 68, 0.15)');
+        grad.addColorStop(1, 'rgba(5, 8, 16, 0)');
+      }
       
       ctx.beginPath();
-      ctx.moveTo(getX(0), h - pad);
+      ctx.moveTo(getX(0), h - padBottom);
       values.forEach((v, i) => ctx.lineTo(getX(i), getY(v)));
-      ctx.lineTo(getX(values.length - 1), h - pad);
+      ctx.lineTo(getX(values.length - 1), h - padBottom);
       ctx.fillStyle = grad;
       ctx.fill();
 
-      // Enhanced Line with Glow
+      // Enhanced Line with Glow - color based on performance
       ctx.shadowBlur = 20;
-      ctx.shadowColor = 'rgba(59, 130, 246, 0.6)';
+      ctx.shadowColor = isPositive ? 'rgba(16, 185, 129, 0.6)' : 'rgba(239, 68, 68, 0.6)';
       ctx.beginPath();
       values.forEach((v, i) => i === 0 ? ctx.moveTo(getX(i), getY(v)) : ctx.lineTo(getX(i), getY(v)));
-      ctx.strokeStyle = '#3b82f6';
+      ctx.strokeStyle = isPositive ? '#10b981' : '#ef4444';
       ctx.lineWidth = 3;
       ctx.stroke();
       
-      // Reset shadow for grid
+      // Reset shadow
       ctx.shadowBlur = 0;
+
+      // Draw legend
+      const startValue = values[0];
+      const endValue = values[values.length - 1];
+      const change = endValue - startValue;
+      const changePercent = ((change / startValue) * 100).toFixed(2);
       
-      // Grid lines
-      ctx.strokeStyle = 'rgba(255, 255, 255, 0.05)';
-      ctx.lineWidth = 1;
-      for(let i = 0; i < 5; i++) {
-        const y = h - pad - (i / 4) * (h - pad * 2);
-        ctx.beginPath();
-        ctx.moveTo(pad, y);
-        ctx.lineTo(w - pad, y);
-        ctx.stroke();
-      }
+      ctx.font = '12px Space Grotesk, sans-serif';
+      ctx.textAlign = 'left';
+      ctx.fillStyle = '#fff';
+      ctx.fillText('Equity Curve Performance:', 20, 25);
+      
+      ctx.font = 'bold 14px Space Grotesk, sans-serif';
+      ctx.fillStyle = isPositive ? '#10b981' : '#ef4444';
+      ctx.fillText(
+        `${isPositive ? '+' : ''}${changePercent}% (${isPositive ? '+' : ''}$${change.toFixed(2)})`, 
+        220, 
+        25
+      );
     }
 
     async function main() {
