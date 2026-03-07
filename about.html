@@ -4,43 +4,135 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>About iTradeLite | Rule-Based Trading</title>
-  <link rel="stylesheet" href="/assets/site.css" />
+  
+  <link rel="stylesheet" href="/assets/site.css?v=3" />
 
   <style>
-    .about-header { padding: 100px 0 60px; margin-bottom: 40px; }
+    .about-header { 
+      padding: 100px 0 80px; 
+      border-bottom: 1px solid var(--border); 
+      margin-bottom: 60px;
+      position: relative;
+    }
+    
+    .about-header::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 40%;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--accent), transparent);
+    }
+    
+    .about-header h1 {
+      font-size: 4.5rem;
+      line-height: 1.05;
+      letter-spacing: -3px;
+      margin: 0;
+      font-weight: 900;
+      background: linear-gradient(135deg, #ffffff 0%, #94a3b8 60%, #64748b 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: fadeInUp 1s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    .lead {
+      margin-top: 28px;
+      max-width: 640px;
+      font-size: 1.25rem;
+      line-height: 1.7;
+      color: var(--text-muted);
+      font-weight: 500;
+      animation: fadeInUp 1s cubic-bezier(0.4, 0, 0.2, 1) 0.2s backwards;
+    }
     
     .legal-notice { 
-      background: rgba(239, 68, 68, 0.03); 
-      border: 1px solid rgba(239, 68, 68, 0.15); 
-      padding: 30px; 
+      background: linear-gradient(135deg, rgba(239, 68, 68, 0.1) 0%, rgba(220, 38, 38, 0.05) 100%);
+      border: 1px solid rgba(239, 68, 68, 0.3); 
+      padding: 28px 32px; 
       border-radius: 16px; 
-      margin-top: 30px; 
+      margin-top: 32px;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .legal-notice::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 4px;
+      background: linear-gradient(180deg, #ef4444, #dc2626);
     }
 
     .philosophy-list {
-      margin-top: 25px;
-      padding: 0;
+      margin-top: 24px;
+      padding-left: 0;
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      line-height: 1.8;
       list-style: none;
     }
     
     .philosophy-list li {
-      margin-bottom: 20px;
-      padding-left: 30px;
+      margin-bottom: 16px;
+      padding-left: 32px;
       position: relative;
-      color: var(--text-muted);
-      font-size: 1rem;
     }
-
+    
     .philosophy-list li::before {
-      content: "→";
+      content: '→';
       position: absolute;
       left: 0;
       color: var(--accent);
+      font-weight: 700;
+      font-size: 1.2rem;
+    }
+    
+    .philosophy-list strong {
+      color: var(--text-main);
+      font-weight: 700;
+    }
+    
+    .section-card {
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.06) 0%, rgba(255, 255, 255, 0.02) 100%);
+      border: 1px solid var(--border);
+      backdrop-filter: blur(16px);
+      padding: 48px;
+      border-radius: 24px;
+      transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    .section-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--border-hover);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.3), 0 0 0 1px rgba(59, 130, 246, 0.1);
+    }
+    
+    .section-title {
+      color: var(--accent);
+      font-size: 1.6rem;
+      margin-bottom: 20px;
       font-weight: 800;
+      letter-spacing: -0.5px;
+    }
+    
+    .danger-title {
+      color: #ef4444;
+    }
+    
+    @media (max-width: 768px) {
+      .about-header h1 {
+        font-size: 3rem;
+        letter-spacing: -2px;
+      }
     }
   </style>
 </head>
-
 <body>
   <header class="topbar">
     <div class="container topbar__inner">
@@ -48,54 +140,57 @@
         <img src="/assets/logo.png" alt="iTradeLite" style="height: 28px;">
         <span>iTradeLite</span>
       </a>
+
       <nav class="nav">
         <a href="/today/">Dashboard</a>
         <a href="/how-it-works.html">Method</a>
         <a href="/about.html" aria-current="page">About</a>
-        <a class="btn btn--primary" style="padding: 8px 16px; font-size: 0.8rem;" href="/today/">Launch Terminal</a>
+        <a class="btn btn--primary btn--small" href="/today/">Launch Terminal</a>
       </nav>
     </div>
   </header>
 
   <main class="container">
     <section class="about-header">
-      <h1 style="font-size: 4.5rem; line-height: 0.95; letter-spacing: -4px; margin: 0; background: linear-gradient(to bottom right, #fff, #64748b); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
-        Clarity &<br>Discipline.
-      </h1>
-      <p style="margin-top: 30px; font-size: 1.3rem; color: var(--text-muted); max-width: 600px; line-height: 1.5;">
-        A lean system providing daily rule-based watchlists with explicit entry points, stop-losses, and modeled risk.
+      <h1>Clarity & Discipline.</h1>
+      <p class="lead">
+        A lean system that publishes daily rule-based lists with explicit entries, stops, and modelled risk.
       </p>
     </section>
 
-    <div class="grid2" style="margin-bottom: 100px; align-items: start;">
-      <div class="card" style="padding: 40px;">
-        <h2 style="color: #fff; font-size: 1.8rem; margin-bottom: 20px; letter-spacing: -1px;">The Philosophy</h2>
-        <p style="color: var(--text-muted); line-height: 1.7;">Most signals are vague. iTradeLite is intentionally explicit. We believe that if a trade plan can’t be explained and repeated by a machine, it isn’t a system—it’s just vibes.</p>
+    <div class="grid2" style="margin-bottom: 100px;">
+      <div class="section-card">
+        <h2 class="section-title">The Philosophy</h2>
+        <p style="color: var(--text-muted); line-height: 1.8; margin-bottom: 8px;">
+          Most signals are vague. iTradeLite is intentionally explicit. We believe that if a trade plan can't be explained and repeated by a machine, it isn't a system—it's just vibes.
+        </p>
         
         <ul class="philosophy-list">
           <li><strong>Quantitative Logic:</strong> Every setup is based on mathematical price action, not intuition.</li>
           <li><strong>Risk First:</strong> We prioritize the "Stop" and "Position Size" over the potential profit.</li>
-          <li><strong>Regime Gating:</strong> We toggle strategies off when market conditions are mathematically unfavorable.</li>
+          <li><strong>Regime Gating:</strong> We toggle strategies off when the broader market environment is unfavorable.</li>
         </ul>
       </div>
 
-      <div class="card" style="padding: 40px;">
-        <h2 style="color: #ef4444; font-size: 1.8rem; margin-bottom: 20px; letter-spacing: -1px;">Institutional Guardrails</h2>
-        <p style="color: var(--text-muted); line-height: 1.7;">iTradeLite is a rule-based data output generated from end-of-day market statistics. <strong>It is not a financial advisory service.</strong></p>
+      <div class="section-card">
+        <h2 class="section-title danger-title">What it is NOT</h2>
+        <p style="color: var(--text-muted); line-height: 1.8; margin-bottom: 8px;">
+          iTradeLite is a rule-based data output generated from end-of-day market statistics. <strong style="color: var(--text-main);">It is not a financial advisory service.</strong>
+        </p>
         
         <div class="legal-notice">
-          <b style="color: #ef4444; display: block; margin-bottom: 12px; text-transform: uppercase; font-size: 0.7rem; letter-spacing: 2px; font-weight: 800;">Regulatory Disclaimer</b>
-          <p style="margin: 0; line-height: 1.6; font-size: 0.85rem; color: var(--text-muted);">
-            This site is for informational purposes only. Trading involves significant risk of loss. iTradeLite does not take into account your personal financial situation or risk appetite. You are 100% responsible for your own capital.
+          <b style="color: #ef4444; display: block; margin-bottom: 12px; text-transform: uppercase; font-size: 0.75rem; letter-spacing: 1.5px; font-weight: 800;">Education only</b>
+          <p class="small" style="margin: 0; line-height: 1.7; color: rgba(255, 255, 255, 0.8);">
+            This site is for informational purposes only. Trading markets involve significant risk of loss. iTradeLite does not take into account your personal financial situation, risk appetite, or tax obligations. You are 100% responsible for your own capital.
           </p>
         </div>
       </div>
     </div>
   </main>
 
-  <footer>
-    <div class="container" style="padding: 60px 0; border-top: 1px solid var(--border); text-align: center;">
-      <p style="color: var(--text-muted); font-size: 0.85rem;">© 2026 iTradeLite • Data-Driven Discipline</p>
+  <footer style="border-top: 1px solid var(--border); text-align: center; padding: 80px 0;">
+    <div class="container">
+      <p class="small muted">© iTradeLite. Educational output only — not financial advice.</p>
     </div>
   </footer>
 </body>
