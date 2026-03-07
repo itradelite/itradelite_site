@@ -153,6 +153,84 @@ body {
   color: #fff; 
 }
 
+/* Hamburger Menu */
+.hamburger {
+  display: none;
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 8px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 1001;
+}
+
+.hamburger:hover {
+  color: var(--accent);
+}
+
+/* Mobile Navigation */
+@media (max-width: 900px) {
+  .hamburger {
+    display: block;
+  }
+  
+  .nav {
+    position: fixed;
+    top: 60px;
+    left: 0;
+    right: 0;
+    background: rgba(10, 14, 23, 0.98);
+    backdrop-filter: blur(24px);
+    border-top: 1px solid var(--border);
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    padding: 20px;
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+  }
+  
+  .nav.active {
+    max-height: 500px;
+    opacity: 1;
+  }
+  
+  .nav a {
+    padding: 16px 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    font-size: 1.05rem;
+  }
+  
+  .nav a:last-child {
+    border-bottom: none;
+  }
+  
+  .nav a::after {
+    display: none;
+  }
+  
+  .nav .btn {
+    margin-top: 12px;
+    text-align: center;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .topbar {
+    padding: 12px 0;
+  }
+  
+  .brand span {
+    font-size: 1.1rem;
+  }
+}
+
 /* Premium Glass Cards with Depth */
 .card {
   background: linear-gradient(135deg, rgba(255, 255, 255, 0.06) 0%, rgba(255, 255, 255, 0.02) 100%);
