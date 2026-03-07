@@ -3,97 +3,1048 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>iTradeLite — Institutional ASX Watchlist</title>
-  <link rel="stylesheet" href="/assets/site.css" />
+  <title>Today — iTradeLite Daily ASX Briefing</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
   <style>
-    .hero { padding: 120px 0; display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 80px; align-items: center; }
-    
-    .hero h1 { 
-      font-size: 4.8rem; line-height: 0.95; letter-spacing: -4px; margin: 0;
-      background: linear-gradient(to bottom right, #ffffff 30%, #475569);
-      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    :root {
+      --bg: #0f172a;
+      --card-bg: #1e293b;
+      --border: rgba(255, 255, 255, 0.08);
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --accent-green: #10b981;
+      --accent-red: #f43f5e;
+      --accent-gold: #f59e0b;
+      --brand-primary: #38bdf8;
+      --mono-font: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
     }
 
-    .feature-list { display: flex; flex-direction: column; gap: 10px; }
-    .feature-item {
-      display: flex; align-items: center; gap: 15px; padding: 18px;
-      background: rgba(255,255,255,0.02); border: 1px solid var(--border); border-radius: 14px;
-    }
-    .num { color: var(--accent); font-family: ui-monospace, monospace; font-weight: 800; }
+    * { box-sizing: border-box; }
 
-    @media (max-width: 900px) {
-      .hero { grid-template-columns: 1fr; text-align: center; padding: 60px 0; }
-      .hero h1 { font-size: 3.5rem; }
+    body {
+      background-color: var(--bg);
+      color: var(--text-main);
+      font-family: 'Inter', -apple-system, system-ui, sans-serif;
+      margin: 0;
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
     }
+
+    a { color: inherit; }
+
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+
+    /* Topbar */
+    .topbar {
+      background: rgba(15, 23, 42, 0.80);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      padding: 12px 0;
+    }
+    .topbar__inner { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+    .brand { display: flex; align-items: center; gap: 10px; text-decoration: none; color: white; font-weight: 700; font-size: 18px; }
+    .nav { display:flex; gap: 16px; font-size: 14px; }
+    .nav a { text-decoration: none; color: var(--text-muted); }
+    .nav a[aria-current="page"] { color: var(--brand-primary); }
+
+    /* Buttons */
+    .btn {
+      background: var(--brand-primary);
+      color: var(--bg);
+      border: none;
+      padding: 8px 16px;
+      border-radius: 8px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: opacity 0.2s, transform 0.08s;
+      user-select: none;
+    }
+    .btn:active { transform: translateY(1px); }
+    .btn--ghost { background: transparent; border: 1px solid var(--border); color: white; }
+    .btn:hover { opacity: 0.85; }
+
+    /* Utility */
+    .mono { font-family: var(--mono-font); font-size: 13px; }
+    .muted { color: var(--text-muted); }
+    .small { font-size: 12px; color: var(--text-muted); }
+
+    /* Banners */
+    .banner {
+      border-radius: 12px;
+      padding: 16px;
+      margin: 20px 0 14px;
+      border-left: 4px solid var(--border);
+      background: var(--card-bg);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+    }
+    .banner--stale { border-left-color: var(--accent-gold); background: linear-gradient(90deg, rgba(245,158,11,0.12) 0%, rgba(30,41,59,0.0) 100%); }
+
+    /* Pills */
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border-radius: 999px;
+      padding: 5px 10px;
+      font-size: 12px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.03);
+      white-space: nowrap;
+    }
+
+    /* KPI dashboard */
+    .kpiGrid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+      margin: 18px 0 18px;
+    }
+    .kpiBox {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 18px;
+      transition: transform 0.2s, border-color 0.2s;
+    }
+    .kpiBox:hover { transform: translateY(-1px); border-color: rgba(56,189,248,0.25); }
+    .kpiLabel { font-size: 12px; font-weight: 800; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.06em; }
+    .kpiValue { font-family: var(--mono-font); font-size: 28px; font-weight: 500; margin-top: 8px; color: var(--brand-primary); }
+    .kpiValue--small { font-size: 16px; color: var(--text-main); font-family: 'Inter', system-ui, sans-serif; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; }
+
+    /* Briefing card */
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      overflow: hidden;
+      margin-bottom: 18px;
+    }
+    .card--pad { padding: 0; }
+    .sectionTitle {
+      padding: 16px 18px;
+      border-bottom: 1px solid var(--border);
+      background: rgba(255,255,255,0.02);
+      display:flex;
+      align-items:center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+    .sectionTitle h2 { margin: 0; font-size: 16px; display:flex; align-items:center; gap: 10px; }
+    .count { font-size: 12px; color: var(--text-muted); }
+
+    .briefMeta {
+      padding: 14px 18px;
+      display:flex;
+      flex-wrap:wrap;
+      gap: 10px;
+      align-items:center;
+      justify-content: space-between;
+    }
+    .briefMeta__left { display:flex; flex-wrap:wrap; gap: 10px; align-items:center; }
+    .briefMeta__right { display:flex; gap: 10px; align-items:center; }
+
+    /* Controls */
+    .controls {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 16px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: flex-end;
+      margin-bottom: 18px;
+    }
+
+    .field { display: flex; flex-direction: column; gap: 6px; }
+
+    /* Tight mobile stacking */
+    @media (max-width: 860px) {
+      .controls {
+        gap: 10px;
+        padding: 14px;
+      }
+      .field {
+        width: 100% !important;
+        flex: 0 0 100% !important;
+      }
+      input, select {
+        width: 100%;
+      }
+    }
+
+    label { font-size: 11px; font-weight: 900; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.06em; }
+    select, input {
+      background: rgba(15,23,42,0.85);
+      border: 1px solid var(--border);
+      color: white;
+      padding: 10px 12px;
+      border-radius: 10px;
+      font-size: 14px;
+      outline: none;
+      min-width: 160px;
+    }
+    input { min-width: 240px; width: 100%; }
+    select:focus, input:focus { border-color: rgba(56,189,248,0.65); box-shadow: 0 0 0 3px rgba(56,189,248,0.15); }
+
+    /* Table */
+    .tableWrap { overflow-x: auto; }
+    table { width: 100%; border-collapse: collapse; }
+    th {
+      text-align: left;
+      padding: 12px 18px;
+      font-size: 11px;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      border-bottom: 1px solid var(--border);
+      white-space: nowrap;
+    }
+    td {
+      padding: 14px 18px;
+      border-bottom: 1px solid var(--border);
+      font-size: 14px;
+      vertical-align: top;
+    }
+    tr:hover { background: rgba(255,255,255,0.02); }
+
+    .symbol-cell { font-family: var(--mono-font); font-weight: 700; color: var(--brand-primary); }
+
+    .rowNote{
+      font-size: 12px;
+      color: rgba(255,255,255,0.78);
+      margin-top: 6px;
+      line-height: 1.4;
+      padding-left: 0;
+      white-space: normal;           /* very important */
+      word-break: break-word;        /* helps long words/urls */
+    }
+
+.note-row {
+  background: rgba(56, 189, 248, 0.04);     /* subtle blue tint to distinguish */
+}
+
+.note-row td {
+  padding: 8px 18px 12px 18px;
+  font-size: 13px;
+  line-height: 1.45;
+  color: #cbd5e1;                           /* slightly lighter than main text */
+  border-bottom: 1px solid var(--border);
+}
+
+/* Optional: make notes slightly indented */
+.note-row td {
+  padding-left: 32px;   /* aligns under symbol column */
+}
+
+
+    /* Status dots */
+    .status-dot {
+      height: 9px;
+      width: 9px;
+      border-radius: 50%;
+      display: inline-block;
+      margin-right: 8px;
+      transform: translateY(1px);
+    }
+    .dot--valid { background-color: var(--accent-green); box-shadow: 0 0 10px rgba(16,185,129,0.55); }
+    .dot--watch { background-color: var(--accent-gold); box-shadow: 0 0 10px rgba(245,158,11,0.35); }
+
+    /* Error */
+    .errorBox {
+      display:none;
+      margin: 0 18px 16px;
+      padding: 12px 12px;
+      border: 1px solid rgba(244,63,94,0.35);
+      background: rgba(244,63,94,0.10);
+      border-radius: 10px;
+      color: rgba(255,255,255,0.92);
+      font-size: 13px;
+    }
+
+    footer {
+      padding: 34px 0;
+      border-top: 1px solid var(--border);
+      margin-top: 28px;
+      color: var(--text-muted);
+      font-size: 12px;
+    }
+
+    @media (max-width: 860px) {
+      .nav { display:none; }
+      .controls { flex-direction: column; align-items: stretch; }
+      select, input { width: 100%; min-width: 0; }
+      .briefMeta { align-items: flex-start; }
+      .briefMeta__right { width: 100%; justify-content: flex-start; }
+    }
+
+/* ────────────────────────────────────────
+   Mobile optimizations: responsive table + breathing room
+   ──────────────────────────────────────── */
+@media (max-width: 768px) {
+  /* Container breathing room — prevents content from touching screen edge */
+  .container {
+    padding-left:  14px !important;
+    padding-right: 14px !important;
+  }
+
+  /* Table wrapper pulls content edge-to-edge but with safe margins */
+  .tableWrap {
+    margin: 0 -14px !important;
+  }
+
+  /* Table itself: no negative left margin, no left border */
+  .tableWrap table {
+    margin-left: 0 !important;
+    border-left: none !important;
+  }
+
+  /* General cell padding — tighter but readable */
+  th, td {
+    padding: 12px 10px !important;
+  }
+
+  /* Symbol column: generous left padding + natural sizing */
+  th:first-child,
+  td:first-child,
+  td.mono.symbol-cell {
+    padding-left: 20px !important;      /* ← this is what stops hugging */
+    padding-right: 8px !important;
+    min-width: 120px;
+    max-width: 48vw;
+    width: auto !important;
+  }
+
+  /* Note rows align under symbol with matching offset */
+  .note-row td {
+    padding-left: 40px !important;
+  }
+
+  /* Hide less important columns to reduce horizontal scroll */
+  th:nth-child(8), td:nth-child(8),   /* TP1 */
+  th:nth-child(9), td:nth-child(9),   /* Cap Target */
+  th:nth-child(10), td:nth-child(10)  /* R mult */
+  {
+    display: none !important;
+  }
+
+  /* Keep Qty & Status usable */
+  th:nth-child(6), td:nth-child(6)  { min-width: 64px !important; }   /* Qty */
+  th:nth-child(11), td:nth-child(11){ min-width: 84px !important; }   /* Status */
+
+  /* No rounded corners on first/last cells if they touch edge */
+  table tr td:first-child,
+  table tr th:first-child {
+    border-top-left-radius: 0 !important;
+    border-bottom-left-radius: 0 !important;
+  }
+}
   </style>
 </head>
 
 <body>
   <header class="topbar">
     <div class="container topbar__inner">
-      <a class="brand" href="/">
-        <img src="/assets/logo.png" alt="iTradeLite">
-        <span>iTradeLite</span>
+      <a class="brand" href="/" aria-label="iTradeLite home">
+        <img src="/assets/mark.svg" alt="" width="24" height="24" />
+        <span>iTradeLite <span style="font-weight: 400; opacity: 0.65;">Briefing</span></span>
       </a>
-      <nav class="nav">
-        <a href="/today/">Dashboard</a>
-        <a href="/track-record/">Performance</a>
+
+      <nav class="nav" aria-label="Primary">
+        <a href="/today/" aria-current="page">Today</a>
+        <a href="/how-it-works.html">Rules</a>
         <a href="/about.html">About</a>
-        <a class="btn btn--primary" style="padding: 8px 16px; font-size: 0.8rem;" href="/today/">Launch Terminal</a>
       </nav>
+
+      <button class="btn btn--ghost" id="refreshBtn" type="button">Refresh Data</button>
     </div>
   </header>
 
-  <main class="container">
-    <section class="hero">
-      <div>
-        <h1>ASX Data.<br>Pure Logic.</h1>
-        <p style="font-size: 1.3rem; color: var(--text-muted); margin: 30px 0 45px; line-height: 1.5; max-width: 520px;">
-          Institutional-grade daily trade plans for the ASX. Rule-based entries, stops, and risk sizing generated directly from raw end-of-day data.
-        </p>
-        <a class="btn btn--primary" style="padding: 16px 36px; font-size: 1rem;" href="/today/">View Today's List</a>
+  <main class="container" style="padding: 16px 0 24px;">
+    <!-- KPI Dashboard -->
+    <div class="kpiGrid" aria-label="KPIs">
+      <div class="kpiBox">
+        <div class="kpiLabel">Recommended</div>
+        <div class="kpiValue" id="kpiRecommended">—</div>
       </div>
 
-      <div class="card feature-list">
-        <div class="feature-item">
-          <span class="num">01</span>
-          <span style="font-weight: 600;">Modelled Risk Management</span>
+      <div class="kpiBox">
+        <div class="kpiLabel">Valid Setups</div>
+        <div class="kpiValue" id="kpiValid">—</div>
+      </div>
+
+      <div class="kpiBox">
+        <div class="kpiLabel">Risk Regime</div>
+        <div class="kpiValue kpiValue--small" id="riskMode">Loading…</div>
+      </div>
+
+      <div class="kpiBox">
+        <div class="kpiLabel">Data Age</div>
+        <div class="kpiValue kpiValue--small" id="dataAge">—</div>
+      </div>
+    </div>
+
+    <!-- Briefing meta + tools -->
+    <section class="card card--pad" aria-label="Daily briefing">
+      <div class="sectionTitle">
+        <h2>Daily Briefing</h2>
+        <span class="pill" id="statusChip">Status: <b id="statusText">Loading…</b></span>
+      </div>
+
+      <div class="briefMeta">
+        <div class="briefMeta__left">
+          <span class="pill">Generated: <b class="mono" id="generated">—</b></span>
+          <span class="pill">Valid for: <b class="mono" id="validFor">—</b></span>
+          <span class="pill">Universe: <b class="mono" id="kpiUniverse">—</b></span>
+          <span class="pill">AXJO bar: <b class="mono" id="kpiAxjo">—</b></span>
         </div>
-        <div class="feature-item">
-          <span class="num">02</span>
-          <span style="font-weight: 600;">Transparent Rule-Set</span>
+
+        <div class="briefMeta__right">
+          <button class="btn btn--ghost" id="copyLinkBtn" type="button" title="Copy today.json URL">Copy data link</button>
         </div>
-        <div class="feature-item">
-          <span class="num">03</span>
-          <span style="font-weight: 600;">Verified Track Record</span>
+      </div>
+
+      <div class="errorBox" id="errorBox"></div>
+
+      <div style="padding: 0 18px 14px;">
+        <div class="small">
+          <b>Order types:</b> LIMIT = buy only if price pulls back to your level. STOP-LIMIT = buy only if price breaks upward through trigger.
+          <br />
+          <b>Institutional framing:</b> Targets shown are <b>ATR-based</b> and may be <b>capped by structural ceiling</b>. Setups are filtered by capped risk-efficiency (<b>min R multiple</b> + <b>min upside ATR</b>).
+          <br />
+          <b>Sizing:</b> uses your Portfolio and Risk % to compute Qty. Qty is floor(risk_budget / |Entry − Stop|). For STOP-LIMIT entries, sizing uses the <b>LIMIT</b> price (worst-case fill).
         </div>
       </div>
     </section>
 
-    <div class="grid3">
-      <div class="card">
-        <h3 style="color: #fff; margin-top: 0;">Institutional Grade</h3>
-        <p style="color: var(--text-muted); font-size: 0.9rem;">Built using the same mathematical principles used by professional proprietary trading desks.</p>
+    <!-- Filters + sizing -->
+    <section class="controls" aria-label="Filters">
+      <div class="field">
+        <label for="viewMode">View Mode</label>
+        <select id="viewMode">
+          <option value="all">All Sections</option>
+          <option value="recommended">Recommended Only</option>
+          <option value="valid">Valid Setups</option>
+          <option value="watch">Watchlist</option>
+        </select>
       </div>
-      <div class="card">
-        <h3 style="color: #fff; margin-top: 0;">Daily Audit</h3>
-        <p style="color: var(--text-muted); font-size: 0.9rem;">Every signal is performance-tracked against yfinance pricing data for total transparency.</p>
+
+      <div class="field">
+        <label for="strategyFilter">Strategy</label>
+        <select id="strategyFilter">
+          <option value="all">All Strategies</option>
+        </select>
       </div>
-      <div class="card">
-        <h3 style="color: #fff; margin-top: 0;">Clean Execution</h3>
-        <p style="color: var(--text-muted); font-size: 0.9rem;">Direct entry and exit levels designed for set-and-forget order placement.</p>
+
+      <div class="field" style="flex: 1 1 320px; min-width: 260px;">
+        <label for="q">Search Symbol</label>
+        <input id="q" placeholder="Search (e.g. CBA.AX)..." autocomplete="off" />
       </div>
-    </div>
+
+      <div class="field">
+        <label for="sortBy">Sort By</label>
+        <select id="sortBy">
+          <option value="status_score">Status Rank</option>
+          <option value="score_desc">Highest Score</option>
+          <option value="risk_desc">Highest Risk (A$)</option>
+          <option value="r_mult_desc">Best R multiple</option>
+          <option value="symbol_asc">Alphabetical</option>
+        </select>
+      </div>
+
+      <div class="field" style="min-width: 200px;">
+        <label for="portfolio">Portfolio (A$)</label>
+        <input id="portfolio" inputmode="decimal" placeholder="100000" />
+      </div>
+
+      <div class="field" style="min-width: 180px;">
+        <label for="riskPct">Risk / trade (%)</label>
+        <select id="riskPct">
+          <option value="0.5">0.5%</option>
+          <option value="0.75">0.75%</option>
+          <option value="1">1.0%</option>
+          <option value="1.5">1.5%</option>
+          <option value="2">2.0%</option>
+          <option value="2.5">2.5%</option>
+          <option value="3">3.0%</option>
+        </select>
+      </div>
+    </section>
+
+    <!-- Tables injected here -->
+    <div id="tables"></div>
+
+    <footer>
+      <p><b>Disclaimer:</b> Educational purpose only. iTradeLite is a rule-based algorithmic scanner. Trading involves significant risk of loss. Always consult a licensed professional.</p>
+    </footer>
   </main>
 
-  <footer>
-    <div class="container">
-      <div style="font-weight: 800; color: #fff; font-size: 1.2rem; margin-bottom: 10px;">iTradeLite</div>
-      <p style="color: var(--text-muted); font-size: 0.8rem; max-width: 600px; margin: 0 auto;">
-        Rule-based daily ASX trade plans. This is an educational data output provided for informational purposes only and is not financial advice.
-      </p>
-    </div>
-  </footer>
+  <script>
+    const DATA_URL = "/public/today.json";
+
+    // Persist UI preferences
+    const prefs = { view:"all", strat:"all", q:"", sort:"status_score", portfolio:100000, riskPct:1 };
+
+    function clamp(n, lo, hi){
+      const x = Number(n);
+      if (!Number.isFinite(x)) return lo;
+      return Math.min(hi, Math.max(lo, x));
+    }
+
+    function readMoneyLike(s){
+      const raw = String(s ?? "").replace(/[^0-9.\-]/g, "");
+      if (!raw) return null;
+      const x = Number(raw);
+      return Number.isFinite(x) ? x : null;
+    }
+
+    function loadPrefs(){
+      try{
+        const raw = localStorage.getItem("itradelite_today_prefs");
+        if (!raw) return;
+        const obj = JSON.parse(raw);
+        Object.assign(prefs, obj || {});
+      }catch(_){}
+      // normalize
+      prefs.portfolio = clamp(prefs.portfolio ?? 100000, 1000, 100000000);
+      prefs.riskPct = clamp(prefs.riskPct ?? 1, 0.25, 3);
+    }
+
+    function savePrefs(){
+      try{ localStorage.setItem("itradelite_today_prefs", JSON.stringify(prefs)); }catch(_){}
+    }
+
+    function fmt(n, digits=2){
+      if (n === null || n === undefined || n === "") return "—";
+      const x = Number(n);
+      if (!Number.isFinite(x)) return String(n);
+      return x.toFixed(digits);
+    }
+
+    function safeText(s){ return (s === null || s === undefined) ? "—" : String(s); }
+
+    function escapeHtml(s){
+      return String(s)
+        .replaceAll("&","&amp;")
+        .replaceAll("<","&lt;")
+        .replaceAll(">","&gt;")
+        .replaceAll('"',"&quot;")
+        .replaceAll("'","&#39;");
+    }
+
+    function showError(msg){
+      const box = document.getElementById("errorBox");
+      if (!box) return;
+      box.textContent = msg;
+      box.style.display = "block";
+      setStatus(false, "Error");
+    }
+    function clearError(){
+      const box = document.getElementById("errorBox");
+      if (!box) return;
+      box.style.display = "none";
+      box.textContent = "";
+    }
+
+    function setStatus(ok, text){
+      const statusText = document.getElementById("statusText");
+      const chip = document.getElementById("statusChip");
+      if (statusText) statusText.textContent = text;
+
+      if (chip){
+        chip.style.borderColor = ok ? "rgba(16,185,129,.35)" : "rgba(245,158,11,.35)";
+        chip.style.background  = ok ? "rgba(16,185,129,.10)" : "rgba(245,158,11,.10)";
+      }
+    }
+
+    function computeDataAge(generatedAtUtc){
+      if (!generatedAtUtc) return "—";
+      const d = new Date(generatedAtUtc);
+      if (isNaN(d.getTime())) return "—";
+      const now = new Date();
+      const mins = Math.round((now - d) / 60000);
+      if (!isFinite(mins)) return "—";
+      if (mins < 90) return mins + " min";
+      return (mins / 60).toFixed(1) + " hrs";
+    }
+
+    function parseEntry(r){
+      if (r.entry_text) return r.entry_text;
+      if (r.entry !== null && r.entry !== undefined && r.entry !== "") return fmt(r.entry, 4);
+      return "—";
+    }
+    function parseLastClose(r){
+      if (r.last_close === null || r.last_close === undefined || r.last_close === "") return "—";
+      const x = Number(r.last_close);
+      if (!Number.isFinite(x)) return "—";
+      return fmt(x, 4);
+    }
+
+    function statusPill(status){
+      if (status === "Valid") return `<span><span class="status-dot dot--valid"></span>Valid</span>`;
+      if (status === "Watch") return `<span><span class="status-dot dot--watch"></span>Watch</span>`;
+      return `<span class="muted">—</span>`;
+    }
+
+    function normalizeStrategyName(s){
+      return (s || "").trim();
+    }
+
+    function scoreVal(r){
+      const x = Number(r.score);
+      return Number.isFinite(x) ? x : -1;
+    }
+
+    // --- Parse "trigger=... limit=..." from STOP-LIMIT entry text ---
+    function parseStopLimitEntryText(entryText){
+      const s = String(entryText || "").trim();
+      if (!s) return null;
+
+      // Explicit skip => no sizing
+      if (/^SKIP\b/i.test(s) || s.toUpperCase().includes("SKIP")) return { skip: true };
+
+      let trigger = null;
+      let limit = null;
+
+      try{
+        const mTrig = s.match(/trigger\s*=\s*([0-9]*\.?[0-9]+)/i);
+        const mLim  = s.match(/limit\s*=\s*([0-9]*\.?[0-9]+)/i);
+        if (mTrig) trigger = Number(mTrig[1]);
+        if (mLim)  limit   = Number(mLim[1]);
+      }catch(_){}
+
+      if (!Number.isFinite(trigger)) trigger = null;
+      if (!Number.isFinite(limit))   limit = null;
+
+      if (trigger === null && limit === null) return null;
+      return { trigger, limit, skip: false };
+    }
+
+    // Choose a numeric entry for sizing:
+    // - direct numeric entry (LIMIT strategies)
+    // - else STOP-LIMIT parse => use LIMIT (worst-case fill), else TRIGGER
+    function numericEntryForSizing(r){
+      const direct = Number(r.entry);
+      if (Number.isFinite(direct)) return direct;
+
+      const entryText = (r.entry_text !== undefined && r.entry_text !== null)
+        ? r.entry_text
+        : r.entry;
+
+      const parsed = parseStopLimitEntryText(entryText);
+      if (!parsed || parsed.skip) return null;
+
+      if (parsed.limit !== null) return parsed.limit;
+      if (parsed.trigger !== null) return parsed.trigger;
+
+      return null;
+    }
+
+    // --- Institutional display helpers (prefer scan.py fields) ---
+    function numOrNull(x){
+      const n = Number(x);
+      return Number.isFinite(n) ? n : null;
+    }
+
+    function displayTp1(r){
+      // Prefer ATR target from scan output (tp1), else compute fallback from ATR if possible.
+      const t = numOrNull(r.tp1);
+      if (t !== null) return t;
+
+      const atr = numOrNull(r.atr14);
+      const entry = numericEntryForSizing(r);
+      if (atr !== null && entry !== null) return entry + 1.5 * atr;
+      return null;
+    }
+
+    function displayCapTarget(r){
+      // Prefer scan output cap_target
+      const c = numOrNull(r.cap_target);
+      if (c !== null) return c;
+
+      // fallback: min(tp2, ceiling) if available
+      const tp2 = displayTp2(r);
+      const ceil = numOrNull(r.ceiling);
+      if (tp2 !== null && ceil !== null) return Math.min(tp2, ceil);
+      if (tp2 !== null) return tp2;
+      return null;
+    }
+
+    function displayTp2(r){
+      // Prefer ATR target from scan output (tp2), else compute fallback from ATR if possible.
+      const t = numOrNull(r.tp2);
+      if (t !== null) return t;
+
+      const atr = numOrNull(r.atr14);
+      const entry = numericEntryForSizing(r);
+      if (atr !== null && entry !== null) return entry + 3.0 * atr;
+      return null;
+    }
+
+    function displayRmult(r){
+      const x = numOrNull(r.r_mult);
+      return x;
+    }
+
+    function sizingForRow(r){
+      const entry = numericEntryForSizing(r);
+      const stop  = Number(r.stop);
+
+      if (!Number.isFinite(entry) || !Number.isFinite(stop)) return null;
+
+      const riskPerShare = Math.abs(entry - stop);
+      if (!Number.isFinite(riskPerShare) || riskPerShare <= 0) return null;
+
+      const portfolio = clamp(prefs.portfolio, 1000, 100000000);
+      const riskPct = clamp(prefs.riskPct, 0.25, 3);
+      const riskBudget = portfolio * (riskPct / 100);
+
+      const qty = Math.floor(riskBudget / riskPerShare);
+      if (!Number.isFinite(qty) || qty <= 0) {
+        return { qty: 0, riskBudget, riskPerShare, entryUsed: entry };
+      }
+
+      return { qty, riskBudget, riskPerShare, entryUsed: entry };
+    }
+
+    // --- NEW: "Risk (A$)" for sorting + display is user risk budget per row (sizing truth = UI) ---
+    function riskBudgetForRow(r){
+      const s = sizingForRow(r);
+      if (!s) return null;
+      return s.riskBudget;
+    }
+
+    function rawRiskVal(r){
+      const rb = riskBudgetForRow(r);
+      return (rb !== null) ? rb : -1;
+    }
+
+    function buildTable(title, rows, subtitle){
+      const count = rows.length;
+
+      let html = `
+        <section class="card card--pad">
+          <div class="sectionTitle">
+            <h2>${escapeHtml(title)}</h2>
+            <div class="count">${escapeHtml(subtitle || (count + " item(s)"))}</div>
+          </div>
+          <div class="tableWrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Symbol</th>
+                  <th style="width:160px;">Strategy</th>
+                  <th>Entry</th>
+                  <th style="width:110px;">Last close</th>
+                  <th style="width:110px;">Stop</th>
+                  <th style="width:90px;">Qty</th>
+                  <th style="width:120px;">Risk (A$)</th>
+                  <th style="width:120px;">TP1 (ATR)</th>
+                  <th style="width:130px;">Cap Target</th>
+                  <th style="width:110px;">R mult</th>
+                  <th style="width:90px;">Status</th>
+                </tr>
+              </thead>
+              <tbody>
+      `;
+
+      for (const r of rows){
+        const sym = escapeHtml(safeText(r.symbol));
+        const strat = escapeHtml(normalizeStrategyName(r.strategy));
+        const entryTxt = escapeHtml(parseEntry(r));
+        const lastClose = escapeHtml(parseLastClose(r));
+        const stopTxt = escapeHtml(fmt(r.stop, 4));
+        const pill = statusPill(r.status);
+
+        const s = sizingForRow(r);
+        const qtyTxt = s ? (s.qty > 0 ? String(s.qty) : "—") : "—";
+        const riskBudgetTxt = s ? ("~" + Math.round(s.riskBudget).toString()) : "—";
+
+        const tp1 = displayTp1(r);
+        const cap = displayCapTarget(r);
+        const rmult = displayRmult(r);
+
+        const tp1Txt = (tp1 !== null) ? fmt(tp1, 4) : "—";
+        const capTxt = (cap !== null) ? fmt(cap, 4) : "—";
+        const rmultTxt = (rmult !== null) ? fmt(rmult, 2) : "—";
+
+        const note = r.plain_english || r.instruction || r.note || "";
+        const noteHtml = note 
+          ? `<tr class="note-row"><td colspan="11">${escapeHtml(note)}</td></tr>`
+          : "";
+
+        html += `
+          <tr>
+            <td class="mono symbol-cell">${sym}</td>
+            <td>${strat || "—"}</td>
+            <td class="mono">${entryTxt}</td>
+            <td class="mono">${lastClose}</td>
+            <td class="mono">${stopTxt}</td>
+            <td class="mono">${escapeHtml(qtyTxt)}</td>
+            <td class="mono">${escapeHtml(riskBudgetTxt)}</td>
+            <td class="mono">${escapeHtml(tp1Txt)}</td>
+            <td class="mono">${escapeHtml(capTxt)}</td>
+            <td class="mono">${escapeHtml(rmultTxt)}</td>
+            <td>${pill}</td>
+          </tr>
+          ${noteHtml}
+        `;
+      }
+
+      html += `
+              </tbody>
+            </table>
+          </div>
+        </section>
+      `;
+      return html;
+    }
+
+    function hydrateStrategyOptions(allRows){
+      const sel = document.getElementById("strategyFilter");
+      if (!sel) return;
+      const existing = new Set([...sel.options].map(o => o.value));
+      const strategies = new Set(allRows.map(s => normalizeStrategyName(s.strategy)).filter(Boolean));
+      const sorted = [...strategies].sort((a,b)=>a.localeCompare(b));
+      for (const s of sorted){
+        if (existing.has(s)) continue;
+        const opt = document.createElement("option");
+        opt.value = s;
+        opt.textContent = s;
+        sel.appendChild(opt);
+      }
+    }
+
+    function applyFilters(rows){
+      let out = rows.slice();
+
+      if (prefs.strat !== "all"){
+        out = out.filter(r => normalizeStrategyName(r.strategy) === prefs.strat);
+      }
+      if (prefs.q){
+        const q = prefs.q.toUpperCase();
+        out = out.filter(r => String(r.symbol || "").toUpperCase().includes(q));
+      }
+
+      const statusRank = (st) => st === "Valid" ? 2 : (st === "Watch" ? 1 : 0);
+
+      out.sort((a,b)=>{
+        if (prefs.sort === "symbol_asc") return String(a.symbol||"").localeCompare(String(b.symbol||""));
+
+        if (prefs.sort === "risk_desc") {
+          // Sort by USER risk budget (A$) descending (truth = UI sizing)
+          return rawRiskVal(b) - rawRiskVal(a);
+        }
+
+        if (prefs.sort === "r_mult_desc") {
+          const ra = displayRmult(a);
+          const rb = displayRmult(b);
+          const va = (ra === null) ? -1 : ra;
+          const vb = (rb === null) ? -1 : rb;
+          return vb - va;
+        }
+
+        if (prefs.sort === "score_desc") return scoreVal(b) - scoreVal(a);
+
+        const ds = statusRank(b.status) - statusRank(a.status);
+        if (ds !== 0) return ds;
+        return scoreVal(b) - scoreVal(a);
+      });
+
+      return out;
+    }
+
+    function renderBanners(data){
+      // NEVER render risk banner
+      const rb = document.getElementById("riskBanner");
+      if (rb) rb.innerHTML = "";
+
+      // Freshness banner only
+      const fb = document.getElementById("freshBanner");
+      if (!fb) return;
+
+      if (data.data_fresh === false){
+        fb.innerHTML = `
+          <div class="banner banner--stale">
+            <div>
+              <b>Data freshness:</b> Yahoo daily bars not updated yet. Recommendations may be suppressed.
+              <div class="small" style="margin-top:4px;">Safety gate to avoid publishing stale signals.</div>
+            </div>
+            <div class="pill">STALE</div>
+          </div>
+        `;
+      } else {
+        fb.innerHTML = "";
+      }
+    }
+
+    function extractRecommendedRows(data){
+      if (Array.isArray(data.recommended_orders)) return data.recommended_orders;
+      const setups = Array.isArray(data.setups) ? data.setups : [];
+      return setups.filter(r => r.status === "Valid");
+    }
+
+    function render(data){
+      clearError();
+
+      document.getElementById("generated").textContent = safeText(data.generated || data.date);
+      document.getElementById("validFor").textContent  = safeText(data.valid_for || data.date);
+      document.getElementById("riskMode").textContent  = safeText((data.risk_mode || "—").replaceAll("_"," "));
+      document.getElementById("dataAge").textContent   = computeDataAge(data.generated_at_utc);
+
+      const setups = Array.isArray(data.setups) ? data.setups : [];
+      const recommended = extractRecommendedRows(data);
+
+      const validCount = setups.filter(s => s.status === "Valid").length;
+      document.getElementById("kpiRecommended").textContent = String(recommended.length);
+      document.getElementById("kpiValid").textContent = String(validCount);
+
+      // Legacy IDs (still shown in pills)
+      document.getElementById("kpiUniverse").textContent = safeText(data.universe_size || "—");
+      document.getElementById("kpiAxjo").textContent = safeText(data.axjo_last_bar || "—");
+
+      renderBanners(data);
+      setStatus(true, data.published === false ? "Not published" : "Loaded");
+
+      hydrateStrategyOptions(setups.concat(recommended));
+
+      const filteredSetups = applyFilters(setups);
+      const filteredRecommended = applyFilters(recommended);
+
+      const validRows = filteredSetups.filter(r => r.status === "Valid");
+      const watchRows = filteredSetups.filter(r => r.status === "Watch");
+
+      let html = "";
+
+      if (prefs.view === "recommended"){
+        if (filteredRecommended.length){
+          html += buildTable("Recommended Orders", filteredRecommended, "Actionable (diversified picks)");
+        } else {
+          html += `<section class="card card--pad"><div class="sectionTitle"><h2>Recommended Orders</h2><div class="count">0 item(s)</div></div><div style="padding:16px 18px;" class="small"><b>No recommended orders today.</b><div>Either the freshness gate suppressed publishing or no setups passed the final selection.</div></div></section>`;
+        }
+      }
+      else if (prefs.view === "valid"){
+        if (validRows.length) html += buildTable("Valid Setups", validRows, validRows.length + " item(s)");
+        else html += `<section class="card card--pad"><div class="sectionTitle"><h2>Valid Setups</h2><div class="count">0 item(s)</div></div><div style="padding:16px 18px;" class="small"><b>No valid setups match your filters.</b><div>Try changing Strategy or clearing the search.</div></div></section>`;
+      }
+      else if (prefs.view === "watch"){
+        if (watchRows.length) html += buildTable("Watchlist", watchRows, watchRows.length + " item(s)");
+        else html += `<section class="card card--pad"><div class="sectionTitle"><h2>Watchlist</h2><div class="count">0 item(s)</div></div><div style="padding:16px 18px;" class="small"><b>No watch items match your filters.</b><div>Try changing Strategy or clearing the search.</div></div></section>`;
+      }
+      else {
+        if (filteredRecommended.length){
+          html += buildTable("Recommended Orders", filteredRecommended, "Actionable (diversified picks)");
+        } else {
+          html += `<section class="card card--pad"><div class="sectionTitle"><h2>Recommended Orders</h2><div class="count">0 item(s)</div></div><div style="padding:16px 18px;" class="small">No recommended orders published today (freshness gate or no setups passed final selection).</div></section>`;
+        }
+
+        if (validRows.length) html += buildTable("Valid Setups", validRows, validRows.length + " item(s)");
+        if (watchRows.length) html += buildTable("Watchlist", watchRows, watchRows.length + " item(s)");
+
+        if (!filteredRecommended.length && !validRows.length && !watchRows.length){
+          html += `<section class="card card--pad"><div class="sectionTitle"><h2>No Results</h2><div class="count">—</div></div><div style="padding:16px 18px;" class="small"><b>No rows match your filters.</b><div>Try changing View/Strategy or clearing search.</div></div></section>`;
+        }
+      }
+
+      document.getElementById("tables").innerHTML = html;
+    }
+
+    async function load(){
+      setStatus(false, "Loading…");
+      const url = DATA_URL + "?v=" + Date.now();
+      const r = await fetch(url, { cache: "no-store" });
+      if (!r.ok) throw new Error("HTTP " + r.status);
+      return await r.json();
+    }
+
+    function bindControls(){
+      const viewMode = document.getElementById("viewMode");
+      const strategyFilter = document.getElementById("strategyFilter");
+      const q = document.getElementById("q");
+      const sortBy = document.getElementById("sortBy");
+      const portfolio = document.getElementById("portfolio");
+      const riskPct = document.getElementById("riskPct");
+
+      viewMode.value = prefs.view;
+      strategyFilter.value = prefs.strat;
+      q.value = prefs.q;
+      sortBy.value = prefs.sort;
+
+      // sizing fields
+      portfolio.value = String(prefs.portfolio ?? 100000);
+      // match select option if possible
+      const rp = String(prefs.riskPct ?? 1);
+      if ([...riskPct.options].some(o => o.value === rp)) riskPct.value = rp;
+
+      function onChange(){
+        prefs.view = viewMode.value;
+        prefs.strat = strategyFilter.value;
+        prefs.q = q.value.trim();
+        prefs.sort = sortBy.value;
+
+        // sizing
+        const p = readMoneyLike(portfolio.value);
+        prefs.portfolio = clamp(p ?? 100000, 1000, 100000000);
+        prefs.riskPct = clamp(Number(riskPct.value), 0.25, 3);
+
+        savePrefs();
+        if (window.__DATA__) render(window.__DATA__);
+      }
+
+      viewMode.addEventListener("change", onChange);
+      strategyFilter.addEventListener("change", onChange);
+      sortBy.addEventListener("change", onChange);
+      q.addEventListener("input", onChange);
+
+      portfolio.addEventListener("input", onChange);
+      riskPct.addEventListener("change", onChange);
+
+      document.getElementById("refreshBtn").addEventListener("click", async ()=>{
+        try{
+          const data = await load();
+          window.__DATA__ = data;
+          render(data);
+        }catch(e){
+          showError("Failed to load /public/today.json. (" + e.message + ")");
+          console.error(e);
+        }
+      });
+
+      document.getElementById("copyLinkBtn").addEventListener("click", async ()=>{
+        const link = location.origin + DATA_URL;
+        try{
+          await navigator.clipboard.writeText(link);
+          alert("Copied: " + link);
+        }catch(_){
+          prompt("Copy this URL:", link);
+        }
+      });
+    }
+
+    (async function(){
+      loadPrefs();
+      bindControls();
+
+      try{
+        const data = await load();
+        window.__DATA__ = data;
+        render(data);
+      }catch(e){
+        showError("Failed to load /public/today.json. (" + e.message + ")");
+        console.error(e);
+      }
+    })();
+  </script>
 </body>
 </html>
