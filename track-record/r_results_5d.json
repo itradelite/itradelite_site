@@ -1,7 +1,35 @@
 {
-  "as_of": "2026-03-09 21:25:35 AEST",
+  "as_of": "2026-03-11 06:09:47 AEST",
   "horizon_trading_days": 5,
   "results": [
+    {
+      "date": "2026-03-03",
+      "symbol": "BSL.AX",
+      "class": "Materials",
+      "strategy": "MEAN_REVERSION",
+      "score": 100,
+      "order": "LIMIT",
+      "risk_gate": "always",
+      "entry_px": 26.9,
+      "stop": 25.9373,
+      "exit_type_5d": "STOP",
+      "exit_px_5d": 25.9373,
+      "r_5d": -1.0
+    },
+    {
+      "date": "2026-03-03",
+      "symbol": "AGL.AX",
+      "class": "Utilities",
+      "strategy": "TREND_PULLBACK",
+      "score": 100,
+      "order": "STOP",
+      "risk_gate": "risk_on",
+      "entry_px": 9.8398,
+      "stop": 9.5819,
+      "exit_type_5d": "STOP",
+      "exit_px_5d": 9.5819,
+      "r_5d": -1.0
+    },
     {
       "date": "2026-02-26",
       "symbol": "YAL.AX",
@@ -116,20 +144,6 @@
     },
     {
       "date": "2026-02-20",
-      "symbol": "ORI.AX",
-      "class": "Materials",
-      "strategy": "MEAN_REVERSION",
-      "score": 100,
-      "order": "LIMIT",
-      "risk_gate": "unknown",
-      "entry_px": 24.75,
-      "stop": 23.79,
-      "exit_type_5d": "STOP",
-      "exit_px_5d": 23.79,
-      "r_5d": -1.0
-    },
-    {
-      "date": "2026-02-20",
       "symbol": "WHC.AX",
       "class": "Energy",
       "strategy": "MEAN_REVERSION",
@@ -141,6 +155,20 @@
       "exit_type_5d": "H5_CLOSE",
       "exit_px_5d": 7.809999942779541,
       "r_5d": -1.1646745083162327e-07
+    },
+    {
+      "date": "2026-02-20",
+      "symbol": "ORI.AX",
+      "class": "Materials",
+      "strategy": "MEAN_REVERSION",
+      "score": 100,
+      "order": "LIMIT",
+      "risk_gate": "unknown",
+      "entry_px": 24.75,
+      "stop": 23.79,
+      "exit_type_5d": "STOP",
+      "exit_px_5d": 23.79,
+      "r_5d": -1.0
     },
     {
       "date": "2026-02-19",
