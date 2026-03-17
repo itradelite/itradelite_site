@@ -1,7 +1,21 @@
 {
-  "as_of": "2026-03-16 20:36:21 AEST",
+  "as_of": "2026-03-17 20:26:28 AEST",
   "horizon_trading_days": 5,
   "results": [
+    {
+      "date": "2026-03-10",
+      "symbol": "BSL.AX",
+      "class": "Materials",
+      "strategy": "MEAN_REVERSION",
+      "score": 100,
+      "order": "LIMIT",
+      "risk_gate": "always",
+      "entry_px": 25.92,
+      "stop": 25.0643,
+      "exit_type_5d": "H5_CLOSE",
+      "exit_px_5d": 26.6200008392334,
+      "r_5d": 0.8180446876631936
+    },
     {
       "date": "2026-03-09",
       "symbol": "BSL.AX",
