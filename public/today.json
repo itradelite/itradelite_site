@@ -3,7 +3,7 @@
   "generated": "2026-03-18",
   "valid_for": "2026-03-18",
   "risk_mode": "risk_off",
-  "generated_at_utc": "2026-03-18T12:55:31Z",
+  "generated_at_utc": "2026-03-18T12:58:55Z",
   "published": true,
   "reason": null,
   "data_fresh": true,
@@ -2226,7 +2226,7 @@
     "repo_root": "/home/runner/work/itradelite/itradelite",
     "reports_dir": "/home/runner/work/itradelite/itradelite/reports",
     "last_run_output": {
-      "timestamp": "2026-03-18 22:55:31",
+      "timestamp": "2026-03-18 22:58:55",
       "risk_mode": "risk_off",
       "data_fresh": true,
       "risk_on": false,
