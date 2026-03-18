@@ -1,5 +1,5 @@
 {
-  "as_of": "2026-03-17 20:26:28 AEST",
+  "as_of": "2026-03-18 20:29:55 AEST",
   "coverage": {
     "since": "2026-02-11",
     "until": "2026-03-16"
@@ -8,13 +8,13 @@
   "method": "Stop-first within horizon using auto-adjusted OHLC from yfinance. If Low <= stop at any point from t..t+h, exit=stop (R=-1). Else exit=Close[t+h]. R=(exit-entry)/(entry-stop). Long-only R where stop < entry.",
   "stats": {
     "n": 31,
-    "mean_r": -0.11341384957404346,
+    "mean_r": -0.14081311042005248,
     "median_r": -0.5536879572869287,
-    "std_r": 1.1052456074919605,
+    "std_r": 1.033679279553216,
     "winrate": 0.3870967741935484,
-    "avg_win_r": 1.0504130882335228,
+    "avg_win_r": 0.9796316643813329,
     "avg_loss_r": -0.8484624418735591,
     "min_r": -1.0,
-    "max_r": 2.8938127402347202
+    "max_r": 2.468280845888893
   }
 }
