@@ -925,7 +925,7 @@
       if (earnSuppress) {
         const dStr = (earnDays !== null && earnDays > 0) ? ` in ${earnDays}d` : "";
         earningsBadge = `<span class="sent-chip sent-chip--earnings-warn" title="Signal suppressed: earnings imminent">⛔ Earns${dStr}</span>`;
-      } else if (earnDays !== null && earnDays > 0 && earnDays <= 14) {
+      } else if (earnDays !== null && earnDays > 0 && earnDays <= 30) {
         earningsBadge = `<span class="sent-chip sent-chip--earnings-ok" title="Earnings approaching — watch for volatility">📅 ${earnDays}d</span>`;
       }
 
