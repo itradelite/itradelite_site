@@ -271,6 +271,78 @@
     .dot--valid { background-color: var(--accent-green); box-shadow: 0 0 10px rgba(16,185,129,0.55); }
     .dot--watch { background-color: var(--accent-gold); box-shadow: 0 0 10px rgba(245,158,11,0.35); }
 
+    /* Sentiment score chips */
+    .sent-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 8px;
+    }
+
+    .sent-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 3px 8px;
+      border-radius: 6px;
+      border: 1px solid transparent;
+      white-space: nowrap;
+      font-family: var(--mono-font);
+      letter-spacing: 0.02em;
+    }
+
+    /* Composite score chip */
+    .sent-chip--composite {
+      background: rgba(56,189,248,0.12);
+      border-color: rgba(56,189,248,0.30);
+      color: var(--brand-primary);
+    }
+
+    /* Positive news / insider / trends */
+    .sent-chip--pos {
+      background: rgba(16,185,129,0.12);
+      border-color: rgba(16,185,129,0.30);
+      color: #34d399;
+    }
+
+    /* Neutral */
+    .sent-chip--neu {
+      background: rgba(148,163,184,0.10);
+      border-color: rgba(148,163,184,0.20);
+      color: var(--text-muted);
+    }
+
+    /* Negative news / insider */
+    .sent-chip--neg {
+      background: rgba(244,63,94,0.12);
+      border-color: rgba(244,63,94,0.30);
+      color: #fb7185;
+    }
+
+    /* Earnings warning — always visible, high contrast */
+    .sent-chip--earnings-warn {
+      background: rgba(245,158,11,0.18);
+      border-color: rgba(245,158,11,0.50);
+      color: var(--accent-gold);
+      font-size: 11px;
+    }
+
+    .sent-chip--earnings-ok {
+      background: rgba(148,163,184,0.08);
+      border-color: rgba(148,163,184,0.18);
+      color: var(--text-muted);
+      font-size: 11px;
+    }
+
+    /* Note row update: slightly more breathing room for sentiment row */
+    .note-row--sent td {
+      padding-top: 6px;
+      padding-bottom: 10px;
+      background: rgba(56,189,248,0.03);
+    }
+
     /* Error */
     .errorBox {
       display:none;
@@ -344,14 +416,15 @@
   /* Hide less important columns to reduce horizontal scroll */
   th:nth-child(8), td:nth-child(8),   /* TP1 */
   th:nth-child(9), td:nth-child(9),   /* Cap Target */
-  th:nth-child(10), td:nth-child(10)  /* R mult */
+  th:nth-child(10), td:nth-child(10), /* R mult */
+  th:nth-child(11), td:nth-child(11)  /* Sentiment sub-chips (full detail) */
   {
     display: none !important;
   }
 
   /* Keep Qty & Status usable */
   th:nth-child(6), td:nth-child(6)  { min-width: 64px !important; }   /* Qty */
-  th:nth-child(11), td:nth-child(11){ min-width: 84px !important; }   /* Status */
+  th:nth-child(12), td:nth-child(12){ min-width: 84px !important; }   /* Status */
 
   /* No rounded corners on first/last cells if they touch edge */
   table tr td:first-child,
@@ -433,6 +506,8 @@
           <br />
           <b>Institutional framing:</b> Targets shown are <b>ATR-based</b> and may be <b>capped by structural ceiling</b>. Setups are filtered by capped risk-efficiency (<b>min R multiple</b> + <b>min upside ATR</b>).
           <br />
+          <b>Scoring:</b> Composite = 55% TA + 25% Fundamentals + 20% Sentiment. Sentiment covers news tone, insider buying/selling, and (for Momentum) Google Trends interest. <b>Earnings gate</b>: signal is suppressed if a company reports within 5 days.
+          <br />
           <b>Sizing:</b> uses your Portfolio and Risk % to compute Qty. Qty is floor(risk_budget / |Entry − Stop|). For STOP-LIMIT entries, sizing uses the <b>LIMIT</b> price (worst-case fill).
         </div>
       </div>
@@ -466,7 +541,9 @@
         <label for="sortBy">Sort By</label>
         <select id="sortBy">
           <option value="status_score">Status Rank</option>
-          <option value="score_desc">Highest Score</option>
+          <option value="composite_desc">Highest Composite</option>
+          <option value="score_desc">Highest TA Score</option>
+          <option value="sent_desc">Highest Sentiment</option>
           <option value="risk_desc">Highest Risk (A$)</option>
           <option value="r_mult_desc">Best R multiple</option>
           <option value="symbol_asc">Alphabetical</option>
@@ -763,6 +840,7 @@
                   <th style="width:120px;">TP1 (ATR)</th>
                   <th style="width:130px;">Cap Target</th>
                   <th style="width:110px;">R mult</th>
+                  <th style="width:120px;">Sentiment</th>
                   <th style="width:90px;">Status</th>
                 </tr>
               </thead>
@@ -790,9 +868,12 @@
         const rmultTxt = (rmult !== null) ? fmt(rmult, 2) : "—";
 
         const note = r.plain_english || r.instruction || r.note || "";
-        const noteHtml = note 
-          ? `<tr class="note-row"><td colspan="11">${escapeHtml(note)}</td></tr>`
+        const noteHtml = note
+          ? `<tr class="note-row"><td colspan="12">${escapeHtml(note)}</td></tr>`
           : "";
+
+        // Sentiment cell
+        const sentHtml = buildSentimentCell(r);
 
         html += `
           <tr>
@@ -806,6 +887,7 @@
             <td class="mono">${escapeHtml(tp1Txt)}</td>
             <td class="mono">${escapeHtml(capTxt)}</td>
             <td class="mono">${escapeHtml(rmultTxt)}</td>
+            <td>${sentHtml}</td>
             <td>${pill}</td>
           </tr>
           ${noteHtml}
@@ -820,6 +902,73 @@
       `;
       return html;
     }
+
+    // ─── Sentiment cell builder ───────────────────────────────────────────────
+    function sentChipClass(score, neutral=50){
+      const n = Number(score);
+      if (!Number.isFinite(n)) return "sent-chip--neu";
+      if (n >= 65) return "sent-chip--pos";
+      if (n <= 35) return "sent-chip--neg";
+      return "sent-chip--neu";
+    }
+
+    function buildSentimentCell(r){
+      // If no sentiment data yet (old JSON before upgrade), render gracefully
+      const sentScore = numOrNull(r.sent_score);
+      if (sentScore === null) return `<span class="muted" style="font-size:12px;">—</span>`;
+
+      // Earnings badge — highest visual priority
+      let earningsBadge = "";
+      const earnDays = numOrNull(r.earnings_days);
+      const earnSuppress = r.earnings_suppress === true || r.earnings_suppress === "True";
+
+      if (earnSuppress) {
+        const dStr = earnDays !== null ? ` in ${earnDays}d` : "";
+        earningsBadge = `<span class="sent-chip sent-chip--earnings-warn" title="Signal suppressed: earnings imminent">⛔ Earns${dStr}</span>`;
+      } else if (earnDays !== null && earnDays <= 14) {
+        earningsBadge = `<span class="sent-chip sent-chip--earnings-ok" title="Earnings approaching — watch for volatility">📅 ${earnDays}d</span>`;
+      }
+
+      // Composite sentiment score chip
+      const sentClass = sentChipClass(sentScore);
+      const sentLabel = r.sent_label ? String(r.sent_label) : "";
+      const sentChip = `<span class="sent-chip ${sentClass}" title="${escapeHtml(sentLabel)}">SENT ${fmt(sentScore, 0)}</span>`;
+
+      // News sub-chip
+      const newsScore = numOrNull(r.news_score);
+      let newsChip = "";
+      if (newsScore !== null) {
+        const nLabel = r.news_label ? String(r.news_label) : "";
+        newsChip = `<span class="sent-chip ${sentChipClass(newsScore)}" title="${escapeHtml(nLabel)}">📰 ${fmt(newsScore, 0)}</span>`;
+      }
+
+      // Insider sub-chip
+      const insiderScore = numOrNull(r.insider_score);
+      let insiderChip = "";
+      if (insiderScore !== null) {
+        const iLabel = r.insider_label ? String(r.insider_label) : "";
+        insiderChip = `<span class="sent-chip ${sentChipClass(insiderScore)}" title="${escapeHtml(iLabel)}">👤 ${fmt(insiderScore, 0)}</span>`;
+      }
+
+      // Trends sub-chip (Momentum only — present if trends_score_val is non-null)
+      const trendsScore = numOrNull(r.trends_score_val);
+      let trendsChip = "";
+      if (trendsScore !== null && r.trends_label && !String(r.trends_label).startsWith("trends not used")) {
+        const tLabel = r.trends_label ? String(r.trends_label) : "";
+        trendsChip = `<span class="sent-chip ${sentChipClass(trendsScore)}" title="${escapeHtml(tLabel)}">📈 ${fmt(trendsScore, 0)}</span>`;
+      }
+
+      return `
+        <div class="sent-chips">
+          ${earningsBadge}
+          ${sentChip}
+          ${newsChip}
+          ${insiderChip}
+          ${trendsChip}
+        </div>
+      `;
+    }
+    // ─────────────────────────────────────────────────────────────────────────
 
     function hydrateStrategyOptions(allRows){
       const sel = document.getElementById("strategyFilter");
@@ -866,6 +1015,20 @@
         }
 
         if (prefs.sort === "score_desc") return scoreVal(b) - scoreVal(a);
+
+        if (prefs.sort === "composite_desc") {
+          const ca = Number(a.composite_score); const cb = Number(b.composite_score);
+          const va = Number.isFinite(ca) ? ca : -1;
+          const vb = Number.isFinite(cb) ? cb : -1;
+          return vb - va;
+        }
+
+        if (prefs.sort === "sent_desc") {
+          const sa = Number(a.sent_score); const sb = Number(b.sent_score);
+          const va = Number.isFinite(sa) ? sa : -1;
+          const vb = Number.isFinite(sb) ? sb : -1;
+          return vb - va;
+        }
 
         const ds = statusRank(b.status) - statusRank(a.status);
         if (ds !== 0) return ds;
