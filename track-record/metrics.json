@@ -1,18 +1,18 @@
 {
   "summary": {
-    "as_of": "2026-03-25 20:26:09 AEST",
+    "as_of": "2026-03-26 20:29:49 AEST",
     "since": "2026-02-11",
-    "until": "2026-03-25",
-    "total_signals_with_entry": 46,
-    "total_signals_with_5d": 36,
-    "avg_ret_1d": 0.0011754600200155668,
-    "avg_ret_5d": -0.0005629604077919928,
-    "avg_ret_20d": -0.08608763981674838,
-    "winrate_1d": 0.5227272727272727,
-    "winrate_5d": 0.5833333333333334,
-    "winrate_20d": 0.19047619047619047,
+    "until": "2026-03-26",
+    "total_signals_with_entry": 47,
+    "total_signals_with_5d": 38,
+    "avg_ret_1d": 0.0010764792601916416,
+    "avg_ret_5d": 0.00014692098525392297,
+    "avg_ret_20d": -0.061517874285445855,
+    "winrate_1d": 0.5111111111111111,
+    "winrate_5d": 0.5789473684210527,
+    "winrate_20d": 0.22727272727272727,
     "equity_curve_proxy_start": 1.0,
-    "equity_curve_proxy_end": 1.006462692938947,
+    "equity_curve_proxy_end": 1.0194710079226355,
     "equity_curve_proxy_max_drawdown": -0.34912254073668647
   },
   "by_strategy_5d": [
@@ -25,10 +25,10 @@
     },
     {
       "strategy": "MEAN_REVERSION",
-      "trades": 22,
-      "avg_5d": -0.01879702397075952,
-      "win_5d": 0.45454545454545453,
-      "avg_score": 98.72727272727273
+      "trades": 24,
+      "avg_5d": -0.01615353980152286,
+      "win_5d": 0.4583333333333333,
+      "avg_score": 98.83333333333333
     }
   ],
   "equity_curve_proxy_5d": [
@@ -141,9 +141,29 @@
       "date": "2026-03-16",
       "equity": 1.006462692938947,
       "avg_5d_return": -0.09459322118556701
+    },
+    {
+      "date": "2026-03-19",
+      "equity": 1.0194710079226355,
+      "avg_5d_return": 0.012924786060080407
     }
   ],
   "recent_signals": [
+    {
+      "date": "2026-03-26",
+      "symbol": "NAB.AX",
+      "class": "Banks",
+      "strategy": "MEAN_REVERSION",
+      "score": 98,
+      "order": "LIMIT",
+      "entry_px": 42.56,
+      "entry_src": "entry",
+      "stop": 41.1749,
+      "ret_1d": null,
+      "ret_5d": null,
+      "ret_20d": null,
+      "risk_gate": "always"
+    },
     {
       "date": "2026-03-25",
       "symbol": "ETPMAG.AX",
@@ -169,7 +189,7 @@
       "entry_px": 42.7,
       "entry_src": "entry",
       "stop": 41.3097,
-      "ret_1d": null,
+      "ret_1d": -0.003278674172061069,
       "ret_5d": null,
       "ret_20d": null,
       "risk_gate": "always"
@@ -275,7 +295,7 @@
       "entry_src": "entry",
       "stop": 11.2918,
       "ret_1d": 0.016380000707640452,
-      "ret_5d": null,
+      "ret_5d": 0.035217060100930064,
       "ret_20d": null,
       "risk_gate": "always"
     },
@@ -290,22 +310,7 @@
       "entry_src": "entry",
       "stop": 138.147,
       "ret_1d": -0.025914484007745764,
-      "ret_5d": null,
-      "ret_20d": null,
-      "risk_gate": "always"
-    },
-    {
-      "date": "2026-03-16",
-      "symbol": "ALQ.AX",
-      "class": "Commercial & Professional Services",
-      "strategy": "MEAN_REVERSION",
-      "score": 100,
-      "order": "LIMIT",
-      "entry_px": 21.01,
-      "entry_src": "entry",
-      "stop": 19.9934,
-      "ret_1d": 0.005235631087730619,
-      "ret_5d": -0.08234171934268464,
+      "ret_5d": -0.009367487980769251,
       "ret_20d": null,
       "risk_gate": "always"
     },
@@ -321,6 +326,21 @@
       "stop": 5.4809,
       "ret_1d": 0.03672792578216422,
       "ret_5d": -0.10684472302844938,
+      "ret_20d": null,
+      "risk_gate": "always"
+    },
+    {
+      "date": "2026-03-16",
+      "symbol": "ALQ.AX",
+      "class": "Commercial & Professional Services",
+      "strategy": "MEAN_REVERSION",
+      "score": 100,
+      "order": "LIMIT",
+      "entry_px": 21.01,
+      "entry_src": "entry",
+      "stop": 19.9934,
+      "ret_1d": 0.005235631087730619,
+      "ret_5d": -0.08234171934268464,
       "ret_20d": null,
       "risk_gate": "always"
     },
@@ -516,7 +536,7 @@
       "stop": 5.3949,
       "ret_1d": 0.03900714735854893,
       "ret_5d": 0.12411354130831542,
-      "ret_20d": null,
+      "ret_20d": 0.45444720187190724,
       "risk_gate": "always"
     },
     {
@@ -837,26 +857,26 @@
   ],
   "r_5d": {
     "summary": {
-      "as_of": "2026-03-25 20:26:09 AEST",
+      "as_of": "2026-03-26 20:29:49 AEST",
       "coverage": {
         "since": "2026-02-11",
-        "until": "2026-03-25"
+        "until": "2026-03-26"
       },
       "horizon_trading_days": 5,
       "method": "Stop-first within horizon using auto-adjusted OHLC from yfinance. If Low <= stop at any point from t..t+h, exit=stop (R=-1). Else exit=Close[t+h]. R=(exit-entry)/(entry-stop). Long-only R where stop < entry.",
       "stats": {
-        "n": 36,
-        "mean_r": -0.26014462286171186,
+        "n": 38,
+        "mean_r": -0.26044469712755236,
         "median_r": -1.0,
-        "std_r": 1.0033252683016736,
-        "winrate": 0.3333333333333333,
-        "avg_win_r": 0.9796316643813329,
-        "avg_loss_r": -0.8800327664832343,
+        "std_r": 0.9906479107370989,
+        "winrate": 0.34210526315789475,
+        "avg_win_r": 0.9402990695962026,
+        "avg_loss_r": -0.8848314558239049,
         "min_r": -1.0,
         "max_r": 2.468280845888893
       }
     },
-    "n_results": 36
+    "n_results": 38
   },
   "notes": {
     "method": "Signal performance proxy from published recommended_orders CSVs. Forward returns use close-to-close trading bars from yfinance. Equity curve compounds each day\u2019s average 5D return (proxy, not realized portfolio P&L).",
