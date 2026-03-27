@@ -1,7 +1,35 @@
 {
-  "as_of": "2026-03-26 20:29:49 AEST",
+  "as_of": "2026-03-27 20:11:57 AEST",
   "horizon_trading_days": 5,
   "results": [
+    {
+      "date": "2026-03-20",
+      "symbol": "RIO.AX",
+      "class": "Materials",
+      "strategy": "MEAN_REVERSION",
+      "score": 98,
+      "order": "LIMIT",
+      "risk_gate": "always",
+      "entry_px": 146.92,
+      "stop": 140.6272,
+      "exit_type_5d": "H5_CLOSE",
+      "exit_px_5d": 153.22999572753906,
+      "r_5d": 1.002732603537229
+    },
+    {
+      "date": "2026-03-20",
+      "symbol": "NEM.AX",
+      "class": "Materials",
+      "strategy": "MEAN_REVERSION",
+      "score": 100,
+      "order": "LIMIT",
+      "risk_gate": "always",
+      "entry_px": 142.46,
+      "stop": 134.9047,
+      "exit_type_5d": "STOP",
+      "exit_px_5d": 134.9047,
+      "r_5d": -1.0
+    },
     {
       "date": "2026-03-19",
       "symbol": "EVN.AX",
@@ -60,20 +88,6 @@
     },
     {
       "date": "2026-03-13",
-      "symbol": "GMD.AX",
-      "class": "Materials",
-      "strategy": "MEAN_REVERSION",
-      "score": 91,
-      "order": "LIMIT",
-      "risk_gate": "always",
-      "entry_px": 6.26,
-      "stop": 5.7509,
-      "exit_type_5d": "STOP",
-      "exit_px_5d": 5.7509,
-      "r_5d": -1.0
-    },
-    {
-      "date": "2026-03-13",
       "symbol": "ALQ.AX",
       "class": "Commercial & Professional Services",
       "strategy": "MEAN_REVERSION",
@@ -84,6 +98,20 @@
       "stop": 20.6083,
       "exit_type_5d": "STOP",
       "exit_px_5d": 20.6083,
+      "r_5d": -1.0
+    },
+    {
+      "date": "2026-03-13",
+      "symbol": "GMD.AX",
+      "class": "Materials",
+      "strategy": "MEAN_REVERSION",
+      "score": 91,
+      "order": "LIMIT",
+      "risk_gate": "always",
+      "entry_px": 6.26,
+      "stop": 5.7509,
+      "exit_type_5d": "STOP",
+      "exit_px_5d": 5.7509,
       "r_5d": -1.0
     },
     {
@@ -116,20 +144,6 @@
     },
     {
       "date": "2026-03-09",
-      "symbol": "ALQ.AX",
-      "class": "Commercial & Professional Services",
-      "strategy": "MEAN_REVERSION",
-      "score": 100,
-      "order": "LIMIT",
-      "risk_gate": "always",
-      "entry_px": 22.63,
-      "stop": 21.6289,
-      "exit_type_5d": "STOP",
-      "exit_px_5d": 21.6289,
-      "r_5d": -1.0
-    },
-    {
-      "date": "2026-03-09",
       "symbol": "BSL.AX",
       "class": "Materials",
       "strategy": "MEAN_REVERSION",
@@ -141,6 +155,20 @@
       "exit_type_5d": "H5_CLOSE",
       "exit_px_5d": 26.510000228881836,
       "r_5d": 0.6697142860442619
+    },
+    {
+      "date": "2026-03-09",
+      "symbol": "ALQ.AX",
+      "class": "Commercial & Professional Services",
+      "strategy": "MEAN_REVERSION",
+      "score": 100,
+      "order": "LIMIT",
+      "risk_gate": "always",
+      "entry_px": 22.63,
+      "stop": 21.6289,
+      "exit_type_5d": "STOP",
+      "exit_px_5d": 21.6289,
+      "r_5d": -1.0
     },
     {
       "date": "2026-03-06",
