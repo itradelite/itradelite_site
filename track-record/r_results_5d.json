@@ -1,7 +1,35 @@
 {
-  "as_of": "2026-03-30 20:44:59 AEST",
+  "as_of": "2026-03-31 20:34:29 AEST",
   "horizon_trading_days": 5,
   "results": [
+    {
+      "date": "2026-03-24",
+      "symbol": "A2M.AX",
+      "class": "Food Beverage & Tobacco",
+      "strategy": "MEAN_REVERSION",
+      "score": 100,
+      "order": "LIMIT",
+      "risk_gate": "always",
+      "entry_px": 9.06,
+      "stop": 8.7325,
+      "exit_type_5d": "H5_CLOSE",
+      "exit_px_5d": 9.569999694824219,
+      "r_5d": 1.5572509765624958
+    },
+    {
+      "date": "2026-03-24",
+      "symbol": "AAI.AX",
+      "class": "Materials",
+      "strategy": "MEAN_REVERSION",
+      "score": 100,
+      "order": "LIMIT",
+      "risk_gate": "always",
+      "entry_px": 78.79,
+      "stop": 74.1969,
+      "exit_type_5d": "H5_CLOSE",
+      "exit_px_5d": 93.8499984741211,
+      "r_5d": 3.2788309582027533
+    },
     {
       "date": "2026-03-23",
       "symbol": "RIO.AX",
@@ -256,20 +284,6 @@
     },
     {
       "date": "2026-03-03",
-      "symbol": "AGL.AX",
-      "class": "Utilities",
-      "strategy": "TREND_PULLBACK",
-      "score": 100,
-      "order": "STOP",
-      "risk_gate": "risk_on",
-      "entry_px": 9.8398,
-      "stop": 9.5819,
-      "exit_type_5d": "STOP",
-      "exit_px_5d": 9.5819,
-      "r_5d": -1.0
-    },
-    {
-      "date": "2026-03-03",
       "symbol": "BSL.AX",
       "class": "Materials",
       "strategy": "MEAN_REVERSION",
@@ -280,6 +294,20 @@
       "stop": 25.9373,
       "exit_type_5d": "STOP",
       "exit_px_5d": 25.9373,
+      "r_5d": -1.0
+    },
+    {
+      "date": "2026-03-03",
+      "symbol": "AGL.AX",
+      "class": "Utilities",
+      "strategy": "TREND_PULLBACK",
+      "score": 100,
+      "order": "STOP",
+      "risk_gate": "risk_on",
+      "entry_px": 9.8398,
+      "stop": 9.5819,
+      "exit_type_5d": "STOP",
+      "exit_px_5d": 9.5819,
       "r_5d": -1.0
     },
     {
@@ -517,8 +545,8 @@
       "entry_px": 7.1585,
       "stop": 7.0163,
       "exit_type_5d": "H5_CLOSE",
-      "exit_px_5d": 7.5094895362854,
-      "r_5d": 2.468280845888893
+      "exit_px_5d": 7.510501384735107,
+      "r_5d": 2.4753965171245262
     },
     {
       "date": "2026-02-13",
@@ -545,8 +573,8 @@
       "entry_px": 7.1585,
       "stop": 7.0163,
       "exit_type_5d": "H5_CLOSE",
-      "exit_px_5d": 7.479729175567627,
-      "r_5d": 2.2589956087737493
+      "exit_px_5d": 7.48073673248291,
+      "r_5d": 2.2660811004424075
     },
     {
       "date": "2026-02-12",
