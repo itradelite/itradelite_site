@@ -1,18 +1,18 @@
 {
   "summary": {
-    "as_of": "2026-03-31 20:34:29 AEST",
+    "as_of": "2026-04-01 20:34:25 AEST",
     "since": "2026-02-11",
     "until": "2026-03-31",
     "total_signals_with_entry": 53,
-    "total_signals_with_5d": 44,
-    "avg_ret_1d": -0.00038388492903538776,
-    "avg_ret_5d": 0.012828513942710274,
-    "avg_ret_20d": -0.05792121800359993,
-    "winrate_1d": 0.47058823529411764,
-    "winrate_5d": 0.6363636363636364,
-    "winrate_20d": 0.25,
+    "total_signals_with_5d": 45,
+    "avg_ret_1d": 0.0006795737314803872,
+    "avg_ret_5d": 0.012137501647414294,
+    "avg_ret_20d": -0.05641964769396434,
+    "winrate_1d": 0.49056603773584906,
+    "winrate_5d": 0.6222222222222222,
+    "winrate_20d": 0.2692307692307692,
     "equity_curve_proxy_start": 1.0,
-    "equity_curve_proxy_end": 1.3290089822997255,
+    "equity_curve_proxy_end": 1.304731922929389,
     "equity_curve_proxy_max_drawdown": -0.34912254073668647
   },
   "by_strategy_5d": [
@@ -25,10 +25,10 @@
     },
     {
       "strategy": "MEAN_REVERSION",
-      "trades": 30,
-      "avg_5d": 0.005706221126490448,
-      "win_5d": 0.5666666666666667,
-      "avg_score": 99.0
+      "trades": 31,
+      "avg_5d": 0.004932890143519504,
+      "win_5d": 0.5483870967741935,
+      "avg_score": 99.03225806451613
     }
   ],
   "equity_curve_proxy_5d": [
@@ -161,6 +161,11 @@
       "date": "2026-03-24",
       "equity": 1.3290089822997255,
       "avg_5d_return": 0.12371614132849185
+    },
+    {
+      "date": "2026-03-25",
+      "equity": 1.304731922929389,
+      "avg_5d_return": -0.018267039345608804
     }
   ],
   "recent_signals": [
@@ -174,7 +179,7 @@
       "entry_px": 31.26,
       "entry_src": "entry",
       "stop": 29.6649,
-      "ret_1d": null,
+      "ret_1d": 0.041266762595441486,
       "ret_5d": null,
       "ret_20d": null,
       "risk_gate": "always"
@@ -189,7 +194,7 @@
       "entry_px": 13.26,
       "entry_src": "entry",
       "stop": 12.6454,
-      "ret_1d": null,
+      "ret_1d": 0.014328776553823808,
       "ret_5d": null,
       "ret_20d": null,
       "risk_gate": "always"
@@ -295,7 +300,7 @@
       "entry_src": "entry",
       "stop": 41.3097,
       "ret_1d": -0.003278674172061069,
-      "ret_5d": null,
+      "ret_5d": -0.018267039345608804,
       "ret_20d": null,
       "risk_gate": "always"
     },
@@ -581,7 +586,7 @@
       "stop": 22.4894,
       "ret_1d": 0.018462790078315194,
       "ret_5d": -0.13224567239073248,
-      "ret_20d": null,
+      "ret_20d": -0.1090597172898321,
       "risk_gate": "always"
     },
     {
@@ -596,7 +601,7 @@
       "stop": 9.5141,
       "ret_1d": 0.02185224200305358,
       "ret_5d": -0.061394299686954645,
-      "ret_20d": null,
+      "ret_20d": 0.032258109333157314,
       "risk_gate": "risk_on"
     },
     {
@@ -917,7 +922,7 @@
   ],
   "r_5d": {
     "summary": {
-      "as_of": "2026-03-31 20:34:29 AEST",
+      "as_of": "2026-04-01 20:34:25 AEST",
       "coverage": {
         "since": "2026-02-11",
         "until": "2026-03-31"
@@ -925,18 +930,18 @@
       "horizon_trading_days": 5,
       "method": "Stop-first within horizon using auto-adjusted OHLC from yfinance. If Low <= stop at any point from t..t+h, exit=stop (R=-1). Else exit=Close[t+h]. R=(exit-entry)/(entry-stop). Long-only R where stop < entry.",
       "stats": {
-        "n": 44,
-        "mean_r": -0.008783821634314959,
-        "median_r": -0.7768439786434643,
-        "std_r": 1.2304402819776898,
-        "winrate": 0.4090909090909091,
+        "n": 45,
+        "mean_r": -0.030810847820219072,
+        "median_r": -1.0,
+        "std_r": 1.2253195995944246,
+        "winrate": 0.4,
         "avg_win_r": 1.2630165690937647,
-        "avg_loss_r": -0.8892610152152932,
+        "avg_loss_r": -0.8933624590962083,
         "min_r": -1.0,
         "max_r": 3.2788309582027533
       }
     },
-    "n_results": 44
+    "n_results": 45
   },
   "notes": {
     "method": "Signal performance proxy from published recommended_orders CSVs. Forward returns use close-to-close trading bars from yfinance. Equity curve compounds each day\u2019s average 5D return (proxy, not realized portfolio P&L).",
