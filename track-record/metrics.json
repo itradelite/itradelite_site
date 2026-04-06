@@ -1,6 +1,6 @@
 {
   "summary": {
-    "as_of": "2026-04-03 20:08:30 AEST",
+    "as_of": "2026-04-06 20:37:42 AEST",
     "since": "2026-02-11",
     "until": "2026-03-31",
     "total_signals_with_entry": 53,
@@ -927,7 +927,7 @@
   ],
   "r_5d": {
     "summary": {
-      "as_of": "2026-04-03 20:08:30 AEST",
+      "as_of": "2026-04-06 20:37:42 AEST",
       "coverage": {
         "since": "2026-02-11",
         "until": "2026-03-31"
