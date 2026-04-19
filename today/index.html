@@ -17,69 +17,197 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
     :root {
-      --bg: #0f172a;
+      --bg: #0a0e17;
       --card-bg: #1e293b;
-      --border: rgba(255, 255, 255, 0.08);
+      --border: rgba(255, 255, 255, 0.1);
+      --border-hover: rgba(59, 130, 246, 0.3);
       --text-main: #f8fafc;
       --text-muted: #94a3b8;
       --accent-green: #10b981;
       --accent-red: #f43f5e;
       --accent-gold: #f59e0b;
-      --brand-primary: #38bdf8;
+      --brand-primary: #3b82f6;
+      --accent: #3b82f6;
+      --accent-glow: rgba(59, 130, 246, 0.25);
       --mono-font: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
     }
 
-    * { box-sizing: border-box; }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
       background-color: var(--bg);
+      background-image:
+        radial-gradient(circle at 20% 10%, rgba(59, 130, 246, 0.08) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(139, 92, 246, 0.05) 0%, transparent 50%);
       color: var(--text-main);
-      font-family: 'Inter', -apple-system, system-ui, sans-serif;
+      font-family: 'Space Grotesk', -apple-system, system-ui, sans-serif;
       margin: 0;
-      line-height: 1.5;
+      line-height: 1.6;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
+      overflow-x: hidden;
     }
 
     a { color: inherit; }
 
-    .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 32px; }
 
-    /* Topbar */
+    /* ── Topbar ── */
     .topbar {
-      background: rgba(15, 23, 42, 0.80);
-      backdrop-filter: blur(12px);
+      background: rgba(10, 14, 23, 0.85);
+      backdrop-filter: blur(24px) saturate(180%);
       border-bottom: 1px solid var(--border);
       position: sticky;
       top: 0;
-      z-index: 100;
-      padding: 12px 0;
+      z-index: 1000;
+      padding: 16px 0;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     }
-    .topbar__inner { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
-    .brand { display: flex; align-items: center; gap: 10px; text-decoration: none; color: white; font-weight: 700; font-size: 18px; }
-    .nav { display:flex; gap: 16px; font-size: 14px; }
-    .nav a { text-decoration: none; color: var(--text-muted); }
-    .nav a[aria-current="page"] { color: var(--brand-primary); }
 
-    /* Buttons */
-    .btn {
-      background: var(--brand-primary);
-      color: var(--bg);
-      border: none;
-      padding: 8px 16px;
-      border-radius: 8px;
-      font-weight: 700;
-      cursor: pointer;
-      transition: opacity 0.2s, transform 0.08s;
-      user-select: none;
+    .topbar::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(90deg,
+        transparent 0%,
+        rgba(59, 130, 246, 0.3) 20%,
+        rgba(59, 130, 246, 0.6) 50%,
+        rgba(59, 130, 246, 0.3) 80%,
+        transparent 100%
+      );
+      opacity: 0;
+      transition: opacity 0.3s;
     }
-    .btn:active { transform: translateY(1px); }
-    .btn--ghost { background: transparent; border: 1px solid var(--border); color: white; }
-    .btn:hover { opacity: 0.85; }
+
+    .topbar:hover::after { opacity: 1; }
+
+    .topbar__inner { display: flex; align-items: center; justify-content: space-between; }
+
+    /* ── Brand ── */
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      text-decoration: none;
+      transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .brand:hover { transform: translateX(4px); }
+
+    .brand img {
+      height: 32px;
+      width: auto;
+      object-fit: contain;
+      filter: drop-shadow(0 0 8px rgba(59, 130, 246, 0.4));
+    }
+
+    .brand span {
+      font-weight: 800;
+      font-size: 1.3rem;
+      letter-spacing: -1px;
+      background: linear-gradient(135deg, #fff 0%, #94a3b8 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    /* ── Nav ── */
+    .nav {
+      display: flex;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .nav a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.95rem;
+      font-weight: 600;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      padding: 8px 0;
+    }
+
+    .nav a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--accent), #8b5cf6);
+      transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .nav a:hover { color: #fff; }
+    .nav a:hover::after,
+    .nav a[aria-current="page"]::after { width: 100%; }
+    .nav a[aria-current="page"] { color: #fff; }
+
+    /* ── Hamburger ── */
+    .hamburger {
+      display: none;
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      font-size: 1.5rem;
+      cursor: pointer;
+      padding: 8px;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      z-index: 1001;
+    }
+
+    .hamburger:hover { color: var(--accent); }
+
+    /* ── Buttons ── */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 20px;
+      border-radius: 12px;
+      font-weight: 700;
+      font-size: 0.85rem;
+      text-decoration: none;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      overflow: hidden;
+      border: none;
+      cursor: pointer;
+      font-family: inherit;
+    }
+
+    .btn::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent);
+      transition: left 0.5s;
+    }
+
+    .btn:hover::before { left: 100%; }
+
+    .btn--ghost {
+      background: transparent;
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+    }
+
+    .btn--ghost:hover {
+      border-color: var(--border-hover);
+      color: #fff;
+      background: rgba(59, 130, 246, 0.08);
+    }
 
     /* Utility */
     .mono { font-family: var(--mono-font); font-size: 13px; }
@@ -363,12 +491,55 @@
       font-size: 12px;
     }
 
-    @media (max-width: 860px) {
-      .nav { display:none; }
+    @media (max-width: 900px) {
+      .hamburger { display: block; }
+
+      .nav {
+        position: fixed;
+        top: 60px;
+        left: 0;
+        right: 0;
+        background: rgba(10, 14, 23, 0.98);
+        backdrop-filter: blur(24px);
+        border-top: 1px solid var(--border);
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        padding: 20px;
+        max-height: 0;
+        overflow: hidden;
+        opacity: 0;
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+      }
+
+      .nav.active { max-height: 500px; opacity: 1; }
+
+      .nav a {
+        padding: 16px 20px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        font-size: 1.05rem;
+      }
+
+      .nav a:last-child { border-bottom: none; }
+      .nav a::after { display: none; }
+
+      .nav .btn {
+        margin-top: 12px;
+        text-align: center;
+        justify-content: center;
+        width: 100%;
+      }
+
       .controls { flex-direction: column; align-items: stretch; }
       select, input { width: 100%; min-width: 0; }
       .briefMeta { align-items: flex-start; }
       .briefMeta__right { width: 100%; justify-content: flex-start; }
+    }
+
+    @media (max-width: 768px) {
+      .topbar { padding: 12px 0; }
+      .brand span { font-size: 1.1rem; }
     }
 
 /* ────────────────────────────────────────
@@ -440,21 +611,47 @@
   <header class="topbar">
     <div class="container topbar__inner">
       <a class="brand" href="/" aria-label="iTradeLite home">
-        <img src="/assets/logo.png" alt="" width="24" height="24" />
-        <span>iTradeLite <span style="font-weight: 400; opacity: 0.65;">Briefing</span></span>
+        <img src="/assets/logo.png" alt="iTradeLite" />
+        <span>iTradeLite</span>
       </a>
 
-      <nav class="nav" aria-label="Primary">
-        <a href="/today/" aria-current="page">Today</a>
-        <a href="/how-it-works.html">Rules</a>
+      <nav class="nav" id="mainNav" aria-label="Primary">
+        <a href="/today/" aria-current="page">Dashboard</a>
+        <a href="/track-record/">Performance</a>
+        <a href="/how-it-works.html">Method</a>
         <a href="/about.html">About</a>
+        <button class="btn btn--ghost" id="refreshBtn" type="button">Refresh Data</button>
       </nav>
 
-      <button class="btn btn--ghost" id="refreshBtn" type="button">Refresh Data</button>
+      <button class="hamburger" id="hamburgerBtn" aria-label="Toggle menu">☰</button>
     </div>
   </header>
 
-  <main class="container" style="padding: 16px 0 24px;">
+  <script>
+    const hamburger = document.getElementById('hamburgerBtn');
+    const nav = document.getElementById('mainNav');
+
+    hamburger.addEventListener('click', () => {
+      nav.classList.toggle('active');
+      hamburger.textContent = nav.classList.contains('active') ? '✕' : '☰';
+    });
+
+    document.addEventListener('click', (e) => {
+      if (!e.target.closest('.topbar')) {
+        nav.classList.remove('active');
+        hamburger.textContent = '☰';
+      }
+    });
+
+    nav.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        nav.classList.remove('active');
+        hamburger.textContent = '☰';
+      });
+    });
+  </script>
+
+  <main class="container" style="padding: 20px 0 32px;">
     <!-- KPI Dashboard -->
     <div class="kpiGrid" aria-label="KPIs">
       <div class="kpiBox">
