@@ -1,0 +1,654 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Intraday — iTradeLite Live ASX Signals</title>
+  <meta name="robots" content="noindex,nofollow" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #0f172a;
+      --card-bg: #1e293b;
+      --border: rgba(255, 255, 255, 0.08);
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --accent-green: #10b981;
+      --accent-red: #f43f5e;
+      --accent-gold: #f59e0b;
+      --accent-purple: #a78bfa;
+      --brand-primary: #38bdf8;
+      --mono-font: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text-main);
+      font-family: 'Inter', -apple-system, system-ui, sans-serif;
+      margin: 0;
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    a { color: inherit; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+
+    /* Topbar */
+    .topbar {
+      background: rgba(15, 23, 42, 0.90);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      padding: 12px 0;
+    }
+    .topbar__inner { display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+    .brand { display: flex; align-items: center; gap: 10px; text-decoration: none; color: white; font-weight: 700; font-size: 18px; }
+    .brand__badge {
+      font-size: 10px;
+      font-weight: 700;
+      background: rgba(167,139,250,0.18);
+      border: 1px solid rgba(167,139,250,0.35);
+      color: var(--accent-purple);
+      padding: 2px 7px;
+      border-radius: 999px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+    .nav { display: flex; gap: 16px; font-size: 14px; align-items: center; }
+    .nav a { text-decoration: none; color: var(--text-muted); transition: color 0.2s; }
+    .nav a:hover { color: var(--text-main); }
+    .nav a[aria-current="page"] { color: var(--brand-primary); }
+
+    /* Buttons */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--brand-primary);
+      color: var(--bg);
+      border: none;
+      padding: 8px 16px;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 13px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: opacity 0.2s, transform 0.08s;
+      user-select: none;
+      white-space: nowrap;
+    }
+    .btn:active { transform: translateY(1px); }
+    .btn:hover { opacity: 0.85; }
+    .btn--ghost { background: transparent; border: 1px solid var(--border); color: var(--text-muted); }
+    .btn--ghost:hover { color: white; border-color: rgba(255,255,255,0.2); }
+    .btn--purple {
+      background: linear-gradient(135deg, #7c3aed, #a78bfa);
+      color: white;
+    }
+    .btn:disabled { opacity: 0.45; cursor: not-allowed; pointer-events: none; }
+
+    /* Utility */
+    .mono { font-family: var(--mono-font); font-size: 13px; }
+    .muted { color: var(--text-muted); }
+    .small { font-size: 12px; color: var(--text-muted); }
+
+    /* Experimental banner */
+    .exp-banner {
+      background: linear-gradient(90deg, rgba(167,139,250,0.10) 0%, rgba(30,41,59,0) 100%);
+      border: 1px solid rgba(167,139,250,0.25);
+      border-left: 4px solid var(--accent-purple);
+      border-radius: 12px;
+      padding: 14px 18px;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+    }
+    .exp-banner__icon { font-size: 20px; flex-shrink: 0; margin-top: 1px; }
+    .exp-banner__body { flex: 1; }
+    .exp-banner__title { font-weight: 700; font-size: 14px; color: var(--accent-purple); margin-bottom: 3px; }
+    .exp-banner__text { font-size: 13px; color: var(--text-muted); }
+
+    /* KPI grid */
+    .kpiGrid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 14px;
+      margin: 0 0 18px;
+    }
+    .kpiBox {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 16px 18px;
+    }
+    .kpiLabel { font-size: 11px; font-weight: 800; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.07em; }
+    .kpiValue { font-family: var(--mono-font); font-size: 26px; font-weight: 500; margin-top: 6px; color: var(--brand-primary); }
+    .kpiValue--small { font-size: 15px; font-family: 'Inter', system-ui, sans-serif; font-weight: 700; text-transform: uppercase; color: var(--text-main); }
+
+    /* Pills */
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      border-radius: 999px;
+      padding: 4px 10px;
+      font-size: 12px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.03);
+      white-space: nowrap;
+    }
+    .pill--live { border-color: rgba(16,185,129,0.4); background: rgba(16,185,129,0.08); color: var(--accent-green); }
+    .pill--closed { border-color: rgba(244,63,94,0.3); background: rgba(244,63,94,0.07); color: var(--accent-red); }
+
+    /* Cards */
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      overflow: hidden;
+      margin-bottom: 18px;
+    }
+    .sectionTitle {
+      padding: 14px 18px;
+      border-bottom: 1px solid var(--border);
+      background: rgba(255,255,255,0.02);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+    .sectionTitle h2 { margin: 0; font-size: 15px; display: flex; align-items: center; gap: 8px; }
+    .count { font-size: 12px; color: var(--text-muted); }
+
+    /* Controls bar */
+    .controls {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 14px 16px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: flex-end;
+      margin-bottom: 18px;
+    }
+    .field { display: flex; flex-direction: column; gap: 5px; }
+    label { font-size: 11px; font-weight: 800; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.06em; }
+    select, input {
+      background: rgba(15,23,42,0.85);
+      border: 1px solid var(--border);
+      color: white;
+      padding: 9px 12px;
+      border-radius: 8px;
+      font-size: 13px;
+      outline: none;
+      min-width: 140px;
+      font-family: inherit;
+    }
+    select:focus, input:focus { border-color: rgba(56,189,248,0.6); box-shadow: 0 0 0 3px rgba(56,189,248,0.12); }
+
+    /* Table */
+    .tableWrap { overflow-x: auto; }
+    table { width: 100%; border-collapse: collapse; }
+    th {
+      text-align: left;
+      padding: 11px 16px;
+      font-size: 11px;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      border-bottom: 1px solid var(--border);
+      white-space: nowrap;
+    }
+    td {
+      padding: 13px 16px;
+      border-bottom: 1px solid var(--border);
+      font-size: 13px;
+      vertical-align: middle;
+    }
+    tr:last-child td { border-bottom: none; }
+    tr:hover { background: rgba(255,255,255,0.02); }
+    .symbol-cell { font-family: var(--mono-font); font-weight: 700; color: var(--brand-primary); }
+
+    /* Direction chips */
+    .dir-long  { color: var(--accent-green); font-weight: 700; }
+    .dir-short { color: var(--accent-red);   font-weight: 700; }
+
+    /* Status dots */
+    .dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin-right: 6px; vertical-align: middle; }
+    .dot--green { background: var(--accent-green); box-shadow: 0 0 6px rgba(16,185,129,0.6); }
+    .dot--gold  { background: var(--accent-gold);  box-shadow: 0 0 6px rgba(245,158,11,0.4); }
+
+    /* Empty state */
+    .empty-state {
+      padding: 52px 24px;
+      text-align: center;
+      color: var(--text-muted);
+    }
+    .empty-state__icon { font-size: 40px; margin-bottom: 14px; }
+    .empty-state__title { font-size: 17px; font-weight: 700; color: var(--text-main); margin-bottom: 6px; }
+    .empty-state__text { font-size: 13px; line-height: 1.6; max-width: 440px; margin: 0 auto 20px; }
+
+    /* Error box */
+    .errorBox {
+      display: none;
+      margin: 16px 18px;
+      padding: 12px 14px;
+      border: 1px solid rgba(244,63,94,0.3);
+      background: rgba(244,63,94,0.08);
+      border-radius: 10px;
+      font-size: 13px;
+      color: var(--text-main);
+    }
+
+    /* Live pulse animation */
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.35; }
+    }
+    .live-dot {
+      display: inline-block;
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: var(--accent-green);
+      box-shadow: 0 0 6px rgba(16,185,129,0.7);
+      animation: pulse 2s ease-in-out infinite;
+      margin-right: 6px;
+      vertical-align: middle;
+    }
+
+    footer {
+      padding: 28px 0;
+      border-top: 1px solid var(--border);
+      margin-top: 24px;
+      color: var(--text-muted);
+      font-size: 12px;
+    }
+
+    @media (max-width: 768px) {
+      .topbar__inner { gap: 10px; }
+      .kpiGrid { grid-template-columns: repeat(2, 1fr); }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="topbar">
+    <div class="container topbar__inner">
+      <a class="brand" href="/" aria-label="iTradeLite home">
+        <img src="/assets/logo.png" alt="" width="24" height="24" />
+        <span>iTradeLite</span>
+        <span class="brand__badge">Intraday</span>
+      </a>
+
+      <nav class="nav" aria-label="Primary">
+        <a href="/today/">← Daily Briefing</a>
+        <a href="/how-it-works.html">Rules</a>
+        <a href="/about.html">About</a>
+      </nav>
+
+      <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;">
+        <button class="btn btn--ghost" id="refreshBtn" type="button">↻ Refresh</button>
+        <a class="btn btn--purple" id="runIntradayBtn"
+           href="https://github.com/itradelite/itradelite/actions/workflows/intraday_scan.yml"
+           target="_blank" rel="noopener noreferrer"
+           title="Opens GitHub Actions — click Run workflow there">
+          ⚡ Run Intraday Scan
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container" style="padding: 18px 0 28px;">
+
+    <!-- Experimental notice -->
+    <div class="exp-banner">
+      <div class="exp-banner__icon">🧪</div>
+      <div class="exp-banner__body">
+        <div class="exp-banner__title">Experimental — Intraday Signals</div>
+        <div class="exp-banner__text">
+          This page uses intraday Yahoo Finance bars (15 min / 30 min / 1 hr).
+          Signals are generated the same way as the daily scan but on shorter timeframes.
+          Data is only meaningful while ASX is open (10:00 AM – 4:00 PM AEST, Mon–Fri).
+          Click <b>Run Intraday Scan</b> on GitHub Actions, then hit <b>↻ Refresh</b> here after it completes (~2–3 min).
+        </div>
+      </div>
+    </div>
+
+    <!-- KPIs -->
+    <div class="kpiGrid" aria-label="Intraday KPIs">
+      <div class="kpiBox">
+        <div class="kpiLabel">Signals Found</div>
+        <div class="kpiValue" id="kpiSignals">—</div>
+      </div>
+      <div class="kpiBox">
+        <div class="kpiLabel">Market Status</div>
+        <div class="kpiValue kpiValue--small" id="kpiMarket">—</div>
+      </div>
+      <div class="kpiBox">
+        <div class="kpiLabel">Interval</div>
+        <div class="kpiValue kpiValue--small" id="kpiInterval">—</div>
+      </div>
+      <div class="kpiBox">
+        <div class="kpiLabel">Last Scan</div>
+        <div class="kpiValue kpiValue--small" id="kpiAge">—</div>
+      </div>
+    </div>
+
+    <!-- Controls -->
+    <div class="controls">
+      <div class="field">
+        <label for="intervalFilter">Interval</label>
+        <select id="intervalFilter">
+          <option value="all">All Intervals</option>
+          <option value="15m">15 min</option>
+          <option value="30m">30 min</option>
+          <option value="1h">1 hour</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label for="stratFilter">Strategy</label>
+        <select id="stratFilter">
+          <option value="all">All Strategies</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label for="dirFilter">Direction</label>
+        <select id="dirFilter">
+          <option value="all">Long &amp; Short</option>
+          <option value="long">Long only</option>
+          <option value="short">Short only</option>
+        </select>
+      </div>
+
+      <div class="field" style="flex:1;min-width:200px;">
+        <label for="symSearch">Search Symbol</label>
+        <input id="symSearch" placeholder="e.g. CBA.AX…" autocomplete="off" />
+      </div>
+    </div>
+
+    <!-- Status card -->
+    <section class="card" id="statusCard" aria-label="Scan status">
+      <div class="sectionTitle">
+        <h2>Intraday Scan</h2>
+        <span class="pill" id="statusChip"><b id="statusText">Loading…</b></span>
+      </div>
+      <div class="errorBox" id="errorBox"></div>
+      <div style="padding:12px 18px 14px;">
+        <div class="small" style="display:flex;flex-wrap:wrap;gap:10px;align-items:center;">
+          <span class="pill">Generated: <b class="mono" id="metaGenerated">—</b></span>
+          <span class="pill">Valid for: <b class="mono" id="metaValidFor">—</b></span>
+          <span class="pill">Interval: <b class="mono" id="metaInterval">—</b></span>
+          <span class="pill">Universe: <b class="mono" id="metaUniverse">—</b></span>
+        </div>
+      </div>
+      <div style="padding:0 18px 14px;" class="small">
+        <b>Note:</b> Intraday signals use the same strategy logic as the daily scan (Trend Pullback, Momentum Breakout, Mean Reversion)
+        applied to shorter-timeframe bars. Entries and stops are tighter. Always validate against the daily trend before acting.
+      </div>
+    </section>
+
+    <!-- Signals table -->
+    <div id="tables"></div>
+
+    <footer>
+      <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;">
+        <p><b>Disclaimer:</b> Experimental intraday signals. Educational purpose only. Trading involves significant risk of loss.</p>
+        <a href="/today/" style="color:var(--text-muted);font-size:12px;text-decoration:none;">← Back to Daily Briefing</a>
+      </div>
+    </footer>
+  </main>
+
+  <script>
+    const DATA_URL = "/public/intraday.json";
+
+    // ── Helpers ──────────────────────────────────────────────────────────────
+    function esc(s){ return String(s??'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+    function safeText(s){ return (s===null||s===undefined)?'—':String(s); }
+    function fmt(n,d=2){ const x=Number(n); return Number.isFinite(x)?x.toFixed(d):'—'; }
+
+    function setStatus(ok, text){
+      const t=document.getElementById('statusText'), c=document.getElementById('statusChip');
+      if(t) t.textContent=text;
+      if(c){
+        c.style.borderColor = ok?'rgba(16,185,129,.35)':'rgba(245,158,11,.35)';
+        c.style.background  = ok?'rgba(16,185,129,.10)':'rgba(245,158,11,.10)';
+      }
+    }
+
+    function showError(msg){
+      const b=document.getElementById('errorBox');
+      if(!b)return; b.textContent=msg; b.style.display='block'; setStatus(false,'Error');
+    }
+    function clearError(){ const b=document.getElementById('errorBox'); if(!b)return; b.style.display='none'; b.textContent=''; }
+
+    function computeAge(utcStr){
+      if(!utcStr)return'—';
+      const d=new Date(utcStr); if(isNaN(d))return'—';
+      const m=Math.round((Date.now()-d)/60000);
+      if(!isFinite(m))return'—';
+      return m<90?m+' min':(m/60).toFixed(1)+' hrs';
+    }
+
+    function marketStatus(){
+      const now=new Date();
+      // ASX: Mon–Fri 10:00–16:00 AEST (UTC+10)
+      const aest=new Date(now.toLocaleString('en-AU',{timeZone:'Australia/Brisbane'}));
+      const wd=aest.getDay(); // 0=Sun,6=Sat
+      const h=aest.getHours(), m=aest.getMinutes();
+      const mins=h*60+m;
+      if(wd===0||wd===6) return{open:false,label:'Weekend'};
+      if(mins>=600&&mins<960) return{open:true,label:'ASX Open'};
+      if(mins>=960) return{open:false,label:'After Close'};
+      return{open:false,label:'Pre-Market'};
+    }
+
+    // ── Filters ──────────────────────────────────────────────────────────────
+    let allRows=[], prefs={ interval:'all', strat:'all', dir:'all', q:'' };
+
+    function applyFilters(rows){
+      return rows.filter(r=>{
+        if(prefs.interval!=='all' && r.interval!==prefs.interval) return false;
+        if(prefs.strat!=='all' && (r.strategy||'')!==prefs.strat) return false;
+        if(prefs.dir!=='all'){
+          const d=(r.direction||'').toLowerCase();
+          if(prefs.dir==='long'&&d!=='long') return false;
+          if(prefs.dir==='short'&&d!=='short') return false;
+        }
+        if(prefs.q){
+          const q=prefs.q.toUpperCase();
+          if(!String(r.symbol||'').toUpperCase().includes(q)) return false;
+        }
+        return true;
+      });
+    }
+
+    function hydrateStratOptions(rows){
+      const sel=document.getElementById('stratFilter');
+      const seen=new Set([...sel.options].map(o=>o.value));
+      const strats=new Set(rows.map(r=>r.strategy||'').filter(Boolean));
+      [...strats].sort().forEach(s=>{ if(!seen.has(s)){const o=document.createElement('option');o.value=s;o.textContent=s;sel.appendChild(o);} });
+    }
+
+    // ── Table builder ────────────────────────────────────────────────────────
+    function buildTable(title, rows){
+      if(!rows.length) return '';
+      let html=`
+        <section class="card" aria-label="${esc(title)}">
+          <div class="sectionTitle">
+            <h2>${esc(title)}</h2>
+            <div class="count">${rows.length} signal(s)</div>
+          </div>
+          <div class="tableWrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Symbol</th>
+                  <th>Interval</th>
+                  <th>Strategy</th>
+                  <th>Direction</th>
+                  <th>Entry</th>
+                  <th>Stop</th>
+                  <th>Target</th>
+                  <th>Score</th>
+                  <th>Signal Time</th>
+                </tr>
+              </thead>
+              <tbody>`;
+
+      for(const r of rows){
+        const dir=(r.direction||'').toLowerCase();
+        const dirHtml=dir==='long'
+          ?`<span class="dir-long">▲ Long</span>`
+          :(dir==='short'?`<span class="dir-short">▼ Short</span>`:`<span class="muted">—</span>`);
+
+        html+=`
+          <tr>
+            <td class="mono symbol-cell">${esc(safeText(r.symbol))}</td>
+            <td class="mono">${esc(safeText(r.interval))}</td>
+            <td>${esc(safeText(r.strategy))}</td>
+            <td>${dirHtml}</td>
+            <td class="mono">${fmt(r.entry,4)}</td>
+            <td class="mono">${fmt(r.stop,4)}</td>
+            <td class="mono">${fmt(r.target,4)}</td>
+            <td class="mono">${fmt(r.score,1)}</td>
+            <td class="mono small">${esc(safeText(r.signal_time))}</td>
+          </tr>`;
+        if(r.note){
+          html+=`<tr><td colspan="9" style="padding:6px 16px 10px 32px;font-size:12px;color:#cbd5e1;border-bottom:1px solid var(--border);">${esc(r.note)}</td></tr>`;
+        }
+      }
+      html+=`</tbody></table></div></section>`;
+      return html;
+    }
+
+    // ── Render ───────────────────────────────────────────────────────────────
+    function render(data){
+      clearError();
+
+      const ms=marketStatus();
+      document.getElementById('kpiMarket').innerHTML=ms.open
+        ?`<span class="live-dot"></span>${ms.label}`
+        :ms.label;
+
+      document.getElementById('kpiInterval').textContent = safeText(data.interval||'mixed');
+      document.getElementById('kpiAge').textContent      = computeAge(data.generated_at_utc);
+      document.getElementById('metaGenerated').textContent = safeText(data.generated||'—');
+      document.getElementById('metaValidFor').textContent  = safeText(data.valid_for||'—');
+      document.getElementById('metaInterval').textContent  = safeText(data.interval||'—');
+      document.getElementById('metaUniverse').textContent  = safeText(data.universe_size||'—');
+
+      const rows=Array.isArray(data.signals)?data.signals:[];
+      document.getElementById('kpiSignals').textContent=String(rows.length);
+      setStatus(true, rows.length?'Signals loaded':'No signals');
+
+      hydrateStratOptions(rows);
+
+      const filtered=applyFilters(rows);
+      const longs =filtered.filter(r=>(r.direction||'').toLowerCase()==='long');
+      const shorts=filtered.filter(r=>(r.direction||'').toLowerCase()==='short');
+      const other =filtered.filter(r=>!['long','short'].includes((r.direction||'').toLowerCase()));
+
+      let html='';
+      if(longs.length)  html+=buildTable('Long Signals',  longs);
+      if(shorts.length) html+=buildTable('Short Signals', shorts);
+      if(other.length)  html+=buildTable('Signals',       other);
+
+      if(!filtered.length){
+        html=`
+          <div class="empty-state">
+            <div class="empty-state__icon">📡</div>
+            <div class="empty-state__title">${rows.length?'No signals match your filters':'No intraday data yet'}</div>
+            <div class="empty-state__text">
+              ${rows.length
+                ?'Try adjusting your Interval, Strategy, or Direction filters.'
+                :'Run the intraday scan first: click <b>⚡ Run Intraday Scan</b> above, wait ~2–3 minutes for the GitHub Actions workflow to complete, then hit <b>↻ Refresh</b>.'}
+            </div>
+            ${!rows.length?`<a class="btn btn--purple"
+              href="https://github.com/itradelite/itradelite/actions/workflows/intraday_scan.yml"
+              target="_blank" rel="noopener noreferrer">⚡ Run Intraday Scan on GitHub</a>`:''}
+          </div>`;
+      }
+
+      document.getElementById('tables').innerHTML=html;
+    }
+
+    // ── Load ─────────────────────────────────────────────────────────────────
+    async function load(){
+      setStatus(false,'Loading…');
+      const r=await fetch(DATA_URL+'?v='+Date.now(),{cache:'no-store'});
+      if(!r.ok) throw new Error('HTTP '+r.status);
+      return r.json();
+    }
+
+    // ── Controls ─────────────────────────────────────────────────────────────
+    function bindControls(){
+      document.getElementById('intervalFilter').addEventListener('change',e=>{ prefs.interval=e.target.value; if(window.__DATA__) render(window.__DATA__); });
+      document.getElementById('stratFilter').addEventListener('change',e=>{ prefs.strat=e.target.value; if(window.__DATA__) render(window.__DATA__); });
+      document.getElementById('dirFilter').addEventListener('change',e=>{ prefs.dir=e.target.value; if(window.__DATA__) render(window.__DATA__); });
+      document.getElementById('symSearch').addEventListener('input',e=>{ prefs.q=e.target.value.trim(); if(window.__DATA__) render(window.__DATA__); });
+
+      document.getElementById('refreshBtn').addEventListener('click',async()=>{
+        try{ const d=await load(); window.__DATA__=d; render(d); }
+        catch(e){ showError('Could not load intraday data. Run the scan first. ('+e.message+')'); }
+      });
+    }
+
+    // ── Market status KPI (live clock) ───────────────────────────────────────
+    function tickMarket(){
+      if(!window.__DATA__)return;
+      const ms=marketStatus();
+      document.getElementById('kpiMarket').innerHTML=ms.open
+        ?`<span class="live-dot"></span>${ms.label}`
+        :ms.label;
+    }
+    setInterval(tickMarket, 30000);
+
+    // ── Init ─────────────────────────────────────────────────────────────────
+    (async function(){
+      // Update market status immediately
+      const ms=marketStatus();
+      document.getElementById('kpiMarket').innerHTML=ms.open
+        ?`<span class="live-dot"></span>${ms.label}`
+        :ms.label;
+
+      bindControls();
+      try{
+        const d=await load();
+        window.__DATA__=d;
+        render(d);
+      }catch(e){
+        // No intraday.json yet — show empty state gracefully
+        document.getElementById('kpiSignals').textContent='0';
+        document.getElementById('kpiInterval').textContent='—';
+        document.getElementById('kpiAge').textContent='—';
+        setStatus(false,'No data');
+        document.getElementById('tables').innerHTML=`
+          <div class="empty-state">
+            <div class="empty-state__icon">📡</div>
+            <div class="empty-state__title">No intraday data yet</div>
+            <div class="empty-state__text">
+              The intraday scan hasn't been run yet. Click <b>⚡ Run Intraday Scan</b> above to trigger it on GitHub Actions,
+              wait ~2–3 minutes, then hit <b>↻ Refresh</b> to see the signals.
+            </div>
+            <a class="btn btn--purple" style="margin-top:4px;"
+               href="https://github.com/itradelite/itradelite/actions/workflows/intraday_scan.yml"
+               target="_blank" rel="noopener noreferrer">⚡ Run Intraday Scan on GitHub</a>
+          </div>`;
+      }
+    })();
+  </script>
+</body>
+</html>
