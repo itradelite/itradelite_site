@@ -67,18 +67,26 @@
 
     /* Buttons */
     .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
       background: var(--brand-primary);
       color: var(--bg);
       border: none;
       padding: 8px 16px;
       border-radius: 8px;
+      font-size: 13px;
       font-weight: 700;
+      font-family: inherit;
+      text-decoration: none;
       cursor: pointer;
       transition: opacity 0.2s, transform 0.08s;
       user-select: none;
+      white-space: nowrap;
     }
     .btn:active { transform: translateY(1px); }
-    .btn--ghost { background: transparent; border: 1px solid var(--border); color: white; }
+    .btn--ghost { background: transparent; border: 1px solid var(--border); color: var(--text-muted); }
+    .btn--ghost:hover { color: white; }
     .btn:hover { opacity: 0.85; }
 
     /* Utility */
@@ -231,32 +239,16 @@
 
     .symbol-cell { font-family: var(--mono-font); font-weight: 700; color: var(--brand-primary); }
 
-    .rowNote{
-      font-size: 12px;
-      color: rgba(255,255,255,0.78);
-      margin-top: 6px;
-      line-height: 1.4;
-      padding-left: 0;
-      white-space: normal;           /* very important */
-      word-break: break-word;        /* helps long words/urls */
+    .note-row { background: rgba(56, 189, 248, 0.04); }
+    .note-row td {
+      padding: 8px 18px 12px 32px;
+      font-size: 13px;
+      line-height: 1.45;
+      color: #cbd5e1;
+      border-bottom: 1px solid var(--border);
+      white-space: normal;
+      word-break: break-word;
     }
-
-.note-row {
-  background: rgba(56, 189, 248, 0.04);     /* subtle blue tint to distinguish */
-}
-
-.note-row td {
-  padding: 8px 18px 12px 18px;
-  font-size: 13px;
-  line-height: 1.45;
-  color: #cbd5e1;                           /* slightly lighter than main text */
-  border-bottom: 1px solid var(--border);
-}
-
-/* Optional: make notes slightly indented */
-.note-row td {
-  padding-left: 32px;   /* aligns under symbol column */
-}
 
 
     /* Status dots */
@@ -292,11 +284,16 @@
     }
 
     @media (max-width: 860px) {
-      .nav { display:none; }
+      .topbar__inner { flex-wrap: wrap; }
+      .nav { gap: 12px; font-size: 13px; }
       .controls { flex-direction: column; align-items: stretch; }
       select, input { width: 100%; min-width: 0; }
       .briefMeta { align-items: flex-start; }
       .briefMeta__right { width: 100%; justify-content: flex-start; }
+    }
+    @media (max-width: 540px) {
+      .nav { display: none; }
+      .topbar-actions { flex-wrap: wrap; }
     }
 
 /* ────────────────────────────────────────
@@ -377,20 +374,25 @@
         <a href="/about.html">About</a>
       </nav>
 
-      <button class="btn btn--ghost" id="refreshBtn" type="button">Refresh Data</button>
-      <a class="btn" id="runScanBtn"
-         href="https://github.com/itradelite/itradelite/actions/workflows/publish_today_to_site.yml"
-         target="_blank" rel="noopener noreferrer"
-         title="Opens GitHub Actions — click Run workflow there">
-        ⚡ Run Scan Now
-      </a>
-      <a class="btn btn--ghost" href="/intraday/" title="Experimental intraday signals">
-        📈 Intraday
-      </a>
+      <div class="topbar-actions" style="display:flex;gap:8px;align-items:center;">
+        <button class="btn btn--ghost" id="refreshBtn" type="button">Refresh Data</button>
+        <a class="btn" id="runScanBtn"
+           href="https://github.com/itradelite/itradelite/actions/workflows/publish_today_to_site.yml"
+           target="_blank" rel="noopener noreferrer"
+           title="Opens GitHub Actions — click Run workflow there">
+          ⚡ Run Scan Now
+        </a>
+        <a class="btn btn--ghost" href="/intraday/" title="Experimental intraday signals">
+          📈 Intraday
+        </a>
+      </div>
     </div>
   </header>
 
   <main class="container" style="padding: 16px 0 24px;">
+    <!-- Stale data banner (injected by JS when data_fresh === false) -->
+    <div id="freshBanner"></div>
+
     <!-- KPI Dashboard -->
     <div class="kpiGrid" aria-label="KPIs">
       <div class="kpiBox">
