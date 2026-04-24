@@ -3,707 +3,232 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Today — iTradeLite Daily ASX Briefing</title>
-
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-N8VCNFYX3B"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-N8VCNFYX3B');
-</script>
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <title>iTradeLite — Institutional ASX Watchlist</title>
+  <link rel="stylesheet" href="/assets/site.css" />
 
   <style>
-    :root {
-      --bg: #0a0e17;
-      --card-bg: #1e293b;
-      --border: rgba(255, 255, 255, 0.1);
-      --border-hover: rgba(59, 130, 246, 0.3);
-      --text-main: #f8fafc;
-      --text-muted: #94a3b8;
-      --accent-green: #10b981;
-      --accent-red: #f43f5e;
-      --accent-gold: #f59e0b;
-      --brand-primary: #3b82f6;
-      --accent: #3b82f6;
-      --accent-glow: rgba(59, 130, 246, 0.25);
-      --mono-font: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    .hero { 
+      padding: 140px 0 100px; 
+      display: grid; 
+      grid-template-columns: 1.2fr 0.8fr; 
+      gap: 100px; 
+      align-items: center;
+      position: relative;
     }
-
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-
-    body {
-      background-color: var(--bg);
-      background-image:
-        radial-gradient(circle at 20% 10%, rgba(59, 130, 246, 0.08) 0%, transparent 50%),
-        radial-gradient(circle at 80% 80%, rgba(139, 92, 246, 0.05) 0%, transparent 50%);
-      color: var(--text-main);
-      font-family: 'Space Grotesk', -apple-system, system-ui, sans-serif;
-      margin: 0;
-      line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-      overflow-x: hidden;
-    }
-
-    a { color: inherit; }
-
-    .container { max-width: 1200px; margin: 0 auto; padding: 0 32px; }
-
-    /* ── Topbar ── */
-    .topbar {
-      background: rgba(10, 14, 23, 0.85);
-      backdrop-filter: blur(24px) saturate(180%);
-      border-bottom: 1px solid var(--border);
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      padding: 16px 0;
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-
-    .topbar::after {
+    
+    .hero::before {
       content: '';
       position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      height: 1px;
-      background: linear-gradient(90deg,
-        transparent 0%,
-        rgba(59, 130, 246, 0.3) 20%,
-        rgba(59, 130, 246, 0.6) 50%,
-        rgba(59, 130, 246, 0.3) 80%,
-        transparent 100%
-      );
-      opacity: 0;
-      transition: opacity 0.3s;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 800px;
+      height: 800px;
+      background: radial-gradient(circle, rgba(59, 130, 246, 0.15) 0%, transparent 70%);
+      pointer-events: none;
+      animation: pulse 8s ease-in-out infinite;
     }
-
-    .topbar:hover::after { opacity: 1; }
-
-    .topbar__inner { display: flex; align-items: center; justify-content: space-between; }
-
-    /* ── Brand ── */
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      text-decoration: none;
-      transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    
+    @keyframes pulse {
+      0%, 100% { opacity: 0.3; transform: translateX(-50%) scale(1); }
+      50% { opacity: 0.6; transform: translateX(-50%) scale(1.1); }
     }
-
-    .brand:hover { transform: translateX(4px); }
-
-    .brand img {
-      height: 32px;
-      width: auto;
-      object-fit: contain;
-      filter: drop-shadow(0 0 8px rgba(59, 130, 246, 0.4));
-    }
-
-    .brand span {
-      font-weight: 800;
-      font-size: 1.3rem;
-      letter-spacing: -1px;
-      background: linear-gradient(135deg, #fff 0%, #94a3b8 100%);
+    
+    .hero h1 { 
+      font-size: 5.5rem; 
+      line-height: 0.95; 
+      letter-spacing: -5px; 
+      margin: 0;
+      font-weight: 900;
+      background: linear-gradient(135deg, #ffffff 0%, #94a3b8 50%, #64748b 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
-    }
-
-    /* ── Nav ── */
-    .nav {
-      display: flex;
-      gap: 40px;
-      align-items: center;
-    }
-
-    .nav a {
-      color: var(--text-muted);
-      text-decoration: none;
-      font-size: 0.95rem;
-      font-weight: 600;
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
       position: relative;
-      padding: 8px 0;
+      animation: fadeInUp 1s cubic-bezier(0.4, 0, 0.2, 1);
     }
-
-    .nav a::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 0;
-      height: 2px;
-      background: linear-gradient(90deg, var(--accent), #8b5cf6);
-      transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    
+    .hero-content {
+      position: relative;
+      z-index: 1;
     }
-
-    .nav a:hover { color: #fff; }
-    .nav a:hover::after,
-    .nav a[aria-current="page"]::after { width: 100%; }
-    .nav a[aria-current="page"] { color: #fff; }
-
-    /* ── Hamburger ── */
-    .hamburger {
-      display: none;
-      background: none;
-      border: none;
+    
+    .hero-subtitle {
+      font-size: 1.4rem;
       color: var(--text-muted);
-      font-size: 1.5rem;
-      cursor: pointer;
-      padding: 8px;
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-      z-index: 1001;
+      margin: 36px 0 48px;
+      line-height: 1.6;
+      max-width: 560px;
+      font-weight: 500;
+      animation: fadeInUp 1s cubic-bezier(0.4, 0, 0.2, 1) 0.2s backwards;
+    }
+    
+    .hero-cta {
+      animation: fadeInUp 1s cubic-bezier(0.4, 0, 0.2, 1) 0.4s backwards;
     }
 
-    .hamburger:hover { color: var(--accent); }
-
-    /* ── Buttons ── */
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 10px 20px;
-      border-radius: 12px;
-      font-weight: 700;
-      font-size: 0.85rem;
-      text-decoration: none;
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    .feature-list { 
+      display: flex; 
+      flex-direction: column; 
+      gap: 16px;
+      position: relative;
+      z-index: 1;
+    }
+    
+    .feature-item {
+      display: flex; 
+      align-items: center; 
+      gap: 20px; 
+      padding: 24px 28px;
+      background: linear-gradient(135deg, rgba(255,255,255,0.06) 0%, rgba(255,255,255,0.02) 100%);
+      border: 1px solid var(--border); 
+      border-radius: 16px;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
       position: relative;
       overflow: hidden;
-      border: none;
-      cursor: pointer;
-      font-family: inherit;
     }
-
-    .btn::before {
+    
+    .feature-item::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 3px;
+      background: linear-gradient(180deg, var(--accent), #8b5cf6);
+      transform: scaleY(0);
+      transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    .feature-item:hover::before {
+      transform: scaleY(1);
+    }
+    
+    .feature-item:hover {
+      transform: translateX(8px);
+      background: linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(139, 92, 246, 0.05) 100%);
+      border-color: var(--border-hover);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+    }
+    
+    .num { 
+      color: var(--accent); 
+      font-family: 'JetBrains Mono', monospace; 
+      font-weight: 800;
+      font-size: 1.1rem;
+      min-width: 40px;
+      text-align: center;
+      text-shadow: 0 0 20px rgba(59, 130, 246, 0.5);
+    }
+    
+    .feature-text {
+      font-weight: 600;
+      font-size: 1.05rem;
+      letter-spacing: -0.3px;
+    }
+    
+    .stats-bar {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin: 100px 0 80px;
+      padding: 48px;
+      background: linear-gradient(135deg, rgba(59, 130, 246, 0.08) 0%, rgba(139, 92, 246, 0.05) 100%);
+      border: 1px solid var(--border-hover);
+      border-radius: 24px;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .stats-bar::before {
       content: '';
       position: absolute;
       top: 0;
-      left: -100%;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent);
-      transition: left 0.5s;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--accent), transparent);
+      animation: shimmer 3s infinite;
     }
-
-    .btn:hover::before { left: 100%; }
-
-    .btn--ghost {
-      background: transparent;
-      border: 1px solid var(--border);
+    
+    @keyframes shimmer {
+      0% { transform: translateX(-100%); }
+      100% { transform: translateX(100%); }
+    }
+    
+    .stat-item {
+      text-align: center;
+    }
+    
+    .stat-value {
+      font-size: 3rem;
+      font-weight: 900;
+      background: linear-gradient(135deg, #fff 0%, var(--accent) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 8px;
+      letter-spacing: -2px;
+    }
+    
+    .stat-label {
       color: var(--text-muted);
-    }
-
-    .btn--ghost:hover {
-      border-color: var(--border-hover);
-      color: #fff;
-      background: rgba(59, 130, 246, 0.08);
-    }
-
-    /* Utility */
-    .mono { font-family: var(--mono-font); font-size: 13px; }
-    .muted { color: var(--text-muted); }
-    .small { font-size: 12px; color: var(--text-muted); }
-
-    /* Banners */
-    .banner {
-      border-radius: 12px;
-      padding: 16px;
-      margin: 20px 0 14px;
-      border-left: 4px solid var(--border);
-      background: var(--card-bg);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 12px;
-    }
-    .banner--stale { border-left-color: var(--accent-gold); background: linear-gradient(90deg, rgba(245,158,11,0.12) 0%, rgba(30,41,59,0.0) 100%); }
-
-    /* Pills */
-    .pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      border-radius: 999px;
-      padding: 5px 10px;
-      font-size: 12px;
-      border: 1px solid var(--border);
-      background: rgba(255,255,255,0.03);
-      white-space: nowrap;
-    }
-
-    /* KPI dashboard */
-    .kpiGrid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 16px;
-      margin: 18px 0 18px;
-    }
-    .kpiBox {
-      background: var(--card-bg);
-      border: 1px solid var(--border);
-      border-radius: 14px;
-      padding: 18px;
-      transition: transform 0.2s, border-color 0.2s;
-    }
-    .kpiBox:hover { transform: translateY(-1px); border-color: rgba(56,189,248,0.25); }
-    .kpiLabel { font-size: 12px; font-weight: 800; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.06em; }
-    .kpiValue { font-family: var(--mono-font); font-size: 28px; font-weight: 500; margin-top: 8px; color: var(--brand-primary); }
-    .kpiValue--small { font-size: 16px; color: var(--text-main); font-family: 'Inter', system-ui, sans-serif; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; }
-
-    /* Briefing card */
-    .card {
-      background: var(--card-bg);
-      border: 1px solid var(--border);
-      border-radius: 14px;
-      overflow: hidden;
-      margin-bottom: 18px;
-    }
-    .card--pad { padding: 0; }
-    .sectionTitle {
-      padding: 16px 18px;
-      border-bottom: 1px solid var(--border);
-      background: rgba(255,255,255,0.02);
-      display:flex;
-      align-items:center;
-      justify-content: space-between;
-      gap: 12px;
-    }
-    .sectionTitle h2 { margin: 0; font-size: 16px; display:flex; align-items:center; gap: 10px; }
-    .count { font-size: 12px; color: var(--text-muted); }
-
-    .briefMeta {
-      padding: 14px 18px;
-      display:flex;
-      flex-wrap:wrap;
-      gap: 10px;
-      align-items:center;
-      justify-content: space-between;
-    }
-    .briefMeta__left { display:flex; flex-wrap:wrap; gap: 10px; align-items:center; }
-    .briefMeta__right { display:flex; gap: 10px; align-items:center; }
-
-    /* Controls */
-    .controls {
-      background: var(--card-bg);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 16px;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      align-items: flex-end;
-      margin-bottom: 18px;
-    }
-
-    .field { display: flex; flex-direction: column; gap: 6px; }
-
-    /* Tight mobile stacking */
-    @media (max-width: 860px) {
-      .controls {
-        gap: 10px;
-        padding: 14px;
-      }
-      .field {
-        width: 100% !important;
-        flex: 0 0 100% !important;
-      }
-      input, select {
-        width: 100%;
-      }
-    }
-
-    label { font-size: 11px; font-weight: 900; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.06em; }
-    select, input {
-      background: rgba(15,23,42,0.85);
-      border: 1px solid var(--border);
-      color: white;
-      padding: 10px 12px;
-      border-radius: 10px;
-      font-size: 14px;
-      outline: none;
-      min-width: 160px;
-    }
-    input { min-width: 240px; width: 100%; }
-    select:focus, input:focus { border-color: rgba(56,189,248,0.65); box-shadow: 0 0 0 3px rgba(56,189,248,0.15); }
-
-    /* Table */
-    .tableWrap { overflow-x: auto; }
-    table { width: 100%; border-collapse: collapse; }
-    th {
-      text-align: left;
-      padding: 12px 18px;
-      font-size: 11px;
-      color: var(--text-muted);
+      font-size: 0.9rem;
+      font-weight: 600;
       text-transform: uppercase;
-      letter-spacing: 0.08em;
-      border-bottom: 1px solid var(--border);
-      white-space: nowrap;
-    }
-    td {
-      padding: 14px 18px;
-      border-bottom: 1px solid var(--border);
-      font-size: 14px;
-      vertical-align: top;
-    }
-    tr:hover { background: rgba(255,255,255,0.02); }
-
-    .symbol-cell { font-family: var(--mono-font); font-weight: 700; color: var(--brand-primary); }
-
-    .rowNote{
-      font-size: 12px;
-      color: rgba(255,255,255,0.78);
-      margin-top: 6px;
-      line-height: 1.4;
-      padding-left: 0;
-      white-space: normal;           /* very important */
-      word-break: break-word;        /* helps long words/urls */
-    }
-
-.note-row {
-  background: rgba(56, 189, 248, 0.04);     /* subtle blue tint to distinguish */
-}
-
-.note-row td {
-  padding: 8px 18px 12px 18px;
-  font-size: 13px;
-  line-height: 1.45;
-  color: #cbd5e1;                           /* slightly lighter than main text */
-  border-bottom: 1px solid var(--border);
-}
-
-/* Optional: make notes slightly indented */
-.note-row td {
-  padding-left: 32px;   /* aligns under symbol column */
-}
-
-
-    /* Status dots */
-    .status-dot {
-      height: 9px;
-      width: 9px;
-      border-radius: 50%;
-      display: inline-block;
-      margin-right: 8px;
-      transform: translateY(1px);
-    }
-    .dot--valid { background-color: var(--accent-green); box-shadow: 0 0 10px rgba(16,185,129,0.55); }
-    .dot--watch { background-color: var(--accent-gold); box-shadow: 0 0 10px rgba(245,158,11,0.35); }
-
-    /* Sentiment score chips */
-    .sent-chips {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-      margin-top: 8px;
-    }
-
-    .sent-chip {
-      display: inline-flex;
-      align-items: center;
-      gap: 5px;
-      font-size: 11px;
-      font-weight: 700;
-      padding: 3px 8px;
-      border-radius: 6px;
-      border: 1px solid transparent;
-      white-space: nowrap;
-      font-family: var(--mono-font);
-      letter-spacing: 0.02em;
-    }
-
-    /* Composite score chip */
-    .sent-chip--composite {
-      background: rgba(56,189,248,0.12);
-      border-color: rgba(56,189,248,0.30);
-      color: var(--brand-primary);
-    }
-
-    /* Positive news / insider / trends */
-    .sent-chip--pos {
-      background: rgba(16,185,129,0.12);
-      border-color: rgba(16,185,129,0.30);
-      color: #34d399;
-    }
-
-    /* Neutral */
-    .sent-chip--neu {
-      background: rgba(148,163,184,0.10);
-      border-color: rgba(148,163,184,0.20);
-      color: var(--text-muted);
-    }
-
-    /* Negative news / insider */
-    .sent-chip--neg {
-      background: rgba(244,63,94,0.12);
-      border-color: rgba(244,63,94,0.30);
-      color: #fb7185;
-    }
-
-    /* Earnings warning — always visible, high contrast */
-    .sent-chip--earnings-warn {
-      background: rgba(245,158,11,0.18);
-      border-color: rgba(245,158,11,0.50);
-      color: var(--accent-gold);
-      font-size: 11px;
-    }
-
-    .sent-chip--earnings-ok {
-      background: rgba(148,163,184,0.08);
-      border-color: rgba(148,163,184,0.18);
-      color: var(--text-muted);
-      font-size: 11px;
-    }
-
-    /* Note row update: slightly more breathing room for sentiment row */
-    .note-row--sent td {
-      padding-top: 6px;
-      padding-bottom: 10px;
-      background: rgba(56,189,248,0.03);
-    }
-
-    /* Update Signals button */
-    .btn--update {
-      background: linear-gradient(135deg, #3b82f6 0%, #6366f1 100%);
-      color: #fff;
-      border: 1px solid transparent;
-      box-shadow: 0 0 0 0 rgba(99,102,241,0);
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-    .btn--update:hover {
-      box-shadow: 0 0 18px rgba(99,102,241,0.45);
-      transform: translateY(-1px);
-    }
-    .btn--update:disabled {
-      opacity: 0.55;
-      cursor: not-allowed;
-      transform: none;
-    }
-
-    /* Toast notification */
-    #signalToast {
-      position: fixed;
-      bottom: 28px;
-      right: 28px;
-      z-index: 9999;
-      min-width: 280px;
-      max-width: 420px;
-      padding: 14px 18px;
-      border-radius: 14px;
-      background: #1e293b;
-      border: 1px solid var(--border);
-      box-shadow: 0 8px 32px rgba(0,0,0,0.45);
-      display: flex;
-      align-items: flex-start;
-      gap: 12px;
-      font-size: 14px;
-      color: var(--text-main);
-      opacity: 0;
-      transform: translateY(16px);
-      pointer-events: none;
-      transition: opacity 0.3s, transform 0.3s;
-    }
-    #signalToast.toast--visible {
-      opacity: 1;
-      transform: translateY(0);
-      pointer-events: auto;
-    }
-    #signalToast.toast--success { border-color: rgba(16,185,129,0.45); background: linear-gradient(135deg, rgba(16,185,129,0.12) 0%, #1e293b 60%); }
-    #signalToast.toast--error   { border-color: rgba(244,63,94,0.45);  background: linear-gradient(135deg, rgba(244,63,94,0.12) 0%, #1e293b 60%); }
-    #signalToast.toast--working { border-color: rgba(59,130,246,0.45); background: linear-gradient(135deg, rgba(59,130,246,0.10) 0%, #1e293b 60%); }
-    .toast__icon { font-size: 20px; flex-shrink: 0; }
-    .toast__body { flex: 1; }
-    .toast__title { font-weight: 700; margin-bottom: 2px; }
-    .toast__msg   { font-size: 12px; color: var(--text-muted); line-height: 1.45; }
-    .toast__close {
-      background: none; border: none; color: var(--text-muted); cursor: pointer;
-      font-size: 16px; padding: 0 2px; line-height: 1; flex-shrink: 0;
-      transition: color 0.2s;
-    }
-    .toast__close:hover { color: #fff; }
-
-    /* Error */
-    .errorBox {
-      display:none;
-      margin: 0 18px 16px;
-      padding: 12px 12px;
-      border: 1px solid rgba(244,63,94,0.35);
-      background: rgba(244,63,94,0.10);
-      border-radius: 10px;
-      color: rgba(255,255,255,0.92);
-      font-size: 13px;
-    }
-
-    footer {
-      padding: 34px 0;
-      border-top: 1px solid var(--border);
-      margin-top: 28px;
-      color: var(--text-muted);
-      font-size: 12px;
+      letter-spacing: 1px;
     }
 
     @media (max-width: 900px) {
-      .hamburger { display: block; }
-
-      .nav {
-        position: fixed;
-        top: 60px;
-        left: 0;
-        right: 0;
-        background: rgba(10, 14, 23, 0.98);
-        backdrop-filter: blur(24px);
-        border-top: 1px solid var(--border);
-        flex-direction: column;
-        align-items: stretch;
-        gap: 0;
-        padding: 20px;
-        max-height: 0;
-        overflow: hidden;
-        opacity: 0;
-        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+      .hero { 
+        grid-template-columns: 1fr; 
+        text-align: center; 
+        padding: 80px 0 60px; 
+        gap: 60px;
       }
-
-      .nav.active { max-height: 500px; opacity: 1; }
-
-      .nav a {
-        padding: 16px 20px;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-        font-size: 1.05rem;
-      }
-
-      .nav a:last-child { border-bottom: none; }
-      .nav a::after { display: none; }
-
-      .nav .btn {
-        margin-top: 12px;
-        text-align: center;
-        justify-content: center;
-        width: 100%;
-      }
-
-      .controls { flex-direction: column; align-items: stretch; }
-      select, input { width: 100%; min-width: 0; }
-      .briefMeta { align-items: flex-start; }
-      .briefMeta__right { width: 100%; justify-content: flex-start; }
+      .hero h1 { font-size: 3.5rem; letter-spacing: -3px; }
+      .hero-subtitle { margin-left: auto; margin-right: auto; }
+      .stats-bar { grid-template-columns: 1fr; }
     }
-
-    @media (max-width: 768px) {
-      .topbar { padding: 12px 0; }
-      .brand span { font-size: 1.1rem; }
-    }
-
-/* ────────────────────────────────────────
-   Mobile optimizations: responsive table + breathing room
-   ──────────────────────────────────────── */
-@media (max-width: 768px) {
-  /* Container breathing room — prevents content from touching screen edge */
-  .container {
-    padding-left:  14px !important;
-    padding-right: 14px !important;
-  }
-
-  /* Table wrapper pulls content edge-to-edge but with safe margins */
-  .tableWrap {
-    margin: 0 -14px !important;
-  }
-
-  /* Table itself: no negative left margin, no left border */
-  .tableWrap table {
-    margin-left: 0 !important;
-    border-left: none !important;
-  }
-
-  /* General cell padding — tighter but readable */
-  th, td {
-    padding: 12px 10px !important;
-  }
-
-  /* Symbol column: generous left padding + natural sizing */
-  th:first-child,
-  td:first-child,
-  td.mono.symbol-cell {
-    padding-left: 20px !important;      /* ← this is what stops hugging */
-    padding-right: 8px !important;
-    min-width: 120px;
-    max-width: 48vw;
-    width: auto !important;
-  }
-
-  /* Note rows align under symbol with matching offset */
-  .note-row td {
-    padding-left: 40px !important;
-  }
-
-  /* Hide less important columns to reduce horizontal scroll */
-  th:nth-child(8), td:nth-child(8),   /* TP1 */
-  th:nth-child(9), td:nth-child(9),   /* Cap Target */
-  th:nth-child(10), td:nth-child(10), /* R mult */
-  th:nth-child(11), td:nth-child(11)  /* Sentiment sub-chips (full detail) */
-  {
-    display: none !important;
-  }
-
-  /* Keep Qty & Status usable */
-  th:nth-child(6), td:nth-child(6)  { min-width: 64px !important; }   /* Qty */
-  th:nth-child(12), td:nth-child(12){ min-width: 84px !important; }   /* Status */
-
-  /* No rounded corners on first/last cells if they touch edge */
-  table tr td:first-child,
-  table tr th:first-child {
-    border-top-left-radius: 0 !important;
-    border-bottom-left-radius: 0 !important;
-  }
-}
   </style>
 </head>
 
 <body>
   <header class="topbar">
     <div class="container topbar__inner">
-      <a class="brand" href="/" aria-label="iTradeLite home">
-        <img src="/assets/logo.png" alt="iTradeLite" />
+      <a class="brand" href="/">
+        <img src="/assets/logo.png" alt="iTradeLite" style="height: 28px;">
         <span>iTradeLite</span>
       </a>
-
-      <nav class="nav" id="mainNav" aria-label="Primary">
-        <a href="/today/" aria-current="page">Dashboard</a>
+      <nav class="nav" id="mainNav">
+        <a href="/today/">Dashboard</a>
         <a href="/track-record/">Performance</a>
         <a href="/how-it-works.html">Method</a>
         <a href="/about.html">About</a>
-        <button class="btn btn--ghost" id="refreshBtn" type="button">Refresh Data</button>
-        <button class="btn btn--update" id="updateSignalsBtn" type="button">⚡ Update Signals</button>
+        <a class="btn btn--primary btn--small" href="/today/">Launch Terminal</a>
       </nav>
-
       <button class="hamburger" id="hamburgerBtn" aria-label="Toggle menu">☰</button>
     </div>
   </header>
 
   <script>
+    // Hamburger menu toggle
     const hamburger = document.getElementById('hamburgerBtn');
     const nav = document.getElementById('mainNav');
-
+    
     hamburger.addEventListener('click', () => {
       nav.classList.toggle('active');
       hamburger.textContent = nav.classList.contains('active') ? '✕' : '☰';
     });
-
+    
+    // Close menu when clicking outside
     document.addEventListener('click', (e) => {
       if (!e.target.closest('.topbar')) {
         nav.classList.remove('active');
         hamburger.textContent = '☰';
       }
     });
-
+    
+    // Close menu when link clicked
     nav.querySelectorAll('a').forEach(link => {
       link.addEventListener('click', () => {
         nav.classList.remove('active');
@@ -712,918 +237,72 @@
     });
   </script>
 
-  <main class="container" style="padding: 20px 0 32px;">
-    <!-- KPI Dashboard -->
-    <div class="kpiGrid" aria-label="KPIs">
-      <div class="kpiBox">
-        <div class="kpiLabel">Recommended</div>
-        <div class="kpiValue" id="kpiRecommended">—</div>
+  <main class="container">
+    <section class="hero">
+      <div class="hero-content">
+        <h1>ASX Data.<br>Pure Logic.</h1>
+        <p class="hero-subtitle">
+          Institutional-grade daily trade plans for the ASX. Rule-based entries, stops, and risk sizing generated directly from raw end-of-day data.
+        </p>
+        <div class="hero-cta">
+          <a class="btn btn--primary" style="padding: 18px 40px; font-size: 1.05rem;" href="/today/">View Today's List →</a>
+        </div>
       </div>
 
-      <div class="kpiBox">
-        <div class="kpiLabel">Valid Setups</div>
-        <div class="kpiValue" id="kpiValid">—</div>
+      <div class="card feature-list">
+        <div class="feature-item">
+          <span class="num">01</span>
+          <span class="feature-text">Modelled Risk Management</span>
+        </div>
+        <div class="feature-item">
+          <span class="num">02</span>
+          <span class="feature-text">Transparent Rule-Set</span>
+        </div>
+        <div class="feature-item">
+          <span class="num">03</span>
+          <span class="feature-text">Verified Track Record</span>
+        </div>
       </div>
+    </section>
 
-      <div class="kpiBox">
-        <div class="kpiLabel">Risk Regime</div>
-        <div class="kpiValue kpiValue--small" id="riskMode">Loading…</div>
+    <div class="stats-bar">
+      <div class="stat-item">
+        <div class="stat-value">500+</div>
+        <div class="stat-label">Signals Tracked</div>
       </div>
-
-      <div class="kpiBox">
-        <div class="kpiLabel">Data Age</div>
-        <div class="kpiValue kpiValue--small" id="dataAge">—</div>
+      <div class="stat-item">
+        <div class="stat-value">24/7</div>
+        <div class="stat-label">Data Pipeline</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-value">100%</div>
+        <div class="stat-label">Rule-Based</div>
       </div>
     </div>
 
-    <!-- Briefing meta + tools -->
-    <section class="card card--pad" aria-label="Daily briefing">
-      <div class="sectionTitle">
-        <h2>Daily Briefing</h2>
-        <span class="pill" id="statusChip">Status: <b id="statusText">Loading…</b></span>
+    <div class="grid3">
+      <div class="card">
+        <h3 style="color: #fff; margin-top: 0; font-size: 1.4rem; margin-bottom: 16px;">Institutional Grade</h3>
+        <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.7;">Built using the same mathematical principles used by professional proprietary trading desks.</p>
       </div>
-
-      <div class="briefMeta">
-        <div class="briefMeta__left">
-          <span class="pill">Generated: <b class="mono" id="generated">—</b></span>
-          <span class="pill">Valid for: <b class="mono" id="validFor">—</b></span>
-          <span class="pill">Universe: <b class="mono" id="kpiUniverse">—</b></span>
-          <span class="pill">AXJO bar: <b class="mono" id="kpiAxjo">—</b></span>
-        </div>
-
-        <div class="briefMeta__right">
-          <button class="btn btn--ghost" id="copyLinkBtn" type="button" title="Copy today.json URL">Copy data link</button>
-        </div>
+      <div class="card">
+        <h3 style="color: #fff; margin-top: 0; font-size: 1.4rem; margin-bottom: 16px;">Daily Audit</h3>
+        <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.7;">Every signal is performance-tracked against yfinance pricing data for total transparency.</p>
       </div>
-
-      <div class="errorBox" id="errorBox"></div>
-
-      <div style="padding: 0 18px 14px;">
-        <div class="small">
-          <b>Order types:</b> LIMIT = buy only if price pulls back to your level. STOP-LIMIT = buy only if price breaks upward through trigger.
-          <br />
-          <b>Institutional framing:</b> Targets shown are <b>ATR-based</b> and may be <b>capped by structural ceiling</b>. Setups are filtered by capped risk-efficiency (<b>min R multiple</b> + <b>min upside ATR</b>).
-          <br />
-          <b>Scoring:</b> Composite = 55% TA + 25% Fundamentals + 20% Sentiment. Sentiment covers news tone, insider buying/selling, and (for Momentum) Google Trends interest. <b>Earnings gate</b>: signal is suppressed if a company reports within 5 days.
-          <br />
-          <b>Sizing:</b> uses your Portfolio and Risk % to compute Qty. Qty is floor(risk_budget / |Entry − Stop|). For STOP-LIMIT entries, sizing uses the <b>LIMIT</b> price (worst-case fill).
-        </div>
+      <div class="card">
+        <h3 style="color: #fff; margin-top: 0; font-size: 1.4rem; margin-bottom: 16px;">Clean Execution</h3>
+        <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.7;">Direct entry and exit levels designed for set-and-forget order placement.</p>
       </div>
-    </section>
-
-    <!-- Filters + sizing -->
-    <section class="controls" aria-label="Filters">
-      <div class="field">
-        <label for="viewMode">View Mode</label>
-        <select id="viewMode">
-          <option value="all">All Sections</option>
-          <option value="recommended">Recommended Only</option>
-          <option value="valid">Valid Setups</option>
-          <option value="watch">Watchlist</option>
-        </select>
-      </div>
-
-      <div class="field">
-        <label for="strategyFilter">Strategy</label>
-        <select id="strategyFilter">
-          <option value="all">All Strategies</option>
-        </select>
-      </div>
-
-      <div class="field" style="flex: 1 1 320px; min-width: 260px;">
-        <label for="q">Search Symbol</label>
-        <input id="q" placeholder="Search (e.g. CBA.AX)..." autocomplete="off" />
-      </div>
-
-      <div class="field">
-        <label for="sortBy">Sort By</label>
-        <select id="sortBy">
-          <option value="status_score">Status Rank</option>
-          <option value="composite_desc">Highest Composite</option>
-          <option value="score_desc">Highest TA Score</option>
-          <option value="sent_desc">Highest Sentiment</option>
-          <option value="risk_desc">Highest Risk (A$)</option>
-          <option value="r_mult_desc">Best R multiple</option>
-          <option value="symbol_asc">Alphabetical</option>
-        </select>
-      </div>
-
-      <div class="field" style="min-width: 200px;">
-        <label for="portfolio">Portfolio (A$)</label>
-        <input id="portfolio" inputmode="decimal" placeholder="100000" />
-      </div>
-
-      <div class="field" style="min-width: 180px;">
-        <label for="riskPct">Risk / trade (%)</label>
-        <select id="riskPct">
-          <option value="0.5">0.5%</option>
-          <option value="0.75">0.75%</option>
-          <option value="1">1.0%</option>
-          <option value="1.5">1.5%</option>
-          <option value="2">2.0%</option>
-          <option value="2.5">2.5%</option>
-          <option value="3">3.0%</option>
-        </select>
-      </div>
-    </section>
-
-    <!-- Tables injected here -->
-    <div id="tables"></div>
-
-    <footer>
-      <p><b>Disclaimer:</b> Educational purpose only. iTradeLite is a rule-based algorithmic scanner. Trading involves significant risk of loss. Always consult a licensed professional.</p>
-    </footer>
+    </div>
   </main>
 
-  <!-- Toast element -->
-  <div id="signalToast" role="status" aria-live="polite">
-    <span class="toast__icon" id="toastIcon">⚡</span>
-    <div class="toast__body">
-      <div class="toast__title" id="toastTitle">Updating signals…</div>
-      <div class="toast__msg"  id="toastMsg"></div>
+  <footer>
+    <div class="container">
+      <div style="font-weight: 900; color: #fff; font-size: 1.4rem; margin-bottom: 16px; letter-spacing: -1px;">iTradeLite</div>
+      <p style="color: var(--text-muted); font-size: 0.85rem; max-width: 600px; margin: 0 auto; line-height: 1.7;">
+        Rule-based daily ASX trade plans. This is an educational data output provided for informational purposes only and is not financial advice.
+      </p>
     </div>
-    <button class="toast__close" id="toastClose" aria-label="Dismiss">✕</button>
-  </div>
-
-  <script>
-    // ── Update-Signals: GitHub Actions workflow_dispatch ─────────────────────
-    (function(){
-      const OWNER    = "itradelite";
-      const REPO     = "itradelite";
-      const WORKFLOW = "publish_today_to_site.yml";
-      const REF      = "main";
-      const PAT_KEY  = "gh_pat_itradelite";   // sessionStorage key
-
-      const btn   = document.getElementById("updateSignalsBtn");
-      const toast = document.getElementById("signalToast");
-      const tIcon = document.getElementById("toastIcon");
-      const tTitle= document.getElementById("toastTitle");
-      const tMsg  = document.getElementById("toastMsg");
-      document.getElementById("toastClose").addEventListener("click", hideToast);
-
-      function showToast(type, icon, title, msg){
-        toast.className = "toast--visible toast--" + type;
-        tIcon.textContent  = icon;
-        tTitle.textContent = title;
-        tMsg.textContent   = msg;
-      }
-      function hideToast(){ toast.className = ""; }
-
-      function getToken(){
-        let t = sessionStorage.getItem(PAT_KEY) || "";
-        if (!t){
-          t = (prompt(
-            "Enter your GitHub Personal Access Token (PAT) with Actions: write scope.\n" +
-            "It will be kept in sessionStorage only — never sent anywhere except GitHub API.",
-            ""
-          ) || "").trim();
-          if (t) sessionStorage.setItem(PAT_KEY, t);
-        }
-        return t;
-      }
-
-      async function triggerWorkflow(token){
-        const res = await fetch(
-          `https://api.github.com/repos/${OWNER}/${REPO}/actions/workflows/${WORKFLOW}/dispatches`,
-          {
-            method: "POST",
-            headers: {
-              "Authorization": "Bearer " + token,
-              "Accept": "application/vnd.github+json",
-              "X-GitHub-Api-Version": "2022-11-28",
-              "Content-Type": "application/json"
-            },
-            body: JSON.stringify({ ref: REF })
-          }
-        );
-        return res;
-      }
-
-      async function pollRunStatus(token, since){
-        // Poll the latest run triggered after `since` date
-        const maxAttempts = 30;  // ~5 min at 10s intervals
-        for (let i = 0; i < maxAttempts; i++){
-          await new Promise(r => setTimeout(r, 10000));
-          const res = await fetch(
-            `https://api.github.com/repos/${OWNER}/${REPO}/actions/workflows/${WORKFLOW}/runs?per_page=5`,
-            { headers: { "Authorization": "Bearer " + token, "Accept": "application/vnd.github+json", "X-GitHub-Api-Version": "2022-11-28" } }
-          );
-          if (!res.ok) continue;
-          const data = await res.json();
-          const run = (data.workflow_runs || []).find(r => new Date(r.created_at) >= since);
-          if (!run) continue;
-
-          const status     = run.status;     // queued | in_progress | completed
-          const conclusion = run.conclusion; // success | failure | cancelled | null
-
-          const elapsed = Math.round((Date.now() - since) / 1000);
-
-          if (status === "completed"){
-            if (conclusion === "success"){
-              showToast("success", "✅", "Signals updated!", `Run finished in ${elapsed}s. Refreshing data…`);
-              setTimeout(async ()=>{
-                try{
-                  const d = await load();
-                  window.__DATA__ = d;
-                  render(d);
-                  tMsg.textContent = "Dashboard refreshed with new signals.";
-                }catch(_){}
-                setTimeout(hideToast, 8000);
-              }, 2000);
-            } else {
-              showToast("error", "❌", "Run failed", `Conclusion: ${conclusion}. Check GitHub Actions for details.`);
-            }
-            btn.disabled = false;
-            return;
-          }
-
-          // Still running — update progress message
-          const statusLabel = status === "in_progress" ? "Running…" : "Queued…";
-          tMsg.textContent = `${statusLabel} (~${elapsed}s elapsed)`;
-        }
-
-        // Timed out
-        showToast("error", "⏱", "Timed out", "Couldn't confirm completion. Check GitHub Actions.");
-        btn.disabled = false;
-      }
-
-      btn.addEventListener("click", async () => {
-        const token = getToken();
-        if (!token){
-          showToast("error", "🔑", "No token", "A GitHub PAT is required to trigger the workflow.");
-          return;
-        }
-
-        btn.disabled = true;
-        const since = new Date();
-        showToast("working", "⚡", "Triggering scan…", "Sending request to GitHub Actions.");
-
-        try{
-          const res = await triggerWorkflow(token);
-          if (res.status === 401 || res.status === 403){
-            sessionStorage.removeItem(PAT_KEY);
-            showToast("error", "🔑", "Auth failed", "Invalid or expired token. Click Update Signals again to re-enter.");
-            btn.disabled = false;
-            return;
-          }
-          if (!res.ok){
-            const body = await res.text().catch(()=>"");
-            showToast("error", "❌", "API error " + res.status, body.slice(0, 120) || "Check GitHub Actions permissions.");
-            btn.disabled = false;
-            return;
-          }
-          showToast("working", "🔄", "Scan triggered!", "Pipeline is running — polling for completion…");
-          pollRunStatus(token, since);
-        }catch(err){
-          showToast("error", "❌", "Network error", err.message || "Could not reach GitHub API.");
-          btn.disabled = false;
-        }
-      });
-    })();
-    // ─────────────────────────────────────────────────────────────────────────
-  </script>
-
-  <script>
-    const DATA_URL = "/public/today.json";
-
-    // Persist UI preferences
-    const prefs = { view:"all", strat:"all", q:"", sort:"status_score", portfolio:100000, riskPct:1 };
-
-    function clamp(n, lo, hi){
-      const x = Number(n);
-      if (!Number.isFinite(x)) return lo;
-      return Math.min(hi, Math.max(lo, x));
-    }
-
-    function readMoneyLike(s){
-      const raw = String(s ?? "").replace(/[^0-9.\-]/g, "");
-      if (!raw) return null;
-      const x = Number(raw);
-      return Number.isFinite(x) ? x : null;
-    }
-
-    function loadPrefs(){
-      try{
-        const raw = localStorage.getItem("itradelite_today_prefs");
-        if (!raw) return;
-        const obj = JSON.parse(raw);
-        Object.assign(prefs, obj || {});
-      }catch(_){}
-      // normalize
-      prefs.portfolio = clamp(prefs.portfolio ?? 100000, 1000, 100000000);
-      prefs.riskPct = clamp(prefs.riskPct ?? 1, 0.25, 3);
-    }
-
-    function savePrefs(){
-      try{ localStorage.setItem("itradelite_today_prefs", JSON.stringify(prefs)); }catch(_){}
-    }
-
-    function fmt(n, digits=2){
-      if (n === null || n === undefined || n === "") return "—";
-      const x = Number(n);
-      if (!Number.isFinite(x)) return String(n);
-      return x.toFixed(digits);
-    }
-
-    function safeText(s){ return (s === null || s === undefined) ? "—" : String(s); }
-
-    function escapeHtml(s){
-      return String(s)
-        .replaceAll("&","&amp;")
-        .replaceAll("<","&lt;")
-        .replaceAll(">","&gt;")
-        .replaceAll('"',"&quot;")
-        .replaceAll("'","&#39;");
-    }
-
-    function showError(msg){
-      const box = document.getElementById("errorBox");
-      if (!box) return;
-      box.textContent = msg;
-      box.style.display = "block";
-      setStatus(false, "Error");
-    }
-    function clearError(){
-      const box = document.getElementById("errorBox");
-      if (!box) return;
-      box.style.display = "none";
-      box.textContent = "";
-    }
-
-    function setStatus(ok, text){
-      const statusText = document.getElementById("statusText");
-      const chip = document.getElementById("statusChip");
-      if (statusText) statusText.textContent = text;
-
-      if (chip){
-        chip.style.borderColor = ok ? "rgba(16,185,129,.35)" : "rgba(245,158,11,.35)";
-        chip.style.background  = ok ? "rgba(16,185,129,.10)" : "rgba(245,158,11,.10)";
-      }
-    }
-
-    function computeDataAge(generatedAtUtc){
-      if (!generatedAtUtc) return "—";
-      const d = new Date(generatedAtUtc);
-      if (isNaN(d.getTime())) return "—";
-      const now = new Date();
-      const mins = Math.round((now - d) / 60000);
-      if (!isFinite(mins)) return "—";
-      if (mins < 90) return mins + " min";
-      return (mins / 60).toFixed(1) + " hrs";
-    }
-
-    function parseEntry(r){
-      if (r.entry_text) return r.entry_text;
-      if (r.entry !== null && r.entry !== undefined && r.entry !== "") return fmt(r.entry, 4);
-      return "—";
-    }
-    function parseLastClose(r){
-      if (r.last_close === null || r.last_close === undefined || r.last_close === "") return "—";
-      const x = Number(r.last_close);
-      if (!Number.isFinite(x)) return "—";
-      return fmt(x, 4);
-    }
-
-    function statusPill(status){
-      if (status === "Valid") return `<span><span class="status-dot dot--valid"></span>Valid</span>`;
-      if (status === "Watch") return `<span><span class="status-dot dot--watch"></span>Watch</span>`;
-      return `<span class="muted">—</span>`;
-    }
-
-    function normalizeStrategyName(s){
-      return (s || "").trim();
-    }
-
-    function scoreVal(r){
-      const x = Number(r.score);
-      return Number.isFinite(x) ? x : -1;
-    }
-
-    // --- Parse "trigger=... limit=..." from STOP-LIMIT entry text ---
-    function parseStopLimitEntryText(entryText){
-      const s = String(entryText || "").trim();
-      if (!s) return null;
-
-      // Explicit skip => no sizing
-      if (/^SKIP\b/i.test(s) || s.toUpperCase().includes("SKIP")) return { skip: true };
-
-      let trigger = null;
-      let limit = null;
-
-      try{
-        const mTrig = s.match(/trigger\s*=\s*([0-9]*\.?[0-9]+)/i);
-        const mLim  = s.match(/limit\s*=\s*([0-9]*\.?[0-9]+)/i);
-        if (mTrig) trigger = Number(mTrig[1]);
-        if (mLim)  limit   = Number(mLim[1]);
-      }catch(_){}
-
-      if (!Number.isFinite(trigger)) trigger = null;
-      if (!Number.isFinite(limit))   limit = null;
-
-      if (trigger === null && limit === null) return null;
-      return { trigger, limit, skip: false };
-    }
-
-    // Choose a numeric entry for sizing:
-    // - direct numeric entry (LIMIT strategies)
-    // - else STOP-LIMIT parse => use LIMIT (worst-case fill), else TRIGGER
-    function numericEntryForSizing(r){
-      const direct = Number(r.entry);
-      if (Number.isFinite(direct)) return direct;
-
-      const entryText = (r.entry_text !== undefined && r.entry_text !== null)
-        ? r.entry_text
-        : r.entry;
-
-      const parsed = parseStopLimitEntryText(entryText);
-      if (!parsed || parsed.skip) return null;
-
-      if (parsed.limit !== null) return parsed.limit;
-      if (parsed.trigger !== null) return parsed.trigger;
-
-      return null;
-    }
-
-    // --- Institutional display helpers (prefer scan.py fields) ---
-    function numOrNull(x){
-      const n = Number(x);
-      return Number.isFinite(n) ? n : null;
-    }
-
-    function displayTp1(r){
-      // Prefer ATR target from scan output (tp1), else compute fallback from ATR if possible.
-      const t = numOrNull(r.tp1);
-      if (t !== null) return t;
-
-      const atr = numOrNull(r.atr14);
-      const entry = numericEntryForSizing(r);
-      if (atr !== null && entry !== null) return entry + 1.5 * atr;
-      return null;
-    }
-
-    function displayCapTarget(r){
-      // Prefer scan output cap_target
-      const c = numOrNull(r.cap_target);
-      if (c !== null) return c;
-
-      // fallback: min(tp2, ceiling) if available
-      const tp2 = displayTp2(r);
-      const ceil = numOrNull(r.ceiling);
-      if (tp2 !== null && ceil !== null) return Math.min(tp2, ceil);
-      if (tp2 !== null) return tp2;
-      return null;
-    }
-
-    function displayTp2(r){
-      // Prefer ATR target from scan output (tp2), else compute fallback from ATR if possible.
-      const t = numOrNull(r.tp2);
-      if (t !== null) return t;
-
-      const atr = numOrNull(r.atr14);
-      const entry = numericEntryForSizing(r);
-      if (atr !== null && entry !== null) return entry + 3.0 * atr;
-      return null;
-    }
-
-    function displayRmult(r){
-      const x = numOrNull(r.r_mult);
-      return x;
-    }
-
-    function sizingForRow(r){
-      const entry = numericEntryForSizing(r);
-      const stop  = Number(r.stop);
-
-      if (!Number.isFinite(entry) || !Number.isFinite(stop)) return null;
-
-      const riskPerShare = Math.abs(entry - stop);
-      if (!Number.isFinite(riskPerShare) || riskPerShare <= 0) return null;
-
-      const portfolio = clamp(prefs.portfolio, 1000, 100000000);
-      const riskPct = clamp(prefs.riskPct, 0.25, 3);
-      const riskBudget = portfolio * (riskPct / 100);
-
-      const qty = Math.floor(riskBudget / riskPerShare);
-      if (!Number.isFinite(qty) || qty <= 0) {
-        return { qty: 0, riskBudget, riskPerShare, entryUsed: entry };
-      }
-
-      return { qty, riskBudget, riskPerShare, entryUsed: entry };
-    }
-
-    // --- NEW: "Risk (A$)" for sorting + display is user risk budget per row (sizing truth = UI) ---
-    function riskBudgetForRow(r){
-      const s = sizingForRow(r);
-      if (!s) return null;
-      return s.riskBudget;
-    }
-
-    function rawRiskVal(r){
-      const rb = riskBudgetForRow(r);
-      return (rb !== null) ? rb : -1;
-    }
-
-    function buildTable(title, rows, subtitle){
-      const count = rows.length;
-
-      let html = `
-        <section class="card card--pad">
-          <div class="sectionTitle">
-            <h2>${escapeHtml(title)}</h2>
-            <div class="count">${escapeHtml(subtitle || (count + " item(s)"))}</div>
-          </div>
-          <div class="tableWrap">
-            <table>
-              <thead>
-                <tr>
-                  <th>Symbol</th>
-                  <th style="width:160px;">Strategy</th>
-                  <th>Entry</th>
-                  <th style="width:110px;">Last close</th>
-                  <th style="width:110px;">Stop</th>
-                  <th style="width:90px;">Qty</th>
-                  <th style="width:120px;">Risk (A$)</th>
-                  <th style="width:120px;">TP1 (ATR)</th>
-                  <th style="width:130px;">Cap Target</th>
-                  <th style="width:110px;">R mult</th>
-                  <th style="width:120px;">Sentiment</th>
-                  <th style="width:90px;">Status</th>
-                </tr>
-              </thead>
-              <tbody>
-      `;
-
-      for (const r of rows){
-        const sym = escapeHtml(safeText(r.symbol));
-        const strat = escapeHtml(normalizeStrategyName(r.strategy));
-        const entryTxt = escapeHtml(parseEntry(r));
-        const lastClose = escapeHtml(parseLastClose(r));
-        const stopTxt = escapeHtml(fmt(r.stop, 4));
-        const pill = statusPill(r.status);
-
-        const s = sizingForRow(r);
-        const qtyTxt = s ? (s.qty > 0 ? String(s.qty) : "—") : "—";
-        const riskBudgetTxt = s ? ("~" + Math.round(s.riskBudget).toString()) : "—";
-
-        const tp1 = displayTp1(r);
-        const cap = displayCapTarget(r);
-        const rmult = displayRmult(r);
-
-        const tp1Txt = (tp1 !== null) ? fmt(tp1, 4) : "—";
-        const capTxt = (cap !== null) ? fmt(cap, 4) : "—";
-        const rmultTxt = (rmult !== null) ? fmt(rmult, 2) : "—";
-
-        const note = r.plain_english || r.instruction || r.note || "";
-        const noteHtml = note
-          ? `<tr class="note-row"><td colspan="12">${escapeHtml(note)}</td></tr>`
-          : "";
-
-        // Sentiment cell
-        const sentHtml = buildSentimentCell(r);
-
-        html += `
-          <tr>
-            <td class="mono symbol-cell">${sym}</td>
-            <td>${strat || "—"}</td>
-            <td class="mono">${entryTxt}</td>
-            <td class="mono">${lastClose}</td>
-            <td class="mono">${stopTxt}</td>
-            <td class="mono">${escapeHtml(qtyTxt)}</td>
-            <td class="mono">${escapeHtml(riskBudgetTxt)}</td>
-            <td class="mono">${escapeHtml(tp1Txt)}</td>
-            <td class="mono">${escapeHtml(capTxt)}</td>
-            <td class="mono">${escapeHtml(rmultTxt)}</td>
-            <td>${sentHtml}</td>
-            <td>${pill}</td>
-          </tr>
-          ${noteHtml}
-        `;
-      }
-
-      html += `
-              </tbody>
-            </table>
-          </div>
-        </section>
-      `;
-      return html;
-    }
-
-    // ─── Sentiment cell builder ───────────────────────────────────────────────
-    function sentChipClass(score, neutral=50){
-      const n = Number(score);
-      if (!Number.isFinite(n)) return "sent-chip--neu";
-      if (n >= 65) return "sent-chip--pos";
-      if (n <= 35) return "sent-chip--neg";
-      return "sent-chip--neu";
-    }
-
-    function buildSentimentCell(r){
-      // If no sentiment data yet (old JSON before upgrade), render gracefully
-      const sentScore = numOrNull(r.sent_score);
-      if (sentScore === null) return `<span class="muted" style="font-size:12px;">—</span>`;
-
-      // Earnings badge — highest visual priority
-      let earningsBadge = "";
-      const earnDays = numOrNull(r.earnings_days);
-      const earnSuppress = r.earnings_suppress === true || r.earnings_suppress === "True";
-
-      if (earnSuppress) {
-        const dStr = (earnDays !== null && earnDays > 0) ? ` in ${earnDays}d` : "";
-        earningsBadge = `<span class="sent-chip sent-chip--earnings-warn" title="Signal suppressed: earnings imminent">⛔ Earns${dStr}</span>`;
-      } else if (earnDays !== null && earnDays > 0) {
-        earningsBadge = `<span class="sent-chip sent-chip--earnings-ok" title="Earnings approaching — watch for volatility">📅 ${earnDays}d</span>`;
-      }
-
-      // Composite sentiment score chip
-      const sentClass = sentChipClass(sentScore);
-      const sentLabel = r.sent_label ? String(r.sent_label) : "";
-      const sentChip = `<span class="sent-chip ${sentClass}" title="${escapeHtml(sentLabel)}">SENT ${fmt(sentScore, 0)}</span>`;
-
-      // News sub-chip
-      const newsScore = numOrNull(r.news_score);
-      let newsChip = "";
-      if (newsScore !== null) {
-        const nLabel = r.news_label ? String(r.news_label) : "";
-        newsChip = `<span class="sent-chip ${sentChipClass(newsScore)}" title="${escapeHtml(nLabel)}">📰 ${fmt(newsScore, 0)}</span>`;
-      }
-
-      // Insider sub-chip
-      const insiderScore = numOrNull(r.insider_score);
-      let insiderChip = "";
-      if (insiderScore !== null) {
-        const iLabel = r.insider_label ? String(r.insider_label) : "";
-        insiderChip = `<span class="sent-chip ${sentChipClass(insiderScore)}" title="${escapeHtml(iLabel)}">👤 ${fmt(insiderScore, 0)}</span>`;
-      }
-
-      // Trends sub-chip (Momentum only — present if trends_score_val is non-null)
-      const trendsScore = numOrNull(r.trends_score_val);
-      let trendsChip = "";
-      if (trendsScore !== null && r.trends_label && !String(r.trends_label).startsWith("trends not used")) {
-        const tLabel = r.trends_label ? String(r.trends_label) : "";
-        trendsChip = `<span class="sent-chip ${sentChipClass(trendsScore)}" title="${escapeHtml(tLabel)}">📈 ${fmt(trendsScore, 0)}</span>`;
-      }
-
-      return `
-        <div class="sent-chips">
-          ${earningsBadge}
-          ${sentChip}
-          ${newsChip}
-          ${insiderChip}
-          ${trendsChip}
-        </div>
-      `;
-    }
-    // ─────────────────────────────────────────────────────────────────────────
-
-    function hydrateStrategyOptions(allRows){
-      const sel = document.getElementById("strategyFilter");
-      if (!sel) return;
-      const existing = new Set([...sel.options].map(o => o.value));
-      const strategies = new Set(allRows.map(s => normalizeStrategyName(s.strategy)).filter(Boolean));
-      const sorted = [...strategies].sort((a,b)=>a.localeCompare(b));
-      for (const s of sorted){
-        if (existing.has(s)) continue;
-        const opt = document.createElement("option");
-        opt.value = s;
-        opt.textContent = s;
-        sel.appendChild(opt);
-      }
-    }
-
-    function applyFilters(rows){
-      let out = rows.slice();
-
-      if (prefs.strat !== "all"){
-        out = out.filter(r => normalizeStrategyName(r.strategy) === prefs.strat);
-      }
-      if (prefs.q){
-        const q = prefs.q.toUpperCase();
-        out = out.filter(r => String(r.symbol || "").toUpperCase().includes(q));
-      }
-
-      const statusRank = (st) => st === "Valid" ? 2 : (st === "Watch" ? 1 : 0);
-
-      out.sort((a,b)=>{
-        if (prefs.sort === "symbol_asc") return String(a.symbol||"").localeCompare(String(b.symbol||""));
-
-        if (prefs.sort === "risk_desc") {
-          // Sort by USER risk budget (A$) descending (truth = UI sizing)
-          return rawRiskVal(b) - rawRiskVal(a);
-        }
-
-        if (prefs.sort === "r_mult_desc") {
-          const ra = displayRmult(a);
-          const rb = displayRmult(b);
-          const va = (ra === null) ? -1 : ra;
-          const vb = (rb === null) ? -1 : rb;
-          return vb - va;
-        }
-
-        if (prefs.sort === "score_desc") return scoreVal(b) - scoreVal(a);
-
-        if (prefs.sort === "composite_desc") {
-          const ca = Number(a.composite_score); const cb = Number(b.composite_score);
-          const va = Number.isFinite(ca) ? ca : -1;
-          const vb = Number.isFinite(cb) ? cb : -1;
-          return vb - va;
-        }
-
-        if (prefs.sort === "sent_desc") {
-          const sa = Number(a.sent_score); const sb = Number(b.sent_score);
-          const va = Number.isFinite(sa) ? sa : -1;
-          const vb = Number.isFinite(sb) ? sb : -1;
-          return vb - va;
-        }
-
-        const ds = statusRank(b.status) - statusRank(a.status);
-        if (ds !== 0) return ds;
-        return scoreVal(b) - scoreVal(a);
-      });
-
-      return out;
-    }
-
-    function renderBanners(data){
-      // NEVER render risk banner
-      const rb = document.getElementById("riskBanner");
-      if (rb) rb.innerHTML = "";
-
-      // Freshness banner only
-      const fb = document.getElementById("freshBanner");
-      if (!fb) return;
-
-      if (data.data_fresh === false){
-        fb.innerHTML = `
-          <div class="banner banner--stale">
-            <div>
-              <b>Data freshness:</b> Yahoo daily bars not updated yet. Recommendations may be suppressed.
-              <div class="small" style="margin-top:4px;">Safety gate to avoid publishing stale signals.</div>
-            </div>
-            <div class="pill">STALE</div>
-          </div>
-        `;
-      } else {
-        fb.innerHTML = "";
-      }
-    }
-
-    function extractRecommendedRows(data){
-      if (Array.isArray(data.recommended_orders)) return data.recommended_orders;
-      const setups = Array.isArray(data.setups) ? data.setups : [];
-      return setups.filter(r => r.status === "Valid");
-    }
-
-    function render(data){
-      clearError();
-
-      document.getElementById("generated").textContent = safeText(data.generated || data.date);
-      document.getElementById("validFor").textContent  = safeText(data.valid_for || data.date);
-      document.getElementById("riskMode").textContent  = safeText((data.risk_mode || "—").replaceAll("_"," "));
-      document.getElementById("dataAge").textContent   = computeDataAge(data.generated_at_utc);
-
-      const setups = Array.isArray(data.setups) ? data.setups : [];
-      const recommended = extractRecommendedRows(data);
-
-      const validCount = setups.filter(s => s.status === "Valid").length;
-      document.getElementById("kpiRecommended").textContent = String(recommended.length);
-      document.getElementById("kpiValid").textContent = String(validCount);
-
-      // Legacy IDs (still shown in pills)
-      document.getElementById("kpiUniverse").textContent = safeText(data.universe_size || "—");
-      document.getElementById("kpiAxjo").textContent = safeText(data.axjo_last_bar || "—");
-
-      renderBanners(data);
-      setStatus(true, data.published === false ? "Not published" : "Loaded");
-
-      hydrateStrategyOptions(setups.concat(recommended));
-
-      const filteredSetups = applyFilters(setups);
-      const filteredRecommended = applyFilters(recommended);
-
-      const validRows = filteredSetups.filter(r => r.status === "Valid");
-      const watchRows = filteredSetups.filter(r => r.status === "Watch");
-
-      let html = "";
-
-      if (prefs.view === "recommended"){
-        if (filteredRecommended.length){
-          html += buildTable("Recommended Orders", filteredRecommended, "Actionable (diversified picks)");
-        } else {
-          html += `<section class="card card--pad"><div class="sectionTitle"><h2>Recommended Orders</h2><div class="count">0 item(s)</div></div><div style="padding:16px 18px;" class="small"><b>No recommended orders today.</b><div>Either the freshness gate suppressed publishing or no setups passed the final selection.</div></div></section>`;
-        }
-      }
-      else if (prefs.view === "valid"){
-        if (validRows.length) html += buildTable("Valid Setups", validRows, validRows.length + " item(s)");
-        else html += `<section class="card card--pad"><div class="sectionTitle"><h2>Valid Setups</h2><div class="count">0 item(s)</div></div><div style="padding:16px 18px;" class="small"><b>No valid setups match your filters.</b><div>Try changing Strategy or clearing the search.</div></div></section>`;
-      }
-      else if (prefs.view === "watch"){
-        if (watchRows.length) html += buildTable("Watchlist", watchRows, watchRows.length + " item(s)");
-        else html += `<section class="card card--pad"><div class="sectionTitle"><h2>Watchlist</h2><div class="count">0 item(s)</div></div><div style="padding:16px 18px;" class="small"><b>No watch items match your filters.</b><div>Try changing Strategy or clearing the search.</div></div></section>`;
-      }
-      else {
-        if (filteredRecommended.length){
-          html += buildTable("Recommended Orders", filteredRecommended, "Actionable (diversified picks)");
-        } else {
-          html += `<section class="card card--pad"><div class="sectionTitle"><h2>Recommended Orders</h2><div class="count">0 item(s)</div></div><div style="padding:16px 18px;" class="small">No recommended orders published today (freshness gate or no setups passed final selection).</div></section>`;
-        }
-
-        if (validRows.length) html += buildTable("Valid Setups", validRows, validRows.length + " item(s)");
-        if (watchRows.length) html += buildTable("Watchlist", watchRows, watchRows.length + " item(s)");
-
-        if (!filteredRecommended.length && !validRows.length && !watchRows.length){
-          html += `<section class="card card--pad"><div class="sectionTitle"><h2>No Results</h2><div class="count">—</div></div><div style="padding:16px 18px;" class="small"><b>No rows match your filters.</b><div>Try changing View/Strategy or clearing search.</div></div></section>`;
-        }
-      }
-
-      document.getElementById("tables").innerHTML = html;
-    }
-
-    async function load(){
-      setStatus(false, "Loading…");
-      const url = DATA_URL + "?v=" + Date.now();
-      const r = await fetch(url, { cache: "no-store" });
-      if (!r.ok) throw new Error("HTTP " + r.status);
-      return await r.json();
-    }
-
-    function bindControls(){
-      const viewMode = document.getElementById("viewMode");
-      const strategyFilter = document.getElementById("strategyFilter");
-      const q = document.getElementById("q");
-      const sortBy = document.getElementById("sortBy");
-      const portfolio = document.getElementById("portfolio");
-      const riskPct = document.getElementById("riskPct");
-
-      viewMode.value = prefs.view;
-      strategyFilter.value = prefs.strat;
-      q.value = prefs.q;
-      sortBy.value = prefs.sort;
-
-      // sizing fields
-      portfolio.value = String(prefs.portfolio ?? 100000);
-      // match select option if possible
-      const rp = String(prefs.riskPct ?? 1);
-      if ([...riskPct.options].some(o => o.value === rp)) riskPct.value = rp;
-
-      function onChange(){
-        prefs.view = viewMode.value;
-        prefs.strat = strategyFilter.value;
-        prefs.q = q.value.trim();
-        prefs.sort = sortBy.value;
-
-        // sizing
-        const p = readMoneyLike(portfolio.value);
-        prefs.portfolio = clamp(p ?? 100000, 1000, 100000000);
-        prefs.riskPct = clamp(Number(riskPct.value), 0.25, 3);
-
-        savePrefs();
-        if (window.__DATA__) render(window.__DATA__);
-      }
-
-      viewMode.addEventListener("change", onChange);
-      strategyFilter.addEventListener("change", onChange);
-      sortBy.addEventListener("change", onChange);
-      q.addEventListener("input", onChange);
-
-      portfolio.addEventListener("input", onChange);
-      riskPct.addEventListener("change", onChange);
-
-      document.getElementById("refreshBtn").addEventListener("click", async ()=>{
-        try{
-          const data = await load();
-          window.__DATA__ = data;
-          render(data);
-        }catch(e){
-          showError("Failed to load /public/today.json. (" + e.message + ")");
-          console.error(e);
-        }
-      });
-
-      document.getElementById("copyLinkBtn").addEventListener("click", async ()=>{
-        const link = location.origin + DATA_URL;
-        try{
-          await navigator.clipboard.writeText(link);
-          alert("Copied: " + link);
-        }catch(_){
-          prompt("Copy this URL:", link);
-        }
-      });
-    }
-
-    (async function(){
-      loadPrefs();
-      bindControls();
-
-      try{
-        const data = await load();
-        window.__DATA__ = data;
-        render(data);
-      }catch(e){
-        showError("Failed to load /public/today.json. (" + e.message + ")");
-        console.error(e);
-      }
-    })();
-  </script>
+  </footer>
 </body>
 </html>
