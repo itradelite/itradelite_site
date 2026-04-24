@@ -87,6 +87,12 @@
     .btn:active { transform: translateY(1px); }
     .btn--ghost { background: transparent; border: 1px solid var(--border); color: var(--text-muted); }
     .btn--ghost:hover { color: white; }
+    .btn--intraday {
+      background: linear-gradient(135deg, #6d28d9, #a78bfa);
+      color: white;
+      box-shadow: 0 0 12px rgba(139, 92, 246, 0.35);
+    }
+    .btn--intraday:hover { opacity: 1; box-shadow: 0 0 20px rgba(139, 92, 246, 0.55); }
     .btn:hover { opacity: 0.85; }
 
     /* Utility */
@@ -376,15 +382,7 @@
 
       <div class="topbar-actions" style="display:flex;gap:8px;align-items:center;">
         <button class="btn btn--ghost" id="refreshBtn" type="button">Refresh Data</button>
-        <a class="btn" id="runScanBtn"
-           href="https://github.com/itradelite/itradelite/actions/workflows/publish_today_to_site.yml"
-           target="_blank" rel="noopener noreferrer"
-           title="Opens GitHub Actions — click Run workflow there">
-          ⚡ Run Scan Now
-        </a>
-        <a class="btn btn--ghost" href="/intraday/" title="Experimental intraday signals">
-          📈 Intraday
-        </a>
+        <a class="btn btn--intraday" href="/intraday/">Live Signals</a>
       </div>
     </div>
   </header>
