@@ -1,6 +1,6 @@
 {
   "summary": {
-    "as_of": "2026-04-24 16:53:26 AEST",
+    "as_of": "2026-04-24 20:51:10 AEST",
     "since": "2026-02-24",
     "until": "2026-04-24",
     "total_signals_with_entry": 47,
@@ -146,14 +146,14 @@
   "recent_signals": [
     {
       "date": "2026-04-24",
-      "symbol": "LYC.AX",
+      "symbol": "FMG.AX",
       "class": "Materials",
       "strategy": "MEAN_REVERSION",
-      "score": 86,
+      "score": 85,
       "order": "LIMIT",
-      "entry_px": 18.375,
+      "entry_px": 19.78,
       "entry_src": "entry",
-      "stop": 17.2911,
+      "stop": 19.1877,
       "ret_1d": null,
       "ret_5d": null,
       "ret_20d": null,
@@ -166,9 +166,9 @@
       "strategy": "MEAN_REVERSION",
       "score": 100,
       "order": "LIMIT",
-      "entry_px": 7.025,
+      "entry_px": 7.01,
       "entry_src": "entry",
-      "stop": 6.4589,
+      "stop": 6.4439,
       "ret_1d": null,
       "ret_5d": null,
       "ret_20d": null,
@@ -852,7 +852,7 @@
   ],
   "r_5d": {
     "summary": {
-      "as_of": "2026-04-24 16:53:26 AEST",
+      "as_of": "2026-04-24 20:51:10 AEST",
       "coverage": {
         "since": "2026-02-24",
         "until": "2026-04-24"
