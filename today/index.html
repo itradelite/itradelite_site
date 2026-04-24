@@ -17,197 +17,69 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
   <style>
     :root {
-      --bg: #0a0e17;
+      --bg: #0f172a;
       --card-bg: #1e293b;
-      --border: rgba(255, 255, 255, 0.1);
-      --border-hover: rgba(59, 130, 246, 0.3);
+      --border: rgba(255, 255, 255, 0.08);
       --text-main: #f8fafc;
       --text-muted: #94a3b8;
       --accent-green: #10b981;
       --accent-red: #f43f5e;
       --accent-gold: #f59e0b;
-      --brand-primary: #3b82f6;
-      --accent: #3b82f6;
-      --accent-glow: rgba(59, 130, 246, 0.25);
+      --brand-primary: #38bdf8;
       --mono-font: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
     }
 
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+    * { box-sizing: border-box; }
 
     body {
       background-color: var(--bg);
-      background-image:
-        radial-gradient(circle at 20% 10%, rgba(59, 130, 246, 0.08) 0%, transparent 50%),
-        radial-gradient(circle at 80% 80%, rgba(139, 92, 246, 0.05) 0%, transparent 50%);
       color: var(--text-main);
-      font-family: 'Space Grotesk', -apple-system, system-ui, sans-serif;
+      font-family: 'Inter', -apple-system, system-ui, sans-serif;
       margin: 0;
-      line-height: 1.6;
+      line-height: 1.5;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
-      overflow-x: hidden;
     }
 
     a { color: inherit; }
 
-    .container { max-width: 1200px; margin: 0 auto; padding: 0 32px; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
 
-    /* ── Topbar ── */
+    /* Topbar */
     .topbar {
-      background: rgba(10, 14, 23, 0.85);
-      backdrop-filter: blur(24px) saturate(180%);
+      background: rgba(15, 23, 42, 0.80);
+      backdrop-filter: blur(12px);
       border-bottom: 1px solid var(--border);
       position: sticky;
       top: 0;
-      z-index: 1000;
-      padding: 16px 0;
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      z-index: 100;
+      padding: 12px 0;
     }
+    .topbar__inner { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+    .brand { display: flex; align-items: center; gap: 10px; text-decoration: none; color: white; font-weight: 700; font-size: 18px; }
+    .nav { display:flex; gap: 16px; font-size: 14px; }
+    .nav a { text-decoration: none; color: var(--text-muted); }
+    .nav a[aria-current="page"] { color: var(--brand-primary); }
 
-    .topbar::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      height: 1px;
-      background: linear-gradient(90deg,
-        transparent 0%,
-        rgba(59, 130, 246, 0.3) 20%,
-        rgba(59, 130, 246, 0.6) 50%,
-        rgba(59, 130, 246, 0.3) 80%,
-        transparent 100%
-      );
-      opacity: 0;
-      transition: opacity 0.3s;
-    }
-
-    .topbar:hover::after { opacity: 1; }
-
-    .topbar__inner { display: flex; align-items: center; justify-content: space-between; }
-
-    /* ── Brand ── */
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      text-decoration: none;
-      transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-
-    .brand:hover { transform: translateX(4px); }
-
-    .brand img {
-      height: 32px;
-      width: auto;
-      object-fit: contain;
-      filter: drop-shadow(0 0 8px rgba(59, 130, 246, 0.4));
-    }
-
-    .brand span {
-      font-weight: 800;
-      font-size: 1.3rem;
-      letter-spacing: -1px;
-      background: linear-gradient(135deg, #fff 0%, #94a3b8 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-
-    /* ── Nav ── */
-    .nav {
-      display: flex;
-      gap: 40px;
-      align-items: center;
-    }
-
-    .nav a {
-      color: var(--text-muted);
-      text-decoration: none;
-      font-size: 0.95rem;
-      font-weight: 600;
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-      position: relative;
-      padding: 8px 0;
-    }
-
-    .nav a::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 0;
-      height: 2px;
-      background: linear-gradient(90deg, var(--accent), #8b5cf6);
-      transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-
-    .nav a:hover { color: #fff; }
-    .nav a:hover::after,
-    .nav a[aria-current="page"]::after { width: 100%; }
-    .nav a[aria-current="page"] { color: #fff; }
-
-    /* ── Hamburger ── */
-    .hamburger {
-      display: none;
-      background: none;
-      border: none;
-      color: var(--text-muted);
-      font-size: 1.5rem;
-      cursor: pointer;
-      padding: 8px;
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-      z-index: 1001;
-    }
-
-    .hamburger:hover { color: var(--accent); }
-
-    /* ── Buttons ── */
+    /* Buttons */
     .btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 10px 20px;
-      border-radius: 12px;
-      font-weight: 700;
-      font-size: 0.85rem;
-      text-decoration: none;
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-      position: relative;
-      overflow: hidden;
+      background: var(--brand-primary);
+      color: var(--bg);
       border: none;
+      padding: 8px 16px;
+      border-radius: 8px;
+      font-weight: 700;
       cursor: pointer;
-      font-family: inherit;
+      transition: opacity 0.2s, transform 0.08s;
+      user-select: none;
     }
-
-    .btn::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: -100%;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent);
-      transition: left 0.5s;
-    }
-
-    .btn:hover::before { left: 100%; }
-
-    .btn--ghost {
-      background: transparent;
-      border: 1px solid var(--border);
-      color: var(--text-muted);
-    }
-
-    .btn--ghost:hover {
-      border-color: var(--border-hover);
-      color: #fff;
-      background: rgba(59, 130, 246, 0.08);
-    }
+    .btn:active { transform: translateY(1px); }
+    .btn--ghost { background: transparent; border: 1px solid var(--border); color: white; }
+    .btn:hover { opacity: 0.85; }
 
     /* Utility */
     .mono { font-family: var(--mono-font); font-size: 13px; }
@@ -399,78 +271,6 @@
     .dot--valid { background-color: var(--accent-green); box-shadow: 0 0 10px rgba(16,185,129,0.55); }
     .dot--watch { background-color: var(--accent-gold); box-shadow: 0 0 10px rgba(245,158,11,0.35); }
 
-    /* Sentiment score chips */
-    .sent-chips {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-      margin-top: 8px;
-    }
-
-    .sent-chip {
-      display: inline-flex;
-      align-items: center;
-      gap: 5px;
-      font-size: 11px;
-      font-weight: 700;
-      padding: 3px 8px;
-      border-radius: 6px;
-      border: 1px solid transparent;
-      white-space: nowrap;
-      font-family: var(--mono-font);
-      letter-spacing: 0.02em;
-    }
-
-    /* Composite score chip */
-    .sent-chip--composite {
-      background: rgba(56,189,248,0.12);
-      border-color: rgba(56,189,248,0.30);
-      color: var(--brand-primary);
-    }
-
-    /* Positive news / insider / trends */
-    .sent-chip--pos {
-      background: rgba(16,185,129,0.12);
-      border-color: rgba(16,185,129,0.30);
-      color: #34d399;
-    }
-
-    /* Neutral */
-    .sent-chip--neu {
-      background: rgba(148,163,184,0.10);
-      border-color: rgba(148,163,184,0.20);
-      color: var(--text-muted);
-    }
-
-    /* Negative news / insider */
-    .sent-chip--neg {
-      background: rgba(244,63,94,0.12);
-      border-color: rgba(244,63,94,0.30);
-      color: #fb7185;
-    }
-
-    /* Earnings warning — always visible, high contrast */
-    .sent-chip--earnings-warn {
-      background: rgba(245,158,11,0.18);
-      border-color: rgba(245,158,11,0.50);
-      color: var(--accent-gold);
-      font-size: 11px;
-    }
-
-    .sent-chip--earnings-ok {
-      background: rgba(148,163,184,0.08);
-      border-color: rgba(148,163,184,0.18);
-      color: var(--text-muted);
-      font-size: 11px;
-    }
-
-    /* Note row update: slightly more breathing room for sentiment row */
-    .note-row--sent td {
-      padding-top: 6px;
-      padding-bottom: 10px;
-      background: rgba(56,189,248,0.03);
-    }
-
     /* Error */
     .errorBox {
       display:none;
@@ -491,55 +291,12 @@
       font-size: 12px;
     }
 
-    @media (max-width: 900px) {
-      .hamburger { display: block; }
-
-      .nav {
-        position: fixed;
-        top: 60px;
-        left: 0;
-        right: 0;
-        background: rgba(10, 14, 23, 0.98);
-        backdrop-filter: blur(24px);
-        border-top: 1px solid var(--border);
-        flex-direction: column;
-        align-items: stretch;
-        gap: 0;
-        padding: 20px;
-        max-height: 0;
-        overflow: hidden;
-        opacity: 0;
-        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
-      }
-
-      .nav.active { max-height: 500px; opacity: 1; }
-
-      .nav a {
-        padding: 16px 20px;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-        font-size: 1.05rem;
-      }
-
-      .nav a:last-child { border-bottom: none; }
-      .nav a::after { display: none; }
-
-      .nav .btn {
-        margin-top: 12px;
-        text-align: center;
-        justify-content: center;
-        width: 100%;
-      }
-
+    @media (max-width: 860px) {
+      .nav { display:none; }
       .controls { flex-direction: column; align-items: stretch; }
       select, input { width: 100%; min-width: 0; }
       .briefMeta { align-items: flex-start; }
       .briefMeta__right { width: 100%; justify-content: flex-start; }
-    }
-
-    @media (max-width: 768px) {
-      .topbar { padding: 12px 0; }
-      .brand span { font-size: 1.1rem; }
     }
 
 /* ────────────────────────────────────────
@@ -587,15 +344,14 @@
   /* Hide less important columns to reduce horizontal scroll */
   th:nth-child(8), td:nth-child(8),   /* TP1 */
   th:nth-child(9), td:nth-child(9),   /* Cap Target */
-  th:nth-child(10), td:nth-child(10), /* R mult */
-  th:nth-child(11), td:nth-child(11)  /* Sentiment sub-chips (full detail) */
+  th:nth-child(10), td:nth-child(10)  /* R mult */
   {
     display: none !important;
   }
 
   /* Keep Qty & Status usable */
   th:nth-child(6), td:nth-child(6)  { min-width: 64px !important; }   /* Qty */
-  th:nth-child(12), td:nth-child(12){ min-width: 84px !important; }   /* Status */
+  th:nth-child(11), td:nth-child(11){ min-width: 84px !important; }   /* Status */
 
   /* No rounded corners on first/last cells if they touch edge */
   table tr td:first-child,
@@ -611,47 +367,27 @@
   <header class="topbar">
     <div class="container topbar__inner">
       <a class="brand" href="/" aria-label="iTradeLite home">
-        <img src="/assets/logo.png" alt="iTradeLite" />
-        <span>iTradeLite</span>
+        <img src="/assets/logo.png" alt="" width="24" height="24" />
+        <span>iTradeLite <span style="font-weight: 400; opacity: 0.65;">Briefing</span></span>
       </a>
 
-      <nav class="nav" id="mainNav" aria-label="Primary">
-        <a href="/today/" aria-current="page">Dashboard</a>
-        <a href="/track-record/">Performance</a>
-        <a href="/how-it-works.html">Method</a>
+      <nav class="nav" aria-label="Primary">
+        <a href="/today/" aria-current="page">Today</a>
+        <a href="/how-it-works.html">Rules</a>
         <a href="/about.html">About</a>
-        <button class="btn btn--ghost" id="refreshBtn" type="button">Refresh Data</button>
       </nav>
 
-      <button class="hamburger" id="hamburgerBtn" aria-label="Toggle menu">☰</button>
+      <button class="btn btn--ghost" id="refreshBtn" type="button">Refresh Data</button>
+      <a class="btn" id="runScanBtn"
+         href="https://github.com/itradelite/itradelite/actions/workflows/publish_today_to_site.yml"
+         target="_blank" rel="noopener noreferrer"
+         title="Opens GitHub Actions — click Run workflow there">
+        ⚡ Run Scan Now
+      </a>
     </div>
   </header>
 
-  <script>
-    const hamburger = document.getElementById('hamburgerBtn');
-    const nav = document.getElementById('mainNav');
-
-    hamburger.addEventListener('click', () => {
-      nav.classList.toggle('active');
-      hamburger.textContent = nav.classList.contains('active') ? '✕' : '☰';
-    });
-
-    document.addEventListener('click', (e) => {
-      if (!e.target.closest('.topbar')) {
-        nav.classList.remove('active');
-        hamburger.textContent = '☰';
-      }
-    });
-
-    nav.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => {
-        nav.classList.remove('active');
-        hamburger.textContent = '☰';
-      });
-    });
-  </script>
-
-  <main class="container" style="padding: 20px 0 32px;">
+  <main class="container" style="padding: 16px 0 24px;">
     <!-- KPI Dashboard -->
     <div class="kpiGrid" aria-label="KPIs">
       <div class="kpiBox">
@@ -703,8 +439,6 @@
           <br />
           <b>Institutional framing:</b> Targets shown are <b>ATR-based</b> and may be <b>capped by structural ceiling</b>. Setups are filtered by capped risk-efficiency (<b>min R multiple</b> + <b>min upside ATR</b>).
           <br />
-          <b>Scoring:</b> Composite = 55% TA + 25% Fundamentals + 20% Sentiment. Sentiment covers news tone, insider buying/selling, and (for Momentum) Google Trends interest. <b>Earnings gate</b>: signal is suppressed if a company reports within 5 days.
-          <br />
           <b>Sizing:</b> uses your Portfolio and Risk % to compute Qty. Qty is floor(risk_budget / |Entry − Stop|). For STOP-LIMIT entries, sizing uses the <b>LIMIT</b> price (worst-case fill).
         </div>
       </div>
@@ -738,9 +472,7 @@
         <label for="sortBy">Sort By</label>
         <select id="sortBy">
           <option value="status_score">Status Rank</option>
-          <option value="composite_desc">Highest Composite</option>
-          <option value="score_desc">Highest TA Score</option>
-          <option value="sent_desc">Highest Sentiment</option>
+          <option value="score_desc">Highest Score</option>
           <option value="risk_desc">Highest Risk (A$)</option>
           <option value="r_mult_desc">Best R multiple</option>
           <option value="symbol_asc">Alphabetical</option>
@@ -1037,7 +769,6 @@
                   <th style="width:120px;">TP1 (ATR)</th>
                   <th style="width:130px;">Cap Target</th>
                   <th style="width:110px;">R mult</th>
-                  <th style="width:120px;">Sentiment</th>
                   <th style="width:90px;">Status</th>
                 </tr>
               </thead>
@@ -1065,12 +796,9 @@
         const rmultTxt = (rmult !== null) ? fmt(rmult, 2) : "—";
 
         const note = r.plain_english || r.instruction || r.note || "";
-        const noteHtml = note
-          ? `<tr class="note-row"><td colspan="12">${escapeHtml(note)}</td></tr>`
+        const noteHtml = note 
+          ? `<tr class="note-row"><td colspan="11">${escapeHtml(note)}</td></tr>`
           : "";
-
-        // Sentiment cell
-        const sentHtml = buildSentimentCell(r);
 
         html += `
           <tr>
@@ -1084,7 +812,6 @@
             <td class="mono">${escapeHtml(tp1Txt)}</td>
             <td class="mono">${escapeHtml(capTxt)}</td>
             <td class="mono">${escapeHtml(rmultTxt)}</td>
-            <td>${sentHtml}</td>
             <td>${pill}</td>
           </tr>
           ${noteHtml}
@@ -1099,73 +826,6 @@
       `;
       return html;
     }
-
-    // ─── Sentiment cell builder ───────────────────────────────────────────────
-    function sentChipClass(score, neutral=50){
-      const n = Number(score);
-      if (!Number.isFinite(n)) return "sent-chip--neu";
-      if (n >= 65) return "sent-chip--pos";
-      if (n <= 35) return "sent-chip--neg";
-      return "sent-chip--neu";
-    }
-
-    function buildSentimentCell(r){
-      // If no sentiment data yet (old JSON before upgrade), render gracefully
-      const sentScore = numOrNull(r.sent_score);
-      if (sentScore === null) return `<span class="muted" style="font-size:12px;">—</span>`;
-
-      // Earnings badge — highest visual priority
-      let earningsBadge = "";
-      const earnDays = numOrNull(r.earnings_days);
-      const earnSuppress = r.earnings_suppress === true || r.earnings_suppress === "True";
-
-      if (earnSuppress) {
-        const dStr = (earnDays !== null && earnDays > 0) ? ` in ${earnDays}d` : "";
-        earningsBadge = `<span class="sent-chip sent-chip--earnings-warn" title="Signal suppressed: earnings imminent">⛔ Earns${dStr}</span>`;
-      } else if (earnDays !== null && earnDays > 0) {
-        earningsBadge = `<span class="sent-chip sent-chip--earnings-ok" title="Earnings approaching — watch for volatility">📅 ${earnDays}d</span>`;
-      }
-
-      // Composite sentiment score chip
-      const sentClass = sentChipClass(sentScore);
-      const sentLabel = r.sent_label ? String(r.sent_label) : "";
-      const sentChip = `<span class="sent-chip ${sentClass}" title="${escapeHtml(sentLabel)}">SENT ${fmt(sentScore, 0)}</span>`;
-
-      // News sub-chip
-      const newsScore = numOrNull(r.news_score);
-      let newsChip = "";
-      if (newsScore !== null) {
-        const nLabel = r.news_label ? String(r.news_label) : "";
-        newsChip = `<span class="sent-chip ${sentChipClass(newsScore)}" title="${escapeHtml(nLabel)}">📰 ${fmt(newsScore, 0)}</span>`;
-      }
-
-      // Insider sub-chip
-      const insiderScore = numOrNull(r.insider_score);
-      let insiderChip = "";
-      if (insiderScore !== null) {
-        const iLabel = r.insider_label ? String(r.insider_label) : "";
-        insiderChip = `<span class="sent-chip ${sentChipClass(insiderScore)}" title="${escapeHtml(iLabel)}">👤 ${fmt(insiderScore, 0)}</span>`;
-      }
-
-      // Trends sub-chip (Momentum only — present if trends_score_val is non-null)
-      const trendsScore = numOrNull(r.trends_score_val);
-      let trendsChip = "";
-      if (trendsScore !== null && r.trends_label && !String(r.trends_label).startsWith("trends not used")) {
-        const tLabel = r.trends_label ? String(r.trends_label) : "";
-        trendsChip = `<span class="sent-chip ${sentChipClass(trendsScore)}" title="${escapeHtml(tLabel)}">📈 ${fmt(trendsScore, 0)}</span>`;
-      }
-
-      return `
-        <div class="sent-chips">
-          ${earningsBadge}
-          ${sentChip}
-          ${newsChip}
-          ${insiderChip}
-          ${trendsChip}
-        </div>
-      `;
-    }
-    // ─────────────────────────────────────────────────────────────────────────
 
     function hydrateStrategyOptions(allRows){
       const sel = document.getElementById("strategyFilter");
@@ -1212,20 +872,6 @@
         }
 
         if (prefs.sort === "score_desc") return scoreVal(b) - scoreVal(a);
-
-        if (prefs.sort === "composite_desc") {
-          const ca = Number(a.composite_score); const cb = Number(b.composite_score);
-          const va = Number.isFinite(ca) ? ca : -1;
-          const vb = Number.isFinite(cb) ? cb : -1;
-          return vb - va;
-        }
-
-        if (prefs.sort === "sent_desc") {
-          const sa = Number(a.sent_score); const sb = Number(b.sent_score);
-          const va = Number.isFinite(sa) ? sa : -1;
-          const vb = Number.isFinite(sb) ? sb : -1;
-          return vb - va;
-        }
 
         const ds = statusRank(b.status) - statusRank(a.status);
         if (ds !== 0) return ds;
