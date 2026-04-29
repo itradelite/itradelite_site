@@ -889,7 +889,6 @@
       const rb = document.getElementById("riskBanner");
       if (rb) rb.innerHTML = "";
 
-      // Freshness banner only
       const fb = document.getElementById("freshBanner");
       if (!fb) return;
 
@@ -901,6 +900,16 @@
               <div class="small" style="margin-top:4px;">Safety gate to avoid publishing stale signals.</div>
             </div>
             <div class="pill">STALE</div>
+          </div>
+        `;
+      } else if (data.is_preview === true){
+        fb.innerHTML = `
+          <div class="banner banner--stale">
+            <div>
+              <b>Pre-close preview</b> — signals based on prices as at ~3 PM Brisbane. The bar is still open; final close may differ.
+              <div class="small" style="margin-top:4px;">Final scan runs at 7 PM after market close and will update this page.</div>
+            </div>
+            <div class="pill" style="border-color:rgba(139,92,246,.35);background:rgba(139,92,246,.10);color:#a78bfa;">PREVIEW</div>
           </div>
         `;
       } else {
