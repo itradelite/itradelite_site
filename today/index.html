@@ -423,7 +423,8 @@
 
       <div class="briefMeta">
         <div class="briefMeta__left">
-          <span class="pill">Generated: <b class="mono" id="generated">—</b></span>
+	  <span class="pill">Generated: <b class="mono" id="generated">—</b></span>
+          <span class="pill">Published: <b class="mono" id="published">—</b></span>
           <span class="pill">Valid for: <b class="mono" id="validFor">—</b></span>
           <span class="pill">Universe: <b class="mono" id="kpiUniverse">—</b></span>
           <span class="pill">AXJO bar: <b class="mono" id="kpiAxjo">—</b></span>
@@ -596,6 +597,18 @@
       if (!isFinite(mins)) return "—";
       if (mins < 90) return mins + " min";
       return (mins / 60).toFixed(1) + " hrs";
+    }
+
+
+    function fmtBNE(iso){
+      if(!iso) return "—";
+      const d = new Date(iso);
+      if(isNaN(d)) return "—";
+      return d.toLocaleString("en-AU",{
+      timeZone:"Australia/Brisbane",
+      day:"2-digit", month:"2-digit", year:"numeric",
+      hour:"2-digit", minute:"2-digit", hour12:false
+      }) + " AEST";
     }
 
     function parseEntry(r){
@@ -926,7 +939,8 @@
     function render(data){
       clearError();
 
-      document.getElementById("generated").textContent = safeText(data.generated || data.date);
+      document.getElementById("generated").textContent = fmtBNE(data.generated_at_utc) || safeText(data.generated || data.date);
+      document.getElementById("published").textContent = fmtBNE(data._lastModified);
       document.getElementById("validFor").textContent  = safeText(data.valid_for || data.date);
       document.getElementById("riskMode").textContent  = safeText((data.risk_mode || "—").replaceAll("_"," "));
       document.getElementById("dataAge").textContent   = computeDataAge(data.generated_at_utc);
@@ -993,7 +1007,9 @@
       const url = DATA_URL + "?v=" + Date.now();
       const r = await fetch(url, { cache: "no-store" });
       if (!r.ok) throw new Error("HTTP " + r.status);
-      return await r.json();
+      const data = await r.json();
+      data._lastModified = r.headers.get("last-modified");
+      return data;
     }
 
     function bindControls(){
