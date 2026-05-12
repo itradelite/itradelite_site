@@ -1,25 +1,25 @@
 {
   "summary": {
-    "as_of": "2026-05-12 15:59:10 AEST",
+    "as_of": "2026-05-12 21:34:39 AEST",
     "since": "2026-03-16",
-    "until": "2026-05-12",
-    "total_signals_with_entry": 47,
+    "until": "2026-05-11",
+    "total_signals_with_entry": 46,
     "total_signals_with_5d": 41,
-    "avg_ret_1d": 0.004003088872306483,
-    "avg_ret_5d": 0.02870031806023159,
+    "avg_ret_1d": 0.004057709750694802,
+    "avg_ret_5d": 0.028703582102901908,
     "avg_ret_20d": 0.06400562628738062,
     "winrate_1d": 0.5434782608695652,
     "winrate_5d": 0.7073170731707317,
     "winrate_20d": 0.7142857142857143,
     "equity_curve_proxy_start": 1.0,
-    "equity_curve_proxy_end": 1.7581621002738421,
+    "equity_curve_proxy_end": 1.7584008698118985,
     "equity_curve_proxy_max_drawdown": -0.09459322118556701
   },
   "by_strategy_5d": [
     {
       "strategy": "MEAN_REVERSION",
       "trades": 39,
-      "avg_5d": 0.03365845032377003,
+      "avg_5d": 0.03366188175324395,
       "win_5d": 0.7435897435897436,
       "avg_score": 94.7948717948718
     },
@@ -154,26 +154,11 @@
     },
     {
       "date": "2026-05-05",
-      "equity": 1.7581621002738421,
-      "avg_5d_return": -0.014583842240367573
+      "equity": 1.7584008698118985,
+      "avg_5d_return": -0.014450016490884732
     }
   ],
   "recent_signals": [
-    {
-      "date": "2026-05-12",
-      "symbol": "AZJ.AX",
-      "class": "Transportation",
-      "strategy": "MEAN_REVERSION",
-      "score": 89,
-      "order": "LIMIT",
-      "entry_px": 3.985,
-      "entry_src": "entry",
-      "stop": 3.8954,
-      "ret_1d": null,
-      "ret_5d": null,
-      "ret_20d": null,
-      "risk_gate": "always"
-    },
     {
       "date": "2026-05-11",
       "symbol": "AZJ.AX",
@@ -184,7 +169,7 @@
       "entry_px": 3.98,
       "entry_src": "entry",
       "stop": 3.8896,
-      "ret_1d": 0.002512560405862674,
+      "ret_1d": 0.005025120811725348,
       "ret_5d": null,
       "ret_20d": null,
       "risk_gate": "always"
@@ -260,7 +245,7 @@
       "entry_src": "entry",
       "stop": 36.0779,
       "ret_1d": 0.00267600459396955,
-      "ret_5d": -0.014583842240367573,
+      "ret_5d": -0.014450016490884732,
       "ret_20d": null,
       "risk_gate": "always"
     },
@@ -296,21 +281,6 @@
     },
     {
       "date": "2026-04-30",
-      "symbol": "EVN.AX",
-      "class": "Materials",
-      "strategy": "MEAN_REVERSION",
-      "score": 100,
-      "order": "LIMIT",
-      "entry_px": 11.9,
-      "entry_src": "entry",
-      "stop": 11.1839,
-      "ret_1d": 0.021008404034795758,
-      "ret_5d": 0.10084040347958112,
-      "ret_20d": null,
-      "risk_gate": "always"
-    },
-    {
-      "date": "2026-04-30",
       "symbol": "S32.AX",
       "class": "Materials",
       "strategy": "MEAN_REVERSION",
@@ -321,6 +291,21 @@
       "stop": 3.8487,
       "ret_1d": 0.022332424581936294,
       "ret_5d": 0.039702193320659385,
+      "ret_20d": null,
+      "risk_gate": "always"
+    },
+    {
+      "date": "2026-04-30",
+      "symbol": "EVN.AX",
+      "class": "Materials",
+      "strategy": "MEAN_REVERSION",
+      "score": 100,
+      "order": "LIMIT",
+      "entry_px": 11.9,
+      "entry_src": "entry",
+      "stop": 11.1839,
+      "ret_1d": 0.021008404034795758,
+      "ret_5d": 0.10084040347958112,
       "ret_20d": null,
       "risk_gate": "always"
     },
@@ -867,10 +852,10 @@
   ],
   "r_5d": {
     "summary": {
-      "as_of": "2026-05-12 15:59:10 AEST",
+      "as_of": "2026-05-12 21:34:39 AEST",
       "coverage": {
         "since": "2026-03-16",
-        "until": "2026-05-12"
+        "until": "2026-05-11"
       },
       "horizon_trading_days": 5,
       "method": "Stop-first within horizon using auto-adjusted OHLC from yfinance. If Low <= stop at any point from t..t+h, exit=stop (R=-1). Else exit=Close[t+h]. R=(exit-entry)/(entry-stop). Long-only R where stop < entry.",
