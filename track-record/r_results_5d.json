@@ -1,7 +1,21 @@
 {
-  "as_of": "2026-05-12 21:34:39 AEST",
+  "as_of": "2026-05-13 16:18:12 AEST",
   "horizon_trading_days": 5,
   "results": [
+    {
+      "date": "2026-05-06",
+      "symbol": "COL.AX",
+      "class": "Consumer Staples Distribution & Retail",
+      "strategy": "MEAN_REVERSION",
+      "score": 90,
+      "order": "LIMIT",
+      "risk_gate": "always",
+      "entry_px": 21.73,
+      "stop": 21.1197,
+      "exit_type_5d": "STOP",
+      "exit_px_5d": 21.1197,
+      "r_5d": -1.0
+    },
     {
       "date": "2026-05-05",
       "symbol": "RHC.AX",
@@ -116,20 +130,6 @@
     },
     {
       "date": "2026-04-24",
-      "symbol": "FMG.AX",
-      "class": "Materials",
-      "strategy": "MEAN_REVERSION",
-      "score": 85,
-      "order": "LIMIT",
-      "risk_gate": "always",
-      "entry_px": 19.78,
-      "stop": 19.1877,
-      "exit_type_5d": "H5_CLOSE",
-      "exit_px_5d": 20.010000228881836,
-      "r_5d": 0.3883171178150163
-    },
-    {
-      "date": "2026-04-24",
       "symbol": "IGO.AX",
       "class": "Materials",
       "strategy": "MEAN_REVERSION",
@@ -141,6 +141,20 @@
       "exit_type_5d": "H5_CLOSE",
       "exit_px_5d": 7.679999828338623,
       "r_5d": 1.1835361744190491
+    },
+    {
+      "date": "2026-04-24",
+      "symbol": "FMG.AX",
+      "class": "Materials",
+      "strategy": "MEAN_REVERSION",
+      "score": 85,
+      "order": "LIMIT",
+      "risk_gate": "always",
+      "entry_px": 19.78,
+      "stop": 19.1877,
+      "exit_type_5d": "H5_CLOSE",
+      "exit_px_5d": 20.010000228881836,
+      "r_5d": 0.3883171178150163
     },
     {
       "date": "2026-04-23",
@@ -256,20 +270,6 @@
     },
     {
       "date": "2026-04-17",
-      "symbol": "YAL.AX",
-      "class": "Energy",
-      "strategy": "MEAN_REVERSION",
-      "score": 89,
-      "order": "LIMIT",
-      "risk_gate": "always",
-      "entry_px": 6.73,
-      "stop": 6.1776,
-      "exit_type_5d": "H5_CLOSE",
-      "exit_px_5d": 7.179999828338623,
-      "r_5d": 0.8146267710691931
-    },
-    {
-      "date": "2026-04-17",
       "symbol": "WHC.AX",
       "class": "Energy",
       "strategy": "MEAN_REVERSION",
@@ -281,6 +281,20 @@
       "exit_type_5d": "H5_CLOSE",
       "exit_px_5d": 7.929999828338623,
       "r_5d": -0.1251567524787715
+    },
+    {
+      "date": "2026-04-17",
+      "symbol": "YAL.AX",
+      "class": "Energy",
+      "strategy": "MEAN_REVERSION",
+      "score": 89,
+      "order": "LIMIT",
+      "risk_gate": "always",
+      "entry_px": 6.73,
+      "stop": 6.1776,
+      "exit_type_5d": "H5_CLOSE",
+      "exit_px_5d": 7.179999828338623,
+      "r_5d": 0.8146267710691931
     },
     {
       "date": "2026-04-10",
