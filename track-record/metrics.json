@@ -1,13 +1,13 @@
 {
   "summary": {
-    "as_of": "2026-05-19 16:22:12 AEST",
+    "as_of": "2026-05-19 22:30:11 AEST",
     "since": "2026-03-23",
     "until": "2026-05-19",
     "total_signals_with_entry": 47,
     "total_signals_with_5d": 40,
-    "avg_ret_1d": 0.00422688897254729,
+    "avg_ret_1d": 0.004084165860687625,
     "avg_ret_5d": 0.033351375902940364,
-    "avg_ret_20d": 0.02552825471130004,
+    "avg_ret_20d": 0.025498912875614514,
     "winrate_1d": 0.5111111111111111,
     "winrate_5d": 0.75,
     "winrate_20d": 0.5238095238095238,
@@ -169,11 +169,11 @@
       "symbol": "GGP.AX",
       "class": "Materials",
       "strategy": "MEAN_REVERSION",
-      "score": 88,
+      "score": 85,
       "order": "LIMIT",
-      "entry_px": 13.07,
+      "entry_px": 13.12,
       "entry_src": "entry",
-      "stop": 12.3307,
+      "stop": 12.3807,
       "ret_1d": null,
       "ret_5d": null,
       "ret_20d": null,
@@ -186,9 +186,9 @@
       "strategy": "MEAN_REVERSION",
       "score": 100,
       "order": "LIMIT",
-      "entry_px": 15.47,
+      "entry_px": 15.52,
       "entry_src": "entry",
-      "stop": 14.7676,
+      "stop": 14.8176,
       "ret_1d": null,
       "ret_5d": null,
       "ret_20d": null,
@@ -204,7 +204,7 @@
       "entry_px": 15.57,
       "entry_src": "entry",
       "stop": 14.847,
-      "ret_1d": -0.006422570954105589,
+      "ret_1d": -0.003211254851672729,
       "ret_5d": null,
       "ret_20d": null,
       "risk_gate": "always"
@@ -219,7 +219,7 @@
       "entry_px": 10.38,
       "entry_src": "entry",
       "stop": 9.5061,
-      "ret_1d": 0.03371863429061839,
+      "ret_1d": 0.024084778154500608,
       "ret_5d": null,
       "ret_20d": null,
       "risk_gate": "always"
@@ -566,7 +566,7 @@
       "stop": 29.5549,
       "ret_1d": -0.01345716697422994,
       "ret_5d": 0.038128884213850966,
-      "ret_20d": 0.03716757069657284,
+      "ret_20d": 0.0342838745982712,
       "risk_gate": "always"
     },
     {
@@ -581,7 +581,7 @@
       "stop": 4.2941,
       "ret_1d": 0.020408198571867153,
       "ret_5d": -0.022675716120772793,
-      "ret_20d": -0.08163257803478208,
+      "ret_20d": -0.07936506048587655,
       "risk_gate": "risk_on"
     },
     {
@@ -872,7 +872,7 @@
   ],
   "r_5d": {
     "summary": {
-      "as_of": "2026-05-19 16:22:12 AEST",
+      "as_of": "2026-05-19 22:30:11 AEST",
       "coverage": {
         "since": "2026-03-23",
         "until": "2026-05-19"
