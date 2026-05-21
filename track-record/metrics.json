@@ -1,25 +1,25 @@
 {
   "summary": {
-    "as_of": "2026-05-21 16:22:40 AEST",
+    "as_of": "2026-05-21 22:34:43 AEST",
     "since": "2026-03-23",
     "until": "2026-05-21",
     "total_signals_with_entry": 50,
     "total_signals_with_5d": 41,
-    "avg_ret_1d": 0.00305821823230924,
-    "avg_ret_5d": 0.031970712735710394,
-    "avg_ret_20d": 0.026522942415698483,
+    "avg_ret_1d": 0.0030683653886935448,
+    "avg_ret_5d": 0.03185726930806465,
+    "avg_ret_20d": 0.026490011946349732,
     "winrate_1d": 0.5102040816326531,
     "winrate_5d": 0.7317073170731707,
     "winrate_20d": 0.56,
     "equity_curve_proxy_start": 1.0,
-    "equity_curve_proxy_end": 1.8879014389568165,
+    "equity_curve_proxy_end": 1.8789113978104868,
     "equity_curve_proxy_max_drawdown": -0.06794789010440827
   },
   "by_strategy_5d": [
     {
       "strategy": "MEAN_REVERSION",
       "trades": 39,
-      "avg_5d": 0.037096557546709284,
+      "avg_5d": 0.036977296507389394,
       "win_5d": 0.7692307692307693,
       "avg_score": 93.97435897435898
     },
@@ -164,8 +164,8 @@
     },
     {
       "date": "2026-05-14",
-      "equity": 1.8879014389568165,
-      "avg_5d_return": -0.023255813953488413
+      "equity": 1.8789113978104868,
+      "avg_5d_return": -0.027906994486963987
     }
   ],
   "recent_signals": [
@@ -176,9 +176,9 @@
       "strategy": "MEAN_REVERSION",
       "score": 100,
       "order": "LIMIT",
-      "entry_px": 14.89,
+      "entry_px": 14.86,
       "entry_src": "entry",
-      "stop": 14.2433,
+      "stop": 14.2124,
       "ret_1d": null,
       "ret_5d": null,
       "ret_20d": null,
@@ -194,7 +194,7 @@
       "entry_px": 12.3,
       "entry_src": "entry",
       "stop": 11.562,
-      "ret_1d": 0.047154464610736024,
+      "ret_1d": 0.049593467253499446,
       "ret_5d": null,
       "ret_20d": null,
       "risk_gate": "always"
@@ -209,7 +209,7 @@
       "entry_px": 5.15,
       "entry_src": "entry",
       "stop": 4.9516,
-      "ret_1d": 0.0213592488305685,
+      "ret_1d": 0.019417456850636006,
       "ret_5d": null,
       "ret_20d": null,
       "risk_gate": "always"
@@ -315,7 +315,7 @@
       "entry_src": "entry",
       "stop": 9.8826,
       "ret_1d": -0.009302361066951259,
-      "ret_5d": -0.023255813953488413,
+      "ret_5d": -0.027906994486963987,
       "ret_20d": null,
       "risk_gate": "always"
     },
@@ -556,7 +556,7 @@
       "stop": 9.0526,
       "ret_1d": 0.02915761311184739,
       "ret_5d": 0.034557201610659005,
-      "ret_20d": -0.02699783950547352,
+      "ret_20d": -0.02591790120799431,
       "risk_gate": "always"
     },
     {
@@ -571,7 +571,7 @@
       "stop": 17.2599,
       "ret_1d": -0.009244158887228515,
       "ret_5d": 0.033714021740663735,
-      "ret_20d": 0.011691145172572082,
+      "ret_20d": 0.009787945141374044,
       "risk_gate": "always"
     },
     {
@@ -922,7 +922,7 @@
   ],
   "r_5d": {
     "summary": {
-      "as_of": "2026-05-21 16:22:40 AEST",
+      "as_of": "2026-05-21 22:34:43 AEST",
       "coverage": {
         "since": "2026-03-23",
         "until": "2026-05-21"
@@ -931,12 +931,12 @@
       "method": "Stop-first within horizon using auto-adjusted OHLC from yfinance. If Low <= stop at any point from t..t+h, exit=stop (R=-1). Else exit=Close[t+h]. R=(exit-entry)/(entry-stop). Long-only R where stop < entry.",
       "stats": {
         "n": 41,
-        "mean_r": 0.7202904804296072,
+        "mean_r": 0.718884535251844,
         "median_r": 0.7189907110621139,
-        "std_r": 1.3613297724129212,
+        "std_r": 1.3624266963365252,
         "winrate": 0.6585365853658537,
         "avg_win_r": 1.487993899727172,
-        "avg_loss_r": -0.7602803996442676,
+        "avg_loss_r": -0.7643978105220027,
         "min_r": -1.0,
         "max_r": 3.926096997690499
       }
