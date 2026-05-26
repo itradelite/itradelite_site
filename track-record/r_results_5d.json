@@ -1,7 +1,35 @@
 {
-  "as_of": "2026-05-25 22:53:54 AEST",
+  "as_of": "2026-05-26 14:58:45 AEST",
   "horizon_trading_days": 5,
   "results": [
+    {
+      "date": "2026-05-19",
+      "symbol": "GGP.AX",
+      "class": "Materials",
+      "strategy": "MEAN_REVERSION",
+      "score": 85,
+      "order": "LIMIT",
+      "risk_gate": "always",
+      "entry_px": 13.12,
+      "stop": 12.3807,
+      "exit_type_5d": "STOP",
+      "exit_px_5d": 12.3807,
+      "r_5d": -1.0
+    },
+    {
+      "date": "2026-05-19",
+      "symbol": "NXG.AX",
+      "class": "Energy",
+      "strategy": "MEAN_REVERSION",
+      "score": 100,
+      "order": "LIMIT",
+      "risk_gate": "always",
+      "entry_px": 15.52,
+      "stop": 14.8176,
+      "exit_type_5d": "STOP",
+      "exit_px_5d": 14.8176,
+      "r_5d": -1.0
+    },
     {
       "date": "2026-05-18",
       "symbol": "NXG.AX",
@@ -340,20 +368,6 @@
     },
     {
       "date": "2026-04-21",
-      "symbol": "WDS.AX",
-      "class": "Energy",
-      "strategy": "MEAN_REVERSION",
-      "score": 98,
-      "order": "LIMIT",
-      "risk_gate": "always",
-      "entry_px": 31.21,
-      "stop": 29.5549,
-      "exit_type_5d": "H5_CLOSE",
-      "exit_px_5d": 32.400001525878906,
-      "r_5d": 0.7189907110621139
-    },
-    {
-      "date": "2026-04-21",
       "symbol": "S32.AX",
       "class": "Materials",
       "strategy": "TREND_PULLBACK",
@@ -367,18 +381,18 @@
       "r_5d": -1.0
     },
     {
-      "date": "2026-04-20",
-      "symbol": "LYC.AX",
-      "class": "Materials",
-      "strategy": "TREND_PULLBACK",
-      "score": 100,
-      "order": "STOP",
-      "risk_gate": "risk_on",
-      "entry_px": 20.5405,
-      "stop": 19.7742,
-      "exit_type_5d": "STOP",
-      "exit_px_5d": 19.7742,
-      "r_5d": -1.0
+      "date": "2026-04-21",
+      "symbol": "WDS.AX",
+      "class": "Energy",
+      "strategy": "MEAN_REVERSION",
+      "score": 98,
+      "order": "LIMIT",
+      "risk_gate": "always",
+      "entry_px": 31.21,
+      "stop": 29.5549,
+      "exit_type_5d": "H5_CLOSE",
+      "exit_px_5d": 32.400001525878906,
+      "r_5d": 0.7189907110621139
     },
     {
       "date": "2026-04-20",
@@ -393,6 +407,20 @@
       "exit_type_5d": "H5_CLOSE",
       "exit_px_5d": 32.130001068115234,
       "r_5d": 0.21577623358621142
+    },
+    {
+      "date": "2026-04-20",
+      "symbol": "LYC.AX",
+      "class": "Materials",
+      "strategy": "TREND_PULLBACK",
+      "score": 100,
+      "order": "STOP",
+      "risk_gate": "risk_on",
+      "entry_px": 20.5405,
+      "stop": 19.7742,
+      "exit_type_5d": "STOP",
+      "exit_px_5d": 19.7742,
+      "r_5d": -1.0
     },
     {
       "date": "2026-04-17",
@@ -452,20 +480,6 @@
     },
     {
       "date": "2026-03-31",
-      "symbol": "CDA.AX",
-      "class": "Technology Hardware & Equipment",
-      "strategy": "MEAN_REVERSION",
-      "score": 89,
-      "order": "LIMIT",
-      "risk_gate": "always",
-      "entry_px": 31.26,
-      "stop": 29.6649,
-      "exit_type_5d": "H5_CLOSE",
-      "exit_px_5d": 34.7599983215332,
-      "r_5d": 2.194218745867467
-    },
-    {
-      "date": "2026-03-31",
       "symbol": "REH.AX",
       "class": "Capital Goods",
       "strategy": "MEAN_REVERSION",
@@ -479,18 +493,18 @@
       "r_5d": 2.180280477497117
     },
     {
-      "date": "2026-03-30",
-      "symbol": "QUB.AX",
-      "class": "Transportation",
+      "date": "2026-03-31",
+      "symbol": "CDA.AX",
+      "class": "Technology Hardware & Equipment",
       "strategy": "MEAN_REVERSION",
-      "score": 94,
+      "score": 89,
       "order": "LIMIT",
       "risk_gate": "always",
-      "entry_px": 4.83,
-      "stop": 4.7867,
+      "entry_px": 31.26,
+      "stop": 29.6649,
       "exit_type_5d": "H5_CLOSE",
-      "exit_px_5d": 5.0,
-      "r_5d": 3.926096997690499
+      "exit_px_5d": 34.7599983215332,
+      "r_5d": 2.194218745867467
     },
     {
       "date": "2026-03-30",
@@ -507,32 +521,18 @@
       "r_5d": 2.81825035905499
     },
     {
-      "date": "2026-03-27",
+      "date": "2026-03-30",
       "symbol": "QUB.AX",
       "class": "Transportation",
       "strategy": "MEAN_REVERSION",
-      "score": 86,
+      "score": 94,
       "order": "LIMIT",
       "risk_gate": "always",
-      "entry_px": 4.89,
-      "stop": 4.8497,
-      "exit_type_5d": "STOP",
-      "exit_px_5d": 4.8497,
-      "r_5d": -1.0
-    },
-    {
-      "date": "2026-03-27",
-      "symbol": "NAB.AX",
-      "class": "Banks",
-      "strategy": "MEAN_REVERSION",
-      "score": 98,
-      "order": "LIMIT",
-      "risk_gate": "always",
-      "entry_px": 41.99,
-      "stop": 40.7287,
-      "exit_type_5d": "STOP",
-      "exit_px_5d": 40.7287,
-      "r_5d": -1.0
+      "entry_px": 4.83,
+      "stop": 4.7867,
+      "exit_type_5d": "H5_CLOSE",
+      "exit_px_5d": 5.0,
+      "r_5d": 3.926096997690499
     }
   ]
 }
