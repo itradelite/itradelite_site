@@ -1,7 +1,21 @@
 {
-  "as_of": "2026-05-27 15:10:54 AEST",
+  "as_of": "2026-05-28 15:07:36 AEST",
   "horizon_trading_days": 5,
   "results": [
+    {
+      "date": "2026-05-21",
+      "symbol": "NXG.AX",
+      "class": "Energy",
+      "strategy": "MEAN_REVERSION",
+      "score": 100,
+      "order": "LIMIT",
+      "risk_gate": "always",
+      "entry_px": 14.86,
+      "stop": 14.2124,
+      "exit_type_5d": "H5_CLOSE",
+      "exit_px_5d": 15.425000190734863,
+      "r_5d": 0.8724524254707611
+    },
     {
       "date": "2026-05-20",
       "symbol": "GGP.AX",
@@ -13,8 +27,8 @@
       "entry_px": 12.3,
       "stop": 11.562,
       "exit_type_5d": "H5_CLOSE",
-      "exit_px_5d": 13.585000038146973,
-      "r_5d": 1.74119246361378
+      "exit_px_5d": 13.550000190734863,
+      "r_5d": 1.693767196117697
     },
     {
       "date": "2026-05-20",
@@ -27,8 +41,8 @@
       "entry_px": 5.15,
       "stop": 4.9516,
       "exit_type_5d": "H5_CLOSE",
-      "exit_px_5d": 5.394999980926514,
-      "r_5d": 1.2348789361215367
+      "exit_px_5d": 5.380000114440918,
+      "r_5d": 1.1592747703675261
     },
     {
       "date": "2026-05-19",
