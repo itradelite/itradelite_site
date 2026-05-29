@@ -1,13 +1,13 @@
 {
   "summary": {
-    "as_of": "2026-05-29 15:24:46 AEST",
+    "as_of": "2026-05-29 22:37:30 AEST",
     "since": "2026-03-31",
-    "until": "2026-05-29",
-    "total_signals_with_entry": 40,
+    "until": "2026-05-21",
+    "total_signals_with_entry": 39,
     "total_signals_with_5d": 39,
     "avg_ret_1d": 0.002213971968282942,
     "avg_ret_5d": 0.023613205727659348,
-    "avg_ret_20d": 0.04251847324560396,
+    "avg_ret_20d": 0.042731437228384545,
     "winrate_1d": 0.5384615384615384,
     "winrate_5d": 0.6923076923076923,
     "winrate_20d": 0.5909090909090909,
@@ -165,21 +165,6 @@
   ],
   "recent_signals": [
     {
-      "date": "2026-05-29",
-      "symbol": "APA.AX",
-      "class": "Utilities",
-      "strategy": "MEAN_REVERSION",
-      "score": 86,
-      "order": "LIMIT",
-      "entry_px": 10.065,
-      "entry_src": "entry",
-      "stop": 9.8113,
-      "ret_1d": null,
-      "ret_5d": null,
-      "ret_20d": null,
-      "risk_gate": "always"
-    },
-    {
       "date": "2026-05-21",
       "symbol": "NXG.AX",
       "class": "Energy",
@@ -286,21 +271,6 @@
     },
     {
       "date": "2026-05-15",
-      "symbol": "PDN.AX",
-      "class": "Energy",
-      "strategy": "MEAN_REVERSION",
-      "score": 90,
-      "order": "LIMIT",
-      "entry_px": 10.65,
-      "entry_src": "entry",
-      "stop": 9.8027,
-      "ret_1d": -0.02535206701975601,
-      "ret_5d": 0.03943662829463146,
-      "ret_20d": null,
-      "risk_gate": "always"
-    },
-    {
-      "date": "2026-05-15",
       "symbol": "NXG.AX",
       "class": "Energy",
       "strategy": "MEAN_REVERSION",
@@ -311,6 +281,21 @@
       "stop": 15.6979,
       "ret_1d": -0.04828856271725823,
       "ret_5d": -0.08863085017380656,
+      "ret_20d": null,
+      "risk_gate": "always"
+    },
+    {
+      "date": "2026-05-15",
+      "symbol": "PDN.AX",
+      "class": "Energy",
+      "strategy": "MEAN_REVERSION",
+      "score": 90,
+      "order": "LIMIT",
+      "entry_px": 10.65,
+      "entry_src": "entry",
+      "stop": 9.8027,
+      "ret_1d": -0.02535206701975601,
+      "ret_5d": 0.03943662829463146,
       "ret_20d": null,
       "risk_gate": "always"
     },
@@ -446,7 +431,7 @@
       "stop": 33.2449,
       "ret_1d": -0.007613532199506334,
       "ret_5d": -0.01610550592043225,
-      "ret_20d": 0.026939915895703104,
+      "ret_20d": 0.03162512351687585,
       "risk_gate": "always"
     },
     {
@@ -767,10 +752,10 @@
   ],
   "r_5d": {
     "summary": {
-      "as_of": "2026-05-29 15:24:46 AEST",
+      "as_of": "2026-05-29 22:37:30 AEST",
       "coverage": {
         "since": "2026-03-31",
-        "until": "2026-05-29"
+        "until": "2026-05-21"
       },
       "horizon_trading_days": 5,
       "method": "Stop-first within horizon using auto-adjusted OHLC from yfinance. If Low <= stop at any point from t..t+h, exit=stop (R=-1). Else exit=Close[t+h]. R=(exit-entry)/(entry-stop). Long-only R where stop < entry.",
