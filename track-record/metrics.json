@@ -1,13 +1,13 @@
 {
   "summary": {
-    "as_of": "2026-06-01 16:21:11 AEST",
+    "as_of": "2026-06-02 01:43:58 AEST",
     "since": "2026-04-09",
     "until": "2026-06-01",
     "total_signals_with_entry": 38,
     "total_signals_with_5d": 37,
     "avg_ret_1d": 0.0008310639895613366,
     "avg_ret_5d": 0.019132299920210583,
-    "avg_ret_20d": 0.02889309563689834,
+    "avg_ret_20d": 0.02892119840372643,
     "winrate_1d": 0.5135135135135135,
     "winrate_5d": 0.6756756756756757,
     "winrate_20d": 0.5714285714285714,
@@ -164,11 +164,11 @@
       "symbol": "TLS.AX",
       "class": "Telecommunication Services",
       "strategy": "MEAN_REVERSION",
-      "score": 86,
+      "score": 90,
       "order": "LIMIT",
-      "entry_px": 5.16,
+      "entry_px": 5.135,
       "entry_src": "entry",
-      "stop": 5.0627,
+      "stop": 5.0377,
       "ret_1d": null,
       "ret_5d": null,
       "ret_20d": null,
@@ -426,7 +426,7 @@
       "stop": 32.9643,
       "ret_1d": 0.008261988325157565,
       "ret_5d": -0.011507801613226398,
-      "ret_20d": 0.03393335929743824,
+      "ret_20d": 0.03452351740082804,
       "risk_gate": "always"
     },
     {
@@ -732,7 +732,7 @@
   ],
   "r_5d": {
     "summary": {
-      "as_of": "2026-06-01 16:21:11 AEST",
+      "as_of": "2026-06-02 01:43:58 AEST",
       "coverage": {
         "since": "2026-04-09",
         "until": "2026-06-01"
