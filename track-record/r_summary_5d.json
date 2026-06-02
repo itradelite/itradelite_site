@@ -1,8 +1,8 @@
 {
-  "as_of": "2026-06-02 01:43:58 AEST",
+  "as_of": "2026-06-02 16:05:17 AEST",
   "coverage": {
     "since": "2026-04-09",
-    "until": "2026-06-01"
+    "until": "2026-06-02"
   },
   "horizon_trading_days": 5,
   "method": "Stop-first within horizon using auto-adjusted OHLC from yfinance. If Low <= stop at any point from t..t+h, exit=stop (R=-1). Else exit=Close[t+h]. R=(exit-entry)/(entry-stop). Long-only R where stop < entry.",
