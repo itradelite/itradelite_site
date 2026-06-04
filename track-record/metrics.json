@@ -1,13 +1,13 @@
 {
   "summary": {
-    "as_of": "2026-06-04 16:09:38 AEST",
+    "as_of": "2026-06-04 22:33:55 AEST",
     "since": "2026-04-09",
     "until": "2026-06-04",
     "total_signals_with_entry": 40,
     "total_signals_with_5d": 37,
     "avg_ret_1d": 0.0008091938845728803,
     "avg_ret_5d": 0.019132299920210583,
-    "avg_ret_20d": 0.02531725369497013,
+    "avg_ret_20d": 0.025289921703724627,
     "winrate_1d": 0.5,
     "winrate_5d": 0.6756756756756757,
     "winrate_20d": 0.5833333333333334,
@@ -164,11 +164,11 @@
       "symbol": "FMG.AX",
       "class": "Materials",
       "strategy": "MEAN_REVERSION",
-      "score": 88,
+      "score": 87,
       "order": "LIMIT",
-      "entry_px": 21.005,
+      "entry_px": 21.02,
       "entry_src": "entry",
-      "stop": 20.3193,
+      "stop": 20.3343,
       "ret_1d": null,
       "ret_5d": null,
       "ret_20d": null,
@@ -179,11 +179,11 @@
       "symbol": "TLS.AX",
       "class": "Telecommunication Services",
       "strategy": "MEAN_REVERSION",
-      "score": 98,
+      "score": 100,
       "order": "LIMIT",
-      "entry_px": 4.995,
+      "entry_px": 4.97,
       "entry_src": "entry",
-      "stop": 4.887,
+      "stop": 4.8603,
       "ret_1d": null,
       "ret_5d": null,
       "ret_20d": null,
@@ -411,7 +411,7 @@
       "stop": 29.3633,
       "ret_1d": -0.014430978594969002,
       "ret_5d": 0.004263728077767315,
-      "ret_20d": 0.028205989400045928,
+      "ret_20d": 0.027550021610153852,
       "risk_gate": "always"
     },
     {
@@ -762,7 +762,7 @@
   ],
   "r_5d": {
     "summary": {
-      "as_of": "2026-06-04 16:09:38 AEST",
+      "as_of": "2026-06-04 22:33:55 AEST",
       "coverage": {
         "since": "2026-04-09",
         "until": "2026-06-04"
