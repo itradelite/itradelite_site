@@ -1,16 +1,16 @@
 {
   "summary": {
-    "as_of": "2026-06-04 22:33:55 AEST",
+    "as_of": "2026-06-05 15:49:12 AEST",
     "since": "2026-04-09",
-    "until": "2026-06-04",
-    "total_signals_with_entry": 40,
+    "until": "2026-06-05",
+    "total_signals_with_entry": 42,
     "total_signals_with_5d": 37,
-    "avg_ret_1d": 0.0008091938845728803,
+    "avg_ret_1d": 0.00010133855138398373,
     "avg_ret_5d": 0.019132299920210583,
-    "avg_ret_20d": 0.025289921703724627,
-    "winrate_1d": 0.5,
+    "avg_ret_20d": 0.021967275451550874,
+    "winrate_1d": 0.475,
     "winrate_5d": 0.6756756756756757,
-    "winrate_20d": 0.5833333333333334,
+    "winrate_20d": 0.5769230769230769,
     "equity_curve_proxy_start": 1.0,
     "equity_curve_proxy_end": 1.4555691806719135,
     "equity_curve_proxy_max_drawdown": -0.06794789010440838
@@ -160,6 +160,36 @@
   ],
   "recent_signals": [
     {
+      "date": "2026-06-05",
+      "symbol": "QUB.AX",
+      "class": "Transportation",
+      "strategy": "MEAN_REVERSION",
+      "score": 85,
+      "order": "LIMIT",
+      "entry_px": 4.99,
+      "entry_src": "entry",
+      "stop": 4.9677,
+      "ret_1d": null,
+      "ret_5d": null,
+      "ret_20d": null,
+      "risk_gate": "always"
+    },
+    {
+      "date": "2026-06-05",
+      "symbol": "FMG.AX",
+      "class": "Materials",
+      "strategy": "MEAN_REVERSION",
+      "score": 100,
+      "order": "LIMIT",
+      "entry_px": 20.5,
+      "entry_src": "entry",
+      "stop": 19.8241,
+      "ret_1d": null,
+      "ret_5d": null,
+      "ret_20d": null,
+      "risk_gate": "always"
+    },
+    {
       "date": "2026-06-04",
       "symbol": "FMG.AX",
       "class": "Materials",
@@ -169,7 +199,7 @@
       "entry_px": 21.02,
       "entry_src": "entry",
       "stop": 20.3343,
-      "ret_1d": null,
+      "ret_1d": -0.02568986221538816,
       "ret_5d": null,
       "ret_20d": null,
       "risk_gate": "always"
@@ -184,7 +214,7 @@
       "entry_px": 4.97,
       "entry_src": "entry",
       "stop": 4.8603,
-      "ret_1d": null,
+      "ret_1d": -0.0010059633430219428,
       "ret_5d": null,
       "ret_20d": null,
       "risk_gate": "always"
@@ -281,21 +311,6 @@
     },
     {
       "date": "2026-05-18",
-      "symbol": "PDN.AX",
-      "class": "Energy",
-      "strategy": "MEAN_REVERSION",
-      "score": 100,
-      "order": "LIMIT",
-      "entry_px": 10.38,
-      "entry_src": "entry",
-      "stop": 9.5061,
-      "ret_1d": 0.024084778154500608,
-      "ret_5d": 0.10597296875411999,
-      "ret_20d": null,
-      "risk_gate": "always"
-    },
-    {
-      "date": "2026-05-18",
       "symbol": "NXG.AX",
       "class": "Energy",
       "strategy": "MEAN_REVERSION",
@@ -306,6 +321,21 @@
       "stop": 14.847,
       "ret_1d": -0.003211254851672729,
       "ret_5d": -0.01991004958371534,
+      "ret_20d": null,
+      "risk_gate": "always"
+    },
+    {
+      "date": "2026-05-18",
+      "symbol": "PDN.AX",
+      "class": "Energy",
+      "strategy": "MEAN_REVERSION",
+      "score": 100,
+      "order": "LIMIT",
+      "entry_px": 10.38,
+      "entry_src": "entry",
+      "stop": 9.5061,
+      "ret_1d": 0.024084778154500608,
+      "ret_5d": 0.10597296875411999,
       "ret_20d": null,
       "risk_gate": "always"
     },
@@ -381,7 +411,7 @@
       "stop": 8.8243,
       "ret_1d": -0.008830118507186069,
       "ret_5d": 0.0033112286514067613,
-      "ret_20d": null,
+      "ret_20d": -0.05960264203562515,
       "risk_gate": "always"
     },
     {
@@ -396,7 +426,7 @@
       "stop": 28.9216,
       "ret_1d": 0.015307853693852014,
       "ret_5d": 0.03993347066243835,
-      "ret_20d": null,
+      "ret_20d": 0.02379368288655681,
       "risk_gate": "always"
     },
     {
@@ -551,21 +581,6 @@
     },
     {
       "date": "2026-04-24",
-      "symbol": "FMG.AX",
-      "class": "Materials",
-      "strategy": "MEAN_REVERSION",
-      "score": 85,
-      "order": "LIMIT",
-      "entry_px": 19.78,
-      "entry_src": "entry",
-      "stop": 19.1877,
-      "ret_1d": -0.0005055727267283538,
-      "ret_5d": 0.011627883430338493,
-      "ret_20d": 0.08695648400638079,
-      "risk_gate": "always"
-    },
-    {
-      "date": "2026-04-24",
       "symbol": "IGO.AX",
       "class": "Materials",
       "strategy": "MEAN_REVERSION",
@@ -577,6 +592,21 @@
       "ret_1d": 0.04422252962308226,
       "ret_5d": 0.09557768581751658,
       "ret_20d": 0.31383733772232114,
+      "risk_gate": "always"
+    },
+    {
+      "date": "2026-04-24",
+      "symbol": "FMG.AX",
+      "class": "Materials",
+      "strategy": "MEAN_REVERSION",
+      "score": 85,
+      "order": "LIMIT",
+      "entry_px": 19.78,
+      "entry_src": "entry",
+      "stop": 19.1877,
+      "ret_1d": -0.0005055727267283538,
+      "ret_5d": 0.011627883430338493,
+      "ret_20d": 0.08695648400638079,
       "risk_gate": "always"
     },
     {
@@ -762,10 +792,10 @@
   ],
   "r_5d": {
     "summary": {
-      "as_of": "2026-06-04 22:33:55 AEST",
+      "as_of": "2026-06-05 15:49:12 AEST",
       "coverage": {
         "since": "2026-04-09",
-        "until": "2026-06-04"
+        "until": "2026-06-05"
       },
       "horizon_trading_days": 5,
       "method": "Stop-first within horizon using auto-adjusted OHLC from yfinance. If Low <= stop at any point from t..t+h, exit=stop (R=-1). Else exit=Close[t+h]. R=(exit-entry)/(entry-stop). Long-only R where stop < entry.",
