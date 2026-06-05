@@ -1,13 +1,13 @@
 {
   "summary": {
-    "as_of": "2026-06-05 15:49:12 AEST",
+    "as_of": "2026-06-05 22:26:01 AEST",
     "since": "2026-04-09",
     "until": "2026-06-05",
     "total_signals_with_entry": 42,
     "total_signals_with_5d": 37,
-    "avg_ret_1d": 0.00010133855138398373,
+    "avg_ret_1d": 0.00018595616887994159,
     "avg_ret_5d": 0.019132299920210583,
-    "avg_ret_20d": 0.021967275451550874,
+    "avg_ret_20d": 0.02219531311487276,
     "winrate_1d": 0.475,
     "winrate_5d": 0.6756756756756757,
     "winrate_20d": 0.5769230769230769,
@@ -161,14 +161,14 @@
   "recent_signals": [
     {
       "date": "2026-06-05",
-      "symbol": "QUB.AX",
-      "class": "Transportation",
+      "symbol": "TLS.AX",
+      "class": "Telecommunication Services",
       "strategy": "MEAN_REVERSION",
-      "score": 85,
+      "score": 93,
       "order": "LIMIT",
-      "entry_px": 4.99,
+      "entry_px": 4.97,
       "entry_src": "entry",
-      "stop": 4.9677,
+      "stop": 4.8543,
       "ret_1d": null,
       "ret_5d": null,
       "ret_20d": null,
@@ -181,9 +181,9 @@
       "strategy": "MEAN_REVERSION",
       "score": 100,
       "order": "LIMIT",
-      "entry_px": 20.5,
+      "entry_px": 20.53,
       "entry_src": "entry",
-      "stop": 19.8241,
+      "stop": 19.8541,
       "ret_1d": null,
       "ret_5d": null,
       "ret_20d": null,
@@ -199,7 +199,7 @@
       "entry_px": 21.02,
       "entry_src": "entry",
       "stop": 20.3343,
-      "ret_1d": -0.02568986221538816,
+      "ret_1d": -0.023311120858571788,
       "ret_5d": null,
       "ret_20d": null,
       "risk_gate": "always"
@@ -214,7 +214,7 @@
       "entry_px": 4.97,
       "entry_src": "entry",
       "stop": 4.8603,
-      "ret_1d": -0.0010059633430219428,
+      "ret_1d": 0.0,
       "ret_5d": null,
       "ret_20d": null,
       "risk_gate": "always"
@@ -411,7 +411,7 @@
       "stop": 8.8243,
       "ret_1d": -0.008830118507186069,
       "ret_5d": 0.0033112286514067613,
-      "ret_20d": -0.05960264203562515,
+      "ret_20d": -0.058498969326530204,
       "risk_gate": "always"
     },
     {
@@ -426,7 +426,7 @@
       "stop": 28.9216,
       "ret_1d": 0.015307853693852014,
       "ret_5d": 0.03993347066243835,
-      "ret_20d": 0.02379368288655681,
+      "ret_20d": 0.0286189894238309,
       "risk_gate": "always"
     },
     {
@@ -792,7 +792,7 @@
   ],
   "r_5d": {
     "summary": {
-      "as_of": "2026-06-05 15:49:12 AEST",
+      "as_of": "2026-06-05 22:26:01 AEST",
       "coverage": {
         "since": "2026-04-09",
         "until": "2026-06-05"
