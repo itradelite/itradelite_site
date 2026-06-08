@@ -1,9 +1,9 @@
 {
   "summary": {
-    "as_of": "2026-06-08 16:08:09 AEST",
+    "as_of": "2026-06-08 23:54:57 AEST",
     "since": "2026-04-10",
-    "until": "2026-06-08",
-    "total_signals_with_entry": 43,
+    "until": "2026-06-05",
+    "total_signals_with_entry": 41,
     "total_signals_with_5d": 36,
     "avg_ret_1d": 0.0010158837963119545,
     "avg_ret_5d": 0.019564428991151447,
@@ -154,36 +154,6 @@
     }
   ],
   "recent_signals": [
-    {
-      "date": "2026-06-08",
-      "symbol": "TLS.AX",
-      "class": "Telecommunication Services",
-      "strategy": "MEAN_REVERSION",
-      "score": 93,
-      "order": "LIMIT",
-      "entry_px": 4.97,
-      "entry_src": "entry",
-      "stop": 4.8543,
-      "ret_1d": null,
-      "ret_5d": null,
-      "ret_20d": null,
-      "risk_gate": "always"
-    },
-    {
-      "date": "2026-06-08",
-      "symbol": "FMG.AX",
-      "class": "Materials",
-      "strategy": "MEAN_REVERSION",
-      "score": 100,
-      "order": "LIMIT",
-      "entry_px": 20.53,
-      "entry_src": "entry",
-      "stop": 19.8541,
-      "ret_1d": null,
-      "ret_5d": null,
-      "ret_20d": null,
-      "risk_gate": "always"
-    },
     {
       "date": "2026-06-05",
       "symbol": "TLS.AX",
@@ -636,21 +606,6 @@
     },
     {
       "date": "2026-04-23",
-      "symbol": "AGL.AX",
-      "class": "Utilities",
-      "strategy": "MEAN_REVERSION",
-      "score": 85,
-      "order": "LIMIT",
-      "entry_px": 9.26,
-      "entry_src": "entry",
-      "stop": 9.0526,
-      "ret_1d": 0.02915761311184739,
-      "ret_5d": 0.034557201610659005,
-      "ret_20d": -0.02591790120799431,
-      "risk_gate": "always"
-    },
-    {
-      "date": "2026-04-23",
       "symbol": "LYC.AX",
       "class": "Materials",
       "strategy": "MEAN_REVERSION",
@@ -662,6 +617,21 @@
       "ret_1d": -0.009244158887228515,
       "ret_5d": 0.033714021740663735,
       "ret_20d": 0.009787945141374044,
+      "risk_gate": "always"
+    },
+    {
+      "date": "2026-04-23",
+      "symbol": "AGL.AX",
+      "class": "Utilities",
+      "strategy": "MEAN_REVERSION",
+      "score": 85,
+      "order": "LIMIT",
+      "entry_px": 9.26,
+      "entry_src": "entry",
+      "stop": 9.0526,
+      "ret_1d": 0.02915761311184739,
+      "ret_5d": 0.034557201610659005,
+      "ret_20d": -0.02591790120799431,
       "risk_gate": "always"
     },
     {
@@ -802,10 +772,10 @@
   ],
   "r_5d": {
     "summary": {
-      "as_of": "2026-06-08 16:08:09 AEST",
+      "as_of": "2026-06-08 23:54:57 AEST",
       "coverage": {
         "since": "2026-04-10",
-        "until": "2026-06-08"
+        "until": "2026-06-05"
       },
       "horizon_trading_days": 5,
       "method": "Stop-first within horizon using auto-adjusted OHLC from yfinance. If Low <= stop at any point from t..t+h, exit=stop (R=-1). Else exit=Close[t+h]. R=(exit-entry)/(entry-stop). Long-only R where stop < entry.",
