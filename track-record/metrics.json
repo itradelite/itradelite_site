@@ -1,25 +1,25 @@
 {
   "summary": {
-    "as_of": "2026-06-09 15:19:16 AEST",
+    "as_of": "2026-06-09 22:25:09 AEST",
     "since": "2026-04-17",
     "until": "2026-06-09",
     "total_signals_with_entry": 42,
     "total_signals_with_5d": 36,
-    "avg_ret_1d": 0.0001377667912942665,
-    "avg_ret_5d": 0.019598108949659517,
-    "avg_ret_20d": 0.02886763855323728,
+    "avg_ret_1d": -5.2574856976334014e-05,
+    "avg_ret_5d": 0.0195442748132601,
+    "avg_ret_20d": 0.029068643385706295,
     "winrate_1d": 0.475,
     "winrate_5d": 0.6666666666666666,
     "winrate_20d": 0.64,
     "equity_curve_proxy_start": 1.0,
-    "equity_curve_proxy_end": 1.4521680501109702,
+    "equity_curve_proxy_end": 1.4493150024801924,
     "equity_curve_proxy_max_drawdown": -0.06794789010440827
   },
   "by_strategy_5d": [
     {
       "strategy": "MEAN_REVERSION",
       "trades": 34,
-      "avg_5d": 0.024749954245449374,
+      "avg_5d": 0.024692953395144105,
       "win_5d": 0.7058823529411765,
       "avg_score": 93.76470588235294
     },
@@ -149,8 +149,8 @@
     },
     {
       "date": "2026-06-01",
-      "equity": 1.4521680501109702,
-      "avg_5d_return": -0.013565832731434191
+      "equity": 1.4493150024801924,
+      "avg_5d_return": -0.015503861641813277
     }
   ],
   "recent_signals": [
@@ -159,11 +159,11 @@
       "symbol": "LTR.AX",
       "class": "Materials",
       "strategy": "MEAN_REVERSION",
-      "score": 92,
+      "score": 96,
       "order": "LIMIT",
-      "entry_px": 2.08,
+      "entry_px": 2.07,
       "entry_src": "entry",
-      "stop": 1.933,
+      "stop": 1.923,
       "ret_1d": null,
       "ret_5d": null,
       "ret_20d": null,
@@ -176,9 +176,9 @@
       "strategy": "MEAN_REVERSION",
       "score": 100,
       "order": "LIMIT",
-      "entry_px": 17.24,
+      "entry_px": 17.28,
       "entry_src": "entry",
-      "stop": 16.2856,
+      "stop": 16.3256,
       "ret_1d": null,
       "ret_5d": null,
       "ret_20d": null,
@@ -194,7 +194,7 @@
       "entry_px": 4.97,
       "entry_src": "entry",
       "stop": 4.8543,
-      "ret_1d": 0.0241449431513181,
+      "ret_1d": 0.02213282457908572,
       "ret_5d": null,
       "ret_20d": null,
       "risk_gate": "always"
@@ -209,7 +209,7 @@
       "entry_px": 20.53,
       "entry_src": "entry",
       "stop": 19.8541,
-      "ret_1d": -0.03239166552780093,
+      "ret_1d": -0.03799321288639257,
       "ret_5d": null,
       "ret_20d": null,
       "risk_gate": "always"
@@ -255,7 +255,7 @@
       "entry_src": "entry",
       "stop": 5.0377,
       "ret_1d": 0.0,
-      "ret_5d": -0.013565832731434191,
+      "ret_5d": -0.015503861641813277,
       "ret_20d": null,
       "risk_gate": "always"
     },
@@ -421,7 +421,7 @@
       "stop": 3.8896,
       "ret_1d": 0.005025120811725348,
       "ret_5d": 0.04773870761555665,
-      "ret_20d": 0.08291455329763453,
+      "ret_20d": 0.08793967410935988,
       "risk_gate": "always"
     },
     {
@@ -787,7 +787,7 @@
   ],
   "r_5d": {
     "summary": {
-      "as_of": "2026-06-09 15:19:16 AEST",
+      "as_of": "2026-06-09 22:25:09 AEST",
       "coverage": {
         "since": "2026-04-17",
         "until": "2026-06-09"
