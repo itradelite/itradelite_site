@@ -1,19 +1,19 @@
 {
-  "as_of": "2026-06-08 23:54:57 AEST",
+  "as_of": "2026-06-09 15:19:16 AEST",
   "coverage": {
-    "since": "2026-04-10",
-    "until": "2026-06-05"
+    "since": "2026-04-17",
+    "until": "2026-06-09"
   },
   "horizon_trading_days": 5,
   "method": "Stop-first within horizon using auto-adjusted OHLC from yfinance. If Low <= stop at any point from t..t+h, exit=stop (R=-1). Else exit=Close[t+h]. R=(exit-entry)/(entry-stop). Long-only R where stop < entry.",
   "stats": {
     "n": 36,
-    "mean_r": 0.34245155313346265,
+    "mean_r": 0.3202731930162481,
     "median_r": 0.4420044781947843,
-    "std_r": 1.0305365966830995,
+    "std_r": 1.0509682327913288,
     "winrate": 0.6111111111111112,
     "avg_win_r": 1.0468102390960314,
-    "avg_loss_r": -0.7643978105220027,
+    "avg_loss_r": -0.8214278793948399,
     "min_r": -1.0,
     "max_r": 2.1337137452908483
   }
