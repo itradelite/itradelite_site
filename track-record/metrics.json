@@ -1,11 +1,11 @@
 {
   "summary": {
-    "as_of": "2026-06-10 15:51:25 AEST",
+    "as_of": "2026-06-10 22:47:26 AEST",
     "since": "2026-04-17",
     "until": "2026-06-10",
     "total_signals_with_entry": 44,
     "total_signals_with_5d": 36,
-    "avg_ret_1d": -0.0023244491306100264,
+    "avg_ret_1d": -0.0025128563197013023,
     "avg_ret_5d": 0.0195442748132601,
     "avg_ret_20d": 0.029068643385706295,
     "winrate_1d": 0.4523809523809524,
@@ -156,14 +156,14 @@
   "recent_signals": [
     {
       "date": "2026-06-10",
-      "symbol": "GGP.AX",
-      "class": "Materials",
+      "symbol": "YAL.AX",
+      "class": "Energy",
       "strategy": "MEAN_REVERSION",
-      "score": 100,
+      "score": 95,
       "order": "LIMIT",
-      "entry_px": 11.78,
+      "entry_px": 6.33,
       "entry_src": "entry",
-      "stop": 10.9404,
+      "stop": 5.883,
       "ret_1d": null,
       "ret_5d": null,
       "ret_20d": null,
@@ -176,9 +176,9 @@
       "strategy": "MEAN_REVERSION",
       "score": 100,
       "order": "LIMIT",
-      "entry_px": 16.95,
+      "entry_px": 16.87,
       "entry_src": "entry",
-      "stop": 16.0136,
+      "stop": 15.9336,
       "ret_1d": null,
       "ret_5d": null,
       "ret_20d": null,
@@ -194,7 +194,7 @@
       "entry_px": 2.07,
       "entry_src": "entry",
       "stop": 1.923,
-      "ret_1d": -0.07729467235815213,
+      "ret_1d": -0.07971012906968722,
       "ret_5d": null,
       "ret_20d": null,
       "risk_gate": "always"
@@ -209,7 +209,7 @@
       "entry_px": 17.28,
       "entry_src": "entry",
       "stop": 16.3256,
-      "ret_1d": -0.01822919684841562,
+      "ret_1d": -0.023726842078714117,
       "ret_5d": null,
       "ret_20d": null,
       "risk_gate": "always"
@@ -817,7 +817,7 @@
   ],
   "r_5d": {
     "summary": {
-      "as_of": "2026-06-10 15:51:25 AEST",
+      "as_of": "2026-06-10 22:47:26 AEST",
       "coverage": {
         "since": "2026-04-17",
         "until": "2026-06-10"
