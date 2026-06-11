@@ -1,14 +1,14 @@
 {
   "summary": {
-    "as_of": "2026-06-10 22:47:26 AEST",
+    "as_of": "2026-06-11 16:09:05 AEST",
     "since": "2026-04-17",
-    "until": "2026-06-10",
-    "total_signals_with_entry": 44,
+    "until": "2026-06-11",
+    "total_signals_with_entry": 46,
     "total_signals_with_5d": 36,
-    "avg_ret_1d": -0.0025128563197013023,
+    "avg_ret_1d": -0.0017232266470270272,
     "avg_ret_5d": 0.0195442748132601,
     "avg_ret_20d": 0.029068643385706295,
-    "winrate_1d": 0.4523809523809524,
+    "winrate_1d": 0.45454545454545453,
     "winrate_5d": 0.6666666666666666,
     "winrate_20d": 0.64,
     "equity_curve_proxy_start": 1.0,
@@ -155,6 +155,36 @@
   ],
   "recent_signals": [
     {
+      "date": "2026-06-11",
+      "symbol": "GGP.AX",
+      "class": "Materials",
+      "strategy": "MEAN_REVERSION",
+      "score": 100,
+      "order": "LIMIT",
+      "entry_px": 11.6,
+      "entry_src": "entry",
+      "stop": 10.7861,
+      "ret_1d": null,
+      "ret_5d": null,
+      "ret_20d": null,
+      "risk_gate": "always"
+    },
+    {
+      "date": "2026-06-11",
+      "symbol": "LYC.AX",
+      "class": "Materials",
+      "strategy": "MEAN_REVERSION",
+      "score": 98,
+      "order": "LIMIT",
+      "entry_px": 16.85,
+      "entry_src": "entry",
+      "stop": 15.8373,
+      "ret_1d": null,
+      "ret_5d": null,
+      "ret_20d": null,
+      "risk_gate": "always"
+    },
+    {
       "date": "2026-06-10",
       "symbol": "YAL.AX",
       "class": "Energy",
@@ -164,7 +194,7 @@
       "entry_px": 6.33,
       "entry_src": "entry",
       "stop": 5.883,
-      "ret_1d": null,
+      "ret_1d": 0.0323854543723332,
       "ret_5d": null,
       "ret_20d": null,
       "risk_gate": "always"
@@ -179,7 +209,7 @@
       "entry_px": 16.87,
       "entry_src": "entry",
       "stop": 15.9336,
-      "ret_1d": null,
+      "ret_1d": -0.0026674614140677066,
       "ret_5d": null,
       "ret_20d": null,
       "risk_gate": "always"
@@ -246,21 +276,6 @@
     },
     {
       "date": "2026-06-04",
-      "symbol": "FMG.AX",
-      "class": "Materials",
-      "strategy": "MEAN_REVERSION",
-      "score": 87,
-      "order": "LIMIT",
-      "entry_px": 21.02,
-      "entry_src": "entry",
-      "stop": 20.3343,
-      "ret_1d": -0.023311120858571788,
-      "ret_5d": null,
-      "ret_20d": null,
-      "risk_gate": "always"
-    },
-    {
-      "date": "2026-06-04",
       "symbol": "TLS.AX",
       "class": "Telecommunication Services",
       "strategy": "MEAN_REVERSION",
@@ -270,6 +285,21 @@
       "entry_src": "entry",
       "stop": 4.8603,
       "ret_1d": 0.0,
+      "ret_5d": null,
+      "ret_20d": null,
+      "risk_gate": "always"
+    },
+    {
+      "date": "2026-06-04",
+      "symbol": "FMG.AX",
+      "class": "Materials",
+      "strategy": "MEAN_REVERSION",
+      "score": 87,
+      "order": "LIMIT",
+      "entry_px": 21.02,
+      "entry_src": "entry",
+      "stop": 20.3343,
+      "ret_1d": -0.023311120858571788,
       "ret_5d": null,
       "ret_20d": null,
       "risk_gate": "always"
@@ -636,21 +666,6 @@
     },
     {
       "date": "2026-04-24",
-      "symbol": "IGO.AX",
-      "class": "Materials",
-      "strategy": "MEAN_REVERSION",
-      "score": 100,
-      "order": "LIMIT",
-      "entry_px": 7.01,
-      "entry_src": "entry",
-      "stop": 6.4439,
-      "ret_1d": 0.04422252962308226,
-      "ret_5d": 0.09557768581751658,
-      "ret_20d": 0.31383733772232114,
-      "risk_gate": "always"
-    },
-    {
-      "date": "2026-04-24",
       "symbol": "FMG.AX",
       "class": "Materials",
       "strategy": "MEAN_REVERSION",
@@ -662,6 +677,21 @@
       "ret_1d": -0.0005055727267283538,
       "ret_5d": 0.011627883430338493,
       "ret_20d": 0.08695648400638079,
+      "risk_gate": "always"
+    },
+    {
+      "date": "2026-04-24",
+      "symbol": "IGO.AX",
+      "class": "Materials",
+      "strategy": "MEAN_REVERSION",
+      "score": 100,
+      "order": "LIMIT",
+      "entry_px": 7.01,
+      "entry_src": "entry",
+      "stop": 6.4439,
+      "ret_1d": 0.04422252962308226,
+      "ret_5d": 0.09557768581751658,
+      "ret_20d": 0.31383733772232114,
       "risk_gate": "always"
     },
     {
@@ -817,10 +847,10 @@
   ],
   "r_5d": {
     "summary": {
-      "as_of": "2026-06-10 22:47:26 AEST",
+      "as_of": "2026-06-11 16:09:05 AEST",
       "coverage": {
         "since": "2026-04-17",
-        "until": "2026-06-10"
+        "until": "2026-06-11"
       },
       "horizon_trading_days": 5,
       "method": "Stop-first within horizon using auto-adjusted OHLC from yfinance. If Low <= stop at any point from t..t+h, exit=stop (R=-1). Else exit=Close[t+h]. R=(exit-entry)/(entry-stop). Long-only R where stop < entry.",
