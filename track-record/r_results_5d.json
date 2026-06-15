@@ -1,5 +1,5 @@
 {
-  "as_of": "2026-06-15 16:40:47 AEST",
+  "as_of": "2026-06-16 01:32:31 AEST",
   "horizon_trading_days": 5,
   "results": [
     {
@@ -228,20 +228,6 @@
     },
     {
       "date": "2026-05-08",
-      "symbol": "AGL.AX",
-      "class": "Utilities",
-      "strategy": "MEAN_REVERSION",
-      "score": 91,
-      "order": "LIMIT",
-      "risk_gate": "always",
-      "entry_px": 9.06,
-      "stop": 8.8243,
-      "exit_type_5d": "H5_CLOSE",
-      "exit_px_5d": 9.09000015258789,
-      "r_5d": 0.12728108862066168
-    },
-    {
-      "date": "2026-05-08",
       "symbol": "WDS.AX",
       "class": "Energy",
       "strategy": "MEAN_REVERSION",
@@ -253,6 +239,20 @@
       "exit_type_5d": "H5_CLOSE",
       "exit_px_5d": 31.25,
       "r_5d": 1.0634526763559022
+    },
+    {
+      "date": "2026-05-08",
+      "symbol": "AGL.AX",
+      "class": "Utilities",
+      "strategy": "MEAN_REVERSION",
+      "score": 91,
+      "order": "LIMIT",
+      "risk_gate": "always",
+      "entry_px": 9.06,
+      "stop": 8.8243,
+      "exit_type_5d": "H5_CLOSE",
+      "exit_px_5d": 9.09000015258789,
+      "r_5d": 0.12728108862066168
     },
     {
       "date": "2026-05-07",
@@ -396,20 +396,6 @@
     },
     {
       "date": "2026-04-24",
-      "symbol": "IGO.AX",
-      "class": "Materials",
-      "strategy": "MEAN_REVERSION",
-      "score": 100,
-      "order": "LIMIT",
-      "risk_gate": "always",
-      "entry_px": 7.01,
-      "stop": 6.4439,
-      "exit_type_5d": "H5_CLOSE",
-      "exit_px_5d": 7.679999828338623,
-      "r_5d": 1.1835361744190491
-    },
-    {
-      "date": "2026-04-24",
       "symbol": "FMG.AX",
       "class": "Materials",
       "strategy": "MEAN_REVERSION",
@@ -421,6 +407,20 @@
       "exit_type_5d": "H5_CLOSE",
       "exit_px_5d": 20.010000228881836,
       "r_5d": 0.3883171178150163
+    },
+    {
+      "date": "2026-04-24",
+      "symbol": "IGO.AX",
+      "class": "Materials",
+      "strategy": "MEAN_REVERSION",
+      "score": 100,
+      "order": "LIMIT",
+      "risk_gate": "always",
+      "entry_px": 7.01,
+      "stop": 6.4439,
+      "exit_type_5d": "H5_CLOSE",
+      "exit_px_5d": 7.679999828338623,
+      "r_5d": 1.1835361744190491
     },
     {
       "date": "2026-04-23",
@@ -480,20 +480,6 @@
     },
     {
       "date": "2026-04-21",
-      "symbol": "WDS.AX",
-      "class": "Energy",
-      "strategy": "MEAN_REVERSION",
-      "score": 98,
-      "order": "LIMIT",
-      "risk_gate": "always",
-      "entry_px": 31.21,
-      "stop": 29.5549,
-      "exit_type_5d": "H5_CLOSE",
-      "exit_px_5d": 32.400001525878906,
-      "r_5d": 0.7189907110621139
-    },
-    {
-      "date": "2026-04-21",
       "symbol": "S32.AX",
       "class": "Materials",
       "strategy": "TREND_PULLBACK",
@@ -507,18 +493,18 @@
       "r_5d": -1.0
     },
     {
-      "date": "2026-04-20",
-      "symbol": "LYC.AX",
-      "class": "Materials",
-      "strategy": "TREND_PULLBACK",
-      "score": 100,
-      "order": "STOP",
-      "risk_gate": "risk_on",
-      "entry_px": 20.5405,
-      "stop": 19.7742,
-      "exit_type_5d": "STOP",
-      "exit_px_5d": 19.7742,
-      "r_5d": -1.0
+      "date": "2026-04-21",
+      "symbol": "WDS.AX",
+      "class": "Energy",
+      "strategy": "MEAN_REVERSION",
+      "score": 98,
+      "order": "LIMIT",
+      "risk_gate": "always",
+      "entry_px": 31.21,
+      "stop": 29.5549,
+      "exit_type_5d": "H5_CLOSE",
+      "exit_px_5d": 32.400001525878906,
+      "r_5d": 0.7189907110621139
     },
     {
       "date": "2026-04-20",
@@ -535,32 +521,18 @@
       "r_5d": 0.21577623358621142
     },
     {
-      "date": "2026-04-17",
-      "symbol": "WHC.AX",
-      "class": "Energy",
-      "strategy": "MEAN_REVERSION",
-      "score": 86,
-      "order": "LIMIT",
-      "risk_gate": "always",
-      "entry_px": 8.0,
-      "stop": 7.4407,
-      "exit_type_5d": "H5_CLOSE",
-      "exit_px_5d": 7.929999828338623,
-      "r_5d": -0.1251567524787715
-    },
-    {
-      "date": "2026-04-17",
-      "symbol": "YAL.AX",
-      "class": "Energy",
-      "strategy": "MEAN_REVERSION",
-      "score": 89,
-      "order": "LIMIT",
-      "risk_gate": "always",
-      "entry_px": 6.73,
-      "stop": 6.1776,
-      "exit_type_5d": "H5_CLOSE",
-      "exit_px_5d": 7.179999828338623,
-      "r_5d": 0.8146267710691931
+      "date": "2026-04-20",
+      "symbol": "LYC.AX",
+      "class": "Materials",
+      "strategy": "TREND_PULLBACK",
+      "score": 100,
+      "order": "STOP",
+      "risk_gate": "risk_on",
+      "entry_px": 20.5405,
+      "stop": 19.7742,
+      "exit_type_5d": "STOP",
+      "exit_px_5d": 19.7742,
+      "r_5d": -1.0
     }
   ]
 }
