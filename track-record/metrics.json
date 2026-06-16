@@ -1,27 +1,27 @@
 {
   "summary": {
-    "as_of": "2026-06-16 01:32:31 AEST",
+    "as_of": "2026-06-16 16:45:06 AEST",
     "since": "2026-04-20",
-    "until": "2026-06-15",
-    "total_signals_with_entry": 46,
-    "total_signals_with_5d": 38,
-    "avg_ret_1d": 0.002501104036039009,
-    "avg_ret_5d": 0.018250121682413578,
-    "avg_ret_20d": 0.01895909482838925,
-    "winrate_1d": 0.5227272727272727,
-    "winrate_5d": 0.6842105263157895,
-    "winrate_20d": 0.6153846153846154,
+    "until": "2026-06-16",
+    "total_signals_with_entry": 48,
+    "total_signals_with_5d": 40,
+    "avg_ret_1d": 0.0026046751171554887,
+    "avg_ret_5d": 0.018108799712694034,
+    "avg_ret_20d": 0.01512758241156997,
+    "winrate_1d": 0.5434782608695652,
+    "winrate_5d": 0.675,
+    "winrate_20d": 0.5714285714285714,
     "equity_curve_proxy_start": 1.0,
-    "equity_curve_proxy_end": 1.44232000545175,
+    "equity_curve_proxy_end": 1.4645658909734969,
     "equity_curve_proxy_max_drawdown": -0.06794789010440827
   },
   "by_strategy_5d": [
     {
       "strategy": "MEAN_REVERSION",
-      "trades": 36,
-      "avg_5d": 0.02304086516914589,
-      "win_5d": 0.7222222222222222,
-      "avg_score": 94.25
+      "trades": 38,
+      "avg_5d": 0.02263996080698151,
+      "win_5d": 0.7105263157894737,
+      "avg_score": 94.44736842105263
     },
     {
       "strategy": "TREND_PULLBACK",
@@ -156,9 +156,44 @@
       "date": "2026-06-05",
       "equity": 1.44232000545175,
       "avg_5d_return": 0.02014129337438353
+    },
+    {
+      "date": "2026-06-09",
+      "equity": 1.4645658909734969,
+      "avg_5d_return": 0.015423682288022711
     }
   ],
   "recent_signals": [
+    {
+      "date": "2026-06-16",
+      "symbol": "STO.AX",
+      "class": "Energy",
+      "strategy": "MEAN_REVERSION",
+      "score": 95,
+      "order": "LIMIT",
+      "entry_px": 7.45,
+      "entry_src": "entry",
+      "stop": 7.2104,
+      "ret_1d": null,
+      "ret_5d": null,
+      "ret_20d": null,
+      "risk_gate": "always"
+    },
+    {
+      "date": "2026-06-16",
+      "symbol": "YAL.AX",
+      "class": "Energy",
+      "strategy": "MEAN_REVERSION",
+      "score": 100,
+      "order": "LIMIT",
+      "entry_px": 6.08,
+      "entry_src": "entry",
+      "stop": 5.6939,
+      "ret_1d": null,
+      "ret_5d": null,
+      "ret_20d": null,
+      "risk_gate": "always"
+    },
     {
       "date": "2026-06-15",
       "symbol": "STO.AX",
@@ -169,7 +204,7 @@
       "entry_px": 7.425,
       "entry_src": "entry",
       "stop": 7.1769,
-      "ret_1d": null,
+      "ret_1d": 0.008119072241346892,
       "ret_5d": null,
       "ret_20d": null,
       "risk_gate": "always"
@@ -184,7 +219,7 @@
       "entry_px": 6.09,
       "entry_src": "entry",
       "stop": 5.673,
-      "ret_1d": null,
+      "ret_1d": 0.0016474055620891992,
       "ret_5d": null,
       "ret_20d": null,
       "risk_gate": "always"
@@ -260,7 +295,7 @@
       "entry_src": "entry",
       "stop": 1.923,
       "ret_1d": -0.07971012906968722,
-      "ret_5d": null,
+      "ret_5d": -0.009661826846140142,
       "ret_20d": null,
       "risk_gate": "always"
     },
@@ -275,22 +310,7 @@
       "entry_src": "entry",
       "stop": 16.3256,
       "ret_1d": -0.023726842078714117,
-      "ret_5d": null,
-      "ret_20d": null,
-      "risk_gate": "always"
-    },
-    {
-      "date": "2026-06-05",
-      "symbol": "TLS.AX",
-      "class": "Telecommunication Services",
-      "strategy": "MEAN_REVERSION",
-      "score": 93,
-      "order": "LIMIT",
-      "entry_px": 4.97,
-      "entry_src": "entry",
-      "stop": 4.8543,
-      "ret_1d": 0.02213282457908572,
-      "ret_5d": 0.026156965780456343,
+      "ret_5d": 0.040509191422185564,
       "ret_20d": null,
       "risk_gate": "always"
     },
@@ -310,17 +330,17 @@
       "risk_gate": "always"
     },
     {
-      "date": "2026-06-04",
+      "date": "2026-06-05",
       "symbol": "TLS.AX",
       "class": "Telecommunication Services",
       "strategy": "MEAN_REVERSION",
-      "score": 100,
+      "score": 93,
       "order": "LIMIT",
       "entry_px": 4.97,
       "entry_src": "entry",
-      "stop": 4.8603,
-      "ret_1d": 0.0,
-      "ret_5d": 0.04627767178730946,
+      "stop": 4.8543,
+      "ret_1d": 0.02213282457908572,
+      "ret_5d": 0.026156965780456343,
       "ret_20d": null,
       "risk_gate": "always"
     },
@@ -336,6 +356,21 @@
       "stop": 20.3343,
       "ret_1d": -0.023311120858571788,
       "ret_5d": -0.038534793323082184,
+      "ret_20d": null,
+      "risk_gate": "always"
+    },
+    {
+      "date": "2026-06-04",
+      "symbol": "TLS.AX",
+      "class": "Telecommunication Services",
+      "strategy": "MEAN_REVERSION",
+      "score": 100,
+      "order": "LIMIT",
+      "entry_px": 4.97,
+      "entry_src": "entry",
+      "stop": 4.8603,
+      "ret_1d": 0.0,
+      "ret_5d": 0.04627767178730946,
       "ret_20d": null,
       "risk_gate": "always"
     },
@@ -441,7 +476,7 @@
       "stop": 14.847,
       "ret_1d": -0.003211254851672729,
       "ret_5d": -0.01991004958371534,
-      "ret_20d": null,
+      "ret_20d": -0.05973021000190615,
       "risk_gate": "always"
     },
     {
@@ -456,22 +491,7 @@
       "stop": 9.5061,
       "ret_1d": 0.024084778154500608,
       "ret_5d": 0.10597296875411999,
-      "ret_20d": null,
-      "risk_gate": "always"
-    },
-    {
-      "date": "2026-05-15",
-      "symbol": "PDN.AX",
-      "class": "Energy",
-      "strategy": "MEAN_REVERSION",
-      "score": 90,
-      "order": "LIMIT",
-      "entry_px": 10.65,
-      "entry_src": "entry",
-      "stop": 9.8027,
-      "ret_1d": -0.02535206701975601,
-      "ret_5d": 0.03943662829463146,
-      "ret_20d": -0.017840336825244107,
+      "ret_20d": -0.009633948012255145,
       "risk_gate": "always"
     },
     {
@@ -487,6 +507,21 @@
       "ret_1d": -0.04828856271725823,
       "ret_5d": -0.08863085017380656,
       "ret_20d": -0.1259168913669394,
+      "risk_gate": "always"
+    },
+    {
+      "date": "2026-05-15",
+      "symbol": "PDN.AX",
+      "class": "Energy",
+      "strategy": "MEAN_REVERSION",
+      "score": 90,
+      "order": "LIMIT",
+      "entry_px": 10.65,
+      "entry_src": "entry",
+      "stop": 9.8027,
+      "ret_1d": -0.02535206701975601,
+      "ret_5d": 0.03943662829463146,
+      "ret_20d": -0.017840336825244107,
       "risk_gate": "always"
     },
     {
@@ -852,26 +887,26 @@
   ],
   "r_5d": {
     "summary": {
-      "as_of": "2026-06-16 01:32:31 AEST",
+      "as_of": "2026-06-16 16:45:06 AEST",
       "coverage": {
         "since": "2026-04-20",
-        "until": "2026-06-15"
+        "until": "2026-06-16"
       },
       "horizon_trading_days": 5,
       "method": "Stop-first within horizon using auto-adjusted OHLC from yfinance. If Low <= stop at any point from t..t+h, exit=stop (R=-1). Else exit=Close[t+h]. R=(exit-entry)/(entry-stop). Long-only R where stop < entry.",
       "stats": {
-        "n": 38,
-        "mean_r": 0.3173838167802102,
-        "median_r": 0.4420044781947843,
-        "std_r": 1.1089632687261655,
-        "winrate": 0.6052631578947368,
+        "n": 40,
+        "mean_r": 0.2515146259411998,
+        "median_r": 0.3020466757006139,
+        "std_r": 1.1186075695388942,
+        "winrate": 0.575,
         "avg_win_r": 1.1058877650737813,
-        "avg_loss_r": -0.8916555706032658,
+        "avg_loss_r": -0.9044019740617051,
         "min_r": -1.0,
         "max_r": 2.1337137452908483
       }
     },
-    "n_results": 38
+    "n_results": 40
   },
   "notes": {
     "method": "Signal performance proxy from published recommended_orders CSVs. Forward returns use close-to-close trading bars from yfinance. Equity curve compounds each day\u2019s average 5D return (proxy, not realized portfolio P&L).",
