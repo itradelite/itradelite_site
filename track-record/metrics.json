@@ -1,25 +1,25 @@
 {
   "summary": {
-    "as_of": "2026-06-17 16:29:25 AEST",
+    "as_of": "2026-06-17 23:03:49 AEST",
     "since": "2026-04-20",
     "until": "2026-06-16",
     "total_signals_with_entry": 47,
     "total_signals_with_5d": 42,
-    "avg_ret_1d": 0.0016743964642670786,
-    "avg_ret_5d": 0.017031180914659622,
-    "avg_ret_20d": 0.016567791501170315,
+    "avg_ret_1d": 0.0017443852001905115,
+    "avg_ret_5d": 0.017176977665003167,
+    "avg_ret_20d": 0.016535576318167676,
     "winrate_1d": 0.5319148936170213,
     "winrate_5d": 0.6666666666666666,
     "winrate_20d": 0.5666666666666667,
     "equity_curve_proxy_start": 1.0,
-    "equity_curve_proxy_end": 1.4579443029226449,
+    "equity_curve_proxy_end": 1.4624284108215717,
     "equity_curve_proxy_max_drawdown": -0.06794789010440827
   },
   "by_strategy_5d": [
     {
       "strategy": "MEAN_REVERSION",
       "trades": 40,
-      "avg_5d": 0.021281903014331003,
+      "avg_5d": 0.021434989602191725,
       "win_5d": 0.7,
       "avg_score": 94.6
     },
@@ -164,8 +164,8 @@
     },
     {
       "date": "2026-06-10",
-      "equity": 1.4579443029226449,
-      "avg_5d_return": -0.004521195046028659
+      "equity": 1.4624284108215717,
+      "avg_5d_return": -0.001459463288814189
     }
   ],
   "recent_signals": [
@@ -179,7 +179,7 @@
       "entry_px": 6.09,
       "entry_src": "entry",
       "stop": 5.7039,
-      "ret_1d": -0.041118421568599794,
+      "ret_1d": -0.03782895098019845,
       "ret_5d": null,
       "ret_20d": null,
       "risk_gate": "always"
@@ -255,7 +255,7 @@
       "entry_src": "entry",
       "stop": 5.883,
       "ret_1d": 0.039494471250108854,
-      "ret_5d": -0.07898894250021771,
+      "ret_5d": -0.07582938781339799,
       "ret_20d": null,
       "risk_gate": "always"
     },
@@ -270,7 +270,7 @@
       "entry_src": "entry",
       "stop": 15.9336,
       "ret_1d": 0.0011854504694823742,
-      "ret_5d": 0.06994655240816039,
+      "ret_5d": 0.07291046123576961,
       "ret_20d": null,
       "risk_gate": "always"
     },
@@ -451,7 +451,7 @@
       "stop": 14.8176,
       "ret_1d": -0.039948506504279835,
       "ret_5d": -0.03157221071777505,
-      "ret_20d": -0.028672721351366337,
+      "ret_20d": -0.029639176841445458,
       "risk_gate": "always"
     },
     {
@@ -877,7 +877,7 @@
   ],
   "r_5d": {
     "summary": {
-      "as_of": "2026-06-17 16:29:25 AEST",
+      "as_of": "2026-06-17 23:03:49 AEST",
       "coverage": {
         "since": "2026-04-20",
         "until": "2026-06-16"
