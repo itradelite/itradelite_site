@@ -1,7 +1,35 @@
 {
-  "as_of": "2026-06-17 00:35:01 AEST",
+  "as_of": "2026-06-17 16:29:25 AEST",
   "horizon_trading_days": 5,
   "results": [
+    {
+      "date": "2026-06-10",
+      "symbol": "YAL.AX",
+      "class": "Energy",
+      "strategy": "MEAN_REVERSION",
+      "score": 95,
+      "order": "LIMIT",
+      "risk_gate": "always",
+      "entry_px": 6.33,
+      "stop": 5.883,
+      "exit_type_5d": "STOP",
+      "exit_px_5d": 5.883,
+      "r_5d": -1.0
+    },
+    {
+      "date": "2026-06-10",
+      "symbol": "LYC.AX",
+      "class": "Materials",
+      "strategy": "MEAN_REVERSION",
+      "score": 100,
+      "order": "LIMIT",
+      "risk_gate": "always",
+      "entry_px": 16.87,
+      "stop": 15.9336,
+      "exit_type_5d": "STOP",
+      "exit_px_5d": 15.9336,
+      "r_5d": -1.0
+    },
     {
       "date": "2026-06-09",
       "symbol": "LTR.AX",
@@ -116,20 +144,6 @@
     },
     {
       "date": "2026-05-20",
-      "symbol": "PRU.AX",
-      "class": "Materials",
-      "strategy": "MEAN_REVERSION",
-      "score": 100,
-      "order": "LIMIT",
-      "risk_gate": "always",
-      "entry_px": 5.15,
-      "stop": 4.9516,
-      "exit_type_5d": "H5_CLOSE",
-      "exit_px_5d": 5.380000114440918,
-      "r_5d": 1.1592747703675261
-    },
-    {
-      "date": "2026-05-20",
       "symbol": "GGP.AX",
       "class": "Materials",
       "strategy": "MEAN_REVERSION",
@@ -141,6 +155,20 @@
       "exit_type_5d": "H5_CLOSE",
       "exit_px_5d": 13.550000190734863,
       "r_5d": 1.693767196117697
+    },
+    {
+      "date": "2026-05-20",
+      "symbol": "PRU.AX",
+      "class": "Materials",
+      "strategy": "MEAN_REVERSION",
+      "score": 100,
+      "order": "LIMIT",
+      "risk_gate": "always",
+      "entry_px": 5.15,
+      "stop": 4.9516,
+      "exit_type_5d": "H5_CLOSE",
+      "exit_px_5d": 5.380000114440918,
+      "r_5d": 1.1592747703675261
     },
     {
       "date": "2026-05-19",

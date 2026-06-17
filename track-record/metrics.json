@@ -1,27 +1,27 @@
 {
   "summary": {
-    "as_of": "2026-06-17 00:35:01 AEST",
+    "as_of": "2026-06-17 16:29:25 AEST",
     "since": "2026-04-20",
     "until": "2026-06-16",
     "total_signals_with_entry": 47,
-    "total_signals_with_5d": 40,
-    "avg_ret_1d": 0.0026046751171554887,
-    "avg_ret_5d": 0.018108799712694034,
-    "avg_ret_20d": 0.01512758241156997,
-    "winrate_1d": 0.5434782608695652,
-    "winrate_5d": 0.675,
-    "winrate_20d": 0.5714285714285714,
+    "total_signals_with_5d": 42,
+    "avg_ret_1d": 0.0016743964642670786,
+    "avg_ret_5d": 0.017031180914659622,
+    "avg_ret_20d": 0.016567791501170315,
+    "winrate_1d": 0.5319148936170213,
+    "winrate_5d": 0.6666666666666666,
+    "winrate_20d": 0.5666666666666667,
     "equity_curve_proxy_start": 1.0,
-    "equity_curve_proxy_end": 1.4645658909734969,
+    "equity_curve_proxy_end": 1.4579443029226449,
     "equity_curve_proxy_max_drawdown": -0.06794789010440827
   },
   "by_strategy_5d": [
     {
       "strategy": "MEAN_REVERSION",
-      "trades": 38,
-      "avg_5d": 0.02263996080698151,
-      "win_5d": 0.7105263157894737,
-      "avg_score": 94.44736842105263
+      "trades": 40,
+      "avg_5d": 0.021281903014331003,
+      "win_5d": 0.7,
+      "avg_score": 94.6
     },
     {
       "strategy": "TREND_PULLBACK",
@@ -161,6 +161,11 @@
       "date": "2026-06-09",
       "equity": 1.4645658909734969,
       "avg_5d_return": 0.015423682288022711
+    },
+    {
+      "date": "2026-06-10",
+      "equity": 1.4579443029226449,
+      "avg_5d_return": -0.004521195046028659
     }
   ],
   "recent_signals": [
@@ -174,7 +179,7 @@
       "entry_px": 6.09,
       "entry_src": "entry",
       "stop": 5.7039,
-      "ret_1d": null,
+      "ret_1d": -0.041118421568599794,
       "ret_5d": null,
       "ret_20d": null,
       "risk_gate": "always"
@@ -250,7 +255,7 @@
       "entry_src": "entry",
       "stop": 5.883,
       "ret_1d": 0.039494471250108854,
-      "ret_5d": null,
+      "ret_5d": -0.07898894250021771,
       "ret_20d": null,
       "risk_gate": "always"
     },
@@ -265,7 +270,7 @@
       "entry_src": "entry",
       "stop": 15.9336,
       "ret_1d": 0.0011854504694823742,
-      "ret_5d": null,
+      "ret_5d": 0.06994655240816039,
       "ret_20d": null,
       "risk_gate": "always"
     },
@@ -431,7 +436,7 @@
       "stop": 12.3807,
       "ret_1d": -0.062499977284815045,
       "ret_5d": 0.03201220121626913,
-      "ret_20d": null,
+      "ret_20d": 0.10213415886251664,
       "risk_gate": "always"
     },
     {
@@ -446,7 +451,7 @@
       "stop": 14.8176,
       "ret_1d": -0.039948506504279835,
       "ret_5d": -0.03157221071777505,
-      "ret_20d": null,
+      "ret_20d": -0.028672721351366337,
       "risk_gate": "always"
     },
     {
@@ -872,7 +877,7 @@
   ],
   "r_5d": {
     "summary": {
-      "as_of": "2026-06-17 00:35:01 AEST",
+      "as_of": "2026-06-17 16:29:25 AEST",
       "coverage": {
         "since": "2026-04-20",
         "until": "2026-06-16"
@@ -880,18 +885,18 @@
       "horizon_trading_days": 5,
       "method": "Stop-first within horizon using auto-adjusted OHLC from yfinance. If Low <= stop at any point from t..t+h, exit=stop (R=-1). Else exit=Close[t+h]. R=(exit-entry)/(entry-stop). Long-only R where stop < entry.",
       "stats": {
-        "n": 40,
-        "mean_r": 0.2515146259411998,
-        "median_r": 0.3020466757006139,
-        "std_r": 1.1186075695388942,
-        "winrate": 0.575,
+        "n": 42,
+        "mean_r": 0.19191869137257123,
+        "median_r": 0.17152866110343656,
+        "std_r": 1.1238375049728724,
+        "winrate": 0.5476190476190477,
         "avg_win_r": 1.1058877650737813,
-        "avg_loss_r": -0.9044019740617051,
+        "avg_loss_r": -0.914464924160473,
         "min_r": -1.0,
         "max_r": 2.1337137452908483
       }
     },
-    "n_results": 40
+    "n_results": 42
   },
   "notes": {
     "method": "Signal performance proxy from published recommended_orders CSVs. Forward returns use close-to-close trading bars from yfinance. Equity curve compounds each day\u2019s average 5D return (proxy, not realized portfolio P&L).",
