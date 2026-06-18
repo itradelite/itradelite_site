@@ -1,7 +1,35 @@
 {
-  "as_of": "2026-06-17 23:03:49 AEST",
+  "as_of": "2026-06-18 16:10:38 AEST",
   "horizon_trading_days": 5,
   "results": [
+    {
+      "date": "2026-06-11",
+      "symbol": "GGP.AX",
+      "class": "Materials",
+      "strategy": "MEAN_REVERSION",
+      "score": 100,
+      "order": "LIMIT",
+      "risk_gate": "always",
+      "entry_px": 11.55,
+      "stop": 10.7361,
+      "exit_type_5d": "H5_CLOSE",
+      "exit_px_5d": 14.3149995803833,
+      "r_5d": 3.39722273053606
+    },
+    {
+      "date": "2026-06-11",
+      "symbol": "LYC.AX",
+      "class": "Materials",
+      "strategy": "MEAN_REVERSION",
+      "score": 96,
+      "order": "LIMIT",
+      "risk_gate": "always",
+      "entry_px": 16.89,
+      "stop": 15.8773,
+      "exit_type_5d": "STOP",
+      "exit_px_5d": 15.8773,
+      "r_5d": -1.0
+    },
     {
       "date": "2026-06-10",
       "symbol": "YAL.AX",
