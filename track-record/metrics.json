@@ -1,179 +1,204 @@
 {
   "summary": {
-    "as_of": "2026-06-18 22:40:52 AEST",
-    "since": "2026-04-20",
-    "until": "2026-06-18",
+    "as_of": "2026-06-19 16:32:13 AEST",
+    "since": "2026-04-21",
+    "until": "2026-06-19",
     "total_signals_with_entry": 49,
-    "total_signals_with_5d": 44,
-    "avg_ret_1d": 0.0017443852001905115,
-    "avg_ret_5d": 0.022921132295609725,
-    "avg_ret_20d": 0.02277206035957553,
-    "winrate_1d": 0.5319148936170213,
-    "winrate_5d": 0.6818181818181818,
-    "winrate_20d": 0.59375,
+    "total_signals_with_5d": 42,
+    "avg_ret_1d": 0.0027754060361442037,
+    "avg_ret_5d": 0.02644021817228777,
+    "avg_ret_20d": 0.02493131776986055,
+    "winrate_1d": 0.5531914893617021,
+    "winrate_5d": 0.6904761904761905,
+    "winrate_20d": 0.5806451612903226,
     "equity_curve_proxy_start": 1.0,
-    "equity_curve_proxy_end": 1.672357639385849,
+    "equity_curve_proxy_end": 1.7621936943648426,
     "equity_curve_proxy_max_drawdown": -0.06794789010440827
   },
   "by_strategy_5d": [
     {
       "strategy": "MEAN_REVERSION",
-      "trades": 42,
-      "avg_5d": 0.02724991293248485,
-      "win_5d": 0.7142857142857143,
-      "avg_score": 94.76190476190476
+      "trades": 41,
+      "avg_5d": 0.027638167789191686,
+      "win_5d": 0.7073170731707317,
+      "avg_score": 94.8048780487805
     },
     {
       "strategy": "TREND_PULLBACK",
-      "trades": 2,
-      "avg_5d": -0.06798326107876801,
+      "trades": 1,
+      "avg_5d": -0.022675716120772793,
       "win_5d": 0.0,
       "avg_score": 100.0
     }
   ],
   "equity_curve_proxy_5d": [
     {
-      "date": "2026-04-20",
-      "equity": 0.9490203288853708,
-      "avg_5d_return": -0.0509796711146292
-    },
-    {
       "date": "2026-04-21",
-      "equity": 0.9563530142183777,
+      "equity": 1.007726584046539,
       "avg_5d_return": 0.007726584046539087
     },
     {
       "date": "2026-04-22",
-      "equity": 1.012660796934067,
+      "equity": 1.0670591199278547,
       "avg_5d_return": 0.058877613055582034
     },
     {
       "date": "2026-04-23",
-      "equity": 1.0472285926573741,
+      "equity": 1.1034838356806849,
       "avg_5d_return": 0.03413561167566137
     },
     {
       "date": "2026-04-24",
-      "equity": 1.103362961361606,
+      "equity": 1.162633642060662,
       "avg_5d_return": 0.053602784623927535
     },
     {
       "date": "2026-04-27",
-      "equity": 1.1534048471699443,
+      "equity": 1.215363688283289,
       "avg_5d_return": 0.04535396561307814
     },
     {
       "date": "2026-04-28",
-      "equity": 1.1862342281374811,
+      "equity": 1.2499566047554738,
       "avg_5d_return": 0.028463016301768507
     },
     {
       "date": "2026-04-29",
-      "equity": 1.2110886897516677,
+      "equity": 1.2761462035002955,
       "avg_5d_return": 0.02095240638369611
     },
     {
       "date": "2026-04-30",
-      "equity": 1.2961934644582176,
+      "equity": 1.3658226541686451,
       "avg_5d_return": 0.07027129840012025
     },
     {
       "date": "2026-05-01",
-      "equity": 1.2753176129423602,
+      "equity": 1.3438253893256715,
       "avg_5d_return": -0.01610550592043225
     },
     {
       "date": "2026-05-04",
-      "equity": 1.260641510858766,
+      "equity": 1.328360913342495,
       "avg_5d_return": -0.011507801613226398
     },
     {
       "date": "2026-05-05",
-      "equity": 1.242425220237763,
+      "equity": 1.3091660762388493,
       "avg_5d_return": -0.014450016490884732
     },
     {
       "date": "2026-05-06",
-      "equity": 1.2081198533811583,
+      "equity": 1.2730178865610828,
       "avg_5d_return": -0.02761161500733189
     },
     {
       "date": "2026-05-07",
-      "equity": 1.2132709479213277,
+      "equity": 1.2784456886675133,
       "avg_5d_return": 0.004263728077767315
     },
     {
       "date": "2026-05-08",
-      "equity": 1.2395047165858686,
+      "equity": 1.3060886883652674,
       "avg_5d_return": 0.021622349656922557
     },
     {
       "date": "2026-05-11",
-      "equity": 1.2986770698390648,
+      "equity": 1.3684396743791227,
       "avg_5d_return": 0.04773870761555665
     },
     {
       "date": "2026-05-14",
-      "equity": 1.2624348960107195,
+      "equity": 1.3302506359304818,
       "avg_5d_return": -0.027906994486963987
     },
     {
       "date": "2026-05-15",
-      "equity": 1.231382644819537,
+      "equity": 1.297530313461043,
       "avg_5d_return": -0.024597110939587552
     },
     {
       "date": "2026-05-18",
-      "equity": 1.2843708373340086,
+      "equity": 1.3533649367053169,
       "avg_5d_return": 0.043031459585202325
     },
     {
       "date": "2026-05-19",
-      "equity": 1.2846533928164934,
+      "equity": 1.3536626705618895,
       "avg_5d_return": 0.00021999524924704028
     },
     {
       "date": "2026-05-20",
-      "equity": 1.378616931930692,
+      "equity": 1.4526737625840798,
       "avg_5d_return": 0.07314310586779493
     },
     {
       "date": "2026-05-21",
-      "equity": 1.4305702346365214,
+      "equity": 1.5074179035940503,
       "avg_5d_return": 0.03768508967394668
     },
     {
       "date": "2026-06-01",
-      "equity": 1.4083908716498204,
+      "equity": 1.4840471049803359,
       "avg_5d_return": -0.015503861641813277
     },
     {
       "date": "2026-06-04",
-      "equity": 1.413843371324476,
+      "equity": 1.4897925031648613,
       "avg_5d_return": 0.003871439232113638
     },
     {
       "date": "2026-06-05",
-      "equity": 1.44232000545175,
+      "equity": 1.5197988510380622,
       "avg_5d_return": 0.02014129337438353
     },
     {
       "date": "2026-06-09",
-      "equity": 1.4645658909734969,
+      "equity": 1.5432397456581752,
       "avg_5d_return": 0.015423682288022711
     },
     {
       "date": "2026-06-10",
-      "equity": 1.4624284108215717,
+      "equity": 1.5409874439035482,
       "avg_5d_return": -0.001459463288814189
     },
     {
       "date": "2026-06-11",
-      "equity": 1.672357639385849,
+      "equity": 1.7621936943648426,
       "avg_5d_return": 0.14354837953834743
     }
   ],
   "recent_signals": [
+    {
+      "date": "2026-06-19",
+      "symbol": "AAI.AX",
+      "class": "Materials",
+      "strategy": "MEAN_REVERSION",
+      "score": 92,
+      "order": "LIMIT",
+      "entry_px": 83.14,
+      "entry_src": "entry",
+      "stop": 77.281,
+      "ret_1d": null,
+      "ret_5d": null,
+      "ret_20d": null,
+      "risk_gate": "always"
+    },
+    {
+      "date": "2026-06-19",
+      "symbol": "IGO.AX",
+      "class": "Materials",
+      "strategy": "MEAN_REVERSION",
+      "score": 100,
+      "order": "LIMIT",
+      "entry_px": 8.17,
+      "entry_src": "entry",
+      "stop": 7.6017,
+      "ret_1d": null,
+      "ret_5d": null,
+      "ret_20d": null,
+      "risk_gate": "always"
+    },
     {
       "date": "2026-06-18",
       "symbol": "STO.AX",
@@ -184,7 +209,7 @@
       "entry_px": 7.33,
       "entry_src": "entry",
       "stop": 7.0921,
-      "ret_1d": null,
+      "ret_1d": -0.0040927330536756346,
       "ret_5d": null,
       "ret_20d": null,
       "risk_gate": "always"
@@ -199,7 +224,7 @@
       "entry_px": 28.62,
       "entry_src": "entry",
       "stop": 27.6424,
-      "ret_1d": null,
+      "ret_1d": 0.014325640649530236,
       "ret_5d": null,
       "ret_20d": null,
       "risk_gate": "always"
@@ -311,21 +336,6 @@
     },
     {
       "date": "2026-06-09",
-      "symbol": "LTR.AX",
-      "class": "Materials",
-      "strategy": "MEAN_REVERSION",
-      "score": 96,
-      "order": "LIMIT",
-      "entry_px": 2.07,
-      "entry_src": "entry",
-      "stop": 1.923,
-      "ret_1d": -0.07971012906968722,
-      "ret_5d": -0.009661826846140142,
-      "ret_20d": null,
-      "risk_gate": "always"
-    },
-    {
-      "date": "2026-06-09",
       "symbol": "LYC.AX",
       "class": "Materials",
       "strategy": "MEAN_REVERSION",
@@ -340,17 +350,17 @@
       "risk_gate": "always"
     },
     {
-      "date": "2026-06-05",
-      "symbol": "FMG.AX",
+      "date": "2026-06-09",
+      "symbol": "LTR.AX",
       "class": "Materials",
       "strategy": "MEAN_REVERSION",
-      "score": 100,
+      "score": 96,
       "order": "LIMIT",
-      "entry_px": 20.53,
+      "entry_px": 2.07,
       "entry_src": "entry",
-      "stop": 19.8541,
-      "ret_1d": -0.03799321288639257,
-      "ret_5d": 0.014125620968310715,
+      "stop": 1.923,
+      "ret_1d": -0.07971012906968722,
+      "ret_5d": -0.009661826846140142,
       "ret_20d": null,
       "risk_gate": "always"
     },
@@ -366,6 +376,21 @@
       "stop": 4.8543,
       "ret_1d": 0.02213282457908572,
       "ret_5d": 0.026156965780456343,
+      "ret_20d": null,
+      "risk_gate": "always"
+    },
+    {
+      "date": "2026-06-05",
+      "symbol": "FMG.AX",
+      "class": "Materials",
+      "strategy": "MEAN_REVERSION",
+      "score": 100,
+      "order": "LIMIT",
+      "entry_px": 20.53,
+      "entry_src": "entry",
+      "stop": 19.8541,
+      "ret_1d": -0.03799321288639257,
+      "ret_5d": 0.014125620968310715,
       "ret_20d": null,
       "risk_gate": "always"
     },
@@ -426,7 +451,7 @@
       "stop": 14.2124,
       "ret_1d": 0.0033647504636646897,
       "ret_5d": 0.03768508967394668,
-      "ret_20d": null,
+      "ret_20d": -0.015477762284670016,
       "risk_gate": "always"
     },
     {
@@ -821,21 +846,6 @@
     },
     {
       "date": "2026-04-22",
-      "symbol": "STO.AX",
-      "class": "Energy",
-      "strategy": "MEAN_REVERSION",
-      "score": 89,
-      "order": "LIMIT",
-      "entry_px": 7.44,
-      "entry_src": "entry",
-      "stop": 7.1426,
-      "ret_1d": 0.036290319737898535,
-      "ret_5d": 0.04435482811398539,
-      "ret_20d": 0.08736560354413059,
-      "risk_gate": "always"
-    },
-    {
-      "date": "2026-04-22",
       "symbol": "WDS.AX",
       "class": "Energy",
       "strategy": "MEAN_REVERSION",
@@ -850,19 +860,19 @@
       "risk_gate": "always"
     },
     {
-      "date": "2026-04-21",
-      "symbol": "S32.AX",
-      "class": "Materials",
-      "strategy": "TREND_PULLBACK",
-      "score": 100,
-      "order": "STOP",
-      "entry_px": 4.4745,
+      "date": "2026-04-22",
+      "symbol": "STO.AX",
+      "class": "Energy",
+      "strategy": "MEAN_REVERSION",
+      "score": 89,
+      "order": "LIMIT",
+      "entry_px": 7.44,
       "entry_src": "entry",
-      "stop": 4.2941,
-      "ret_1d": 0.020408198571867153,
-      "ret_5d": -0.022675716120772793,
-      "ret_20d": -0.07936506048587655,
-      "risk_gate": "risk_on"
+      "stop": 7.1426,
+      "ret_1d": 0.036290319737898535,
+      "ret_5d": 0.04435482811398539,
+      "ret_20d": 0.08736560354413059,
+      "risk_gate": "always"
     },
     {
       "date": "2026-04-21",
@@ -880,58 +890,43 @@
       "risk_gate": "always"
     },
     {
-      "date": "2026-04-20",
-      "symbol": "WDS.AX",
-      "class": "Energy",
-      "strategy": "MEAN_REVERSION",
-      "score": 93,
-      "order": "LIMIT",
-      "entry_px": 31.77,
-      "entry_src": "entry",
-      "stop": 30.1016,
-      "ret_1d": -0.017626734819708445,
-      "ret_5d": 0.011331463807504827,
-      "ret_20d": 0.011961002915956032,
-      "risk_gate": "always"
-    },
-    {
-      "date": "2026-04-20",
-      "symbol": "LYC.AX",
+      "date": "2026-04-21",
+      "symbol": "S32.AX",
       "class": "Materials",
       "strategy": "TREND_PULLBACK",
       "score": 100,
       "order": "STOP",
-      "entry_px": 20.5405,
+      "entry_px": 4.4745,
       "entry_src": "entry",
-      "stop": 19.7742,
-      "ret_1d": -0.020598336874260492,
-      "ret_5d": -0.11329080603676323,
-      "ret_20d": -0.07160368455988608,
+      "stop": 4.2941,
+      "ret_1d": 0.020408198571867153,
+      "ret_5d": -0.022675716120772793,
+      "ret_20d": -0.07936506048587655,
       "risk_gate": "risk_on"
     }
   ],
   "r_5d": {
     "summary": {
-      "as_of": "2026-06-18 22:40:52 AEST",
+      "as_of": "2026-06-19 16:32:13 AEST",
       "coverage": {
-        "since": "2026-04-20",
-        "until": "2026-06-18"
+        "since": "2026-04-21",
+        "until": "2026-06-19"
       },
       "horizon_trading_days": 5,
       "method": "Stop-first within horizon using auto-adjusted OHLC from yfinance. If Low <= stop at any point from t..t+h, exit=stop (R=-1). Else exit=Close[t+h]. R=(exit-entry)/(entry-stop). Long-only R where stop < entry.",
       "stats": {
-        "n": 44,
-        "mean_r": 0.23530391561332156,
-        "median_r": 0.17152866110343656,
-        "std_r": 1.2078876045387175,
-        "winrate": 0.5454545454545454,
-        "avg_win_r": 1.1970085769181307,
-        "avg_loss_r": -0.9187416779524493,
+        "n": 42,
+        "mean_r": 0.2651808584142842,
+        "median_r": 0.257799103217839,
+        "std_r": 1.2214827892057838,
+        "winrate": 0.5476190476190477,
+        "avg_win_r": 1.2396708527151705,
+        "avg_loss_r": -0.914464924160473,
         "min_r": -1.0,
         "max_r": 3.292787249338158
       }
     },
-    "n_results": 44
+    "n_results": 42
   },
   "notes": {
     "method": "Signal performance proxy from published recommended_orders CSVs. Forward returns use close-to-close trading bars from yfinance. Equity curve compounds each day\u2019s average 5D return (proxy, not realized portfolio P&L).",

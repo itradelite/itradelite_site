@@ -1,5 +1,5 @@
 {
-  "as_of": "2026-06-18 22:40:52 AEST",
+  "as_of": "2026-06-19 16:32:13 AEST",
   "horizon_trading_days": 5,
   "results": [
     {
@@ -256,20 +256,6 @@
     },
     {
       "date": "2026-05-15",
-      "symbol": "NXG.AX",
-      "class": "Energy",
-      "strategy": "MEAN_REVERSION",
-      "score": 85,
-      "order": "LIMIT",
-      "risk_gate": "always",
-      "entry_px": 16.36,
-      "stop": 15.6979,
-      "exit_type_5d": "STOP",
-      "exit_px_5d": 15.6979,
-      "r_5d": -1.0
-    },
-    {
-      "date": "2026-05-15",
       "symbol": "PDN.AX",
       "class": "Energy",
       "strategy": "MEAN_REVERSION",
@@ -281,6 +267,20 @@
       "exit_type_5d": "H5_CLOSE",
       "exit_px_5d": 11.069999694824219,
       "r_5d": 0.49569183857455223
+    },
+    {
+      "date": "2026-05-15",
+      "symbol": "NXG.AX",
+      "class": "Energy",
+      "strategy": "MEAN_REVERSION",
+      "score": 85,
+      "order": "LIMIT",
+      "risk_gate": "always",
+      "entry_px": 16.36,
+      "stop": 15.6979,
+      "exit_type_5d": "STOP",
+      "exit_px_5d": 15.6979,
+      "r_5d": -1.0
     },
     {
       "date": "2026-05-14",
@@ -410,20 +410,6 @@
     },
     {
       "date": "2026-04-30",
-      "symbol": "EVN.AX",
-      "class": "Materials",
-      "strategy": "MEAN_REVERSION",
-      "score": 100,
-      "order": "LIMIT",
-      "risk_gate": "always",
-      "entry_px": 11.9,
-      "stop": 11.1839,
-      "exit_type_5d": "H5_CLOSE",
-      "exit_px_5d": 13.100000381469727,
-      "r_5d": 1.6757441439320273
-    },
-    {
-      "date": "2026-04-30",
       "symbol": "S32.AX",
       "class": "Materials",
       "strategy": "MEAN_REVERSION",
@@ -435,6 +421,20 @@
       "exit_type_5d": "STOP",
       "exit_px_5d": 3.8487,
       "r_5d": -1.0
+    },
+    {
+      "date": "2026-04-30",
+      "symbol": "EVN.AX",
+      "class": "Materials",
+      "strategy": "MEAN_REVERSION",
+      "score": 100,
+      "order": "LIMIT",
+      "risk_gate": "always",
+      "entry_px": 11.9,
+      "stop": 11.1839,
+      "exit_type_5d": "H5_CLOSE",
+      "exit_px_5d": 13.100000381469727,
+      "r_5d": 1.6757441439320273
     },
     {
       "date": "2026-04-29",
@@ -536,20 +536,6 @@
     },
     {
       "date": "2026-04-22",
-      "symbol": "STO.AX",
-      "class": "Energy",
-      "strategy": "MEAN_REVERSION",
-      "score": 89,
-      "order": "LIMIT",
-      "risk_gate": "always",
-      "entry_px": 7.44,
-      "stop": 7.1426,
-      "exit_type_5d": "H5_CLOSE",
-      "exit_px_5d": 7.769999980926514,
-      "r_5d": 1.109616613740796
-    },
-    {
-      "date": "2026-04-22",
       "symbol": "WDS.AX",
       "class": "Energy",
       "strategy": "MEAN_REVERSION",
@@ -563,18 +549,18 @@
       "r_5d": 1.3556470739970912
     },
     {
-      "date": "2026-04-21",
-      "symbol": "S32.AX",
-      "class": "Materials",
-      "strategy": "TREND_PULLBACK",
-      "score": 100,
-      "order": "STOP",
-      "risk_gate": "risk_on",
-      "entry_px": 4.4745,
-      "stop": 4.2941,
-      "exit_type_5d": "STOP",
-      "exit_px_5d": 4.2941,
-      "r_5d": -1.0
+      "date": "2026-04-22",
+      "symbol": "STO.AX",
+      "class": "Energy",
+      "strategy": "MEAN_REVERSION",
+      "score": 89,
+      "order": "LIMIT",
+      "risk_gate": "always",
+      "entry_px": 7.44,
+      "stop": 7.1426,
+      "exit_type_5d": "H5_CLOSE",
+      "exit_px_5d": 7.769999980926514,
+      "r_5d": 1.109616613740796
     },
     {
       "date": "2026-04-21",
@@ -591,31 +577,17 @@
       "r_5d": 0.7189907110621139
     },
     {
-      "date": "2026-04-20",
-      "symbol": "WDS.AX",
-      "class": "Energy",
-      "strategy": "MEAN_REVERSION",
-      "score": 93,
-      "order": "LIMIT",
-      "risk_gate": "always",
-      "entry_px": 31.77,
-      "stop": 30.1016,
-      "exit_type_5d": "H5_CLOSE",
-      "exit_px_5d": 32.130001068115234,
-      "r_5d": 0.21577623358621142
-    },
-    {
-      "date": "2026-04-20",
-      "symbol": "LYC.AX",
+      "date": "2026-04-21",
+      "symbol": "S32.AX",
       "class": "Materials",
       "strategy": "TREND_PULLBACK",
       "score": 100,
       "order": "STOP",
       "risk_gate": "risk_on",
-      "entry_px": 20.5405,
-      "stop": 19.7742,
+      "entry_px": 4.4745,
+      "stop": 4.2941,
       "exit_type_5d": "STOP",
-      "exit_px_5d": 19.7742,
+      "exit_px_5d": 4.2941,
       "r_5d": -1.0
     }
   ]
