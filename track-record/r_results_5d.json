@@ -1,7 +1,35 @@
 {
-  "as_of": "2026-06-19 23:04:04 AEST",
+  "as_of": "2026-06-22 16:42:54 AEST",
   "horizon_trading_days": 5,
   "results": [
+    {
+      "date": "2026-06-15",
+      "symbol": "STO.AX",
+      "class": "Energy",
+      "strategy": "MEAN_REVERSION",
+      "score": 100,
+      "order": "LIMIT",
+      "risk_gate": "always",
+      "entry_px": 7.425,
+      "stop": 7.1769,
+      "exit_type_5d": "H5_CLOSE",
+      "exit_px_5d": 7.300000190734863,
+      "r_5d": -0.503828332386685
+    },
+    {
+      "date": "2026-06-15",
+      "symbol": "YAL.AX",
+      "class": "Energy",
+      "strategy": "MEAN_REVERSION",
+      "score": 100,
+      "order": "LIMIT",
+      "risk_gate": "always",
+      "entry_px": 6.09,
+      "stop": 5.673,
+      "exit_type_5d": "STOP",
+      "exit_px_5d": 5.673,
+      "r_5d": -1.0
+    },
     {
       "date": "2026-06-11",
       "symbol": "GGP.AX",
@@ -88,20 +116,6 @@
     },
     {
       "date": "2026-06-05",
-      "symbol": "TLS.AX",
-      "class": "Telecommunication Services",
-      "strategy": "MEAN_REVERSION",
-      "score": 93,
-      "order": "LIMIT",
-      "risk_gate": "always",
-      "entry_px": 4.97,
-      "stop": 4.8543,
-      "exit_type_5d": "H5_CLOSE",
-      "exit_px_5d": 5.099999904632568,
-      "r_5d": 1.1235946813532343
-    },
-    {
-      "date": "2026-06-05",
       "symbol": "FMG.AX",
       "class": "Materials",
       "strategy": "MEAN_REVERSION",
@@ -113,6 +127,20 @@
       "exit_type_5d": "STOP",
       "exit_px_5d": 19.8541,
       "r_5d": -1.0
+    },
+    {
+      "date": "2026-06-05",
+      "symbol": "TLS.AX",
+      "class": "Telecommunication Services",
+      "strategy": "MEAN_REVERSION",
+      "score": 93,
+      "order": "LIMIT",
+      "risk_gate": "always",
+      "entry_px": 4.97,
+      "stop": 4.8543,
+      "exit_type_5d": "H5_CLOSE",
+      "exit_px_5d": 5.099999904632568,
+      "r_5d": 1.1235946813532343
     },
     {
       "date": "2026-06-04",
@@ -200,20 +228,6 @@
     },
     {
       "date": "2026-05-19",
-      "symbol": "GGP.AX",
-      "class": "Materials",
-      "strategy": "MEAN_REVERSION",
-      "score": 85,
-      "order": "LIMIT",
-      "risk_gate": "always",
-      "entry_px": 13.12,
-      "stop": 12.3807,
-      "exit_type_5d": "STOP",
-      "exit_px_5d": 12.3807,
-      "r_5d": -1.0
-    },
-    {
-      "date": "2026-05-19",
       "symbol": "NXG.AX",
       "class": "Energy",
       "strategy": "MEAN_REVERSION",
@@ -224,6 +238,20 @@
       "stop": 14.8176,
       "exit_type_5d": "STOP",
       "exit_px_5d": 14.8176,
+      "r_5d": -1.0
+    },
+    {
+      "date": "2026-05-19",
+      "symbol": "GGP.AX",
+      "class": "Materials",
+      "strategy": "MEAN_REVERSION",
+      "score": 85,
+      "order": "LIMIT",
+      "risk_gate": "always",
+      "entry_px": 13.12,
+      "stop": 12.3807,
+      "exit_type_5d": "STOP",
+      "exit_px_5d": 12.3807,
       "r_5d": -1.0
     },
     {
@@ -256,20 +284,6 @@
     },
     {
       "date": "2026-05-15",
-      "symbol": "PDN.AX",
-      "class": "Energy",
-      "strategy": "MEAN_REVERSION",
-      "score": 90,
-      "order": "LIMIT",
-      "risk_gate": "always",
-      "entry_px": 10.65,
-      "stop": 9.8027,
-      "exit_type_5d": "H5_CLOSE",
-      "exit_px_5d": 11.069999694824219,
-      "r_5d": 0.49569183857455223
-    },
-    {
-      "date": "2026-05-15",
       "symbol": "NXG.AX",
       "class": "Energy",
       "strategy": "MEAN_REVERSION",
@@ -281,6 +295,20 @@
       "exit_type_5d": "STOP",
       "exit_px_5d": 15.6979,
       "r_5d": -1.0
+    },
+    {
+      "date": "2026-05-15",
+      "symbol": "PDN.AX",
+      "class": "Energy",
+      "strategy": "MEAN_REVERSION",
+      "score": 90,
+      "order": "LIMIT",
+      "risk_gate": "always",
+      "entry_px": 10.65,
+      "stop": 9.8027,
+      "exit_type_5d": "H5_CLOSE",
+      "exit_px_5d": 11.069999694824219,
+      "r_5d": 0.49569183857455223
     },
     {
       "date": "2026-05-14",
@@ -410,20 +438,6 @@
     },
     {
       "date": "2026-04-30",
-      "symbol": "S32.AX",
-      "class": "Materials",
-      "strategy": "MEAN_REVERSION",
-      "score": 100,
-      "order": "LIMIT",
-      "risk_gate": "always",
-      "entry_px": 4.03,
-      "stop": 3.8487,
-      "exit_type_5d": "STOP",
-      "exit_px_5d": 3.8487,
-      "r_5d": -1.0
-    },
-    {
-      "date": "2026-04-30",
       "symbol": "EVN.AX",
       "class": "Materials",
       "strategy": "MEAN_REVERSION",
@@ -435,6 +449,20 @@
       "exit_type_5d": "H5_CLOSE",
       "exit_px_5d": 13.100000381469727,
       "r_5d": 1.6757441439320273
+    },
+    {
+      "date": "2026-04-30",
+      "symbol": "S32.AX",
+      "class": "Materials",
+      "strategy": "MEAN_REVERSION",
+      "score": 100,
+      "order": "LIMIT",
+      "risk_gate": "always",
+      "entry_px": 4.03,
+      "stop": 3.8487,
+      "exit_type_5d": "STOP",
+      "exit_px_5d": 3.8487,
+      "r_5d": -1.0
     },
     {
       "date": "2026-04-29",
@@ -505,90 +533,6 @@
       "exit_type_5d": "H5_CLOSE",
       "exit_px_5d": 7.679999828338623,
       "r_5d": 1.1835361744190491
-    },
-    {
-      "date": "2026-04-23",
-      "symbol": "AGL.AX",
-      "class": "Utilities",
-      "strategy": "MEAN_REVERSION",
-      "score": 85,
-      "order": "LIMIT",
-      "risk_gate": "always",
-      "entry_px": 9.26,
-      "stop": 9.0526,
-      "exit_type_5d": "H5_CLOSE",
-      "exit_px_5d": 9.579999923706055,
-      "r_5d": 1.5429118790070164
-    },
-    {
-      "date": "2026-04-23",
-      "symbol": "LYC.AX",
-      "class": "Materials",
-      "strategy": "MEAN_REVERSION",
-      "score": 95,
-      "order": "LIMIT",
-      "risk_gate": "always",
-      "entry_px": 18.39,
-      "stop": 17.2599,
-      "exit_type_5d": "H5_CLOSE",
-      "exit_px_5d": 19.010000228881836,
-      "r_5d": 0.5486242181062154
-    },
-    {
-      "date": "2026-04-22",
-      "symbol": "WDS.AX",
-      "class": "Energy",
-      "strategy": "MEAN_REVERSION",
-      "score": 98,
-      "order": "LIMIT",
-      "risk_gate": "always",
-      "entry_px": 30.79,
-      "stop": 29.1229,
-      "exit_type_5d": "H5_CLOSE",
-      "exit_px_5d": 33.04999923706055,
-      "r_5d": 1.3556470739970912
-    },
-    {
-      "date": "2026-04-22",
-      "symbol": "STO.AX",
-      "class": "Energy",
-      "strategy": "MEAN_REVERSION",
-      "score": 89,
-      "order": "LIMIT",
-      "risk_gate": "always",
-      "entry_px": 7.44,
-      "stop": 7.1426,
-      "exit_type_5d": "H5_CLOSE",
-      "exit_px_5d": 7.769999980926514,
-      "r_5d": 1.109616613740796
-    },
-    {
-      "date": "2026-04-21",
-      "symbol": "WDS.AX",
-      "class": "Energy",
-      "strategy": "MEAN_REVERSION",
-      "score": 98,
-      "order": "LIMIT",
-      "risk_gate": "always",
-      "entry_px": 31.21,
-      "stop": 29.5549,
-      "exit_type_5d": "H5_CLOSE",
-      "exit_px_5d": 32.400001525878906,
-      "r_5d": 0.7189907110621139
-    },
-    {
-      "date": "2026-04-21",
-      "symbol": "S32.AX",
-      "class": "Materials",
-      "strategy": "TREND_PULLBACK",
-      "score": 100,
-      "order": "STOP",
-      "risk_gate": "risk_on",
-      "entry_px": 4.4745,
-      "stop": 4.2941,
-      "exit_type_5d": "STOP",
-      "exit_px_5d": 4.2941,
-      "r_5d": -1.0
     }
   ]
 }
