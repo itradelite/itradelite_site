@@ -1,7 +1,21 @@
 {
-  "as_of": "2026-06-23 01:08:32 AEST",
+  "as_of": "2026-06-23 15:17:05 AEST",
   "horizon_trading_days": 5,
   "results": [
+    {
+      "date": "2026-06-16",
+      "symbol": "YAL.AX",
+      "class": "Energy",
+      "strategy": "MEAN_REVERSION",
+      "score": 100,
+      "order": "LIMIT",
+      "risk_gate": "always",
+      "entry_px": 6.09,
+      "stop": 5.7039,
+      "exit_type_5d": "STOP",
+      "exit_px_5d": 5.7039,
+      "r_5d": -1.0
+    },
     {
       "date": "2026-06-15",
       "symbol": "STO.AX",
