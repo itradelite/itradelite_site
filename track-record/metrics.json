@@ -1,25 +1,25 @@
 {
   "summary": {
-    "as_of": "2026-06-25 15:17:25 AEST",
+    "as_of": "2026-06-25 22:06:49 AEST",
     "since": "2026-04-27",
     "until": "2026-06-25",
     "total_signals_with_entry": 49,
     "total_signals_with_5d": 39,
-    "avg_ret_1d": -0.001019429012937224,
-    "avg_ret_5d": 0.01644671178570837,
+    "avg_ret_1d": -0.0008888415108440664,
+    "avg_ret_5d": 0.016562753610858346,
     "avg_ret_20d": 0.012625438554510515,
     "winrate_1d": 0.5319148936170213,
     "winrate_5d": 0.5641025641025641,
     "winrate_20d": 0.5217391304347826,
     "equity_curve_proxy_start": 1.0,
-    "equity_curve_proxy_end": 1.3677470668815008,
-    "equity_curve_proxy_max_drawdown": -0.09760841905668727
+    "equity_curve_proxy_end": 1.370980529027471,
+    "equity_curve_proxy_max_drawdown": -0.0954750940520318
   },
   "by_strategy_5d": [
     {
       "strategy": "MEAN_REVERSION",
       "trades": 39,
-      "avg_5d": 0.01644671178570837,
+      "avg_5d": 0.016562753610858346,
       "win_5d": 0.5641025641025641,
       "avg_score": 95.58974358974359
     }
@@ -152,26 +152,11 @@
     },
     {
       "date": "2026-06-18",
-      "equity": 1.3677470668815008,
-      "avg_5d_return": -0.04283419846000941
+      "equity": 1.370980529027471,
+      "avg_5d_return": -0.04057138286958484
     }
   ],
   "recent_signals": [
-    {
-      "date": "2026-06-25",
-      "symbol": "RIO.AX",
-      "class": "Materials",
-      "strategy": "MEAN_REVERSION",
-      "score": 99,
-      "order": "LIMIT",
-      "entry_px": 169.57,
-      "entry_src": "entry",
-      "stop": 164.0556,
-      "ret_1d": null,
-      "ret_5d": null,
-      "ret_20d": null,
-      "risk_gate": "always"
-    },
     {
       "date": "2026-06-25",
       "symbol": "WDS.AX",
@@ -179,9 +164,24 @@
       "strategy": "MEAN_REVERSION",
       "score": 100,
       "order": "LIMIT",
-      "entry_px": 27.315,
+      "entry_px": 27.43,
       "entry_src": "entry",
-      "stop": 26.2586,
+      "stop": 26.3736,
+      "ret_1d": null,
+      "ret_5d": null,
+      "ret_20d": null,
+      "risk_gate": "always"
+    },
+    {
+      "date": "2026-06-25",
+      "symbol": "RIO.AX",
+      "class": "Materials",
+      "strategy": "MEAN_REVERSION",
+      "score": 97,
+      "order": "LIMIT",
+      "entry_px": 169.99,
+      "entry_src": "entry",
+      "stop": 164.4756,
       "ret_1d": null,
       "ret_5d": null,
       "ret_20d": null,
@@ -197,7 +197,7 @@
       "entry_px": 28.24,
       "entry_src": "entry",
       "stop": 27.2281,
-      "ret_1d": -0.032577906648386556,
+      "ret_1d": -0.02868270086782332,
       "ret_5d": null,
       "ret_20d": null,
       "risk_gate": "always"
@@ -212,7 +212,7 @@
       "entry_px": 173.92,
       "entry_src": "entry",
       "stop": 168.0601,
-      "ret_1d": -0.024838961079296173,
+      "ret_1d": -0.022596554261480994,
       "ret_5d": null,
       "ret_20d": null,
       "risk_gate": "always"
@@ -318,7 +318,7 @@
       "entry_src": "entry",
       "stop": 7.0921,
       "ret_1d": -0.0040927330536756346,
-      "ret_5d": -0.04024557699378428,
+      "ret_5d": -0.03956343313389876,
       "ret_20d": null,
       "risk_gate": "always"
     },
@@ -333,7 +333,7 @@
       "entry_src": "entry",
       "stop": 27.6424,
       "ret_1d": 0.014325640649530236,
-      "ret_5d": -0.04542281992623454,
+      "ret_5d": -0.04157933260527091,
       "ret_20d": null,
       "risk_gate": "always"
     },
@@ -895,7 +895,7 @@
   ],
   "r_5d": {
     "summary": {
-      "as_of": "2026-06-25 15:17:25 AEST",
+      "as_of": "2026-06-25 22:06:49 AEST",
       "coverage": {
         "since": "2026-04-27",
         "until": "2026-06-25"
