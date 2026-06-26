@@ -1,25 +1,25 @@
 {
   "summary": {
-    "as_of": "2026-06-26 15:24:22 AEST",
+    "as_of": "2026-06-26 22:02:28 AEST",
     "since": "2026-04-28",
     "until": "2026-06-26",
     "total_signals_with_entry": 50,
     "total_signals_with_5d": 40,
-    "avg_ret_1d": -0.001080870392787069,
-    "avg_ret_5d": 0.010741879850482791,
+    "avg_ret_1d": -0.0009818423398843905,
+    "avg_ret_5d": 0.010323478056069197,
     "avg_ret_20d": 0.010886369389409426,
     "winrate_1d": 0.5416666666666666,
     "winrate_5d": 0.525,
     "winrate_20d": 0.5,
     "equity_curve_proxy_start": 1.0,
-    "equity_curve_proxy_end": 1.1994193227963093,
-    "equity_curve_proxy_max_drawdown": -0.17277499254848672
+    "equity_curve_proxy_end": 1.1884446533097919,
+    "equity_curve_proxy_max_drawdown": -0.18034408942329494
   },
   "by_strategy_5d": [
     {
       "strategy": "MEAN_REVERSION",
       "trades": 40,
-      "avg_5d": 0.010741879850482791,
+      "avg_5d": 0.010323478056069197,
       "win_5d": 0.525,
       "avg_score": 95.875
     }
@@ -152,8 +152,8 @@
     },
     {
       "date": "2026-06-19",
-      "equity": 1.1994193227963093,
-      "avg_5d_return": -0.08545911559554287
+      "equity": 1.1884446533097919,
+      "avg_5d_return": -0.09382715148381476
     }
   ],
   "recent_signals": [
@@ -179,9 +179,9 @@
       "strategy": "MEAN_REVERSION",
       "score": 100,
       "order": "LIMIT",
-      "entry_px": 5.035,
+      "entry_px": 5.04,
       "entry_src": "entry",
-      "stop": 4.5884,
+      "stop": 4.5934,
       "ret_1d": null,
       "ret_5d": null,
       "ret_20d": null,
@@ -197,7 +197,7 @@
       "entry_px": 169.99,
       "entry_src": "entry",
       "stop": 164.4756,
-      "ret_1d": 0.016353895461275636,
+      "ret_1d": 0.021471814686370827,
       "ret_5d": null,
       "ret_20d": null,
       "risk_gate": "always"
@@ -212,7 +212,7 @@
       "entry_px": 27.43,
       "entry_src": "entry",
       "stop": 26.3736,
-      "ret_1d": 0.008384963167241688,
+      "ret_1d": 0.00802039048147507,
       "ret_5d": null,
       "ret_20d": null,
       "risk_gate": "always"
@@ -318,7 +318,7 @@
       "entry_src": "entry",
       "stop": 77.281,
       "ret_1d": 0.009381751082788492,
-      "ret_5d": -0.0840149225599014,
+      "ret_5d": -0.08239112971383988,
       "ret_20d": null,
       "risk_gate": "always"
     },
@@ -333,7 +333,7 @@
       "entry_src": "entry",
       "stop": 7.6017,
       "ret_1d": -0.02815177685748793,
-      "ret_5d": -0.08690330863118434,
+      "ret_5d": -0.10526317325378964,
       "ret_20d": null,
       "risk_gate": "always"
     },
@@ -910,7 +910,7 @@
   ],
   "r_5d": {
     "summary": {
-      "as_of": "2026-06-26 15:24:22 AEST",
+      "as_of": "2026-06-26 22:02:28 AEST",
       "coverage": {
         "since": "2026-04-28",
         "until": "2026-06-26"
