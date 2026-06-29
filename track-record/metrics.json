@@ -1,25 +1,25 @@
 {
   "summary": {
-    "as_of": "2026-06-29 16:07:07 AEST",
+    "as_of": "2026-06-29 23:55:59 AEST",
     "since": "2026-05-01",
-    "until": "2026-06-29",
-    "total_signals_with_entry": 47,
+    "until": "2026-06-26",
+    "total_signals_with_entry": 46,
     "total_signals_with_5d": 38,
-    "avg_ret_1d": -0.0017628120006725563,
-    "avg_ret_5d": 0.0033532402953123505,
+    "avg_ret_1d": -0.0016864853070551044,
+    "avg_ret_5d": 0.003530427175548321,
     "avg_ret_20d": 0.005756199029388194,
     "winrate_1d": 0.5434782608695652,
     "winrate_5d": 0.4473684210526316,
     "winrate_20d": 0.5,
     "equity_curve_proxy_start": 1.0,
-    "equity_curve_proxy_end": 1.0069981379792843,
-    "equity_curve_proxy_max_drawdown": -0.21950641750906608
+    "equity_curve_proxy_end": 1.0105583516904892,
+    "equity_curve_proxy_max_drawdown": -0.2167470043094869
   },
   "by_strategy_5d": [
     {
       "strategy": "MEAN_REVERSION",
       "trades": 38,
-      "avg_5d": 0.0033532402953123505,
+      "avg_5d": 0.003530427175548321,
       "win_5d": 0.4473684210526316,
       "avg_score": 96.02631578947368
     }
@@ -142,26 +142,11 @@
     },
     {
       "date": "2026-06-22",
-      "equity": 1.0069981379792843,
-      "avg_5d_return": -0.047778985767596704
+      "equity": 1.0105583516904892,
+      "avg_5d_return": -0.04441243504311326
     }
   ],
   "recent_signals": [
-    {
-      "date": "2026-06-29",
-      "symbol": "PLS.AX",
-      "class": "Materials",
-      "strategy": "MEAN_REVERSION",
-      "score": 92,
-      "order": "LIMIT",
-      "entry_px": 5.06,
-      "entry_src": "entry",
-      "stop": 4.6134,
-      "ret_1d": null,
-      "ret_5d": null,
-      "ret_20d": null,
-      "risk_gate": "always"
-    },
     {
       "date": "2026-06-26",
       "symbol": "ILU.AX",
@@ -172,7 +157,7 @@
       "entry_px": 6.9,
       "entry_src": "entry",
       "stop": 6.3261,
-      "ret_1d": 0.015942048115080043,
+      "ret_1d": 0.014492739601511984,
       "ret_5d": null,
       "ret_20d": null,
       "risk_gate": "always"
@@ -187,7 +172,7 @@
       "entry_px": 5.04,
       "entry_src": "entry",
       "stop": 4.5934,
-      "ret_1d": 0.00297616400776346,
+      "ret_1d": 0.007936500427734305,
       "ret_5d": null,
       "ret_20d": null,
       "risk_gate": "always"
@@ -293,7 +278,7 @@
       "entry_src": "entry",
       "stop": 170.3849,
       "ret_1d": 0.00017045728939435456,
-      "ret_5d": -0.013693980265277017,
+      "ret_5d": -0.010739242744792432,
       "ret_20d": null,
       "risk_gate": "always"
     },
@@ -308,22 +293,7 @@
       "entry_src": "entry",
       "stop": 7.3254,
       "ret_1d": -0.05289673466840927,
-      "ret_5d": -0.08186399126991639,
-      "ret_20d": null,
-      "risk_gate": "always"
-    },
-    {
-      "date": "2026-06-19",
-      "symbol": "AAI.AX",
-      "class": "Materials",
-      "strategy": "MEAN_REVERSION",
-      "score": 92,
-      "order": "LIMIT",
-      "entry_px": 83.14,
-      "entry_src": "entry",
-      "stop": 77.281,
-      "ret_1d": 0.009381751082788492,
-      "ret_5d": -0.08239112971383988,
+      "ret_5d": -0.0780856273414341,
       "ret_20d": null,
       "risk_gate": "always"
     },
@@ -339,6 +309,21 @@
       "stop": 7.6017,
       "ret_1d": -0.02815177685748793,
       "ret_5d": -0.10526317325378964,
+      "ret_20d": null,
+      "risk_gate": "always"
+    },
+    {
+      "date": "2026-06-19",
+      "symbol": "AAI.AX",
+      "class": "Materials",
+      "strategy": "MEAN_REVERSION",
+      "score": 92,
+      "order": "LIMIT",
+      "entry_px": 83.14,
+      "entry_src": "entry",
+      "stop": 77.281,
+      "ret_1d": 0.009381751082788492,
+      "ret_5d": -0.08239112971383988,
       "ret_20d": null,
       "risk_gate": "always"
     },
@@ -855,10 +840,10 @@
   ],
   "r_5d": {
     "summary": {
-      "as_of": "2026-06-29 16:07:07 AEST",
+      "as_of": "2026-06-29 23:55:59 AEST",
       "coverage": {
         "since": "2026-05-01",
-        "until": "2026-06-29"
+        "until": "2026-06-26"
       },
       "horizon_trading_days": 5,
       "method": "Stop-first within horizon using auto-adjusted OHLC from yfinance. If Low <= stop at any point from t..t+h, exit=stop (R=-1). Else exit=Close[t+h]. R=(exit-entry)/(entry-stop). Long-only R where stop < entry.",
