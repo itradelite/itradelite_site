@@ -1,25 +1,25 @@
 {
   "summary": {
-    "as_of": "2026-06-30 15:19:17 AEST",
+    "as_of": "2026-06-30 22:01:51 AEST",
     "since": "2026-05-04",
-    "until": "2026-06-26",
-    "total_signals_with_entry": 45,
+    "until": "2026-06-30",
+    "total_signals_with_entry": 46,
     "total_signals_with_5d": 39,
     "avg_ret_1d": -0.0015547731538895215,
-    "avg_ret_5d": 0.0013172440876133079,
-    "avg_ret_20d": 0.0029764248008352584,
+    "avg_ret_5d": 0.001232000990808748,
+    "avg_ret_20d": 0.003137922076127687,
     "winrate_1d": 0.5555555555555556,
     "winrate_5d": 0.4358974358974359,
     "winrate_20d": 0.4444444444444444,
     "equity_curve_proxy_start": 1.0,
-    "equity_curve_proxy_end": 0.9763157475789384,
-    "equity_curve_proxy_max_drawdown": -0.25547464288938904
+    "equity_curve_proxy_end": 0.9746084599414893,
+    "equity_curve_proxy_max_drawdown": -0.2567765976526042
   },
   "by_strategy_5d": [
     {
       "strategy": "MEAN_REVERSION",
       "trades": 39,
-      "avg_5d": 0.0013172440876133079,
+      "avg_5d": 0.001232000990808748,
       "win_5d": 0.4358974358974359,
       "avg_score": 96.12820512820512
     }
@@ -142,11 +142,26 @@
     },
     {
       "date": "2026-06-23",
-      "equity": 0.9763157475789384,
-      "avg_5d_return": -0.049444609587174726
+      "equity": 0.9746084599414893,
+      "avg_5d_return": -0.051106849974863644
     }
   ],
   "recent_signals": [
+    {
+      "date": "2026-06-30",
+      "symbol": "BSL.AX",
+      "class": "Materials",
+      "strategy": "MEAN_REVERSION",
+      "score": 85,
+      "order": "LIMIT",
+      "entry_px": 31.87,
+      "entry_src": "entry",
+      "stop": 30.9096,
+      "ret_1d": null,
+      "ret_5d": null,
+      "ret_20d": null,
+      "risk_gate": "always"
+    },
     {
       "date": "2026-06-26",
       "symbol": "ILU.AX",
@@ -263,7 +278,7 @@
       "entry_src": "entry",
       "stop": 6.9791,
       "ret_1d": 0.054521256443087696,
-      "ret_5d": -0.016622340467692287,
+      "ret_5d": -0.019946821243070123,
       "ret_20d": null,
       "risk_gate": "always"
     },
@@ -299,21 +314,6 @@
     },
     {
       "date": "2026-06-19",
-      "symbol": "IGO.AX",
-      "class": "Materials",
-      "strategy": "MEAN_REVERSION",
-      "score": 100,
-      "order": "LIMIT",
-      "entry_px": 8.17,
-      "entry_src": "entry",
-      "stop": 7.6017,
-      "ret_1d": -0.02815177685748793,
-      "ret_5d": -0.10526317325378964,
-      "ret_20d": null,
-      "risk_gate": "always"
-    },
-    {
-      "date": "2026-06-19",
       "symbol": "AAI.AX",
       "class": "Materials",
       "strategy": "MEAN_REVERSION",
@@ -324,6 +324,21 @@
       "stop": 77.281,
       "ret_1d": 0.009381751082788492,
       "ret_5d": -0.08239112971383988,
+      "ret_20d": null,
+      "risk_gate": "always"
+    },
+    {
+      "date": "2026-06-19",
+      "symbol": "IGO.AX",
+      "class": "Materials",
+      "strategy": "MEAN_REVERSION",
+      "score": 100,
+      "order": "LIMIT",
+      "entry_px": 8.17,
+      "entry_src": "entry",
+      "stop": 7.6017,
+      "ret_1d": -0.02815177685748793,
+      "ret_5d": -0.10526317325378964,
       "ret_20d": null,
       "risk_gate": "always"
     },
@@ -434,21 +449,6 @@
     },
     {
       "date": "2026-06-10",
-      "symbol": "YAL.AX",
-      "class": "Energy",
-      "strategy": "MEAN_REVERSION",
-      "score": 95,
-      "order": "LIMIT",
-      "entry_px": 6.33,
-      "entry_src": "entry",
-      "stop": 5.883,
-      "ret_1d": 0.039494471250108854,
-      "ret_5d": -0.07582938781339799,
-      "ret_20d": null,
-      "risk_gate": "always"
-    },
-    {
-      "date": "2026-06-10",
       "symbol": "LYC.AX",
       "class": "Materials",
       "strategy": "MEAN_REVERSION",
@@ -459,6 +459,21 @@
       "stop": 15.9336,
       "ret_1d": 0.0011854504694823742,
       "ret_5d": 0.07291046123576961,
+      "ret_20d": null,
+      "risk_gate": "always"
+    },
+    {
+      "date": "2026-06-10",
+      "symbol": "YAL.AX",
+      "class": "Energy",
+      "strategy": "MEAN_REVERSION",
+      "score": 95,
+      "order": "LIMIT",
+      "entry_px": 6.33,
+      "entry_src": "entry",
+      "stop": 5.883,
+      "ret_1d": 0.039494471250108854,
+      "ret_5d": -0.07582938781339799,
       "ret_20d": null,
       "risk_gate": "always"
     },
@@ -564,7 +579,7 @@
       "stop": 5.0377,
       "ret_1d": 0.0,
       "ret_5d": -0.015503861641813277,
-      "ret_20d": -0.018410812597076998,
+      "ret_20d": -0.015503861641813277,
       "risk_gate": "always"
     },
     {
@@ -644,21 +659,6 @@
     },
     {
       "date": "2026-05-18",
-      "symbol": "PDN.AX",
-      "class": "Energy",
-      "strategy": "MEAN_REVERSION",
-      "score": 100,
-      "order": "LIMIT",
-      "entry_px": 10.38,
-      "entry_src": "entry",
-      "stop": 9.5061,
-      "ret_1d": 0.024084778154500608,
-      "ret_5d": 0.10597296875411999,
-      "ret_20d": -0.009633948012255145,
-      "risk_gate": "always"
-    },
-    {
-      "date": "2026-05-18",
       "symbol": "NXG.AX",
       "class": "Energy",
       "strategy": "MEAN_REVERSION",
@@ -670,6 +670,21 @@
       "ret_1d": -0.003211254851672729,
       "ret_5d": -0.01991004958371534,
       "ret_20d": -0.05973021000190615,
+      "risk_gate": "always"
+    },
+    {
+      "date": "2026-05-18",
+      "symbol": "PDN.AX",
+      "class": "Energy",
+      "strategy": "MEAN_REVERSION",
+      "score": 100,
+      "order": "LIMIT",
+      "entry_px": 10.38,
+      "entry_src": "entry",
+      "stop": 9.5061,
+      "ret_1d": 0.024084778154500608,
+      "ret_5d": 0.10597296875411999,
+      "ret_20d": -0.009633948012255145,
       "risk_gate": "always"
     },
     {
@@ -825,21 +840,21 @@
   ],
   "r_5d": {
     "summary": {
-      "as_of": "2026-06-30 15:19:17 AEST",
+      "as_of": "2026-06-30 22:01:51 AEST",
       "coverage": {
         "since": "2026-05-04",
-        "until": "2026-06-26"
+        "until": "2026-06-30"
       },
       "horizon_trading_days": 5,
       "method": "Stop-first within horizon using auto-adjusted OHLC from yfinance. If Low <= stop at any point from t..t+h, exit=stop (R=-1). Else exit=Close[t+h]. R=(exit-entry)/(entry-stop). Long-only R where stop < entry.",
       "stats": {
         "n": 39,
-        "mean_r": -0.23356423352378952,
+        "mean_r": -0.23474934738281042,
         "median_r": -1.0,
-        "std_r": 1.1510417183246173,
+        "std_r": 1.151062904127992,
         "winrate": 0.3076923076923077,
         "avg_win_r": 1.2827569827764387,
-        "avg_loss_r": -0.9074847741016687,
+        "avg_loss_r": -0.9091966052313656,
         "min_r": -1.0,
         "max_r": 3.292787249338158
       }
