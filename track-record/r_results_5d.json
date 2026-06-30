@@ -1,7 +1,35 @@
 {
-  "as_of": "2026-06-29 23:55:59 AEST",
+  "as_of": "2026-06-30 15:19:17 AEST",
   "horizon_trading_days": 5,
   "results": [
+    {
+      "date": "2026-06-23",
+      "symbol": "PLS.AX",
+      "class": "Materials",
+      "strategy": "MEAN_REVERSION",
+      "score": 100,
+      "order": "LIMIT",
+      "risk_gate": "always",
+      "entry_px": 5.47,
+      "stop": 5.0324,
+      "exit_type_5d": "STOP",
+      "exit_px_5d": 5.0324,
+      "r_5d": -1.0
+    },
+    {
+      "date": "2026-06-23",
+      "symbol": "IGO.AX",
+      "class": "Materials",
+      "strategy": "MEAN_REVERSION",
+      "score": 100,
+      "order": "LIMIT",
+      "risk_gate": "always",
+      "entry_px": 7.52,
+      "stop": 6.9791,
+      "exit_type_5d": "H5_CLOSE",
+      "exit_px_5d": 7.394999980926514,
+      "r_5d": -0.23109635620907001
+    },
     {
       "date": "2026-06-22",
       "symbol": "RIO.AX",
@@ -60,20 +88,6 @@
     },
     {
       "date": "2026-06-18",
-      "symbol": "STO.AX",
-      "class": "Energy",
-      "strategy": "MEAN_REVERSION",
-      "score": 91,
-      "order": "LIMIT",
-      "risk_gate": "always",
-      "entry_px": 7.33,
-      "stop": 7.0921,
-      "exit_type_5d": "STOP",
-      "exit_px_5d": 7.0921,
-      "r_5d": -1.0
-    },
-    {
-      "date": "2026-06-18",
       "symbol": "WDS.AX",
       "class": "Energy",
       "strategy": "MEAN_REVERSION",
@@ -84,6 +98,20 @@
       "stop": 27.6424,
       "exit_type_5d": "STOP",
       "exit_px_5d": 27.6424,
+      "r_5d": -1.0
+    },
+    {
+      "date": "2026-06-18",
+      "symbol": "STO.AX",
+      "class": "Energy",
+      "strategy": "MEAN_REVERSION",
+      "score": 91,
+      "order": "LIMIT",
+      "risk_gate": "always",
+      "entry_px": 7.33,
+      "stop": 7.0921,
+      "exit_type_5d": "STOP",
+      "exit_px_5d": 7.0921,
       "r_5d": -1.0
     },
     {
@@ -214,20 +242,6 @@
     },
     {
       "date": "2026-06-05",
-      "symbol": "TLS.AX",
-      "class": "Telecommunication Services",
-      "strategy": "MEAN_REVERSION",
-      "score": 93,
-      "order": "LIMIT",
-      "risk_gate": "always",
-      "entry_px": 4.97,
-      "stop": 4.8543,
-      "exit_type_5d": "H5_CLOSE",
-      "exit_px_5d": 5.099999904632568,
-      "r_5d": 1.1235946813532343
-    },
-    {
-      "date": "2026-06-05",
       "symbol": "FMG.AX",
       "class": "Materials",
       "strategy": "MEAN_REVERSION",
@@ -239,6 +253,20 @@
       "exit_type_5d": "STOP",
       "exit_px_5d": 19.8541,
       "r_5d": -1.0
+    },
+    {
+      "date": "2026-06-05",
+      "symbol": "TLS.AX",
+      "class": "Telecommunication Services",
+      "strategy": "MEAN_REVERSION",
+      "score": 93,
+      "order": "LIMIT",
+      "risk_gate": "always",
+      "entry_px": 4.97,
+      "stop": 4.8543,
+      "exit_type_5d": "H5_CLOSE",
+      "exit_px_5d": 5.099999904632568,
+      "r_5d": 1.1235946813532343
     },
     {
       "date": "2026-06-04",
@@ -382,20 +410,6 @@
     },
     {
       "date": "2026-05-15",
-      "symbol": "PDN.AX",
-      "class": "Energy",
-      "strategy": "MEAN_REVERSION",
-      "score": 90,
-      "order": "LIMIT",
-      "risk_gate": "always",
-      "entry_px": 10.65,
-      "stop": 9.8027,
-      "exit_type_5d": "H5_CLOSE",
-      "exit_px_5d": 11.069999694824219,
-      "r_5d": 0.49569183857455223
-    },
-    {
-      "date": "2026-05-15",
       "symbol": "NXG.AX",
       "class": "Energy",
       "strategy": "MEAN_REVERSION",
@@ -407,6 +421,20 @@
       "exit_type_5d": "STOP",
       "exit_px_5d": 15.6979,
       "r_5d": -1.0
+    },
+    {
+      "date": "2026-05-15",
+      "symbol": "PDN.AX",
+      "class": "Energy",
+      "strategy": "MEAN_REVERSION",
+      "score": 90,
+      "order": "LIMIT",
+      "risk_gate": "always",
+      "entry_px": 10.65,
+      "stop": 9.8027,
+      "exit_type_5d": "H5_CLOSE",
+      "exit_px_5d": 11.069999694824219,
+      "r_5d": 0.49569183857455223
     },
     {
       "date": "2026-05-14",
@@ -519,20 +547,6 @@
       "exit_type_5d": "H5_CLOSE",
       "exit_px_5d": 33.5,
       "r_5d": -0.42130279788268443
-    },
-    {
-      "date": "2026-05-01",
-      "symbol": "WOW.AX",
-      "class": "Consumer Staples Distribution & Retail",
-      "strategy": "MEAN_REVERSION",
-      "score": 100,
-      "order": "LIMIT",
-      "risk_gate": "always",
-      "entry_px": 34.15,
-      "stop": 33.2449,
-      "exit_type_5d": "H5_CLOSE",
-      "exit_px_5d": 33.599998474121094,
-      "r_5d": -0.6076693468996867
     }
   ]
 }
