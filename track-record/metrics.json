@@ -1,27 +1,27 @@
 {
   "summary": {
-    "as_of": "2026-07-01 22:22:54 AEST",
+    "as_of": "2026-07-02 15:12:38 AEST",
     "since": "2026-05-04",
-    "until": "2026-07-01",
-    "total_signals_with_entry": 47,
-    "total_signals_with_5d": 41,
-    "avg_ret_1d": -0.0018824972315109238,
-    "avg_ret_5d": 0.0008739504204282085,
+    "until": "2026-07-02",
+    "total_signals_with_entry": 49,
+    "total_signals_with_5d": 43,
+    "avg_ret_1d": -0.002470422233426339,
+    "avg_ret_5d": 0.0014852296796333973,
     "avg_ret_20d": 0.003137922076127687,
-    "winrate_1d": 0.5434782608695652,
-    "winrate_5d": 0.43902439024390244,
+    "winrate_1d": 0.5319148936170213,
+    "winrate_5d": 0.46511627906976744,
     "winrate_20d": 0.4444444444444444,
     "equity_curve_proxy_start": 1.0,
-    "equity_curve_proxy_end": 0.968655516672703,
+    "equity_curve_proxy_end": 0.9822326326418683,
     "equity_curve_proxy_max_drawdown": -0.2613162327286982
   },
   "by_strategy_5d": [
     {
       "strategy": "MEAN_REVERSION",
-      "trades": 41,
-      "avg_5d": 0.0008739504204282085,
-      "win_5d": 0.43902439024390244,
-      "avg_score": 95.6829268292683
+      "trades": 43,
+      "avg_5d": 0.0014852296796333973,
+      "win_5d": 0.46511627906976744,
+      "avg_score": 95.81395348837209
     }
   ],
   "equity_curve_proxy_5d": [
@@ -149,9 +149,44 @@
       "date": "2026-06-24",
       "equity": 0.968655516672703,
       "avg_5d_return": -0.006108035701992309
+    },
+    {
+      "date": "2026-06-25",
+      "equity": 0.9822326326418683,
+      "avg_5d_return": 0.01401645449333977
     }
   ],
   "recent_signals": [
+    {
+      "date": "2026-07-02",
+      "symbol": "AZJ.AX",
+      "class": "Transportation",
+      "strategy": "MEAN_REVERSION",
+      "score": 93,
+      "order": "LIMIT",
+      "entry_px": 4.07,
+      "entry_src": "entry",
+      "stop": 3.974,
+      "ret_1d": null,
+      "ret_5d": null,
+      "ret_20d": null,
+      "risk_gate": "always"
+    },
+    {
+      "date": "2026-07-02",
+      "symbol": "BSL.AX",
+      "class": "Materials",
+      "strategy": "MEAN_REVERSION",
+      "score": 100,
+      "order": "LIMIT",
+      "entry_px": 30.375,
+      "entry_src": "entry",
+      "stop": 29.4064,
+      "ret_1d": null,
+      "ret_5d": null,
+      "ret_20d": null,
+      "risk_gate": "always"
+    },
     {
       "date": "2026-07-01",
       "symbol": "BSL.AX",
@@ -162,7 +197,7 @@
       "entry_px": 31.34,
       "entry_src": "entry",
       "stop": 30.3723,
-      "ret_1d": null,
+      "ret_1d": -0.029514972321535438,
       "ret_5d": null,
       "ret_20d": null,
       "risk_gate": "always"
@@ -223,7 +258,7 @@
       "entry_src": "entry",
       "stop": 164.4756,
       "ret_1d": 0.021471814686370827,
-      "ret_5d": null,
+      "ret_5d": 0.005794461900827219,
       "ret_20d": null,
       "risk_gate": "always"
     },
@@ -238,7 +273,7 @@
       "entry_src": "entry",
       "stop": 26.3736,
       "ret_1d": 0.00802039048147507,
-      "ret_5d": null,
+      "ret_5d": 0.02223844708585232,
       "ret_20d": null,
       "risk_gate": "always"
     },
@@ -304,21 +339,6 @@
     },
     {
       "date": "2026-06-22",
-      "symbol": "IGO.AX",
-      "class": "Materials",
-      "strategy": "MEAN_REVERSION",
-      "score": 100,
-      "order": "LIMIT",
-      "entry_px": 7.88,
-      "entry_src": "entry",
-      "stop": 7.3254,
-      "ret_1d": -0.05289673466840927,
-      "ret_5d": -0.0780856273414341,
-      "ret_20d": null,
-      "risk_gate": "always"
-    },
-    {
-      "date": "2026-06-22",
       "symbol": "RIO.AX",
       "class": "Materials",
       "strategy": "MEAN_REVERSION",
@@ -329,6 +349,21 @@
       "stop": 170.3849,
       "ret_1d": 0.00017045728939435456,
       "ret_5d": -0.010739242744792432,
+      "ret_20d": null,
+      "risk_gate": "always"
+    },
+    {
+      "date": "2026-06-22",
+      "symbol": "IGO.AX",
+      "class": "Materials",
+      "strategy": "MEAN_REVERSION",
+      "score": 100,
+      "order": "LIMIT",
+      "entry_px": 7.88,
+      "entry_src": "entry",
+      "stop": 7.3254,
+      "ret_1d": -0.05289673466840927,
+      "ret_5d": -0.0780856273414341,
       "ret_20d": null,
       "risk_gate": "always"
     },
@@ -469,21 +504,6 @@
     },
     {
       "date": "2026-06-10",
-      "symbol": "LYC.AX",
-      "class": "Materials",
-      "strategy": "MEAN_REVERSION",
-      "score": 100,
-      "order": "LIMIT",
-      "entry_px": 16.87,
-      "entry_src": "entry",
-      "stop": 15.9336,
-      "ret_1d": 0.0011854504694823742,
-      "ret_5d": 0.07291046123576961,
-      "ret_20d": null,
-      "risk_gate": "always"
-    },
-    {
-      "date": "2026-06-10",
       "symbol": "YAL.AX",
       "class": "Energy",
       "strategy": "MEAN_REVERSION",
@@ -494,6 +514,21 @@
       "stop": 5.883,
       "ret_1d": 0.039494471250108854,
       "ret_5d": -0.07582938781339799,
+      "ret_20d": null,
+      "risk_gate": "always"
+    },
+    {
+      "date": "2026-06-10",
+      "symbol": "LYC.AX",
+      "class": "Materials",
+      "strategy": "MEAN_REVERSION",
+      "score": 100,
+      "order": "LIMIT",
+      "entry_px": 16.87,
+      "entry_src": "entry",
+      "stop": 15.9336,
+      "ret_1d": 0.0011854504694823742,
+      "ret_5d": 0.07291046123576961,
       "ret_20d": null,
       "risk_gate": "always"
     },
@@ -860,26 +895,26 @@
   ],
   "r_5d": {
     "summary": {
-      "as_of": "2026-07-01 22:22:54 AEST",
+      "as_of": "2026-07-02 15:12:38 AEST",
       "coverage": {
         "since": "2026-05-04",
-        "until": "2026-07-01"
+        "until": "2026-07-02"
       },
       "horizon_trading_days": 5,
       "method": "Stop-first within horizon using auto-adjusted OHLC from yfinance. If Low <= stop at any point from t..t+h, exit=stop (R=-1). Else exit=Close[t+h]. R=(exit-entry)/(entry-stop). Long-only R where stop < entry.",
       "stats": {
-        "n": 41,
-        "mean_r": -0.2323861641634295,
+        "n": 43,
+        "mean_r": -0.20399476106142542,
         "median_r": -1.0,
-        "std_r": 1.1246072519002797,
-        "winrate": 0.3170731707317073,
-        "avg_win_r": 1.1962462928830013,
+        "std_r": 1.1060411550410019,
+        "winrate": 0.3488372093023256,
+        "avg_win_r": 1.087150654169222,
         "avg_loss_r": -0.8956798049349866,
         "min_r": -1.0,
         "max_r": 3.292787249338158
       }
     },
-    "n_results": 41
+    "n_results": 43
   },
   "notes": {
     "method": "Signal performance proxy from published recommended_orders CSVs. Forward returns use close-to-close trading bars from yfinance. Equity curve compounds each day\u2019s average 5D return (proxy, not realized portfolio P&L).",
