@@ -1,7 +1,35 @@
 {
-  "as_of": "2026-07-08 21:27:04 AEST",
+  "as_of": "2026-07-09 15:06:35 AEST",
   "horizon_trading_days": 5,
   "results": [
+    {
+      "date": "2026-07-02",
+      "symbol": "AZJ.AX",
+      "class": "Transportation",
+      "strategy": "MEAN_REVERSION",
+      "score": 93,
+      "order": "LIMIT",
+      "risk_gate": "always",
+      "entry_px": 4.07,
+      "stop": 3.9731,
+      "exit_type_5d": "H5_CLOSE",
+      "exit_px_5d": 4.195000171661377,
+      "r_5d": 1.2899914516137916
+    },
+    {
+      "date": "2026-07-02",
+      "symbol": "BSL.AX",
+      "class": "Materials",
+      "strategy": "MEAN_REVERSION",
+      "score": 100,
+      "order": "LIMIT",
+      "risk_gate": "always",
+      "entry_px": 30.4,
+      "stop": 29.4211,
+      "exit_type_5d": "H5_CLOSE",
+      "exit_px_5d": 31.690000534057617,
+      "r_5d": 1.3178062458449478
+    },
     {
       "date": "2026-07-01",
       "symbol": "BSL.AX",
@@ -242,20 +270,6 @@
     },
     {
       "date": "2026-06-15",
-      "symbol": "STO.AX",
-      "class": "Energy",
-      "strategy": "MEAN_REVERSION",
-      "score": 100,
-      "order": "LIMIT",
-      "risk_gate": "always",
-      "entry_px": 7.425,
-      "stop": 7.1769,
-      "exit_type_5d": "H5_CLOSE",
-      "exit_px_5d": 7.300000190734863,
-      "r_5d": -0.503828332386685
-    },
-    {
-      "date": "2026-06-15",
       "symbol": "YAL.AX",
       "class": "Energy",
       "strategy": "MEAN_REVERSION",
@@ -267,6 +281,20 @@
       "exit_type_5d": "STOP",
       "exit_px_5d": 5.673,
       "r_5d": -1.0
+    },
+    {
+      "date": "2026-06-15",
+      "symbol": "STO.AX",
+      "class": "Energy",
+      "strategy": "MEAN_REVERSION",
+      "score": 100,
+      "order": "LIMIT",
+      "risk_gate": "always",
+      "entry_px": 7.425,
+      "stop": 7.1769,
+      "exit_type_5d": "H5_CLOSE",
+      "exit_px_5d": 7.300000190734863,
+      "r_5d": -0.503828332386685
     },
     {
       "date": "2026-06-11",
@@ -382,20 +410,6 @@
     },
     {
       "date": "2026-06-04",
-      "symbol": "FMG.AX",
-      "class": "Materials",
-      "strategy": "MEAN_REVERSION",
-      "score": 87,
-      "order": "LIMIT",
-      "risk_gate": "always",
-      "entry_px": 21.02,
-      "stop": 20.3343,
-      "exit_type_5d": "STOP",
-      "exit_px_5d": 20.3343,
-      "r_5d": -1.0
-    },
-    {
-      "date": "2026-06-04",
       "symbol": "TLS.AX",
       "class": "Telecommunication Services",
       "strategy": "MEAN_REVERSION",
@@ -407,6 +421,20 @@
       "exit_type_5d": "H5_CLOSE",
       "exit_px_5d": 5.199999809265137,
       "r_5d": 2.0966254263002435
+    },
+    {
+      "date": "2026-06-04",
+      "symbol": "FMG.AX",
+      "class": "Materials",
+      "strategy": "MEAN_REVERSION",
+      "score": 87,
+      "order": "LIMIT",
+      "risk_gate": "always",
+      "entry_px": 21.02,
+      "stop": 20.3343,
+      "exit_type_5d": "STOP",
+      "exit_px_5d": 20.3343,
+      "r_5d": -1.0
     },
     {
       "date": "2026-06-01",
