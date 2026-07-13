@@ -1,5 +1,5 @@
 {
-  "as_of": "2026-07-10 22:16:51 AEST",
+  "as_of": "2026-07-13 14:43:32 AEST",
   "horizon_trading_days": 5,
   "results": [
     {
@@ -522,20 +522,6 @@
     },
     {
       "date": "2026-05-18",
-      "symbol": "NXG.AX",
-      "class": "Energy",
-      "strategy": "MEAN_REVERSION",
-      "score": 100,
-      "order": "LIMIT",
-      "risk_gate": "always",
-      "entry_px": 15.57,
-      "stop": 14.847,
-      "exit_type_5d": "STOP",
-      "exit_px_5d": 14.847,
-      "r_5d": -1.0
-    },
-    {
-      "date": "2026-05-18",
       "symbol": "PDN.AX",
       "class": "Energy",
       "strategy": "MEAN_REVERSION",
@@ -547,6 +533,20 @@
       "exit_type_5d": "H5_CLOSE",
       "exit_px_5d": 11.479999542236328,
       "r_5d": 1.2587247307887932
+    },
+    {
+      "date": "2026-05-18",
+      "symbol": "NXG.AX",
+      "class": "Energy",
+      "strategy": "MEAN_REVERSION",
+      "score": 100,
+      "order": "LIMIT",
+      "risk_gate": "always",
+      "entry_px": 15.57,
+      "stop": 14.847,
+      "exit_type_5d": "STOP",
+      "exit_px_5d": 14.847,
+      "r_5d": -1.0
     },
     {
       "date": "2026-05-15",
@@ -575,20 +575,6 @@
       "exit_type_5d": "H5_CLOSE",
       "exit_px_5d": 11.069999694824219,
       "r_5d": 0.49569183857455223
-    },
-    {
-      "date": "2026-05-14",
-      "symbol": "PDN.AX",
-      "class": "Energy",
-      "strategy": "MEAN_REVERSION",
-      "score": 99,
-      "order": "LIMIT",
-      "risk_gate": "always",
-      "entry_px": 10.75,
-      "stop": 9.8826,
-      "exit_type_5d": "H5_CLOSE",
-      "exit_px_5d": 10.449999809265137,
-      "r_5d": -0.34586141426661665
     }
   ]
 }
