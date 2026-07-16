@@ -1,25 +1,25 @@
 {
   "summary": {
-    "as_of": "2026-07-16 14:25:11 AEST",
+    "as_of": "2026-07-16 21:21:30 AEST",
     "since": "2026-05-18",
-    "until": "2026-07-09",
-    "total_signals_with_entry": 41,
+    "until": "2026-07-16",
+    "total_signals_with_entry": 42,
     "total_signals_with_5d": 41,
     "avg_ret_1d": 0.0010649462906592165,
-    "avg_ret_5d": 0.008050227687060438,
-    "avg_ret_20d": -0.0251588342169942,
+    "avg_ret_5d": 0.007988534515219999,
+    "avg_ret_20d": -0.0256112967390535,
     "winrate_1d": 0.5853658536585366,
     "winrate_5d": 0.5365853658536586,
     "winrate_20d": 0.391304347826087,
     "equity_curve_proxy_start": 1.0,
-    "equity_curve_proxy_end": 1.1536849808550491,
+    "equity_curve_proxy_end": 1.1522731686108392,
     "equity_curve_proxy_max_drawdown": -0.2613162327286983
   },
   "by_strategy_5d": [
     {
       "strategy": "MEAN_REVERSION",
       "trades": 41,
-      "avg_5d": 0.008050227687060438,
+      "avg_5d": 0.007988534515219999,
       "win_5d": 0.5365853658536586,
       "avg_score": 96.60975609756098
     }
@@ -137,11 +137,26 @@
     },
     {
       "date": "2026-07-09",
-      "equity": 1.1536849808550491,
-      "avg_5d_return": 0.033478045216877694
+      "equity": 1.1522731686108392,
+      "avg_5d_return": 0.03221333519414871
     }
   ],
   "recent_signals": [
+    {
+      "date": "2026-07-16",
+      "symbol": "COL.AX",
+      "class": "Consumer Staples Distribution & Retail",
+      "strategy": "MEAN_REVERSION",
+      "score": 86,
+      "order": "LIMIT",
+      "entry_px": 22.56,
+      "entry_src": "entry",
+      "stop": 21.9394,
+      "ret_1d": null,
+      "ret_5d": null,
+      "ret_20d": null,
+      "risk_gate": "always"
+    },
     {
       "date": "2026-07-09",
       "symbol": "RIO.AX",
@@ -153,7 +168,7 @@
       "entry_src": "entry",
       "stop": 153.6956,
       "ret_1d": 0.037660869668171504,
-      "ret_5d": 0.034632791360129644,
+      "ret_5d": 0.04018417200039237,
       "ret_20d": null,
       "risk_gate": "always"
     },
@@ -168,7 +183,7 @@
       "entry_src": "entry",
       "stop": 4.9071,
       "ret_1d": 0.01616169770218434,
-      "ret_5d": 0.032323299073625744,
+      "ret_5d": 0.024242498387905043,
       "ret_20d": null,
       "risk_gate": "always"
     },
@@ -264,21 +279,6 @@
     },
     {
       "date": "2026-06-25",
-      "symbol": "RIO.AX",
-      "class": "Materials",
-      "strategy": "MEAN_REVERSION",
-      "score": 97,
-      "order": "LIMIT",
-      "entry_px": 169.99,
-      "entry_src": "entry",
-      "stop": 164.4756,
-      "ret_1d": 0.021471814686370827,
-      "ret_5d": 0.007529847272981893,
-      "ret_20d": null,
-      "risk_gate": "always"
-    },
-    {
-      "date": "2026-06-25",
       "symbol": "WDS.AX",
       "class": "Energy",
       "strategy": "MEAN_REVERSION",
@@ -289,6 +289,21 @@
       "stop": 26.3736,
       "ret_1d": 0.00802039048147507,
       "ret_5d": 0.021873874400085702,
+      "ret_20d": null,
+      "risk_gate": "always"
+    },
+    {
+      "date": "2026-06-25",
+      "symbol": "RIO.AX",
+      "class": "Materials",
+      "strategy": "MEAN_REVERSION",
+      "score": 97,
+      "order": "LIMIT",
+      "entry_px": 169.99,
+      "entry_src": "entry",
+      "stop": 164.4756,
+      "ret_1d": 0.021471814686370827,
+      "ret_5d": 0.007529847272981893,
       "ret_20d": null,
       "risk_gate": "always"
     },
@@ -414,21 +429,6 @@
     },
     {
       "date": "2026-06-18",
-      "symbol": "WDS.AX",
-      "class": "Energy",
-      "strategy": "MEAN_REVERSION",
-      "score": 100,
-      "order": "LIMIT",
-      "entry_px": 28.62,
-      "entry_src": "entry",
-      "stop": 27.6424,
-      "ret_1d": 0.014325640649530236,
-      "ret_5d": -0.04157933260527091,
-      "ret_20d": 0.030573024959542172,
-      "risk_gate": "always"
-    },
-    {
-      "date": "2026-06-18",
       "symbol": "STO.AX",
       "class": "Energy",
       "strategy": "MEAN_REVERSION",
@@ -439,7 +439,22 @@
       "stop": 7.0921,
       "ret_1d": -0.0040927330536756346,
       "ret_5d": -0.03956343313389876,
-      "ret_20d": 0.03888128927401313,
+      "ret_20d": 0.02864939158700519,
+      "risk_gate": "always"
+    },
+    {
+      "date": "2026-06-18",
+      "symbol": "WDS.AX",
+      "class": "Energy",
+      "strategy": "MEAN_REVERSION",
+      "score": 100,
+      "order": "LIMIT",
+      "entry_px": 28.62,
+      "entry_src": "entry",
+      "stop": 27.6424,
+      "ret_1d": 0.014325640649530236,
+      "ret_5d": -0.04157933260527091,
+      "ret_20d": 0.030398284639186146,
       "risk_gate": "always"
     },
     {
@@ -549,21 +564,6 @@
     },
     {
       "date": "2026-06-09",
-      "symbol": "LTR.AX",
-      "class": "Materials",
-      "strategy": "MEAN_REVERSION",
-      "score": 96,
-      "order": "LIMIT",
-      "entry_px": 2.07,
-      "entry_src": "entry",
-      "stop": 1.923,
-      "ret_1d": -0.07971012906968722,
-      "ret_5d": -0.009661826846140142,
-      "ret_20d": -0.2608695552019077,
-      "risk_gate": "always"
-    },
-    {
-      "date": "2026-06-09",
       "symbol": "LYC.AX",
       "class": "Materials",
       "strategy": "MEAN_REVERSION",
@@ -575,6 +575,21 @@
       "ret_1d": -0.023726842078714117,
       "ret_5d": 0.040509191422185564,
       "ret_20d": -0.02141208475294487,
+      "risk_gate": "always"
+    },
+    {
+      "date": "2026-06-09",
+      "symbol": "LTR.AX",
+      "class": "Materials",
+      "strategy": "MEAN_REVERSION",
+      "score": 96,
+      "order": "LIMIT",
+      "entry_px": 2.07,
+      "entry_src": "entry",
+      "stop": 1.923,
+      "ret_1d": -0.07971012906968722,
+      "ret_5d": -0.009661826846140142,
+      "ret_20d": -0.2608695552019077,
       "risk_gate": "always"
     },
     {
@@ -760,20 +775,20 @@
   ],
   "r_5d": {
     "summary": {
-      "as_of": "2026-07-16 14:25:11 AEST",
+      "as_of": "2026-07-16 21:21:30 AEST",
       "coverage": {
         "since": "2026-05-18",
-        "until": "2026-07-09"
+        "until": "2026-07-16"
       },
       "horizon_trading_days": 5,
       "method": "Stop-first within horizon using auto-adjusted OHLC from yfinance. If Low <= stop at any point from t..t+h, exit=stop (R=-1). Else exit=Close[t+h]. R=(exit-entry)/(entry-stop). Long-only R where stop < entry.",
       "stats": {
         "n": 41,
-        "mean_r": -0.17440090062717364,
+        "mean_r": -0.1699519466169062,
         "median_r": -1.0,
-        "std_r": 1.137873396751298,
+        "std_r": 1.1434756772619312,
         "winrate": 0.36585365853658536,
-        "avg_win_r": 1.1440955600210805,
+        "avg_win_r": 1.156256034315811,
         "avg_loss_r": -0.9350719356165509,
         "min_r": -1.0,
         "max_r": 3.292787249338158
