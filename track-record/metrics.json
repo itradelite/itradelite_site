@@ -1,13 +1,13 @@
 {
   "summary": {
-    "as_of": "2026-07-20 14:52:22 AEST",
+    "as_of": "2026-07-20 22:06:05 AEST",
     "since": "2026-06-01",
     "until": "2026-07-20",
     "total_signals_with_entry": 39,
     "total_signals_with_5d": 34,
-    "avg_ret_1d": 0.002520183658737179,
+    "avg_ret_1d": 0.0023554899405118595,
     "avg_ret_5d": 0.0016781089425171967,
-    "avg_ret_20d": -0.07248478014008745,
+    "avg_ret_20d": -0.07305202805758569,
     "winrate_1d": 0.6216216216216216,
     "winrate_5d": 0.5,
     "winrate_20d": 0.3,
@@ -124,14 +124,14 @@
   "recent_signals": [
     {
       "date": "2026-07-20",
-      "symbol": "VGE.AX",
+      "symbol": "NDQ.AX",
       "class": "ETF",
       "strategy": "MEAN_REVERSION",
-      "score": 100,
+      "score": 92,
       "order": "LIMIT",
-      "entry_px": 90.95,
+      "entry_px": 59.55,
       "entry_src": "entry",
-      "stop": 88.799,
+      "stop": 58.571,
       "ret_1d": null,
       "ret_5d": null,
       "ret_20d": null,
@@ -139,14 +139,14 @@
     },
     {
       "date": "2026-07-20",
-      "symbol": "NDQ.AX",
-      "class": "ETF",
+      "symbol": "RIO.AX",
+      "class": "Materials",
       "strategy": "MEAN_REVERSION",
-      "score": 100,
+      "score": 87,
       "order": "LIMIT",
-      "entry_px": 59.44,
+      "entry_px": 157.95,
       "entry_src": "entry",
-      "stop": 58.3772,
+      "stop": 153.0296,
       "ret_1d": null,
       "ret_5d": null,
       "ret_20d": null,
@@ -162,7 +162,7 @@
       "entry_px": 90.95,
       "entry_src": "entry",
       "stop": 88.799,
-      "ret_1d": 0.0073667489919888585,
+      "ret_1d": 0.003628387489034157,
       "ret_5d": null,
       "ret_20d": null,
       "risk_gate": "always"
@@ -177,7 +177,7 @@
       "entry_px": 59.44,
       "entry_src": "entry",
       "stop": 58.3772,
-      "ret_1d": 0.004205922035261711,
+      "ret_1d": 0.0018506159638795872,
       "ret_5d": null,
       "ret_20d": null,
       "risk_gate": "always"
@@ -419,7 +419,7 @@
       "stop": 170.3849,
       "ret_1d": 0.00017045728939435456,
       "ret_5d": -0.010739242744792432,
-      "ret_20d": -0.09619868973313894,
+      "ret_20d": -0.10250586954849883,
       "risk_gate": "always"
     },
     {
@@ -434,7 +434,7 @@
       "stop": 7.3254,
       "ret_1d": -0.05289673466840927,
       "ret_5d": -0.0780856273414341,
-      "ret_20d": -0.1637279825398329,
+      "ret_20d": -0.16876576107443786,
       "risk_gate": "always"
     },
     {
@@ -710,7 +710,7 @@
   ],
   "r_5d": {
     "summary": {
-      "as_of": "2026-07-20 14:52:22 AEST",
+      "as_of": "2026-07-20 22:06:05 AEST",
       "coverage": {
         "since": "2026-06-01",
         "until": "2026-07-20"
