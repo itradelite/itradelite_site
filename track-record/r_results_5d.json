@@ -1,5 +1,5 @@
 {
-  "as_of": "2026-07-17 21:08:54 AEST",
+  "as_of": "2026-07-20 14:52:22 AEST",
   "horizon_trading_days": 5,
   "results": [
     {
@@ -116,20 +116,6 @@
     },
     {
       "date": "2026-06-25",
-      "symbol": "WDS.AX",
-      "class": "Energy",
-      "strategy": "MEAN_REVERSION",
-      "score": 100,
-      "order": "LIMIT",
-      "risk_gate": "always",
-      "entry_px": 27.43,
-      "stop": 26.3736,
-      "exit_type_5d": "H5_CLOSE",
-      "exit_px_5d": 28.030000686645508,
-      "r_5d": 0.5679673292744303
-    },
-    {
-      "date": "2026-06-25",
       "symbol": "RIO.AX",
       "class": "Materials",
       "strategy": "MEAN_REVERSION",
@@ -141,6 +127,20 @@
       "exit_type_5d": "H5_CLOSE",
       "exit_px_5d": 171.27000427246094,
       "r_5d": 0.23212031634646071
+    },
+    {
+      "date": "2026-06-25",
+      "symbol": "WDS.AX",
+      "class": "Energy",
+      "strategy": "MEAN_REVERSION",
+      "score": 100,
+      "order": "LIMIT",
+      "risk_gate": "always",
+      "entry_px": 27.43,
+      "stop": 26.3736,
+      "exit_type_5d": "H5_CLOSE",
+      "exit_px_5d": 28.030000686645508,
+      "r_5d": 0.5679673292744303
     },
     {
       "date": "2026-06-24",
@@ -200,20 +200,6 @@
     },
     {
       "date": "2026-06-22",
-      "symbol": "RIO.AX",
-      "class": "Materials",
-      "strategy": "MEAN_REVERSION",
-      "score": 89,
-      "order": "LIMIT",
-      "risk_gate": "always",
-      "entry_px": 176.33,
-      "stop": 170.3849,
-      "exit_type_5d": "STOP",
-      "exit_px_5d": 170.3849,
-      "r_5d": -1.0
-    },
-    {
-      "date": "2026-06-22",
       "symbol": "IGO.AX",
       "class": "Materials",
       "strategy": "MEAN_REVERSION",
@@ -224,6 +210,20 @@
       "stop": 7.3254,
       "exit_type_5d": "STOP",
       "exit_px_5d": 7.3254,
+      "r_5d": -1.0
+    },
+    {
+      "date": "2026-06-22",
+      "symbol": "RIO.AX",
+      "class": "Materials",
+      "strategy": "MEAN_REVERSION",
+      "score": 89,
+      "order": "LIMIT",
+      "risk_gate": "always",
+      "entry_px": 176.33,
+      "stop": 170.3849,
+      "exit_type_5d": "STOP",
+      "exit_px_5d": 170.3849,
       "r_5d": -1.0
     },
     {
@@ -326,20 +326,6 @@
     },
     {
       "date": "2026-06-11",
-      "symbol": "GGP.AX",
-      "class": "Materials",
-      "strategy": "MEAN_REVERSION",
-      "score": 100,
-      "order": "LIMIT",
-      "risk_gate": "always",
-      "entry_px": 11.55,
-      "stop": 10.7361,
-      "exit_type_5d": "H5_CLOSE",
-      "exit_px_5d": 14.229999542236328,
-      "r_5d": 3.292787249338158
-    },
-    {
-      "date": "2026-06-11",
       "symbol": "LYC.AX",
       "class": "Materials",
       "strategy": "MEAN_REVERSION",
@@ -351,6 +337,20 @@
       "exit_type_5d": "STOP",
       "exit_px_5d": 15.8773,
       "r_5d": -1.0
+    },
+    {
+      "date": "2026-06-11",
+      "symbol": "GGP.AX",
+      "class": "Materials",
+      "strategy": "MEAN_REVERSION",
+      "score": 100,
+      "order": "LIMIT",
+      "risk_gate": "always",
+      "entry_px": 11.55,
+      "stop": 10.7361,
+      "exit_type_5d": "H5_CLOSE",
+      "exit_px_5d": 14.229999542236328,
+      "r_5d": 3.292787249338158
     },
     {
       "date": "2026-06-10",
@@ -382,20 +382,6 @@
     },
     {
       "date": "2026-06-09",
-      "symbol": "LYC.AX",
-      "class": "Materials",
-      "strategy": "MEAN_REVERSION",
-      "score": 100,
-      "order": "LIMIT",
-      "risk_gate": "always",
-      "entry_px": 17.28,
-      "stop": 16.3256,
-      "exit_type_5d": "STOP",
-      "exit_px_5d": 16.3256,
-      "r_5d": -1.0
-    },
-    {
-      "date": "2026-06-09",
       "symbol": "LTR.AX",
       "class": "Materials",
       "strategy": "MEAN_REVERSION",
@@ -406,6 +392,20 @@
       "stop": 1.923,
       "exit_type_5d": "STOP",
       "exit_px_5d": 1.923,
+      "r_5d": -1.0
+    },
+    {
+      "date": "2026-06-09",
+      "symbol": "LYC.AX",
+      "class": "Materials",
+      "strategy": "MEAN_REVERSION",
+      "score": 100,
+      "order": "LIMIT",
+      "risk_gate": "always",
+      "entry_px": 17.28,
+      "stop": 16.3256,
+      "exit_type_5d": "STOP",
+      "exit_px_5d": 16.3256,
       "r_5d": -1.0
     },
     {
@@ -476,76 +476,6 @@
       "stop": 5.0377,
       "exit_type_5d": "STOP",
       "exit_px_5d": 5.0377,
-      "r_5d": -1.0
-    },
-    {
-      "date": "2026-05-21",
-      "symbol": "NXG.AX",
-      "class": "Energy",
-      "strategy": "MEAN_REVERSION",
-      "score": 100,
-      "order": "LIMIT",
-      "risk_gate": "always",
-      "entry_px": 14.86,
-      "stop": 14.2124,
-      "exit_type_5d": "H5_CLOSE",
-      "exit_px_5d": 15.420000076293945,
-      "r_5d": 0.8647314334372249
-    },
-    {
-      "date": "2026-05-20",
-      "symbol": "PRU.AX",
-      "class": "Materials",
-      "strategy": "MEAN_REVERSION",
-      "score": 100,
-      "order": "LIMIT",
-      "risk_gate": "always",
-      "entry_px": 5.15,
-      "stop": 4.9516,
-      "exit_type_5d": "H5_CLOSE",
-      "exit_px_5d": 5.380000114440918,
-      "r_5d": 1.1592747703675261
-    },
-    {
-      "date": "2026-05-20",
-      "symbol": "GGP.AX",
-      "class": "Materials",
-      "strategy": "MEAN_REVERSION",
-      "score": 100,
-      "order": "LIMIT",
-      "risk_gate": "always",
-      "entry_px": 12.3,
-      "stop": 11.562,
-      "exit_type_5d": "H5_CLOSE",
-      "exit_px_5d": 13.550000190734863,
-      "r_5d": 1.693767196117697
-    },
-    {
-      "date": "2026-05-19",
-      "symbol": "GGP.AX",
-      "class": "Materials",
-      "strategy": "MEAN_REVERSION",
-      "score": 85,
-      "order": "LIMIT",
-      "risk_gate": "always",
-      "entry_px": 13.12,
-      "stop": 12.3807,
-      "exit_type_5d": "STOP",
-      "exit_px_5d": 12.3807,
-      "r_5d": -1.0
-    },
-    {
-      "date": "2026-05-19",
-      "symbol": "NXG.AX",
-      "class": "Energy",
-      "strategy": "MEAN_REVERSION",
-      "score": 100,
-      "order": "LIMIT",
-      "risk_gate": "always",
-      "entry_px": 15.52,
-      "stop": 14.8176,
-      "exit_type_5d": "STOP",
-      "exit_px_5d": 14.8176,
       "r_5d": -1.0
     }
   ]
