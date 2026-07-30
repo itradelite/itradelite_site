@@ -1,13 +1,13 @@
 {
   "summary": {
-    "as_of": "2026-07-30 14:19:19 AEST",
+    "as_of": "2026-07-30 21:35:47 AEST",
     "since": "2026-06-01",
     "until": "2026-07-30",
-    "total_signals_with_entry": 46,
+    "total_signals_with_entry": 47,
     "total_signals_with_5d": 39,
     "avg_ret_1d": 0.002641765407040726,
     "avg_ret_5d": -0.0005476715973619038,
-    "avg_ret_20d": -0.06117306200513382,
+    "avg_ret_20d": -0.061249816057439295,
     "winrate_1d": 0.5476190476190477,
     "winrate_5d": 0.5641025641025641,
     "winrate_20d": 0.3,
@@ -159,11 +159,27 @@
       "symbol": "CDA.AX",
       "class": "Technology Hardware & Equipment",
       "strategy": "MEAN_REVERSION",
+      "score": 94,
+      "order": "LIMIT",
+      "entry_px": 38.52,
+      "entry_src": "entry",
+      "stop": 36.5516,
+      "ret_1d": null,
+      "ret_5d": null,
+      "ret_20d": null,
+      "risk_gate": "always"
+    },
+    {
+      "date": "2026-07-30",
+      "valid_for": "2026-07-31",
+      "symbol": "CGF.AX",
+      "class": "Financial Services",
+      "strategy": "MEAN_REVERSION",
       "score": 100,
       "order": "LIMIT",
-      "entry_px": 38.67,
+      "entry_px": 9.67,
       "entry_src": "entry",
-      "stop": 36.6819,
+      "stop": 9.3949,
       "ret_1d": null,
       "ret_5d": null,
       "ret_20d": null,
@@ -284,22 +300,6 @@
     {
       "date": "2026-07-17",
       "valid_for": "2026-07-20",
-      "symbol": "VGE.AX",
-      "class": "ETF",
-      "strategy": "MEAN_REVERSION",
-      "score": 100,
-      "order": "LIMIT",
-      "entry_px": 91.69999694824219,
-      "entry_src": "valid_for_open",
-      "stop": 88.799,
-      "ret_1d": 0.017309398030064926,
-      "ret_5d": 0.008654699015032463,
-      "ret_20d": null,
-      "risk_gate": "always"
-    },
-    {
-      "date": "2026-07-17",
-      "valid_for": "2026-07-20",
       "symbol": "NDQ.AX",
       "class": "ETF",
       "strategy": "MEAN_REVERSION",
@@ -310,6 +310,22 @@
       "stop": 58.3772,
       "ret_1d": 0.007556687971532305,
       "ret_5d": -0.004366050795369225,
+      "ret_20d": null,
+      "risk_gate": "always"
+    },
+    {
+      "date": "2026-07-17",
+      "valid_for": "2026-07-20",
+      "symbol": "VGE.AX",
+      "class": "ETF",
+      "strategy": "MEAN_REVERSION",
+      "score": 100,
+      "order": "LIMIT",
+      "entry_px": 91.69999694824219,
+      "entry_src": "valid_for_open",
+      "stop": 88.799,
+      "ret_1d": 0.017309398030064926,
+      "ret_5d": 0.008654699015032463,
       "ret_20d": null,
       "risk_gate": "always"
     },
@@ -406,7 +422,7 @@
       "stop": 30.3723,
       "ret_1d": 0.030263160784158805,
       "ret_5d": 0.052631592156154205,
-      "ret_20d": 0.052302637254597384,
+      "ret_20d": 0.050000015685433,
       "risk_gate": "always"
     },
     {
@@ -876,7 +892,7 @@
   ],
   "r_5d": {
     "summary": {
-      "as_of": "2026-07-30 14:19:19 AEST",
+      "as_of": "2026-07-30 21:35:47 AEST",
       "coverage": {
         "since": "2026-06-01",
         "until": "2026-07-30"
