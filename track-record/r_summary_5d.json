@@ -1,18 +1,18 @@
 {
-  "as_of": "2026-07-30 21:35:47 AEST",
+  "as_of": "2026-07-31 14:39:45 AEST",
   "coverage": {
     "since": "2026-06-01",
-    "until": "2026-07-30"
+    "until": "2026-07-31"
   },
   "horizon_trading_days": 5,
   "method": "Stop-first within horizon using auto-adjusted OHLC from yfinance. Anchored at valid_for (the first trading day after signal_date), not signal_date itself, to avoid lookahead bias. For Mean Reversion, entry_px is the Open on valid_for (not the signal-date close that produced the RSI(2)/Bollinger trigger); other strategies use their published trigger/limit price. If Low <= stop at any point from valid_for..valid_for+h, exit=stop (R=-1). Else exit=Close[valid_for+h]. R=(exit-entry)/(entry-stop). Long-only R where stop < entry.",
   "stats": {
-    "n": 38,
-    "mean_r": -0.26847920376501494,
-    "median_r": -0.7145001503492476,
-    "std_r": 0.9198357500792814,
-    "winrate": 0.34210526315789475,
-    "avg_win_r": 0.7700138023249911,
+    "n": 39,
+    "mean_r": -0.2552923748253212,
+    "median_r": -0.42900030069849526,
+    "std_r": 0.9113802067191281,
+    "winrate": 0.358974358974359,
+    "avg_win_r": 0.7325704682219948,
     "avg_loss_r": -0.8084955669318182,
     "min_r": -1.0,
     "max_r": 2.798642732262179
