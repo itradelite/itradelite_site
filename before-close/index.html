@@ -1,0 +1,402 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Before-Close Update — iTradeLite</title>
+  <meta name="robots" content="noindex,nofollow" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #0f172a;
+      --card-bg: #1e293b;
+      --border: rgba(255, 255, 255, 0.08);
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --accent-green: #10b981;
+      --accent-red: #f43f5e;
+      --accent-gold: #f59e0b;
+      --accent-purple: #a78bfa;
+      --brand-primary: #38bdf8;
+      --mono-font: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text-main);
+      font-family: 'Inter', -apple-system, system-ui, sans-serif;
+      margin: 0;
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    a { color: inherit; }
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+
+    .topbar {
+      background: rgba(15, 23, 42, 0.90);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      padding: 12px 0;
+    }
+    .topbar__inner { display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+    .brand { display: flex; align-items: center; gap: 10px; text-decoration: none; color: white; font-weight: 700; font-size: 18px; }
+    .brand__badge {
+      font-size: 10px;
+      font-weight: 700;
+      background: rgba(56,189,248,0.18);
+      border: 1px solid rgba(56,189,248,0.35);
+      color: var(--brand-primary);
+      padding: 2px 7px;
+      border-radius: 999px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+    .nav { display: flex; gap: 16px; font-size: 14px; align-items: center; }
+    .nav a { text-decoration: none; color: var(--text-muted); transition: color 0.2s; }
+    .nav a:hover { color: var(--text-main); }
+    .nav a[aria-current="page"] { color: var(--brand-primary); }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--brand-primary);
+      color: var(--bg);
+      border: none;
+      padding: 8px 16px;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 13px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: opacity 0.2s, transform 0.08s;
+      user-select: none;
+      white-space: nowrap;
+    }
+    .btn:active { transform: translateY(1px); }
+    .btn:hover { opacity: 0.85; }
+    .btn--ghost { background: transparent; border: 1px solid var(--border); color: var(--text-muted); }
+    .btn--ghost:hover { color: white; border-color: rgba(255,255,255,0.2); }
+
+    .mono { font-family: var(--mono-font); font-size: 13px; }
+    .muted { color: var(--text-muted); }
+    .small { font-size: 12px; color: var(--text-muted); }
+
+    .exp-banner {
+      background: linear-gradient(90deg, rgba(56,189,248,0.10) 0%, rgba(30,41,59,0) 100%);
+      border: 1px solid rgba(56,189,248,0.25);
+      border-left: 4px solid var(--brand-primary);
+      border-radius: 12px;
+      padding: 14px 18px;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+    }
+    .exp-banner__icon { font-size: 20px; flex-shrink: 0; margin-top: 1px; }
+    .exp-banner__body { flex: 1; }
+    .exp-banner__title { font-weight: 700; font-size: 14px; color: var(--brand-primary); margin-bottom: 3px; }
+    .exp-banner__text { font-size: 13px; color: var(--text-muted); }
+
+    .kpiGrid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 14px;
+      margin: 0 0 18px;
+    }
+    .kpiBox {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 16px 18px;
+    }
+    .kpiLabel { font-size: 11px; font-weight: 800; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.07em; }
+    .kpiValue { font-family: var(--mono-font); font-size: 26px; font-weight: 500; margin-top: 6px; color: var(--brand-primary); }
+    .kpiValue--small { font-size: 15px; font-family: 'Inter', system-ui, sans-serif; font-weight: 700; text-transform: uppercase; color: var(--text-main); }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      border-radius: 999px;
+      padding: 4px 10px;
+      font-size: 12px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.03);
+      white-space: nowrap;
+    }
+
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      overflow: hidden;
+      margin-bottom: 18px;
+    }
+    .signalCard { padding: 16px 18px; border-bottom: 1px solid var(--border); }
+    .signalCard:last-child { border-bottom: none; }
+    .signalCard__head { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; margin-bottom: 8px; }
+    .signalCard__symbol { font-family: var(--mono-font); font-weight: 700; font-size: 16px; color: var(--brand-primary); }
+    .signalCard__strategy { font-size: 12px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; }
+    .signalCard__note { font-size: 13px; color: #cbd5e1; line-height: 1.55; margin-top: 6px; }
+    .signalCard__row { display: flex; flex-wrap: wrap; gap: 18px; font-size: 13px; margin-top: 6px; }
+    .signalCard__row .field-label { font-size: 10px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.06em; display: block; }
+    .signalCard__row .field-value { font-family: var(--mono-font); font-size: 14px; margin-top: 2px; }
+
+    .status-badge { border-radius: 999px; padding: 4px 12px; font-size: 12px; font-weight: 800; letter-spacing: 0.03em; white-space: nowrap; }
+    .status-CONFIRMED    { background: rgba(56,189,248,0.14); border: 1px solid rgba(56,189,248,0.4); color: var(--brand-primary); }
+    .status-IMPROVED     { background: rgba(16,185,129,0.14); border: 1px solid rgba(16,185,129,0.4); color: var(--accent-green); }
+    .status-DETERIORATED { background: rgba(245,158,11,0.14); border: 1px solid rgba(245,158,11,0.4); color: var(--accent-gold); }
+    .status-INVALIDATED  { background: rgba(244,63,94,0.14); border: 1px solid rgba(244,63,94,0.4); color: var(--accent-red); }
+    .status-UNKNOWN      { background: rgba(148,163,184,0.14); border: 1px solid rgba(148,163,184,0.4); color: var(--text-muted); }
+
+    .gap-up   { color: var(--accent-green); font-weight: 700; }
+    .gap-down { color: var(--accent-red);   font-weight: 700; }
+
+    .empty-state {
+      padding: 52px 24px;
+      text-align: center;
+      color: var(--text-muted);
+    }
+    .empty-state__icon { font-size: 40px; margin-bottom: 14px; }
+    .empty-state__title { font-size: 17px; font-weight: 700; color: var(--text-main); margin-bottom: 6px; }
+    .empty-state__text { font-size: 13px; line-height: 1.6; max-width: 460px; margin: 0 auto 20px; }
+
+    .errorBox {
+      display: none;
+      margin: 16px 18px;
+      padding: 12px 14px;
+      border: 1px solid rgba(244,63,94,0.3);
+      background: rgba(244,63,94,0.08);
+      border-radius: 10px;
+      font-size: 13px;
+      color: var(--text-main);
+    }
+
+    footer {
+      padding: 28px 0;
+      border-top: 1px solid var(--border);
+      margin-top: 24px;
+      color: var(--text-muted);
+      font-size: 12px;
+    }
+
+    @media (max-width: 768px) {
+      .topbar__inner { gap: 10px; }
+      .kpiGrid { grid-template-columns: repeat(2, 1fr); }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="topbar">
+    <div class="container topbar__inner">
+      <a class="brand" href="/" aria-label="iTradeLite home">
+        <img src="/assets/logo.png" alt="" width="24" height="24" />
+        <span>iTradeLite</span>
+        <span class="brand__badge">Before-Close</span>
+      </a>
+
+      <nav class="nav" aria-label="Primary">
+        <a href="/today/">Daily Briefing</a>
+        <a href="/before-close/" aria-current="page">Before-Close</a>
+        <a href="/intraday/">Intraday</a>
+        <a href="/how-it-works.html">Rules</a>
+        <a href="/about.html">About</a>
+      </nav>
+
+      <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;">
+        <button class="btn btn--ghost" id="refreshBtn" type="button">↻ Refresh</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container" style="padding: 18px 0 28px;">
+
+    <div class="exp-banner">
+      <div class="exp-banner__icon">🕒</div>
+      <div class="exp-banner__body">
+        <div class="exp-banner__title">Before-Close Update — not a new scan</div>
+        <div class="exp-banner__text">
+          This is <b>not</b> a fresh daily briefing. It re-checks last night's already-published picks
+          against the current live price, roughly an hour before ASX close, and tells you whether each
+          setup is still <b>CONFIRMED</b>, has <b>IMPROVED</b>/<b>DETERIORATED</b>, or is now <b>INVALIDATED</b>.
+          For a full re-scan of the universe, see the <a href="/today/">Daily Briefing</a> instead.
+        </div>
+      </div>
+    </div>
+
+    <div class="kpiGrid" aria-label="Before-close KPIs">
+      <div class="kpiBox">
+        <div class="kpiLabel">Signals Re-Checked</div>
+        <div class="kpiValue" id="kpiCount">—</div>
+      </div>
+      <div class="kpiBox">
+        <div class="kpiLabel">Status</div>
+        <div class="kpiValue kpiValue--small" id="kpiStatus">—</div>
+      </div>
+      <div class="kpiBox">
+        <div class="kpiLabel">As Of</div>
+        <div class="kpiValue kpiValue--small" id="kpiAsOf">—</div>
+      </div>
+    </div>
+
+    <section class="card" id="statusCard" aria-label="Update status">
+      <div class="errorBox" id="errorBox"></div>
+    </section>
+
+    <div id="signals"></div>
+
+    <footer>
+      <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;">
+        <p><b>Disclaimer:</b> Educational data stream. Not financial advice. Trading involves significant risk of loss.</p>
+        <a href="/today/" style="color:var(--text-muted);font-size:12px;text-decoration:none;">← Back to Daily Briefing</a>
+      </div>
+    </footer>
+  </main>
+
+  <script>
+    const DATA_URL = "/public/before_close.json";
+
+    function esc(s){ return String(s??'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+    function safeText(s){ return (s===null||s===undefined||s==='')?'—':String(s); }
+    function fmt(n,d=4){ const x=Number(n); return Number.isFinite(x)?x.toFixed(d):'—'; }
+
+    function showError(msg){
+      const b=document.getElementById('errorBox');
+      if(!b)return; b.textContent=msg; b.style.display='block';
+    }
+
+    function fmtBNE(iso){
+      if(!iso) return '—';
+      const d=new Date(iso);
+      if(isNaN(d)) return '—';
+      return d.toLocaleString('en-AU',{
+        timeZone:'Australia/Brisbane',
+        day:'2-digit', month:'2-digit', year:'numeric',
+        hour:'2-digit', minute:'2-digit', hour12:false
+      }) + ' AEST';
+    }
+
+    function gapClass(g){
+      const x=Number(g);
+      if(!Number.isFinite(x)) return '';
+      return x>=0?'gap-up':'gap-down';
+    }
+
+    function signalCard(u){
+      const badge = `<span class="status-badge status-${esc(u.status||'UNKNOWN')}">${esc(u.status||'UNKNOWN')}</span>`;
+      const gapTxt = Number.isFinite(Number(u.gap_pct)) ? `${Number(u.gap_pct)>=0?'+':''}${Number(u.gap_pct).toFixed(2)}%` : '—';
+
+      return `
+        <div class="signalCard">
+          <div class="signalCard__head">
+            <div>
+              <span class="signalCard__symbol">${esc(safeText(u.symbol))}</span>
+              <span class="signalCard__strategy" style="margin-left:8px;">${esc(safeText(u.strategy))}</span>
+            </div>
+            ${badge}
+          </div>
+          <div class="signalCard__row">
+            <div><span class="field-label">Original Entry</span><span class="field-value">${fmt(u.original_entry)}</span></div>
+            <div><span class="field-label">Original Stop</span><span class="field-value">${fmt(u.original_stop)}</span></div>
+            <div><span class="field-label">Current Price</span><span class="field-value">${fmt(u.current_price)} <span class="small">(${esc(safeText(u.current_price_time))})</span></span></div>
+            <div><span class="field-label">Gap vs Signal</span><span class="field-value ${gapClass(u.gap_pct)}">${gapTxt}</span></div>
+            <div><span class="field-label">Updated Entry</span><span class="field-value">${fmt(u.updated_entry)}</span></div>
+            <div><span class="field-label">Updated Stop</span><span class="field-value">${fmt(u.updated_stop)}</span></div>
+          </div>
+          <div class="signalCard__note">${esc(safeText(u.plain_english))}</div>
+        </div>`;
+    }
+
+    function render(data){
+      document.getElementById('errorBox').style.display='none';
+      document.getElementById('kpiAsOf').textContent = fmtBNE(data.generated_at_utc) || safeText(data.as_of_local);
+
+      if(data.skipped){
+        document.getElementById('kpiCount').textContent = '0';
+        document.getElementById('kpiStatus').textContent = 'Market Closed';
+        document.getElementById('signals').innerHTML = `
+          <div class="empty-state">
+            <div class="empty-state__icon">📅</div>
+            <div class="empty-state__title">ASX is closed today</div>
+            <div class="empty-state__text">No before-close update runs on weekends or when the market is closed.</div>
+          </div>`;
+        return;
+      }
+
+      if(!data.has_signals){
+        document.getElementById('kpiCount').textContent = '0';
+        document.getElementById('kpiStatus').textContent = 'No Signals';
+        document.getElementById('signals').innerHTML = `
+          <div class="empty-state">
+            <div class="empty-state__icon">🌙</div>
+            <div class="empty-state__title">No signals to update</div>
+            <div class="empty-state__text">Last night's scan didn't publish any picks, so there's nothing to re-check before today's close.</div>
+          </div>`;
+        return;
+      }
+
+      const updates = Array.isArray(data.updates) ? data.updates : [];
+      document.getElementById('kpiCount').textContent = String(updates.length);
+
+      const counts = {};
+      updates.forEach(u => { counts[u.status] = (counts[u.status]||0) + 1; });
+      const statusSummary = Object.entries(counts).map(([k,v]) => `${v} ${k}`).join(', ') || '—';
+      document.getElementById('kpiStatus').textContent = statusSummary;
+
+      if(!updates.length){
+        document.getElementById('signals').innerHTML = `
+          <div class="empty-state">
+            <div class="empty-state__icon">🌙</div>
+            <div class="empty-state__title">No signals to update</div>
+          </div>`;
+        return;
+      }
+
+      document.getElementById('signals').innerHTML =
+        `<div class="card">${updates.map(signalCard).join('')}</div>`;
+    }
+
+    async function load(){
+      const r = await fetch(DATA_URL+'?v='+Date.now(), {cache:'no-store'});
+      if(!r.ok) throw new Error('HTTP '+r.status);
+      return r.json();
+    }
+
+    document.getElementById('refreshBtn').addEventListener('click', async () => {
+      try { render(await load()); }
+      catch(e) { showError('Could not load before-close data. (' + e.message + ')'); }
+    });
+
+    (async function(){
+      try {
+        render(await load());
+      } catch(e) {
+        document.getElementById('kpiCount').textContent = '—';
+        document.getElementById('kpiStatus').textContent = 'No Data';
+        document.getElementById('signals').innerHTML = `
+          <div class="empty-state">
+            <div class="empty-state__icon">🕒</div>
+            <div class="empty-state__title">No before-close data yet</div>
+            <div class="empty-state__text">
+              This page is populated by a scheduled GitHub Actions run at ~15:00 AEST on trading days.
+              Nothing has published yet — check back closer to close, or after the workflow first runs.
+            </div>
+          </div>`;
+      }
+    })();
+  </script>
+</body>
+</html>
