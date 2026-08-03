@@ -1,0 +1,25 @@
+{
+  "generated_at_utc": "2026-08-03T07:33:59Z",
+  "as_of_local": "2026-08-03 17:33:59 AEST",
+  "skipped": false,
+  "has_signals": true,
+  "source_file": "reports/recommended_orders_latest.csv",
+  "n_signals": 1,
+  "updates": [
+    {
+      "symbol": "QAN.AX",
+      "strategy": "MEAN_REVERSION",
+      "original_entry": 9.95,
+      "original_stop": 9.6813,
+      "original_score": 86.0,
+      "current_price": 10.32,
+      "current_price_time": "16:10 AEST",
+      "gap_pct": 3.72,
+      "status": "INVALIDATED",
+      "updated_entry": 10.32,
+      "updated_stop": 10.0419,
+      "updated_score": 25,
+      "plain_english": "QAN.AX (Mean Reversion) was signaled last night at 9.9500. Currently trading at 10.3200 (+3.72% vs signal). Setup no longer holds \u2014 do not act on last night's plan."
+    }
+  ]
+}
