@@ -88,6 +88,11 @@
     .btn:hover { opacity: 0.85; }
     .btn--ghost { background: transparent; border: 1px solid var(--border); color: var(--text-muted); }
     .btn--ghost:hover { color: white; border-color: rgba(255,255,255,0.2); }
+    .btn--brand {
+      background: linear-gradient(135deg, #0ea5e9, #38bdf8);
+      color: var(--bg);
+    }
+    .btn:disabled { opacity: 0.45; cursor: not-allowed; pointer-events: none; }
 
     .mono { font-family: var(--mono-font); font-size: 13px; }
     .muted { color: var(--text-muted); }
@@ -218,6 +223,8 @@
 
       <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;">
         <button class="btn btn--ghost" id="refreshBtn" type="button">↻ Refresh</button>
+        <button class="btn btn--brand" id="checkBeforeCloseBtn" type="button">🔍 Check Before-Close Signals</button>
+        <span class="small" id="checkBeforeCloseStatus"></span>
       </div>
     </div>
   </header>
@@ -378,6 +385,62 @@
     document.getElementById('refreshBtn').addEventListener('click', async () => {
       try { render(await load()); }
       catch(e) { showError('Could not load before-close data. (' + e.message + ')'); }
+    });
+
+    // ── Check Before-Close Signals (on-demand trigger) ──────────────────────
+    const REFRESH_WORKER_URL = "https://itradelite-intraday-refresh.itradelite-refresh-worker.workers.dev";
+    // Measured end-to-end (dispatch -> job complete) for before_close_update.py
+    // was 45-57s on 2026-08-03 (a much smaller job than intraday_scan.py -- it
+    // only re-checks last night's already-published picks, not the full
+    // universe). Padded to 90s for buffer since more re-checked signals means
+    // slightly longer.
+    const CHECK_BEFORE_CLOSE_WAIT_MS = 90000;
+
+    document.getElementById('checkBeforeCloseBtn').addEventListener('click', async () => {
+      const btn = document.getElementById('checkBeforeCloseBtn');
+      const statusEl = document.getElementById('checkBeforeCloseStatus');
+      btn.disabled = true;
+      statusEl.textContent = 'Refreshing… ~90s';
+
+      let resp, data;
+      try{
+        resp = await fetch(REFRESH_WORKER_URL, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ workflow: 'before_close' }),
+        });
+        data = await resp.json().catch(()=>({}));
+      }catch(e){
+        statusEl.textContent = 'Could not reach refresh service — try again shortly.';
+        btn.disabled = false;
+        return;
+      }
+
+      if(data.status === 'rate_limited'){
+        statusEl.textContent = 'Already refreshing — try again in a few minutes.';
+        btn.disabled = false;
+        return;
+      }
+
+      if(data.status !== 'triggered'){
+        statusEl.textContent = 'Could not refresh — try again shortly.';
+        btn.disabled = false;
+        return;
+      }
+
+      setTimeout(async () => {
+        try{
+          render(await load());
+          const now = new Date().toLocaleTimeString('en-AU', {
+            timeZone: 'Australia/Brisbane', hour: '2-digit', minute: '2-digit', hour12: false
+          });
+          statusEl.textContent = 'Done — refreshed at ' + now + ' AEST';
+        }catch(e){
+          statusEl.textContent = 'Scan should be done — refresh the page to see it.';
+        }finally{
+          btn.disabled = false;
+        }
+      }, CHECK_BEFORE_CLOSE_WAIT_MS);
     });
 
     (async function(){
