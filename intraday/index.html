@@ -540,8 +540,14 @@
             <td class="mono">${fmt(r.score,1)}</td>
             <td class="mono small">${esc(safeText(r.signal_time))}</td>
           </tr>`;
-        if(r.note){
-          html+=`<tr><td colspan="9" style="padding:6px 16px 10px 32px;font-size:12px;color:#cbd5e1;border-bottom:1px solid var(--border);">${esc(r.note)}</td></tr>`;
+        const noteParts=[];
+        if(r.note) noteParts.push(esc(r.note));
+        if(Array.isArray(r.other_signals) && r.other_signals.length){
+          const others=r.other_signals.map(o=>esc(safeText(o.interval))).join(', ');
+          noteParts.push(`<span class="muted">Also seen on ${others} — showing highest-conviction signal only.</span>`);
+        }
+        if(noteParts.length){
+          html+=`<tr><td colspan="9" style="padding:6px 16px 10px 32px;font-size:12px;color:#cbd5e1;border-bottom:1px solid var(--border);">${noteParts.join(' ')}</td></tr>`;
         }
       }
       html+=`</tbody></table></div></section>`;
