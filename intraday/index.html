@@ -300,12 +300,8 @@
 
       <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;">
         <button class="btn btn--ghost" id="refreshBtn" type="button">↻ Refresh</button>
-        <a class="btn btn--purple" id="runIntradayBtn"
-           href="https://github.com/itradelite/itradelite/actions/workflows/intraday_scan.yml"
-           target="_blank" rel="noopener noreferrer"
-           title="Opens GitHub Actions — click Run workflow there">
-          ⚡ Run Intraday Scan
-        </a>
+        <button class="btn btn--purple" id="refreshSignalsBtn" type="button">⚡ Refresh Signals</button>
+        <span class="small" id="refreshSignalsStatus"></span>
       </div>
     </div>
   </header>
@@ -321,7 +317,7 @@
           This page uses intraday Yahoo Finance bars (15 min / 30 min / 1 hr).
           Signals are generated the same way as the daily scan but on shorter timeframes.
           Data is only meaningful while ASX is open (10:00 AM – 4:00 PM AEST, Mon–Fri).
-          Click <b>Run Intraday Scan</b> on GitHub Actions, then hit <b>↻ Refresh</b> here after it completes (~2–3 min).
+          Click <b>⚡ Refresh Signals</b> to re-scan on demand — takes a few minutes.
         </div>
       </div>
     </div>
@@ -415,6 +411,10 @@
 
   <script>
     const DATA_URL = "/public/intraday.json";
+    const REFRESH_WORKER_URL = "https://itradelite-intraday-refresh.itradelite-refresh-worker.workers.dev";
+    // Measured end-to-end (dispatch → job complete) on 2026-08-03 was 3m33s;
+    // padded slightly so the auto re-fetch doesn't land before the push does.
+    const REFRESH_WAIT_MS = 220000;
 
     // ── Helpers ──────────────────────────────────────────────────────────────
     function esc(s){ return String(s??'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
@@ -589,11 +589,8 @@
             <div class="empty-state__text">
               ${rows.length
                 ?'Try adjusting your Interval, Strategy, or Direction filters.'
-                :'Run the intraday scan first: click <b>⚡ Run Intraday Scan</b> above, wait ~2–3 minutes for the GitHub Actions workflow to complete, then hit <b>↻ Refresh</b>.'}
+                :'Run the intraday scan first: click <b>⚡ Refresh Signals</b> above and wait a few minutes.'}
             </div>
-            ${!rows.length?`<a class="btn btn--purple"
-              href="https://github.com/itradelite/itradelite/actions/workflows/intraday_scan.yml"
-              target="_blank" rel="noopener noreferrer">⚡ Run Intraday Scan on GitHub</a>`:''}
           </div>`;
       }
 
@@ -621,6 +618,54 @@
         try{ const d=await load(); window.__DATA__=d; render(d); }
         catch(e){ showError('Could not load intraday data. Run the scan first. ('+e.message+')'); }
       });
+
+      document.getElementById('refreshSignalsBtn').addEventListener('click', onRefreshSignalsClick);
+    }
+
+    // ── Refresh Signals (on-demand trigger) ─────────────────────────────────
+    async function onRefreshSignalsClick(){
+      const btn = document.getElementById('refreshSignalsBtn');
+      const statusEl = document.getElementById('refreshSignalsStatus');
+      btn.disabled = true;
+      statusEl.textContent = 'Refreshing… ~4 min';
+
+      let resp, data;
+      try{
+        resp = await fetch(REFRESH_WORKER_URL, { method: 'POST' });
+        data = await resp.json().catch(()=>({}));
+      }catch(e){
+        statusEl.textContent = 'Could not reach refresh service — try again shortly.';
+        btn.disabled = false;
+        return;
+      }
+
+      if(data.status === 'rate_limited'){
+        statusEl.textContent = 'Already refreshing — try again in a few minutes.';
+        btn.disabled = false;
+        return;
+      }
+
+      if(data.status !== 'triggered'){
+        statusEl.textContent = 'Could not refresh — try again shortly.';
+        btn.disabled = false;
+        return;
+      }
+
+      setTimeout(async () => {
+        try{
+          const d = await load();
+          window.__DATA__ = d;
+          render(d);
+          const now = new Date().toLocaleTimeString('en-AU', {
+            timeZone: 'Australia/Brisbane', hour: '2-digit', minute: '2-digit', hour12: false
+          });
+          statusEl.textContent = 'Done — refreshed at ' + now + ' AEST';
+        }catch(e){
+          statusEl.textContent = 'Scan should be done — refresh the page to see it.';
+        }finally{
+          btn.disabled = false;
+        }
+      }, REFRESH_WAIT_MS);
     }
 
     // ── Market status KPI (live clock) ───────────────────────────────────────
@@ -657,12 +702,9 @@
             <div class="empty-state__icon">📡</div>
             <div class="empty-state__title">No intraday data yet</div>
             <div class="empty-state__text">
-              The intraday scan hasn't been run yet. Click <b>⚡ Run Intraday Scan</b> above to trigger it on GitHub Actions,
-              wait ~2–3 minutes, then hit <b>↻ Refresh</b> to see the signals.
+              The intraday scan hasn't been run yet. Click <b>⚡ Refresh Signals</b> above to trigger it,
+              wait a few minutes, then the signals will appear automatically.
             </div>
-            <a class="btn btn--purple" style="margin-top:4px;"
-               href="https://github.com/itradelite/itradelite/actions/workflows/intraday_scan.yml"
-               target="_blank" rel="noopener noreferrer">⚡ Run Intraday Scan on GitHub</a>
           </div>`;
       }
     })();
