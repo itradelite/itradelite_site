@@ -1,14 +1,14 @@
 {
   "summary": {
-    "as_of": "2026-08-03 22:48:27 AEST",
+    "as_of": "2026-08-04 21:43:52 AEST",
     "since": "2026-06-01",
     "until": "2026-07-31",
     "total_signals_with_entry": 50,
     "total_signals_with_5d": 42,
-    "avg_ret_1d": 0.0040933400094672065,
+    "avg_ret_1d": 0.003855134138129437,
     "avg_ret_5d": -0.00012115940519349282,
     "avg_ret_20d": -0.05526077208629161,
-    "winrate_1d": 0.574468085106383,
+    "winrate_1d": 0.58,
     "winrate_5d": 0.5476190476190477,
     "winrate_20d": 0.34375,
     "equity_curve_proxy_start": 1.0,
@@ -158,7 +158,7 @@
       "entry_px": 39.599998474121094,
       "entry_src": "valid_for_open",
       "stop": 36.5516,
-      "ret_1d": null,
+      "ret_1d": 0.00024945910869345056,
       "ret_5d": null,
       "ret_20d": null,
       "risk_gate": "always"
@@ -174,7 +174,7 @@
       "entry_px": 9.899999618530273,
       "entry_src": "valid_for_open",
       "stop": 9.3949,
-      "ret_1d": null,
+      "ret_1d": 0.0030272183080835013,
       "ret_5d": null,
       "ret_20d": null,
       "risk_gate": "always"
@@ -190,7 +190,7 @@
       "entry_px": 10.140000343322754,
       "entry_src": "valid_for_open",
       "stop": 9.6813,
-      "ret_1d": null,
+      "ret_1d": -0.0029069509552638317,
       "ret_5d": null,
       "ret_20d": null,
       "risk_gate": "always"
@@ -278,22 +278,6 @@
     {
       "date": "2026-07-24",
       "valid_for": "2026-07-27",
-      "symbol": "WES.AX",
-      "class": "Consumer Discretionary Distribution & Retail",
-      "strategy": "MEAN_REVERSION",
-      "score": 86,
-      "order": "LIMIT",
-      "entry_px": 87.19999694824219,
-      "entry_src": "valid_for_open",
-      "stop": 85.4397,
-      "ret_1d": 0.020823794771734905,
-      "ret_5d": 0.0372997949578433,
-      "ret_20d": null,
-      "risk_gate": "always"
-    },
-    {
-      "date": "2026-07-24",
-      "valid_for": "2026-07-27",
       "symbol": "CDA.AX",
       "class": "Technology Hardware & Equipment",
       "strategy": "MEAN_REVERSION",
@@ -304,6 +288,22 @@
       "stop": 37.7219,
       "ret_1d": -0.03190974467840857,
       "ret_5d": -0.016200290137959206,
+      "ret_20d": null,
+      "risk_gate": "always"
+    },
+    {
+      "date": "2026-07-24",
+      "valid_for": "2026-07-27",
+      "symbol": "WES.AX",
+      "class": "Consumer Discretionary Distribution & Retail",
+      "strategy": "MEAN_REVERSION",
+      "score": 86,
+      "order": "LIMIT",
+      "entry_px": 87.19999694824219,
+      "entry_src": "valid_for_open",
+      "stop": 85.4397,
+      "ret_1d": 0.020823794771734905,
+      "ret_5d": 0.0372997949578433,
       "ret_20d": null,
       "risk_gate": "always"
     },
@@ -502,22 +502,6 @@
     {
       "date": "2026-06-26",
       "valid_for": "2026-06-29",
-      "symbol": "ILU.AX",
-      "class": "Materials",
-      "strategy": "MEAN_REVERSION",
-      "score": 98,
-      "order": "LIMIT",
-      "entry_px": 6.980000019073486,
-      "entry_src": "valid_for_open",
-      "stop": 6.3261,
-      "ret_1d": 0.010000024523053819,
-      "ret_5d": -0.017142840794154623,
-      "ret_20d": -0.1671428680419922,
-      "risk_gate": "always"
-    },
-    {
-      "date": "2026-06-26",
-      "valid_for": "2026-06-29",
       "symbol": "PLS.AX",
       "class": "Materials",
       "strategy": "MEAN_REVERSION",
@@ -529,6 +513,22 @@
       "ret_1d": -0.011811012535560939,
       "ret_5d": 0.01181101253556105,
       "ret_20d": -0.16338581420696907,
+      "risk_gate": "always"
+    },
+    {
+      "date": "2026-06-26",
+      "valid_for": "2026-06-29",
+      "symbol": "ILU.AX",
+      "class": "Materials",
+      "strategy": "MEAN_REVERSION",
+      "score": 98,
+      "order": "LIMIT",
+      "entry_px": 6.980000019073486,
+      "entry_src": "valid_for_open",
+      "stop": 6.3261,
+      "ret_1d": 0.010000024523053819,
+      "ret_5d": -0.017142840794154623,
+      "ret_20d": -0.1671428680419922,
       "risk_gate": "always"
     },
     {
@@ -694,22 +694,6 @@
     {
       "date": "2026-06-18",
       "valid_for": "2026-06-19",
-      "symbol": "STO.AX",
-      "class": "Energy",
-      "strategy": "MEAN_REVERSION",
-      "score": 91,
-      "order": "LIMIT",
-      "entry_px": 7.300000190734863,
-      "entry_src": "valid_for_open",
-      "stop": 7.0921,
-      "ret_1d": 0.0,
-      "ret_5d": -0.021917852064214927,
-      "ret_20d": 0.05205474351713768,
-      "risk_gate": "always"
-    },
-    {
-      "date": "2026-06-18",
-      "valid_for": "2026-06-19",
       "symbol": "WDS.AX",
       "class": "Energy",
       "strategy": "MEAN_REVERSION",
@@ -721,6 +705,22 @@
       "ret_1d": -0.008956259825424029,
       "ret_5d": -0.04753706632704513,
       "ret_20d": 0.049259330485823316,
+      "risk_gate": "always"
+    },
+    {
+      "date": "2026-06-18",
+      "valid_for": "2026-06-19",
+      "symbol": "STO.AX",
+      "class": "Energy",
+      "strategy": "MEAN_REVERSION",
+      "score": 91,
+      "order": "LIMIT",
+      "entry_px": 7.300000190734863,
+      "entry_src": "valid_for_open",
+      "stop": 7.0921,
+      "ret_1d": 0.0,
+      "ret_5d": -0.021917852064214927,
+      "ret_20d": 0.05205474351713768,
       "risk_gate": "always"
     },
     {
@@ -870,22 +870,6 @@
     {
       "date": "2026-06-05",
       "valid_for": "2026-06-08",
-      "symbol": "TLS.AX",
-      "class": "Telecommunication Services",
-      "strategy": "MEAN_REVERSION",
-      "score": 93,
-      "order": "LIMIT",
-      "entry_px": 5.0,
-      "entry_src": "valid_for_open",
-      "stop": 4.8543,
-      "ret_1d": 0.0196850208926016,
-      "ret_5d": 0.007874008357040552,
-      "ret_20d": -0.001968455156468263,
-      "risk_gate": "always"
-    },
-    {
-      "date": "2026-06-05",
-      "valid_for": "2026-06-08",
       "symbol": "FMG.AX",
       "class": "Materials",
       "strategy": "MEAN_REVERSION",
@@ -897,6 +881,22 @@
       "ret_1d": -0.004556969751285611,
       "ret_5d": 0.04000004635581478,
       "ret_20d": -0.06936713110042525,
+      "risk_gate": "always"
+    },
+    {
+      "date": "2026-06-05",
+      "valid_for": "2026-06-08",
+      "symbol": "TLS.AX",
+      "class": "Telecommunication Services",
+      "strategy": "MEAN_REVERSION",
+      "score": 93,
+      "order": "LIMIT",
+      "entry_px": 5.0,
+      "entry_src": "valid_for_open",
+      "stop": 4.8543,
+      "ret_1d": 0.0196850208926016,
+      "ret_5d": 0.007874008357040552,
+      "ret_20d": -0.001968455156468263,
       "risk_gate": "always"
     },
     {
@@ -950,7 +950,7 @@
   ],
   "r_5d": {
     "summary": {
-      "as_of": "2026-08-03 22:48:27 AEST",
+      "as_of": "2026-08-04 21:43:52 AEST",
       "coverage": {
         "since": "2026-06-01",
         "until": "2026-07-31"
@@ -959,11 +959,11 @@
       "method": "Stop-first within horizon using auto-adjusted OHLC from yfinance. Anchored at valid_for (the first trading day after signal_date), not signal_date itself, to avoid lookahead bias. For Mean Reversion, entry_px is the Open on valid_for (not the signal-date close that produced the RSI(2)/Bollinger trigger); other strategies use their published trigger/limit price. If Low <= stop at any point from valid_for..valid_for+h, exit=stop (R=-1). Else exit=Close[valid_for+h]. R=(exit-entry)/(entry-stop). Long-only R where stop < entry.",
       "stats": {
         "n": 41,
-        "mean_r": -0.21928832552724944,
+        "mean_r": -0.2192883255272495,
         "median_r": -0.42900030069849526,
         "std_r": 0.9617308450344219,
         "winrate": 0.36585365853658536,
-        "avg_win_r": 0.814771188445215,
+        "avg_win_r": 0.8147711884452151,
         "avg_loss_r": -0.8158611220498252,
         "min_r": -1.0,
         "max_r": 2.798642732262179
