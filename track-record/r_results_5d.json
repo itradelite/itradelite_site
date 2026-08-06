@@ -1,22 +1,38 @@
 {
-  "as_of": "2026-08-05 21:42:09 AEST",
+  "as_of": "2026-08-06 21:45:01 AEST",
   "horizon_trading_days": 5,
   "results": [
     {
-      "date": "2026-07-24",
-      "valid_for": "2026-07-27",
+      "date": "2026-07-29",
+      "valid_for": "2026-07-30",
+      "symbol": "NDQ.AX",
+      "class": "ETF",
+      "strategy": "MEAN_REVERSION",
+      "score": 90,
+      "order": "LIMIT",
+      "risk_gate": "always",
+      "entry_px": 57.5,
+      "entry_src": "valid_for_open",
+      "stop": 56.6794,
+      "exit_type_5d": "H5_CLOSE",
+      "exit_px_5d": 60.70000076293945,
+      "r_5d": 3.899586598756346
+    },
+    {
+      "date": "2026-07-29",
+      "valid_for": "2026-07-30",
       "symbol": "CDA.AX",
       "class": "Technology Hardware & Equipment",
       "strategy": "MEAN_REVERSION",
       "score": 100,
       "order": "LIMIT",
       "risk_gate": "always",
-      "entry_px": 40.47999954223633,
+      "entry_px": 38.18000030517578,
       "entry_src": "valid_for_open",
-      "stop": 37.7219,
-      "exit_type_5d": "STOP",
-      "exit_px_5d": 37.7219,
-      "r_5d": -1.0
+      "stop": 36.6819,
+      "exit_type_5d": "H5_CLOSE",
+      "exit_px_5d": 41.439998626708984,
+      "r_5d": 2.1760881499524727
     },
     {
       "date": "2026-07-24",
@@ -33,6 +49,22 @@
       "exit_type_5d": "H5_CLOSE",
       "exit_px_5d": 90.66000366210938,
       "r_5d": 1.9655812715702965
+    },
+    {
+      "date": "2026-07-24",
+      "valid_for": "2026-07-27",
+      "symbol": "CDA.AX",
+      "class": "Technology Hardware & Equipment",
+      "strategy": "MEAN_REVERSION",
+      "score": 100,
+      "order": "LIMIT",
+      "risk_gate": "always",
+      "entry_px": 40.47999954223633,
+      "entry_src": "valid_for_open",
+      "stop": 37.7219,
+      "exit_type_5d": "STOP",
+      "exit_px_5d": 37.7219,
+      "r_5d": -1.0
     },
     {
       "date": "2026-07-23",
@@ -133,22 +165,6 @@
     {
       "date": "2026-07-09",
       "valid_for": "2026-07-10",
-      "symbol": "ALX.AX",
-      "class": "Transportation",
-      "strategy": "MEAN_REVERSION",
-      "score": 100,
-      "order": "LIMIT",
-      "risk_gate": "always",
-      "entry_px": 5.0,
-      "entry_src": "valid_for_open",
-      "stop": 4.9071,
-      "exit_type_5d": "H5_CLOSE",
-      "exit_px_5d": 5.090000152587891,
-      "r_5d": 0.9687852808169045
-    },
-    {
-      "date": "2026-07-09",
-      "valid_for": "2026-07-10",
       "symbol": "RIO.AX",
       "class": "Materials",
       "strategy": "MEAN_REVERSION",
@@ -161,6 +177,22 @@
       "exit_type_5d": "H5_CLOSE",
       "exit_px_5d": 160.9499969482422,
       "r_5d": -0.046026769114338194
+    },
+    {
+      "date": "2026-07-09",
+      "valid_for": "2026-07-10",
+      "symbol": "ALX.AX",
+      "class": "Transportation",
+      "strategy": "MEAN_REVERSION",
+      "score": 100,
+      "order": "LIMIT",
+      "risk_gate": "always",
+      "entry_px": 5.0,
+      "entry_src": "valid_for_open",
+      "stop": 4.9071,
+      "exit_type_5d": "H5_CLOSE",
+      "exit_px_5d": 5.090000152587891,
+      "r_5d": 0.9687852808169045
     },
     {
       "date": "2026-07-02",
@@ -293,22 +325,6 @@
     {
       "date": "2026-06-24",
       "valid_for": "2026-06-25",
-      "symbol": "WDS.AX",
-      "class": "Energy",
-      "strategy": "MEAN_REVERSION",
-      "score": 87,
-      "order": "LIMIT",
-      "risk_gate": "always",
-      "entry_px": 27.950000762939453,
-      "entry_src": "valid_for_open",
-      "stop": 27.2281,
-      "exit_type_5d": "H5_CLOSE",
-      "exit_px_5d": 28.030000686645508,
-      "r_5d": 0.11081845014307672
-    },
-    {
-      "date": "2026-06-24",
-      "valid_for": "2026-06-25",
       "symbol": "RIO.AX",
       "class": "Materials",
       "strategy": "MEAN_REVERSION",
@@ -321,6 +337,22 @@
       "exit_type_5d": "STOP",
       "exit_px_5d": 168.0601,
       "r_5d": -1.0
+    },
+    {
+      "date": "2026-06-24",
+      "valid_for": "2026-06-25",
+      "symbol": "WDS.AX",
+      "class": "Energy",
+      "strategy": "MEAN_REVERSION",
+      "score": 87,
+      "order": "LIMIT",
+      "risk_gate": "always",
+      "entry_px": 27.950000762939453,
+      "entry_src": "valid_for_open",
+      "stop": 27.2281,
+      "exit_type_5d": "H5_CLOSE",
+      "exit_px_5d": 28.030000686645508,
+      "r_5d": 0.11081845014307672
     },
     {
       "date": "2026-06-23",
@@ -421,22 +453,6 @@
     {
       "date": "2026-06-18",
       "valid_for": "2026-06-19",
-      "symbol": "STO.AX",
-      "class": "Energy",
-      "strategy": "MEAN_REVERSION",
-      "score": 91,
-      "order": "LIMIT",
-      "risk_gate": "always",
-      "entry_px": 7.300000190734863,
-      "entry_src": "valid_for_open",
-      "stop": 7.0921,
-      "exit_type_5d": "STOP",
-      "exit_px_5d": 7.0921,
-      "r_5d": -1.0
-    },
-    {
-      "date": "2026-06-18",
-      "valid_for": "2026-06-19",
       "symbol": "WDS.AX",
       "class": "Energy",
       "strategy": "MEAN_REVERSION",
@@ -448,6 +464,22 @@
       "stop": 27.6424,
       "exit_type_5d": "STOP",
       "exit_px_5d": 27.6424,
+      "r_5d": -1.0
+    },
+    {
+      "date": "2026-06-18",
+      "valid_for": "2026-06-19",
+      "symbol": "STO.AX",
+      "class": "Energy",
+      "strategy": "MEAN_REVERSION",
+      "score": 91,
+      "order": "LIMIT",
+      "risk_gate": "always",
+      "entry_px": 7.300000190734863,
+      "entry_src": "valid_for_open",
+      "stop": 7.0921,
+      "exit_type_5d": "STOP",
+      "exit_px_5d": 7.0921,
       "r_5d": -1.0
     },
     {
