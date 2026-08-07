@@ -1,6 +1,6 @@
 {
-  "generated_at_utc": "2026-08-07T01:05:23Z",
-  "as_of_local": "2026-08-07 11:05:23 AEST",
+  "generated_at_utc": "2026-08-07T06:01:47Z",
+  "as_of_local": "2026-08-07 16:01:47 AEST",
   "skipped": false,
   "has_signals": true,
   "source_file": "reports/recommended_orders_latest.csv",
@@ -12,14 +12,14 @@
       "original_entry": 24.36,
       "original_stop": 23.7326,
       "original_score": 87.0,
-      "current_price": 24.485,
-      "current_price_time": "10:45 AEST",
-      "gap_pct": 0.51,
+      "current_price": 24.415,
+      "current_price_time": "15:40 AEST",
+      "gap_pct": 0.23,
       "status": "INVALIDATED",
-      "updated_entry": 24.485,
-      "updated_stop": 23.8794,
-      "updated_score": 31,
-      "plain_english": "QBE.AX (Mean Reversion) was signaled last night at 24.3600. Currently trading at 24.4850 (+0.51% vs signal). Setup no longer holds \u2014 do not act on last night's plan."
+      "updated_entry": 24.415,
+      "updated_stop": 23.7966,
+      "updated_score": 59,
+      "plain_english": "QBE.AX (Mean Reversion) was signaled last night at 24.3600. Currently trading at 24.4150 (+0.23% vs signal). Setup no longer holds \u2014 do not act on last night's plan."
     }
   ]
 }
