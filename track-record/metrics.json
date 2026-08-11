@@ -1,9 +1,9 @@
 {
   "summary": {
-    "as_of": "2026-08-10 20:48:05 AEST",
+    "as_of": "2026-08-11 20:30:10 AEST",
     "since": "2026-06-01",
-    "until": "2026-08-10",
-    "total_signals_with_entry": 52,
+    "until": "2026-08-11",
+    "total_signals_with_entry": 53,
     "total_signals_with_5d": 50,
     "avg_ret_1d": 0.0033700439195785813,
     "avg_ret_5d": 0.00398151346480693,
@@ -163,6 +163,22 @@
   ],
   "recent_signals": [
     {
+      "date": "2026-08-11",
+      "valid_for": "2026-08-12",
+      "symbol": "NHF.AX",
+      "class": "Insurance",
+      "strategy": "TREND_PULLBACK",
+      "score": 100,
+      "order": "STOP",
+      "entry_px": 7.4374,
+      "entry_src": "entry",
+      "stop": 7.2846,
+      "ret_1d": null,
+      "ret_5d": null,
+      "ret_20d": null,
+      "risk_gate": "risk_on"
+    },
+    {
       "date": "2026-08-10",
       "valid_for": "2026-08-11",
       "symbol": "ALX.AX",
@@ -170,8 +186,8 @@
       "strategy": "MEAN_REVERSION",
       "score": 88,
       "order": "LIMIT",
-      "entry_px": 4.96,
-      "entry_src": "entry",
+      "entry_px": 4.960000038146973,
+      "entry_src": "valid_for_open",
       "stop": 4.8589,
       "ret_1d": null,
       "ret_5d": null,
@@ -405,22 +421,6 @@
     {
       "date": "2026-07-17",
       "valid_for": "2026-07-20",
-      "symbol": "NDQ.AX",
-      "class": "ETF",
-      "strategy": "MEAN_REVERSION",
-      "score": 100,
-      "order": "LIMIT",
-      "entry_px": 59.7400016784668,
-      "entry_src": "valid_for_open",
-      "stop": 58.3772,
-      "ret_1d": 0.007556687971532305,
-      "ret_5d": -0.004366050795369225,
-      "ret_20d": null,
-      "risk_gate": "always"
-    },
-    {
-      "date": "2026-07-17",
-      "valid_for": "2026-07-20",
       "symbol": "VGE.AX",
       "class": "ETF",
       "strategy": "MEAN_REVERSION",
@@ -431,6 +431,22 @@
       "stop": 88.799,
       "ret_1d": 0.017309398030064926,
       "ret_5d": 0.008654699015032463,
+      "ret_20d": null,
+      "risk_gate": "always"
+    },
+    {
+      "date": "2026-07-17",
+      "valid_for": "2026-07-20",
+      "symbol": "NDQ.AX",
+      "class": "ETF",
+      "strategy": "MEAN_REVERSION",
+      "score": 100,
+      "order": "LIMIT",
+      "entry_px": 59.7400016784668,
+      "entry_src": "valid_for_open",
+      "stop": 58.3772,
+      "ret_1d": 0.007556687971532305,
+      "ret_5d": -0.004366050795369225,
       "ret_20d": null,
       "risk_gate": "always"
     },
@@ -945,30 +961,14 @@
       "ret_5d": 0.007874008357040552,
       "ret_20d": -0.001968455156468263,
       "risk_gate": "always"
-    },
-    {
-      "date": "2026-06-04",
-      "valid_for": "2026-06-05",
-      "symbol": "FMG.AX",
-      "class": "Materials",
-      "strategy": "MEAN_REVERSION",
-      "score": 87,
-      "order": "LIMIT",
-      "entry_px": 20.81999969482422,
-      "entry_src": "valid_for_open",
-      "stop": 20.3343,
-      "ret_1d": -0.03799321288639257,
-      "ret_5d": 0.014125620968310715,
-      "ret_20d": -0.09790551201439146,
-      "risk_gate": "always"
     }
   ],
   "r_5d": {
     "summary": {
-      "as_of": "2026-08-10 20:48:05 AEST",
+      "as_of": "2026-08-11 20:30:10 AEST",
       "coverage": {
         "since": "2026-06-01",
-        "until": "2026-08-10"
+        "until": "2026-08-11"
       },
       "horizon_trading_days": 5,
       "method": "Stop-first within horizon using auto-adjusted OHLC from yfinance. Anchored at valid_for (the first trading day after signal_date), not signal_date itself, to avoid lookahead bias. For Mean Reversion, entry_px is the Open on valid_for (not the signal-date close that produced the RSI(2)/Bollinger trigger); other strategies use their published trigger/limit price. If Low <= stop at any point from valid_for..valid_for+h, exit=stop (R=-1). Else exit=Close[valid_for+h]. R=(exit-entry)/(entry-stop). Long-only R where stop < entry.",
