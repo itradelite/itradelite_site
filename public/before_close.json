@@ -1,6 +1,6 @@
 {
-  "generated_at_utc": "2026-08-11T00:24:25Z",
-  "as_of_local": "2026-08-11 10:24:25 AEST",
+  "generated_at_utc": "2026-08-11T05:43:36Z",
+  "as_of_local": "2026-08-11 15:43:36 AEST",
   "skipped": false,
   "has_signals": true,
   "source_file": "reports/recommended_orders_latest.csv",
@@ -12,14 +12,14 @@
       "original_entry": 4.96,
       "original_stop": 4.8589,
       "original_score": 88.0,
-      "current_price": 4.975,
-      "current_price_time": "10:00 AEST",
-      "gap_pct": 0.3,
-      "status": "INVALIDATED",
-      "updated_entry": 4.975,
-      "updated_stop": 4.8747,
-      "updated_score": 44,
-      "plain_english": "ALX.AX (Mean Reversion) was signaled last night at 4.9600. Currently trading at 4.9750 (+0.30% vs signal). Setup no longer holds \u2014 do not act on last night's plan."
+      "current_price": 4.955,
+      "current_price_time": "15:20 AEST",
+      "gap_pct": -0.1,
+      "status": "CONFIRMED",
+      "updated_entry": 4.955,
+      "updated_stop": 4.853,
+      "updated_score": 86,
+      "plain_english": "ALX.AX (Mean Reversion) was signaled last night at 4.9600. Currently trading at 4.9550 (-0.10% vs signal). Setup unchanged \u2014 still valid."
     }
   ]
 }
