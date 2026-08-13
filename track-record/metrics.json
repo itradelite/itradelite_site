@@ -1,25 +1,25 @@
 {
   "summary": {
-    "as_of": "2026-08-12 20:40:15 AEST",
+    "as_of": "2026-08-13 20:41:17 AEST",
     "since": "2026-06-01",
     "until": "2026-08-11",
     "total_signals_with_entry": 53,
     "total_signals_with_5d": 50,
-    "avg_ret_1d": 0.0032665426397955654,
-    "avg_ret_5d": 0.00398151346480693,
-    "avg_ret_20d": -0.05000074151938702,
-    "winrate_1d": 0.5576923076923077,
+    "avg_ret_1d": 0.0033080115113816723,
+    "avg_ret_5d": 0.003981512598401986,
+    "avg_ret_20d": -0.05000074066060796,
+    "winrate_1d": 0.5660377358490566,
     "winrate_5d": 0.6,
     "winrate_20d": 0.35294117647058826,
     "equity_curve_proxy_start": 1.0,
-    "equity_curve_proxy_end": 1.1117974840364078,
-    "equity_curve_proxy_max_drawdown": -0.23361524432620195
+    "equity_curve_proxy_end": 1.1117974599864702,
+    "equity_curve_proxy_max_drawdown": -0.23361523282992924
   },
   "by_strategy_5d": [
     {
       "strategy": "MEAN_REVERSION",
       "trades": 50,
-      "avg_5d": 0.00398151346480693,
+      "avg_5d": 0.003981512598401986,
       "win_5d": 0.6,
       "avg_score": 95.36
     }
@@ -77,87 +77,87 @@
     },
     {
       "date": "2026-06-22",
-      "equity": 0.9905216022218082,
-      "avg_5d_return": -0.019943896022137197
+      "equity": 0.9905216170802802,
+      "avg_5d_return": -0.019943881320654444
     },
     {
       "date": "2026-06-23",
-      "equity": 0.9092949335030318,
+      "equity": 0.9092949471430507,
       "avg_5d_return": -0.08200393463058181
     },
     {
       "date": "2026-06-24",
-      "equity": 0.9226632610747585,
-      "avg_5d_return": 0.014701860836533798
+      "equity": 0.9226632703445917,
+      "avg_5d_return": 0.014701855809870712
     },
     {
       "date": "2026-06-25",
-      "equity": 0.9197449905615294,
-      "avg_5d_return": -0.0031628771149181945
+      "equity": 0.919744987771069,
+      "avg_5d_return": -0.003162890154316922
     },
     {
       "date": "2026-06-26",
-      "equity": 0.9172930293958413,
+      "equity": 0.9172930266128201,
       "avg_5d_return": -0.002665914129296787
     },
     {
       "date": "2026-06-30",
-      "equity": 0.9491963330697794,
+      "equity": 0.9491963301899651,
       "avg_5d_return": 0.03477983877731039
     },
     {
       "date": "2026-07-01",
-      "equity": 0.999154047348025,
+      "equity": 0.9991540443166416,
       "avg_5d_return": 0.052631592156154205
     },
     {
       "date": "2026-07-02",
-      "equity": 1.018550732611027,
+      "equity": 1.018550729520795,
       "avg_5d_return": 0.019413107833056276
     },
     {
       "date": "2026-07-09",
-      "equity": 1.013665407421125,
-      "avg_5d_return": -0.004796349394770527
+      "equity": 1.013665411399869,
+      "avg_5d_return": -0.004796342469092607
     },
     {
       "date": "2026-07-16",
-      "equity": 1.0232736640266313,
+      "equity": 1.0232736680430887,
       "avg_5d_return": 0.009478725953518286
     },
     {
       "date": "2026-07-17",
-      "equity": 1.0254678944153592,
+      "equity": 1.0254678984404293,
       "avg_5d_return": 0.002144324109831619
     },
     {
       "date": "2026-07-20",
-      "equity": 1.012007301386263,
-      "avg_5d_return": -0.013126293960446678
+      "equity": 1.0120072794949448,
+      "avg_5d_return": -0.013126319181669122
     },
     {
       "date": "2026-07-23",
-      "equity": 1.0071203104964264,
+      "equity": 1.0071202887108215,
       "avg_5d_return": -0.004829007540896546
     },
     {
       "date": "2026-07-24",
-      "equity": 1.0177451804191877,
+      "equity": 1.01774515840375,
       "avg_5d_return": 0.010549752409942048
     },
     {
       "date": "2026-07-29",
-      "equity": 1.0877408323941093,
+      "equity": 1.087740808864555,
       "avg_5d_return": 0.06877522323032959
     },
     {
       "date": "2026-07-30",
-      "equity": 1.115645028202637,
+      "equity": 1.1156450040694708,
       "avg_5d_return": 0.025653349564078276
     },
     {
       "date": "2026-07-31",
-      "equity": 1.1117974840364078,
+      "equity": 1.1117974599864702,
       "avg_5d_return": -0.003448717171650665
     }
   ],
@@ -173,7 +173,7 @@
       "entry_px": 7.4374,
       "entry_src": "entry",
       "stop": 7.2846,
-      "ret_1d": null,
+      "ret_1d": 0.005464475534834312,
       "ret_5d": null,
       "ret_20d": null,
       "risk_gate": "risk_on"
@@ -410,11 +410,11 @@
       "strategy": "MEAN_REVERSION",
       "score": 87,
       "order": "LIMIT",
-      "entry_px": 156.8000030517578,
+      "entry_px": 154.1534170370779,
       "entry_src": "valid_for_open",
       "stop": 153.0296,
-      "ret_1d": 0.025254700269933483,
-      "ret_5d": 0.009747409535975082,
+      "ret_1d": 0.025254659715284067,
+      "ret_5d": 0.009747359093530195,
       "ret_20d": null,
       "risk_gate": "always"
     },
@@ -490,12 +490,12 @@
       "strategy": "MEAN_REVERSION",
       "score": 100,
       "order": "LIMIT",
-      "entry_px": 161.3000030517578,
+      "entry_px": 158.5774488335892,
       "entry_src": "valid_for_open",
       "stop": 153.6956,
-      "ret_1d": -0.002796563307831512,
-      "ret_5d": -0.0215211163396124,
-      "ret_20d": 0.08024801816175242,
+      "ret_1d": -0.0027965487655621235,
+      "ret_5d": -0.02152110248825656,
+      "ret_20d": 0.08024806042387178,
       "risk_gate": "always"
     },
     {
@@ -602,12 +602,12 @@
       "strategy": "MEAN_REVERSION",
       "score": 97,
       "order": "LIMIT",
-      "entry_px": 172.0,
+      "entry_px": 169.09684928501008,
       "entry_src": "valid_for_open",
       "stop": 164.4756,
-      "ret_1d": 0.0026491978546656636,
-      "ret_5d": -0.014282398849667977,
-      "ret_20d": -0.078610884268974,
+      "ret_1d": 0.002649183971248137,
+      "ret_5d": -0.014282424928465431,
+      "ret_20d": -0.07861090085841493,
       "risk_gate": "always"
     },
     {
@@ -650,12 +650,12 @@
       "strategy": "MEAN_REVERSION",
       "score": 87,
       "order": "LIMIT",
-      "entry_px": 171.25,
+      "entry_px": 168.3595159627538,
       "entry_src": "valid_for_open",
       "stop": 168.0601,
-      "ret_1d": 0.021471814686370827,
-      "ret_5d": 0.007529847272981893,
-      "ret_20d": -0.04264956624341987,
+      "ret_1d": 0.021471768634315547,
+      "ret_5d": 0.007529837219655722,
+      "ret_20d": -0.04264962983550313,
       "risk_gate": "always"
     },
     {
@@ -714,12 +714,12 @@
       "strategy": "MEAN_REVERSION",
       "score": 89,
       "order": "LIMIT",
-      "entry_px": 176.9199981689453,
+      "entry_px": 173.93379904171135,
       "entry_src": "valid_for_open",
       "stop": 170.3849,
-      "ret_1d": -0.011930496832990856,
-      "ret_5d": -0.019940970801204272,
-      "ret_20d": -0.10243153244893854,
+      "ret_1d": -0.011930493586113089,
+      "ret_5d": -0.019940941398238765,
+      "ret_20d": -0.1024314653310453,
       "risk_gate": "always"
     },
     {
@@ -965,7 +965,7 @@
   ],
   "r_5d": {
     "summary": {
-      "as_of": "2026-08-12 20:40:15 AEST",
+      "as_of": "2026-08-13 20:41:17 AEST",
       "coverage": {
         "since": "2026-06-01",
         "until": "2026-08-11"
@@ -974,12 +974,12 @@
       "method": "Stop-first within horizon using auto-adjusted OHLC from yfinance. Anchored at valid_for (the first trading day after signal_date), not signal_date itself, to avoid lookahead bias. For Mean Reversion, entry_px is the Open on valid_for (not the signal-date close that produced the RSI(2)/Bollinger trigger); other strategies use their published trigger/limit price. If Low <= stop at any point from valid_for..valid_for+h, exit=stop (R=-1). Else exit=Close[valid_for+h]. R=(exit-entry)/(entry-stop). Long-only R where stop < entry.",
       "stats": {
         "n": 49,
-        "mean_r": 0.0017317635370820818,
-        "median_r": -0.14259467252347044,
-        "std_r": 1.1344983252957221,
-        "winrate": 0.4489795918367347,
-        "avg_win_r": 0.9752138711921908,
-        "avg_loss_r": -0.7914758797374511,
+        "mean_r": -0.03532093603142716,
+        "median_r": -0.15745957961572607,
+        "std_r": 1.1385043623328008,
+        "winrate": 0.42857142857142855,
+        "avg_win_r": 0.987173608469755,
+        "avg_loss_r": -0.8021918444073138,
         "min_r": -1.0,
         "max_r": 3.899586598756346
       }
