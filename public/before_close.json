@@ -1,25 +1,8 @@
 {
-  "generated_at_utc": "2026-08-12T06:06:12Z",
-  "as_of_local": "2026-08-12 16:06:12 AEST",
+  "generated_at_utc": "2026-08-13T06:08:23Z",
+  "as_of_local": "2026-08-13 16:08:23 AEST",
   "skipped": false,
-  "has_signals": true,
-  "source_file": "reports/recommended_orders_latest.csv",
-  "n_signals": 1,
-  "updates": [
-    {
-      "symbol": "NHF.AX",
-      "strategy": "TREND_PULLBACK",
-      "original_entry": 7.4374,
-      "original_stop": 7.2846,
-      "original_score": 100.0,
-      "current_price": 7.355,
-      "current_price_time": "15:45 AEST",
-      "gap_pct": -1.11,
-      "status": "INVALIDATED",
-      "updated_entry": 7.4224,
-      "updated_stop": 7.2446,
-      "updated_score": 100,
-      "plain_english": "NHF.AX (Trend Pullback) was signaled last night at 7.4374. Currently trading at 7.3550 (-1.11% vs signal). Setup no longer holds \u2014 do not act on last night's plan. Price already traded through the original stop (7.2846) today."
-    }
-  ]
+  "has_signals": false,
+  "reason": "no_signals_last_night",
+  "updates": []
 }
