@@ -1,8 +1,40 @@
 {
-  "generated_at_utc": "2026-08-14T06:06:06Z",
-  "as_of_local": "2026-08-14 16:06:06 AEST",
+  "generated_at_utc": "2026-08-17T01:44:24Z",
+  "as_of_local": "2026-08-17 11:44:24 AEST",
   "skipped": false,
-  "has_signals": false,
-  "reason": "no_signals_last_night",
-  "updates": []
+  "has_signals": true,
+  "source_file": "reports/recommended_orders_latest.csv",
+  "n_signals": 2,
+  "updates": [
+    {
+      "symbol": "CBA.AX",
+      "strategy": "MEAN_REVERSION",
+      "original_entry": 167.17,
+      "original_stop": 162.6983,
+      "original_score": 90.0,
+      "current_price": 167.16,
+      "current_price_time": "11:20 AEST",
+      "gap_pct": -0.01,
+      "status": "CONFIRMED",
+      "updated_entry": 167.16,
+      "updated_stop": 162.9137,
+      "updated_score": 85,
+      "plain_english": "CBA.AX (Mean Reversion) was signaled last night at 167.1700. Currently trading at 167.1600 (-0.01% vs signal). Setup unchanged \u2014 still valid."
+    },
+    {
+      "symbol": "ALX.AX",
+      "strategy": "MEAN_REVERSION",
+      "original_entry": 4.92,
+      "original_stop": 4.809,
+      "original_score": 86.0,
+      "current_price": 4.865,
+      "current_price_time": "11:20 AEST",
+      "gap_pct": -1.12,
+      "status": "IMPROVED",
+      "updated_entry": 4.865,
+      "updated_stop": 4.748,
+      "updated_score": 92,
+      "plain_english": "ALX.AX (Mean Reversion) was signaled last night at 4.9200. Currently trading at 4.8650 (-1.12% vs signal). Setup has improved \u2014 still valid."
+    }
+  ]
 }
