@@ -1,6 +1,6 @@
 {
-  "generated_at_utc": "2026-08-17T01:44:24Z",
-  "as_of_local": "2026-08-17 11:44:24 AEST",
+  "generated_at_utc": "2026-08-17T05:23:16Z",
+  "as_of_local": "2026-08-17 15:23:16 AEST",
   "skipped": false,
   "has_signals": true,
   "source_file": "reports/recommended_orders_latest.csv",
@@ -12,14 +12,14 @@
       "original_entry": 167.17,
       "original_stop": 162.6983,
       "original_score": 90.0,
-      "current_price": 167.16,
-      "current_price_time": "11:20 AEST",
-      "gap_pct": -0.01,
+      "current_price": 166.025,
+      "current_price_time": "15:00 AEST",
+      "gap_pct": -0.68,
       "status": "CONFIRMED",
-      "updated_entry": 167.16,
-      "updated_stop": 162.9137,
-      "updated_score": 85,
-      "plain_english": "CBA.AX (Mean Reversion) was signaled last night at 167.1700. Currently trading at 167.1600 (-0.01% vs signal). Setup unchanged \u2014 still valid."
+      "updated_entry": 166.025,
+      "updated_stop": 161.7187,
+      "updated_score": 91,
+      "plain_english": "CBA.AX (Mean Reversion) was signaled last night at 167.1700. Currently trading at 166.0250 (-0.68% vs signal). Setup unchanged \u2014 still valid."
     },
     {
       "symbol": "ALX.AX",
@@ -27,14 +27,14 @@
       "original_entry": 4.92,
       "original_stop": 4.809,
       "original_score": 86.0,
-      "current_price": 4.865,
-      "current_price_time": "11:20 AEST",
-      "gap_pct": -1.12,
+      "current_price": 4.85,
+      "current_price_time": "15:00 AEST",
+      "gap_pct": -1.42,
       "status": "IMPROVED",
-      "updated_entry": 4.865,
-      "updated_stop": 4.748,
-      "updated_score": 92,
-      "plain_english": "ALX.AX (Mean Reversion) was signaled last night at 4.9200. Currently trading at 4.8650 (-1.12% vs signal). Setup has improved \u2014 still valid."
+      "updated_entry": 4.85,
+      "updated_stop": 4.733,
+      "updated_score": 95,
+      "plain_english": "ALX.AX (Mean Reversion) was signaled last night at 4.9200. Currently trading at 4.8500 (-1.42% vs signal). Setup has improved \u2014 still valid."
     }
   ]
 }
