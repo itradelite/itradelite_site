@@ -1,6 +1,6 @@
 {
-  "generated_at_utc": "2026-08-18T04:16:56Z",
-  "as_of_local": "2026-08-18 14:16:56 AEST",
+  "generated_at_utc": "2026-08-18T05:16:33Z",
+  "as_of_local": "2026-08-18 15:16:33 AEST",
   "skipped": false,
   "has_signals": true,
   "source_file": "reports/recommended_orders_latest.csv",
@@ -12,14 +12,14 @@
       "original_entry": 22.67,
       "original_stop": 22.0383,
       "original_score": 100.0,
-      "current_price": 22.585,
-      "current_price_time": "13:55 AEST",
-      "gap_pct": -0.37,
+      "current_price": 22.635,
+      "current_price_time": "14:55 AEST",
+      "gap_pct": -0.15,
       "status": "CONFIRMED",
-      "updated_entry": 22.585,
-      "updated_stop": 21.9464,
-      "updated_score": 93,
-      "plain_english": "QBE.AX (Mean Reversion) was signaled last night at 22.6700. Currently trading at 22.5850 (-0.37% vs signal). Setup unchanged \u2014 still valid."
+      "updated_entry": 22.635,
+      "updated_stop": 21.9964,
+      "updated_score": 91,
+      "plain_english": "QBE.AX (Mean Reversion) was signaled last night at 22.6700. Currently trading at 22.6350 (-0.15% vs signal). Setup unchanged \u2014 still valid."
     },
     {
       "symbol": "ALX.AX",
@@ -27,14 +27,14 @@
       "original_entry": 4.85,
       "original_stop": 4.733,
       "original_score": 95.0,
-      "current_price": 4.87,
-      "current_price_time": "13:55 AEST",
-      "gap_pct": 0.41,
-      "status": "INVALIDATED",
-      "updated_entry": 4.87,
-      "updated_stop": 4.7586,
-      "updated_score": 65,
-      "plain_english": "ALX.AX (Mean Reversion) was signaled last night at 4.8500. Currently trading at 4.8700 (+0.41% vs signal). Setup no longer holds \u2014 do not act on last night's plan."
+      "current_price": 4.855,
+      "current_price_time": "14:55 AEST",
+      "gap_pct": 0.1,
+      "status": "CONFIRMED",
+      "updated_entry": 4.855,
+      "updated_stop": 4.7436,
+      "updated_score": 89,
+      "plain_english": "ALX.AX (Mean Reversion) was signaled last night at 4.8500. Currently trading at 4.8550 (+0.10% vs signal). Setup unchanged \u2014 still valid."
     }
   ]
 }
