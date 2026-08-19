@@ -1,6 +1,6 @@
 {
-  "generated_at_utc": "2026-08-19T04:04:19Z",
-  "as_of_local": "2026-08-19 14:04:19 AEST",
+  "generated_at_utc": "2026-08-19T05:16:59Z",
+  "as_of_local": "2026-08-19 15:16:59 AEST",
   "skipped": false,
   "has_signals": true,
   "source_file": "reports/recommended_orders_latest.csv",
@@ -12,14 +12,14 @@
       "original_entry": 46.2862,
       "original_stop": 45.1749,
       "original_score": 100.0,
-      "current_price": 47.435,
-      "current_price_time": "13:40 AEST",
-      "gap_pct": 2.48,
+      "current_price": 47.43,
+      "current_price_time": "14:55 AEST",
+      "gap_pct": 2.47,
       "status": "INVALIDATED",
       "updated_entry": 47.5875,
       "updated_stop": 45.1776,
       "updated_score": 70,
-      "plain_english": "NWS.AX (Trend Pullback) was signaled last night at 46.2862. Currently trading at 47.4350 (+2.48% vs signal). Setup no longer holds \u2014 do not act on last night's plan."
+      "plain_english": "NWS.AX (Trend Pullback) was signaled last night at 46.2862. Currently trading at 47.4300 (+2.47% vs signal). Setup no longer holds \u2014 do not act on last night's plan."
     },
     {
       "symbol": "QBE.AX",
@@ -27,14 +27,14 @@
       "original_entry": 22.66,
       "original_stop": 22.0214,
       "original_score": 90.0,
-      "current_price": 22.53,
-      "current_price_time": "13:40 AEST",
-      "gap_pct": -0.57,
-      "status": "CONFIRMED",
-      "updated_entry": 22.53,
-      "updated_stop": 21.9111,
-      "updated_score": 86,
-      "plain_english": "QBE.AX (Mean Reversion) was signaled last night at 22.6600. Currently trading at 22.5300 (-0.57% vs signal). Setup unchanged \u2014 still valid."
+      "current_price": 22.605,
+      "current_price_time": "14:55 AEST",
+      "gap_pct": -0.24,
+      "status": "INVALIDATED",
+      "updated_entry": 22.605,
+      "updated_stop": 21.9861,
+      "updated_score": 80,
+      "plain_english": "QBE.AX (Mean Reversion) was signaled last night at 22.6600. Currently trading at 22.6050 (-0.24% vs signal). Setup no longer holds \u2014 do not act on last night's plan."
     }
   ]
 }
