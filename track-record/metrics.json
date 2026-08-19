@@ -1,21 +1,28 @@
 {
   "summary": {
-    "as_of": "2026-08-18 20:03:15 AEST",
+    "as_of": "2026-08-19 20:02:59 AEST",
     "since": "2026-06-01",
-    "until": "2026-08-18",
-    "total_signals_with_entry": 59,
-    "total_signals_with_5d": 52,
-    "avg_ret_1d": 0.0030390293404325116,
-    "avg_ret_5d": 0.002432759448390799,
-    "avg_ret_20d": -0.039200595656992375,
-    "winrate_1d": 0.5636363636363636,
-    "winrate_5d": 0.5769230769230769,
+    "until": "2026-08-19",
+    "total_signals_with_entry": 61,
+    "total_signals_with_5d": 53,
+    "avg_ret_1d": 0.0027963377291925235,
+    "avg_ret_5d": 0.002825046788085368,
+    "avg_ret_20d": -0.03920059565699237,
+    "winrate_1d": 0.5614035087719298,
+    "winrate_5d": 0.5849056603773585,
     "winrate_20d": 0.4358974358974359,
     "equity_curve_proxy_start": 1.0,
-    "equity_curve_proxy_end": 1.032208459736221,
+    "equity_curve_proxy_end": 1.0561804570854014,
     "equity_curve_proxy_max_drawdown": -0.23361523282992924
   },
   "by_strategy_5d": [
+    {
+      "strategy": "TREND_PULLBACK",
+      "trades": 1,
+      "avg_5d": 0.02322398845220297,
+      "win_5d": 1.0,
+      "avg_score": 100.0
+    },
     {
       "strategy": "MEAN_REVERSION",
       "trades": 52,
@@ -169,9 +176,46 @@
       "date": "2026-08-10",
       "equity": 1.032208459736221,
       "avg_5d_return": -0.018108587434620738
+    },
+    {
+      "date": "2026-08-11",
+      "equity": 1.0561804570854014,
+      "avg_5d_return": 0.02322398845220297
     }
   ],
   "recent_signals": [
+    {
+      "date": "2026-08-19",
+      "valid_for": "2026-08-20",
+      "symbol": "WES.AX",
+      "class": "Consumer Discretionary Distribution & Retail",
+      "strategy": "MEAN_REVERSION",
+      "score": 93,
+      "order": "LIMIT",
+      "entry_px": 84.26,
+      "entry_src": "entry",
+      "stop": 82.4309,
+      "ret_1d": null,
+      "ret_5d": null,
+      "ret_20d": null,
+      "risk_gate": "always"
+    },
+    {
+      "date": "2026-08-19",
+      "valid_for": "2026-08-20",
+      "symbol": "A200.AX",
+      "class": "ETF",
+      "strategy": "TREND_PULLBACK",
+      "score": 100,
+      "order": "STOP",
+      "entry_px": 151.5814,
+      "entry_src": "entry",
+      "stop": 150.3293,
+      "ret_1d": null,
+      "ret_5d": null,
+      "ret_20d": null,
+      "risk_gate": "risk_on"
+    },
     {
       "date": "2026-08-18",
       "valid_for": "2026-08-19",
@@ -180,8 +224,8 @@
       "strategy": "MEAN_REVERSION",
       "score": 90,
       "order": "LIMIT",
-      "entry_px": 22.66,
-      "entry_src": "entry",
+      "entry_px": 22.889999389648438,
+      "entry_src": "valid_for_open",
       "stop": 22.0214,
       "ret_1d": null,
       "ret_5d": null,
@@ -215,7 +259,7 @@
       "entry_px": 4.800000190734863,
       "entry_src": "valid_for_open",
       "stop": 4.733,
-      "ret_1d": null,
+      "ret_1d": -0.00819671330225158,
       "ret_5d": null,
       "ret_20d": null,
       "risk_gate": "always"
@@ -231,7 +275,7 @@
       "entry_px": 22.510000228881836,
       "entry_src": "valid_for_open",
       "stop": 22.0383,
-      "ret_1d": null,
+      "ret_1d": 0.0004413163702194911,
       "ret_5d": null,
       "ret_20d": null,
       "risk_gate": "always"
@@ -260,10 +304,10 @@
       "strategy": "MEAN_REVERSION",
       "score": 90,
       "order": "LIMIT",
-      "entry_px": 166.66000366210938,
+      "entry_px": 163.89309472125024,
       "entry_src": "valid_for_open",
       "stop": 162.6983,
-      "ret_1d": -0.01436360677083337,
+      "ret_1d": -0.01436357299861557,
       "ret_5d": null,
       "ret_20d": null,
       "risk_gate": "always"
@@ -280,7 +324,7 @@
       "entry_src": "entry",
       "stop": 7.2846,
       "ret_1d": 0.005464475534834312,
-      "ret_5d": null,
+      "ret_5d": 0.02322398845220297,
       "ret_20d": null,
       "risk_gate": "risk_on"
     },
@@ -367,6 +411,22 @@
     {
       "date": "2026-07-30",
       "valid_for": "2026-07-31",
+      "symbol": "CGF.AX",
+      "class": "Financial Services",
+      "strategy": "MEAN_REVERSION",
+      "score": 100,
+      "order": "LIMIT",
+      "entry_px": 9.729999542236328,
+      "entry_src": "valid_for_open",
+      "stop": 9.3949,
+      "ret_1d": 0.010193621153720356,
+      "ret_5d": 0.01834855696249793,
+      "ret_20d": null,
+      "risk_gate": "always"
+    },
+    {
+      "date": "2026-07-30",
+      "valid_for": "2026-07-31",
       "symbol": "CDA.AX",
       "class": "Technology Hardware & Equipment",
       "strategy": "MEAN_REVERSION",
@@ -393,22 +453,6 @@
       "stop": 56.6794,
       "ret_1d": 0.00152957430921985,
       "ret_5d": 0.03416040646364271,
-      "ret_20d": null,
-      "risk_gate": "always"
-    },
-    {
-      "date": "2026-07-30",
-      "valid_for": "2026-07-31",
-      "symbol": "CGF.AX",
-      "class": "Financial Services",
-      "strategy": "MEAN_REVERSION",
-      "score": 100,
-      "order": "LIMIT",
-      "entry_px": 9.729999542236328,
-      "entry_src": "valid_for_open",
-      "stop": 9.3949,
-      "ret_1d": 0.010193621153720356,
-      "ret_5d": 0.01834855696249793,
       "ret_20d": null,
       "risk_gate": "always"
     },
@@ -607,22 +651,6 @@
     {
       "date": "2026-07-02",
       "valid_for": "2026-07-03",
-      "symbol": "BSL.AX",
-      "class": "Materials",
-      "strategy": "MEAN_REVERSION",
-      "score": 100,
-      "order": "LIMIT",
-      "entry_px": 30.100000381469727,
-      "entry_src": "valid_for_open",
-      "stop": 29.4211,
-      "ret_1d": 0.004469967784564544,
-      "ret_5d": 0.02171137649430288,
-      "ret_20d": 0.04469992144062074,
-      "risk_gate": "always"
-    },
-    {
-      "date": "2026-07-02",
-      "valid_for": "2026-07-03",
       "symbol": "AZJ.AX",
       "class": "Transportation",
       "strategy": "MEAN_REVERSION",
@@ -634,6 +662,22 @@
       "ret_1d": 0.0,
       "ret_5d": 0.01711483917180967,
       "ret_20d": 0.024449853521226528,
+      "risk_gate": "always"
+    },
+    {
+      "date": "2026-07-02",
+      "valid_for": "2026-07-03",
+      "symbol": "BSL.AX",
+      "class": "Materials",
+      "strategy": "MEAN_REVERSION",
+      "score": 100,
+      "order": "LIMIT",
+      "entry_px": 30.100000381469727,
+      "entry_src": "valid_for_open",
+      "stop": 29.4211,
+      "ret_1d": 0.004469967784564544,
+      "ret_5d": 0.02171137649430288,
+      "ret_20d": 0.04469992144062074,
       "risk_gate": "always"
     },
     {
@@ -939,62 +983,30 @@
       "ret_5d": -0.041118421568599794,
       "ret_20d": -0.08552631372560093,
       "risk_gate": "always"
-    },
-    {
-      "date": "2026-06-11",
-      "valid_for": "2026-06-12",
-      "symbol": "GGP.AX",
-      "class": "Materials",
-      "strategy": "MEAN_REVERSION",
-      "score": 100,
-      "order": "LIMIT",
-      "entry_px": 12.300000190734863,
-      "entry_src": "valid_for_open",
-      "stop": 10.7361,
-      "ret_1d": 0.11928105109871234,
-      "ret_5d": 0.11029415087533123,
-      "ret_20d": -0.0890523017132635,
-      "risk_gate": "always"
-    },
-    {
-      "date": "2026-06-11",
-      "valid_for": "2026-06-12",
-      "symbol": "LYC.AX",
-      "class": "Materials",
-      "strategy": "MEAN_REVERSION",
-      "score": 96,
-      "order": "LIMIT",
-      "entry_px": 17.43000030517578,
-      "entry_src": "valid_for_open",
-      "stop": 15.8773,
-      "ret_1d": 0.006190135068616209,
-      "ret_5d": 0.023072585078802277,
-      "ret_20d": -0.06415313830220004,
-      "risk_gate": "always"
     }
   ],
   "r_5d": {
     "summary": {
-      "as_of": "2026-08-18 20:03:15 AEST",
+      "as_of": "2026-08-19 20:02:59 AEST",
       "coverage": {
         "since": "2026-06-01",
-        "until": "2026-08-18"
+        "until": "2026-08-19"
       },
       "horizon_trading_days": 5,
       "method": "Stop-first within horizon using auto-adjusted OHLC from yfinance. Anchored at valid_for (the first trading day after signal_date), not signal_date itself, to avoid lookahead bias. For Mean Reversion, entry_px is the Open on valid_for (not the signal-date close that produced the RSI(2)/Bollinger trigger); other strategies use their published trigger/limit price. If Low <= stop at any point from valid_for..valid_for+h, exit=stop (R=-1). Else exit=Close[valid_for+h]. R=(exit-entry)/(entry-stop). Long-only R where stop < entry.",
       "stats": {
-        "n": 51,
-        "mean_r": -0.07315148755960647,
-        "median_r": -0.17870117423889442,
-        "std_r": 1.1314189984022947,
-        "winrate": 0.4117647058823529,
+        "n": 52,
+        "mean_r": -0.09097549741422944,
+        "median_r": -0.25445192579908604,
+        "std_r": 1.1276209165654925,
+        "winrate": 0.40384615384615385,
         "avg_win_r": 0.987173608469755,
-        "avg_loss_r": -0.8153790547801595,
+        "avg_loss_r": -0.8213345691420898,
         "min_r": -1.0,
         "max_r": 3.899586598756346
       }
     },
-    "n_results": 51
+    "n_results": 52
   },
   "notes": {
     "method": "Signal performance proxy from published recommended_orders CSVs. Forward returns use close-to-close trading bars from yfinance, anchored at valid_for (T+1) not signal_date (T) to avoid lookahead bias. Equity curve compounds each day\u2019s average 5D return (proxy, not realized portfolio P&L).",
