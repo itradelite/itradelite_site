@@ -1,40 +1,40 @@
 {
-  "generated_at_utc": "2026-08-20T05:18:10Z",
-  "as_of_local": "2026-08-20 15:18:10 AEST",
+  "generated_at_utc": "2026-08-21T05:19:54Z",
+  "as_of_local": "2026-08-21 15:19:54 AEST",
   "skipped": false,
   "has_signals": true,
   "source_file": "reports/recommended_orders_latest.csv",
   "n_signals": 2,
   "updates": [
     {
-      "symbol": "A200.AX",
-      "strategy": "TREND_PULLBACK",
-      "original_entry": 151.5814,
-      "original_stop": 150.3293,
+      "symbol": "QBE.AX",
+      "strategy": "MEAN_REVERSION",
+      "original_entry": 21.78,
+      "original_stop": 21.1191,
       "original_score": 100.0,
-      "current_price": 151.57,
+      "current_price": 22.265,
       "current_price_time": "14:55 AEST",
-      "gap_pct": -0.01,
+      "gap_pct": 2.23,
       "status": "INVALIDATED",
-      "updated_entry": 152.2921,
-      "updated_stop": 150.3432,
-      "updated_score": 70,
-      "plain_english": "A200.AX (Trend Pullback) was signaled last night at 151.5814. Currently trading at 151.5700 (-0.01% vs signal). Setup no longer holds \u2014 do not act on last night's plan."
+      "updated_entry": 22.265,
+      "updated_stop": 21.5831,
+      "updated_score": 25,
+      "plain_english": "QBE.AX (Mean Reversion) was signaled last night at 21.7800. Currently trading at 22.2650 (+2.23% vs signal). Setup no longer holds \u2014 do not act on last night's plan."
     },
     {
-      "symbol": "WES.AX",
+      "symbol": "SOL.AX",
       "strategy": "MEAN_REVERSION",
-      "original_entry": 84.26,
-      "original_stop": 82.4309,
-      "original_score": 93.0,
-      "current_price": 84.27,
+      "original_entry": 44.35,
+      "original_stop": 43.3583,
+      "original_score": 96.0,
+      "current_price": 44.125,
       "current_price_time": "14:55 AEST",
-      "gap_pct": 0.01,
-      "status": "INVALIDATED",
-      "updated_entry": 84.27,
-      "updated_stop": 82.4323,
-      "updated_score": 51,
-      "plain_english": "WES.AX (Mean Reversion) was signaled last night at 84.2600. Currently trading at 84.2700 (+0.01% vs signal). Setup no longer holds \u2014 do not act on last night's plan."
+      "gap_pct": -0.51,
+      "status": "CONFIRMED",
+      "updated_entry": 44.125,
+      "updated_stop": 43.1839,
+      "updated_score": 95,
+      "plain_english": "SOL.AX (Mean Reversion) was signaled last night at 44.3500. Currently trading at 44.1250 (-0.51% vs signal). Setup unchanged \u2014 still valid."
     }
   ]
 }
