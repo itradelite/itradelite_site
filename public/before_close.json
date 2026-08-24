@@ -1,40 +1,40 @@
 {
-  "generated_at_utc": "2026-08-21T05:19:54Z",
-  "as_of_local": "2026-08-21 15:19:54 AEST",
+  "generated_at_utc": "2026-08-24T05:26:40Z",
+  "as_of_local": "2026-08-24 15:26:40 AEST",
   "skipped": false,
   "has_signals": true,
   "source_file": "reports/recommended_orders_latest.csv",
   "n_signals": 2,
   "updates": [
     {
-      "symbol": "QBE.AX",
-      "strategy": "MEAN_REVERSION",
-      "original_entry": 21.78,
-      "original_stop": 21.1191,
-      "original_score": 100.0,
-      "current_price": 22.265,
-      "current_price_time": "14:55 AEST",
-      "gap_pct": 2.23,
-      "status": "INVALIDATED",
-      "updated_entry": 22.265,
-      "updated_stop": 21.5831,
-      "updated_score": 25,
-      "plain_english": "QBE.AX (Mean Reversion) was signaled last night at 21.7800. Currently trading at 22.2650 (+2.23% vs signal). Setup no longer holds \u2014 do not act on last night's plan."
-    },
-    {
       "symbol": "SOL.AX",
       "strategy": "MEAN_REVERSION",
-      "original_entry": 44.35,
-      "original_stop": 43.3583,
-      "original_score": 96.0,
-      "current_price": 44.125,
-      "current_price_time": "14:55 AEST",
-      "gap_pct": -0.51,
-      "status": "CONFIRMED",
-      "updated_entry": 44.125,
-      "updated_stop": 43.1839,
-      "updated_score": 95,
-      "plain_english": "SOL.AX (Mean Reversion) was signaled last night at 44.3500. Currently trading at 44.1250 (-0.51% vs signal). Setup unchanged \u2014 still valid."
+      "original_entry": 44.38,
+      "original_stop": 43.4389,
+      "original_score": 90.0,
+      "current_price": 44.375,
+      "current_price_time": "15:05 AEST",
+      "gap_pct": -0.01,
+      "status": "INVALIDATED",
+      "updated_entry": 44.375,
+      "updated_stop": 43.4416,
+      "updated_score": 52,
+      "plain_english": "SOL.AX (Mean Reversion) was signaled last night at 44.3800. Currently trading at 44.3750 (-0.01% vs signal). Setup no longer holds \u2014 do not act on last night's plan."
+    },
+    {
+      "symbol": "IOZ.AX",
+      "strategy": "TREND_PULLBACK",
+      "original_entry": 36.5015,
+      "original_stop": 36.1313,
+      "original_score": 100.0,
+      "current_price": 36.57,
+      "current_price_time": "15:05 AEST",
+      "gap_pct": 0.19,
+      "status": "INVALIDATED",
+      "updated_entry": 36.7267,
+      "updated_stop": 36.1342,
+      "updated_score": 50,
+      "plain_english": "IOZ.AX (Trend Pullback) was signaled last night at 36.5015. Currently trading at 36.5700 (+0.19% vs signal). Setup no longer holds \u2014 do not act on last night's plan."
     }
   ]
 }
