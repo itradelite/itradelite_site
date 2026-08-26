@@ -1,40 +1,8 @@
 {
-  "generated_at_utc": "2026-08-25T05:19:55Z",
-  "as_of_local": "2026-08-25 15:19:55 AEST",
+  "generated_at_utc": "2026-08-26T05:19:46Z",
+  "as_of_local": "2026-08-26 15:19:46 AEST",
   "skipped": false,
-  "has_signals": true,
-  "source_file": "reports/recommended_orders_latest.csv",
-  "n_signals": 2,
-  "updates": [
-    {
-      "symbol": "IFT.AX",
-      "strategy": "MEAN_REVERSION",
-      "original_entry": 12.27,
-      "original_stop": 11.9863,
-      "original_score": 85.0,
-      "current_price": 12.31,
-      "current_price_time": "14:55 AEST",
-      "gap_pct": 0.33,
-      "status": "INVALIDATED",
-      "updated_entry": 12.31,
-      "updated_stop": 12.0254,
-      "updated_score": 69,
-      "plain_english": "IFT.AX (Mean Reversion) was signaled last night at 12.2700. Currently trading at 12.3100 (+0.33% vs signal). Setup no longer holds \u2014 do not act on last night's plan."
-    },
-    {
-      "symbol": "AIA.AX",
-      "strategy": "MEAN_REVERSION",
-      "original_entry": 7.14,
-      "original_stop": 6.9784,
-      "original_score": 85.0,
-      "current_price": 7.19,
-      "current_price_time": "14:55 AEST",
-      "gap_pct": 0.7,
-      "status": "INVALIDATED",
-      "updated_entry": 7.19,
-      "updated_stop": 7.022,
-      "updated_score": 29,
-      "plain_english": "AIA.AX (Mean Reversion) was signaled last night at 7.1400. Currently trading at 7.1900 (+0.70% vs signal). Setup no longer holds \u2014 do not act on last night's plan."
-    }
-  ]
+  "has_signals": false,
+  "reason": "no_signals_last_night",
+  "updates": []
 }
