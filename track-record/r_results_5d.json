@@ -1,7 +1,39 @@
 {
-  "as_of": "2026-08-25 20:05:49 AEST",
+  "as_of": "2026-08-26 20:09:49 AEST",
   "horizon_trading_days": 5,
   "results": [
+    {
+      "date": "2026-08-18",
+      "valid_for": "2026-08-19",
+      "symbol": "QBE.AX",
+      "class": "Insurance",
+      "strategy": "MEAN_REVERSION",
+      "score": 90,
+      "order": "LIMIT",
+      "risk_gate": "always",
+      "entry_px": 22.552781591794965,
+      "entry_src": "valid_for_open",
+      "stop": 22.0214,
+      "exit_type_5d": "STOP",
+      "exit_px_5d": 22.0214,
+      "r_5d": -1.0
+    },
+    {
+      "date": "2026-08-18",
+      "valid_for": "2026-08-19",
+      "symbol": "NWS.AX",
+      "class": "Media & Entertainment",
+      "strategy": "TREND_PULLBACK",
+      "score": 100,
+      "order": "STOP",
+      "risk_gate": "risk_on",
+      "entry_px": 46.2862,
+      "entry_src": "entry",
+      "stop": 45.1749,
+      "exit_type_5d": "H5_CLOSE",
+      "exit_px_5d": 48.650001525878906,
+      "r_5d": 2.127059773129583
+    },
     {
       "date": "2026-08-17",
       "valid_for": "2026-08-18",
@@ -133,6 +165,22 @@
     {
       "date": "2026-07-31",
       "valid_for": "2026-08-03",
+      "symbol": "QAN.AX",
+      "class": "Transportation",
+      "strategy": "MEAN_REVERSION",
+      "score": 86,
+      "order": "LIMIT",
+      "risk_gate": "always",
+      "entry_px": 10.140000343322754,
+      "entry_src": "valid_for_open",
+      "stop": 9.6813,
+      "exit_type_5d": "H5_CLOSE",
+      "exit_px_5d": 10.449999809265137,
+      "r_5d": 0.6758213078647273
+    },
+    {
+      "date": "2026-07-31",
+      "valid_for": "2026-08-03",
       "symbol": "CGF.AX",
       "class": "Financial Services",
       "strategy": "MEAN_REVERSION",
@@ -147,20 +195,20 @@
       "r_5d": 0.06035335607086623
     },
     {
-      "date": "2026-07-31",
-      "valid_for": "2026-08-03",
-      "symbol": "QAN.AX",
-      "class": "Transportation",
+      "date": "2026-07-30",
+      "valid_for": "2026-07-31",
+      "symbol": "NDQ.AX",
+      "class": "ETF",
       "strategy": "MEAN_REVERSION",
-      "score": 86,
+      "score": 90,
       "order": "LIMIT",
       "risk_gate": "always",
-      "entry_px": 10.140000343322754,
+      "entry_px": 58.5099983215332,
       "entry_src": "valid_for_open",
-      "stop": 9.6813,
+      "stop": 56.6794,
       "exit_type_5d": "H5_CLOSE",
-      "exit_px_5d": 10.449999809265137,
-      "r_5d": 0.6758213078647273
+      "exit_px_5d": 60.849998474121094,
+      "r_5d": 1.2782706752555326
     },
     {
       "date": "2026-07-30",
@@ -193,22 +241,6 @@
       "exit_type_5d": "H5_CLOSE",
       "exit_px_5d": 41.060001373291016,
       "r_5d": 0.38788401433397574
-    },
-    {
-      "date": "2026-07-30",
-      "valid_for": "2026-07-31",
-      "symbol": "NDQ.AX",
-      "class": "ETF",
-      "strategy": "MEAN_REVERSION",
-      "score": 90,
-      "order": "LIMIT",
-      "risk_gate": "always",
-      "entry_px": 58.5099983215332,
-      "entry_src": "valid_for_open",
-      "stop": 56.6794,
-      "exit_type_5d": "H5_CLOSE",
-      "exit_px_5d": 60.849998474121094,
-      "r_5d": 1.2782706752555326
     },
     {
       "date": "2026-07-29",
@@ -325,22 +357,6 @@
     {
       "date": "2026-07-17",
       "valid_for": "2026-07-20",
-      "symbol": "VGE.AX",
-      "class": "ETF",
-      "strategy": "MEAN_REVERSION",
-      "score": 100,
-      "order": "LIMIT",
-      "risk_gate": "always",
-      "entry_px": 91.69999694824219,
-      "entry_src": "valid_for_open",
-      "stop": 88.799,
-      "exit_type_5d": "H5_CLOSE",
-      "exit_px_5d": 92.06999969482422,
-      "r_5d": 0.12754330776053704
-    },
-    {
-      "date": "2026-07-17",
-      "valid_for": "2026-07-20",
       "symbol": "NDQ.AX",
       "class": "ETF",
       "strategy": "MEAN_REVERSION",
@@ -353,6 +369,22 @@
       "exit_type_5d": "H5_CLOSE",
       "exit_px_5d": 59.290000915527344,
       "r_5d": -0.33020267735927766
+    },
+    {
+      "date": "2026-07-17",
+      "valid_for": "2026-07-20",
+      "symbol": "VGE.AX",
+      "class": "ETF",
+      "strategy": "MEAN_REVERSION",
+      "score": 100,
+      "order": "LIMIT",
+      "risk_gate": "always",
+      "entry_px": 91.69999694824219,
+      "entry_src": "valid_for_open",
+      "stop": 88.799,
+      "exit_type_5d": "H5_CLOSE",
+      "exit_px_5d": 92.06999969482422,
+      "r_5d": 0.12754330776053704
     },
     {
       "date": "2026-07-16",
@@ -843,28 +875,12 @@
       "score": 93,
       "order": "LIMIT",
       "risk_gate": "always",
-      "entry_px": 5.0,
+      "entry_px": 4.888298078045853,
       "entry_src": "valid_for_open",
       "stop": 4.8543,
-      "exit_type_5d": "H5_CLOSE",
-      "exit_px_5d": 5.119999885559082,
-      "r_5d": 0.8236093724027609
-    },
-    {
-      "date": "2026-06-04",
-      "valid_for": "2026-06-05",
-      "symbol": "TLS.AX",
-      "class": "Telecommunication Services",
-      "strategy": "MEAN_REVERSION",
-      "score": 100,
-      "order": "LIMIT",
-      "risk_gate": "always",
-      "entry_px": 5.010000228881836,
-      "entry_src": "valid_for_open",
-      "stop": 4.8603,
-      "exit_type_5d": "H5_CLOSE",
-      "exit_px_5d": 5.099999904632568,
-      "r_5d": 0.6011993196200945
+      "exit_type_5d": "STOP",
+      "exit_px_5d": 4.8543,
+      "r_5d": -1.0
     },
     {
       "date": "2026-06-04",
@@ -883,19 +899,19 @@
       "r_5d": -1.0
     },
     {
-      "date": "2026-06-01",
-      "valid_for": "2026-06-02",
+      "date": "2026-06-04",
+      "valid_for": "2026-06-05",
       "symbol": "TLS.AX",
       "class": "Telecommunication Services",
       "strategy": "MEAN_REVERSION",
-      "score": 90,
+      "score": 100,
       "order": "LIMIT",
       "risk_gate": "always",
-      "entry_px": 5.150000095367432,
+      "entry_px": 4.898074592139146,
       "entry_src": "valid_for_open",
-      "stop": 5.0377,
+      "stop": 4.8603,
       "exit_type_5d": "STOP",
-      "exit_px_5d": 5.0377,
+      "exit_px_5d": 4.8603,
       "r_5d": -1.0
     }
   ]
