@@ -1,7 +1,23 @@
 {
-  "as_of": "2026-08-26 20:09:49 AEST",
+  "as_of": "2026-08-28 06:00:20 AEST",
   "horizon_trading_days": 5,
   "results": [
+    {
+      "date": "2026-08-19",
+      "valid_for": "2026-08-20",
+      "symbol": "WES.AX",
+      "class": "Consumer Discretionary Distribution & Retail",
+      "strategy": "MEAN_REVERSION",
+      "score": 93,
+      "order": "LIMIT",
+      "risk_gate": "always",
+      "entry_px": 84.30000305175781,
+      "entry_src": "valid_for_open",
+      "stop": 82.4309,
+      "exit_type_5d": "STOP",
+      "exit_px_5d": 82.4309,
+      "r_5d": -1.0
+    },
     {
       "date": "2026-08-18",
       "valid_for": "2026-08-19",
