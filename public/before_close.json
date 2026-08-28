@@ -1,8 +1,7 @@
 {
-  "generated_at_utc": "2026-08-27T15:55:17Z",
-  "as_of_local": "2026-08-28 01:55:17 AEST",
-  "skipped": false,
-  "has_signals": false,
-  "reason": "no_signals_last_night",
+  "generated_at_utc": "2026-08-28T16:57:28Z",
+  "as_of_local": "2026-08-29 02:57:28 AEST",
+  "skipped": true,
+  "reason": "market_closed_weekend",
   "updates": []
 }
