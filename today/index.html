@@ -250,6 +250,63 @@
 
     .symbol-cell { font-family: var(--mono-font); font-weight: 700; color: var(--brand-primary); }
 
+    /* Ticker enrichment: company name + external link (Part B1/B2) */
+    .symbol-line { display: flex; align-items: baseline; gap: 6px; flex-wrap: wrap; }
+    .company-name {
+      display: block;
+      font-family: 'Inter', -apple-system, system-ui, sans-serif;
+      font-weight: 400;
+      font-size: 11px;
+      color: var(--text-muted);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 160px;
+    }
+    .ext-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 20px;
+      height: 20px;
+      margin-left: 2px;
+      border-radius: 4px;
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 12px;
+      flex-shrink: 0;
+      transition: color 0.15s, background 0.15s;
+    }
+    .ext-link:hover { color: var(--brand-primary); background: rgba(56, 189, 248, 0.1); }
+
+    /* Sentiment / insider / news / trends chips (Part A restoration).
+       Removed from this page in commit f884a67 (2026-04-24) as collateral
+       damage of an unrelated visual redesign, not a deliberate decision —
+       see ITRADELITE_TICKER_ENRICHMENT_REPORT.md Part A. Restored here
+       adapted to the current (post-redesign) theme, with one fix: the
+       trends chip now also hides on a pytrends failure label
+       ("trends score failed: ..."), not just "trends not used" — the
+       original filter let a misleading neutral chip through on the ~43%
+       of days pytrends gets rate-limited (TooManyRequestsError). */
+    .sent-chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
+    .sent-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      padding: 3px 9px;
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 600;
+      font-family: var(--mono-font);
+      border: 1px solid var(--border);
+      cursor: default;
+    }
+    .sent-chip--pos { color: var(--accent-green); border-color: rgba(16,185,129,0.35); background: rgba(16,185,129,0.08); }
+    .sent-chip--neu { color: var(--text-muted); }
+    .sent-chip--neg { color: var(--accent-red); border-color: rgba(244,63,94,0.35); background: rgba(244,63,94,0.08); }
+    .sent-chip--earnings-warn { color: var(--accent-red); border-color: rgba(244,63,94,0.4); background: rgba(244,63,94,0.1); font-weight: 700; }
+    .sent-chip--earnings-ok { color: var(--accent-gold); border-color: rgba(245,158,11,0.35); }
+
     .note-row { background: rgba(56, 189, 248, 0.04); }
     .note-row td {
       padding: 8px 18px 12px 32px;
@@ -576,6 +633,18 @@
 
   <script>
     const DATA_URL = "/public/today.json";
+    const NAMES_URL = "/public/ticker_names.json";
+
+    // Ticker enrichment (Part B1): symbol -> full company name. Best-effort;
+    // page must render fine even if this fetch fails or the file is empty.
+    window.__NAMES__ = {};
+    async function loadNames(){
+      try{
+        const r = await fetch(NAMES_URL + "?v=" + Date.now(), { cache: "no-store" });
+        if (!r.ok) return;
+        window.__NAMES__ = await r.json();
+      }catch(_){ /* enrichment only, never block the page */ }
+    }
 
     // Persist UI preferences
     const prefs = { view:"all", strat:"all", q:"", sort:"status_score", portfolio:100000, riskPct:1 };
@@ -826,6 +895,75 @@
       return (rb !== null) ? rb : -1;
     }
 
+    // --- Ticker enrichment: company name + external link (Part B1/B2) ---
+    function companyNameHtml(sym){
+      const name = window.__NAMES__ && window.__NAMES__[sym];
+      if (!name) return "";
+      const esc = escapeHtml(name);
+      return `<span class="company-name" title="${esc}">${esc}</span>`;
+    }
+
+    function extLinkHtml(sym){
+      const href = "https://finance.yahoo.com/quote/" + encodeURIComponent(sym);
+      return `<a class="ext-link" href="${href}" target="_blank" rel="noopener noreferrer" title="View ${escapeHtml(sym)} on Yahoo Finance" aria-label="View ${escapeHtml(sym)} on Yahoo Finance">↗</a>`;
+    }
+
+    // --- Sentiment / catalyst chips (Part A restoration) ---
+    // Restores the composite/news/insider/trends chip UI dropped in an
+    // unrelated visual redesign (see ITRADELITE_TICKER_ENRICHMENT_REPORT.md).
+    // Fix vs. the original: a "trends score failed: ..." label (pytrends
+    // rate-limited) is now treated the same as "not used" and hidden,
+    // instead of rendering a misleading neutral chip.
+    function sentChipClass(n){
+      if (n === null) return "sent-chip--neu";
+      if (n >= 65) return "sent-chip--pos";
+      if (n <= 35) return "sent-chip--neg";
+      return "sent-chip--neu";
+    }
+
+    function trendsLabelUsable(label){
+      const s = String(label || "");
+      if (!s) return false;
+      if (/not used/i.test(s)) return false;
+      if (/failed/i.test(s)) return false;
+      if (/not installed/i.test(s)) return false;
+      return true;
+    }
+
+    function buildSentChips(r){
+      const chips = [];
+
+      const sentScore = numOrNull(r.sent_score);
+      if (sentScore !== null){
+        chips.push(`<span class="sent-chip ${sentChipClass(sentScore)}">Sentiment ${fmt(sentScore,0)}</span>`);
+      }
+
+      if (r.earnings_suppress){
+        const lbl = r.earnings_label ? escapeHtml(r.earnings_label) : "Earnings risk";
+        chips.push(`<span class="sent-chip sent-chip--earnings-warn">⚠ ${lbl}</span>`);
+      } else if (r.earnings_label){
+        chips.push(`<span class="sent-chip sent-chip--earnings-ok">${escapeHtml(r.earnings_label)}</span>`);
+      }
+
+      const newsScore = numOrNull(r.news_score);
+      if (newsScore !== null){
+        chips.push(`<span class="sent-chip ${sentChipClass(newsScore)}">News ${fmt(newsScore,0)}</span>`);
+      }
+
+      const insiderScore = numOrNull(r.insider_score);
+      if (insiderScore !== null){
+        chips.push(`<span class="sent-chip ${sentChipClass(insiderScore)}">Insider ${fmt(insiderScore,0)}</span>`);
+      }
+
+      const trendsScore = numOrNull(r.trends_score_val);
+      if (trendsScore !== null && trendsLabelUsable(r.trends_label)){
+        chips.push(`<span class="sent-chip ${sentChipClass(trendsScore)}">Trends ${fmt(trendsScore,0)}</span>`);
+      }
+
+      if (!chips.length) return "";
+      return `<div class="sent-chips">${chips.join("")}</div>`;
+    }
+
     function buildTable(title, rows, subtitle){
       const count = rows.length;
 
@@ -876,13 +1014,17 @@
         const rmultTxt = (rmult !== null) ? fmt(rmult, 2) : "—";
 
         const note = r.plain_english || r.instruction || r.note || "";
-        const noteHtml = note 
-          ? `<tr class="note-row"><td colspan="11">${escapeHtml(note)}</td></tr>`
+        const sentChipsHtml = buildSentChips(r);
+        const extraHtml = (note || sentChipsHtml)
+          ? `<tr class="note-row"><td colspan="11">${note ? escapeHtml(note) : ""}${sentChipsHtml}</td></tr>`
           : "";
 
         html += `
           <tr>
-            <td class="mono symbol-cell">${sym}</td>
+            <td class="mono symbol-cell">
+              <div class="symbol-line">${sym}${extLinkHtml(safeText(r.symbol))}</div>
+              ${companyNameHtml(safeText(r.symbol))}
+            </td>
             <td>${strat || "—"}</td>
             <td class="mono">${entryTxt}</td>
             <td class="mono">${lastClose}</td>
@@ -894,7 +1036,7 @@
             <td class="mono">${escapeHtml(rmultTxt)}</td>
             <td>${pill}</td>
           </tr>
-          ${noteHtml}
+          ${extraHtml}
         `;
       }
 
@@ -1145,7 +1287,7 @@
       bindControls();
 
       try{
-        const data = await load();
+        const [data] = await Promise.all([load(), loadNames()]);
         window.__DATA__ = data;
         render(data);
       }catch(e){
