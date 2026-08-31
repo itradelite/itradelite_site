@@ -143,6 +143,22 @@
 
     .empty-note { color: var(--text-dimmed); font-size: 0.9rem; font-style: italic; padding: 20px 0; }
 
+    .sweep-panel {
+      background: linear-gradient(135deg, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0.01) 100%);
+      border: 1px solid var(--border); border-radius: 20px; padding: 32px; margin-top: 32px;
+    }
+    .sweep-panel h3 { font-size: 1.1rem; font-weight: 800; margin: 0 0 4px 0; color: #fff; }
+    .sweep-panel .chart-note { font-size: 0.8rem; color: var(--text-dimmed); margin-bottom: 20px; }
+    .sweep-verdict {
+      font-size: 0.95rem; line-height: 1.7; color: var(--text-muted);
+      padding: 18px 22px; background: rgba(255,255,255,0.02);
+      border-left: 3px solid var(--accent); border-radius: 0 12px 12px 0; margin-bottom: 20px;
+    }
+    .sig-corrected { color: #10b981; font-weight: 800; }
+    .sig-raw-only { color: #fbbf24; font-weight: 700; }
+    .sig-none { color: var(--text-dimmed); }
+    .horizon-primary td { background: rgba(59,130,246,0.05); }
+
     @media (max-width: 768px) {
       .page-header h1 { font-size: 2.6rem; letter-spacing: -1.5px; }
       .archetype-head h2 { font-size: 1.8rem; }
@@ -439,21 +455,83 @@
     // --- Rendering ----------------------------------------------------------
 
     function renderMethodology(meta) {
+      const primaryHorizon = meta.primary_horizon_days ?? meta.r_horizon_days;
+      const sweepHorizons = meta.sweep_horizons_days ? meta.sweep_horizons_days.join("d, ") + "d" : null;
       document.getElementById("methodPanel").innerHTML = `
         <b>How this was computed</b> — per-archetype backtest, no composite blending.
         <dl>
           <dt>Benchmark</dt><dd>${esc(meta.benchmark)}</dd>
-          <dt>R horizon</dt><dd>${meta.r_horizon_days} trading days, stop-first</dd>
+          <dt>R horizon (default view)</dt><dd>${primaryHorizon} trading days, stop-first</dd>
+          ${sweepHorizons ? `<dt>Holding-period sweep</dt><dd>${esc(sweepHorizons)} (see "Holding-Period Sensitivity" below each archetype)</dd>` : ""}
           <dt>Rolling window</dt><dd>${meta.window_days} days, ${meta.step_days}-day step, min ${meta.min_trades_per_window} trades/window</dd>
           <dt>Bootstrap</dt><dd>${meta.n_bootstrap_replicates} random-entry replicates, ±${meta.random_entry_window_days}d entry window</dd>
           <dt>Position sizing</dt><dd>${esc(meta.position_sizing)}</dd>
           <dt>Transaction costs</dt><dd>${esc(meta.transaction_costs)}</dd>
           <dt>No-lookahead</dt><dd>${esc(meta.no_lookahead)}</dd>
+          ${meta.multiple_comparisons_correction ? `<dt>Multiple comparisons</dt><dd>${esc(meta.multiple_comparisons_correction)}</dd>` : ""}
         </dl>
       `;
     }
 
-    function renderArchetype(key, data) {
+    const PRIMARY_HORIZON_FALLBACK = 5;
+
+    function renderHorizonSweep(key, horizonAnalysis) {
+      if (!horizonAnalysis || !horizonAnalysis.cells || !horizonAnalysis.cells[key]) return "";
+      const cells = horizonAnalysis.cells[key];
+      const horizons = horizonAnalysis.sweep_horizons_days || [1, 3, 5, 10];
+      const familySize = horizonAnalysis.bonferroni_family_size;
+      const overallText = (horizonAnalysis.overall_verdict || {})[key];
+
+      let html = `
+        <div class="sweep-panel">
+          <h3>Holding-Period Sensitivity</h3>
+          <div class="chart-note">
+            Same isolate → rolling-edge-metric → CUSUM change-point → 200-replicate noise-band pipeline as above,
+            re-run independently at each holding-period horizon. ${familySize ? `Raw p-values are Bonferroni-corrected across all ${familySize} archetype × horizon tests run in this sweep (p<sub>corrected</sub> = min(1, p<sub>raw</sub> × ${familySize})) to guard against the ~0.6 false positives expected by chance from running this many tests.` : ""}
+          </div>
+      `;
+      if (overallText) {
+        // The backend writes the raw archetype key (e.g. "MOMENTUM") into this
+        // text; swap in the site's display name for consistency with the rest
+        // of the page's title-case naming.
+        const humanized = overallText.replace(new RegExp(`\\b${key}\\b`, "g"), DISPLAY_NAME[key] || key);
+        html += `<div class="sweep-verdict">${esc(humanized)}</div>`;
+      }
+      html += `<div class="table-scroll"><table>
+        <thead><tr>
+          <th>Horizon</th><th>Trades</th><th>Verdict</th><th>Raw p</th><th>Corrected p</th>
+          <th>Significant (corrected)</th><th>% windows outside noise band</th>
+        </tr></thead>
+        <tbody>`;
+      horizons.forEach(h => {
+        const c = cells[String(h)];
+        if (!c) return;
+        const isPrimary = h === PRIMARY_HORIZON_FALLBACK;
+        let sigCell, sigClass;
+        if (c.changepoint_p_raw === null || c.changepoint_p_raw === undefined) {
+          sigCell = "—"; sigClass = "sig-none";
+        } else if (c.changepoint_significant_corrected) {
+          sigCell = "YES"; sigClass = "sig-corrected";
+        } else if (c.changepoint_significant_raw) {
+          sigCell = "no (raw only)"; sigClass = "sig-raw-only";
+        } else {
+          sigCell = "no"; sigClass = "sig-none";
+        }
+        html += `<tr class="${isPrimary ? "horizon-primary" : ""}">
+          <td>${h}d${isPrimary ? " <span style=\"color:var(--text-dimmed);font-size:0.75rem;\">(default view)</span>" : ""}</td>
+          <td>${c.n_trades}</td>
+          <td>${esc(c.verdict)}</td>
+          <td>${fmtNum(c.changepoint_p_raw, 4)}</td>
+          <td>${fmtNum(c.changepoint_p_corrected, 4)}</td>
+          <td class="${sigClass}">${sigCell}</td>
+          <td>${fmtPct(c.fraction_outside_band)}${c.n_scored_windows ? ` <span style="color:var(--text-dimmed);font-size:0.75rem;">(${c.n_outside_band}/${c.n_scored_windows})</span>` : ""}</td>
+        </tr>`;
+      });
+      html += `</tbody></table></div></div>`;
+      return html;
+    }
+
+    function renderArchetype(key, data, horizonAnalysis) {
       const name = DISPLAY_NAME[key] || key;
       const v = data.verdict;
       const badgeClass = verdictBadgeClass(v.verdict);
@@ -469,6 +547,7 @@
 
       if (data.n_trades < 10) {
         html += `<div class="verdict-reason">${esc(v.reason)}</div>`;
+        html += renderHorizonSweep(key, horizonAnalysis);
         html += `</section>`;
         return html;
       }
@@ -533,6 +612,8 @@
         html += `<div class="hyp-limits">${esc(h.note)}</div></div>`;
       }
 
+      html += renderHorizonSweep(key, horizonAnalysis);
+
       html += `</section>`;
       return html;
     }
@@ -596,7 +677,7 @@
         let html = "";
         DISPLAY_ORDER.forEach(key => {
           if (analysis.archetypes[key]) {
-            html += renderArchetype(key, analysis.archetypes[key]);
+            html += renderArchetype(key, analysis.archetypes[key], analysis.horizon_analysis);
           }
         });
         container.innerHTML = html;
