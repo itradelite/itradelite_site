@@ -225,10 +225,16 @@ body {
   .topbar {
     padding: 12px 0;
   }
-  
+
   .brand span {
     font-size: 1.1rem;
   }
+
+  /* Touch targets (QA follow-up): the hamburger was 38x44 (width just
+     under the ~44px baseline) and .btn height depended on
+     padding+font metrics alone. */
+  .hamburger { min-width: 44px; min-height: 44px; }
+  .btn { min-height: 44px; }
 }
 
 /* Premium Glass Cards with Depth */

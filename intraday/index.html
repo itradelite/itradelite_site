@@ -95,6 +95,10 @@
       }
       .nav.active { max-height: 400px; opacity: 1; padding: 8px 0; }
       .nav a { padding: 14px 20px; border-bottom: 1px solid rgba(255,255,255,0.05); font-size: 1rem; }
+      /* Touch targets (QA follow-up): buttons were ~31-33px tall, under
+         the ~44px accessibility baseline for touch. */
+      .btn { min-height: 44px; }
+      .hamburger { min-height: 44px; min-width: 44px; }
     }
 
     /* Buttons */
