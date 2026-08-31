@@ -253,6 +253,35 @@
     tr:hover { background: rgba(255,255,255,0.02); }
     .symbol-cell { font-family: var(--mono-font); font-weight: 700; color: var(--brand-primary); }
 
+    /* Ticker enrichment: company name + external link (Part B1/B2) */
+    .symbol-line { display: flex; align-items: baseline; gap: 6px; flex-wrap: nowrap; }
+    .company-name {
+      display: block;
+      font-family: 'Inter', -apple-system, system-ui, sans-serif;
+      font-weight: 400;
+      font-size: 11px;
+      color: var(--text-muted);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 160px;
+    }
+    .ext-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 20px;
+      height: 20px;
+      margin-left: 2px;
+      border-radius: 4px;
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 12px;
+      flex-shrink: 0;
+      transition: color 0.15s, background 0.15s;
+    }
+    .ext-link:hover { color: var(--brand-primary); background: rgba(56, 189, 248, 0.1); }
+
     /* Direction chips */
     .dir-long  { color: var(--accent-green); font-weight: 700; }
     .dir-short { color: var(--accent-red);   font-weight: 700; }
@@ -475,6 +504,28 @@
 
   <script>
     const DATA_URL = "/public/intraday.json";
+    const NAMES_URL = "/public/ticker_names.json";
+
+    // Ticker enrichment (Part B1): symbol -> full company name. Best-effort.
+    window.__NAMES__ = {};
+    async function loadNames(){
+      try{
+        const r = await fetch(NAMES_URL + '?v=' + Date.now(), { cache: 'no-store' });
+        if (!r.ok) return;
+        window.__NAMES__ = await r.json();
+      }catch(_){ /* enrichment only, never block the page */ }
+    }
+    function companyNameHtml(sym){
+      const name = window.__NAMES__ && window.__NAMES__[sym];
+      if (!name) return "";
+      const n = esc(name);
+      return `<span class="company-name" title="${n}">${n}</span>`;
+    }
+    function extLinkHtml(sym){
+      const href = "https://finance.yahoo.com/quote/" + encodeURIComponent(sym);
+      return `<a class="ext-link" href="${href}" target="_blank" rel="noopener noreferrer" title="View ${esc(sym)} on Yahoo Finance" aria-label="View ${esc(sym)} on Yahoo Finance">↗</a>`;
+    }
+
     const REFRESH_WORKER_URL = "https://itradelite-intraday-refresh.itradelite-refresh-worker.workers.dev";
     // Measured end-to-end (dispatch → job complete) on 2026-08-03 was 3m33s;
     // padded slightly so the auto re-fetch doesn't land before the push does.
@@ -594,7 +645,10 @@
 
         html+=`
           <tr>
-            <td class="mono symbol-cell">${esc(safeText(r.symbol))}</td>
+            <td class="mono symbol-cell">
+              <div class="symbol-line">${esc(safeText(r.symbol))}${extLinkHtml(safeText(r.symbol))}</div>
+              ${companyNameHtml(safeText(r.symbol))}
+            </td>
             <td class="mono">${esc(safeText(r.interval))}</td>
             <td>${esc(safeText(r.strategy))}</td>
             <td>${dirHtml}</td>
@@ -685,7 +739,7 @@
       document.getElementById('symSearch').addEventListener('input',e=>{ prefs.q=e.target.value.trim(); if(window.__DATA__) render(window.__DATA__); });
 
       document.getElementById('refreshBtn').addEventListener('click',async()=>{
-        try{ const d=await load(); window.__DATA__=d; render(d); }
+        try{ const [d]=await Promise.all([load(), loadNames()]); window.__DATA__=d; render(d); }
         catch(e){ showError('Could not load intraday data. Run the scan first. ('+e.message+')'); }
       });
 
@@ -758,7 +812,7 @@
 
       bindControls();
       try{
-        const d=await load();
+        const [d] = await Promise.all([load(), loadNames()]);
         window.__DATA__=d;
         render(d);
       }catch(e){
