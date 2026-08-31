@@ -818,6 +818,13 @@
 
     // --- Institutional display helpers (prefer scan.py fields) ---
     function numOrNull(x){
+      // Explicit null/undefined check BEFORE Number(x): JS coerces
+      // Number(null) === 0 (a real value, not NaN), so without this check
+      // a JSON `null` field (e.g. a failed trends_score_val, or any other
+      // genuinely-missing field) would silently render as 0 instead of
+      // being treated as unavailable. Number(undefined) is NaN and was
+      // already handled correctly by the isFinite check below; null was not.
+      if (x === null || x === undefined) return null;
       const n = Number(x);
       return Number.isFinite(n) ? n : null;
     }
