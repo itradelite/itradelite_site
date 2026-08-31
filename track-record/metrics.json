@@ -1,33 +1,33 @@
 {
   "summary": {
-    "as_of": "2026-08-31 10:36:41 AEST",
+    "as_of": "2026-08-31 10:51:11 AEST",
     "since": "2026-02-05",
     "until": "2026-08-31",
     "total_signals_with_entry": 166,
     "total_signals_with_5d": 162,
     "avg_ret_1d": 0.0039959682219152075,
-    "avg_ret_5d": 0.008383700666291172,
-    "avg_ret_20d": 0.0018403749015076436,
+    "avg_ret_5d": 0.00843906585532828,
+    "avg_ret_20d": 0.0018801165133909795,
     "winrate_1d": 0.5609756097560976,
-    "winrate_5d": 0.5925925925925926,
+    "winrate_5d": 0.5987654320987654,
     "winrate_20d": 0.5170068027210885,
     "equity_curve_proxy_start": 1.0,
-    "equity_curve_proxy_end": 2.0323800019282534,
+    "equity_curve_proxy_end": 2.0415252956017595,
     "equity_curve_proxy_max_drawdown": -0.3921722073925725
   },
   "by_strategy_5d": [
     {
       "strategy": "TREND_PULLBACK",
       "trades": 24,
-      "avg_5d": 0.011080632467615106,
+      "avg_5d": 0.011149010426609545,
       "win_5d": 0.625,
       "avg_score": 99.625
     },
     {
       "strategy": "MEAN_REVERSION",
       "trades": 138,
-      "avg_5d": 0.007914669048669621,
-      "win_5d": 0.5869565217391305,
+      "avg_5d": 0.007967771147279366,
+      "win_5d": 0.5942028985507246,
       "avg_score": 95.1086956521739
     }
   ],
@@ -514,8 +514,8 @@
     },
     {
       "date": "2026-08-21",
-      "equity": 2.0323800019282534,
-      "avg_5d_return": -0.0033812287990074297
+      "equity": 2.0415252956017595,
+      "avg_5d_return": 0.0011033515129982852
     }
   ],
   "recent_signals": [
@@ -595,7 +595,7 @@
       "entry_src": "entry",
       "stop": 36.1313,
       "ret_1d": 0.007932086705060515,
-      "ret_5d": -0.0019146524123315745,
+      "ret_5d": -0.0002735813964650502,
       "ret_20d": null,
       "risk_gate": "risk_on"
     },
@@ -611,7 +611,7 @@
       "entry_src": "valid_for_open",
       "stop": 43.4389,
       "ret_1d": 0.012401422112308547,
-      "ret_5d": -0.004847805185683285,
+      "ret_5d": 0.0024802844224616205,
       "ret_20d": null,
       "risk_gate": "always"
     },
@@ -836,7 +836,7 @@
       "stop": 9.3949,
       "ret_1d": 0.003027223942728474,
       "ret_5d": 0.0010091399894558428,
-      "ret_20d": -0.03341159003550709,
+      "ret_20d": -0.03495313566042557,
       "risk_gate": "always"
     },
     {
@@ -852,7 +852,7 @@
       "stop": 36.5516,
       "ret_1d": 0.00024945910869345056,
       "ret_5d": -0.023952167048707396,
-      "ret_20d": 0.17340310954919191,
+      "ret_20d": 0.17739512152779757,
       "risk_gate": "always"
     },
     {
@@ -868,7 +868,7 @@
       "stop": 9.6813,
       "ret_1d": -0.0029069509552638317,
       "ret_5d": 0.012596910686549334,
-      "ret_20d": -0.08091085880222937,
+      "ret_20d": -0.07751930820906616,
       "risk_gate": "always"
     },
     {
@@ -1322,7 +1322,7 @@
   ],
   "r_5d": {
     "summary": {
-      "as_of": "2026-08-31 10:36:41 AEST",
+      "as_of": "2026-08-31 10:51:11 AEST",
       "coverage": {
         "since": "2026-02-05",
         "until": "2026-08-31"
@@ -1331,12 +1331,12 @@
       "method": "Stop-first within horizon using auto-adjusted OHLC from yfinance. Anchored at valid_for (the first trading day after signal_date), not signal_date itself, to avoid lookahead bias. For Mean Reversion, entry_px is the Open on valid_for (not the signal-date close that produced the RSI(2)/Bollinger trigger); other strategies use their published trigger/limit price. If Low <= stop at any point from valid_for..valid_for+h, exit=stop (R=-1). Else exit=Close[valid_for+h]. R=(exit-entry)/(entry-stop). Long-only R where stop < entry.",
       "stats": {
         "n": 152,
-        "mean_r": -0.11931425138775804,
+        "mean_r": -0.11595162842324498,
         "median_r": -0.6457322329747396,
-        "std_r": 1.0874968113702335,
-        "winrate": 0.39473684210526316,
-        "avg_win_r": 1.009834268440024,
-        "avg_loss_r": -0.8557154599710942,
+        "std_r": 1.0877467320839838,
+        "winrate": 0.40789473684210525,
+        "avg_win_r": 0.9809310395109375,
+        "avg_loss_r": -0.8715819107779039,
         "min_r": -1.0,
         "max_r": 3.899586598756346
       }
