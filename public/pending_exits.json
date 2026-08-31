@@ -1,0 +1,19 @@
+{
+  "as_of": "2026-08-31 11:52:28 AEST",
+  "pending_exits": [
+    {
+      "symbol": "WOW.AX",
+      "category": "profit_take",
+      "action": "TAKE_PROFIT_3R",
+      "streak_days": 74,
+      "first_flagged_date": "2026-05-20",
+      "last_close": 40.44,
+      "stop": 29.5421,
+      "pnl_%": 28.63,
+      "status": "WATCH",
+      "as_of": "2026-08-31"
+    }
+  ],
+  "recent_auto_closes": [],
+  "notes": "pending_exits: positions flagged for exit (SELL_STOP/SELL_TRAIL20/SELL_TIME) or profit-taking (TAKE_PROFIT_2R/3R) for 3+ consecutive trading days with no action taken yet. Exit-category positions are auto-closed at 10 consecutive days (see recent_auto_closes and ITRADELITE_FOLLOWUP_REPORT.md item 4); profit-take positions are never auto-closed."
+}
