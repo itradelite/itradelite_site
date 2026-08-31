@@ -1,0 +1,3240 @@
+{
+  "generated_at_utc": "2026-08-31T07:00:19Z",
+  "methodology": {
+    "r_horizon_days": 5,
+    "benchmark": "^AXJO",
+    "window_days": 75,
+    "step_days": 5,
+    "min_trades_per_window": 8,
+    "n_bootstrap_replicates": 200,
+    "random_entry_window_days": 45,
+    "position_sizing": "R-multiple risk-normalized, identical to tools/build_public_metrics.py -- no per-symbol dollar sizing applied.",
+    "transaction_costs": "None modeled -- frictionless proxy, identical to tools/build_public_metrics.py.",
+    "no_lookahead": "Entries anchored at valid_for (T+1), Mean Reversion entry = Open on valid_for, stop-first exit over 5 trading days -- identical to the corrected methodology in commit 13cb31a."
+  },
+  "archetypes": {
+    "TREND_PULLBACK": {
+      "archetype": "TREND_PULLBACK",
+      "n_trades": 24,
+      "trades": [
+        {
+          "date": "2026-02-06",
+          "symbol": "NST.AX",
+          "r_5d": 0.4006986187702476,
+          "ret_5d": 0.05976840347062917
+        },
+        {
+          "date": "2026-02-10",
+          "symbol": "ARG.AX",
+          "r_5d": -1.0,
+          "ret_5d": 0.004940873469571949
+        },
+        {
+          "date": "2026-02-11",
+          "symbol": "ANZ.AX",
+          "r_5d": 1.635639201867906,
+          "ret_5d": 0.05456981522706261
+        },
+        {
+          "date": "2026-02-11",
+          "symbol": "LYC.AX",
+          "r_5d": 0.3227719766947862,
+          "ret_5d": -0.01586294393205967
+        },
+        {
+          "date": "2026-02-12",
+          "symbol": "ORI.AX",
+          "r_5d": -0.6908172278911723,
+          "ret_5d": -0.01474584416050706
+        },
+        {
+          "date": "2026-02-13",
+          "symbol": "VGE.AX",
+          "r_5d": -0.01563912252443545,
+          "ret_5d": 0.004779376160817694
+        },
+        {
+          "date": "2026-02-13",
+          "symbol": "ORI.AX",
+          "r_5d": -1.0,
+          "ret_5d": -0.04069762784282227
+        },
+        {
+          "date": "2026-02-16",
+          "symbol": "AIA.AX",
+          "r_5d": 2.4753965171245262,
+          "ret_5d": 0.058741265416136335
+        },
+        {
+          "date": "2026-02-18",
+          "symbol": "ALQ.AX",
+          "r_5d": 1.1514148698205364,
+          "ret_5d": 0.05680861158004058
+        },
+        {
+          "date": "2026-02-19",
+          "symbol": "ALQ.AX",
+          "r_5d": 1.0155394570155472,
+          "ret_5d": 0.034510813088137304
+        },
+        {
+          "date": "2026-02-20",
+          "symbol": "S32.AX",
+          "r_5d": 0.643123806459119,
+          "ret_5d": 0.0478361033477015
+        },
+        {
+          "date": "2026-02-23",
+          "symbol": "AAI.AX",
+          "r_5d": 0.9522793006385791,
+          "ret_5d": 0.06969892594127813
+        },
+        {
+          "date": "2026-02-23",
+          "symbol": "AAI.AX",
+          "r_5d": 0.9522793006385791,
+          "ret_5d": 0.06969892594127813
+        },
+        {
+          "date": "2026-02-24",
+          "symbol": "S32.AX",
+          "r_5d": 0.24072468892122045,
+          "ret_5d": 0.01330381472847808
+        },
+        {
+          "date": "2026-03-04",
+          "symbol": "AGL.AX",
+          "r_5d": -1.0,
+          "ret_5d": -0.06139422229294489
+        },
+        {
+          "date": "2026-03-05",
+          "symbol": "AGL.AX",
+          "r_5d": -1.0,
+          "ret_5d": -0.08859475187030386
+        },
+        {
+          "date": "2026-03-09",
+          "symbol": "AAI.AX",
+          "r_5d": -1.0,
+          "ret_5d": 0.0577124490771459
+        },
+        {
+          "date": "2026-03-09",
+          "symbol": "NAB.AX",
+          "r_5d": -1.0,
+          "ret_5d": 0.021267354907094083
+        },
+        {
+          "date": "2026-04-21",
+          "symbol": "LYC.AX",
+          "r_5d": -1.0,
+          "ret_5d": -0.06309465559366534
+        },
+        {
+          "date": "2026-04-22",
+          "symbol": "S32.AX",
+          "r_5d": -1.0,
+          "ret_5d": -0.053333282470703125
+        },
+        {
+          "date": "2026-08-12",
+          "symbol": "NHF.AX",
+          "r_5d": -1.0,
+          "ret_5d": 0.02322398845220297
+        },
+        {
+          "date": "2026-08-19",
+          "symbol": "NWS.AX",
+          "r_5d": 2.127059773129583,
+          "ret_5d": 0.03247034441163432
+        },
+        {
+          "date": "2026-08-20",
+          "symbol": "A200.AX",
+          "r_5d": -0.3685048181554967,
+          "ret_5d": -0.0037577118797854636
+        },
+        {
+          "date": "2026-08-24",
+          "symbol": "IOZ.AX",
+          "r_5d": -0.031059755627237375,
+          "ret_5d": -0.0019146524123315745
+        }
+      ],
+      "equity_curve": {
+        "strategy": [
+          {
+            "date": "2026-02-06",
+            "equity": 1.0597684034706292
+          },
+          {
+            "date": "2026-02-10",
+            "equity": 1.0650045850592278
+          },
+          {
+            "date": "2026-02-11",
+            "equity": 1.0856160827604655
+          },
+          {
+            "date": "2026-02-12",
+            "equity": 1.0696077571859395
+          },
+          {
+            "date": "2026-02-13",
+            "equity": 1.0503985368741249
+          },
+          {
+            "date": "2026-02-16",
+            "equity": 1.1121002761213692
+          },
+          {
+            "date": "2026-02-18",
+            "equity": 1.175277148745604
+          },
+          {
+            "date": "2026-02-19",
+            "equity": 1.2158369187527225
+          },
+          {
+            "date": "2026-02-20",
+            "equity": 1.2739978192521286
+          },
+          {
+            "date": "2026-02-23",
+            "equity": 1.3627940989055325
+          },
+          {
+            "date": "2026-02-24",
+            "equity": 1.3809244591104348
+          },
+          {
+            "date": "2026-03-04",
+            "equity": 1.296143675898044
+          },
+          {
+            "date": "2026-03-05",
+            "equity": 1.1813121485435933
+          },
+          {
+            "date": "2026-03-09",
+            "equity": 1.2279620495116805
+          },
+          {
+            "date": "2026-04-21",
+            "equity": 1.1504842069156496
+          },
+          {
+            "date": "2026-04-22",
+            "equity": 1.0891251077301343
+          },
+          {
+            "date": "2026-08-12",
+            "equity": 1.1144189366550632
+          },
+          {
+            "date": "2026-08-19",
+            "equity": 1.1506045033471004
+          },
+          {
+            "date": "2026-08-20",
+            "equity": 1.1462808631359382
+          },
+          {
+            "date": "2026-08-24",
+            "equity": 1.1440861337161254
+          }
+        ],
+        "benchmark": [
+          {
+            "date": "2026-02-06",
+            "equity": 1.0
+          },
+          {
+            "date": "2026-02-10",
+            "equity": 1.0182115319555438
+          },
+          {
+            "date": "2026-02-11",
+            "equity": 1.0351368738359672
+          },
+          {
+            "date": "2026-02-12",
+            "equity": 1.038432413514931
+          },
+          {
+            "date": "2026-02-13",
+            "equity": 1.0239757267786904
+          },
+          {
+            "date": "2026-02-16",
+            "equity": 1.029625207351894
+          },
+          {
+            "date": "2026-02-18",
+            "equity": 1.0342412504593337
+          },
+          {
+            "date": "2026-02-19",
+            "equity": 1.0433355225850829
+          },
+          {
+            "date": "2026-02-20",
+            "equity": 1.0427843783637039
+          },
+          {
+            "date": "2026-02-23",
+            "equity": 1.036422951775946
+          },
+          {
+            "date": "2026-02-24",
+            "equity": 1.0359980717241035
+          },
+          {
+            "date": "2026-03-04",
+            "equity": 1.0220926413443838
+          },
+          {
+            "date": "2026-03-05",
+            "equity": 1.026582308147145
+          },
+          {
+            "date": "2026-03-09",
+            "equity": 0.9873920853447107
+          },
+          {
+            "date": "2026-04-21",
+            "equity": 1.0276272955325023
+          },
+          {
+            "date": "2026-04-22",
+            "equity": 1.0154785742824108
+          },
+          {
+            "date": "2026-08-12",
+            "equity": 1.057482155654566
+          },
+          {
+            "date": "2026-08-19",
+            "equity": 1.0396151028542766
+          },
+          {
+            "date": "2026-08-20",
+            "equity": 1.0430598944068226
+          },
+          {
+            "date": "2026-08-24",
+            "equity": 1.0452760212119319
+          }
+        ]
+      },
+      "rolling_edge": [
+        {
+          "date": "2026-02-06",
+          "n": 1,
+          "win_rate": null,
+          "mean_r": null
+        },
+        {
+          "date": "2026-02-11",
+          "n": 4,
+          "win_rate": null,
+          "mean_r": null
+        },
+        {
+          "date": "2026-02-16",
+          "n": 8,
+          "win_rate": 0.5,
+          "mean_r": 0.2660062455052323
+        },
+        {
+          "date": "2026-02-21",
+          "n": 11,
+          "win_rate": 0.6363636363636364,
+          "mean_r": 0.448920736121551
+        },
+        {
+          "date": "2026-02-26",
+          "n": 14,
+          "win_rate": 0.7142857142857143,
+          "mean_r": 0.5059579562525314
+        },
+        {
+          "date": "2026-03-03",
+          "n": 14,
+          "win_rate": 0.7142857142857143,
+          "mean_r": 0.5059579562525314
+        },
+        {
+          "date": "2026-03-08",
+          "n": 16,
+          "win_rate": 0.625,
+          "mean_r": 0.31771321172096495
+        },
+        {
+          "date": "2026-03-13",
+          "n": 18,
+          "win_rate": 0.5555555555555556,
+          "mean_r": 0.17130063264085774
+        },
+        {
+          "date": "2026-03-18",
+          "n": 18,
+          "win_rate": 0.5555555555555556,
+          "mean_r": 0.17130063264085774
+        },
+        {
+          "date": "2026-03-23",
+          "n": 18,
+          "win_rate": 0.5555555555555556,
+          "mean_r": 0.17130063264085774
+        },
+        {
+          "date": "2026-03-28",
+          "n": 18,
+          "win_rate": 0.5555555555555556,
+          "mean_r": 0.17130063264085774
+        },
+        {
+          "date": "2026-04-02",
+          "n": 18,
+          "win_rate": 0.5555555555555556,
+          "mean_r": 0.17130063264085774
+        },
+        {
+          "date": "2026-04-07",
+          "n": 18,
+          "win_rate": 0.5555555555555556,
+          "mean_r": 0.17130063264085774
+        },
+        {
+          "date": "2026-04-12",
+          "n": 18,
+          "win_rate": 0.5555555555555556,
+          "mean_r": 0.17130063264085774
+        },
+        {
+          "date": "2026-04-17",
+          "n": 18,
+          "win_rate": 0.5555555555555556,
+          "mean_r": 0.17130063264085774
+        },
+        {
+          "date": "2026-04-22",
+          "n": 19,
+          "win_rate": 0.47368421052631576,
+          "mean_r": 0.035932250987641655
+        },
+        {
+          "date": "2026-04-27",
+          "n": 16,
+          "win_rate": 0.4375,
+          "mean_r": -0.01723115061234376
+        },
+        {
+          "date": "2026-05-02",
+          "n": 12,
+          "win_rate": 0.5,
+          "mean_r": -0.08705321470886822
+        },
+        {
+          "date": "2026-05-07",
+          "n": 9,
+          "win_rate": 0.3333333333333333,
+          "mean_r": -0.4283018566446246
+        },
+        {
+          "date": "2026-05-12",
+          "n": 6,
+          "win_rate": null,
+          "mean_r": null
+        },
+        {
+          "date": "2026-05-17",
+          "n": 6,
+          "win_rate": null,
+          "mean_r": null
+        },
+        {
+          "date": "2026-05-22",
+          "n": 4,
+          "win_rate": null,
+          "mean_r": null
+        },
+        {
+          "date": "2026-05-27",
+          "n": 2,
+          "win_rate": null,
+          "mean_r": null
+        },
+        {
+          "date": "2026-06-01",
+          "n": 2,
+          "win_rate": null,
+          "mean_r": null
+        },
+        {
+          "date": "2026-06-06",
+          "n": 2,
+          "win_rate": null,
+          "mean_r": null
+        },
+        {
+          "date": "2026-06-11",
+          "n": 2,
+          "win_rate": null,
+          "mean_r": null
+        },
+        {
+          "date": "2026-06-16",
+          "n": 2,
+          "win_rate": null,
+          "mean_r": null
+        },
+        {
+          "date": "2026-06-21",
+          "n": 2,
+          "win_rate": null,
+          "mean_r": null
+        },
+        {
+          "date": "2026-06-26",
+          "n": 2,
+          "win_rate": null,
+          "mean_r": null
+        },
+        {
+          "date": "2026-07-01",
+          "n": 2,
+          "win_rate": null,
+          "mean_r": null
+        },
+        {
+          "date": "2026-07-06",
+          "n": 0,
+          "win_rate": null,
+          "mean_r": null
+        },
+        {
+          "date": "2026-07-11",
+          "n": 0,
+          "win_rate": null,
+          "mean_r": null
+        },
+        {
+          "date": "2026-07-16",
+          "n": 0,
+          "win_rate": null,
+          "mean_r": null
+        },
+        {
+          "date": "2026-07-21",
+          "n": 0,
+          "win_rate": null,
+          "mean_r": null
+        },
+        {
+          "date": "2026-07-26",
+          "n": 0,
+          "win_rate": null,
+          "mean_r": null
+        },
+        {
+          "date": "2026-07-31",
+          "n": 0,
+          "win_rate": null,
+          "mean_r": null
+        },
+        {
+          "date": "2026-08-05",
+          "n": 0,
+          "win_rate": null,
+          "mean_r": null
+        },
+        {
+          "date": "2026-08-10",
+          "n": 0,
+          "win_rate": null,
+          "mean_r": null
+        },
+        {
+          "date": "2026-08-15",
+          "n": 1,
+          "win_rate": null,
+          "mean_r": null
+        },
+        {
+          "date": "2026-08-20",
+          "n": 3,
+          "win_rate": null,
+          "mean_r": null
+        }
+      ],
+      "changepoint": {
+        "changepoint_index": 13,
+        "changepoint_date": "2026-02-24",
+        "statistic": 6.027049211854106,
+        "p_value": 0.095,
+        "significant": false,
+        "mean_before": 0.5059579562525314,
+        "mean_after": -0.5272504800653152,
+        "n": 24
+      },
+      "noise_band": [
+        {
+          "date": "2026-02-06",
+          "real_n": 1,
+          "real_win_rate": null,
+          "real_mean_r": null,
+          "band_mean_r": null,
+          "outside_band": null
+        },
+        {
+          "date": "2026-02-11",
+          "real_n": 4,
+          "real_win_rate": null,
+          "real_mean_r": null,
+          "band_mean_r": null,
+          "outside_band": null
+        },
+        {
+          "date": "2026-02-16",
+          "real_n": 8,
+          "real_win_rate": 0.5,
+          "real_mean_r": 0.2660062455052323,
+          "band_mean_r": [
+            0.2907865975637878,
+            0.2907865975637878
+          ],
+          "outside_band": true
+        },
+        {
+          "date": "2026-02-21",
+          "real_n": 11,
+          "real_win_rate": 0.6363636363636364,
+          "real_mean_r": 0.448920736121551,
+          "band_mean_r": [
+            0.16170793780740902,
+            0.16170793780740902
+          ],
+          "outside_band": true
+        },
+        {
+          "date": "2026-02-26",
+          "real_n": 14,
+          "real_win_rate": 0.7142857142857143,
+          "real_mean_r": 0.5059579562525314,
+          "band_mean_r": [
+            -0.2018179117358613,
+            0.27121441429078486
+          ],
+          "outside_band": true
+        },
+        {
+          "date": "2026-03-03",
+          "real_n": 14,
+          "real_win_rate": 0.7142857142857143,
+          "real_mean_r": 0.5059579562525314,
+          "band_mean_r": [
+            -0.37693984481824855,
+            0.36224598555483434
+          ],
+          "outside_band": true
+        },
+        {
+          "date": "2026-03-08",
+          "real_n": 16,
+          "real_win_rate": 0.625,
+          "real_mean_r": 0.31771321172096495,
+          "band_mean_r": [
+            -0.29766481126701444,
+            0.669698412045942
+          ],
+          "outside_band": false
+        },
+        {
+          "date": "2026-03-13",
+          "real_n": 18,
+          "real_win_rate": 0.5555555555555556,
+          "real_mean_r": 0.17130063264085774,
+          "band_mean_r": [
+            -0.39056558473891323,
+            0.8411589356779179
+          ],
+          "outside_band": false
+        },
+        {
+          "date": "2026-03-18",
+          "real_n": 18,
+          "real_win_rate": 0.5555555555555556,
+          "real_mean_r": 0.17130063264085774,
+          "band_mean_r": [
+            -0.3980942564640935,
+            0.9691693962467066
+          ],
+          "outside_band": false
+        },
+        {
+          "date": "2026-03-23",
+          "real_n": 18,
+          "real_win_rate": 0.5555555555555556,
+          "real_mean_r": 0.17130063264085774,
+          "band_mean_r": [
+            -0.3498398182201949,
+            1.00432331467602
+          ],
+          "outside_band": false
+        },
+        {
+          "date": "2026-03-28",
+          "real_n": 18,
+          "real_win_rate": 0.5555555555555556,
+          "real_mean_r": 0.17130063264085774,
+          "band_mean_r": [
+            -0.36259769760181704,
+            0.9353921987898675
+          ],
+          "outside_band": false
+        },
+        {
+          "date": "2026-04-02",
+          "real_n": 18,
+          "real_win_rate": 0.5555555555555556,
+          "real_mean_r": 0.17130063264085774,
+          "band_mean_r": [
+            -0.4019402144728712,
+            0.8893495500465407
+          ],
+          "outside_band": false
+        },
+        {
+          "date": "2026-04-07",
+          "real_n": 18,
+          "real_win_rate": 0.5555555555555556,
+          "real_mean_r": 0.17130063264085774,
+          "band_mean_r": [
+            -0.39758379148502254,
+            0.7826270920502563
+          ],
+          "outside_band": false
+        },
+        {
+          "date": "2026-04-12",
+          "real_n": 18,
+          "real_win_rate": 0.5555555555555556,
+          "real_mean_r": 0.17130063264085774,
+          "band_mean_r": [
+            -0.4579296794735188,
+            0.6530643319028476
+          ],
+          "outside_band": false
+        },
+        {
+          "date": "2026-04-17",
+          "real_n": 18,
+          "real_win_rate": 0.5555555555555556,
+          "real_mean_r": 0.17130063264085774,
+          "band_mean_r": [
+            -0.4381532688160288,
+            0.5799942857974304
+          ],
+          "outside_band": false
+        },
+        {
+          "date": "2026-04-22",
+          "real_n": 19,
+          "real_win_rate": 0.47368421052631576,
+          "real_mean_r": 0.035932250987641655,
+          "band_mean_r": [
+            -0.47411527728218955,
+            0.4959152838779732
+          ],
+          "outside_band": false
+        },
+        {
+          "date": "2026-04-27",
+          "real_n": 16,
+          "real_win_rate": 0.4375,
+          "real_mean_r": -0.01723115061234376,
+          "band_mean_r": [
+            -0.4885635019054679,
+            0.5590073106344957
+          ],
+          "outside_band": false
+        },
+        {
+          "date": "2026-05-02",
+          "real_n": 12,
+          "real_win_rate": 0.5,
+          "real_mean_r": -0.08705321470886822,
+          "band_mean_r": [
+            -0.46391146847357273,
+            0.6340905172494297
+          ],
+          "outside_band": false
+        },
+        {
+          "date": "2026-05-07",
+          "real_n": 9,
+          "real_win_rate": 0.3333333333333333,
+          "real_mean_r": -0.4283018566446246,
+          "band_mean_r": [
+            -0.45172125848997635,
+            0.6932322203670287
+          ],
+          "outside_band": false
+        },
+        {
+          "date": "2026-05-12",
+          "real_n": 6,
+          "real_win_rate": null,
+          "real_mean_r": null,
+          "band_mean_r": [
+            -0.5007167345742844,
+            0.6925560940518526
+          ],
+          "outside_band": null
+        },
+        {
+          "date": "2026-05-17",
+          "real_n": 6,
+          "real_win_rate": null,
+          "real_mean_r": null,
+          "band_mean_r": [
+            -0.5572336311668428,
+            0.7287096690033081
+          ],
+          "outside_band": null
+        },
+        {
+          "date": "2026-05-22",
+          "real_n": 4,
+          "real_win_rate": null,
+          "real_mean_r": null,
+          "band_mean_r": [
+            -0.5941143957562417,
+            0.7008816103888312
+          ],
+          "outside_band": null
+        },
+        {
+          "date": "2026-05-27",
+          "real_n": 2,
+          "real_win_rate": null,
+          "real_mean_r": null,
+          "band_mean_r": [
+            -0.6355171408570307,
+            0.6652292820102103
+          ],
+          "outside_band": null
+        },
+        {
+          "date": "2026-06-01",
+          "real_n": 2,
+          "real_win_rate": null,
+          "real_mean_r": null,
+          "band_mean_r": [
+            -0.6897241571642422,
+            0.594927340788697
+          ],
+          "outside_band": null
+        },
+        {
+          "date": "2026-06-06",
+          "real_n": 2,
+          "real_win_rate": null,
+          "real_mean_r": null,
+          "band_mean_r": [
+            -0.781610198748794,
+            0.5291360435916463
+          ],
+          "outside_band": null
+        },
+        {
+          "date": "2026-06-11",
+          "real_n": 2,
+          "real_win_rate": null,
+          "real_mean_r": null,
+          "band_mean_r": [
+            -0.7826939295434333,
+            0.55572783015389
+          ],
+          "outside_band": null
+        },
+        {
+          "date": "2026-06-16",
+          "real_n": 2,
+          "real_win_rate": null,
+          "real_mean_r": null,
+          "band_mean_r": [
+            -0.7922823649796178,
+            0.5946842686563403
+          ],
+          "outside_band": null
+        },
+        {
+          "date": "2026-06-21",
+          "real_n": 2,
+          "real_win_rate": null,
+          "real_mean_r": null,
+          "band_mean_r": [
+            -0.7386244512623181,
+            0.590952938102419
+          ],
+          "outside_band": null
+        },
+        {
+          "date": "2026-06-26",
+          "real_n": 2,
+          "real_win_rate": null,
+          "real_mean_r": null,
+          "band_mean_r": [
+            -0.7256251446528915,
+            0.6783597266954512
+          ],
+          "outside_band": null
+        },
+        {
+          "date": "2026-07-01",
+          "real_n": 2,
+          "real_win_rate": null,
+          "real_mean_r": null,
+          "band_mean_r": [
+            -0.643108896725687,
+            0.7969928058991462
+          ],
+          "outside_band": null
+        },
+        {
+          "date": "2026-07-06",
+          "real_n": 0,
+          "real_win_rate": null,
+          "real_mean_r": null,
+          "band_mean_r": [
+            -0.7076848885876248,
+            0.9610600548182808
+          ],
+          "outside_band": null
+        },
+        {
+          "date": "2026-07-11",
+          "real_n": 0,
+          "real_win_rate": null,
+          "real_mean_r": null,
+          "band_mean_r": [
+            -0.07652107762479365,
+            1.242539891128699
+          ],
+          "outside_band": null
+        },
+        {
+          "date": "2026-07-16",
+          "real_n": 0,
+          "real_win_rate": null,
+          "real_mean_r": null,
+          "band_mean_r": null,
+          "outside_band": null
+        },
+        {
+          "date": "2026-07-21",
+          "real_n": 0,
+          "real_win_rate": null,
+          "real_mean_r": null,
+          "band_mean_r": null,
+          "outside_band": null
+        },
+        {
+          "date": "2026-07-26",
+          "real_n": 0,
+          "real_win_rate": null,
+          "real_mean_r": null,
+          "band_mean_r": null,
+          "outside_band": null
+        },
+        {
+          "date": "2026-07-31",
+          "real_n": 0,
+          "real_win_rate": null,
+          "real_mean_r": null,
+          "band_mean_r": null,
+          "outside_band": null
+        },
+        {
+          "date": "2026-08-05",
+          "real_n": 0,
+          "real_win_rate": null,
+          "real_mean_r": null,
+          "band_mean_r": null,
+          "outside_band": null
+        },
+        {
+          "date": "2026-08-10",
+          "real_n": 0,
+          "real_win_rate": null,
+          "real_mean_r": null,
+          "band_mean_r": null,
+          "outside_band": null
+        },
+        {
+          "date": "2026-08-15",
+          "real_n": 1,
+          "real_win_rate": null,
+          "real_mean_r": null,
+          "band_mean_r": null,
+          "outside_band": null
+        },
+        {
+          "date": "2026-08-20",
+          "real_n": 3,
+          "real_win_rate": null,
+          "real_mean_r": null,
+          "band_mean_r": null,
+          "outside_band": null
+        }
+      ],
+      "verdict": {
+        "verdict": "no edge ever distinguishable from noise",
+        "reason": "4/17 scored windows (24%) fell outside the random-entry noise band, and the CUSUM change-point test (p=0.0950) did not find a significant break. Apparent ups and downs in the rolling metric are consistent with what a random-entry baseline under the same risk/regime rules would also produce.",
+        "changepoint": {
+          "changepoint_index": 13,
+          "statistic": 6.027049211854106,
+          "p_value": 0.095,
+          "significant": false,
+          "mean_before": 0.5059579562525314,
+          "mean_after": -0.5272504800653152,
+          "n": 24
+        }
+      },
+      "hypotheses": []
+    },
+    "MOMENTUM": {
+      "archetype": "MOMENTUM",
+      "n_trades": 5,
+      "trades": [
+        {
+          "date": "2026-02-06",
+          "symbol": "AMC.AX",
+          "r_5d": -0.2710997921439146,
+          "ret_5d": 0.01801796140929257
+        },
+        {
+          "date": "2026-02-12",
+          "symbol": "RHC.AX",
+          "r_5d": -0.3219681966802022,
+          "ret_5d": -0.0010655649741221351
+        },
+        {
+          "date": "2026-02-17",
+          "symbol": "AZJ.AX",
+          "r_5d": 0.3574436088279021,
+          "ret_5d": 0.03807104073981016
+        },
+        {
+          "date": "2026-02-18",
+          "symbol": "AZJ.AX",
+          "r_5d": -0.16258841983058997,
+          "ret_5d": 0.030150669795322216
+        },
+        {
+          "date": "2026-02-19",
+          "symbol": "AZJ.AX",
+          "r_5d": -0.26866979740420727,
+          "ret_5d": 0.012315367588060289
+        }
+      ],
+      "equity_curve": {
+        "strategy": [
+          {
+            "date": "2026-02-06",
+            "equity": 1.0180179614092926
+          },
+          {
+            "date": "2026-02-12",
+            "equity": 1.0169331971265876
+          },
+          {
+            "date": "2026-02-17",
+            "equity": 1.0556489023040594
+          },
+          {
+            "date": "2026-02-18",
+            "equity": 1.0874774237772233
+          },
+          {
+            "date": "2026-02-19",
+            "equity": 1.1008701079947567
+          }
+        ],
+        "benchmark": [
+          {
+            "date": "2026-02-06",
+            "equity": 1.0
+          },
+          {
+            "date": "2026-02-12",
+            "equity": 1.038432413514931
+          },
+          {
+            "date": "2026-02-17",
+            "equity": 1.0287181461908086
+          },
+          {
+            "date": "2026-02-18",
+            "equity": 1.0342412504593337
+          },
+          {
+            "date": "2026-02-19",
+            "equity": 1.0433355225850829
+          }
+        ]
+      },
+      "rolling_edge": [],
+      "changepoint": null,
+      "noise_band": [],
+      "verdict": {
+        "verdict": "insufficient data",
+        "reason": "Only 5 computable trades in the entire history -- too few for a meaningful rolling-window/change-point analysis (minimum 10 needed for even a single candidate break test). This is itself informative: MOMENTUM has essentially never had enough regime-gated opportunity to generate a testable track record.",
+        "changepoint": null
+      },
+      "hypotheses": []
+    },
+    "MEAN_REVERSION": {
+      "archetype": "MEAN_REVERSION",
+      "n_trades": 128,
+      "trades": [
+        {
+          "date": "2026-02-10",
+          "symbol": "CGF.AX",
+          "r_5d": -1.0,
+          "ret_5d": -0.06696930960630632
+        },
+        {
+          "date": "2026-02-16",
+          "symbol": "CGF.AX",
+          "r_5d": -1.0,
+          "ret_5d": 0.0973871081850195
+        },
+        {
+          "date": "2026-02-17",
+          "symbol": "FMG.AX",
+          "r_5d": -1.0,
+          "ret_5d": 0.004975109300680902
+        },
+        {
+          "date": "2026-02-20",
+          "symbol": "WHC.AX",
+          "r_5d": -0.3855099367544425,
+          "ret_5d": 0.005102047078183514
+        },
+        {
+          "date": "2026-02-23",
+          "symbol": "ORI.AX",
+          "r_5d": -1.0,
+          "ret_5d": 0.010225011884082758
+        },
+        {
+          "date": "2026-02-23",
+          "symbol": "WHC.AX",
+          "r_5d": 0.37560812439178554,
+          "ret_5d": 0.027092758488924007
+        },
+        {
+          "date": "2026-02-23",
+          "symbol": "ORI.AX",
+          "r_5d": -1.0,
+          "ret_5d": 0.010225011884082758
+        },
+        {
+          "date": "2026-02-23",
+          "symbol": "ORI.AX",
+          "r_5d": -1.0,
+          "ret_5d": 0.010225011884082758
+        },
+        {
+          "date": "2026-02-24",
+          "symbol": "ORI.AX",
+          "r_5d": -1.0,
+          "ret_5d": -0.007913417814027657
+        },
+        {
+          "date": "2026-02-25",
+          "symbol": "ORI.AX",
+          "r_5d": -1.0,
+          "ret_5d": -0.037205446005880605
+        },
+        {
+          "date": "2026-02-27",
+          "symbol": "YAL.AX",
+          "r_5d": 3.545853373611963,
+          "ret_5d": 0.08020472564949888
+        },
+        {
+          "date": "2026-03-04",
+          "symbol": "BSL.AX",
+          "r_5d": -1.0,
+          "ret_5d": -0.057214829082625096
+        },
+        {
+          "date": "2026-03-05",
+          "symbol": "ORI.AX",
+          "r_5d": -1.0,
+          "ret_5d": -0.166947698034686
+        },
+        {
+          "date": "2026-03-10",
+          "symbol": "ALQ.AX",
+          "r_5d": -1.0,
+          "ret_5d": -0.07813178924737585
+        },
+        {
+          "date": "2026-03-10",
+          "symbol": "BSL.AX",
+          "r_5d": 0.11253060861845783,
+          "ret_5d": 0.027006202194407525
+        },
+        {
+          "date": "2026-03-11",
+          "symbol": "BSL.AX",
+          "r_5d": 1.0045960607647928,
+          "ret_5d": 0.028244265250744194
+        },
+        {
+          "date": "2026-03-13",
+          "symbol": "WGX.AX",
+          "r_5d": -1.0,
+          "ret_5d": -0.1481481595237587
+        },
+        {
+          "date": "2026-03-16",
+          "symbol": "GMD.AX",
+          "r_5d": -1.0,
+          "ret_5d": -0.10684472302844938
+        },
+        {
+          "date": "2026-03-17",
+          "symbol": "ALQ.AX",
+          "r_5d": -1.0,
+          "ret_5d": -0.07670458849014583
+        },
+        {
+          "date": "2026-03-17",
+          "symbol": "GMD.AX",
+          "r_5d": -1.0,
+          "ret_5d": -0.07890503139216332
+        },
+        {
+          "date": "2026-03-20",
+          "symbol": "NEM.AX",
+          "r_5d": -1.0,
+          "ret_5d": 0.03081560268470196
+        },
+        {
+          "date": "2026-03-20",
+          "symbol": "EVN.AX",
+          "r_5d": 1.2987005110284244,
+          "ret_5d": 0.004029024282807603
+        },
+        {
+          "date": "2026-03-23",
+          "symbol": "NEM.AX",
+          "r_5d": -1.0,
+          "ret_5d": 0.1243173774681905
+        },
+        {
+          "date": "2026-03-23",
+          "symbol": "RIO.AX",
+          "r_5d": -1.0,
+          "ret_5d": 0.1133577635831644
+        },
+        {
+          "date": "2026-03-24",
+          "symbol": "NEM.AX",
+          "r_5d": 0.7027834265647458,
+          "ret_5d": 0.10628507101086515
+        },
+        {
+          "date": "2026-03-24",
+          "symbol": "RIO.AX",
+          "r_5d": 1.3533440902642553,
+          "ret_5d": 0.09399558190546053
+        },
+        {
+          "date": "2026-03-25",
+          "symbol": "AAI.AX",
+          "r_5d": 2.377666666398274,
+          "ret_5d": 0.17576345777469538
+        },
+        {
+          "date": "2026-03-26",
+          "symbol": "NAB.AX",
+          "r_5d": -1.0,
+          "ret_5d": -0.01785714449242093
+        },
+        {
+          "date": "2026-03-26",
+          "symbol": "ETPMAG.AX",
+          "r_5d": 0.059320964357555996,
+          "ret_5d": 0.0175885114475276
+        },
+        {
+          "date": "2026-03-27",
+          "symbol": "NAB.AX",
+          "r_5d": -1.0,
+          "ret_5d": 0.021195515669927056
+        },
+        {
+          "date": "2026-03-30",
+          "symbol": "NAB.AX",
+          "r_5d": -1.0,
+          "ret_5d": 0.0795151961115006
+        },
+        {
+          "date": "2026-03-30",
+          "symbol": "QUB.AX",
+          "r_5d": 0.0,
+          "ret_5d": 0.0
+        },
+        {
+          "date": "2026-03-31",
+          "symbol": "QUB.AX",
+          "r_5d": 0.0,
+          "ret_5d": 0.0
+        },
+        {
+          "date": "2026-03-31",
+          "symbol": "CBA.AX",
+          "r_5d": -1.0,
+          "ret_5d": 0.08843169141455842
+        },
+        {
+          "date": "2026-04-01",
+          "symbol": "REH.AX",
+          "r_5d": 1.1921639854372768,
+          "ret_5d": 0.055018571123578
+        },
+        {
+          "date": "2026-04-01",
+          "symbol": "CDA.AX",
+          "r_5d": 0.7374454992237358,
+          "ret_5d": 0.0445468754815983
+        },
+        {
+          "date": "2026-04-10",
+          "symbol": "WHC.AX",
+          "r_5d": -0.4662008881185209,
+          "ret_5d": -0.014778311237724773
+        },
+        {
+          "date": "2026-04-13",
+          "symbol": "WHC.AX",
+          "r_5d": -0.8631048259467579,
+          "ret_5d": -0.08163263320128433
+        },
+        {
+          "date": "2026-04-20",
+          "symbol": "YAL.AX",
+          "r_5d": 0.9713227257362863,
+          "ret_5d": 0.06515156233168451
+        },
+        {
+          "date": "2026-04-20",
+          "symbol": "WHC.AX",
+          "r_5d": -0.6006472380583069,
+          "ret_5d": 0.006535910231946662
+        },
+        {
+          "date": "2026-04-21",
+          "symbol": "WDS.AX",
+          "r_5d": 0.3693997769224866,
+          "ret_5d": 0.038128884213850966
+        },
+        {
+          "date": "2026-04-22",
+          "symbol": "WDS.AX",
+          "r_5d": 0.6682257999323119,
+          "ret_5d": 0.07340039799717868
+        },
+        {
+          "date": "2026-04-23",
+          "symbol": "WDS.AX",
+          "r_5d": 1.2391878928117726,
+          "ret_5d": 0.05602765985676572
+        },
+        {
+          "date": "2026-04-23",
+          "symbol": "STO.AX",
+          "r_5d": 2.168976313884821,
+          "ret_5d": 0.03761350067347968
+        },
+        {
+          "date": "2026-04-24",
+          "symbol": "LYC.AX",
+          "r_5d": 0.9998913560817129,
+          "ret_5d": 0.05049396876868295
+        },
+        {
+          "date": "2026-04-24",
+          "symbol": "AGL.AX",
+          "r_5d": -1.0,
+          "ret_5d": 0.016788987864404747
+        },
+        {
+          "date": "2026-04-27",
+          "symbol": "IGO.AX",
+          "r_5d": 1.8681002314772839,
+          "ret_5d": 0.043715804278675385
+        },
+        {
+          "date": "2026-04-27",
+          "symbol": "LYC.AX",
+          "r_5d": 1.2018208408065822,
+          "ret_5d": 0.04535396561307814
+        },
+        {
+          "date": "2026-04-28",
+          "symbol": "LYC.AX",
+          "r_5d": -0.012981408309772277,
+          "ret_5d": -0.0074825973543003466
+        },
+        {
+          "date": "2026-05-01",
+          "symbol": "S32.AX",
+          "r_5d": 0.15917221262583547,
+          "ret_5d": 0.004854364437391068
+        },
+        {
+          "date": "2026-05-01",
+          "symbol": "EVN.AX",
+          "r_5d": 0.6282177078422614,
+          "ret_5d": 0.07407412349478393
+        },
+        {
+          "date": "2026-05-04",
+          "symbol": "WOW.AX",
+          "r_5d": -1.0,
+          "ret_5d": -0.011507801613226398
+        },
+        {
+          "date": "2026-05-05",
+          "symbol": "WOW.AX",
+          "r_5d": -1.0,
+          "ret_5d": -0.03628908194957048
+        },
+        {
+          "date": "2026-05-06",
+          "symbol": "RHC.AX",
+          "r_5d": -1.0,
+          "ret_5d": -0.021350494414069887
+        },
+        {
+          "date": "2026-05-06",
+          "symbol": "COL.AX",
+          "r_5d": -1.0,
+          "ret_5d": -0.02761161500733189
+        },
+        {
+          "date": "2026-05-07",
+          "symbol": "RHC.AX",
+          "r_5d": -1.0,
+          "ret_5d": -0.03483119787375011
+        },
+        {
+          "date": "2026-05-08",
+          "symbol": "WDS.AX",
+          "r_5d": 0.15228117195589935,
+          "ret_5d": 0.03993347066243835
+        },
+        {
+          "date": "2026-05-08",
+          "symbol": "COL.AX",
+          "r_5d": -1.0,
+          "ret_5d": -0.03791029711695826
+        },
+        {
+          "date": "2026-05-11",
+          "symbol": "WDS.AX",
+          "r_5d": 1.4108004541301338,
+          "ret_5d": 0.053752910019469136
+        },
+        {
+          "date": "2026-05-15",
+          "symbol": "PDN.AX",
+          "r_5d": 0.8422405951485444,
+          "ret_5d": 0.03943662829463146
+        },
+        {
+          "date": "2026-05-18",
+          "symbol": "PDN.AX",
+          "r_5d": 1.3954144129806765,
+          "ret_5d": 0.10597296875411999
+        },
+        {
+          "date": "2026-05-19",
+          "symbol": "PDN.AX",
+          "r_5d": 0.7035402829546932,
+          "ret_5d": 0.043273756650487716
+        },
+        {
+          "date": "2026-05-19",
+          "symbol": "NXG.AX",
+          "r_5d": -1.0,
+          "ret_5d": -0.03157221071777505
+        },
+        {
+          "date": "2026-05-20",
+          "symbol": "NXG.AX",
+          "r_5d": -1.0,
+          "ret_5d": 0.03758392174186764
+        },
+        {
+          "date": "2026-05-20",
+          "symbol": "GGP.AX",
+          "r_5d": -1.0,
+          "ret_5d": 0.10162601468425825
+        },
+        {
+          "date": "2026-05-21",
+          "symbol": "PRU.AX",
+          "r_5d": -1.0,
+          "ret_5d": -0.07428568885439923
+        },
+        {
+          "date": "2026-05-21",
+          "symbol": "GGP.AX",
+          "r_5d": 0.035460959089563246,
+          "ret_5d": -0.00929511130731242
+        },
+        {
+          "date": "2026-05-22",
+          "symbol": "NXG.AX",
+          "r_5d": 1.4466290768762768,
+          "ret_5d": 0.06304497274832443
+        },
+        {
+          "date": "2026-05-28",
+          "symbol": "APA.AX",
+          "r_5d": -1.0,
+          "ret_5d": 0.022772216228675646
+        },
+        {
+          "date": "2026-06-01",
+          "symbol": "APA.AX",
+          "r_5d": -1.0,
+          "ret_5d": 0.024776983318627543
+        },
+        {
+          "date": "2026-06-05",
+          "symbol": "TLS.AX",
+          "r_5d": -1.0,
+          "ret_5d": 0.02615703208461162
+        },
+        {
+          "date": "2026-06-05",
+          "symbol": "FMG.AX",
+          "r_5d": -1.0,
+          "ret_5d": 0.014125620968310715
+        },
+        {
+          "date": "2026-06-08",
+          "symbol": "TLS.AX",
+          "r_5d": -1.0,
+          "ret_5d": 0.007874012724078838
+        },
+        {
+          "date": "2026-06-10",
+          "symbol": "LYC.AX",
+          "r_5d": -1.0,
+          "ret_5d": 0.07291046123576961
+        },
+        {
+          "date": "2026-06-10",
+          "symbol": "LTR.AX",
+          "r_5d": -1.0,
+          "ret_5d": 0.11811031308677733
+        },
+        {
+          "date": "2026-06-11",
+          "symbol": "LYC.AX",
+          "r_5d": -1.0,
+          "ret_5d": 0.05506218702090426
+        },
+        {
+          "date": "2026-06-11",
+          "symbol": "YAL.AX",
+          "r_5d": -1.0,
+          "ret_5d": -0.11854099422722664
+        },
+        {
+          "date": "2026-06-12",
+          "symbol": "LYC.AX",
+          "r_5d": 0.48302946647201983,
+          "ret_5d": 0.023072585078802277
+        },
+        {
+          "date": "2026-06-12",
+          "symbol": "GGP.AX",
+          "r_5d": 0.824860799618464,
+          "ret_5d": 0.11029415087533123
+        },
+        {
+          "date": "2026-06-16",
+          "symbol": "YAL.AX",
+          "r_5d": -1.0,
+          "ret_5d": -0.041118421568599794
+        },
+        {
+          "date": "2026-06-16",
+          "symbol": "STO.AX",
+          "r_5d": -1.0,
+          "ret_5d": -0.018791925982142743
+        },
+        {
+          "date": "2026-06-17",
+          "symbol": "YAL.AX",
+          "r_5d": -1.0,
+          "ret_5d": -0.0205128012846727
+        },
+        {
+          "date": "2026-06-19",
+          "symbol": "WDS.AX",
+          "r_5d": -1.0,
+          "ret_5d": -0.04753706632704513
+        },
+        {
+          "date": "2026-06-19",
+          "symbol": "STO.AX",
+          "r_5d": -1.0,
+          "ret_5d": -0.0219178965512693
+        },
+        {
+          "date": "2026-06-22",
+          "symbol": "IGO.AX",
+          "r_5d": -1.0,
+          "ret_5d": -0.0780856273414341
+        },
+        {
+          "date": "2026-06-22",
+          "symbol": "AAI.AX",
+          "r_5d": -1.0,
+          "ret_5d": -0.06434699210613481
+        },
+        {
+          "date": "2026-06-23",
+          "symbol": "IGO.AX",
+          "r_5d": -1.0,
+          "ret_5d": -0.019946821243070123
+        },
+        {
+          "date": "2026-06-23",
+          "symbol": "RIO.AX",
+          "r_5d": -1.0,
+          "ret_5d": -0.019940941398238765
+        },
+        {
+          "date": "2026-06-24",
+          "symbol": "IGO.AX",
+          "r_5d": -0.14259467252347044,
+          "ret_5d": -0.06683477231325852
+        },
+        {
+          "date": "2026-06-24",
+          "symbol": "PLS.AX",
+          "r_5d": -1.0,
+          "ret_5d": -0.0971730969479051
+        },
+        {
+          "date": "2026-06-25",
+          "symbol": "RIO.AX",
+          "r_5d": -1.0,
+          "ret_5d": 0.007529837219655722
+        },
+        {
+          "date": "2026-06-25",
+          "symbol": "WDS.AX",
+          "r_5d": 0.11081845014307672,
+          "ret_5d": 0.021873874400085702
+        },
+        {
+          "date": "2026-06-26",
+          "symbol": "WDS.AX",
+          "r_5d": 0.32848085869442323,
+          "ret_5d": 0.007956644619831588
+        },
+        {
+          "date": "2026-06-26",
+          "symbol": "RIO.AX",
+          "r_5d": -0.17870117423889442,
+          "ret_5d": -0.014282424928465431
+        },
+        {
+          "date": "2026-06-29",
+          "symbol": "PLS.AX",
+          "r_5d": 0.223913822602335,
+          "ret_5d": 0.01181101253556105
+        },
+        {
+          "date": "2026-06-29",
+          "symbol": "ILU.AX",
+          "r_5d": -0.15952359359340246,
+          "ret_5d": -0.01714283251500448
+        },
+        {
+          "date": "2026-07-01",
+          "symbol": "BSL.AX",
+          "r_5d": -1.0,
+          "ret_5d": 0.03477983877731039
+        },
+        {
+          "date": "2026-07-02",
+          "symbol": "BSL.AX",
+          "r_5d": -1.0,
+          "ret_5d": 0.052631592156154205
+        },
+        {
+          "date": "2026-07-03",
+          "symbol": "BSL.AX",
+          "r_5d": 2.798642732262179,
+          "ret_5d": 0.02171137649430288
+        },
+        {
+          "date": "2026-07-10",
+          "symbol": "ALX.AX",
+          "r_5d": 0.9687852808169045,
+          "ret_5d": 0.011928417550071346
+        },
+        {
+          "date": "2026-07-10",
+          "symbol": "RIO.AX",
+          "r_5d": -0.07048480692168271,
+          "ret_5d": -0.02152110248825656
+        },
+        {
+          "date": "2026-07-17",
+          "symbol": "COL.AX",
+          "r_5d": 0.20151534620538175,
+          "ret_5d": 0.009478725953518286
+        },
+        {
+          "date": "2026-07-20",
+          "symbol": "NDQ.AX",
+          "r_5d": -0.33020267735927766,
+          "ret_5d": -0.004366050795369225
+        },
+        {
+          "date": "2026-07-20",
+          "symbol": "VGE.AX",
+          "r_5d": 0.12754330776053704,
+          "ret_5d": 0.008654699015032463
+        },
+        {
+          "date": "2026-07-21",
+          "symbol": "RIO.AX",
+          "r_5d": -1.0,
+          "ret_5d": 0.009747359093530195
+        },
+        {
+          "date": "2026-07-21",
+          "symbol": "NDQ.AX",
+          "r_5d": -1.0,
+          "ret_5d": -0.03599999745686844
+        },
+        {
+          "date": "2026-07-24",
+          "symbol": "QBE.AX",
+          "r_5d": 0.5079032079906761,
+          "ret_5d": -0.004828997417466341
+        },
+        {
+          "date": "2026-07-27",
+          "symbol": "CDA.AX",
+          "r_5d": -1.0,
+          "ret_5d": -0.016200290137959206
+        },
+        {
+          "date": "2026-07-27",
+          "symbol": "WES.AX",
+          "r_5d": 1.9655812715702965,
+          "ret_5d": 0.0372997949578433
+        },
+        {
+          "date": "2026-07-30",
+          "symbol": "CDA.AX",
+          "r_5d": 2.1760881499524727,
+          "ret_5d": 0.07580472830334006
+        },
+        {
+          "date": "2026-07-30",
+          "symbol": "NDQ.AX",
+          "r_5d": 3.899586598756346,
+          "ret_5d": 0.06174571815731911
+        },
+        {
+          "date": "2026-07-31",
+          "symbol": "CGF.AX",
+          "r_5d": 1.6109534443902245,
+          "ret_5d": 0.01834859206039252
+        },
+        {
+          "date": "2026-07-31",
+          "symbol": "CDA.AX",
+          "r_5d": 0.38788401433397574,
+          "ret_5d": 0.024451085266094186
+        },
+        {
+          "date": "2026-07-31",
+          "symbol": "NDQ.AX",
+          "r_5d": 1.2782706752555326,
+          "ret_5d": 0.03416040646364271
+        },
+        {
+          "date": "2026-08-03",
+          "symbol": "QAN.AX",
+          "r_5d": 0.6758213078647273,
+          "ret_5d": 0.012596910686549334
+        },
+        {
+          "date": "2026-08-03",
+          "symbol": "CGF.AX",
+          "r_5d": 0.06035335607086623,
+          "ret_5d": 0.0010091399894558428
+        },
+        {
+          "date": "2026-08-03",
+          "symbol": "CDA.AX",
+          "r_5d": -0.15745957961572607,
+          "ret_5d": -0.023952167048707396
+        },
+        {
+          "date": "2026-08-07",
+          "symbol": "QBE.AX",
+          "r_5d": -1.0,
+          "ret_5d": -0.054463531479973515
+        },
+        {
+          "date": "2026-08-11",
+          "symbol": "ALX.AX",
+          "r_5d": -1.0,
+          "ret_5d": -0.018108587434620738
+        },
+        {
+          "date": "2026-08-17",
+          "symbol": "CBA.AX",
+          "r_5d": -1.0,
+          "ret_5d": -0.03316050891515576
+        },
+        {
+          "date": "2026-08-17",
+          "symbol": "ALX.AX",
+          "r_5d": -1.0,
+          "ret_5d": -0.002061804585836491
+        },
+        {
+          "date": "2026-08-18",
+          "symbol": "QBE.AX",
+          "r_5d": -1.0,
+          "ret_5d": -0.012369821200455156
+        },
+        {
+          "date": "2026-08-18",
+          "symbol": "ALX.AX",
+          "r_5d": 0.14924960563544115,
+          "ret_5d": -0.014344297135205464
+        },
+        {
+          "date": "2026-08-19",
+          "symbol": "QBE.AX",
+          "r_5d": -1.0,
+          "ret_5d": -0.023998188293950284
+        },
+        {
+          "date": "2026-08-20",
+          "symbol": "WES.AX",
+          "r_5d": -1.0,
+          "ret_5d": -0.05786100859984955
+        },
+        {
+          "date": "2026-08-21",
+          "symbol": "QBE.AX",
+          "r_5d": 0.7322537195002939,
+          "ret_5d": -0.006343425083112697
+        },
+        {
+          "date": "2026-08-21",
+          "symbol": "SOL.AX",
+          "r_5d": 0.14089805750622938,
+          "ret_5d": -0.0011266164005676593
+        },
+        {
+          "date": "2026-08-24",
+          "symbol": "SOL.AX",
+          "r_5d": 0.11814062564640121,
+          "ret_5d": 0.002931253045951987
+        }
+      ],
+      "equity_curve": {
+        "strategy": [
+          {
+            "date": "2026-02-10",
+            "equity": 0.9330306903936937
+          },
+          {
+            "date": "2026-02-16",
+            "equity": 1.0238958511790077
+          },
+          {
+            "date": "2026-02-17",
+            "equity": 1.028989844951137
+          },
+          {
+            "date": "2026-02-20",
+            "equity": 1.0342397995830503
+          },
+          {
+            "date": "2026-02-23",
+            "equity": 1.0491762375417806
+          },
+          {
+            "date": "2026-02-24",
+            "equity": 1.040873667613563
+          },
+          {
+            "date": "2026-02-25",
+            "equity": 1.0021474985742238
+          },
+          {
+            "date": "2026-02-27",
+            "equity": 1.082524463757701
+          },
+          {
+            "date": "2026-03-04",
+            "equity": 1.0205880115860437
+          },
+          {
+            "date": "2026-03-05",
+            "equity": 0.8502031924099562
+          },
+          {
+            "date": "2026-03-10",
+            "equity": 0.8284696237468229
+          },
+          {
+            "date": "2026-03-11",
+            "equity": 0.8518691395521124
+          },
+          {
+            "date": "2026-03-13",
+            "equity": 0.725666294372379
+          },
+          {
+            "date": "2026-03-16",
+            "equity": 0.6481326801390809
+          },
+          {
+            "date": "2026-03-17",
+            "equity": 0.5977048401442085
+          },
+          {
+            "date": "2026-03-20",
+            "equity": 0.6081182412399585
+          },
+          {
+            "date": "2026-03-23",
+            "equity": 0.680385535621263
+          },
+          {
+            "date": "2026-03-24",
+            "equity": 0.7485195652757883
+          },
+          {
+            "date": "2026-03-25",
+            "equity": 0.8800819522806727
+          },
+          {
+            "date": "2026-03-26",
+            "equity": 0.8799637427333742
+          },
+          {
+            "date": "2026-03-27",
+            "equity": 0.8986150280314471
+          },
+          {
+            "date": "2026-03-30",
+            "equity": 0.9343418031227781
+          },
+          {
+            "date": "2026-03-31",
+            "equity": 0.975654516127516
+          },
+          {
+            "date": "2026-04-01",
+            "equity": 1.0242252549428126
+          },
+          {
+            "date": "2026-04-10",
+            "equity": 1.0090889353477297
+          },
+          {
+            "date": "2026-04-13",
+            "equity": 0.926714348421014
+          },
+          {
+            "date": "2026-04-20",
+            "equity": 0.9599312531343913
+          },
+          {
+            "date": "2026-04-21",
+            "equity": 0.9965323607384093
+          },
+          {
+            "date": "2026-04-22",
+            "equity": 1.0696782326336767
+          },
+          {
+            "date": "2026-04-23",
+            "equity": 1.1197611881825564
+          },
+          {
+            "date": "2026-04-24",
+            "equity": 1.1574316099145074
+          },
+          {
+            "date": "2026-04-27",
+            "equity": 1.208977693494771
+          },
+          {
+            "date": "2026-04-28",
+            "equity": 1.199931400204019
+          },
+          {
+            "date": "2026-05-01",
+            "equity": 1.2472857857242392
+          },
+          {
+            "date": "2026-05-04",
+            "equity": 1.2329322683471275
+          },
+          {
+            "date": "2026-05-05",
+            "equity": 1.1881902882228088
+          },
+          {
+            "date": "2026-05-06",
+            "equity": 1.1591021367701029
+          },
+          {
+            "date": "2026-05-07",
+            "equity": 1.1187292208883768
+          },
+          {
+            "date": "2026-05-08",
+            "equity": 1.1198609125705052
+          },
+          {
+            "date": "2026-05-11",
+            "equity": 1.180056695438228
+          },
+          {
+            "date": "2026-05-15",
+            "equity": 1.2265941527028166
+          },
+          {
+            "date": "2026-05-18",
+            "equity": 1.3565799765211783
+          },
+          {
+            "date": "2026-05-19",
+            "equity": 1.3645170179745088
+          },
+          {
+            "date": "2026-05-20",
+            "equity": 1.459494181636808
+          },
+          {
+            "date": "2026-05-21",
+            "equity": 1.3985013358705247
+          },
+          {
+            "date": "2026-05-22",
+            "equity": 1.4866698144789772
+          },
+          {
+            "date": "2026-05-28",
+            "equity": 1.5205245809549375
+          },
+          {
+            "date": "2026-06-01",
+            "equity": 1.558198593132821
+          },
+          {
+            "date": "2026-06-05",
+            "equity": 1.5895827797901816
+          },
+          {
+            "date": "2026-06-08",
+            "equity": 1.6020991748242261
+          },
+          {
+            "date": "2026-06-10",
+            "equity": 1.7551162872824448
+          },
+          {
+            "date": "2026-06-11",
+            "equity": 1.6994099430699054
+          },
+          {
+            "date": "2026-06-12",
+            "equity": 1.8127323216475222
+          },
+          {
+            "date": "2026-06-16",
+            "equity": 1.7584316099443384
+          },
+          {
+            "date": "2026-06-17",
+            "equity": 1.7223612517568632
+          },
+          {
+            "date": "2026-06-19",
+            "equity": 1.6625479833549532
+          },
+          {
+            "date": "2026-06-22",
+            "equity": 1.5441474512416937
+          },
+          {
+            "date": "2026-06-23",
+            "equity": 1.5133511577325383
+          },
+          {
+            "date": "2026-06-24",
+            "equity": 1.3892504083207238
+          },
+          {
+            "date": "2026-06-25",
+            "equity": 1.409674967507659
+          },
+          {
+            "date": "2026-06-26",
+            "equity": 1.405216320432142
+          },
+          {
+            "date": "2026-06-29",
+            "equity": 1.4014701402057819
+          },
+          {
+            "date": "2026-07-01",
+            "equity": 1.4502130457333535
+          },
+          {
+            "date": "2026-07-02",
+            "equity": 1.5265400672959255
+          },
+          {
+            "date": "2026-07-03",
+            "equity": 1.5596833534306258
+          },
+          {
+            "date": "2026-07-10",
+            "equity": 1.5522025779242297
+          },
+          {
+            "date": "2026-07-17",
+            "equity": 1.566915480784718
+          },
+          {
+            "date": "2026-07-20",
+            "equity": 1.570275455428233
+          },
+          {
+            "date": "2026-07-21",
+            "equity": 1.5496635185971412
+          },
+          {
+            "date": "2026-07-24",
+            "equity": 1.542180197467894
+          },
+          {
+            "date": "2026-07-27",
+            "equity": 1.5584498167226957
+          },
+          {
+            "date": "2026-07-30",
+            "equity": 1.6656325507610652
+          },
+          {
+            "date": "2026-07-31",
+            "equity": 1.7083616243177782
+          },
+          {
+            "date": "2026-08-03",
+            "equity": 1.7024699882604948
+          },
+          {
+            "date": "2026-08-07",
+            "equity": 1.6097474604611592
+          },
+          {
+            "date": "2026-08-11",
+            "equity": 1.5805972078257398
+          },
+          {
+            "date": "2026-08-17",
+            "equity": 1.552761062639324
+          },
+          {
+            "date": "2026-08-18",
+            "equity": 1.5320207412521476
+          },
+          {
+            "date": "2026-08-19",
+            "equity": 1.4952550190333413
+          },
+          {
+            "date": "2026-08-20",
+            "equity": 1.408738055518085
+          },
+          {
+            "date": "2026-08-21",
+            "equity": 1.4034763896609055
+          },
+          {
+            "date": "2026-08-24",
+            "equity": 1.4075903341030207
+          }
+        ],
+        "benchmark": [
+          {
+            "date": "2026-02-10",
+            "equity": 1.0
+          },
+          {
+            "date": "2026-02-16",
+            "equity": 1.011209532634569
+          },
+          {
+            "date": "2026-02-17",
+            "equity": 1.010318694991684
+          },
+          {
+            "date": "2026-02-20",
+            "equity": 1.0241333412920262
+          },
+          {
+            "date": "2026-02-23",
+            "equity": 1.01788569393378
+          },
+          {
+            "date": "2026-02-24",
+            "equity": 1.0174684132032954
+          },
+          {
+            "date": "2026-02-25",
+            "equity": 1.0294223112264484
+          },
+          {
+            "date": "2026-02-27",
+            "equity": 1.037350204587599
+          },
+          {
+            "date": "2026-03-04",
+            "equity": 1.0038116926267628
+          },
+          {
+            "date": "2026-03-05",
+            "equity": 1.0082210581287807
+          },
+          {
+            "date": "2026-03-10",
+            "equity": 0.9802872574204716
+          },
+          {
+            "date": "2026-03-11",
+            "equity": 0.9860274279758482
+          },
+          {
+            "date": "2026-03-13",
+            "equity": 0.9717729243945464
+          },
+          {
+            "date": "2026-03-16",
+            "equity": 0.9679725751077782
+          },
+          {
+            "date": "2026-03-17",
+            "equity": 0.9714571830764416
+          },
+          {
+            "date": "2026-03-20",
+            "equity": 0.9504928185644882
+          },
+          {
+            "date": "2026-03-23",
+            "equity": 0.9434445296357422
+          },
+          {
+            "date": "2026-03-24",
+            "equity": 0.9449669600443513
+          },
+          {
+            "date": "2026-03-25",
+            "equity": 0.9650629533343803
+          },
+          {
+            "date": "2026-03-26",
+            "equity": 0.961465572742857
+          },
+          {
+            "date": "2026-03-27",
+            "equity": 0.9604054660361678
+          },
+          {
+            "date": "2026-03-30",
+            "equity": 0.9541691620179164
+          },
+          {
+            "date": "2026-03-31",
+            "equity": 0.9565148105475001
+          },
+          {
+            "date": "2026-04-01",
+            "equity": 0.9779416088908879
+          },
+          {
+            "date": "2026-04-10",
+            "equity": 1.0105103203469343
+          },
+          {
+            "date": "2026-04-13",
+            "equity": 1.0066084316477864
+          },
+          {
+            "date": "2026-04-20",
+            "equity": 1.0096871022259597
+          },
+          {
+            "date": "2026-04-21",
+            "equity": 1.0092473550745147
+          },
+          {
+            "date": "2026-04-22",
+            "equity": 0.9973159234723219
+          },
+          {
+            "date": "2026-04-23",
+            "equity": 0.9916548259083647
+          },
+          {
+            "date": "2026-04-24",
+            "equity": 0.9908766507588254
+          },
+          {
+            "date": "2026-04-27",
+            "equity": 0.9886099650911465
+          },
+          {
+            "date": "2026-04-28",
+            "equity": 0.9823285079719452
+          },
+          {
+            "date": "2026-05-01",
+            "equity": 0.9844824210167641
+          },
+          {
+            "date": "2026-05-04",
+            "equity": 0.9807947342233413
+          },
+          {
+            "date": "2026-05-05",
+            "equity": 0.9789227527356722
+          },
+          {
+            "date": "2026-05-06",
+            "equity": 0.9916772923293251
+          },
+          {
+            "date": "2026-05-07",
+            "equity": 1.0012065789609896
+          },
+          {
+            "date": "2026-05-08",
+            "equity": 0.9861289673882279
+          },
+          {
+            "date": "2026-05-11",
+            "equity": 0.981324787576686
+          },
+          {
+            "date": "2026-05-15",
+            "equity": 0.9733179313536305
+          },
+          {
+            "date": "2026-05-18",
+            "equity": 0.9591649671847086
+          },
+          {
+            "date": "2026-05-19",
+            "equity": 0.970374609948792
+          },
+          {
+            "date": "2026-05-20",
+            "equity": 0.9581838233399242
+          },
+          {
+            "date": "2026-05-21",
+            "equity": 0.9722917445374109
+          },
+          {
+            "date": "2026-05-22",
+            "equity": 0.9762725960984637
+          },
+          {
+            "date": "2026-05-28",
+            "equity": 0.9690439150249477
+          },
+          {
+            "date": "2026-06-01",
+            "equity": 0.9844373780453288
+          },
+          {
+            "date": "2026-06-05",
+            "equity": 0.972675105377426
+          },
+          {
+            "date": "2026-06-08",
+            "equity": 0.970318223637362
+          },
+          {
+            "date": "2026-06-10",
+            "equity": 0.9758553153679791
+          },
+          {
+            "date": "2026-06-11",
+            "equity": 0.9735886297003001
+          },
+          {
+            "date": "2026-06-12",
+            "equity": 0.9928501716588742
+          },
+          {
+            "date": "2026-06-16",
+            "equity": 1.005672440903952
+          },
+          {
+            "date": "2026-06-17",
+            "equity": 1.011153146323139
+          },
+          {
+            "date": "2026-06-19",
+            "equity": 0.9956356774694176
+          },
+          {
+            "date": "2026-06-22",
+            "equity": 0.9942146763436737
+          },
+          {
+            "date": "2026-06-23",
+            "equity": 0.9909330370702554
+          },
+          {
+            "date": "2026-06-24",
+            "equity": 0.9933464152512638
+          },
+          {
+            "date": "2026-06-25",
+            "equity": 0.9866138676406228
+          },
+          {
+            "date": "2026-06-26",
+            "equity": 0.9883618432949517
+          },
+          {
+            "date": "2026-06-29",
+            "equity": 0.9950380045941628
+          },
+          {
+            "date": "2026-07-01",
+            "equity": 0.9837043559967393
+          },
+          {
+            "date": "2026-07-02",
+            "equity": 0.9838847481415094
+          },
+          {
+            "date": "2026-07-03",
+            "equity": 0.9974062296742214
+          },
+          {
+            "date": "2026-07-10",
+            "equity": 0.9930757169045942
+          },
+          {
+            "date": "2026-07-17",
+            "equity": 0.9920269535378996
+          },
+          {
+            "date": "2026-07-20",
+            "equity": 0.9914179373226502
+          },
+          {
+            "date": "2026-07-21",
+            "equity": 0.9916434825683701
+          },
+          {
+            "date": "2026-07-24",
+            "equity": 0.9892752574883114
+          },
+          {
+            "date": "2026-07-27",
+            "equity": 1.0029997077162685
+          },
+          {
+            "date": "2026-07-30",
+            "equity": 1.0113110720469487
+          },
+          {
+            "date": "2026-07-31",
+            "equity": 1.0123372588631683
+          },
+          {
+            "date": "2026-08-03",
+            "equity": 1.0171300953347155
+          },
+          {
+            "date": "2026-08-07",
+            "equity": 1.044680425073495
+          },
+          {
+            "date": "2026-08-11",
+            "equity": 1.0432143809763157
+          },
+          {
+            "date": "2026-08-17",
+            "equity": 1.023208583758672
+          },
+          {
+            "date": "2026-08-18",
+            "equity": 1.0228476893396172
+          },
+          {
+            "date": "2026-08-19",
+            "equity": 1.0210207508233833
+          },
+          {
+            "date": "2026-08-20",
+            "equity": 1.0244039295091814
+          },
+          {
+            "date": "2026-08-21",
+            "equity": 1.0215959572776776
+          },
+          {
+            "date": "2026-08-24",
+            "equity": 1.0265804191044752
+          }
+        ]
+      },
+      "rolling_edge": [
+        {
+          "date": "2026-02-10",
+          "n": 1,
+          "win_rate": null,
+          "mean_r": null
+        },
+        {
+          "date": "2026-02-15",
+          "n": 1,
+          "win_rate": null,
+          "mean_r": null
+        },
+        {
+          "date": "2026-02-20",
+          "n": 4,
+          "win_rate": null,
+          "mean_r": null
+        },
+        {
+          "date": "2026-02-25",
+          "n": 10,
+          "win_rate": 0.1,
+          "mean_r": -0.8009901812362656
+        },
+        {
+          "date": "2026-03-02",
+          "n": 11,
+          "win_rate": 0.18181818181818182,
+          "mean_r": -0.40582258534097215
+        },
+        {
+          "date": "2026-03-07",
+          "n": 13,
+          "win_rate": 0.15384615384615385,
+          "mean_r": -0.4972344952885149
+        },
+        {
+          "date": "2026-03-12",
+          "n": 16,
+          "win_rate": 0.25,
+          "mean_r": -0.3966826105854652
+        },
+        {
+          "date": "2026-03-17",
+          "n": 20,
+          "win_rate": 0.2,
+          "mean_r": -0.5173460884683723
+        },
+        {
+          "date": "2026-03-22",
+          "n": 22,
+          "win_rate": 0.22727272727272727,
+          "mean_r": -0.4567373299245009
+        },
+        {
+          "date": "2026-03-27",
+          "n": 30,
+          "win_rate": 0.3,
+          "mean_r": -0.31850353702513967
+        },
+        {
+          "date": "2026-04-01",
+          "n": 36,
+          "win_rate": 0.3055555555555556,
+          "mean_r": -0.26737490628036603
+        },
+        {
+          "date": "2026-04-06",
+          "n": 36,
+          "win_rate": 0.3055555555555556,
+          "mean_r": -0.26737490628036603
+        },
+        {
+          "date": "2026-04-11",
+          "n": 37,
+          "win_rate": 0.2972972972972973,
+          "mean_r": -0.27274858146518105
+        },
+        {
+          "date": "2026-04-16",
+          "n": 38,
+          "win_rate": 0.2894736842105263,
+          "mean_r": -0.2882842721094331
+        },
+        {
+          "date": "2026-04-21",
+          "n": 41,
+          "win_rate": 0.3170731707317073,
+          "mean_r": -0.2491396847697071
+        },
+        {
+          "date": "2026-04-26",
+          "n": 45,
+          "win_rate": 0.37777777777777777,
+          "mean_r": -0.11418768250771937
+        },
+        {
+          "date": "2026-05-01",
+          "n": 50,
+          "win_rate": 0.42,
+          "mean_r": -0.025882322568103612
+        },
+        {
+          "date": "2026-05-06",
+          "n": 51,
+          "win_rate": 0.4117647058823529,
+          "mean_r": -0.05703149395393602
+        },
+        {
+          "date": "2026-05-11",
+          "n": 49,
+          "win_rate": 0.4489795918367347,
+          "mean_r": 0.026099332858030816
+        },
+        {
+          "date": "2026-05-16",
+          "n": 49,
+          "win_rate": 0.4489795918367347,
+          "mean_r": -0.02907643813101852
+        },
+        {
+          "date": "2026-05-21",
+          "n": 54,
+          "win_rate": 0.46296296296296297,
+          "mean_r": -0.02389499654435138
+        },
+        {
+          "date": "2026-05-26",
+          "n": 52,
+          "win_rate": 0.46153846153846156,
+          "mean_r": 0.0007533191172702194
+        },
+        {
+          "date": "2026-05-31",
+          "n": 49,
+          "win_rate": 0.4897959183673469,
+          "mean_r": 0.062023930491796914
+        },
+        {
+          "date": "2026-06-05",
+          "n": 50,
+          "win_rate": 0.46,
+          "mean_r": -0.005190558338607456
+        },
+        {
+          "date": "2026-06-10",
+          "n": 45,
+          "win_rate": 0.4222222222222222,
+          "mean_r": -0.08339206810033788
+        },
+        {
+          "date": "2026-06-15",
+          "n": 43,
+          "win_rate": 0.4418604651162791,
+          "mean_r": -0.10172935542059845
+        },
+        {
+          "date": "2026-06-20",
+          "n": 48,
+          "win_rate": 0.3958333333333333,
+          "mean_r": -0.19529921423095278
+        },
+        {
+          "date": "2026-06-25",
+          "n": 55,
+          "win_rate": 0.36363636363636365,
+          "mean_r": -0.2716352294063201
+        },
+        {
+          "date": "2026-06-30",
+          "n": 58,
+          "win_rate": 0.3793103448275862,
+          "mean_r": -0.23901142892993774
+        },
+        {
+          "date": "2026-07-05",
+          "n": 58,
+          "win_rate": 0.3620689655172414,
+          "mean_r": -0.23800164500473572
+        },
+        {
+          "date": "2026-07-10",
+          "n": 55,
+          "win_rate": 0.32727272727272727,
+          "mean_r": -0.30876502361981933
+        },
+        {
+          "date": "2026-07-15",
+          "n": 50,
+          "win_rate": 0.28,
+          "mean_r": -0.4165281176706451
+        },
+        {
+          "date": "2026-07-20",
+          "n": 49,
+          "win_rate": 0.32653061224489793,
+          "mean_r": -0.3434193858556248
+        },
+        {
+          "date": "2026-07-25",
+          "n": 48,
+          "win_rate": 0.3125,
+          "mean_r": -0.37255684010460355
+        },
+        {
+          "date": "2026-07-30",
+          "n": 51,
+          "win_rate": 0.3333333333333333,
+          "mean_r": -0.2290924098017725
+        },
+        {
+          "date": "2026-08-04",
+          "n": 50,
+          "win_rate": 0.38,
+          "mean_r": -0.11924610673231481
+        },
+        {
+          "date": "2026-08-09",
+          "n": 50,
+          "win_rate": 0.36,
+          "mean_r": -0.16817868826984014
+        },
+        {
+          "date": "2026-08-14",
+          "n": 50,
+          "win_rate": 0.36,
+          "mean_r": -0.16817868826984023
+        },
+        {
+          "date": "2026-08-19",
+          "n": 52,
+          "win_rate": 0.36538461538461536,
+          "mean_r": -0.17807086168954941
+        },
+        {
+          "date": "2026-08-24",
+          "n": 53,
+          "win_rate": 0.41509433962264153,
+          "mean_r": -0.11827155481516319
+        }
+      ],
+      "changepoint": {
+        "changepoint_index": 97,
+        "changepoint_date": "2026-07-02",
+        "statistic": 11.829481820545169,
+        "p_value": 0.264,
+        "significant": false,
+        "mean_before": -0.2736476042662739,
+        "mean_after": 0.2413774545873933,
+        "n": 128
+      },
+      "noise_band": [
+        {
+          "date": "2026-02-10",
+          "real_n": 1,
+          "real_win_rate": null,
+          "real_mean_r": null,
+          "band_mean_r": null,
+          "outside_band": null
+        },
+        {
+          "date": "2026-02-15",
+          "real_n": 1,
+          "real_win_rate": null,
+          "real_mean_r": null,
+          "band_mean_r": null,
+          "outside_band": null
+        },
+        {
+          "date": "2026-02-20",
+          "real_n": 4,
+          "real_win_rate": null,
+          "real_mean_r": null,
+          "band_mean_r": [
+            -0.6632016240726222,
+            -0.6632016240726222
+          ],
+          "outside_band": null
+        },
+        {
+          "date": "2026-02-25",
+          "real_n": 10,
+          "real_win_rate": 0.1,
+          "real_mean_r": -0.8009901812362656,
+          "band_mean_r": [
+            -0.7810963283161738,
+            -0.2546396125053603
+          ],
+          "outside_band": true
+        },
+        {
+          "date": "2026-03-02",
+          "real_n": 11,
+          "real_win_rate": 0.18181818181818182,
+          "real_mean_r": -0.40582258534097215,
+          "band_mean_r": [
+            -0.7962438482454939,
+            0.4779199525345369
+          ],
+          "outside_band": false
+        },
+        {
+          "date": "2026-03-07",
+          "real_n": 13,
+          "real_win_rate": 0.15384615384615385,
+          "real_mean_r": -0.4972344952885149,
+          "band_mean_r": [
+            -0.7817840537231664,
+            0.47212935658832444
+          ],
+          "outside_band": false
+        },
+        {
+          "date": "2026-03-12",
+          "real_n": 16,
+          "real_win_rate": 0.25,
+          "real_mean_r": -0.3966826105854652,
+          "band_mean_r": [
+            -0.7913809924732322,
+            0.530929864003719
+          ],
+          "outside_band": false
+        },
+        {
+          "date": "2026-03-17",
+          "real_n": 20,
+          "real_win_rate": 0.2,
+          "real_mean_r": -0.5173460884683723,
+          "band_mean_r": [
+            -0.7818839401361627,
+            0.6486636469492252
+          ],
+          "outside_band": false
+        },
+        {
+          "date": "2026-03-22",
+          "real_n": 22,
+          "real_win_rate": 0.22727272727272727,
+          "real_mean_r": -0.4567373299245009,
+          "band_mean_r": [
+            -0.77479743015413,
+            0.517720999983055
+          ],
+          "outside_band": false
+        },
+        {
+          "date": "2026-03-27",
+          "real_n": 30,
+          "real_win_rate": 0.3,
+          "real_mean_r": -0.31850353702513967,
+          "band_mean_r": [
+            -0.7593565774376902,
+            0.5619709269117534
+          ],
+          "outside_band": false
+        },
+        {
+          "date": "2026-04-01",
+          "real_n": 36,
+          "real_win_rate": 0.3055555555555556,
+          "real_mean_r": -0.26737490628036603,
+          "band_mean_r": [
+            -0.7465985719989293,
+            0.7882951760178405
+          ],
+          "outside_band": false
+        },
+        {
+          "date": "2026-04-06",
+          "real_n": 36,
+          "real_win_rate": 0.3055555555555556,
+          "real_mean_r": -0.26737490628036603,
+          "band_mean_r": [
+            -0.7374022395684346,
+            0.7102743345310343
+          ],
+          "outside_band": false
+        },
+        {
+          "date": "2026-04-11",
+          "real_n": 37,
+          "real_win_rate": 0.2972972972972973,
+          "real_mean_r": -0.27274858146518105,
+          "band_mean_r": [
+            -0.7011657536796007,
+            0.5388112440415768
+          ],
+          "outside_band": false
+        },
+        {
+          "date": "2026-04-16",
+          "real_n": 38,
+          "real_win_rate": 0.2894736842105263,
+          "real_mean_r": -0.2882842721094331,
+          "band_mean_r": [
+            -0.6696467436205101,
+            0.450695630801579
+          ],
+          "outside_band": false
+        },
+        {
+          "date": "2026-04-21",
+          "real_n": 41,
+          "real_win_rate": 0.3170731707317073,
+          "real_mean_r": -0.2491396847697071,
+          "band_mean_r": [
+            -0.6288050698752229,
+            0.3587444606090808
+          ],
+          "outside_band": false
+        },
+        {
+          "date": "2026-04-26",
+          "real_n": 45,
+          "real_win_rate": 0.37777777777777777,
+          "real_mean_r": -0.11418768250771937,
+          "band_mean_r": [
+            -0.5811069223138506,
+            0.46208292386948746
+          ],
+          "outside_band": false
+        },
+        {
+          "date": "2026-05-01",
+          "real_n": 50,
+          "real_win_rate": 0.42,
+          "real_mean_r": -0.025882322568103612,
+          "band_mean_r": [
+            -0.5812578638731672,
+            0.5486110607655424
+          ],
+          "outside_band": false
+        },
+        {
+          "date": "2026-05-06",
+          "real_n": 51,
+          "real_win_rate": 0.4117647058823529,
+          "real_mean_r": -0.05703149395393602,
+          "band_mean_r": [
+            -0.5346876514797079,
+            0.547163127907958
+          ],
+          "outside_band": false
+        },
+        {
+          "date": "2026-05-11",
+          "real_n": 49,
+          "real_win_rate": 0.4489795918367347,
+          "real_mean_r": 0.026099332858030816,
+          "band_mean_r": [
+            -0.4919476838936087,
+            0.5388831932713869
+          ],
+          "outside_band": false
+        },
+        {
+          "date": "2026-05-16",
+          "real_n": 49,
+          "real_win_rate": 0.4489795918367347,
+          "real_mean_r": -0.02907643813101852,
+          "band_mean_r": [
+            -0.49118391333305983,
+            0.546719187148577
+          ],
+          "outside_band": false
+        },
+        {
+          "date": "2026-05-21",
+          "real_n": 54,
+          "real_win_rate": 0.46296296296296297,
+          "real_mean_r": -0.02389499654435138,
+          "band_mean_r": [
+            -0.45538796961084654,
+            0.5072309193250828
+          ],
+          "outside_band": false
+        },
+        {
+          "date": "2026-05-26",
+          "real_n": 52,
+          "real_win_rate": 0.46153846153846156,
+          "real_mean_r": 0.0007533191172702194,
+          "band_mean_r": [
+            -0.4482404490069912,
+            0.4855629193094316
+          ],
+          "outside_band": false
+        },
+        {
+          "date": "2026-05-31",
+          "real_n": 49,
+          "real_win_rate": 0.4897959183673469,
+          "real_mean_r": 0.062023930491796914,
+          "band_mean_r": [
+            -0.4314264657450947,
+            0.4165568123847064
+          ],
+          "outside_band": false
+        },
+        {
+          "date": "2026-06-05",
+          "real_n": 50,
+          "real_win_rate": 0.46,
+          "real_mean_r": -0.005190558338607456,
+          "band_mean_r": [
+            -0.44722349200874717,
+            0.3836799999063729
+          ],
+          "outside_band": false
+        },
+        {
+          "date": "2026-06-10",
+          "real_n": 45,
+          "real_win_rate": 0.4222222222222222,
+          "real_mean_r": -0.08339206810033788,
+          "band_mean_r": [
+            -0.4233049472491848,
+            0.4159327486141364
+          ],
+          "outside_band": false
+        },
+        {
+          "date": "2026-06-15",
+          "real_n": 43,
+          "real_win_rate": 0.4418604651162791,
+          "real_mean_r": -0.10172935542059845,
+          "band_mean_r": [
+            -0.42357054822735424,
+            0.4257476606966688
+          ],
+          "outside_band": false
+        },
+        {
+          "date": "2026-06-20",
+          "real_n": 48,
+          "real_win_rate": 0.3958333333333333,
+          "real_mean_r": -0.19529921423095278,
+          "band_mean_r": [
+            -0.3924487424198616,
+            0.4569673452481387
+          ],
+          "outside_band": false
+        },
+        {
+          "date": "2026-06-25",
+          "real_n": 55,
+          "real_win_rate": 0.36363636363636365,
+          "real_mean_r": -0.2716352294063201,
+          "band_mean_r": [
+            -0.3450267979705092,
+            0.4371286824477622
+          ],
+          "outside_band": false
+        },
+        {
+          "date": "2026-06-30",
+          "real_n": 58,
+          "real_win_rate": 0.3793103448275862,
+          "real_mean_r": -0.23901142892993774,
+          "band_mean_r": [
+            -0.3206178115195444,
+            0.4603958185410497
+          ],
+          "outside_band": false
+        },
+        {
+          "date": "2026-07-05",
+          "real_n": 58,
+          "real_win_rate": 0.3620689655172414,
+          "real_mean_r": -0.23800164500473572,
+          "band_mean_r": [
+            -0.2926065130598817,
+            0.4518612231735944
+          ],
+          "outside_band": false
+        },
+        {
+          "date": "2026-07-10",
+          "real_n": 55,
+          "real_win_rate": 0.32727272727272727,
+          "real_mean_r": -0.30876502361981933,
+          "band_mean_r": [
+            -0.3230903685936979,
+            0.4129823864452224
+          ],
+          "outside_band": false
+        },
+        {
+          "date": "2026-07-15",
+          "real_n": 50,
+          "real_win_rate": 0.28,
+          "real_mean_r": -0.4165281176706451,
+          "band_mean_r": [
+            -0.30496189636117027,
+            0.3820484364331296
+          ],
+          "outside_band": true
+        },
+        {
+          "date": "2026-07-20",
+          "real_n": 49,
+          "real_win_rate": 0.32653061224489793,
+          "real_mean_r": -0.3434193858556248,
+          "band_mean_r": [
+            -0.34858834111994325,
+            0.3477658908211704
+          ],
+          "outside_band": false
+        },
+        {
+          "date": "2026-07-25",
+          "real_n": 48,
+          "real_win_rate": 0.3125,
+          "real_mean_r": -0.37255684010460355,
+          "band_mean_r": [
+            -0.3645591410652151,
+            0.27644102552271765
+          ],
+          "outside_band": true
+        },
+        {
+          "date": "2026-07-30",
+          "real_n": 51,
+          "real_win_rate": 0.3333333333333333,
+          "real_mean_r": -0.2290924098017725,
+          "band_mean_r": [
+            -0.3866446945475916,
+            0.2607488146505401
+          ],
+          "outside_band": false
+        },
+        {
+          "date": "2026-08-04",
+          "real_n": 50,
+          "real_win_rate": 0.38,
+          "real_mean_r": -0.11924610673231481,
+          "band_mean_r": [
+            -0.3941187082840918,
+            0.284740417219956
+          ],
+          "outside_band": false
+        },
+        {
+          "date": "2026-08-09",
+          "real_n": 50,
+          "real_win_rate": 0.36,
+          "real_mean_r": -0.16817868826984014,
+          "band_mean_r": [
+            -0.37703163996271105,
+            0.28490828638570276
+          ],
+          "outside_band": false
+        },
+        {
+          "date": "2026-08-14",
+          "real_n": 50,
+          "real_win_rate": 0.36,
+          "real_mean_r": -0.16817868826984023,
+          "band_mean_r": [
+            -0.3920435514360191,
+            0.2403058031030187
+          ],
+          "outside_band": false
+        },
+        {
+          "date": "2026-08-19",
+          "real_n": 52,
+          "real_win_rate": 0.36538461538461536,
+          "real_mean_r": -0.17807086168954941,
+          "band_mean_r": [
+            -0.4008999547656506,
+            0.2274670217040476
+          ],
+          "outside_band": false
+        },
+        {
+          "date": "2026-08-24",
+          "real_n": 53,
+          "real_win_rate": 0.41509433962264153,
+          "real_mean_r": -0.11827155481516319,
+          "band_mean_r": [
+            -0.42002926302373855,
+            0.2272818175932283
+          ],
+          "outside_band": false
+        }
+      ],
+      "verdict": {
+        "verdict": "no edge ever distinguishable from noise",
+        "reason": "3/37 scored windows (8%) fell outside the random-entry noise band, and the CUSUM change-point test (p=0.2640) did not find a significant break. Apparent ups and downs in the rolling metric are consistent with what a random-entry baseline under the same risk/regime rules would also produce.",
+        "changepoint": {
+          "changepoint_index": 97,
+          "statistic": 11.829481820545169,
+          "p_value": 0.264,
+          "significant": false,
+          "mean_before": -0.2736476042662739,
+          "mean_after": 0.2413774545873933,
+          "n": 128
+        }
+      },
+      "hypotheses": []
+    }
+  }
+}
