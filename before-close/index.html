@@ -187,6 +187,36 @@
     .signalCard__head { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; margin-bottom: 8px; }
     .signalCard__symbol { font-family: var(--mono-font); font-weight: 700; font-size: 16px; color: var(--brand-primary); }
     .signalCard__strategy { font-size: 12px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; }
+
+    /* Ticker enrichment: company name + external link (Part B1/B2) */
+    .company-name {
+      font-family: 'Inter', -apple-system, system-ui, sans-serif;
+      font-weight: 400;
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-left: 8px;
+      display: inline-block;
+      max-width: 200px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      vertical-align: middle;
+    }
+    .ext-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 20px;
+      height: 20px;
+      margin-left: 4px;
+      border-radius: 4px;
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 12px;
+      vertical-align: middle;
+      transition: color 0.15s, background 0.15s;
+    }
+    .ext-link:hover { color: var(--brand-primary); background: rgba(56, 189, 248, 0.1); }
     .signalCard__note { font-size: 13px; color: #cbd5e1; line-height: 1.55; margin-top: 6px; }
     .signalCard__row { display: flex; flex-wrap: wrap; gap: 18px; font-size: 13px; margin-top: 6px; }
     .signalCard__row .field-label { font-size: 10px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.06em; display: block; }
@@ -338,10 +368,31 @@
 
   <script>
     const DATA_URL = "/public/before_close.json";
+    const NAMES_URL = "/public/ticker_names.json";
 
     function esc(s){ return String(s??'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
     function safeText(s){ return (s===null||s===undefined||s==='')?'—':String(s); }
     function fmt(n,d=4){ const x=Number(n); return Number.isFinite(x)?x.toFixed(d):'—'; }
+
+    // Ticker enrichment (Part B1): symbol -> full company name. Best-effort.
+    window.__NAMES__ = {};
+    async function loadNames(){
+      try{
+        const r = await fetch(NAMES_URL + '?v=' + Date.now(), { cache: 'no-store' });
+        if (!r.ok) return;
+        window.__NAMES__ = await r.json();
+      }catch(_){ /* enrichment only, never block the page */ }
+    }
+    function companyNameHtml(sym){
+      const name = window.__NAMES__ && window.__NAMES__[sym];
+      if (!name) return "";
+      const n = esc(name);
+      return `<span class="company-name" title="${n}">${n}</span>`;
+    }
+    function extLinkHtml(sym){
+      const href = "https://finance.yahoo.com/quote/" + encodeURIComponent(sym);
+      return `<a class="ext-link" href="${href}" target="_blank" rel="noopener noreferrer" title="View ${esc(sym)} on Yahoo Finance" aria-label="View ${esc(sym)} on Yahoo Finance">↗</a>`;
+    }
 
     function showError(msg){
       const b=document.getElementById('errorBox');
@@ -373,7 +424,7 @@
         <div class="signalCard">
           <div class="signalCard__head">
             <div>
-              <span class="signalCard__symbol">${esc(safeText(u.symbol))}</span>
+              <span class="signalCard__symbol">${esc(safeText(u.symbol))}</span>${extLinkHtml(safeText(u.symbol))}${companyNameHtml(safeText(u.symbol))}
               <span class="signalCard__strategy" style="margin-left:8px;">${esc(safeText(u.strategy))}</span>
             </div>
             ${badge}
@@ -446,7 +497,7 @@
     }
 
     document.getElementById('refreshBtn').addEventListener('click', async () => {
-      try { render(await load()); }
+      try { const [d] = await Promise.all([load(), loadNames()]); render(d); }
       catch(e) { showError('Could not load before-close data. (' + e.message + ')'); }
     });
 
@@ -508,7 +559,8 @@
 
     (async function(){
       try {
-        render(await load());
+        const [d] = await Promise.all([load(), loadNames()]);
+        render(d);
       } catch(e) {
         document.getElementById('kpiCount').textContent = '—';
         document.getElementById('kpiStatus').textContent = 'No Data';
