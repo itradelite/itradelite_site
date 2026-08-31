@@ -213,9 +213,10 @@
     <header class="page-header">
       <h1>Strategy Decay.</h1>
       <p>
-        A research and diagnostic investigation, not a signals page: does each of iTradeLite's 3
-        strategy archetypes have real edge, isolated from the others — and if it ever did, when
-        (and why) did that edge stop being distinguishable from luck?
+        A research and diagnostic investigation, not a signals page: does each of iTradeLite's 7
+        strategy archetypes (3 original, 4 added in a later pass — see below) have real edge,
+        isolated from the others — and if it ever did, when (and why) did that edge stop being
+        distinguishable from luck?
       </p>
     </header>
 
@@ -225,7 +226,13 @@
       with a random-entry noise-band control — it exists to answer "is there real edge here,"
       honestly, including when the honest answer is no. It is not a live signals feed, not investment
       advice, and a "no edge ever distinguishable from noise" verdict is reported exactly as plainly
-      as any other outcome. Educational purpose only. Trading involves significant risk of loss.
+      as any other outcome. 3 archetypes (Post-Earnings Drift, 52-Week-High Momentum, Gap
+      Fade/Continuation) are newly wired into the live signal pipeline and start with zero
+      historical signals — an "insufficient data" verdict there is expected on early runs, not a
+      bug. A 7th row, Baseline (Random Entry), is a backtest-only control (never a live signal) that
+      formalizes the same random-entry-under-regime-gate check already used to build every other
+      archetype's noise band, as its own directly-comparable result. Educational purpose only.
+      Trading involves significant risk of loss.
     </div>
 
     <div class="method-panel" id="methodPanel">Loading methodology…</div>
@@ -266,12 +273,25 @@
     const ANALYSIS_URL = "/public/strategy_decay_analysis.json";
     const INTRADAY_URL = "/public/strategy_decay_intraday.json";
 
-    const DISPLAY_ORDER = ["TREND_PULLBACK", "MOMENTUM", "MEAN_REVERSION"];
+    const DISPLAY_ORDER = [
+      "TREND_PULLBACK", "MOMENTUM", "MEAN_REVERSION",
+      "PEAD", "HIGH52W_MOMENTUM", "GAP_FADE_CONTINUATION",
+      "BASELINE_RANDOM",
+    ];
     const DISPLAY_NAME = {
       TREND_PULLBACK: "Trend Pullback",
       MOMENTUM: "Momentum Breakout",
       MEAN_REVERSION: "Mean Reversion",
+      PEAD: "Post-Earnings Drift",
+      HIGH52W_MOMENTUM: "52-Week-High Momentum",
+      GAP_FADE_CONTINUATION: "Gap Fade/Continuation",
+      BASELINE_RANDOM: "Baseline (Random Entry)",
     };
+    // Strategies added by the 7-strategy expansion -- used to badge their
+    // section headers as new, since (unlike the original 3) they start
+    // with zero historical signals and an "insufficient data" verdict is
+    // expected on the first several runs, not a sign anything is broken.
+    const NEW_STRATEGY_KEYS = new Set(["PEAD", "HIGH52W_MOMENTUM", "GAP_FADE_CONTINUATION", "BASELINE_RANDOM"]);
 
     function esc(s) {
       return String(s ?? "").replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
@@ -469,6 +489,7 @@
           <dt>Transaction costs</dt><dd>${esc(meta.transaction_costs)}</dd>
           <dt>No-lookahead</dt><dd>${esc(meta.no_lookahead)}</dd>
           ${meta.multiple_comparisons_correction ? `<dt>Multiple comparisons</dt><dd>${esc(meta.multiple_comparisons_correction)}</dd>` : ""}
+          ${meta.seven_strategy_expansion ? `<dt>7-strategy expansion</dt><dd>${esc(meta.seven_strategy_expansion)}</dd>` : ""}
         </dl>
       `;
     }
@@ -487,7 +508,7 @@
           <h3>Holding-Period Sensitivity</h3>
           <div class="chart-note">
             Same isolate → rolling-edge-metric → CUSUM change-point → 200-replicate noise-band pipeline as above,
-            re-run independently at each holding-period horizon. ${familySize ? `Raw p-values are Bonferroni-corrected across all ${familySize} archetype × horizon tests run in this sweep (p<sub>corrected</sub> = min(1, p<sub>raw</sub> × ${familySize})) to guard against the ~0.6 false positives expected by chance from running this many tests.` : ""}
+            re-run independently at each holding-period horizon. ${familySize ? `Raw p-values are Bonferroni-corrected across all ${familySize} archetype × horizon tests run in this sweep (p<sub>corrected</sub> = min(1, p<sub>raw</sub> × ${familySize})) to guard against the ~${(familySize * 0.05).toFixed(1)} false positives expected by chance (α=0.05 × ${familySize} tests) from running this many tests.` : ""}
           </div>
       `;
       if (overallText) {
@@ -535,14 +556,21 @@
       const name = DISPLAY_NAME[key] || key;
       const v = data.verdict;
       const badgeClass = verdictBadgeClass(v.verdict);
+      const isNew = NEW_STRATEGY_KEYS.has(key);
+      const isBaseline = key === "BASELINE_RANDOM";
+
+      const subText = isBaseline
+        ? `${data.n_trades} computable trades — backtest-only control, never a live signal (random symbol + regime gate, no price-pattern logic)`
+        : `${data.n_trades} computable historical trades, isolated (no composite blending)`;
 
       let html = `
         <section class="archetype-section">
           <div class="archetype-head">
             <h2>${esc(name)}</h2>
             <span class="verdict-badge ${badgeClass}">${esc(v.verdict)}</span>
+            ${isNew ? `<span class="verdict-badge insufficient" style="text-transform:none;">${isBaseline ? "backtest-only control" : "added this pass — new live signal"}</span>` : ""}
           </div>
-          <div class="archetype-sub">${data.n_trades} computable historical trades, isolated (no composite blending)</div>
+          <div class="archetype-sub">${subText}</div>
       `;
 
       if (data.n_trades < 10) {
