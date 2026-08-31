@@ -1,6 +1,6 @@
 {
-  "generated_at_utc": "2026-08-31T09:55:48Z",
-  "recovery_method": "git log/show against itradelite_site's public/intraday.json commit history -- the same 'historical snapshots are a time series' technique ITRADELITE_AUDIT_REPORT.md used to recover metrics.json history.",
+  "generated_at_utc": "2026-08-31T10:58:14Z",
+  "recovery_method": "Merged from two sources, preferring the dated archive on any date both cover: (1) reports/intraday_YYYY-MM-DD.json, the real dated archive intraday_scan.py writes on every run as of the reliability-audit fix (0 snapshot(s) currently); (2) git log/show against itradelite_site's public/intraday.json commit history, the same 'historical snapshots are a time series' technique ITRADELITE_AUDIT_REPORT.md used to recover metrics.json history (16 snapshot(s)) -- retained only to cover the historical gap before the dated archive existed; going forward, source (1) is the real, unattended-accumulating history.",
   "feasibility": {
     "distinct_calendar_dates_recovered": [
       "2026-04-24",
@@ -17,18 +17,18 @@
     "n_distinct_dates": 10,
     "date_span_days": 129,
     "signal_counts_by_strategy": {
-      "TREND_PULLBACK": 125,
-      "MEAN_REVERSION": 82,
-      "MOMENTUM": 59
+      "TREND_PULLBACK": 77,
+      "MEAN_REVERSION": 72,
+      "MOMENTUM": 58
     },
-    "total_deduped_signals": 266,
+    "total_deduped_signals": 207,
     "feasible_for_formal_process": false,
     "feasibility_reasoning": "10 distinct calendar dates recovered from itradelite_site's git history of public/intraday.json, spanning 129 days, clustered enough (or too few distinct dates) that a rolling 75-day window / CUSUM / bootstrap process would mostly be scoring windows built from a single cluster of days repeated, not genuinely independent time coverage -- this is the SAME structural reason Trend Pullback/Momentum score 'insufficient data' in the daily analysis, just more extreme here, because intraday_scan.py (unlike scan.py) has never written a dated historical archive. This is a real, reportable pipeline gap, not a methodology failure."
   },
   "verdict": "Not feasible to run the formal isolate + change-point + noise-band process on intraday data for any archetype -- insufficient historical coverage. This is a genuine data-retention gap (intraday_scan.py has never persisted a dated archive), not a finding about the strategies' intraday edge one way or the other.",
   "descriptive_spot_check": {
     "method": "For each recovered signal with fetchable price history, a plain close-to-close forward return over the following 2 trading DAYS (not true intraday bars -- yfinance's intraday-resolution retention window is too short to cover most of these recovered signals' dates, so daily bars are used uniformly as an approximation, stated explicitly rather than silently mixing resolutions). Deliberately NOT a stop-first R-multiple check: an intraday setup's stop is calibrated to intraday volatility and sits very close to entry, so checking it against DAILY-bar Lows would trip it almost regardless of setup quality -- an earlier version of this check did exactly that and produced a 68.6% 'stop-out' rate, a resolution-mismatch artifact that would have been actively misleading to publish, not a real finding. Plain forward return avoids that mismatch. Descriptive only: NOT a substitute for the formal change-point process ruled infeasible above -- the sample is far too small and clustered for that; this is only meant to show what little can be honestly verified.",
-    "n": 242,
+    "n": 183,
     "rows": [
       {
         "date": "2026-08-07",
@@ -458,264 +458,6 @@
       },
       {
         "date": "2026-08-05",
-        "symbol": "AZJ.AX",
-        "strategy": "TREND_PULLBACK",
-        "ret_Nd": -0.016432021380903716
-      },
-      {
-        "date": "2026-08-05",
-        "symbol": "GYG.AX",
-        "strategy": "TREND_PULLBACK",
-        "ret_Nd": 0.0028226453357402814
-      },
-      {
-        "date": "2026-08-05",
-        "symbol": "MPL.AX",
-        "strategy": "TREND_PULLBACK",
-        "ret_Nd": 0.009560265880022012
-      },
-      {
-        "date": "2026-08-05",
-        "symbol": "QBE.AX",
-        "strategy": "TREND_PULLBACK",
-        "ret_Nd": -0.007720424462482001
-      },
-      {
-        "date": "2026-08-05",
-        "symbol": "SCG.AX",
-        "strategy": "TREND_PULLBACK",
-        "ret_Nd": 0.0
-      },
-      {
-        "date": "2026-08-05",
-        "symbol": "SIG.AX",
-        "strategy": "TREND_PULLBACK",
-        "ret_Nd": 0.0
-      },
-      {
-        "date": "2026-08-05",
-        "symbol": "WOW.AX",
-        "strategy": "TREND_PULLBACK",
-        "ret_Nd": 0.0014917343802283156
-      },
-      {
-        "date": "2026-08-05",
-        "symbol": "SUN.AX",
-        "strategy": "TREND_PULLBACK",
-        "ret_Nd": -0.0041194637385681965
-      },
-      {
-        "date": "2026-08-05",
-        "symbol": "DMP.AX",
-        "strategy": "TREND_PULLBACK",
-        "ret_Nd": 0.014515228927308721
-      },
-      {
-        "date": "2026-08-05",
-        "symbol": "AFI.AX",
-        "strategy": "TREND_PULLBACK",
-        "ret_Nd": 0.0014792532109619838
-      },
-      {
-        "date": "2026-08-05",
-        "symbol": "ASX.AX",
-        "strategy": "TREND_PULLBACK",
-        "ret_Nd": 0.017308370630531922
-      },
-      {
-        "date": "2026-08-05",
-        "symbol": "BEN.AX",
-        "strategy": "TREND_PULLBACK",
-        "ret_Nd": -0.007846569354196253
-      },
-      {
-        "date": "2026-08-05",
-        "symbol": "GPT.AX",
-        "strategy": "TREND_PULLBACK",
-        "ret_Nd": 0.0019084407096647826
-      },
-      {
-        "date": "2026-08-05",
-        "symbol": "MCY.AX",
-        "strategy": "TREND_PULLBACK",
-        "ret_Nd": 0.0
-      },
-      {
-        "date": "2026-08-05",
-        "symbol": "NAB.AX",
-        "strategy": "TREND_PULLBACK",
-        "ret_Nd": -0.007053826608774405
-      },
-      {
-        "date": "2026-08-05",
-        "symbol": "RHC.AX",
-        "strategy": "MEAN_REVERSION",
-        "ret_Nd": 0.030998904993539522
-      },
-      {
-        "date": "2026-08-05",
-        "symbol": "WBC.AX",
-        "strategy": "TREND_PULLBACK",
-        "ret_Nd": -0.015572242230214806
-      },
-      {
-        "date": "2026-08-05",
-        "symbol": "AMP.AX",
-        "strategy": "TREND_PULLBACK",
-        "ret_Nd": 0.11009182542900797
-      },
-      {
-        "date": "2026-08-05",
-        "symbol": "ANZ.AX",
-        "strategy": "TREND_PULLBACK",
-        "ret_Nd": -0.007366450714580863
-      },
-      {
-        "date": "2026-08-05",
-        "symbol": "SIG.AX",
-        "strategy": "TREND_PULLBACK",
-        "ret_Nd": 0.0
-      },
-      {
-        "date": "2026-08-05",
-        "symbol": "VCX.AX",
-        "strategy": "TREND_PULLBACK",
-        "ret_Nd": -0.0036764709183957356
-      },
-      {
-        "date": "2026-08-05",
-        "symbol": "COL.AX",
-        "strategy": "TREND_PULLBACK",
-        "ret_Nd": -0.0012385953818063733
-      },
-      {
-        "date": "2026-08-05",
-        "symbol": "DMP.AX",
-        "strategy": "TREND_PULLBACK",
-        "ret_Nd": 0.014515228927308721
-      },
-      {
-        "date": "2026-08-05",
-        "symbol": "APA.AX",
-        "strategy": "MEAN_REVERSION",
-        "ret_Nd": -0.026522637492102707
-      },
-      {
-        "date": "2026-08-05",
-        "symbol": "ASX.AX",
-        "strategy": "TREND_PULLBACK",
-        "ret_Nd": 0.017308370630531922
-      },
-      {
-        "date": "2026-08-05",
-        "symbol": "CHC.AX",
-        "strategy": "TREND_PULLBACK",
-        "ret_Nd": -0.004995871646397587
-      },
-      {
-        "date": "2026-08-05",
-        "symbol": "IAG.AX",
-        "strategy": "MEAN_REVERSION",
-        "ret_Nd": 0.005827571093413475
-      },
-      {
-        "date": "2026-08-05",
-        "symbol": "NHF.AX",
-        "strategy": "MEAN_REVERSION",
-        "ret_Nd": 0.006693466149827021
-      },
-      {
-        "date": "2026-08-05",
-        "symbol": "ORI.AX",
-        "strategy": "TREND_PULLBACK",
-        "ret_Nd": -0.014243826587096553
-      },
-      {
-        "date": "2026-08-05",
-        "symbol": "QBE.AX",
-        "strategy": "MEAN_REVERSION",
-        "ret_Nd": -0.007720424462482001
-      },
-      {
-        "date": "2026-08-05",
-        "symbol": "SIG.AX",
-        "strategy": "TREND_PULLBACK",
-        "ret_Nd": 0.0
-      },
-      {
-        "date": "2026-08-05",
-        "symbol": "SUN.AX",
-        "strategy": "TREND_PULLBACK",
-        "ret_Nd": -0.0041194637385681965
-      },
-      {
-        "date": "2026-08-05",
-        "symbol": "TCL.AX",
-        "strategy": "MEAN_REVERSION",
-        "ret_Nd": -0.012925141690379283
-      },
-      {
-        "date": "2026-08-05",
-        "symbol": "TNE.AX",
-        "strategy": "TREND_PULLBACK",
-        "ret_Nd": 0.00893410116163773
-      },
-      {
-        "date": "2026-08-05",
-        "symbol": "VAP.AX",
-        "strategy": "TREND_PULLBACK",
-        "ret_Nd": -0.00810266918822855
-      },
-      {
-        "date": "2026-08-05",
-        "symbol": "WDS.AX",
-        "strategy": "MEAN_REVERSION",
-        "ret_Nd": 0.0031465850207836876
-      },
-      {
-        "date": "2026-08-05",
-        "symbol": "ALX.AX",
-        "strategy": "MEAN_REVERSION",
-        "ret_Nd": -0.004008012393562077
-      },
-      {
-        "date": "2026-08-05",
-        "symbol": "SCG.AX",
-        "strategy": "TREND_PULLBACK",
-        "ret_Nd": 0.0
-      },
-      {
-        "date": "2026-08-05",
-        "symbol": "STO.AX",
-        "strategy": "MEAN_REVERSION",
-        "ret_Nd": 0.009222651013870875
-      },
-      {
-        "date": "2026-08-05",
-        "symbol": "VCX.AX",
-        "strategy": "TREND_PULLBACK",
-        "ret_Nd": -0.0036764709183957356
-      },
-      {
-        "date": "2026-08-05",
-        "symbol": "COL.AX",
-        "strategy": "TREND_PULLBACK",
-        "ret_Nd": -0.0012385953818063733
-      },
-      {
-        "date": "2026-08-05",
-        "symbol": "IFT.AX",
-        "strategy": "MOMENTUM",
-        "ret_Nd": -0.01729561811402358
-      },
-      {
-        "date": "2026-08-05",
-        "symbol": "RHC.AX",
-        "strategy": "TREND_PULLBACK",
-        "ret_Nd": 0.030998904993539522
-      },
-      {
-        "date": "2026-08-05",
         "symbol": "360.AX",
         "strategy": "MOMENTUM",
         "ret_Nd": -0.03350253119047608
@@ -847,106 +589,10 @@
         "ret_Nd": -0.01449267537722343
       },
       {
-        "date": "2026-08-04",
-        "symbol": "AIA.AX",
-        "strategy": "TREND_PULLBACK",
-        "ret_Nd": 0.00947228321056337
-      },
-      {
-        "date": "2026-08-04",
-        "symbol": "COL.AX",
-        "strategy": "TREND_PULLBACK",
-        "ret_Nd": 0.0012330738487293935
-      },
-      {
-        "date": "2026-08-04",
-        "symbol": "FLT.AX",
-        "strategy": "TREND_PULLBACK",
-        "ret_Nd": 0.038694936524944046
-      },
-      {
-        "date": "2026-08-04",
-        "symbol": "MCY.AX",
-        "strategy": "TREND_PULLBACK",
-        "ret_Nd": 0.019963639221040275
-      },
-      {
-        "date": "2026-08-04",
-        "symbol": "QAN.AX",
-        "strategy": "TREND_PULLBACK",
-        "ret_Nd": 0.03887265500613668
-      },
-      {
-        "date": "2026-08-04",
-        "symbol": "REH.AX",
-        "strategy": "TREND_PULLBACK",
-        "ret_Nd": 0.014319795217220932
-      },
-      {
-        "date": "2026-08-04",
-        "symbol": "SCG.AX",
-        "strategy": "TREND_PULLBACK",
-        "ret_Nd": -0.015037572355168782
-      },
-      {
-        "date": "2026-08-04",
-        "symbol": "SHN.AX",
-        "strategy": "TREND_PULLBACK",
-        "ret_Nd": 0.031249945430320558
-      },
-      {
-        "date": "2026-08-04",
-        "symbol": "SOL.AX",
-        "strategy": "TREND_PULLBACK",
-        "ret_Nd": 0.010834235828131478
-      },
-      {
-        "date": "2026-08-04",
-        "symbol": "STO.AX",
-        "strategy": "TREND_PULLBACK",
-        "ret_Nd": -0.016752567225304937
-      },
-      {
-        "date": "2026-08-04",
-        "symbol": "VAP.AX",
-        "strategy": "TREND_PULLBACK",
-        "ret_Nd": -0.0041313493998358375
-      },
-      {
-        "date": "2026-08-04",
-        "symbol": "XYZ.AX",
-        "strategy": "TREND_PULLBACK",
-        "ret_Nd": 0.010064827078442251
-      },
-      {
-        "date": "2026-08-04",
+        "date": "2026-08-05",
         "symbol": "RHC.AX",
         "strategy": "TREND_PULLBACK",
-        "ret_Nd": 0.008648181155933132
-      },
-      {
-        "date": "2026-08-04",
-        "symbol": "SIG.AX",
-        "strategy": "TREND_PULLBACK",
-        "ret_Nd": 0.0067340002470883675
-      },
-      {
-        "date": "2026-08-04",
-        "symbol": "WOW.AX",
-        "strategy": "TREND_PULLBACK",
-        "ret_Nd": -0.00024868562722268894
-      },
-      {
-        "date": "2026-08-04",
-        "symbol": "APA.AX",
-        "strategy": "TREND_PULLBACK",
-        "ret_Nd": -0.029126231570822836
-      },
-      {
-        "date": "2026-08-04",
-        "symbol": "TLC.AX",
-        "strategy": "MEAN_REVERSION",
-        "ret_Nd": 0.0074073861257137885
+        "ret_Nd": 0.030998904993539522
       },
       {
         "date": "2026-08-04",

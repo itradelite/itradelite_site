@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-08-31T09:55:36Z",
+  "generated_at_utc": "2026-08-31T10:57:58Z",
   "methodology": {
     "primary_horizon_days": 5,
     "sweep_horizons_days": [
@@ -17,7 +17,8 @@
     "position_sizing": "R-multiple risk-normalized, identical to tools/build_public_metrics.py -- no per-symbol dollar sizing applied.",
     "transaction_costs": "None modeled -- frictionless proxy, identical to tools/build_public_metrics.py.",
     "no_lookahead": "Entries anchored at valid_for (T+1), Mean Reversion entry = Open on valid_for, stop-first exit over the tested horizon -- identical to the corrected methodology in commit 13cb31a, generalized from a hardcoded 5 days to a horizon parameter.",
-    "multiple_comparisons_correction": "Bonferroni correction, family_size=12 (3 archetypes x 4 horizons = 12 tests attempted, chosen as the family size even for cells that produce no real p-value, e.g. MOMENTUM at every horizon -- the conservative choice). p_corrected = min(1, p_raw * 12). Bonferroni (family-wise error control) was chosen over Benjamini-Hochberg (false-discovery-rate control) because this investigation's prior expectation is 'probably nothing here' and a false 'found edge' claim is the costlier mistake -- the more conservative control is the appropriate default."
+    "multiple_comparisons_correction": "Bonferroni correction, family_size=28 (7 strategies x 4 horizons = 28 tests attempted -- grown from an earlier pass's 12 (3 archetypes x 4 horizons) now that 4 more strategies are in the sweep; chosen as the family size even for cells that produce no real p-value, e.g. MOMENTUM at every horizon -- the conservative choice). p_corrected = min(1, p_raw * 28). Bonferroni (family-wise error control) was chosen over Benjamini-Hochberg (false-discovery-rate control) because this investigation's prior expectation is 'probably nothing here' and a false 'found edge' claim is the costlier mistake -- the more conservative control is the appropriate default.",
+    "seven_strategy_expansion": "3 new real archetypes (PEAD, HIGH52W_MOMENTUM, GAP_FADE_CONTINUATION) wired into scan.py/strategies/ this session -- their pre-registered rules are in strategies/pead.py, strategies/high52w_momentum.py, strategies/gap_strategy.py, committed before any backtest was run against them. They have ZERO historical signals before this session (scan.py never generated them before), so an 'insufficient data' verdict on this run is expected, not a bug -- real history starts accumulating from whichever scheduled scan first runs the updated scan.py. BASELINE_RANDOM is a 7th, backtest-only strategy: a formalized version of the random-entry-under-regime-gate control already built for the noise band (build_baseline_trades()), NOT wired into scan.py's live daily signal generation -- publishing random-stock recommendations to the live signals feed would be actively misleading; this exists purely as a directly-comparable results-table row."
   },
   "archetypes": {
     "TREND_PULLBACK": {
@@ -93,14 +94,14 @@
         {
           "date": "2026-02-23",
           "symbol": "AAI.AX",
-          "r_5d": 0.9522778081029195,
-          "ret_5d": 0.06969873870529097
+          "r_5d": 0.9522793006385791,
+          "ret_5d": 0.06969882917061665
         },
         {
           "date": "2026-02-23",
           "symbol": "AAI.AX",
-          "r_5d": 0.9522778081029195,
-          "ret_5d": 0.06969873870529097
+          "r_5d": 0.9522793006385791,
+          "ret_5d": 0.06969882917061665
         },
         {
           "date": "2026-02-24",
@@ -209,47 +210,47 @@
           },
           {
             "date": "2026-02-23",
-            "equity": 1.3627938603672933
+            "equity": 1.362793975619921
           },
           {
             "date": "2026-02-24",
-            "equity": 1.3809242173987273
+            "equity": 1.3809243341846544
           },
           {
             "date": "2026-03-04",
-            "equity": 1.2961434490260388
+            "equity": 1.296143558641985
           },
           {
             "date": "2026-03-05",
-            "equity": 1.1813119417712572
+            "equity": 1.1813120416758056
           },
           {
             "date": "2026-03-09",
-            "equity": 1.2279618345739252
+            "equity": 1.2279619384236944
           },
           {
             "date": "2026-04-21",
-            "equity": 1.150484005539318
+            "equity": 1.1504841028367216
           },
           {
             "date": "2026-04-22",
-            "equity": 1.0891249170938635
+            "equity": 1.0891250092020772
           },
           {
             "date": "2026-08-12",
-            "equity": 1.114418741591458
+            "equity": 1.1144188358387916
           },
           {
             "date": "2026-08-19",
-            "equity": 1.1506043019497127
+            "equity": 1.1506043992572899
           },
           {
             "date": "2026-08-20",
-            "equity": 1.146280662495344
+            "equity": 1.1462807594372673
           },
           {
             "date": "2026-08-24",
-            "equity": 1.1440859334596885
+            "equity": 1.1440860302160014
           }
         ],
         "benchmark": [
@@ -364,91 +365,91 @@
           "date": "2026-02-26",
           "n": 14,
           "win_rate": 0.7142857142857143,
-          "mean_r": 0.5059577430331514
+          "mean_r": 0.5059579562525314
         },
         {
           "date": "2026-03-03",
           "n": 14,
           "win_rate": 0.7142857142857143,
-          "mean_r": 0.5059577430331514
+          "mean_r": 0.5059579562525314
         },
         {
           "date": "2026-03-08",
           "n": 16,
           "win_rate": 0.625,
-          "mean_r": 0.3177130251540075
+          "mean_r": 0.31771321172096495
         },
         {
           "date": "2026-03-13",
           "n": 18,
           "win_rate": 0.5555555555555556,
-          "mean_r": 0.17130046680356223
+          "mean_r": 0.17130063264085774
         },
         {
           "date": "2026-03-18",
           "n": 18,
           "win_rate": 0.5555555555555556,
-          "mean_r": 0.17130046680356223
+          "mean_r": 0.17130063264085774
         },
         {
           "date": "2026-03-23",
           "n": 18,
           "win_rate": 0.5555555555555556,
-          "mean_r": 0.17130046680356223
+          "mean_r": 0.17130063264085774
         },
         {
           "date": "2026-03-28",
           "n": 18,
           "win_rate": 0.5555555555555556,
-          "mean_r": 0.17130046680356223
+          "mean_r": 0.17130063264085774
         },
         {
           "date": "2026-04-02",
           "n": 18,
           "win_rate": 0.5555555555555556,
-          "mean_r": 0.17130046680356223
+          "mean_r": 0.17130063264085774
         },
         {
           "date": "2026-04-07",
           "n": 18,
           "win_rate": 0.5555555555555556,
-          "mean_r": 0.17130046680356223
+          "mean_r": 0.17130063264085774
         },
         {
           "date": "2026-04-12",
           "n": 18,
           "win_rate": 0.5555555555555556,
-          "mean_r": 0.17130046680356223
+          "mean_r": 0.17130063264085774
         },
         {
           "date": "2026-04-17",
           "n": 18,
           "win_rate": 0.5555555555555556,
-          "mean_r": 0.17130046680356223
+          "mean_r": 0.17130063264085774
         },
         {
           "date": "2026-04-22",
           "n": 19,
           "win_rate": 0.47368421052631576,
-          "mean_r": 0.035932093878624866
+          "mean_r": 0.035932250987641655
         },
         {
           "date": "2026-04-27",
           "n": 16,
           "win_rate": 0.4375,
-          "mean_r": -0.017231337179301198
+          "mean_r": -0.01723115061234376
         },
         {
           "date": "2026-05-02",
           "n": 12,
           "win_rate": 0.5,
-          "mean_r": -0.08705346346481146
+          "mean_r": -0.08705321470886822
         },
         {
           "date": "2026-05-07",
           "n": 9,
           "win_rate": 0.3333333333333333,
-          "mean_r": -0.4283021883192156
+          "mean_r": -0.4283018566446246
         },
         {
           "date": "2026-05-12",
@@ -580,10 +581,10 @@
       "changepoint": {
         "changepoint_index": 13,
         "changepoint_date": "2026-02-24",
-        "statistic": 6.027047968074387,
+        "statistic": 6.027049211854106,
         "p_value": 0.095,
         "significant": false,
-        "mean_before": 0.5059577430331514,
+        "mean_before": 0.5059579562525314,
         "mean_after": -0.5272504800653152,
         "n": 24
       },
@@ -630,7 +631,7 @@
           "date": "2026-02-26",
           "real_n": 14,
           "real_win_rate": 0.7142857142857143,
-          "real_mean_r": 0.5059577430331514,
+          "real_mean_r": 0.5059579562525314,
           "band_mean_r": [
             -0.2018179117358613,
             0.27121441429078486
@@ -641,9 +642,9 @@
           "date": "2026-03-03",
           "real_n": 14,
           "real_win_rate": 0.7142857142857143,
-          "real_mean_r": 0.5059577430331514,
+          "real_mean_r": 0.5059579562525314,
           "band_mean_r": [
-            -0.37693983963889055,
+            -0.37693973453846946,
             0.36224598555483434
           ],
           "outside_band": true
@@ -652,7 +653,7 @@
           "date": "2026-03-08",
           "real_n": 16,
           "real_win_rate": 0.625,
-          "real_mean_r": 0.3177130251540075,
+          "real_mean_r": 0.31771321172096495,
           "band_mean_r": [
             -0.29766481126701444,
             0.6696985460675948
@@ -663,10 +664,10 @@
           "date": "2026-03-13",
           "real_n": 18,
           "real_win_rate": 0.5555555555555556,
-          "real_mean_r": 0.17130046680356223,
+          "real_mean_r": 0.17130063264085774,
           "band_mean_r": [
             -0.39056558473891323,
-            0.8411589356779179
+            0.8411584513293597
           ],
           "outside_band": false
         },
@@ -674,10 +675,10 @@
           "date": "2026-03-18",
           "real_n": 18,
           "real_win_rate": 0.5555555555555556,
-          "real_mean_r": 0.17130046680356223,
+          "real_mean_r": 0.17130063264085774,
           "band_mean_r": [
-            -0.3980942897637485,
-            0.9691693962467066
+            -0.39809427271909464,
+            0.9691697670428421
           ],
           "outside_band": false
         },
@@ -685,10 +686,10 @@
           "date": "2026-03-23",
           "real_n": 18,
           "real_win_rate": 0.5555555555555556,
-          "real_mean_r": 0.17130046680356223,
+          "real_mean_r": 0.17130063264085774,
           "band_mean_r": [
             -0.3498399153394305,
-            1.00432331467602
+            1.004323329259345
           ],
           "outside_band": false
         },
@@ -696,10 +697,10 @@
           "date": "2026-03-28",
           "real_n": 18,
           "real_win_rate": 0.5555555555555556,
-          "real_mean_r": 0.17130046680356223,
+          "real_mean_r": 0.17130063264085774,
           "band_mean_r": [
-            -0.362597675417883,
-            0.9353923599102794
+            -0.3625977188404643,
+            0.9353922611517744
           ],
           "outside_band": false
         },
@@ -707,10 +708,10 @@
           "date": "2026-04-02",
           "real_n": 18,
           "real_win_rate": 0.5555555555555556,
-          "real_mean_r": 0.17130046680356223,
+          "real_mean_r": 0.17130063264085774,
           "band_mean_r": [
             -0.4019402144728712,
-            0.8893495500465407
+            0.8893490639268129
           ],
           "outside_band": false
         },
@@ -718,10 +719,10 @@
           "date": "2026-04-07",
           "real_n": 18,
           "real_win_rate": 0.5555555555555556,
-          "real_mean_r": 0.17130046680356223,
+          "real_mean_r": 0.17130063264085774,
           "band_mean_r": [
-            -0.39758378889534357,
-            0.7826270920502563
+            -0.39758373634513305,
+            0.7826269394804605
           ],
           "outside_band": false
         },
@@ -729,10 +730,10 @@
           "date": "2026-04-12",
           "real_n": 18,
           "real_win_rate": 0.5555555555555556,
-          "real_mean_r": 0.17130046680356223,
+          "real_mean_r": 0.17130063264085774,
           "band_mean_r": [
             -0.4579296794735188,
-            0.6530643319028476
+            0.6530643496230705
           ],
           "outside_band": false
         },
@@ -740,10 +741,10 @@
           "date": "2026-04-17",
           "real_n": 18,
           "real_win_rate": 0.5555555555555556,
-          "real_mean_r": 0.17130046680356223,
+          "real_mean_r": 0.17130063264085774,
           "band_mean_r": [
-            -0.4381532688160288,
-            0.5799938961973092
+            -0.43815308716852974,
+            0.5799941789341544
           ],
           "outside_band": false
         },
@@ -751,10 +752,10 @@
           "date": "2026-04-22",
           "real_n": 19,
           "real_win_rate": 0.47368421052631576,
-          "real_mean_r": 0.035932093878624866,
+          "real_mean_r": 0.035932250987641655,
           "band_mean_r": [
-            -0.4741152816508749,
-            0.4959152950393925
+            -0.4741150878935426,
+            0.4959151969690563
           ],
           "outside_band": false
         },
@@ -762,10 +763,10 @@
           "date": "2026-04-27",
           "real_n": 16,
           "real_win_rate": 0.4375,
-          "real_mean_r": -0.017231337179301198,
+          "real_mean_r": -0.01723115061234376,
           "band_mean_r": [
-            -0.4885635019054679,
-            0.5590071231874024
+            -0.48856357020641034,
+            0.5590071587071004
           ],
           "outside_band": false
         },
@@ -773,10 +774,10 @@
           "date": "2026-05-02",
           "real_n": 12,
           "real_win_rate": 0.5,
-          "real_mean_r": -0.08705346346481146,
+          "real_mean_r": -0.08705321470886822,
           "band_mean_r": [
             -0.463911546867204,
-            0.6340906236704379
+            0.634090521393997
           ],
           "outside_band": false
         },
@@ -784,10 +785,10 @@
           "date": "2026-05-07",
           "real_n": 9,
           "real_win_rate": 0.3333333333333333,
-          "real_mean_r": -0.4283021883192156,
+          "real_mean_r": -0.4283018566446246,
           "band_mean_r": [
-            -0.45172125848997635,
-            0.6932319768669531
+            -0.4517212434099758,
+            0.6932321661494846
           ],
           "outside_band": false
         },
@@ -798,7 +799,7 @@
           "real_mean_r": null,
           "band_mean_r": [
             -0.5007167345742844,
-            0.692555850551777
+            0.6925560398343085
           ],
           "outside_band": null
         },
@@ -819,8 +820,8 @@
           "real_win_rate": null,
           "real_mean_r": null,
           "band_mean_r": [
-            -0.5941145933693923,
-            0.7008816103888312
+            -0.5941144978902151,
+            0.7008816228612126
           ],
           "outside_band": null
         },
@@ -831,7 +832,7 @@
           "real_mean_r": null,
           "band_mean_r": [
             -0.6355171742850766,
-            0.6652290533068189
+            0.665229148871748
           ],
           "outside_band": null
         },
@@ -842,7 +843,7 @@
           "real_mean_r": null,
           "band_mean_r": [
             -0.6897241571642422,
-            0.594927340788697
+            0.594927417734646
           ],
           "outside_band": null
         },
@@ -852,7 +853,7 @@
           "real_win_rate": null,
           "real_mean_r": null,
           "band_mean_r": [
-            -0.7816102679503645,
+            -0.7816102325290721,
             0.5291360435916463
           ],
           "outside_band": null
@@ -863,7 +864,7 @@
           "real_win_rate": null,
           "real_mean_r": null,
           "band_mean_r": [
-            -0.7826942582508937,
+            -0.7826940899997545,
             0.55572783015389
           ],
           "outside_band": null
@@ -1004,10 +1005,10 @@
         "reason": "4/17 scored windows (24%) fell outside the random-entry noise band, and the CUSUM change-point test (p=0.0950) did not find a significant break. Apparent ups and downs in the rolling metric are consistent with what a random-entry baseline under the same risk/regime rules would also produce.",
         "changepoint": {
           "changepoint_index": 13,
-          "statistic": 6.027047968074387,
+          "statistic": 6.027049211854106,
           "p_value": 0.095,
           "significant": false,
-          "mean_before": 0.5059577430331514,
+          "mean_before": 0.5059579562525314,
           "mean_after": -0.5272504800653152,
           "n": 24
         }
@@ -1100,7 +1101,7 @@
       "noise_band": [],
       "verdict": {
         "verdict": "insufficient data",
-        "reason": "Only 5 computable trades in the entire history -- too few for a meaningful rolling-window/change-point analysis (minimum 10 needed for even a single candidate break test). This is itself informative: MOMENTUM has essentially never had enough regime-gated opportunity to generate a testable track record.",
+        "reason": "Only 5 computable trades in the entire history -- too few for a meaningful rolling-window/change-point analysis (minimum 10 needed for even a single candidate break test). This is itself informative: Momentum Breakout has essentially never had enough regime-gated opportunity to generate a testable track record.",
         "changepoint": null
       },
       "hypotheses": []
@@ -2826,7 +2827,7 @@
           "real_win_rate": 0.1,
           "real_mean_r": -0.8009901812362656,
           "band_mean_r": [
-            -0.7810963283161738,
+            -0.7810963285903931,
             -0.2546396125053603
           ],
           "outside_band": true
@@ -2838,7 +2839,7 @@
           "real_mean_r": -0.40582258534097215,
           "band_mean_r": [
             -0.7962438482454939,
-            0.4779194961940176
+            0.47791820813704616
           ],
           "outside_band": false
         },
@@ -2860,7 +2861,7 @@
           "real_mean_r": -0.3966826105854652,
           "band_mean_r": [
             -0.7913811983711915,
-            0.530929864003719
+            0.5309297531540753
           ],
           "outside_band": false
         },
@@ -2903,8 +2904,8 @@
           "real_win_rate": 0.3055555555555556,
           "real_mean_r": -0.26737490628036603,
           "band_mean_r": [
-            -0.7465985579610492,
-            0.7882951936202643
+            -0.7465985722414056,
+            0.7882960885793104
           ],
           "outside_band": false
         },
@@ -2914,8 +2915,8 @@
           "real_win_rate": 0.3055555555555556,
           "real_mean_r": -0.26737490628036603,
           "band_mean_r": [
-            -0.7374023588627011,
-            0.7102743345310343
+            -0.7374023437545657,
+            0.7102750972171262
           ],
           "outside_band": false
         },
@@ -2925,8 +2926,8 @@
           "real_win_rate": 0.2972972972972973,
           "real_mean_r": -0.27274858146518105,
           "band_mean_r": [
-            -0.7011657536796007,
-            0.538811123245557
+            -0.701165827346889,
+            0.5388119756964834
           ],
           "outside_band": false
         },
@@ -2936,8 +2937,8 @@
           "real_win_rate": 0.2894736842105263,
           "real_mean_r": -0.2882842721094331,
           "band_mean_r": [
-            -0.6696468429720774,
-            0.450695630801579
+            -0.6696467396017186,
+            0.45069576375400106
           ],
           "outside_band": false
         },
@@ -2947,8 +2948,8 @@
           "real_win_rate": 0.3170731707317073,
           "real_mean_r": -0.2491396847697071,
           "band_mean_r": [
-            -0.6288053733461064,
-            0.3587444607747247
+            -0.6288053717372861,
+            0.3587452170011563
           ],
           "outside_band": false
         },
@@ -2959,7 +2960,7 @@
           "real_mean_r": -0.11418768250771937,
           "band_mean_r": [
             -0.5811069223138506,
-            0.46208292210928803
+            0.4620828739290071
           ],
           "outside_band": false
         },
@@ -2970,7 +2971,7 @@
           "real_mean_r": -0.025882322568103612,
           "band_mean_r": [
             -0.5812578747439473,
-            0.5486097153478044
+            0.5486097004006595
           ],
           "outside_band": false
         },
@@ -2980,8 +2981,8 @@
           "real_win_rate": 0.4117647058823529,
           "real_mean_r": -0.05703149395393602,
           "band_mean_r": [
-            -0.5346877087482723,
-            0.5471617549313942
+            -0.5346877594304276,
+            0.547161769151448
           ],
           "outside_band": false
         },
@@ -2991,8 +2992,8 @@
           "real_win_rate": 0.4489795918367347,
           "real_mean_r": 0.026099332858030816,
           "band_mean_r": [
-            -0.4919476838936087,
-            0.5388831932713869
+            -0.4919475905763975,
+            0.5388831909970934
           ],
           "outside_band": false
         },
@@ -3002,8 +3003,8 @@
           "real_win_rate": 0.4489795918367347,
           "real_mean_r": -0.02907643813101852,
           "band_mean_r": [
-            -0.49118391333305983,
-            0.5467189103662635
+            -0.49118391097423997,
+            0.5467188674318194
           ],
           "outside_band": false
         },
@@ -3013,8 +3014,8 @@
           "real_win_rate": 0.46296296296296297,
           "real_mean_r": -0.02389499654435138,
           "band_mean_r": [
-            -0.45538796961084654,
-            0.5072309047575927
+            -0.45538799007516095,
+            0.507230902497885
           ],
           "outside_band": false
         },
@@ -3025,7 +3026,7 @@
           "real_mean_r": 0.0007533191172702194,
           "band_mean_r": [
             -0.4482404490069912,
-            0.4855629193094316
+            0.48556291703513815
           ],
           "outside_band": false
         },
@@ -3036,7 +3037,7 @@
           "real_mean_r": 0.062023930491796914,
           "band_mean_r": [
             -0.4314264657450947,
-            0.4165568123847064
+            0.41655677037345246
           ],
           "outside_band": false
         },
@@ -3242,6 +3243,1471 @@
         }
       },
       "hypotheses": []
+    },
+    "PEAD": {
+      "archetype": "PEAD",
+      "n_trades": 0,
+      "trades": [],
+      "equity_curve": {
+        "strategy": [],
+        "benchmark": []
+      },
+      "rolling_edge": [],
+      "changepoint": null,
+      "noise_band": [],
+      "verdict": {
+        "verdict": "insufficient data",
+        "reason": "Only 0 computable trades in the entire history -- too few for a meaningful rolling-window/change-point analysis (minimum 10 needed for even a single candidate break test). This is itself informative: Post-Earnings Drift has essentially never had enough regime-gated opportunity to generate a testable track record.",
+        "changepoint": null
+      },
+      "hypotheses": []
+    },
+    "HIGH52W_MOMENTUM": {
+      "archetype": "HIGH52W_MOMENTUM",
+      "n_trades": 0,
+      "trades": [],
+      "equity_curve": {
+        "strategy": [],
+        "benchmark": []
+      },
+      "rolling_edge": [],
+      "changepoint": null,
+      "noise_band": [],
+      "verdict": {
+        "verdict": "insufficient data",
+        "reason": "Only 0 computable trades in the entire history -- too few for a meaningful rolling-window/change-point analysis (minimum 10 needed for even a single candidate break test). This is itself informative: 52-Week-High Momentum has essentially never had enough regime-gated opportunity to generate a testable track record.",
+        "changepoint": null
+      },
+      "hypotheses": []
+    },
+    "GAP_FADE_CONTINUATION": {
+      "archetype": "GAP_FADE_CONTINUATION",
+      "n_trades": 0,
+      "trades": [],
+      "equity_curve": {
+        "strategy": [],
+        "benchmark": []
+      },
+      "rolling_edge": [],
+      "changepoint": null,
+      "noise_band": [],
+      "verdict": {
+        "verdict": "insufficient data",
+        "reason": "Only 0 computable trades in the entire history -- too few for a meaningful rolling-window/change-point analysis (minimum 10 needed for even a single candidate break test). This is itself informative: Gap Fade/Continuation has essentially never had enough regime-gated opportunity to generate a testable track record.",
+        "changepoint": null
+      },
+      "hypotheses": []
+    },
+    "BASELINE_RANDOM": {
+      "archetype": "BASELINE_RANDOM",
+      "n_trades": 50,
+      "trades": [
+        {
+          "date": "2026-02-06",
+          "symbol": "GMD.AX",
+          "r_5d": 0.8181817722057826,
+          "ret_5d": 0.03308267474235205
+        },
+        {
+          "date": "2026-02-09",
+          "symbol": "AGL.AX",
+          "r_5d": 3.3890727728268386,
+          "ret_5d": 0.17865167421467243
+        },
+        {
+          "date": "2026-02-10",
+          "symbol": "CBA.AX",
+          "r_5d": 2.3515385292542734,
+          "ret_5d": 0.12151947609546387
+        },
+        {
+          "date": "2026-02-11",
+          "symbol": "LYC.AX",
+          "r_5d": 0.8467743408543491,
+          "ret_5d": -0.01586294393205967
+        },
+        {
+          "date": "2026-02-12",
+          "symbol": "A200.AX",
+          "r_5d": 0.1582247303203342,
+          "ret_5d": 0.006706508676957101
+        },
+        {
+          "date": "2026-02-13",
+          "symbol": "BSL.AX",
+          "r_5d": 0.22312891747500474,
+          "ret_5d": -0.00895571683305807
+        },
+        {
+          "date": "2026-02-16",
+          "symbol": "ORI.AX",
+          "r_5d": -1.0,
+          "ret_5d": -0.049008169430694304
+        },
+        {
+          "date": "2026-02-17",
+          "symbol": "FMG.AX",
+          "r_5d": -0.06906795843272284,
+          "ret_5d": 0.004975109300680902
+        },
+        {
+          "date": "2026-02-18",
+          "symbol": "QUB.AX",
+          "r_5d": 0.0,
+          "ret_5d": 0.0
+        },
+        {
+          "date": "2026-02-19",
+          "symbol": "A200.AX",
+          "r_5d": 0.2254017898293528,
+          "ret_5d": 0.012070481763799545
+        },
+        {
+          "date": "2026-02-20",
+          "symbol": "TLS.AX",
+          "r_5d": 0.8099000385074686,
+          "ret_5d": 0.034386378139324325
+        },
+        {
+          "date": "2026-02-23",
+          "symbol": "BSL.AX",
+          "r_5d": -1.0,
+          "ret_5d": -0.026166893675770297
+        },
+        {
+          "date": "2026-02-24",
+          "symbol": "NST.AX",
+          "r_5d": 0.17739805022547825,
+          "ret_5d": 0.03192204754871053
+        },
+        {
+          "date": "2026-02-25",
+          "symbol": "STO.AX",
+          "r_5d": 1.3864302857370834,
+          "ret_5d": 0.06304983999015445
+        },
+        {
+          "date": "2026-02-26",
+          "symbol": "EVN.AX",
+          "r_5d": -0.5381296205524364,
+          "ret_5d": -0.029873184361090654
+        },
+        {
+          "date": "2026-02-27",
+          "symbol": "QAN.AX",
+          "r_5d": -1.0,
+          "ret_5d": -0.1035175028304759
+        },
+        {
+          "date": "2026-03-02",
+          "symbol": "APA.AX",
+          "r_5d": -0.17315994912974603,
+          "ret_5d": -0.022411954271296497
+        },
+        {
+          "date": "2026-03-03",
+          "symbol": "PDN.AX",
+          "r_5d": -1.0,
+          "ret_5d": -0.12196913220329819
+        },
+        {
+          "date": "2026-03-04",
+          "symbol": "AIA.AX",
+          "r_5d": -1.0,
+          "ret_5d": -0.0637450186488715
+        },
+        {
+          "date": "2026-03-05",
+          "symbol": "ILU.AX",
+          "r_5d": -1.0,
+          "ret_5d": 0.04347827380164526
+        },
+        {
+          "date": "2026-03-06",
+          "symbol": "WOW.AX",
+          "r_5d": 0.11824272621976072,
+          "ret_5d": -0.007224287971790533
+        },
+        {
+          "date": "2026-03-09",
+          "symbol": "A2M.AX",
+          "r_5d": -0.5936548612688162,
+          "ret_5d": -0.005246557180063061
+        },
+        {
+          "date": "2026-04-09",
+          "symbol": "EVN.AX",
+          "r_5d": -1.0,
+          "ret_5d": -0.005028713681074604
+        },
+        {
+          "date": "2026-04-10",
+          "symbol": "A200.AX",
+          "r_5d": 0.03487119616227734,
+          "ret_5d": -0.0014038478225263384
+        },
+        {
+          "date": "2026-04-13",
+          "symbol": "COL.AX",
+          "r_5d": 0.19468965454962947,
+          "ret_5d": 0.0026361803751762114
+        },
+        {
+          "date": "2026-04-14",
+          "symbol": "AGL.AX",
+          "r_5d": -1.0,
+          "ret_5d": -0.036922986360263255
+        },
+        {
+          "date": "2026-04-15",
+          "symbol": "EVN.AX",
+          "r_5d": -1.0,
+          "ret_5d": -0.08650519145325641
+        },
+        {
+          "date": "2026-04-16",
+          "symbol": "SOL.AX",
+          "r_5d": -0.4057778941473694,
+          "ret_5d": -0.026089925084245902
+        },
+        {
+          "date": "2026-04-17",
+          "symbol": "TLS.AX",
+          "r_5d": 0.18761719211467887,
+          "ret_5d": 0.009380859605733871
+        },
+        {
+          "date": "2026-04-20",
+          "symbol": "STO.AX",
+          "r_5d": 0.13157885261581304,
+          "ret_5d": 0.013244990031525239
+        },
+        {
+          "date": "2026-04-21",
+          "symbol": "SOL.AX",
+          "r_5d": -0.3957597820922744,
+          "ret_5d": -0.016776916105684436
+        },
+        {
+          "date": "2026-04-22",
+          "symbol": "A200.AX",
+          "r_5d": -0.4870492917280398,
+          "ret_5d": -0.01834307031305804
+        },
+        {
+          "date": "2026-04-23",
+          "symbol": "AAI.AX",
+          "r_5d": -1.0,
+          "ret_5d": -0.07896393513492972
+        },
+        {
+          "date": "2026-07-31",
+          "symbol": "CGF.AX",
+          "r_5d": 0.5344308025166473,
+          "ret_5d": 0.01834859206039252
+        },
+        {
+          "date": "2026-08-03",
+          "symbol": "VGE.AX",
+          "r_5d": 0.3596421060742944,
+          "ret_5d": 0.01809175419053899
+        },
+        {
+          "date": "2026-08-04",
+          "symbol": "ETPMAG.AX",
+          "r_5d": 2.0407097487217465,
+          "ret_5d": 0.09375806461174263
+        },
+        {
+          "date": "2026-08-05",
+          "symbol": "WOW.AX",
+          "r_5d": -0.3486059589636977,
+          "ret_5d": -0.01889612414629316
+        },
+        {
+          "date": "2026-08-06",
+          "symbol": "ALQ.AX",
+          "r_5d": 0.0,
+          "ret_5d": -0.02211826680991924
+        },
+        {
+          "date": "2026-08-07",
+          "symbol": "ALQ.AX",
+          "r_5d": -1.0,
+          "ret_5d": -0.04362697121592174
+        },
+        {
+          "date": "2026-08-10",
+          "symbol": "PRU.AX",
+          "r_5d": 0.3597118908694688,
+          "ret_5d": 0.01071427567880967
+        },
+        {
+          "date": "2026-08-11",
+          "symbol": "IGO.AX",
+          "r_5d": 0.5426357735321604,
+          "ret_5d": 0.01923071985414171
+        },
+        {
+          "date": "2026-08-12",
+          "symbol": "A200.AX",
+          "r_5d": -0.31884396993835745,
+          "ret_5d": -0.014210337543383744
+        },
+        {
+          "date": "2026-08-13",
+          "symbol": "WDS.AX",
+          "r_5d": 0.5502913794370202,
+          "ret_5d": 0.03256532713168636
+        },
+        {
+          "date": "2026-08-14",
+          "symbol": "LYC.AX",
+          "r_5d": -0.04923189603365385,
+          "ret_5d": -0.009168797083295654
+        },
+        {
+          "date": "2026-08-17",
+          "symbol": "IGO.AX",
+          "r_5d": 2.2871679422919162,
+          "ret_5d": 0.07607372616603958
+        },
+        {
+          "date": "2026-08-18",
+          "symbol": "NEM.AX",
+          "r_5d": 1.886053340017616,
+          "ret_5d": 0.10598607269414462
+        },
+        {
+          "date": "2026-08-19",
+          "symbol": "GMD.AX",
+          "r_5d": 4.123422842733216,
+          "ret_5d": 0.18457301795350967
+        },
+        {
+          "date": "2026-08-20",
+          "symbol": "FMG.AX",
+          "r_5d": -0.311455824722506,
+          "ret_5d": -0.013927576009699294
+        },
+        {
+          "date": "2026-08-21",
+          "symbol": "ILU.AX",
+          "r_5d": 0.43478282120238515,
+          "ret_5d": 0.005706125615919433
+        },
+        {
+          "date": "2026-08-24",
+          "symbol": "ALX.AX",
+          "r_5d": -1.0,
+          "ret_5d": -0.05165289093355252
+        }
+      ],
+      "equity_curve": {
+        "strategy": [
+          {
+            "date": "2026-02-06",
+            "equity": 1.033082674742352
+          },
+          {
+            "date": "2026-02-09",
+            "equity": 1.2176446241872452
+          },
+          {
+            "date": "2026-02-10",
+            "equity": 1.3656121609889371
+          },
+          {
+            "date": "2026-02-11",
+            "equity": 1.3439495318462307
+          },
+          {
+            "date": "2026-02-12",
+            "equity": 1.35296274104295
+          },
+          {
+            "date": "2026-02-13",
+            "equity": 1.3408459898484912
+          },
+          {
+            "date": "2026-02-16",
+            "equity": 1.2751335823975294
+          },
+          {
+            "date": "2026-02-17",
+            "equity": 1.281477511342926
+          },
+          {
+            "date": "2026-02-18",
+            "equity": 1.281477511342926
+          },
+          {
+            "date": "2026-02-19",
+            "equity": 1.29694556227431
+          },
+          {
+            "date": "2026-02-20",
+            "equity": 1.341542822804793
+          },
+          {
+            "date": "2026-02-23",
+            "equity": 1.3064388143989671
+          },
+          {
+            "date": "2026-02-24",
+            "equity": 1.348143016351692
+          },
+          {
+            "date": "2026-02-25",
+            "equity": 1.4331432178165104
+          },
+          {
+            "date": "2026-02-26",
+            "equity": 1.3903306662548311
+          },
+          {
+            "date": "2026-02-27",
+            "equity": 1.2464071075754992
+          },
+          {
+            "date": "2026-03-02",
+            "equity": 1.2184726884770982
+          },
+          {
+            "date": "2026-03-03",
+            "equity": 1.0698566320501268
+          },
+          {
+            "date": "2026-03-04",
+            "equity": 1.0016586010884727
+          },
+          {
+            "date": "2026-03-05",
+            "equity": 1.0452089880023703
+          },
+          {
+            "date": "2026-03-06",
+            "equity": 1.0376580972823375
+          },
+          {
+            "date": "2026-03-09",
+            "equity": 1.0322139647415902
+          },
+          {
+            "date": "2026-04-09",
+            "equity": 1.027023256255298
+          },
+          {
+            "date": "2026-04-10",
+            "equity": 1.02558147189332
+          },
+          {
+            "date": "2026-04-13",
+            "equity": 1.0282850896426696
+          },
+          {
+            "date": "2026-04-14",
+            "equity": 0.9903177333033313
+          },
+          {
+            "date": "2026-04-15",
+            "equity": 0.9046501081843716
+          },
+          {
+            "date": "2026-04-16",
+            "equity": 0.8810478546343864
+          },
+          {
+            "date": "2026-04-17",
+            "equity": 0.8893128408646446
+          },
+          {
+            "date": "2026-04-20",
+            "equity": 0.9010917805768042
+          },
+          {
+            "date": "2026-04-21",
+            "equity": 0.8859742393705453
+          },
+          {
+            "date": "2026-04-22",
+            "equity": 0.8697227516022132
+          },
+          {
+            "date": "2026-04-23",
+            "equity": 0.8010460206593235
+          },
+          {
+            "date": "2026-07-31",
+            "equity": 0.8157440873140022
+          },
+          {
+            "date": "2026-08-03",
+            "equity": 0.8305023288240727
+          },
+          {
+            "date": "2026-08-04",
+            "equity": 0.9083686198301628
+          },
+          {
+            "date": "2026-08-05",
+            "equity": 0.8912039736192551
+          },
+          {
+            "date": "2026-08-06",
+            "equity": 0.8714920863486841
+          },
+          {
+            "date": "2026-08-07",
+            "equity": 0.8334715261826465
+          },
+          {
+            "date": "2026-08-10",
+            "equity": 0.8424015698846057
+          },
+          {
+            "date": "2026-08-11",
+            "equity": 0.8586015584797457
+          },
+          {
+            "date": "2026-08-12",
+            "equity": 0.8464005405184732
+          },
+          {
+            "date": "2026-08-13",
+            "equity": 0.8739638510048935
+          },
+          {
+            "date": "2026-08-14",
+            "equity": 0.865950653796894
+          },
+          {
+            "date": "2026-08-17",
+            "equity": 0.9318267467071418
+          },
+          {
+            "date": "2026-08-18",
+            "equity": 1.0305874040219933
+          },
+          {
+            "date": "2026-08-19",
+            "equity": 1.2208060314472056
+          },
+          {
+            "date": "2026-08-20",
+            "equity": 1.2038031626511252
+          },
+          {
+            "date": "2026-08-21",
+            "equity": 1.2106722147140536
+          },
+          {
+            "date": "2026-08-24",
+            "equity": 1.148137494851146
+          }
+        ],
+        "benchmark": [
+          {
+            "date": "2026-02-06",
+            "equity": 1.0
+          },
+          {
+            "date": "2026-02-09",
+            "equity": 1.0233441816607236
+          },
+          {
+            "date": "2026-02-10",
+            "equity": 1.0182115319555438
+          },
+          {
+            "date": "2026-02-11",
+            "equity": 1.0351368738359672
+          },
+          {
+            "date": "2026-02-12",
+            "equity": 1.038432413514931
+          },
+          {
+            "date": "2026-02-13",
+            "equity": 1.0239757267786904
+          },
+          {
+            "date": "2026-02-16",
+            "equity": 1.029625207351894
+          },
+          {
+            "date": "2026-02-17",
+            "equity": 1.0287181461908086
+          },
+          {
+            "date": "2026-02-18",
+            "equity": 1.0342412504593337
+          },
+          {
+            "date": "2026-02-19",
+            "equity": 1.0433355225850829
+          },
+          {
+            "date": "2026-02-20",
+            "equity": 1.0427843783637039
+          },
+          {
+            "date": "2026-02-23",
+            "equity": 1.036422951775946
+          },
+          {
+            "date": "2026-02-24",
+            "equity": 1.0359980717241035
+          },
+          {
+            "date": "2026-02-25",
+            "equity": 1.0481696685430988
+          },
+          {
+            "date": "2026-02-26",
+            "equity": 1.0535665086420871
+          },
+          {
+            "date": "2026-02-27",
+            "equity": 1.056241940987536
+          },
+          {
+            "date": "2026-03-02",
+            "equity": 1.0526708852654536
+          },
+          {
+            "date": "2026-03-03",
+            "equity": 1.042313522903771
+          },
+          {
+            "date": "2026-03-04",
+            "equity": 1.0220926413443838
+          },
+          {
+            "date": "2026-03-05",
+            "equity": 1.026582308147145
+          },
+          {
+            "date": "2026-03-06",
+            "equity": 1.0163283343860954
+          },
+          {
+            "date": "2026-03-09",
+            "equity": 0.9873920853447107
+          },
+          {
+            "date": "2026-04-09",
+            "equity": 1.0303601410704937
+          },
+          {
+            "date": "2026-04-10",
+            "equity": 1.0289132613373393
+          },
+          {
+            "date": "2026-04-13",
+            "equity": 1.02494031326746
+          },
+          {
+            "date": "2026-04-14",
+            "equity": 1.0300845128922334
+          },
+          {
+            "date": "2026-04-15",
+            "equity": 1.0309916861884603
+          },
+          {
+            "date": "2026-04-16",
+            "equity": 1.028270278434921
+          },
+          {
+            "date": "2026-04-17",
+            "equity": 1.0273402295697902
+          },
+          {
+            "date": "2026-04-20",
+            "equity": 1.0280750511532482
+          },
+          {
+            "date": "2026-04-21",
+            "equity": 1.0276272955325023
+          },
+          {
+            "date": "2026-04-22",
+            "equity": 1.0154785742824108
+          },
+          {
+            "date": "2026-04-23",
+            "equity": 1.0097143794592642
+          },
+          {
+            "date": "2026-07-31",
+            "equity": 1.0307734712027425
+          },
+          {
+            "date": "2026-08-03",
+            "equity": 1.035653592568849
+          },
+          {
+            "date": "2026-08-04",
+            "equity": 1.0501791302820838
+          },
+          {
+            "date": "2026-08-05",
+            "equity": 1.0595948938590423
+          },
+          {
+            "date": "2026-08-06",
+            "equity": 1.064624267098731
+          },
+          {
+            "date": "2026-08-07",
+            "equity": 1.063705656018052
+          },
+          {
+            "date": "2026-08-10",
+            "equity": 1.0601460380804213
+          },
+          {
+            "date": "2026-08-11",
+            "equity": 1.0622129130119489
+          },
+          {
+            "date": "2026-08-12",
+            "equity": 1.057482155654566
+          },
+          {
+            "date": "2026-08-13",
+            "equity": 1.0550822393522357
+          },
+          {
+            "date": "2026-08-14",
+            "equity": 1.0466654877525439
+          },
+          {
+            "date": "2026-08-17",
+            "equity": 1.0418427795789797
+          },
+          {
+            "date": "2026-08-18",
+            "equity": 1.0414753127196799
+          },
+          {
+            "date": "2026-08-19",
+            "equity": 1.0396151028542766
+          },
+          {
+            "date": "2026-08-20",
+            "equity": 1.0430598944068226
+          },
+          {
+            "date": "2026-08-21",
+            "equity": 1.0402007846992944
+          },
+          {
+            "date": "2026-08-24",
+            "equity": 1.0452760212119319
+          }
+        ]
+      },
+      "rolling_edge": [
+        {
+          "date": "2026-02-06",
+          "n": 1,
+          "win_rate": null,
+          "mean_r": null
+        },
+        {
+          "date": "2026-02-11",
+          "n": 4,
+          "win_rate": null,
+          "mean_r": null
+        },
+        {
+          "date": "2026-02-16",
+          "n": 7,
+          "win_rate": null,
+          "mean_r": null
+        },
+        {
+          "date": "2026-02-21",
+          "n": 11,
+          "win_rate": 0.7272727272727273,
+          "mean_r": 0.7048322666218801
+        },
+        {
+          "date": "2026-02-26",
+          "n": 15,
+          "win_rate": 0.6666666666666666,
+          "mean_r": 0.5185902432167204
+        },
+        {
+          "date": "2026-03-03",
+          "n": 18,
+          "win_rate": 0.5555555555555556,
+          "mean_r": 0.31142742772894777
+        },
+        {
+          "date": "2026-03-08",
+          "n": 21,
+          "win_rate": 0.5238095238095238,
+          "mean_r": 0.17733030596861052
+        },
+        {
+          "date": "2026-03-13",
+          "n": 22,
+          "win_rate": 0.5,
+          "mean_r": 0.1422855256396366
+        },
+        {
+          "date": "2026-03-18",
+          "n": 22,
+          "win_rate": 0.5,
+          "mean_r": 0.1422855256396366
+        },
+        {
+          "date": "2026-03-23",
+          "n": 22,
+          "win_rate": 0.5,
+          "mean_r": 0.1422855256396366
+        },
+        {
+          "date": "2026-03-28",
+          "n": 22,
+          "win_rate": 0.5,
+          "mean_r": 0.1422855256396366
+        },
+        {
+          "date": "2026-04-02",
+          "n": 22,
+          "win_rate": 0.5,
+          "mean_r": 0.1422855256396366
+        },
+        {
+          "date": "2026-04-07",
+          "n": 22,
+          "win_rate": 0.5,
+          "mean_r": 0.1422855256396366
+        },
+        {
+          "date": "2026-04-12",
+          "n": 24,
+          "win_rate": 0.5,
+          "mean_r": 0.09021469834309509
+        },
+        {
+          "date": "2026-04-17",
+          "n": 29,
+          "win_rate": 0.4827586206896552,
+          "mean_r": 0.004885576301766245
+        },
+        {
+          "date": "2026-04-22",
+          "n": 31,
+          "win_rate": 0.45161290322580644,
+          "mean_r": -0.04605581550513107
+        },
+        {
+          "date": "2026-04-27",
+          "n": 29,
+          "win_rate": 0.3793103448275862,
+          "mean_r": -0.3108660663308456
+        },
+        {
+          "date": "2026-05-02",
+          "n": 26,
+          "win_rate": 0.34615384615384615,
+          "mean_r": -0.3229411373611486
+        },
+        {
+          "date": "2026-05-07",
+          "n": 22,
+          "win_rate": 0.3181818181818182,
+          "mean_r": -0.4255774291497256
+        },
+        {
+          "date": "2026-05-12",
+          "n": 18,
+          "win_rate": 0.2777777777777778,
+          "mean_r": -0.5215778975946714
+        },
+        {
+          "date": "2026-05-17",
+          "n": 15,
+          "win_rate": 0.3333333333333333,
+          "mean_r": -0.48101614717162267
+        },
+        {
+          "date": "2026-05-22",
+          "n": 12,
+          "win_rate": 0.3333333333333333,
+          "mean_r": -0.4444570778161751
+        },
+        {
+          "date": "2026-05-27",
+          "n": 11,
+          "win_rate": 0.36363636363636365,
+          "mean_r": -0.43089364295684407
+        },
+        {
+          "date": "2026-06-01",
+          "n": 11,
+          "win_rate": 0.36363636363636365,
+          "mean_r": -0.43089364295684407
+        },
+        {
+          "date": "2026-06-06",
+          "n": 11,
+          "win_rate": 0.36363636363636365,
+          "mean_r": -0.43089364295684407
+        },
+        {
+          "date": "2026-06-11",
+          "n": 11,
+          "win_rate": 0.36363636363636365,
+          "mean_r": -0.43089364295684407
+        },
+        {
+          "date": "2026-06-16",
+          "n": 11,
+          "win_rate": 0.36363636363636365,
+          "mean_r": -0.43089364295684407
+        },
+        {
+          "date": "2026-06-21",
+          "n": 11,
+          "win_rate": 0.36363636363636365,
+          "mean_r": -0.43089364295684407
+        },
+        {
+          "date": "2026-06-26",
+          "n": 9,
+          "win_rate": 0.3333333333333333,
+          "mean_r": -0.4194112520763958
+        },
+        {
+          "date": "2026-07-01",
+          "n": 4,
+          "win_rate": null,
+          "mean_r": null
+        },
+        {
+          "date": "2026-07-06",
+          "n": 1,
+          "win_rate": null,
+          "mean_r": null
+        },
+        {
+          "date": "2026-07-11",
+          "n": 0,
+          "win_rate": null,
+          "mean_r": null
+        },
+        {
+          "date": "2026-07-16",
+          "n": 0,
+          "win_rate": null,
+          "mean_r": null
+        },
+        {
+          "date": "2026-07-21",
+          "n": 0,
+          "win_rate": null,
+          "mean_r": null
+        },
+        {
+          "date": "2026-07-26",
+          "n": 0,
+          "win_rate": null,
+          "mean_r": null
+        },
+        {
+          "date": "2026-07-31",
+          "n": 1,
+          "win_rate": null,
+          "mean_r": null
+        },
+        {
+          "date": "2026-08-05",
+          "n": 4,
+          "win_rate": null,
+          "mean_r": null
+        },
+        {
+          "date": "2026-08-10",
+          "n": 7,
+          "win_rate": null,
+          "mean_r": null
+        },
+        {
+          "date": "2026-08-15",
+          "n": 11,
+          "win_rate": 0.5454545454545454,
+          "mean_r": 0.24279453420142075
+        },
+        {
+          "date": "2026-08-20",
+          "n": 15,
+          "win_rate": 0.6,
+          "mean_r": 0.7103952117690581
+        }
+      ],
+      "changepoint": {
+        "changepoint_index": 32,
+        "changepoint_date": "2026-04-23",
+        "statistic": 7.207115751381362,
+        "p_value": 0.3045,
+        "significant": false,
+        "mean_before": -0.04877419722585697,
+        "mean_after": 0.5935712351610739,
+        "n": 50
+      },
+      "noise_band": [
+        {
+          "date": "2026-02-06",
+          "real_n": 1,
+          "real_win_rate": null,
+          "real_mean_r": null,
+          "band_mean_r": null,
+          "outside_band": null
+        },
+        {
+          "date": "2026-02-11",
+          "real_n": 4,
+          "real_win_rate": null,
+          "real_mean_r": null,
+          "band_mean_r": null,
+          "outside_band": null
+        },
+        {
+          "date": "2026-02-16",
+          "real_n": 7,
+          "real_win_rate": null,
+          "real_mean_r": null,
+          "band_mean_r": null,
+          "outside_band": null
+        },
+        {
+          "date": "2026-02-21",
+          "real_n": 11,
+          "real_win_rate": 0.7272727272727273,
+          "real_mean_r": 0.7048322666218801,
+          "band_mean_r": [
+            -0.10549675447876126,
+            0.4165269281485129
+          ],
+          "outside_band": true
+        },
+        {
+          "date": "2026-02-26",
+          "real_n": 15,
+          "real_win_rate": 0.6666666666666666,
+          "real_mean_r": 0.5185902432167204,
+          "band_mean_r": [
+            -0.33991998901740095,
+            0.6135390020231262
+          ],
+          "outside_band": false
+        },
+        {
+          "date": "2026-03-03",
+          "real_n": 18,
+          "real_win_rate": 0.5555555555555556,
+          "real_mean_r": 0.31142742772894777,
+          "band_mean_r": [
+            -0.3778494093566396,
+            0.6317983259424285
+          ],
+          "outside_band": false
+        },
+        {
+          "date": "2026-03-08",
+          "real_n": 21,
+          "real_win_rate": 0.5238095238095238,
+          "real_mean_r": 0.17733030596861052,
+          "band_mean_r": [
+            -0.37538675326673493,
+            0.7194515505284524
+          ],
+          "outside_band": false
+        },
+        {
+          "date": "2026-03-13",
+          "real_n": 22,
+          "real_win_rate": 0.5,
+          "real_mean_r": 0.1422855256396366,
+          "band_mean_r": [
+            -0.2843838528723383,
+            0.6311420291714387
+          ],
+          "outside_band": false
+        },
+        {
+          "date": "2026-03-18",
+          "real_n": 22,
+          "real_win_rate": 0.5,
+          "real_mean_r": 0.1422855256396366,
+          "band_mean_r": [
+            -0.3022260151239938,
+            0.7593867464138319
+          ],
+          "outside_band": false
+        },
+        {
+          "date": "2026-03-23",
+          "real_n": 22,
+          "real_win_rate": 0.5,
+          "real_mean_r": 0.1422855256396366,
+          "band_mean_r": [
+            -0.33851219005189404,
+            0.7071237580527874
+          ],
+          "outside_band": false
+        },
+        {
+          "date": "2026-03-28",
+          "real_n": 22,
+          "real_win_rate": 0.5,
+          "real_mean_r": 0.1422855256396366,
+          "band_mean_r": [
+            -0.2539881719008363,
+            0.741949743303838
+          ],
+          "outside_band": false
+        },
+        {
+          "date": "2026-04-02",
+          "real_n": 22,
+          "real_win_rate": 0.5,
+          "real_mean_r": 0.1422855256396366,
+          "band_mean_r": [
+            -0.312065632395919,
+            0.647524210745965
+          ],
+          "outside_band": false
+        },
+        {
+          "date": "2026-04-07",
+          "real_n": 22,
+          "real_win_rate": 0.5,
+          "real_mean_r": 0.1422855256396366,
+          "band_mean_r": [
+            -0.3108334624755563,
+            0.5807892000597765
+          ],
+          "outside_band": false
+        },
+        {
+          "date": "2026-04-12",
+          "real_n": 24,
+          "real_win_rate": 0.5,
+          "real_mean_r": 0.09021469834309509,
+          "band_mean_r": [
+            -0.308012613166732,
+            0.47379894837192826
+          ],
+          "outside_band": false
+        },
+        {
+          "date": "2026-04-17",
+          "real_n": 29,
+          "real_win_rate": 0.4827586206896552,
+          "real_mean_r": 0.004885576301766245,
+          "band_mean_r": [
+            -0.33157412068426434,
+            0.4071260028530437
+          ],
+          "outside_band": false
+        },
+        {
+          "date": "2026-04-22",
+          "real_n": 31,
+          "real_win_rate": 0.45161290322580644,
+          "real_mean_r": -0.04605581550513107,
+          "band_mean_r": [
+            -0.31719960088504523,
+            0.4003992600557229
+          ],
+          "outside_band": false
+        },
+        {
+          "date": "2026-04-27",
+          "real_n": 29,
+          "real_win_rate": 0.3793103448275862,
+          "real_mean_r": -0.3108660663308456,
+          "band_mean_r": [
+            -0.27460397244139084,
+            0.4293831534050205
+          ],
+          "outside_band": true
+        },
+        {
+          "date": "2026-05-02",
+          "real_n": 26,
+          "real_win_rate": 0.34615384615384615,
+          "real_mean_r": -0.3229411373611486,
+          "band_mean_r": [
+            -0.24172376195534512,
+            0.4887822098177713
+          ],
+          "outside_band": true
+        },
+        {
+          "date": "2026-05-07",
+          "real_n": 22,
+          "real_win_rate": 0.3181818181818182,
+          "real_mean_r": -0.4255774291497256,
+          "band_mean_r": [
+            -0.2280409967743891,
+            0.5231080385770436
+          ],
+          "outside_band": true
+        },
+        {
+          "date": "2026-05-12",
+          "real_n": 18,
+          "real_win_rate": 0.2777777777777778,
+          "real_mean_r": -0.5215778975946714,
+          "band_mean_r": [
+            -0.24359934017654555,
+            0.47539755714946585
+          ],
+          "outside_band": true
+        },
+        {
+          "date": "2026-05-17",
+          "real_n": 15,
+          "real_win_rate": 0.3333333333333333,
+          "real_mean_r": -0.48101614717162267,
+          "band_mean_r": [
+            -0.27170490972229633,
+            0.4736529034147382
+          ],
+          "outside_band": true
+        },
+        {
+          "date": "2026-05-22",
+          "real_n": 12,
+          "real_win_rate": 0.3333333333333333,
+          "real_mean_r": -0.4444570778161751,
+          "band_mean_r": [
+            -0.3153325309919256,
+            0.457668071551785
+          ],
+          "outside_band": true
+        },
+        {
+          "date": "2026-05-27",
+          "real_n": 11,
+          "real_win_rate": 0.36363636363636365,
+          "real_mean_r": -0.43089364295684407,
+          "band_mean_r": [
+            -0.3265895193151366,
+            0.440955761833313
+          ],
+          "outside_band": true
+        },
+        {
+          "date": "2026-06-01",
+          "real_n": 11,
+          "real_win_rate": 0.36363636363636365,
+          "real_mean_r": -0.43089364295684407,
+          "band_mean_r": [
+            -0.31610895266318495,
+            0.4304562777175524
+          ],
+          "outside_band": true
+        },
+        {
+          "date": "2026-06-06",
+          "real_n": 11,
+          "real_win_rate": 0.36363636363636365,
+          "real_mean_r": -0.43089364295684407,
+          "band_mean_r": [
+            -0.34838158833727845,
+            0.44599714295622145
+          ],
+          "outside_band": true
+        },
+        {
+          "date": "2026-06-11",
+          "real_n": 11,
+          "real_win_rate": 0.36363636363636365,
+          "real_mean_r": -0.43089364295684407,
+          "band_mean_r": [
+            -0.362669108324316,
+            0.4775621440776759
+          ],
+          "outside_band": true
+        },
+        {
+          "date": "2026-06-16",
+          "real_n": 11,
+          "real_win_rate": 0.36363636363636365,
+          "real_mean_r": -0.43089364295684407,
+          "band_mean_r": [
+            -0.3391226684337889,
+            0.5376925230263737
+          ],
+          "outside_band": true
+        },
+        {
+          "date": "2026-06-21",
+          "real_n": 11,
+          "real_win_rate": 0.36363636363636365,
+          "real_mean_r": -0.43089364295684407,
+          "band_mean_r": [
+            -0.3226297385143744,
+            0.6093004799220558
+          ],
+          "outside_band": true
+        },
+        {
+          "date": "2026-06-26",
+          "real_n": 9,
+          "real_win_rate": 0.3333333333333333,
+          "real_mean_r": -0.4194112520763958,
+          "band_mean_r": [
+            -0.3390191071200315,
+            0.6692732209233547
+          ],
+          "outside_band": true
+        },
+        {
+          "date": "2026-07-01",
+          "real_n": 4,
+          "real_win_rate": null,
+          "real_mean_r": null,
+          "band_mean_r": [
+            -0.36730181634183373,
+            0.7418264441532882
+          ],
+          "outside_band": null
+        },
+        {
+          "date": "2026-07-06",
+          "real_n": 1,
+          "real_win_rate": null,
+          "real_mean_r": null,
+          "band_mean_r": [
+            -0.38179968476494397,
+            0.7106791400736903
+          ],
+          "outside_band": null
+        },
+        {
+          "date": "2026-07-11",
+          "real_n": 0,
+          "real_win_rate": null,
+          "real_mean_r": null,
+          "band_mean_r": [
+            -0.4318598680335752,
+            0.6269557867949935
+          ],
+          "outside_band": null
+        },
+        {
+          "date": "2026-07-16",
+          "real_n": 0,
+          "real_win_rate": null,
+          "real_mean_r": null,
+          "band_mean_r": [
+            -0.4649230380005887,
+            0.4282347520564034
+          ],
+          "outside_band": null
+        },
+        {
+          "date": "2026-07-21",
+          "real_n": 0,
+          "real_win_rate": null,
+          "real_mean_r": null,
+          "band_mean_r": [
+            -0.491130919820815,
+            0.36730803297262715
+          ],
+          "outside_band": null
+        },
+        {
+          "date": "2026-07-26",
+          "real_n": 0,
+          "real_win_rate": null,
+          "real_mean_r": null,
+          "band_mean_r": [
+            -0.47958282184232326,
+            0.3694297698445003
+          ],
+          "outside_band": null
+        },
+        {
+          "date": "2026-07-31",
+          "real_n": 1,
+          "real_win_rate": null,
+          "real_mean_r": null,
+          "band_mean_r": [
+            -0.4989280310527333,
+            0.297859063195492
+          ],
+          "outside_band": null
+        },
+        {
+          "date": "2026-08-05",
+          "real_n": 4,
+          "real_win_rate": null,
+          "real_mean_r": null,
+          "band_mean_r": [
+            -0.49688770121339815,
+            0.29437478601936495
+          ],
+          "outside_band": null
+        },
+        {
+          "date": "2026-08-10",
+          "real_n": 7,
+          "real_win_rate": null,
+          "real_mean_r": null,
+          "band_mean_r": [
+            -0.44488169945908107,
+            0.27622851977087237
+          ],
+          "outside_band": null
+        },
+        {
+          "date": "2026-08-15",
+          "real_n": 11,
+          "real_win_rate": 0.5454545454545454,
+          "real_mean_r": 0.24279453420142075,
+          "band_mean_r": [
+            -0.4775483507475538,
+            0.32002235520931827
+          ],
+          "outside_band": false
+        },
+        {
+          "date": "2026-08-20",
+          "real_n": 15,
+          "real_win_rate": 0.6,
+          "real_mean_r": 0.7103952117690581,
+          "band_mean_r": [
+            -0.47416861474737493,
+            0.2736176493344637
+          ],
+          "outside_band": true
+        }
+      ],
+      "verdict": {
+        "verdict": "no edge ever distinguishable from noise",
+        "reason": "15/28 scored windows (54%) fell outside the random-entry noise band, and the CUSUM change-point test (p=0.3045) did not find a significant break. Apparent ups and downs in the rolling metric are consistent with what a random-entry baseline under the same risk/regime rules would also produce.",
+        "changepoint": {
+          "changepoint_index": 32,
+          "statistic": 7.207115751381362,
+          "p_value": 0.3045,
+          "significant": false,
+          "mean_before": -0.04877419722585697,
+          "mean_after": 0.5935712351610739,
+          "n": 50
+        }
+      },
+      "hypotheses": []
     }
   },
   "horizon_analysis": {
@@ -3251,7 +4717,7 @@
       5,
       10
     ],
-    "bonferroni_family_size": 12,
+    "bonferroni_family_size": 28,
     "cells": {
       "TREND_PULLBACK": {
         "1": {
@@ -3291,7 +4757,7 @@
           "changepoint_p_raw": 0.095,
           "changepoint_significant_raw": false,
           "changepoint_date": "2026-02-24",
-          "mean_r_before": 0.5059577430331514,
+          "mean_r_before": 0.5059579562525314,
           "mean_r_after": -0.5272504800653152,
           "n_scored_windows": 17,
           "n_outside_band": 4,
@@ -3311,7 +4777,7 @@
           "n_scored_windows": 16,
           "n_outside_band": 2,
           "fraction_outside_band": 0.125,
-          "changepoint_p_corrected": 0.34800000000000003,
+          "changepoint_p_corrected": 0.812,
           "changepoint_significant_corrected": false
         }
       },
@@ -3438,12 +4904,264 @@
           "changepoint_p_corrected": 1.0,
           "changepoint_significant_corrected": false
         }
+      },
+      "PEAD": {
+        "1": {
+          "horizon_days": 1,
+          "n_trades": 0,
+          "verdict": "insufficient data",
+          "changepoint_p_raw": null,
+          "changepoint_significant_raw": null,
+          "changepoint_date": null,
+          "mean_r_before": null,
+          "mean_r_after": null,
+          "n_scored_windows": 0,
+          "n_outside_band": 0,
+          "fraction_outside_band": null,
+          "changepoint_p_corrected": null,
+          "changepoint_significant_corrected": null
+        },
+        "3": {
+          "horizon_days": 3,
+          "n_trades": 0,
+          "verdict": "insufficient data",
+          "changepoint_p_raw": null,
+          "changepoint_significant_raw": null,
+          "changepoint_date": null,
+          "mean_r_before": null,
+          "mean_r_after": null,
+          "n_scored_windows": 0,
+          "n_outside_band": 0,
+          "fraction_outside_band": null,
+          "changepoint_p_corrected": null,
+          "changepoint_significant_corrected": null
+        },
+        "5": {
+          "horizon_days": 5,
+          "n_trades": 0,
+          "verdict": "insufficient data",
+          "changepoint_p_raw": null,
+          "changepoint_significant_raw": null,
+          "changepoint_date": null,
+          "mean_r_before": null,
+          "mean_r_after": null,
+          "n_scored_windows": 0,
+          "n_outside_band": 0,
+          "fraction_outside_band": null,
+          "changepoint_p_corrected": null,
+          "changepoint_significant_corrected": null
+        },
+        "10": {
+          "horizon_days": 10,
+          "n_trades": 0,
+          "verdict": "insufficient data",
+          "changepoint_p_raw": null,
+          "changepoint_significant_raw": null,
+          "changepoint_date": null,
+          "mean_r_before": null,
+          "mean_r_after": null,
+          "n_scored_windows": 0,
+          "n_outside_band": 0,
+          "fraction_outside_band": null,
+          "changepoint_p_corrected": null,
+          "changepoint_significant_corrected": null
+        }
+      },
+      "HIGH52W_MOMENTUM": {
+        "1": {
+          "horizon_days": 1,
+          "n_trades": 0,
+          "verdict": "insufficient data",
+          "changepoint_p_raw": null,
+          "changepoint_significant_raw": null,
+          "changepoint_date": null,
+          "mean_r_before": null,
+          "mean_r_after": null,
+          "n_scored_windows": 0,
+          "n_outside_band": 0,
+          "fraction_outside_band": null,
+          "changepoint_p_corrected": null,
+          "changepoint_significant_corrected": null
+        },
+        "3": {
+          "horizon_days": 3,
+          "n_trades": 0,
+          "verdict": "insufficient data",
+          "changepoint_p_raw": null,
+          "changepoint_significant_raw": null,
+          "changepoint_date": null,
+          "mean_r_before": null,
+          "mean_r_after": null,
+          "n_scored_windows": 0,
+          "n_outside_band": 0,
+          "fraction_outside_band": null,
+          "changepoint_p_corrected": null,
+          "changepoint_significant_corrected": null
+        },
+        "5": {
+          "horizon_days": 5,
+          "n_trades": 0,
+          "verdict": "insufficient data",
+          "changepoint_p_raw": null,
+          "changepoint_significant_raw": null,
+          "changepoint_date": null,
+          "mean_r_before": null,
+          "mean_r_after": null,
+          "n_scored_windows": 0,
+          "n_outside_band": 0,
+          "fraction_outside_band": null,
+          "changepoint_p_corrected": null,
+          "changepoint_significant_corrected": null
+        },
+        "10": {
+          "horizon_days": 10,
+          "n_trades": 0,
+          "verdict": "insufficient data",
+          "changepoint_p_raw": null,
+          "changepoint_significant_raw": null,
+          "changepoint_date": null,
+          "mean_r_before": null,
+          "mean_r_after": null,
+          "n_scored_windows": 0,
+          "n_outside_band": 0,
+          "fraction_outside_band": null,
+          "changepoint_p_corrected": null,
+          "changepoint_significant_corrected": null
+        }
+      },
+      "GAP_FADE_CONTINUATION": {
+        "1": {
+          "horizon_days": 1,
+          "n_trades": 0,
+          "verdict": "insufficient data",
+          "changepoint_p_raw": null,
+          "changepoint_significant_raw": null,
+          "changepoint_date": null,
+          "mean_r_before": null,
+          "mean_r_after": null,
+          "n_scored_windows": 0,
+          "n_outside_band": 0,
+          "fraction_outside_band": null,
+          "changepoint_p_corrected": null,
+          "changepoint_significant_corrected": null
+        },
+        "3": {
+          "horizon_days": 3,
+          "n_trades": 0,
+          "verdict": "insufficient data",
+          "changepoint_p_raw": null,
+          "changepoint_significant_raw": null,
+          "changepoint_date": null,
+          "mean_r_before": null,
+          "mean_r_after": null,
+          "n_scored_windows": 0,
+          "n_outside_band": 0,
+          "fraction_outside_band": null,
+          "changepoint_p_corrected": null,
+          "changepoint_significant_corrected": null
+        },
+        "5": {
+          "horizon_days": 5,
+          "n_trades": 0,
+          "verdict": "insufficient data",
+          "changepoint_p_raw": null,
+          "changepoint_significant_raw": null,
+          "changepoint_date": null,
+          "mean_r_before": null,
+          "mean_r_after": null,
+          "n_scored_windows": 0,
+          "n_outside_band": 0,
+          "fraction_outside_band": null,
+          "changepoint_p_corrected": null,
+          "changepoint_significant_corrected": null
+        },
+        "10": {
+          "horizon_days": 10,
+          "n_trades": 0,
+          "verdict": "insufficient data",
+          "changepoint_p_raw": null,
+          "changepoint_significant_raw": null,
+          "changepoint_date": null,
+          "mean_r_before": null,
+          "mean_r_after": null,
+          "n_scored_windows": 0,
+          "n_outside_band": 0,
+          "fraction_outside_band": null,
+          "changepoint_p_corrected": null,
+          "changepoint_significant_corrected": null
+        }
+      },
+      "BASELINE_RANDOM": {
+        "1": {
+          "horizon_days": 1,
+          "n_trades": 54,
+          "verdict": "no edge ever distinguishable from noise",
+          "changepoint_p_raw": 0.9005,
+          "changepoint_significant_raw": false,
+          "changepoint_date": null,
+          "mean_r_before": null,
+          "mean_r_after": null,
+          "n_scored_windows": 29,
+          "n_outside_band": 0,
+          "fraction_outside_band": 0.0,
+          "changepoint_p_corrected": 1.0,
+          "changepoint_significant_corrected": false
+        },
+        "3": {
+          "horizon_days": 3,
+          "n_trades": 52,
+          "verdict": "no edge ever distinguishable from noise",
+          "changepoint_p_raw": 0.5935,
+          "changepoint_significant_raw": false,
+          "changepoint_date": "2026-02-27",
+          "mean_r_before": 0.22270854207595436,
+          "mean_r_after": -0.09687520900644998,
+          "n_scored_windows": 29,
+          "n_outside_band": 1,
+          "fraction_outside_band": 0.034482758620689655,
+          "changepoint_p_corrected": 1.0,
+          "changepoint_significant_corrected": false
+        },
+        "5": {
+          "horizon_days": 5,
+          "n_trades": 50,
+          "verdict": "no edge ever distinguishable from noise",
+          "changepoint_p_raw": 0.3045,
+          "changepoint_significant_raw": false,
+          "changepoint_date": "2026-04-23",
+          "mean_r_before": -0.04877419722585697,
+          "mean_r_after": 0.5935712351610739,
+          "n_scored_windows": 28,
+          "n_outside_band": 15,
+          "fraction_outside_band": 0.5357142857142857,
+          "changepoint_p_corrected": 1.0,
+          "changepoint_significant_corrected": false
+        },
+        "10": {
+          "horizon_days": 10,
+          "n_trades": 45,
+          "verdict": "no edge ever distinguishable from noise",
+          "changepoint_p_raw": 0.142,
+          "changepoint_significant_raw": false,
+          "changepoint_date": "2026-02-18",
+          "mean_r_before": 0.9278751027231635,
+          "mean_r_after": -0.12209404235924387,
+          "n_scored_windows": 27,
+          "n_outside_band": 2,
+          "fraction_outside_band": 0.07407407407407407,
+          "changepoint_p_corrected": 1.0,
+          "changepoint_significant_corrected": false
+        }
       }
     },
     "overall_verdict": {
-      "TREND_PULLBACK": "No edge distinguishable from noise survives Bonferroni correction at any tested horizon, though the raw (uncorrected) p-value was marginal at 10d (raw p=0.0290) -- exactly the kind of result that would look like a finding without correcting for the 12-test family this sweep runs across.",
-      "MOMENTUM": "Insufficient data at every tested horizon (1d=5, 3d=5, 5d=5, 10d=5 trades). Trade count doesn't change with holding-period horizon -- the same signals are just evaluated over a different forward window -- so MOMENTUM's already-thin sample was expected to stay insufficient at every horizon, and it does.",
-      "MEAN_REVERSION": "No edge distinguishable from noise at any tested horizon (1d/3d/5d/10d), before or after multiple-comparisons correction. The 'no edge ever distinguishable from noise' verdict from the primary 5-day analysis is robust to holding-period choice, not an artifact of picking 5 days specifically."
+      "TREND_PULLBACK": "No edge distinguishable from noise survives Bonferroni correction at any tested horizon, though the raw (uncorrected) p-value was marginal at 10d (raw p=0.0290) -- exactly the kind of result that would look like a finding without correcting for the 28-test family this sweep runs across.",
+      "MOMENTUM": "Insufficient data at every tested horizon (1d=5, 3d=5, 5d=5, 10d=5 trades). Trade count doesn't change with holding-period horizon -- the same signals are just evaluated over a different forward window -- so Momentum Breakout's already-thin sample was expected to stay insufficient at every horizon, and it does.",
+      "MEAN_REVERSION": "No edge distinguishable from noise at any tested horizon (1d/3d/5d/10d), before or after multiple-comparisons correction. The 'no edge ever distinguishable from noise' verdict from the primary 5-day analysis is robust to holding-period choice, not an artifact of picking 5 days specifically.",
+      "PEAD": "Insufficient data at every tested horizon (1d=0, 3d=0, 5d=0, 10d=0 trades). Trade count doesn't change with holding-period horizon -- the same signals are just evaluated over a different forward window -- so Post-Earnings Drift's already-thin sample was expected to stay insufficient at every horizon, and it does.",
+      "HIGH52W_MOMENTUM": "Insufficient data at every tested horizon (1d=0, 3d=0, 5d=0, 10d=0 trades). Trade count doesn't change with holding-period horizon -- the same signals are just evaluated over a different forward window -- so 52-Week-High Momentum's already-thin sample was expected to stay insufficient at every horizon, and it does.",
+      "GAP_FADE_CONTINUATION": "Insufficient data at every tested horizon (1d=0, 3d=0, 5d=0, 10d=0 trades). Trade count doesn't change with holding-period horizon -- the same signals are just evaluated over a different forward window -- so Gap Fade/Continuation's already-thin sample was expected to stay insufficient at every horizon, and it does.",
+      "BASELINE_RANDOM": "No edge distinguishable from noise at any tested horizon (1d/3d/5d/10d), before or after multiple-comparisons correction. The 'no edge ever distinguishable from noise' verdict from the primary 5-day analysis is robust to holding-period choice, not an artifact of picking 5 days specifically."
     }
   }
 }
