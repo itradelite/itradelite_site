@@ -232,6 +232,36 @@
       padding: 20px 24px;
     }
     
+    /* Ticker enrichment: company name + external link (Part B1/B2) */
+    .company-name {
+      font-family: 'Inter', -apple-system, system-ui, sans-serif;
+      font-weight: 400;
+      font-size: 11px;
+      color: var(--text-muted, #94a3b8);
+      margin-left: 8px;
+      display: inline-block;
+      max-width: 160px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      vertical-align: middle;
+    }
+    .ext-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 18px;
+      height: 18px;
+      margin-left: 4px;
+      border-radius: 4px;
+      color: var(--text-muted, #94a3b8);
+      text-decoration: none;
+      font-size: 11px;
+      vertical-align: middle;
+      transition: color 0.15s, background 0.15s;
+    }
+    .ext-link:hover { color: var(--accent); background: rgba(59, 130, 246, 0.1); }
+
     .chart-title {
       font-size: 0.8rem;
       text-transform: uppercase;
@@ -370,6 +400,28 @@
   </footer>
 
   <script>
+    function esc(s){ return String(s??'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+
+    // Ticker enrichment (Part B1): symbol -> full company name. Best-effort.
+    window.__NAMES__ = {};
+    async function loadNames(){
+      try{
+        const r = await fetch('/public/ticker_names.json?v=' + Date.now(), { cache: 'no-store' });
+        if (!r.ok) return;
+        window.__NAMES__ = await r.json();
+      }catch(_){ /* enrichment only, never block the page */ }
+    }
+    function companyNameHtml(sym){
+      const name = window.__NAMES__ && window.__NAMES__[sym];
+      if (!name) return "";
+      const n = esc(name);
+      return `<span class="company-name" title="${n}">${n}</span>`;
+    }
+    function extLinkHtml(sym){
+      const href = "https://finance.yahoo.com/quote/" + encodeURIComponent(sym);
+      return `<a class="ext-link" href="${href}" target="_blank" rel="noopener noreferrer" title="View ${esc(sym)} on Yahoo Finance" aria-label="View ${esc(sym)} on Yahoo Finance">↗</a>`;
+    }
+
     const fmtPct = (x) => {
       if (x == null || isNaN(x)) return "—";
       const val = (x * 100).toFixed(2);
@@ -505,7 +557,7 @@
 
     async function main() {
       try {
-        const res = await fetch("/track-record/metrics.json");
+        const [res] = await Promise.all([fetch("/track-record/metrics.json"), loadNames()]);
         const data = await res.json();
         renderKpis(data.summary);
         
@@ -526,7 +578,7 @@
           <tbody>${(data.recent_signals || []).map(r => `
             <tr>
               <td class="mono small muted">${r.date}</td>
-              <td class="mono" style="color:#fff; font-weight:700; letter-spacing:1px;">${r.symbol}</td>
+              <td class="mono" style="color:#fff; font-weight:700; letter-spacing:1px; white-space:nowrap;">${esc(r.symbol)}${extLinkHtml(String(r.symbol||''))}${companyNameHtml(String(r.symbol||''))}</td>
               <td class="small muted">${r.strategy}</td>
               <td class="right mono">$${fmtNum(r.entry_px, 2)}</td>
               <td class="right mono">${fmtPct(r.ret_5d)}</td>
