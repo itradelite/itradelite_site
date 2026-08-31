@@ -65,6 +65,11 @@
     .nav a { text-decoration: none; color: var(--text-muted); }
     .nav a[aria-current="page"] { color: var(--brand-primary); }
 
+    /* Hamburger menu (QA follow-up: mobile nav was display:none with no
+       way to reopen it — see the 540px media query below) */
+    .hamburger { display: none; background: none; border: none; color: var(--text-muted); font-size: 1.4rem; cursor: pointer; padding: 6px; }
+    .hamburger:hover { color: var(--brand-primary); }
+
     /* Buttons */
     .btn {
       display: inline-flex;
@@ -290,15 +295,36 @@
     }
 
     @media (max-width: 860px) {
-      .topbar__inner { flex-wrap: wrap; }
-      .nav { gap: 12px; font-size: 13px; }
       .controls { flex-direction: column; align-items: stretch; }
       select, input { width: 100%; min-width: 0; }
       .briefMeta { align-items: flex-start; }
       .briefMeta__right { width: 100%; justify-content: flex-start; }
     }
-    @media (max-width: 540px) {
-      .nav { display: none; }
+    /* Mobile nav (QA follow-up): collapse into a hamburger-triggered dropdown
+       instead of the old .nav{display:none} with no way to reopen it. */
+    @media (max-width: 768px) {
+      .hamburger { display: block; }
+      .nav {
+        position: fixed;
+        top: 57px;
+        left: 0;
+        right: 0;
+        background: rgba(15, 23, 42, 0.98);
+        backdrop-filter: blur(12px);
+        border-top: 1px solid var(--border);
+        border-bottom: 1px solid var(--border);
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        padding: 0;
+        max-height: 0;
+        overflow: hidden;
+        opacity: 0;
+        transition: max-height 0.25s ease, opacity 0.25s ease;
+        z-index: 99;
+      }
+      .nav.active { max-height: 400px; opacity: 1; padding: 8px 0; }
+      .nav a { padding: 14px 20px; border-bottom: 1px solid rgba(255,255,255,0.05); font-size: 1rem; }
       .topbar-actions { flex-wrap: wrap; }
     }
 
@@ -374,7 +400,7 @@
         <span>iTradeLite <span style="font-weight: 400; opacity: 0.65;">Briefing</span></span>
       </a>
 
-      <nav class="nav" aria-label="Primary">
+      <nav class="nav" id="mainNav" aria-label="Primary">
         <a href="/today/" aria-current="page">Daily Briefing</a>
         <a href="/before-close/">Before-Close</a>
         <a href="/intraday/">Intraday</a>
@@ -387,8 +413,39 @@
         <button class="btn btn--ghost" id="refreshBtn" type="button">Refresh Data</button>
         <a class="btn btn--intraday" href="/intraday/">Live Signals</a>
       </div>
+
+      <button class="hamburger" id="hamburgerBtn" aria-label="Toggle menu" aria-expanded="false">☰</button>
     </div>
   </header>
+
+  <script>
+    // Hamburger menu toggle (mobile nav fix — QA follow-up: .nav was
+    // display:none under 540px with no way to reopen it at all)
+    (function () {
+      const hamburger = document.getElementById('hamburgerBtn');
+      const nav = document.getElementById('mainNav');
+      if (!hamburger || !nav) return;
+      hamburger.addEventListener('click', () => {
+        const open = nav.classList.toggle('active');
+        hamburger.textContent = open ? '✕' : '☰';
+        hamburger.setAttribute('aria-expanded', open ? 'true' : 'false');
+      });
+      document.addEventListener('click', (e) => {
+        if (!e.target.closest('.topbar')) {
+          nav.classList.remove('active');
+          hamburger.textContent = '☰';
+          hamburger.setAttribute('aria-expanded', 'false');
+        }
+      });
+      nav.querySelectorAll('a').forEach((link) => {
+        link.addEventListener('click', () => {
+          nav.classList.remove('active');
+          hamburger.textContent = '☰';
+          hamburger.setAttribute('aria-expanded', 'false');
+        });
+      });
+    })();
+  </script>
 
   <main class="container" style="padding: 16px 0 24px;">
     <!-- Stale data banner (injected by JS when data_fresh === false) -->
