@@ -1,6 +1,6 @@
 {
-  "generated_at_utc": "2026-08-31T11:10:27Z",
-  "as_of_local": "2026-08-31 21:10:27 AEST",
+  "generated_at_utc": "2026-09-01T09:37:12Z",
+  "as_of_local": "2026-09-01 19:37:12 AEST",
   "skipped": false,
   "has_signals": true,
   "source_file": "reports/recommended_orders_latest.csv",
@@ -12,14 +12,14 @@
       "original_entry": 55.5805,
       "original_stop": 54.3452,
       "original_score": 100.0,
-      "current_price": 56.14,
+      "current_price": 55.61,
       "current_price_time": "16:10 AEST",
-      "gap_pct": 1.01,
-      "status": "INVALIDATED",
-      "updated_entry": 56.1961,
-      "updated_stop": 54.3445,
-      "updated_score": 80,
-      "plain_english": "ASX.AX (Trend Pullback) was signaled last night at 55.5805. Currently trading at 56.1400 (+1.01% vs signal). Setup no longer holds \u2014 do not act on last night's plan."
+      "gap_pct": 0.05,
+      "status": "CONFIRMED",
+      "updated_entry": 56.3563,
+      "updated_stop": 54.3672,
+      "updated_score": 100,
+      "plain_english": "ASX.AX (Trend Pullback) was signaled last night at 55.5805. Currently trading at 55.6100 (+0.05% vs signal). Setup unchanged \u2014 still valid."
     },
     {
       "symbol": "ANZ.AX",
@@ -27,14 +27,14 @@
       "original_entry": 36.8668,
       "original_stop": 36.0769,
       "original_score": 100.0,
-      "current_price": 37.2,
+      "current_price": 37.34,
       "current_price_time": "16:10 AEST",
-      "gap_pct": 0.9,
-      "status": "INVALIDATED",
-      "updated_entry": 37.6676,
-      "updated_stop": 36.0697,
-      "updated_score": 80,
-      "plain_english": "ANZ.AX (Trend Pullback) was signaled last night at 36.8668. Currently trading at 37.2000 (+0.90% vs signal). Setup no longer holds \u2014 do not act on last night's plan."
+      "gap_pct": 1.28,
+      "status": "CONFIRMED",
+      "updated_entry": 37.4474,
+      "updated_stop": 36.0772,
+      "updated_score": 100,
+      "plain_english": "ANZ.AX (Trend Pullback) was signaled last night at 36.8668. Currently trading at 37.3400 (+1.28% vs signal). Setup unchanged \u2014 still valid."
     }
   ]
 }
