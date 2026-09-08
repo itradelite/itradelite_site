@@ -1,50 +1,45 @@
 {
-  "generated": "2026-09-07",
-  "valid_for": "2026-09-07",
-  "generated_at_utc": "2026-09-07T06:54:00Z",
+  "generated": "2026-09-08",
+  "valid_for": "2026-09-08",
+  "generated_at_utc": "2026-09-08T06:49:15Z",
   "interval": "15m,30m,1h",
   "universe_size": 147,
   "market_open": false,
   "signals": [
     {
-      "strategy": "Trend Pullback",
+      "strategy": "Mean Reversion",
       "direction": "long",
-      "entry": 151.74,
-      "stop": 151.1857,
-      "target": 152.2414,
+      "entry": 150.14,
+      "stop": 149.9586,
+      "target": 150.5814,
       "score": 100,
-      "signal_time": "16:00 AEST 07 Sep",
-      "note": "Intraday pullback to EMA20 (151.645), RSI14=46.5, vol dry. ATR=0.3343. Stop below 151.1857.",
+      "signal_time": "15:00 AEST 08 Sep",
+      "note": "Below BB lower (150.541), RSI2=0.0. ATR=0.4414. Mean reversion bounce setup.",
       "symbol": "A200.AX",
       "interval": "1h",
       "other_signals": [
         {
-          "interval": "30m",
-          "strategy": "Trend Pullback",
-          "score": 100
-        },
-        {
           "interval": "15m",
-          "strategy": "Trend Pullback",
+          "strategy": "Mean Reversion",
           "score": 100
         }
       ]
     },
     {
-      "strategy": "Momentum Breakout",
+      "strategy": "Mean Reversion",
       "direction": "long",
-      "entry": 0.87,
-      "stop": 0.8429,
-      "target": 0.8807,
+      "entry": 6.81,
+      "stop": 6.8032,
+      "target": 6.8268,
       "score": 100,
-      "signal_time": "16:00 AEST 07 Sep",
-      "note": "Broke 0.870 (30m 20-bar high), RSI14=58.7, vol 1407037 vs avg 523115. ATR=0.0071.",
-      "symbol": "BPT.AX",
+      "signal_time": "15:30 AEST 08 Sep",
+      "note": "Below BB lower (6.819), RSI2=0.0. ATR=0.0168. Mean reversion bounce setup.",
+      "symbol": "AFI.AX",
       "interval": "30m",
       "other_signals": [
         {
           "interval": "15m",
-          "strategy": "Momentum Breakout",
+          "strategy": "Mean Reversion",
           "score": 100
         }
       ]
@@ -52,13 +47,13 @@
     {
       "strategy": "Mean Reversion",
       "direction": "long",
-      "entry": 46.07,
-      "stop": 45.7271,
-      "target": 46.3929,
+      "entry": 6.55,
+      "stop": 6.5489,
+      "target": 6.5811,
       "score": 100,
-      "signal_time": "16:00 AEST 07 Sep",
-      "note": "Below BB lower (46.118), RSI2=0.0. ATR=0.3229. Mean reversion bounce setup.",
-      "symbol": "CDA.AX",
+      "signal_time": "15:00 AEST 08 Sep",
+      "note": "Below BB lower (6.595), RSI2=0.0. ATR=0.0311. Mean reversion bounce setup.",
+      "symbol": "BOQ.AX",
       "interval": "1h",
       "other_signals": [
         {
@@ -76,35 +71,37 @@
     {
       "strategy": "Mean Reversion",
       "direction": "long",
-      "entry": 41.82,
-      "stop": 41.7679,
-      "target": 41.8521,
+      "entry": 9.68,
+      "stop": 9.6393,
+      "target": 9.7307,
       "score": 100,
-      "signal_time": "15:45 AEST 07 Sep",
-      "note": "Below BB lower (41.830), RSI2=0.0. ATR=0.0321. Mean reversion bounce setup.",
+      "signal_time": "15:30 AEST 08 Sep",
+      "note": "Below BB lower (9.686), RSI2=0.0. ATR=0.0507. Mean reversion bounce setup.",
+      "symbol": "CGF.AX",
+      "interval": "30m",
+      "other_signals": [
+        {
+          "interval": "15m",
+          "strategy": "Mean Reversion",
+          "score": 100
+        }
+      ]
+    },
+    {
+      "strategy": "Mean Reversion",
+      "direction": "long",
+      "entry": 41.67,
+      "stop": 41.6057,
+      "target": 41.7443,
+      "score": 100,
+      "signal_time": "15:00 AEST 08 Sep",
+      "note": "Below BB lower (41.732), RSI2=0.0. ATR=0.0743. Mean reversion bounce setup.",
       "symbol": "DHHF.AX",
-      "interval": "15m"
-    },
-    {
-      "strategy": "Trend Pullback",
-      "direction": "long",
-      "entry": 36.46,
-      "stop": 36.3307,
-      "target": 36.5789,
-      "score": 100,
-      "signal_time": "16:00 AEST 07 Sep",
-      "note": "Intraday pullback to EMA20 (36.440), RSI14=48.2, vol dry. ATR=0.0793. Stop below 36.3307.",
-      "symbol": "IOZ.AX",
       "interval": "1h",
       "other_signals": [
         {
-          "interval": "30m",
-          "strategy": "Trend Pullback",
-          "score": 100
-        },
-        {
           "interval": "15m",
-          "strategy": "Trend Pullback",
+          "strategy": "Mean Reversion",
           "score": 100
         }
       ]
@@ -112,59 +109,97 @@
     {
       "strategy": "Mean Reversion",
       "direction": "long",
-      "entry": 5.14,
-      "stop": 5.1236,
-      "target": 5.1564,
+      "entry": 8.17,
+      "stop": 8.1375,
+      "target": 8.2225,
       "score": 100,
-      "signal_time": "16:00 AEST 07 Sep",
-      "note": "Below BB lower (5.141), RSI2=0.0. ATR=0.0164. Mean reversion bounce setup.",
-      "symbol": "S32.AX",
-      "interval": "15m"
-    },
-    {
-      "strategy": "Trend Pullback",
-      "direction": "long",
-      "entry": 81.31,
-      "stop": 81.0075,
-      "target": 81.5687,
-      "score": 100,
-      "signal_time": "16:00 AEST 07 Sep",
-      "note": "Intraday pullback to EMA20 (81.238), RSI14=50.4, vol dry. ATR=0.1725. Stop below 81.0075.",
-      "symbol": "STW.AX",
-      "interval": "1h",
+      "signal_time": "16:00 AEST 08 Sep",
+      "note": "Below BB lower (8.187), RSI2=0.0. ATR=0.0525. Mean reversion bounce setup.",
+      "symbol": "IGO.AX",
+      "interval": "30m",
       "other_signals": [
         {
-          "interval": "30m",
-          "strategy": "Trend Pullback",
-          "score": 100
-        },
-        {
           "interval": "15m",
-          "strategy": "Trend Pullback",
+          "strategy": "Mean Reversion",
           "score": 100
         }
       ]
     },
     {
-      "strategy": "Trend Pullback",
+      "strategy": "Mean Reversion",
       "direction": "long",
-      "entry": 112.72,
-      "stop": 112.285,
-      "target": 113.0875,
+      "entry": 71.0,
+      "stop": 70.9482,
+      "target": 71.0818,
       "score": 100,
-      "signal_time": "16:00 AEST 07 Sep",
-      "note": "Intraday pullback to EMA20 (112.635), RSI14=48.7, vol dry. ATR=0.2450. Stop below 112.2850.",
+      "signal_time": "16:00 AEST 08 Sep",
+      "note": "Below BB lower (71.059), RSI2=0.0. ATR=0.0818. Mean reversion bounce setup.",
+      "symbol": "IVV.AX",
+      "interval": "30m",
+      "other_signals": [
+        {
+          "interval": "15m",
+          "strategy": "Mean Reversion",
+          "score": 100
+        }
+      ]
+    },
+    {
+      "strategy": "Mean Reversion",
+      "direction": "long",
+      "entry": 59.55,
+      "stop": 59.5079,
+      "target": 59.6221,
+      "score": 100,
+      "signal_time": "16:00 AEST 08 Sep",
+      "note": "Below BB lower (59.594), RSI2=0.0. ATR=0.0721. Mean reversion bounce setup.",
+      "symbol": "NDQ.AX",
+      "interval": "15m"
+    },
+    {
+      "strategy": "Mean Reversion",
+      "direction": "long",
+      "entry": 46.58,
+      "stop": 46.5711,
+      "target": 46.6189,
+      "score": 100,
+      "signal_time": "16:00 AEST 08 Sep",
+      "note": "Below BB lower (46.635), RSI2=0.0. ATR=0.0389. Mean reversion bounce setup.",
+      "symbol": "NWS.AX",
+      "interval": "15m"
+    },
+    {
+      "strategy": "Mean Reversion",
+      "direction": "long",
+      "entry": 80.45,
+      "stop": 80.375,
+      "target": 80.525,
+      "score": 100,
+      "signal_time": "15:45 AEST 08 Sep",
+      "note": "Below BB lower (80.472), RSI2=0.0. ATR=0.0750. Mean reversion bounce setup.",
+      "symbol": "STW.AX",
+      "interval": "15m"
+    },
+    {
+      "strategy": "Mean Reversion",
+      "direction": "long",
+      "entry": 111.5,
+      "stop": 111.3829,
+      "target": 111.8271,
+      "score": 100,
+      "signal_time": "15:00 AEST 08 Sep",
+      "note": "Below BB lower (111.815), RSI2=0.0. ATR=0.3271. Mean reversion bounce setup.",
       "symbol": "VAS.AX",
       "interval": "1h",
       "other_signals": [
         {
           "interval": "30m",
-          "strategy": "Trend Pullback",
+          "strategy": "Mean Reversion",
           "score": 100
         },
         {
           "interval": "15m",
-          "strategy": "Trend Pullback",
+          "strategy": "Mean Reversion",
           "score": 100
         }
       ]
@@ -172,13 +207,13 @@
     {
       "strategy": "Mean Reversion",
       "direction": "long",
-      "entry": 2.47,
-      "stop": 2.4654,
-      "target": 2.4846,
+      "entry": 93.69,
+      "stop": 93.6086,
+      "target": 93.9114,
       "score": 100,
-      "signal_time": "16:00 AEST 07 Sep",
-      "note": "Below BB lower (2.483), RSI2=0.0. ATR=0.0146. Mean reversion bounce setup.",
-      "symbol": "VCX.AX",
+      "signal_time": "15:30 AEST 08 Sep",
+      "note": "Below BB lower (93.808), RSI2=4.0. ATR=0.2214. Mean reversion bounce setup.",
+      "symbol": "VGE.AX",
       "interval": "30m",
       "other_signals": [
         {
@@ -189,87 +224,226 @@
       ]
     },
     {
-      "strategy": "Trend Pullback",
+      "strategy": "Mean Reversion",
       "direction": "long",
-      "entry": 93.98,
-      "stop": 93.7857,
-      "target": 94.2264,
+      "entry": 159.22,
+      "stop": 159.09,
+      "target": 159.45,
       "score": 100,
-      "signal_time": "15:30 AEST 07 Sep",
-      "note": "Intraday pullback to EMA20 (93.975), RSI14=49.1, vol dry. ATR=0.1643. Stop below 93.7857.",
-      "symbol": "VGE.AX",
+      "signal_time": "16:00 AEST 08 Sep",
+      "note": "Below BB lower (159.311), RSI2=0.0. ATR=0.2300. Mean reversion bounce setup.",
+      "symbol": "VGS.AX",
+      "interval": "1h",
+      "other_signals": [
+        {
+          "interval": "30m",
+          "strategy": "Mean Reversion",
+          "score": 100
+        },
+        {
+          "interval": "15m",
+          "strategy": "Mean Reversion",
+          "score": 100
+        }
+      ]
+    },
+    {
+      "strategy": "Mean Reversion",
+      "direction": "long",
+      "entry": 525.0,
+      "stop": 524.6357,
+      "target": 525.4143,
+      "score": 100,
+      "signal_time": "15:45 AEST 08 Sep",
+      "note": "Below BB lower (525.101), RSI2=0.0. ATR=0.4143. Mean reversion bounce setup.",
+      "symbol": "VTS.AX",
+      "interval": "15m"
+    },
+    {
+      "strategy": "Momentum Breakout",
+      "direction": "long",
+      "entry": 32.34,
+      "stop": 32.1014,
+      "target": 32.4579,
+      "score": 100,
+      "signal_time": "15:45 AEST 08 Sep",
+      "note": "Broke 32.335 (15m 20-bar high), RSI14=61.3, vol 193659 vs avg 61169. ATR=0.0786.",
+      "symbol": "WDS.AX",
+      "interval": "15m"
+    },
+    {
+      "strategy": "Mean Reversion",
+      "direction": "long",
+      "entry": 62.55,
+      "stop": 62.5493,
+      "target": 62.8407,
+      "score": 100,
+      "signal_time": "16:00 AEST 08 Sep",
+      "note": "Below BB lower (62.568), RSI2=0.0. ATR=0.2907. Mean reversion bounce setup.",
+      "symbol": "BHP.AX",
       "interval": "30m"
     },
     {
-      "strategy": "Trend Pullback",
+      "strategy": "Mean Reversion",
       "direction": "long",
-      "entry": 86.09,
-      "stop": 85.8871,
-      "target": 86.2593,
+      "entry": 14.65,
+      "stop": 14.51,
+      "target": 14.76,
       "score": 100,
-      "signal_time": "16:00 AEST 07 Sep",
-      "note": "Intraday pullback to EMA20 (86.061), RSI14=53.6, vol dry. ATR=0.1129. Stop below 85.8871.",
-      "symbol": "VHY.AX",
+      "signal_time": "16:00 AEST 08 Sep",
+      "note": "Below BB lower (14.670), RSI2=0.0. ATR=0.1100. Mean reversion bounce setup.",
+      "symbol": "EVN.AX",
       "interval": "30m"
     },
     {
       "strategy": "Mean Reversion",
       "direction": "long",
-      "entry": 173.18,
-      "stop": 172.2682,
-      "target": 174.1118,
+      "entry": 246.86,
+      "stop": 245.87,
+      "target": 247.69,
       "score": 100,
-      "signal_time": "16:00 AEST 07 Sep",
-      "note": "Below BB lower (173.314), RSI2=0.0. ATR=0.9318. Mean reversion bounce setup.",
-      "symbol": "CSL.AX",
-      "interval": "1h"
+      "signal_time": "16:00 AEST 08 Sep",
+      "note": "Below BB lower (247.092), RSI2=9.1. ATR=0.8300. Mean reversion bounce setup.",
+      "symbol": "MQG.AX",
+      "interval": "30m"
     },
     {
       "strategy": "Mean Reversion",
       "direction": "long",
-      "entry": 22.57,
-      "stop": 22.4854,
-      "target": 22.6746,
+      "entry": 76.56,
+      "stop": 76.41,
+      "target": 76.68,
       "score": 100,
-      "signal_time": "16:00 AEST 07 Sep",
-      "note": "Below BB lower (22.570), RSI2=6.7. ATR=0.1046. Mean reversion bounce setup.",
-      "symbol": "QBE.AX",
-      "interval": "1h"
-    },
-    {
-      "strategy": "Mean Reversion",
-      "direction": "long",
-      "entry": 19.11,
-      "stop": 19.0846,
-      "target": 19.2154,
-      "score": 100,
-      "signal_time": "16:00 AEST 07 Sep",
-      "note": "Below BB lower (19.123), RSI2=0.0. ATR=0.1054. Mean reversion bounce setup.",
-      "symbol": "SUN.AX",
-      "interval": "1h"
-    },
-    {
-      "strategy": "Trend Pullback",
-      "direction": "long",
-      "entry": 76.96,
-      "stop": 76.8057,
-      "target": 77.1014,
-      "score": 100,
-      "signal_time": "16:00 AEST 07 Sep",
-      "note": "Intraday pullback to EMA20 (76.923), RSI14=58.5, vol dry. ATR=0.0943. Stop below 76.8057.",
+      "signal_time": "16:00 AEST 08 Sep",
+      "note": "Below BB lower (76.666), RSI2=5.0. ATR=0.1200. Mean reversion bounce setup.",
       "symbol": "VDHG.AX",
+      "interval": "1h",
+      "other_signals": [
+        {
+          "interval": "30m",
+          "strategy": "Mean Reversion",
+          "score": 100
+        }
+      ]
+    },
+    {
+      "strategy": "Mean Reversion",
+      "direction": "long",
+      "entry": 54.62,
+      "stop": 54.2993,
+      "target": 54.8707,
+      "score": 100,
+      "signal_time": "15:00 AEST 08 Sep",
+      "note": "Below BB lower (54.957), RSI2=7.8. ATR=0.2507. Mean reversion bounce setup.",
+      "symbol": "ASX.AX",
       "interval": "1h"
     },
     {
       "strategy": "Mean Reversion",
       "direction": "long",
-      "entry": 112.69,
-      "stop": 112.5721,
-      "target": 113.2579,
+      "entry": 45.63,
+      "stop": 45.1679,
+      "target": 46.0021,
       "score": 100,
-      "signal_time": "16:00 AEST 07 Sep",
-      "note": "Below BB lower (113.007), RSI2=0.0. ATR=0.5679. Mean reversion bounce setup.",
-      "symbol": "XYZ.AX",
+      "signal_time": "16:00 AEST 08 Sep",
+      "note": "Below BB lower (45.765), RSI2=6.9. ATR=0.3721. Mean reversion bounce setup.",
+      "symbol": "CDA.AX",
+      "interval": "1h"
+    },
+    {
+      "strategy": "Mean Reversion",
+      "direction": "long",
+      "entry": 23.31,
+      "stop": 23.2236,
+      "target": 23.4414,
+      "score": 100,
+      "signal_time": "15:00 AEST 08 Sep",
+      "note": "Below BB lower (23.316), RSI2=0.0. ATR=0.1314. Mean reversion bounce setup.",
+      "symbol": "COL.AX",
+      "interval": "1h"
+    },
+    {
+      "strategy": "Mean Reversion",
+      "direction": "long",
+      "entry": 11.77,
+      "stop": 11.7004,
+      "target": 11.8396,
+      "score": 100,
+      "signal_time": "16:00 AEST 08 Sep",
+      "note": "Below BB lower (11.798), RSI2=0.0. ATR=0.0696. Mean reversion bounce setup.",
+      "symbol": "IFT.AX",
+      "interval": "1h"
+    },
+    {
+      "strategy": "Mean Reversion",
+      "direction": "long",
+      "entry": 36.08,
+      "stop": 36.0254,
+      "target": 36.1846,
+      "score": 100,
+      "signal_time": "15:00 AEST 08 Sep",
+      "note": "Below BB lower (36.172), RSI2=0.0. ATR=0.1046. Mean reversion bounce setup.",
+      "symbol": "IOZ.AX",
+      "interval": "1h"
+    },
+    {
+      "strategy": "Mean Reversion",
+      "direction": "long",
+      "entry": 38.93,
+      "stop": 38.8279,
+      "target": 39.0821,
+      "score": 100,
+      "signal_time": "15:00 AEST 08 Sep",
+      "note": "Below BB lower (38.953), RSI2=0.0. ATR=0.1521. Mean reversion bounce setup.",
+      "symbol": "MVW.AX",
+      "interval": "1h"
+    },
+    {
+      "strategy": "Momentum Breakout",
+      "direction": "long",
+      "entry": 1.522,
+      "stop": 1.4779,
+      "target": 1.5402,
+      "score": 100,
+      "signal_time": "15:00 AEST 08 Sep",
+      "note": "Broke 1.515 (1h 20-bar high), RSI14=70.5, vol 988045 vs avg 290685. ATR=0.0121.",
+      "symbol": "ORA.AX",
+      "interval": "1h"
+    },
+    {
+      "strategy": "Mean Reversion",
+      "direction": "long",
+      "entry": 60.81,
+      "stop": 60.7486,
+      "target": 60.9114,
+      "score": 100,
+      "signal_time": "15:00 AEST 08 Sep",
+      "note": "Below BB lower (60.831), RSI2=10.5. ATR=0.1014. Mean reversion bounce setup.",
+      "symbol": "QUAL.AX",
+      "interval": "1h"
+    },
+    {
+      "strategy": "Mean Reversion",
+      "direction": "long",
+      "entry": 78.32,
+      "stop": 78.2121,
+      "target": 78.4979,
+      "score": 100,
+      "signal_time": "15:00 AEST 08 Sep",
+      "note": "Below BB lower (78.450), RSI2=0.0. ATR=0.1779. Mean reversion bounce setup.",
+      "symbol": "SFY.AX",
+      "interval": "1h"
+    },
+    {
+      "strategy": "Mean Reversion",
+      "direction": "long",
+      "entry": 85.36,
+      "stop": 85.1929,
+      "target": 85.5771,
+      "score": 100,
+      "signal_time": "15:00 AEST 08 Sep",
+      "note": "Below BB lower (85.468), RSI2=0.0. ATR=0.2171. Mean reversion bounce setup.",
+      "symbol": "VHY.AX",
       "interval": "1h"
     }
   ]
