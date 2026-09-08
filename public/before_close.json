@@ -1,40 +1,8 @@
 {
-  "generated_at_utc": "2026-09-07T09:46:45Z",
-  "as_of_local": "2026-09-07 19:46:45 AEST",
+  "generated_at_utc": "2026-09-08T09:10:22Z",
+  "as_of_local": "2026-09-08 19:10:22 AEST",
   "skipped": false,
-  "has_signals": true,
-  "source_file": "reports/recommended_orders_latest.csv",
-  "n_signals": 2,
-  "updates": [
-    {
-      "symbol": "ASX.AX",
-      "strategy": "TREND_PULLBACK",
-      "original_entry": 56.2612,
-      "original_stop": 54.5319,
-      "original_score": 100.0,
-      "current_price": 55.88,
-      "current_price_time": "16:10 AEST",
-      "gap_pct": -0.68,
-      "status": "CONFIRMED",
-      "updated_entry": 56.096,
-      "updated_stop": 54.5477,
-      "updated_score": 100,
-      "plain_english": "ASX.AX (Trend Pullback) was signaled last night at 56.2612. Currently trading at 55.8800 (-0.68% vs signal). Setup unchanged \u2014 still valid."
-    },
-    {
-      "symbol": "TNE.AX",
-      "strategy": "MEAN_REVERSION",
-      "original_entry": 30.88,
-      "original_stop": 29.7666,
-      "original_score": 93.0,
-      "current_price": 29.68,
-      "current_price_time": "16:10 AEST",
-      "gap_pct": -3.89,
-      "status": "INVALIDATED",
-      "updated_entry": 29.68,
-      "updated_stop": 28.5109,
-      "updated_score": 100,
-      "plain_english": "TNE.AX (Mean Reversion) was signaled last night at 30.8800. Currently trading at 29.6800 (-3.89% vs signal). Setup no longer holds \u2014 do not act on last night's plan. Price already traded through the original stop (29.7666) today."
-    }
-  ]
+  "has_signals": false,
+  "reason": "no_signals_last_night",
+  "updates": []
 }
