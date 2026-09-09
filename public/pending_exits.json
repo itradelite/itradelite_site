@@ -1,17 +1,17 @@
 {
-  "as_of": "2026-09-04 00:01:29 AEST",
+  "as_of": "2026-09-10 07:35:15 AEST",
   "pending_exits": [
     {
       "symbol": "WOW.AX",
       "category": "profit_take",
       "action": "TAKE_PROFIT_3R",
-      "streak_days": 75,
+      "streak_days": 78,
       "first_flagged_date": "2026-05-20",
-      "last_close": 40.0,
-      "stop": 29.5408,
-      "pnl_%": 27.23,
+      "last_close": 38.8,
+      "stop": 29.6224,
+      "pnl_%": 23.41,
       "status": "WATCH",
-      "as_of": "2026-09-03"
+      "as_of": "2026-09-09"
     }
   ],
   "recent_auto_closes": [],
