@@ -1,6 +1,6 @@
 {
-  "generated_at_utc": "2026-09-08T18:59:48Z",
-  "as_of_local": "2026-09-09 04:59:48 AEST",
+  "generated_at_utc": "2026-09-09T09:15:11Z",
+  "as_of_local": "2026-09-09 19:15:11 AEST",
   "skipped": false,
   "has_signals": true,
   "source_file": "reports/recommended_orders_latest.csv",
@@ -12,14 +12,14 @@
       "original_entry": 15.4855,
       "original_stop": 14.839,
       "original_score": 100.0,
-      "current_price": null,
-      "current_price_time": null,
-      "gap_pct": null,
-      "status": "UNKNOWN",
-      "updated_entry": null,
-      "updated_stop": null,
-      "updated_score": null,
-      "plain_english": "CSC.AX (Trend Pullback) was signaled last night at 15.4855. Currently trading at n/a (n/a vs signal). Could not fetch a live price \u2014 treat last night's plan as unconfirmed. (no intraday price after repeated attempts)"
+      "current_price": 16.0,
+      "current_price_time": "16:10 AEST",
+      "gap_pct": 3.32,
+      "status": "INVALIDATED",
+      "updated_entry": 16.2162,
+      "updated_stop": 14.8305,
+      "updated_score": 50,
+      "plain_english": "CSC.AX (Trend Pullback) was signaled last night at 15.4855. Currently trading at 16.0000 (+3.32% vs signal). Setup no longer holds \u2014 do not act on last night's plan."
     },
     {
       "symbol": "TNE.AX",
@@ -27,14 +27,14 @@
       "original_entry": 29.16,
       "original_stop": 27.9917,
       "original_score": 100.0,
-      "current_price": null,
-      "current_price_time": null,
-      "gap_pct": null,
-      "status": "UNKNOWN",
-      "updated_entry": null,
-      "updated_stop": null,
-      "updated_score": null,
-      "plain_english": "TNE.AX (Mean Reversion) was signaled last night at 29.1600. Currently trading at n/a (n/a vs signal). Could not fetch a live price \u2014 treat last night's plan as unconfirmed. (no intraday price after repeated attempts)"
+      "current_price": 28.94,
+      "current_price_time": "16:10 AEST",
+      "gap_pct": -0.75,
+      "status": "CONFIRMED",
+      "updated_entry": 28.94,
+      "updated_stop": 27.803,
+      "updated_score": 100,
+      "plain_english": "TNE.AX (Mean Reversion) was signaled last night at 29.1600. Currently trading at 28.9400 (-0.75% vs signal). Setup unchanged \u2014 still valid."
     }
   ]
 }
