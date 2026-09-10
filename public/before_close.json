@@ -1,8 +1,40 @@
 {
-  "generated_at_utc": "2026-09-10T02:11:11Z",
-  "as_of_local": "2026-09-10 12:11:11 AEST",
+  "generated_at_utc": "2026-09-10T09:13:55Z",
+  "as_of_local": "2026-09-10 19:13:55 AEST",
   "skipped": false,
-  "has_signals": false,
-  "reason": "no_signals_last_night",
-  "updates": []
+  "has_signals": true,
+  "source_file": "reports/recommended_orders_latest.csv",
+  "n_signals": 2,
+  "updates": [
+    {
+      "symbol": "TNE.AX",
+      "strategy": "MEAN_REVERSION",
+      "original_entry": 28.94,
+      "original_stop": 27.803,
+      "original_score": 100.0,
+      "current_price": 28.56,
+      "current_price_time": "16:10 AEST",
+      "gap_pct": -1.31,
+      "status": "CONFIRMED",
+      "updated_entry": 28.56,
+      "updated_stop": 27.4324,
+      "updated_score": 100,
+      "plain_english": "TNE.AX (Mean Reversion) was signaled last night at 28.9400. Currently trading at 28.5600 (-1.31% vs signal). Setup unchanged \u2014 still valid."
+    },
+    {
+      "symbol": "AMC.AX",
+      "strategy": "MEAN_REVERSION",
+      "original_entry": 61.43,
+      "original_stop": 60.2322,
+      "original_score": 92.0,
+      "current_price": 59.79,
+      "current_price_time": "16:10 AEST",
+      "gap_pct": -2.67,
+      "status": "INVALIDATED",
+      "updated_entry": 59.79,
+      "updated_stop": 58.5365,
+      "updated_score": 100,
+      "plain_english": "AMC.AX (Mean Reversion) was signaled last night at 61.4300. Currently trading at 59.7900 (-2.67% vs signal). Setup no longer holds \u2014 do not act on last night's plan. Price already traded through the original stop (60.2322) today."
+    }
+  ]
 }
