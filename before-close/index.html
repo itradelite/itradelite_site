@@ -147,6 +147,25 @@
     .exp-banner__title { font-weight: 700; font-size: 14px; color: var(--brand-primary); margin-bottom: 3px; }
     .exp-banner__text { font-size: 13px; color: var(--text-muted); }
 
+    /* Shown when this update actually ran well after ASX close (16:00 AEST)
+       instead of "roughly an hour before" as designed — e.g. a delayed cron
+       or a late manual trigger. The re-check itself is still informationally
+       accurate; it's just no longer a pre-close check for that day. */
+    .late-run-banner {
+      background: linear-gradient(90deg, rgba(245,158,11,0.12) 0%, rgba(30,41,59,0) 100%);
+      border: 1px solid rgba(245,158,11,0.35);
+      border-left: 4px solid var(--accent-gold, #f59e0b);
+      border-radius: 12px;
+      padding: 14px 18px;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+    }
+    .late-run-banner__icon { font-size: 20px; flex-shrink: 0; margin-top: 1px; }
+    .late-run-banner__title { font-weight: 700; font-size: 14px; color: var(--accent-gold, #f59e0b); margin-bottom: 3px; }
+    .late-run-banner__text { font-size: 13px; color: var(--text-muted); }
+
     .kpiGrid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
@@ -338,6 +357,8 @@
       </div>
     </div>
 
+    <div id="lateRunBanner"></div>
+
     <div class="kpiGrid" aria-label="Before-close KPIs">
       <div class="kpiBox">
         <div class="kpiLabel">Signals Re-Checked</div>
@@ -442,9 +463,37 @@
         </div>`;
     }
 
+    // ASX closes 16:00 AEST. This update is designed to run ~14:50 AEST
+    // (see /how-it-works.html); if it actually ran more than ~90 minutes
+    // after close, the "current price" it re-checked against was already
+    // hours-stale by the time it ran, and by the time anyone reads this page
+    // the market has been shut for a while too — it's no longer a pre-close
+    // check for that day, just a historical record of what would have been
+    // one. Flag that plainly instead of silently presenting it as timely.
+    function lateRunBannerHtml(generatedAtUtc){
+      if(!generatedAtUtc) return '';
+      const d = new Date(generatedAtUtc);
+      if(isNaN(d)) return '';
+      const aest = new Date(d.toLocaleString('en-AU', {timeZone:'Australia/Brisbane'}));
+      const minsSinceMidnight = aest.getHours()*60 + aest.getMinutes();
+      const closeMins = 16*60; // 16:00 AEST
+      const lateBy = minsSinceMidnight - closeMins;
+      if(lateBy <= 90) return '';
+      const hrs = (lateBy/60).toFixed(1);
+      return `
+        <div class="late-run-banner">
+          <div class="late-run-banner__icon">⚠</div>
+          <div class="late-run-banner__body">
+            <div class="late-run-banner__title">This update ran ${hrs} hrs after ASX close — not a pre-close check</div>
+            <div class="late-run-banner__text">Designed to run ~14:50 AEST, roughly an hour before the 16:00 close. This run fired at ${fmtBNE(generatedAtUtc)} instead, using a "current price" that was already stale by then. Treat what follows as a historical record for the day, not something you could have acted on before close.</div>
+          </div>
+        </div>`;
+    }
+
     function render(data){
       document.getElementById('errorBox').style.display='none';
       document.getElementById('kpiAsOf').textContent = fmtBNE(data.generated_at_utc) || safeText(data.as_of_local);
+      document.getElementById('lateRunBanner').innerHTML = lateRunBannerHtml(data.generated_at_utc);
 
       if(data.skipped){
         document.getElementById('kpiCount').textContent = '0';
