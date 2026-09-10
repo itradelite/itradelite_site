@@ -306,6 +306,13 @@
     .sent-chip--neg { color: var(--accent-red); border-color: rgba(244,63,94,0.35); background: rgba(244,63,94,0.08); }
     .sent-chip--earnings-warn { color: var(--accent-red); border-color: rgba(244,63,94,0.4); background: rgba(244,63,94,0.1); font-weight: 700; }
     .sent-chip--earnings-ok { color: var(--accent-gold); border-color: rgba(245,158,11,0.35); }
+    /* Edge-status badges — surface the Strategy Decay audit verdict at the
+       point of recommendation, not just on a separate page. See
+       edgeBadgeForStrategy() and STRATEGY_EDGE_STATUS below. */
+    .sent-chip--edge-none { color: var(--accent-red); border-color: rgba(244,63,94,0.4); background: rgba(244,63,94,0.1); font-weight: 700; }
+    .sent-chip--edge-unproven { color: var(--text-muted); border-color: var(--border); }
+    a.sent-chip { text-decoration: none; }
+    a.sent-chip:hover { filter: brightness(1.25); }
 
     .note-row { background: rgba(56, 189, 248, 0.04); }
     .note-row td {
@@ -566,6 +573,8 @@
           <b>Institutional framing:</b> Targets shown are <b>ATR-based</b> and may be <b>capped by structural ceiling</b>. Setups are filtered by capped risk-efficiency (<b>min R multiple</b> + <b>min upside ATR</b>).
           <br />
           <b>Sizing:</b> uses your Portfolio and Risk % to compute Qty. Qty is floor(risk_budget / |Entry − Stop|). For STOP-LIMIT entries, sizing uses the <b>LIMIT</b> price (worst-case fill).
+          <br />
+          <b>Edge status:</b> rows tagged <span class="sent-chip sent-chip--edge-none" style="display:inline;">No confirmed edge</span> or <span class="sent-chip sent-chip--edge-unproven" style="display:inline;">Unproven</span> have been checked against a random-entry baseline in our own <a href="/strategy-decay/">Strategy Decay</a> audit — read that before sizing a real trade off them.
         </div>
       </div>
     </section>
@@ -765,6 +774,34 @@
 
     function normalizeStrategyName(s){
       return (s || "").trim();
+    }
+
+    // --- Strategy Decay edge status, surfaced inline on every signal row ---
+    // Source of truth: /strategy-decay/ (decay_stats.py / backtest_strategy_decay.py).
+    // "none"     = enough history (24-128 isolated trades) and the CUSUM /
+    //              random-entry-noise-band test found no edge distinguishable
+    //              from luck at any tested horizon.
+    // "unproven" = too few historical signals yet (brand-new archetype, or
+    //              regime-gated so rarely) for that audit to say anything —
+    //              not the same as "cleared", just "not yet tested".
+    // Keep this in sync with strategy-decay/index.html's per-archetype verdicts.
+    const STRATEGY_EDGE_STATUS = {
+      "TREND_PULLBACK":        { level: "none",     label: "No confirmed edge" },
+      "MEAN_REVERSION":        { level: "none",     label: "No confirmed edge" },
+      "MOMENTUM":              { level: "unproven", label: "Insufficient data" },
+      "GAP_FADE_CONTINUATION": { level: "unproven", label: "Unproven — new" },
+      "PEAD":                  { level: "unproven", label: "Unproven — new" },
+      "HIGH52W_MOMENTUM":      { level: "unproven", label: "Unproven — new" },
+    };
+
+    function edgeBadgeForStrategy(rawStrategy){
+      const info = STRATEGY_EDGE_STATUS[(rawStrategy || "").trim()];
+      if (!info) return "";
+      const cls = info.level === "none" ? "sent-chip--edge-none" : "sent-chip--edge-unproven";
+      const title = info.level === "none"
+        ? "Strategy Decay audit: historical signals from this strategy are not statistically distinguishable from a random-entry baseline. Not investment advice."
+        : "Strategy Decay audit: too few historical signals yet to say whether this strategy has real edge.";
+      return `<a href="/strategy-decay/" class="sent-chip ${cls}" title="${escapeHtml(title)}">${escapeHtml(info.label)} →</a>`;
     }
 
     function scoreVal(r){
@@ -1004,6 +1041,7 @@
       for (const r of rows){
         const sym = escapeHtml(safeText(r.symbol));
         const strat = escapeHtml(normalizeStrategyName(r.strategy));
+        const edgeBadge = edgeBadgeForStrategy(r.strategy);
         const entryTxt = escapeHtml(parseEntry(r));
         const lastClose = escapeHtml(parseLastClose(r));
         const stopTxt = escapeHtml(fmt(r.stop, 4));
@@ -1033,7 +1071,7 @@
               <div class="symbol-line">${sym}${extLinkHtml(safeText(r.symbol))}</div>
               ${companyNameHtml(safeText(r.symbol))}
             </td>
-            <td>${strat || "—"}</td>
+            <td>${strat || "—"}${edgeBadge ? `<div style="margin-top:5px;">${edgeBadge}</div>` : ""}</td>
             <td class="mono">${entryTxt}</td>
             <td class="mono">${lastClose}</td>
             <td class="mono">${stopTxt}</td>
