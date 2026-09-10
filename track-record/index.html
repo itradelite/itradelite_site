@@ -172,10 +172,51 @@
       font-weight: 700;
     }
     
-    .tag-down { 
+    .tag-down {
       color: #ef4444 !important;
       font-weight: 700;
     }
+
+    /* Win Rate is a hit-rate (% of trades that closed positive), not a
+       signed return — it must not be styled identically to Avg Return
+       (tag-up/tag-down), or it reads as a huge green gain at a glance.
+       Neutral color, no leading +/-. */
+    .tag-rate {
+      color: #fff !important;
+      font-weight: 700;
+    }
+    .kpiSub {
+      color: var(--text-muted);
+      font-size: 0.7rem;
+      margin-top: 6px;
+      font-weight: 500;
+      text-transform: none;
+      letter-spacing: 0;
+    }
+    .edge-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      padding: 3px 9px;
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 700;
+      font-family: var(--mono-font);
+      border: 1px solid var(--border);
+      text-decoration: none;
+      margin-left: 8px;
+      white-space: nowrap;
+    }
+    .edge-badge--none { color: #ef4444; border-color: rgba(244,63,94,0.4); background: rgba(244,63,94,0.1); }
+    .edge-badge--unproven { color: var(--text-muted); }
+    .edge-badge:hover { filter: brightness(1.25); }
+    .strategy-decay-callout {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin: -8px 0 20px;
+      line-height: 1.6;
+    }
+    .strategy-decay-callout a { color: var(--accent); }
 
     /* Enhanced Table Styling */
     .table-container {
@@ -379,6 +420,11 @@
       <div class="table-header">
         <h2>Strategy Attribution</h2>
       </div>
+      <p class="strategy-decay-callout">
+        Trade counts and returns below are raw, not adjusted for luck. Whether each strategy's numbers are actually
+        distinguishable from a random-entry baseline is answered separately in <a href="/strategy-decay/">Strategy Decay</a> —
+        the "Edge" column links straight to that verdict per strategy.
+      </p>
       <div class="table-scroll">
         <table id="tblStrategy"></table>
       </div>
@@ -432,18 +478,27 @@
     
     const fmtNum = (x, d=2) => (x == null || isNaN(x)) ? "—" : Number(x).toFixed(d);
 
+    // Win Rate is a hit-rate (share of trades that closed positive), not a
+    // return — keep it visually distinct from fmtPct (no +/- sign, no
+    // green/red) so it can't be misread as a huge gain at a glance.
+    const fmtRate = (x) => {
+      if (x == null || isNaN(x)) return "—";
+      return `<span class="tag-rate">${(x * 100).toFixed(2)}%</span>`;
+    };
+
     function renderKpis(summary) {
       const el = document.getElementById("kpis");
       const items = [
-        ["Total Signals", summary.total_signals_with_entry],
-        ["Avg 5D Return", fmtPct(summary.avg_ret_5d)],
-        ["Win Rate (5D)", fmtPct(summary.winrate_5d)],
-        ["Max Drawdown", fmtPct(summary.equity_curve_proxy_max_drawdown)],
+        ["Total Signals", summary.total_signals_with_entry, null],
+        ["Avg 5D Return", fmtPct(summary.avg_ret_5d), null],
+        ["Win Rate (5D)", fmtRate(summary.winrate_5d), "Share of trades closed positive — not a return"],
+        ["Max Drawdown", fmtPct(summary.equity_curve_proxy_max_drawdown), null],
       ];
-      el.innerHTML = items.map(([k,v]) => `
+      el.innerHTML = items.map(([k,v,sub]) => `
         <div class="kpiBox">
           <div class="kpiLabel">${k}</div>
           <div class="kpiValue">${v}</div>
+          ${sub ? `<div class="kpiSub">${sub}</div>` : ""}
         </div>
       `).join("");
       document.getElementById("asof").textContent = `Window: ${summary.since} — ${summary.until}`;
@@ -561,17 +616,51 @@
         const [res] = await Promise.all([fetch("/track-record/metrics.json"), loadNames()]);
         const data = await res.json();
         renderKpis(data.summary);
-        
-        // Strategy Table
+
+        // Strategy Table — always list every live archetype, even ones with
+        // zero rows in data.by_strategy_5d yet (new strategies start with no
+        // history; showing them as "insufficient data" rather than omitting
+        // them is what the Strategy Decay page already does, and hiding them
+        // here made it look like they don't exist). Keep ALL_STRATEGIES and
+        // edgeInfoFor() in sync with strategy-decay/index.html's archetypes.
+        const ALL_STRATEGIES = [
+          { key: "TREND_PULLBACK",        label: "TREND_PULLBACK" },
+          { key: "MEAN_REVERSION",        label: "MEAN_REVERSION" },
+          { key: "MOMENTUM",              label: "MOMENTUM (Breakout)" },
+          { key: "GAP_FADE_CONTINUATION", label: "GAP_FADE_CONTINUATION" },
+          { key: "PEAD",                  label: "PEAD" },
+          { key: "HIGH52W_MOMENTUM",      label: "HIGH52W_MOMENTUM" },
+        ];
+        const EDGE_INFO = {
+          "TREND_PULLBACK":        { level: "none",     label: "No confirmed edge" },
+          "MEAN_REVERSION":        { level: "none",     label: "No confirmed edge" },
+          "MOMENTUM":              { level: "unproven", label: "Insufficient data" },
+          "GAP_FADE_CONTINUATION": { level: "unproven", label: "Unproven — new" },
+          "PEAD":                  { level: "unproven", label: "Unproven — new" },
+          "HIGH52W_MOMENTUM":      { level: "unproven", label: "Unproven — new" },
+        };
+        function edgeBadge(key){
+          const info = EDGE_INFO[key];
+          if (!info) return "—";
+          const cls = info.level === "none" ? "edge-badge--none" : "edge-badge--unproven";
+          return `<a href="/strategy-decay/" class="edge-badge ${cls}">${info.label} →</a>`;
+        }
+        const byStrategy = {};
+        (data.by_strategy_5d || []).forEach(r => { byStrategy[r.strategy] = r; });
+
         document.getElementById("tblStrategy").innerHTML = `
-          <thead><tr><th>Strategy</th><th class="right">Trades</th><th class="right">Avg 5D</th><th class="right">Win 5D</th></tr></thead>
-          <tbody>${(data.by_strategy_5d || []).map(r => `
+          <thead><tr><th>Strategy</th><th class="right">Trades</th><th class="right">Avg 5D</th><th class="right">Win 5D</th><th>Edge (per Strategy Decay)</th></tr></thead>
+          <tbody>${ALL_STRATEGIES.map(({key, label}) => {
+            const r = byStrategy[key];
+            return `
             <tr>
-              <td><span class="mono" style="color:var(--accent); font-weight:bold;">${r.strategy}</span></td>
-              <td class="right mono">${r.trades}</td>
-              <td class="right mono">${fmtPct(r.avg_5d)}</td>
-              <td class="right mono">${fmtPct(r.win_5d)}</td>
-            </tr>`).join("")}</tbody>`;
+              <td><span class="mono" style="color:var(--accent); font-weight:bold;">${label}</span></td>
+              <td class="right mono">${r ? r.trades : 0}</td>
+              <td class="right mono">${r ? fmtPct(r.avg_5d) : "—"}</td>
+              <td class="right mono">${r ? fmtRate(r.win_5d) : "—"}</td>
+              <td>${edgeBadge(key)}</td>
+            </tr>`;
+          }).join("")}</tbody>`;
 
         // Recent Signal Log
         document.getElementById("tblRecent").innerHTML = `
