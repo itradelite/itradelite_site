@@ -4,16 +4,25 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Today — iTradeLite Daily ASX Briefing</title>
+  <meta name="description" content="iTradeLite's Daily Briefing — rule-based ASX trade setups with entries, stops, and position sizing, generated from end-of-day data. Educational output, not financial advice." />
+  <link rel="canonical" href="https://www.itradelite.com/today/" />
 
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-N8VCNFYX3B"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="iTradeLite" />
+  <meta property="og:title" content="Today — iTradeLite Daily ASX Briefing" />
+  <meta property="og:description" content="Rule-based ASX trade setups with entries, stops, and position sizing, generated from end-of-day data." />
+  <meta property="og:url" content="https://www.itradelite.com/today/" />
+  <meta property="og:image" content="https://www.itradelite.com/assets/og.png" />
 
-  gtag('config', 'G-N8VCNFYX3B');
-</script>
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Today — iTradeLite Daily ASX Briefing" />
+  <meta name="twitter:description" content="Rule-based ASX trade setups with entries, stops, and position sizing, generated from end-of-day data." />
+  <meta name="twitter:image" content="https://www.itradelite.com/assets/og.png" />
+
+  <!-- Google Analytics 4 — previously hardcoded here only; now centralized
+       in /assets/analytics-config.js and loaded the same way on every page. -->
+  <script src="/assets/analytics-config.js"></script>
+  <script src="/assets/analytics.js"></script>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -118,6 +127,24 @@
       gap: 12px;
     }
     .banner--stale { border-left-color: var(--accent-gold); background: linear-gradient(90deg, rgba(245,158,11,0.12) 0%, rgba(30,41,59,0.0) 100%); }
+
+    /* Item 5 fix: when data_fresh === false, the freshness banner already
+       says "recommendations may be suppressed" — but Valid Setups/Watchlist
+       are built from the exact same stale bars and were rendering as a
+       normal, fully-detailed, actionable-looking table right underneath
+       that warning. Dim them and say so explicitly instead of letting the
+       two signals contradict each other. */
+    .stale-content { opacity: 0.55; filter: grayscale(30%); }
+    .stale-note {
+      margin: 0 0 14px;
+      padding: 10px 16px;
+      border-radius: 10px;
+      border: 1px dashed rgba(245,158,11,0.4);
+      background: rgba(245,158,11,0.06);
+      color: var(--accent-gold);
+      font-size: 12px;
+      font-weight: 600;
+    }
 
     /* Pills */
     .pill {
@@ -1162,7 +1189,7 @@
           <div class="banner banner--stale">
             <div>
               <b>Data freshness:</b> Yahoo daily bars not updated yet. Recommendations may be suppressed.
-              <div class="small" style="margin-top:4px;">Safety gate to avoid publishing stale signals.</div>
+              <div class="small" style="margin-top:4px;">Safety gate to avoid publishing stale signals. This also applies to the Valid Setups and Watchlist tables below — they're computed from the same not-yet-updated bars, not just Recommended Orders, so they're dimmed and shouldn't be treated as confirmed for today either.</div>
             </div>
             <div class="pill">STALE</div>
           </div>
@@ -1218,8 +1245,10 @@
 
       const validRows = filteredSetups.filter(r => r.status === "Valid");
       const watchRows = filteredSetups.filter(r => r.status === "Watch");
+      const isStale = data.data_fresh === false;
 
       let html = "";
+      let staleHtml = "";
 
       if (prefs.view === "recommended"){
         if (filteredRecommended.length){
@@ -1229,11 +1258,11 @@
         }
       }
       else if (prefs.view === "valid"){
-        if (validRows.length) html += buildTable("Valid Setups", validRows, validRows.length + " item(s)");
+        if (validRows.length) staleHtml += buildTable("Valid Setups", validRows, validRows.length + " item(s)");
         else html += `<section class="card card--pad"><div class="sectionTitle"><h2>Valid Setups</h2><div class="count">0 item(s)</div></div><div style="padding:16px 18px;" class="small"><b>No valid setups match your filters.</b><div>Try changing Strategy or clearing the search.</div></div></section>`;
       }
       else if (prefs.view === "watch"){
-        if (watchRows.length) html += buildTable("Watchlist", watchRows, watchRows.length + " item(s)");
+        if (watchRows.length) staleHtml += buildTable("Watchlist", watchRows, watchRows.length + " item(s)");
         else html += `<section class="card card--pad"><div class="sectionTitle"><h2>Watchlist</h2><div class="count">0 item(s)</div></div><div style="padding:16px 18px;" class="small"><b>No watch items match your filters.</b><div>Try changing Strategy or clearing the search.</div></div></section>`;
       }
       else {
@@ -1243,12 +1272,22 @@
           html += `<section class="card card--pad"><div class="sectionTitle"><h2>Recommended Orders</h2><div class="count">0 item(s)</div></div><div style="padding:16px 18px;" class="small">No recommended orders published today (freshness gate or no setups passed final selection).</div></section>`;
         }
 
-        if (validRows.length) html += buildTable("Valid Setups", validRows, validRows.length + " item(s)");
-        if (watchRows.length) html += buildTable("Watchlist", watchRows, watchRows.length + " item(s)");
+        if (validRows.length) staleHtml += buildTable("Valid Setups", validRows, validRows.length + " item(s)");
+        if (watchRows.length) staleHtml += buildTable("Watchlist", watchRows, watchRows.length + " item(s)");
 
         if (!filteredRecommended.length && !validRows.length && !watchRows.length){
           html += `<section class="card card--pad"><div class="sectionTitle"><h2>No Results</h2><div class="count">—</div></div><div style="padding:16px 18px;" class="small"><b>No rows match your filters.</b><div>Try changing View/Strategy or clearing search.</div></div></section>`;
         }
+      }
+
+      // Valid Setups / Watchlist come from the same feed as Recommended
+      // Orders — when that feed is stale, dim them and label them instead of
+      // rendering a normal, fully-detailed, actionable-looking table right
+      // below a banner that says the data may not be current (item 5).
+      if (staleHtml){
+        html += isStale
+          ? `<div class="stale-note">⚠ Built from the same stale data flagged above — not confirmed for today.</div><div class="stale-content">${staleHtml}</div>`
+          : staleHtml;
       }
 
       document.getElementById("tables").innerHTML = html;
