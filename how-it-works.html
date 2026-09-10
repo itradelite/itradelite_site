@@ -327,6 +327,52 @@
       </div>
     </div>
 
+    <h2 style="margin: 48px 0 12px; font-size: 1.4rem; font-weight: 800; letter-spacing: -0.3px; color: var(--text-muted);">
+      Added in a later pass — live, but no track record yet
+    </h2>
+    <p class="small muted" style="margin-bottom: 24px; max-width: 760px; line-height: 1.7;">
+      These four were wired into the daily scan more recently and can already appear in today's list. They start with
+      zero historical signals, so <a href="/strategy-decay/">Strategy Decay</a> currently reports "insufficient data"
+      for all of them — that's expected, not a bug, and it means they haven't been shown to work yet either.
+    </p>
+    <div class="grid3">
+      <div class="setup-card">
+        <span class="setup-number">TYPE_04</span>
+        <h3>Post-Earnings Drift</h3>
+        <p class="small muted" style="line-height: 1.7;">
+          Betting that a stock keeps drifting in the direction of its last earnings surprise for a short window afterward, instead of the market having already fully priced it in.
+        </p>
+      </div>
+
+      <div class="setup-card">
+        <span class="setup-number">TYPE_05</span>
+        <h3>52-Week-High Momentum</h3>
+        <p class="small muted" style="line-height: 1.7;">
+          Scanning for stocks pushing to new 52-week highs on the theory that strength near a long-term high tends to keep attracting buyers rather than reversing.
+        </p>
+      </div>
+
+      <div class="setup-card">
+        <span class="setup-number">TYPE_06</span>
+        <h3>Gap Fade / Continuation</h3>
+        <p class="small muted" style="line-height: 1.7;">
+          Reacts to an overnight price gap two ways depending on context: fading a gap down (betting it reverts) or riding a gap up (betting it continues).
+        </p>
+      </div>
+    </div>
+
+    <section class="regime-card" style="margin-top: 32px; border-left-color: var(--danger);">
+      <h2 style="margin-top: 0; font-size: 1.4rem; font-weight: 800; letter-spacing: -0.3px;">Does any of this actually have edge?</h2>
+      <p style="color: var(--text-muted); line-height: 1.8; margin-bottom: 0;">
+        We run a separate statistical audit on every archetype above — isolated, no composite blending, checked against
+        a random-entry baseline under the same risk and regime rules — specifically to answer that honestly, including
+        when the answer is no. As of the most recent run: <strong style="color:#fff;">Trend Pullback and Mean Reversion
+        (our two archetypes with real trade history) show no edge distinguishable from noise</strong> at any tested
+        holding period. The other four are too new to test either way. Read the methodology and full results on
+        <a href="/strategy-decay/" style="color: var(--accent); font-weight: 700;">Strategy Decay →</a>
+      </p>
+    </section>
+
     <section class="regime-card">
       <h2 style="margin-top: 0; font-size: 1.8rem; font-weight: 800; letter-spacing: -0.5px;">03. Market Regime Gating</h2>
       <p style="color: var(--text-muted); line-height: 1.8; margin-bottom: 24px;">
