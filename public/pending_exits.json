@@ -1,5 +1,5 @@
 {
-  "as_of": "2026-09-10 14:04:34 AEST",
+  "as_of": "2026-09-10 23:55:48 AEST",
   "pending_exits": [],
   "recent_auto_closes": [],
   "notes": "pending_exits: positions flagged for exit (SELL_STOP/SELL_TRAIL20/SELL_TIME) or profit-taking (TAKE_PROFIT_2R/3R) for 3+ consecutive trading days with no action taken yet. Exit-category positions are auto-closed at 10 consecutive days (see recent_auto_closes and ITRADELITE_FOLLOWUP_REPORT.md item 4); profit-take positions are never auto-closed."
