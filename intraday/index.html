@@ -151,6 +151,26 @@
     .exp-banner__title { font-weight: 700; font-size: 14px; color: var(--accent-purple); margin-bottom: 3px; }
     .exp-banner__text { font-size: 13px; color: var(--text-muted); }
 
+    /* Stale-signals banner + dimming — shown whenever the table below is
+       being rendered while the ASX isn't open. Without this, a list of
+       signal rows timestamped from the last session reads identically to a
+       live list (same table styling either way). */
+    .stale-banner {
+      background: linear-gradient(90deg, rgba(245,158,11,0.12) 0%, rgba(30,41,59,0) 100%);
+      border: 1px solid rgba(245,158,11,0.35);
+      border-left: 4px solid var(--accent-gold, #f59e0b);
+      border-radius: 12px;
+      padding: 14px 18px;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+    }
+    .stale-banner__icon { font-size: 20px; flex-shrink: 0; margin-top: 1px; }
+    .stale-banner__title { font-weight: 700; font-size: 14px; color: var(--accent-gold, #f59e0b); margin-bottom: 3px; }
+    .stale-banner__text { font-size: 13px; color: var(--text-muted); }
+    .stale-signals { opacity: 0.55; filter: grayscale(35%); }
+
     /* KPI grid */
     .kpiGrid {
       display: grid;
@@ -701,11 +721,12 @@
       const shorts=filtered.filter(r=>(r.direction||'').toLowerCase()==='short');
       const other =filtered.filter(r=>!['long','short'].includes((r.direction||'').toLowerCase()));
 
-      let html='';
-      if(longs.length)  html+=buildTable('Long Signals',  longs);
-      if(shorts.length) html+=buildTable('Short Signals', shorts);
-      if(other.length)  html+=buildTable('Signals',       other);
+      let tablesHtml='';
+      if(longs.length)  tablesHtml+=buildTable('Long Signals',  longs);
+      if(shorts.length) tablesHtml+=buildTable('Short Signals', shorts);
+      if(other.length)  tablesHtml+=buildTable('Signals',       other);
 
+      let html='';
       if(!filtered.length){
         html=`
           <div class="empty-state">
@@ -717,6 +738,21 @@
                 :'Run the intraday scan first: click <b>⚡ Refresh Signals</b> above and wait a few minutes.'}
             </div>
           </div>`;
+      } else if(!ms.open){
+        // Market's shut — these rows are whatever the last scan produced,
+        // not a live read. Say so plainly and visually dim the table so it
+        // can't be mistaken for an actionable-right-now list.
+        html=`
+          <div class="stale-banner">
+            <div class="stale-banner__icon">⏸</div>
+            <div class="stale-banner__body">
+              <div class="stale-banner__title">Market ${esc(ms.label)} — signals below are from the last scan, not live</div>
+              <div class="stale-banner__text">Intraday data only means something while the ASX is trading (10:00–16:00 AEST, Mon–Fri). These ${filtered.length} row(s) are stale until the market reopens and a fresh scan runs.</div>
+            </div>
+          </div>
+          <div class="stale-signals">${tablesHtml}</div>`;
+      } else {
+        html=tablesHtml;
       }
 
       document.getElementById('tables').innerHTML=html;
