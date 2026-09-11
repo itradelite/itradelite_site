@@ -1,7 +1,23 @@
 {
-  "as_of": "2026-09-10 23:55:47 AEST",
+  "as_of": "2026-09-11 23:45:43 AEST",
   "horizon_trading_days": 5,
   "results": [
+    {
+      "date": "2026-09-03",
+      "valid_for": "2026-09-04",
+      "symbol": "TNE.AX",
+      "class": "Software & Services",
+      "strategy": "MEAN_REVERSION",
+      "score": 100,
+      "order": "LIMIT",
+      "risk_gate": "always",
+      "entry_px": 31.15999984741211,
+      "entry_src": "valid_for_open",
+      "stop": 29.7246,
+      "exit_type_5d": "STOP",
+      "exit_px_5d": 29.7246,
+      "r_5d": -1.0
+    },
     {
       "date": "2026-08-31",
       "valid_for": "2026-09-01",
@@ -101,22 +117,6 @@
     {
       "date": "2026-08-20",
       "valid_for": "2026-08-21",
-      "symbol": "QBE.AX",
-      "class": "Insurance",
-      "strategy": "MEAN_REVERSION",
-      "score": 100,
-      "order": "LIMIT",
-      "risk_gate": "always",
-      "entry_px": 21.58721866878814,
-      "entry_src": "valid_for_open",
-      "stop": 21.1191,
-      "exit_type_5d": "H5_CLOSE",
-      "exit_px_5d": 21.93000030517578,
-      "r_5d": 0.7322537195002939
-    },
-    {
-      "date": "2026-08-20",
-      "valid_for": "2026-08-21",
       "symbol": "SOL.AX",
       "class": "Financial Services",
       "strategy": "MEAN_REVERSION",
@@ -131,20 +131,20 @@
       "r_5d": 0.14089805750622938
     },
     {
-      "date": "2026-08-19",
-      "valid_for": "2026-08-20",
-      "symbol": "WES.AX",
-      "class": "Consumer Discretionary Distribution & Retail",
+      "date": "2026-08-20",
+      "valid_for": "2026-08-21",
+      "symbol": "QBE.AX",
+      "class": "Insurance",
       "strategy": "MEAN_REVERSION",
-      "score": 93,
+      "score": 100,
       "order": "LIMIT",
       "risk_gate": "always",
-      "entry_px": 83.026589845613,
+      "entry_px": 21.58721866878814,
       "entry_src": "valid_for_open",
-      "stop": 82.4309,
-      "exit_type_5d": "STOP",
-      "exit_px_5d": 82.4309,
-      "r_5d": -1.0
+      "stop": 21.1191,
+      "exit_type_5d": "H5_CLOSE",
+      "exit_px_5d": 21.93000030517578,
+      "r_5d": 0.7322537195002939
     },
     {
       "date": "2026-08-19",
@@ -161,6 +161,22 @@
       "exit_type_5d": "H5_CLOSE",
       "exit_px_5d": 151.1199951171875,
       "r_5d": -0.3685048181554967
+    },
+    {
+      "date": "2026-08-19",
+      "valid_for": "2026-08-20",
+      "symbol": "WES.AX",
+      "class": "Consumer Discretionary Distribution & Retail",
+      "strategy": "MEAN_REVERSION",
+      "score": 93,
+      "order": "LIMIT",
+      "risk_gate": "always",
+      "entry_px": 83.026589845613,
+      "entry_src": "valid_for_open",
+      "stop": 82.4309,
+      "exit_type_5d": "STOP",
+      "exit_px_5d": 82.4309,
+      "r_5d": -1.0
     },
     {
       "date": "2026-08-18",
@@ -197,6 +213,22 @@
     {
       "date": "2026-08-17",
       "valid_for": "2026-08-18",
+      "symbol": "QBE.AX",
+      "class": "Insurance",
+      "strategy": "MEAN_REVERSION",
+      "score": 100,
+      "order": "LIMIT",
+      "risk_gate": "always",
+      "entry_px": 22.17838016178461,
+      "entry_src": "valid_for_open",
+      "stop": 22.0383,
+      "exit_type_5d": "STOP",
+      "exit_px_5d": 22.0383,
+      "r_5d": -1.0
+    },
+    {
+      "date": "2026-08-17",
+      "valid_for": "2026-08-18",
       "symbol": "ALX.AX",
       "class": "Transportation",
       "strategy": "MEAN_REVERSION",
@@ -211,19 +243,19 @@
       "r_5d": 0.14924960563544115
     },
     {
-      "date": "2026-08-17",
-      "valid_for": "2026-08-18",
-      "symbol": "QBE.AX",
-      "class": "Insurance",
+      "date": "2026-08-14",
+      "valid_for": "2026-08-17",
+      "symbol": "ALX.AX",
+      "class": "Transportation",
       "strategy": "MEAN_REVERSION",
-      "score": 100,
+      "score": 86,
       "order": "LIMIT",
       "risk_gate": "always",
-      "entry_px": 22.17838016178461,
+      "entry_px": 4.920000076293945,
       "entry_src": "valid_for_open",
-      "stop": 22.0383,
+      "stop": 4.809,
       "exit_type_5d": "STOP",
-      "exit_px_5d": 22.0383,
+      "exit_px_5d": 4.809,
       "r_5d": -1.0
     },
     {
@@ -240,22 +272,6 @@
       "stop": 162.6983,
       "exit_type_5d": "STOP",
       "exit_px_5d": 162.6983,
-      "r_5d": -1.0
-    },
-    {
-      "date": "2026-08-14",
-      "valid_for": "2026-08-17",
-      "symbol": "ALX.AX",
-      "class": "Transportation",
-      "strategy": "MEAN_REVERSION",
-      "score": 86,
-      "order": "LIMIT",
-      "risk_gate": "always",
-      "entry_px": 4.920000076293945,
-      "entry_src": "valid_for_open",
-      "stop": 4.809,
-      "exit_type_5d": "STOP",
-      "exit_px_5d": 4.809,
       "r_5d": -1.0
     },
     {
@@ -2095,8 +2111,8 @@
       "entry_src": "entry",
       "stop": 80.2336,
       "exit_type_5d": "H5_CLOSE",
-      "exit_px_5d": 90.21305847167969,
-      "r_5d": 0.9522778081029195
+      "exit_px_5d": 90.21306610107422,
+      "r_5d": 0.9522793006385791
     },
     {
       "date": "2026-02-21",
@@ -2127,8 +2143,8 @@
       "entry_src": "entry",
       "stop": 80.2336,
       "exit_type_5d": "H5_CLOSE",
-      "exit_px_5d": 90.21305847167969,
-      "r_5d": 0.9522778081029195
+      "exit_px_5d": 90.21306610107422,
+      "r_5d": 0.9522793006385791
     },
     {
       "date": "2026-02-20",
