@@ -1,6 +1,6 @@
 {
-  "generated_at_utc": "2026-09-14T05:08:52Z",
-  "as_of_local": "2026-09-14 15:08:52 AEST",
+  "generated_at_utc": "2026-09-14T10:09:05Z",
+  "as_of_local": "2026-09-14 20:09:05 AEST",
   "skipped": false,
   "has_signals": true,
   "source_file": "reports/recommended_orders_latest.csv",
@@ -12,14 +12,14 @@
       "original_entry": 39.01,
       "original_stop": 37.7521,
       "original_score": 96.0,
-      "current_price": 39.14,
-      "current_price_time": "14:45 AEST",
-      "gap_pct": 0.33,
+      "current_price": 39.12,
+      "current_price_time": "16:10 AEST",
+      "gap_pct": 0.28,
       "status": "INVALIDATED",
-      "updated_entry": 39.14,
-      "updated_stop": 37.8954,
-      "updated_score": 83,
-      "plain_english": "JHX.AX (Mean Reversion) was signaled last night at 39.0100. Currently trading at 39.1400 (+0.33% vs signal). Setup no longer holds \u2014 do not act on last night's plan."
+      "updated_entry": 39.12,
+      "updated_stop": 37.8754,
+      "updated_score": 86,
+      "plain_english": "JHX.AX (Mean Reversion) was signaled last night at 39.0100. Currently trading at 39.1200 (+0.28% vs signal). Setup no longer holds \u2014 do not act on last night's plan."
     },
     {
       "symbol": "MIN.AX",
@@ -27,14 +27,14 @@
       "original_entry": 59.37,
       "original_stop": 56.0691,
       "original_score": 98.0,
-      "current_price": 57.0,
-      "current_price_time": "14:45 AEST",
-      "gap_pct": -3.99,
+      "current_price": 56.76,
+      "current_price_time": "16:10 AEST",
+      "gap_pct": -4.4,
       "status": "INVALIDATED",
-      "updated_entry": 57.0,
-      "updated_stop": 53.6716,
+      "updated_entry": 56.76,
+      "updated_stop": 53.4316,
       "updated_score": 75,
-      "plain_english": "MIN.AX (Mean Reversion) was signaled last night at 59.3700. Currently trading at 57.0000 (-3.99% vs signal). Setup no longer holds \u2014 do not act on last night's plan."
+      "plain_english": "MIN.AX (Mean Reversion) was signaled last night at 59.3700. Currently trading at 56.7600 (-4.40% vs signal). Setup no longer holds \u2014 do not act on last night's plan."
     }
   ]
 }
