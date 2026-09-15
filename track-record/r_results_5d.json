@@ -1,5 +1,5 @@
 {
-  "as_of": "2026-09-15 02:00:58 AEST",
+  "as_of": "2026-09-16 00:27:24 AEST",
   "horizon_trading_days": 5,
   "results": [
     {
@@ -91,12 +91,12 @@
       "score": 85,
       "order": "LIMIT",
       "risk_gate": "always",
-      "entry_px": 7.119999885559082,
+      "entry_px": 7.060164064000548,
       "entry_src": "valid_for_open",
       "stop": 6.9784,
       "exit_type_5d": "H5_CLOSE",
-      "exit_px_5d": 7.090000152587891,
-      "r_5d": -0.2118626922101153
+      "exit_px_5d": 7.030416488647461,
+      "r_5d": -0.3638221230403588
     },
     {
       "date": "2026-08-24",
@@ -2143,8 +2143,8 @@
       "entry_src": "entry",
       "stop": 80.2336,
       "exit_type_5d": "H5_CLOSE",
-      "exit_px_5d": 90.21305847167969,
-      "r_5d": 0.9522778081029195
+      "exit_px_5d": 90.21306610107422,
+      "r_5d": 0.9522793006385791
     },
     {
       "date": "2026-02-21",
@@ -2175,8 +2175,8 @@
       "entry_src": "entry",
       "stop": 80.2336,
       "exit_type_5d": "H5_CLOSE",
-      "exit_px_5d": 90.21305847167969,
-      "r_5d": 0.9522778081029195
+      "exit_px_5d": 90.21306610107422,
+      "r_5d": 0.9522793006385791
     },
     {
       "date": "2026-02-20",
@@ -2219,12 +2219,12 @@
       "score": 100,
       "order": "LIMIT",
       "risk_gate": "unknown",
-      "entry_px": 7.93382166722323,
+      "entry_px": 7.933821176954051,
       "entry_src": "valid_for_open",
       "stop": 7.5243,
       "exit_type_5d": "H5_CLOSE",
       "exit_px_5d": 7.755826473236084,
-      "r_5d": -0.4346417008751842
+      "r_5d": -0.434641024041447
     },
     {
       "date": "2026-02-19",
@@ -2302,9 +2302,9 @@
       "entry_px": 7.1585,
       "entry_src": "entry",
       "stop": 7.0163,
-      "exit_type_5d": "H5_CLOSE",
-      "exit_px_5d": 7.510501384735107,
-      "r_5d": 2.4753965171245262
+      "exit_type_5d": "STOP",
+      "exit_px_5d": 7.0163,
+      "r_5d": -1.0
     },
     {
       "date": "2026-02-12",
@@ -2411,7 +2411,7 @@
       "score": 100,
       "order": "LIMIT",
       "risk_gate": "always",
-      "entry_px": 8.379464870914443,
+      "entry_px": 8.379463931312518,
       "entry_src": "valid_for_open",
       "stop": 8.2496,
       "exit_type_5d": "STOP",
