@@ -1,7 +1,23 @@
 {
-  "as_of": "2026-09-17 00:21:17 AEST",
+  "as_of": "2026-09-18 00:27:50 AEST",
   "horizon_trading_days": 5,
   "results": [
+    {
+      "date": "2026-09-09",
+      "valid_for": "2026-09-10",
+      "symbol": "TNE.AX",
+      "class": "Software & Services",
+      "strategy": "MEAN_REVERSION",
+      "score": 100,
+      "order": "LIMIT",
+      "risk_gate": "always",
+      "entry_px": 28.5,
+      "entry_src": "valid_for_open",
+      "stop": 27.803,
+      "exit_type_5d": "H5_CLOSE",
+      "exit_px_5d": 28.790000915527344,
+      "r_5d": 0.41607018009661995
+    },
     {
       "date": "2026-09-08",
       "valid_for": "2026-09-09",
@@ -181,22 +197,6 @@
     {
       "date": "2026-08-20",
       "valid_for": "2026-08-21",
-      "symbol": "QBE.AX",
-      "class": "Insurance",
-      "strategy": "MEAN_REVERSION",
-      "score": 100,
-      "order": "LIMIT",
-      "risk_gate": "always",
-      "entry_px": 21.58721866878814,
-      "entry_src": "valid_for_open",
-      "stop": 21.1191,
-      "exit_type_5d": "H5_CLOSE",
-      "exit_px_5d": 21.93000030517578,
-      "r_5d": 0.7322537195002939
-    },
-    {
-      "date": "2026-08-20",
-      "valid_for": "2026-08-21",
       "symbol": "SOL.AX",
       "class": "Financial Services",
       "strategy": "MEAN_REVERSION",
@@ -209,6 +209,22 @@
       "exit_type_5d": "H5_CLOSE",
       "exit_px_5d": 44.33000183105469,
       "r_5d": 0.14089805750622938
+    },
+    {
+      "date": "2026-08-20",
+      "valid_for": "2026-08-21",
+      "symbol": "QBE.AX",
+      "class": "Insurance",
+      "strategy": "MEAN_REVERSION",
+      "score": 100,
+      "order": "LIMIT",
+      "risk_gate": "always",
+      "entry_px": 21.58721866878814,
+      "entry_src": "valid_for_open",
+      "stop": 21.1191,
+      "exit_type_5d": "H5_CLOSE",
+      "exit_px_5d": 21.93000030517578,
+      "r_5d": 0.7322537195002939
     },
     {
       "date": "2026-08-19",
@@ -277,22 +293,6 @@
     {
       "date": "2026-08-17",
       "valid_for": "2026-08-18",
-      "symbol": "ALX.AX",
-      "class": "Transportation",
-      "strategy": "MEAN_REVERSION",
-      "score": 95,
-      "order": "LIMIT",
-      "risk_gate": "always",
-      "entry_px": 4.800000190734863,
-      "entry_src": "valid_for_open",
-      "stop": 4.733,
-      "exit_type_5d": "H5_CLOSE",
-      "exit_px_5d": 4.809999942779541,
-      "r_5d": 0.14924960563544115
-    },
-    {
-      "date": "2026-08-17",
-      "valid_for": "2026-08-18",
       "symbol": "QBE.AX",
       "class": "Insurance",
       "strategy": "MEAN_REVERSION",
@@ -305,6 +305,22 @@
       "exit_type_5d": "STOP",
       "exit_px_5d": 22.0383,
       "r_5d": -1.0
+    },
+    {
+      "date": "2026-08-17",
+      "valid_for": "2026-08-18",
+      "symbol": "ALX.AX",
+      "class": "Transportation",
+      "strategy": "MEAN_REVERSION",
+      "score": 95,
+      "order": "LIMIT",
+      "risk_gate": "always",
+      "entry_px": 4.800000190734863,
+      "entry_src": "valid_for_open",
+      "stop": 4.733,
+      "exit_type_5d": "H5_CLOSE",
+      "exit_px_5d": 4.809999942779541,
+      "r_5d": 0.14924960563544115
     },
     {
       "date": "2026-08-14",
@@ -1845,22 +1861,6 @@
     {
       "date": "2026-03-20",
       "valid_for": "2026-03-23",
-      "symbol": "RIO.AX",
-      "class": "Materials",
-      "strategy": "MEAN_REVERSION",
-      "score": 98,
-      "order": "LIMIT",
-      "risk_gate": "always",
-      "entry_px": 141.77854395229141,
-      "entry_src": "valid_for_open",
-      "stop": 140.6272,
-      "exit_type_5d": "STOP",
-      "exit_px_5d": 140.6272,
-      "r_5d": -1.0
-    },
-    {
-      "date": "2026-03-20",
-      "valid_for": "2026-03-23",
       "symbol": "NEM.AX",
       "class": "Materials",
       "strategy": "MEAN_REVERSION",
@@ -1872,6 +1872,22 @@
       "stop": 134.9047,
       "exit_type_5d": "STOP",
       "exit_px_5d": 134.9047,
+      "r_5d": -1.0
+    },
+    {
+      "date": "2026-03-20",
+      "valid_for": "2026-03-23",
+      "symbol": "RIO.AX",
+      "class": "Materials",
+      "strategy": "MEAN_REVERSION",
+      "score": 98,
+      "order": "LIMIT",
+      "risk_gate": "always",
+      "entry_px": 141.77854395229141,
+      "entry_src": "valid_for_open",
+      "stop": 140.6272,
+      "exit_type_5d": "STOP",
+      "exit_px_5d": 140.6272,
       "r_5d": -1.0
     },
     {
@@ -2251,12 +2267,12 @@
       "score": 100,
       "order": "LIMIT",
       "risk_gate": "unknown",
-      "entry_px": 7.93382166722323,
+      "entry_px": 7.933821176954051,
       "entry_src": "valid_for_open",
       "stop": 7.5243,
       "exit_type_5d": "H5_CLOSE",
       "exit_px_5d": 7.755826473236084,
-      "r_5d": -0.4346417008751842
+      "r_5d": -0.434641024041447
     },
     {
       "date": "2026-02-19",
