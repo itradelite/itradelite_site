@@ -1,8 +1,25 @@
 {
-  "generated_at_utc": "2026-09-18T09:15:01Z",
-  "as_of_local": "2026-09-18 19:15:01 AEST",
+  "generated_at_utc": "2026-09-21T10:14:34Z",
+  "as_of_local": "2026-09-21 20:14:34 AEST",
   "skipped": false,
-  "has_signals": false,
-  "reason": "no_signals_last_night",
-  "updates": []
+  "has_signals": true,
+  "source_file": "reports/recommended_orders_latest.csv",
+  "n_signals": 1,
+  "updates": [
+    {
+      "symbol": "MQG.AX",
+      "strategy": "MEAN_REVERSION",
+      "original_entry": 238.62,
+      "original_stop": 233.3023,
+      "original_score": 88.0,
+      "current_price": 241.54,
+      "current_price_time": "16:10 AEST",
+      "gap_pct": 1.22,
+      "status": "INVALIDATED",
+      "updated_entry": 241.54,
+      "updated_stop": 236.3654,
+      "updated_score": 25,
+      "plain_english": "MQG.AX (Mean Reversion) was signaled last night at 238.6200. Currently trading at 241.5400 (+1.22% vs signal). Setup no longer holds \u2014 do not act on last night's plan."
+    }
+  ]
 }
