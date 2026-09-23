@@ -1,5 +1,5 @@
 {
-  "as_of": "2026-09-23 00:10:13 AEST",
+  "as_of": "2026-09-24 00:22:05 AEST",
   "horizon_trading_days": 5,
   "results": [
     {
@@ -2235,12 +2235,12 @@
       "score": 100,
       "order": "LIMIT",
       "risk_gate": "unknown",
-      "entry_px": 7.93382166722323,
+      "entry_px": 7.933821176954051,
       "entry_src": "valid_for_open",
       "stop": 7.5243,
       "exit_type_5d": "H5_CLOSE",
       "exit_px_5d": 7.755826473236084,
-      "r_5d": -0.4346417008751842
+      "r_5d": -0.434641024041447
     },
     {
       "date": "2026-02-19",
@@ -2255,8 +2255,8 @@
       "entry_src": "entry",
       "stop": 4.1989,
       "exit_type_5d": "H5_CLOSE",
-      "exit_px_5d": 4.475924015045166,
-      "r_5d": 0.3185341030231618
+      "exit_px_5d": 4.475923538208008,
+      "r_5d": 0.31853183345077624
     },
     {
       "date": "2026-02-18",
@@ -2427,7 +2427,7 @@
       "score": 100,
       "order": "LIMIT",
       "risk_gate": "always",
-      "entry_px": 8.379464870914443,
+      "entry_px": 8.379463931312518,
       "entry_src": "valid_for_open",
       "stop": 8.2496,
       "exit_type_5d": "STOP",
