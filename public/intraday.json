@@ -1,7 +1,7 @@
 {
-  "generated": "2026-09-23",
-  "valid_for": "2026-09-23",
-  "generated_at_utc": "2026-09-23T07:08:23Z",
+  "generated": "2026-09-24",
+  "valid_for": "2026-09-24",
+  "generated_at_utc": "2026-09-24T07:02:33Z",
   "interval": "15m,30m,1h",
   "universe_size": 147,
   "market_open": false,
@@ -9,57 +9,155 @@
     {
       "strategy": "Mean Reversion",
       "direction": "long",
-      "entry": 0.39,
-      "stop": 0.3864,
-      "target": 0.3936,
+      "entry": 22.92,
+      "stop": 22.8939,
+      "target": 22.9661,
       "score": 100,
-      "signal_time": "16:00 AEST 23 Sep",
-      "note": "Below BB lower (0.391), RSI2=0.0. ATR=0.0036. Mean reversion bounce setup.",
-      "symbol": "29M.AX",
+      "signal_time": "16:00 AEST 24 Sep",
+      "note": "Below BB lower (22.924), RSI2=0.0. ATR=0.0461. Mean reversion bounce setup.",
+      "symbol": "QBE.AX",
       "interval": "15m"
     },
     {
-      "strategy": "Trend Pullback",
+      "strategy": "Mean Reversion",
       "direction": "long",
-      "entry": 41.85,
-      "stop": 41.7964,
-      "target": 41.9004,
+      "entry": 94.29,
+      "stop": 94.0279,
+      "target": 94.5621,
       "score": 100,
-      "signal_time": "16:00 AEST 23 Sep",
-      "note": "Intraday pullback to EMA20 (41.842), RSI14=54.2, vol dry. ATR=0.0336. Stop below 41.7964.",
-      "symbol": "DHHF.AX",
-      "interval": "15m"
-    },
-    {
-      "strategy": "Trend Pullback",
-      "direction": "long",
-      "entry": 94.67,
-      "stop": 94.4821,
-      "target": 94.7868,
-      "score": 100,
-      "signal_time": "15:45 AEST 23 Sep",
-      "note": "Intraday pullback to EMA20 (94.645), RSI14=53.5, vol dry. ATR=0.0779. Stop below 94.4821.",
+      "signal_time": "16:00 AEST 24 Sep",
+      "note": "Below BB lower (94.454), RSI2=0.0. ATR=0.2721. Mean reversion bounce setup.",
       "symbol": "VGE.AX",
-      "interval": "15m"
+      "interval": "30m",
+      "other_signals": [
+        {
+          "interval": "15m",
+          "strategy": "Mean Reversion",
+          "score": 100
+        }
+      ]
+    },
+    {
+      "strategy": "Mean Reversion",
+      "direction": "long",
+      "entry": 161.66,
+      "stop": 161.4707,
+      "target": 161.8393,
+      "score": 100,
+      "signal_time": "16:00 AEST 24 Sep",
+      "note": "Below BB lower (161.761), RSI2=0.0. ATR=0.1793. Mean reversion bounce setup.",
+      "symbol": "VGS.AX",
+      "interval": "30m",
+      "other_signals": [
+        {
+          "interval": "15m",
+          "strategy": "Mean Reversion",
+          "score": 100
+        }
+      ]
     },
     {
       "strategy": "Trend Pullback",
       "direction": "long",
-      "entry": 1.835,
-      "stop": 1.7571,
-      "target": 1.8844,
+      "entry": 536.0,
+      "stop": 535.634,
+      "target": 536.9691,
       "score": 100,
-      "signal_time": "16:00 AEST 23 Sep",
-      "note": "Intraday pullback to EMA20 (1.824), RSI14=58.6, vol dry. ATR=0.0329. Stop below 1.7571.",
-      "symbol": "NXL.AX",
+      "signal_time": "16:00 AEST 24 Sep",
+      "note": "Intraday pullback to EMA20 (535.694), RSI14=52.4, vol dry. ATR=0.6461. Stop below 535.6340.",
+      "symbol": "VTS.AX",
       "interval": "1h",
       "other_signals": [
         {
           "interval": "30m",
-          "strategy": "Trend Pullback",
+          "strategy": "Mean Reversion",
+          "score": 100
+        },
+        {
+          "interval": "15m",
+          "strategy": "Mean Reversion",
           "score": 100
         }
       ]
+    },
+    {
+      "strategy": "Mean Reversion",
+      "direction": "long",
+      "entry": 62.89,
+      "stop": 62.7061,
+      "target": 63.2639,
+      "score": 100,
+      "signal_time": "16:00 AEST 24 Sep",
+      "note": "Below BB lower (63.010), RSI2=0.0. ATR=0.3739. Mean reversion bounce setup.",
+      "symbol": "DPM.AX",
+      "interval": "30m"
+    },
+    {
+      "strategy": "Mean Reversion",
+      "direction": "long",
+      "entry": 72.72,
+      "stop": 72.6579,
+      "target": 72.7921,
+      "score": 100,
+      "signal_time": "16:00 AEST 24 Sep",
+      "note": "Below BB lower (72.757), RSI2=0.0. ATR=0.0721. Mean reversion bounce setup.",
+      "symbol": "IVV.AX",
+      "interval": "30m"
+    },
+    {
+      "strategy": "Mean Reversion",
+      "direction": "long",
+      "entry": 37.92,
+      "stop": 37.8971,
+      "target": 38.0529,
+      "score": 100,
+      "signal_time": "16:00 AEST 24 Sep",
+      "note": "Below BB lower (37.944), RSI2=8.7. ATR=0.1329. Mean reversion bounce setup.",
+      "symbol": "JHX.AX",
+      "interval": "30m"
+    },
+    {
+      "strategy": "Mean Reversion",
+      "direction": "long",
+      "entry": 62.63,
+      "stop": 62.6143,
+      "target": 62.7157,
+      "score": 100,
+      "signal_time": "16:00 AEST 24 Sep",
+      "note": "Below BB lower (62.759), RSI2=0.0. ATR=0.0857. Mean reversion bounce setup.",
+      "symbol": "NDQ.AX",
+      "interval": "30m"
+    },
+    {
+      "strategy": "Mean Reversion",
+      "direction": "long",
+      "entry": 3.82,
+      "stop": 3.7932,
+      "target": 3.8418,
+      "score": 100,
+      "signal_time": "16:00 AEST 24 Sep",
+      "note": "Below BB lower (3.821), RSI2=0.0. ATR=0.0218. Mean reversion bounce setup.",
+      "symbol": "TPG.AX",
+      "interval": "1h",
+      "other_signals": [
+        {
+          "interval": "30m",
+          "strategy": "Mean Reversion",
+          "score": 100
+        }
+      ]
+    },
+    {
+      "strategy": "Trend Pullback",
+      "direction": "long",
+      "entry": 1.87,
+      "stop": 1.8199,
+      "target": 1.9227,
+      "score": 100,
+      "signal_time": "16:00 AEST 24 Sep",
+      "note": "Intraday pullback to EMA20 (1.853), RSI14=49.1, vol dry. ATR=0.0351. Stop below 1.8199.",
+      "symbol": "NXL.AX",
+      "interval": "1h"
     }
   ]
 }
