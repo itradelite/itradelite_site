@@ -1,25 +1,8 @@
 {
-  "generated_at_utc": "2026-10-12T12:29:24Z",
-  "as_of_local": "2026-10-12 22:29:24 AEST",
+  "generated_at_utc": "2026-10-13T12:14:00Z",
+  "as_of_local": "2026-10-13 22:14:00 AEST",
   "skipped": false,
-  "has_signals": true,
-  "source_file": "reports/recommended_orders_latest.csv",
-  "n_signals": 1,
-  "updates": [
-    {
-      "symbol": "NXL.AX",
-      "strategy": "MEAN_REVERSION",
-      "original_entry": 1.7,
-      "original_stop": 1.5884,
-      "original_score": 91.0,
-      "current_price": 1.705,
-      "current_price_time": "15:10 AEST",
-      "gap_pct": 0.29,
-      "status": "INVALIDATED",
-      "updated_entry": 1.705,
-      "updated_stop": 1.594,
-      "updated_score": 44,
-      "plain_english": "NXL.AX (Mean Reversion) was signaled last night at 1.7000. Currently trading at 1.7050 (+0.29% vs signal). Setup no longer holds \u2014 do not act on last night's plan."
-    }
-  ]
+  "has_signals": false,
+  "reason": "no_signals_last_night",
+  "updates": []
 }
