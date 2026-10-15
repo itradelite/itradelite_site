@@ -1,7 +1,23 @@
 {
-  "as_of": "2026-10-15 00:40:52 AEST",
+  "as_of": "2026-10-16 00:21:28 AEST",
   "horizon_trading_days": 5,
   "results": [
+    {
+      "date": "2026-10-07",
+      "valid_for": "2026-10-08",
+      "symbol": "PRU.AX",
+      "class": "Materials",
+      "strategy": "MEAN_REVERSION",
+      "score": 93,
+      "order": "LIMIT",
+      "risk_gate": "always",
+      "entry_px": 6.199999809265137,
+      "entry_src": "valid_for_open",
+      "stop": 5.9516,
+      "exit_type_5d": "H5_CLOSE",
+      "exit_px_5d": 6.0,
+      "r_5d": -0.8051528294518984
+    },
     {
       "date": "2026-10-06",
       "valid_for": "2026-10-07",
@@ -181,22 +197,6 @@
     {
       "date": "2026-09-04",
       "valid_for": "2026-09-07",
-      "symbol": "ASX.AX",
-      "class": "Financial Services",
-      "strategy": "TREND_PULLBACK",
-      "score": 100,
-      "order": "STOP",
-      "risk_gate": "risk_on",
-      "entry_px": 56.2612,
-      "entry_src": "entry",
-      "stop": 54.5319,
-      "exit_type_5d": "STOP",
-      "exit_px_5d": 54.5319,
-      "r_5d": -1.0
-    },
-    {
-      "date": "2026-09-04",
-      "valid_for": "2026-09-07",
       "symbol": "TNE.AX",
       "class": "Software & Services",
       "strategy": "MEAN_REVERSION",
@@ -208,6 +208,22 @@
       "stop": 29.7666,
       "exit_type_5d": "STOP",
       "exit_px_5d": 29.7666,
+      "r_5d": -1.0
+    },
+    {
+      "date": "2026-09-04",
+      "valid_for": "2026-09-07",
+      "symbol": "ASX.AX",
+      "class": "Financial Services",
+      "strategy": "TREND_PULLBACK",
+      "score": 100,
+      "order": "STOP",
+      "risk_gate": "risk_on",
+      "entry_px": 56.2612,
+      "entry_src": "entry",
+      "stop": 54.5319,
+      "exit_type_5d": "STOP",
+      "exit_px_5d": 54.5319,
       "r_5d": -1.0
     },
     {
@@ -229,22 +245,6 @@
     {
       "date": "2026-08-31",
       "valid_for": "2026-09-01",
-      "symbol": "ASX.AX",
-      "class": "Financial Services",
-      "strategy": "TREND_PULLBACK",
-      "score": 100,
-      "order": "STOP",
-      "risk_gate": "risk_on",
-      "entry_px": 55.5805,
-      "entry_src": "entry",
-      "stop": 54.3452,
-      "exit_type_5d": "H5_CLOSE",
-      "exit_px_5d": 54.7599983215332,
-      "r_5d": -0.6642124815565418
-    },
-    {
-      "date": "2026-08-31",
-      "valid_for": "2026-09-01",
       "symbol": "ANZ.AX",
       "class": "Banks",
       "strategy": "TREND_PULLBACK",
@@ -257,6 +257,22 @@
       "exit_type_5d": "H5_CLOSE",
       "exit_px_5d": 36.939998626708984,
       "r_5d": 0.09266821965943406
+    },
+    {
+      "date": "2026-08-31",
+      "valid_for": "2026-09-01",
+      "symbol": "ASX.AX",
+      "class": "Financial Services",
+      "strategy": "TREND_PULLBACK",
+      "score": 100,
+      "order": "STOP",
+      "risk_gate": "risk_on",
+      "entry_px": 55.5805,
+      "entry_src": "entry",
+      "stop": 54.3452,
+      "exit_type_5d": "H5_CLOSE",
+      "exit_px_5d": 54.7599983215332,
+      "r_5d": -0.6642124815565418
     },
     {
       "date": "2026-08-24",
@@ -2299,12 +2315,12 @@
       "score": 100,
       "order": "LIMIT",
       "risk_gate": "unknown",
-      "entry_px": 7.93382166722323,
+      "entry_px": 7.933821176954051,
       "entry_src": "valid_for_open",
       "stop": 7.5243,
       "exit_type_5d": "H5_CLOSE",
       "exit_px_5d": 7.755826473236084,
-      "r_5d": -0.4346417008751842
+      "r_5d": -0.434641024041447
     },
     {
       "date": "2026-02-19",
@@ -2491,7 +2507,7 @@
       "score": 100,
       "order": "LIMIT",
       "risk_gate": "always",
-      "entry_px": 8.379464870914443,
+      "entry_px": 8.379463931312518,
       "entry_src": "valid_for_open",
       "stop": 8.2496,
       "exit_type_5d": "STOP",
