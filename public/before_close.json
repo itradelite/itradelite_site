@@ -1,25 +1,40 @@
 {
-  "generated_at_utc": "2026-10-14T09:47:38Z",
-  "as_of_local": "2026-10-14 19:47:38 AEST",
+  "generated_at_utc": "2026-10-15T09:28:32Z",
+  "as_of_local": "2026-10-15 19:28:32 AEST",
   "skipped": false,
   "has_signals": true,
   "source_file": "reports/recommended_orders_latest.csv",
-  "n_signals": 1,
+  "n_signals": 2,
   "updates": [
     {
-      "symbol": "NXL.AX",
+      "symbol": "S32.AX",
       "strategy": "MEAN_REVERSION",
-      "original_entry": 1.62,
-      "original_stop": 1.5086,
-      "original_score": 100.0,
-      "current_price": 1.695,
+      "original_entry": 4.74,
+      "original_stop": 4.5874,
+      "original_score": 96.0,
+      "current_price": 4.47,
       "current_price_time": "15:10 AEST",
-      "gap_pct": 4.63,
+      "gap_pct": -5.7,
       "status": "INVALIDATED",
-      "updated_entry": 1.695,
-      "updated_stop": 1.5876,
-      "updated_score": 25,
-      "plain_english": "NXL.AX (Mean Reversion) was signaled last night at 1.6200. Currently trading at 1.6950 (+4.63% vs signal). Setup no longer holds \u2014 do not act on last night's plan."
+      "updated_entry": 4.47,
+      "updated_stop": 4.2969,
+      "updated_score": 100,
+      "plain_english": "S32.AX (Mean Reversion) was signaled last night at 4.7400. Currently trading at 4.4700 (-5.70% vs signal). Setup no longer holds \u2014 do not act on last night's plan. Price already traded through the original stop (4.5874) today."
+    },
+    {
+      "symbol": "SFR.AX",
+      "strategy": "MEAN_REVERSION",
+      "original_entry": 21.09,
+      "original_stop": 20.3923,
+      "original_score": 89.0,
+      "current_price": 19.99,
+      "current_price_time": "15:10 AEST",
+      "gap_pct": -5.22,
+      "status": "INVALIDATED",
+      "updated_entry": 19.99,
+      "updated_stop": 19.2151,
+      "updated_score": 100,
+      "plain_english": "SFR.AX (Mean Reversion) was signaled last night at 21.0900. Currently trading at 19.9900 (-5.22% vs signal). Setup no longer holds \u2014 do not act on last night's plan. Price already traded through the original stop (20.3923) today."
     }
   ]
 }
