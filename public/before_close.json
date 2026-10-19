@@ -1,40 +1,8 @@
 {
-  "generated_at_utc": "2026-10-16T09:21:01Z",
-  "as_of_local": "2026-10-16 19:21:01 AEST",
+  "generated_at_utc": "2026-10-19T10:20:45Z",
+  "as_of_local": "2026-10-19 20:20:45 AEST",
   "skipped": false,
-  "has_signals": true,
-  "source_file": "reports/recommended_orders_latest.csv",
-  "n_signals": 2,
-  "updates": [
-    {
-      "symbol": "NEM.AX",
-      "strategy": "MEAN_REVERSION",
-      "original_entry": 159.8,
-      "original_stop": 155.936,
-      "original_score": 89.0,
-      "current_price": 166.17,
-      "current_price_time": "15:10 AEST",
-      "gap_pct": 3.99,
-      "status": "INVALIDATED",
-      "updated_entry": 166.17,
-      "updated_stop": 162.0609,
-      "updated_score": 25,
-      "plain_english": "NEM.AX (Mean Reversion) was signaled last night at 159.8000. Currently trading at 166.1700 (+3.99% vs signal). Setup no longer holds \u2014 do not act on last night's plan."
-    },
-    {
-      "symbol": "S32.AX",
-      "strategy": "MEAN_REVERSION",
-      "original_entry": 4.47,
-      "original_stop": 4.2969,
-      "original_score": 100.0,
-      "current_price": 4.63,
-      "current_price_time": "15:10 AEST",
-      "gap_pct": 3.58,
-      "status": "INVALIDATED",
-      "updated_entry": 4.63,
-      "updated_stop": 4.45,
-      "updated_score": 54,
-      "plain_english": "S32.AX (Mean Reversion) was signaled last night at 4.4700. Currently trading at 4.6300 (+3.58% vs signal). Setup no longer holds \u2014 do not act on last night's plan."
-    }
-  ]
+  "has_signals": false,
+  "reason": "no_signals_last_night",
+  "updates": []
 }
