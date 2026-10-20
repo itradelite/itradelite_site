@@ -1,7 +1,7 @@
 {
-  "generated": "2026-10-19",
-  "valid_for": "2026-10-19",
-  "generated_at_utc": "2026-10-19T07:12:31Z",
+  "generated": "2026-10-20",
+  "valid_for": "2026-10-20",
+  "generated_at_utc": "2026-10-20T06:59:39Z",
   "interval": "15m,30m,1h",
   "universe_size": 147,
   "market_open": false,
@@ -9,92 +9,78 @@
     {
       "strategy": "Momentum Breakout",
       "direction": "long",
-      "entry": 62.76,
-      "stop": 61.6643,
-      "target": 63.0386,
+      "entry": 8.9,
+      "stop": 8.8179,
+      "target": 8.9332,
       "score": 100,
-      "signal_time": "15:00 AEST 19 Oct",
-      "note": "Broke 62.610 (15m 20-bar high), RSI14=73.0, vol 567167 vs avg 17109. ATR=0.1857.",
+      "signal_time": "15:00 AEST 20 Oct",
+      "note": "Broke 8.900 (15m 20-bar high), RSI14=59.4, vol 557493 vs avg 34599. ATR=0.0221.",
+      "symbol": "AGL.AX",
+      "interval": "15m"
+    },
+    {
+      "strategy": "Momentum Breakout",
+      "direction": "long",
+      "entry": 63.3,
+      "stop": 62.1975,
+      "target": 63.7687,
+      "score": 100,
+      "signal_time": "15:00 AEST 20 Oct",
+      "note": "Broke 63.190 (30m 20-bar high), RSI14=69.3, vol 573671 vs avg 61267. ATR=0.3125.",
       "symbol": "ALL.AX",
+      "interval": "30m",
+      "other_signals": [
+        {
+          "interval": "15m",
+          "strategy": "Momentum Breakout",
+          "score": 100
+        }
+      ]
+    },
+    {
+      "strategy": "Momentum Breakout",
+      "direction": "long",
+      "entry": 11.46,
+      "stop": 11.3382,
+      "target": 11.4927,
+      "score": 100,
+      "signal_time": "15:00 AEST 20 Oct",
+      "note": "Broke 11.460 (15m 20-bar high), RSI14=71.9, vol 1432779 vs avg 63596. ATR=0.0218.",
+      "symbol": "APA.AX",
       "interval": "15m"
     },
     {
       "strategy": "Momentum Breakout",
       "direction": "long",
-      "entry": 0.905,
-      "stop": 0.8811,
-      "target": 0.9184,
+      "entry": 6.86,
+      "stop": 6.755,
+      "target": 6.8975,
       "score": 100,
-      "signal_time": "15:00 AEST 19 Oct",
-      "note": "Broke 0.905 (30m 20-bar high), RSI14=69.2, vol 1331989 vs avg 647533. ATR=0.0089.",
+      "signal_time": "15:00 AEST 20 Oct",
+      "note": "Broke 6.860 (15m 20-bar high), RSI14=53.1, vol 345248 vs avg 60426. ATR=0.0250.",
+      "symbol": "BOQ.AX",
+      "interval": "15m"
+    },
+    {
+      "strategy": "Momentum Breakout",
+      "direction": "long",
+      "entry": 0.91,
+      "stop": 0.8691,
+      "target": 0.9264,
+      "score": 100,
+      "signal_time": "15:00 AEST 20 Oct",
+      "note": "Broke 0.910 (1h 20-bar high), RSI14=72.2, vol 1900411 vs avg 830256. ATR=0.0109.",
       "symbol": "BPT.AX",
-      "interval": "30m",
-      "other_signals": [
-        {
-          "interval": "15m",
-          "strategy": "Momentum Breakout",
-          "score": 100
-        }
-      ]
-    },
-    {
-      "strategy": "Momentum Breakout",
-      "direction": "long",
-      "entry": 27.25,
-      "stop": 26.2796,
-      "target": 27.6405,
-      "score": 100,
-      "signal_time": "15:00 AEST 19 Oct",
-      "note": "Broke 27.220 (30m 20-bar high), RSI14=61.2, vol 116905 vs avg 33173. ATR=0.2604.",
-      "symbol": "GYG.AX",
-      "interval": "30m",
-      "other_signals": [
-        {
-          "interval": "15m",
-          "strategy": "Momentum Breakout",
-          "score": 100
-        }
-      ]
-    },
-    {
-      "strategy": "Mean Reversion",
-      "direction": "long",
-      "entry": 8.61,
-      "stop": 8.6043,
-      "target": 8.6357,
-      "score": 100,
-      "signal_time": "15:00 AEST 19 Oct",
-      "note": "Below BB lower (8.626), RSI2=0.0. ATR=0.0257. Mean reversion bounce setup.",
-      "symbol": "IAG.AX",
-      "interval": "15m"
-    },
-    {
-      "strategy": "Mean Reversion",
-      "direction": "long",
-      "entry": 6.14,
-      "stop": 6.1154,
-      "target": 6.1646,
-      "score": 100,
-      "signal_time": "15:00 AEST 19 Oct",
-      "note": "Below BB lower (6.143), RSI2=0.0. ATR=0.0246. Mean reversion bounce setup.",
-      "symbol": "PRU.AX",
-      "interval": "15m"
-    },
-    {
-      "strategy": "Mean Reversion",
-      "direction": "long",
-      "entry": 9.01,
-      "stop": 8.9775,
-      "target": 9.0425,
-      "score": 100,
-      "signal_time": "15:00 AEST 19 Oct",
-      "note": "Below BB lower (9.030), RSI2=0.0. ATR=0.0325. Mean reversion bounce setup.",
-      "symbol": "ARG.AX",
       "interval": "1h",
       "other_signals": [
         {
           "interval": "30m",
-          "strategy": "Mean Reversion",
+          "strategy": "Momentum Breakout",
+          "score": 100
+        },
+        {
+          "interval": "15m",
+          "strategy": "Momentum Breakout",
           "score": 100
         }
       ]
@@ -102,45 +88,124 @@
     {
       "strategy": "Momentum Breakout",
       "direction": "long",
-      "entry": 32.5,
-      "stop": 31.7811,
-      "target": 32.7384,
+      "entry": 155.6,
+      "stop": 152.7025,
+      "target": 156.3763,
       "score": 100,
-      "signal_time": "15:00 AEST 19 Oct",
-      "note": "Broke 32.370 (30m 20-bar high), RSI14=64.8, vol 482325 vs avg 118112. ATR=0.1589.",
-      "symbol": "BSL.AX",
+      "signal_time": "15:00 AEST 20 Oct",
+      "note": "Broke 155.130 (15m 20-bar high), RSI14=67.4, vol 601509 vs avg 29859. ATR=0.5175.",
+      "symbol": "CBA.AX",
+      "interval": "15m"
+    },
+    {
+      "strategy": "Momentum Breakout",
+      "direction": "long",
+      "entry": 11.07,
+      "stop": 10.8104,
+      "target": 11.1745,
+      "score": 100,
+      "signal_time": "15:00 AEST 20 Oct",
+      "note": "Broke 11.060 (30m 20-bar high), RSI14=76.6, vol 237481 vs avg 93585. ATR=0.0696.",
+      "symbol": "FLT.AX",
+      "interval": "30m",
+      "other_signals": [
+        {
+          "interval": "15m",
+          "strategy": "Momentum Breakout",
+          "score": 100
+        }
+      ]
+    },
+    {
+      "strategy": "Momentum Breakout",
+      "direction": "long",
+      "entry": 1.455,
+      "stop": 1.4021,
+      "target": 1.4698,
+      "score": 100,
+      "signal_time": "15:00 AEST 20 Oct",
+      "note": "Broke 1.450 (15m 20-bar high), RSI14=75.4, vol 822915 vs avg 99272. ATR=0.0099.",
+      "symbol": "ORA.AX",
+      "interval": "15m"
+    },
+    {
+      "strategy": "Momentum Breakout",
+      "direction": "long",
+      "entry": 31.48,
+      "stop": 31.0971,
+      "target": 31.6343,
+      "score": 100,
+      "signal_time": "15:00 AEST 20 Oct",
+      "note": "Broke 31.440 (15m 20-bar high), RSI14=74.4, vol 301845 vs avg 26098. ATR=0.1029.",
+      "symbol": "TNE.AX",
+      "interval": "15m"
+    },
+    {
+      "strategy": "Momentum Breakout",
+      "direction": "long",
+      "entry": 3.83,
+      "stop": 3.7579,
+      "target": 3.8632,
+      "score": 100,
+      "signal_time": "15:00 AEST 20 Oct",
+      "note": "Broke 3.825 (30m 20-bar high), RSI14=68.3, vol 966405 vs avg 152134. ATR=0.0221.",
+      "symbol": "TPG.AX",
+      "interval": "30m",
+      "other_signals": [
+        {
+          "interval": "15m",
+          "strategy": "Momentum Breakout",
+          "score": 100
+        }
+      ]
+    },
+    {
+      "strategy": "Trend Pullback",
+      "direction": "long",
+      "entry": 84.18,
+      "stop": 83.4436,
+      "target": 84.6546,
+      "score": 100,
+      "signal_time": "15:00 AEST 20 Oct",
+      "note": "Intraday pullback to EMA20 (84.138), RSI14=51.4, vol dry. ATR=0.3164. Stop below 83.4436.",
+      "symbol": "VHY.AX",
+      "interval": "1h",
+      "other_signals": [
+        {
+          "interval": "30m",
+          "strategy": "Trend Pullback",
+          "score": 100
+        },
+        {
+          "interval": "15m",
+          "strategy": "Trend Pullback",
+          "score": 100
+        }
+      ]
+    },
+    {
+      "strategy": "Momentum Breakout",
+      "direction": "long",
+      "entry": 35.13,
+      "stop": 34.5514,
+      "target": 35.2929,
+      "score": 100,
+      "signal_time": "15:00 AEST 20 Oct",
+      "note": "Broke 35.120 (15m 20-bar high), RSI14=58.5, vol 1470517 vs avg 133959. ATR=0.1086.",
+      "symbol": "WBC.AX",
+      "interval": "15m"
+    },
+    {
+      "strategy": "Trend Pullback",
+      "direction": "long",
+      "entry": 22.89,
+      "stop": 22.6443,
+      "target": 23.0336,
+      "score": 100,
+      "signal_time": "15:00 AEST 20 Oct",
+      "note": "Intraday pullback to EMA20 (22.879), RSI14=43.3, vol dry. ATR=0.0957. Stop below 22.6443.",
+      "symbol": "QBTC.AX",
       "interval": "30m"
-    },
-    {
-      "strategy": "Momentum Breakout",
-      "direction": "long",
-      "entry": 19.88,
-      "stop": 19.4557,
-      "target": 20.0364,
-      "score": 100,
-      "signal_time": "15:00 AEST 19 Oct",
-      "note": "Broke 19.830 (1h 20-bar high), RSI14=70.9, vol 1125824 vs avg 291719. ATR=0.1043.",
-      "symbol": "SUN.AX",
-      "interval": "1h",
-      "other_signals": [
-        {
-          "interval": "30m",
-          "strategy": "Momentum Breakout",
-          "score": 100
-        }
-      ]
-    },
-    {
-      "strategy": "Momentum Breakout",
-      "direction": "long",
-      "entry": 2.47,
-      "stop": 2.3336,
-      "target": 2.5171,
-      "score": 100,
-      "signal_time": "15:00 AEST 19 Oct",
-      "note": "Broke 2.460 (1h 20-bar high), RSI14=70.6, vol 2497057 vs avg 1246346. ATR=0.0314.",
-      "symbol": "AMP.AX",
-      "interval": "1h"
     }
   ]
 }
