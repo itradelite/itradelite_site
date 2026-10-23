@@ -1,7 +1,23 @@
 {
-  "as_of": "2026-10-23 00:39:23 AEST",
+  "as_of": "2026-10-24 00:24:37 AEST",
   "horizon_trading_days": 5,
   "results": [
+    {
+      "date": "2026-10-15",
+      "valid_for": "2026-10-16",
+      "symbol": "SFR.AX",
+      "class": "Materials",
+      "strategy": "MEAN_REVERSION",
+      "score": 89,
+      "order": "LIMIT",
+      "risk_gate": "always",
+      "entry_px": 20.489999771118164,
+      "entry_src": "valid_for_open",
+      "stop": 20.3923,
+      "exit_type_5d": "STOP",
+      "exit_px_5d": 20.3923,
+      "r_5d": -1.0
+    },
     {
       "date": "2026-10-14",
       "valid_for": "2026-10-15",
@@ -165,22 +181,6 @@
     {
       "date": "2026-09-11",
       "valid_for": "2026-09-14",
-      "symbol": "MIN.AX",
-      "class": "Materials",
-      "strategy": "MEAN_REVERSION",
-      "score": 98,
-      "order": "LIMIT",
-      "risk_gate": "always",
-      "entry_px": 58.650001525878906,
-      "entry_src": "valid_for_open",
-      "stop": 56.0691,
-      "exit_type_5d": "STOP",
-      "exit_px_5d": 56.0691,
-      "r_5d": -1.0
-    },
-    {
-      "date": "2026-09-11",
-      "valid_for": "2026-09-14",
       "symbol": "JHX.AX",
       "class": "Materials",
       "strategy": "MEAN_REVERSION",
@@ -192,6 +192,22 @@
       "stop": 37.7521,
       "exit_type_5d": "STOP",
       "exit_px_5d": 37.7521,
+      "r_5d": -1.0
+    },
+    {
+      "date": "2026-09-11",
+      "valid_for": "2026-09-14",
+      "symbol": "MIN.AX",
+      "class": "Materials",
+      "strategy": "MEAN_REVERSION",
+      "score": 98,
+      "order": "LIMIT",
+      "risk_gate": "always",
+      "entry_px": 58.650001525878906,
+      "entry_src": "valid_for_open",
+      "stop": 56.0691,
+      "exit_type_5d": "STOP",
+      "exit_px_5d": 56.0691,
       "r_5d": -1.0
     },
     {
@@ -389,22 +405,6 @@
     {
       "date": "2026-08-21",
       "valid_for": "2026-08-24",
-      "symbol": "SOL.AX",
-      "class": "Financial Services",
-      "strategy": "MEAN_REVERSION",
-      "score": 90,
-      "order": "LIMIT",
-      "risk_gate": "always",
-      "entry_px": 43.76730263570038,
-      "entry_src": "valid_for_open",
-      "stop": 43.4389,
-      "exit_type_5d": "STOP",
-      "exit_px_5d": 43.4389,
-      "r_5d": -1.0
-    },
-    {
-      "date": "2026-08-21",
-      "valid_for": "2026-08-24",
       "symbol": "IOZ.AX",
       "class": "ETF",
       "strategy": "TREND_PULLBACK",
@@ -416,6 +416,22 @@
       "stop": 36.1313,
       "exit_type_5d": "STOP",
       "exit_px_5d": 36.1313,
+      "r_5d": -1.0
+    },
+    {
+      "date": "2026-08-21",
+      "valid_for": "2026-08-24",
+      "symbol": "SOL.AX",
+      "class": "Financial Services",
+      "strategy": "MEAN_REVERSION",
+      "score": 90,
+      "order": "LIMIT",
+      "risk_gate": "always",
+      "entry_px": 43.76730263570038,
+      "entry_src": "valid_for_open",
+      "stop": 43.4389,
+      "exit_type_5d": "STOP",
+      "exit_px_5d": 43.4389,
       "r_5d": -1.0
     },
     {
@@ -485,22 +501,6 @@
     {
       "date": "2026-08-18",
       "valid_for": "2026-08-19",
-      "symbol": "QBE.AX",
-      "class": "Insurance",
-      "strategy": "MEAN_REVERSION",
-      "score": 90,
-      "order": "LIMIT",
-      "risk_gate": "always",
-      "entry_px": 22.552781591794965,
-      "entry_src": "valid_for_open",
-      "stop": 22.0214,
-      "exit_type_5d": "STOP",
-      "exit_px_5d": 22.0214,
-      "r_5d": -1.0
-    },
-    {
-      "date": "2026-08-18",
-      "valid_for": "2026-08-19",
       "symbol": "NWS.AX",
       "class": "Media & Entertainment",
       "strategy": "TREND_PULLBACK",
@@ -513,6 +513,22 @@
       "exit_type_5d": "H5_CLOSE",
       "exit_px_5d": 48.54648971557617,
       "r_5d": 2.0339149784722137
+    },
+    {
+      "date": "2026-08-18",
+      "valid_for": "2026-08-19",
+      "symbol": "QBE.AX",
+      "class": "Insurance",
+      "strategy": "MEAN_REVERSION",
+      "score": 90,
+      "order": "LIMIT",
+      "risk_gate": "always",
+      "entry_px": 22.552781591794965,
+      "entry_src": "valid_for_open",
+      "stop": 22.0214,
+      "exit_type_5d": "STOP",
+      "exit_px_5d": 22.0214,
+      "r_5d": -1.0
     },
     {
       "date": "2026-08-17",
@@ -2271,8 +2287,8 @@
       "entry_src": "entry",
       "stop": 4.2048,
       "exit_type_5d": "H5_CLOSE",
-      "exit_px_5d": 4.44649076461792,
-      "r_5d": -0.03168764175512728
+      "exit_px_5d": 4.446491241455078,
+      "r_5d": -0.03168573134984602
     },
     {
       "date": "2026-02-23",
@@ -2319,8 +2335,8 @@
       "entry_src": "entry",
       "stop": 80.2336,
       "exit_type_5d": "H5_CLOSE",
-      "exit_px_5d": 90.21306610107422,
-      "r_5d": 0.9522793006385791
+      "exit_px_5d": 90.21305847167969,
+      "r_5d": 0.9522778081029195
     },
     {
       "date": "2026-02-21",
@@ -2335,8 +2351,8 @@
       "entry_src": "entry",
       "stop": 80.2336,
       "exit_type_5d": "H5_CLOSE",
-      "exit_px_5d": 90.21306610107422,
-      "r_5d": 0.9522793006385791
+      "exit_px_5d": 90.21305847167969,
+      "r_5d": 0.9522778081029195
     },
     {
       "date": "2026-02-21",
@@ -2395,12 +2411,12 @@
       "score": 100,
       "order": "LIMIT",
       "risk_gate": "unknown",
-      "entry_px": 7.933821176954051,
+      "entry_px": 7.93382166722323,
       "entry_src": "valid_for_open",
       "stop": 7.5243,
       "exit_type_5d": "H5_CLOSE",
       "exit_px_5d": 7.755826473236084,
-      "r_5d": -0.434641024041447
+      "r_5d": -0.4346417008751842
     },
     {
       "date": "2026-02-19",
@@ -2587,7 +2603,7 @@
       "score": 100,
       "order": "LIMIT",
       "risk_gate": "always",
-      "entry_px": 8.379463931312518,
+      "entry_px": 8.379464870914443,
       "entry_src": "valid_for_open",
       "stop": 8.2496,
       "exit_type_5d": "STOP",
