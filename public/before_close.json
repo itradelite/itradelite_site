@@ -1,6 +1,6 @@
 {
-  "generated_at_utc": "2026-10-22T09:41:34Z",
-  "as_of_local": "2026-10-22 19:41:34 AEST",
+  "generated_at_utc": "2026-10-23T09:38:04Z",
+  "as_of_local": "2026-10-23 19:38:04 AEST",
   "skipped": false,
   "has_signals": true,
   "source_file": "reports/recommended_orders_latest.csv",
@@ -9,32 +9,32 @@
     {
       "symbol": "PRU.AX",
       "strategy": "MEAN_REVERSION",
-      "original_entry": 5.92,
-      "original_stop": 5.7049,
-      "original_score": 87.0,
-      "current_price": 5.78,
+      "original_entry": 5.78,
+      "original_stop": 5.5529,
+      "original_score": 100.0,
+      "current_price": 5.41,
       "current_price_time": "15:10 AEST",
-      "gap_pct": -2.36,
-      "status": "IMPROVED",
-      "updated_entry": 5.78,
-      "updated_stop": 5.5537,
-      "updated_score": 100,
-      "plain_english": "PRU.AX (Mean Reversion) was signaled last night at 5.9200. Currently trading at 5.7800 (-2.36% vs signal). Setup has improved \u2014 still valid."
+      "gap_pct": -6.4,
+      "status": "INVALIDATED",
+      "updated_entry": 5.41,
+      "updated_stop": 5.1619,
+      "updated_score": 75,
+      "plain_english": "PRU.AX (Mean Reversion) was signaled last night at 5.7800. Currently trading at 5.4100 (-6.40% vs signal). Setup no longer holds \u2014 do not act on last night's plan. Price already traded through the original stop (5.5529) today."
     },
     {
-      "symbol": "IVV.AX",
-      "strategy": "TREND_PULLBACK",
-      "original_entry": 73.4834,
-      "original_stop": 73.078,
-      "original_score": 100.0,
-      "current_price": 73.03,
+      "symbol": "GMD.AX",
+      "strategy": "MEAN_REVERSION",
+      "original_entry": 6.68,
+      "original_stop": 6.3659,
+      "original_score": 99.0,
+      "current_price": 6.16,
       "current_price_time": "15:10 AEST",
-      "gap_pct": -0.62,
+      "gap_pct": -7.78,
       "status": "INVALIDATED",
-      "updated_entry": 73.3132,
-      "updated_stop": 72.8852,
-      "updated_score": 70,
-      "plain_english": "IVV.AX (Trend Pullback) was signaled last night at 73.4834. Currently trading at 73.0300 (-0.62% vs signal). Setup no longer holds \u2014 do not act on last night's plan. Price already traded through the original stop (73.0780) today."
+      "updated_entry": 6.16,
+      "updated_stop": 5.8193,
+      "updated_score": 75,
+      "plain_english": "GMD.AX (Mean Reversion) was signaled last night at 6.6800. Currently trading at 6.1600 (-7.78% vs signal). Setup no longer holds \u2014 do not act on last night's plan. Price already traded through the original stop (6.3659) today."
     }
   ]
 }
