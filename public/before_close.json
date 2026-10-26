@@ -1,40 +1,40 @@
 {
-  "generated_at_utc": "2026-10-23T09:38:04Z",
-  "as_of_local": "2026-10-23 19:38:04 AEST",
+  "generated_at_utc": "2026-10-26T10:34:46Z",
+  "as_of_local": "2026-10-26 20:34:46 AEST",
   "skipped": false,
   "has_signals": true,
   "source_file": "reports/recommended_orders_latest.csv",
   "n_signals": 2,
   "updates": [
     {
-      "symbol": "PRU.AX",
+      "symbol": "NDQ.AX",
       "strategy": "MEAN_REVERSION",
-      "original_entry": 5.78,
-      "original_stop": 5.5529,
-      "original_score": 100.0,
-      "current_price": 5.41,
+      "original_entry": 60.1,
+      "original_stop": 59.2223,
+      "original_score": 93.0,
+      "current_price": 59.98,
       "current_price_time": "15:10 AEST",
-      "gap_pct": -6.4,
-      "status": "INVALIDATED",
-      "updated_entry": 5.41,
-      "updated_stop": 5.1619,
-      "updated_score": 75,
-      "plain_english": "PRU.AX (Mean Reversion) was signaled last night at 5.7800. Currently trading at 5.4100 (-6.40% vs signal). Setup no longer holds \u2014 do not act on last night's plan. Price already traded through the original stop (5.5529) today."
+      "gap_pct": -0.2,
+      "status": "CONFIRMED",
+      "updated_entry": 59.98,
+      "updated_stop": 59.0843,
+      "updated_score": 88,
+      "plain_english": "NDQ.AX (Mean Reversion) was signaled last night at 60.1000. Currently trading at 59.9800 (-0.20% vs signal). Setup unchanged \u2014 still valid."
     },
     {
-      "symbol": "GMD.AX",
+      "symbol": "VGS.AX",
       "strategy": "MEAN_REVERSION",
-      "original_entry": 6.68,
-      "original_stop": 6.3659,
-      "original_score": 99.0,
-      "current_price": 6.16,
+      "original_entry": 161.11,
+      "original_stop": 159.8491,
+      "original_score": 87.0,
+      "current_price": 160.38,
       "current_price_time": "15:10 AEST",
-      "gap_pct": -7.78,
+      "gap_pct": -0.45,
       "status": "INVALIDATED",
-      "updated_entry": 6.16,
-      "updated_stop": 5.8193,
-      "updated_score": 75,
-      "plain_english": "GMD.AX (Mean Reversion) was signaled last night at 6.6800. Currently trading at 6.1600 (-7.78% vs signal). Setup no longer holds \u2014 do not act on last night's plan. Price already traded through the original stop (6.3659) today."
+      "updated_entry": 160.38,
+      "updated_stop": 159.0669,
+      "updated_score": 89,
+      "plain_english": "VGS.AX (Mean Reversion) was signaled last night at 161.1100. Currently trading at 160.3800 (-0.45% vs signal). Setup no longer holds \u2014 do not act on last night's plan. Price already traded through the original stop (159.8491) today."
     }
   ]
 }
