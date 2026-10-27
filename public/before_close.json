@@ -1,40 +1,40 @@
 {
-  "generated_at_utc": "2026-10-26T10:34:46Z",
-  "as_of_local": "2026-10-26 20:34:46 AEST",
+  "generated_at_utc": "2026-10-27T10:05:11Z",
+  "as_of_local": "2026-10-27 20:05:11 AEST",
   "skipped": false,
   "has_signals": true,
   "source_file": "reports/recommended_orders_latest.csv",
   "n_signals": 2,
   "updates": [
     {
-      "symbol": "NDQ.AX",
+      "symbol": "QUAL.AX",
       "strategy": "MEAN_REVERSION",
-      "original_entry": 60.1,
-      "original_stop": 59.2223,
-      "original_score": 93.0,
-      "current_price": 59.98,
+      "original_entry": 62.06,
+      "original_stop": 61.5466,
+      "original_score": 91.0,
+      "current_price": 62.4,
       "current_price_time": "15:10 AEST",
-      "gap_pct": -0.2,
-      "status": "CONFIRMED",
-      "updated_entry": 59.98,
-      "updated_stop": 59.0843,
-      "updated_score": 88,
-      "plain_english": "NDQ.AX (Mean Reversion) was signaled last night at 60.1000. Currently trading at 59.9800 (-0.20% vs signal). Setup unchanged \u2014 still valid."
+      "gap_pct": 0.55,
+      "status": "INVALIDATED",
+      "updated_entry": 62.4,
+      "updated_stop": 61.8686,
+      "updated_score": 49,
+      "plain_english": "QUAL.AX (Mean Reversion) was signaled last night at 62.0600. Currently trading at 62.4000 (+0.55% vs signal). Setup no longer holds \u2014 do not act on last night's plan."
     },
     {
       "symbol": "VGS.AX",
       "strategy": "MEAN_REVERSION",
-      "original_entry": 161.11,
-      "original_stop": 159.8491,
-      "original_score": 87.0,
-      "current_price": 160.38,
+      "original_entry": 160.38,
+      "original_stop": 159.0669,
+      "original_score": 89.0,
+      "current_price": 161.29,
       "current_price_time": "15:10 AEST",
-      "gap_pct": -0.45,
+      "gap_pct": 0.57,
       "status": "INVALIDATED",
-      "updated_entry": 160.38,
-      "updated_stop": 159.0669,
-      "updated_score": 89,
-      "plain_english": "VGS.AX (Mean Reversion) was signaled last night at 161.1100. Currently trading at 160.3800 (-0.45% vs signal). Setup no longer holds \u2014 do not act on last night's plan. Price already traded through the original stop (159.8491) today."
+      "updated_entry": 161.29,
+      "updated_stop": 159.9349,
+      "updated_score": 42,
+      "plain_english": "VGS.AX (Mean Reversion) was signaled last night at 160.3800. Currently trading at 161.2900 (+0.57% vs signal). Setup no longer holds \u2014 do not act on last night's plan."
     }
   ]
 }
