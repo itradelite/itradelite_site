@@ -1,40 +1,25 @@
 {
-  "generated_at_utc": "2026-10-27T10:05:11Z",
-  "as_of_local": "2026-10-27 20:05:11 AEST",
+  "generated_at_utc": "2026-10-28T10:52:01Z",
+  "as_of_local": "2026-10-28 20:52:01 AEST",
   "skipped": false,
   "has_signals": true,
   "source_file": "reports/recommended_orders_latest.csv",
-  "n_signals": 2,
+  "n_signals": 1,
   "updates": [
     {
-      "symbol": "QUAL.AX",
-      "strategy": "MEAN_REVERSION",
-      "original_entry": 62.06,
-      "original_stop": 61.5466,
-      "original_score": 91.0,
-      "current_price": 62.4,
+      "symbol": "DPM.AX",
+      "strategy": "GAP_FADE_CONTINUATION",
+      "original_entry": 54.29,
+      "original_stop": 51.7743,
+      "original_score": 73.0,
+      "current_price": 52.57,
       "current_price_time": "15:10 AEST",
-      "gap_pct": 0.55,
-      "status": "INVALIDATED",
-      "updated_entry": 62.4,
-      "updated_stop": 61.8686,
-      "updated_score": 49,
-      "plain_english": "QUAL.AX (Mean Reversion) was signaled last night at 62.0600. Currently trading at 62.4000 (+0.55% vs signal). Setup no longer holds \u2014 do not act on last night's plan."
-    },
-    {
-      "symbol": "VGS.AX",
-      "strategy": "MEAN_REVERSION",
-      "original_entry": 160.38,
-      "original_stop": 159.0669,
-      "original_score": 89.0,
-      "current_price": 161.29,
-      "current_price_time": "15:10 AEST",
-      "gap_pct": 0.57,
-      "status": "INVALIDATED",
-      "updated_entry": 161.29,
-      "updated_stop": 159.9349,
-      "updated_score": 42,
-      "plain_english": "VGS.AX (Mean Reversion) was signaled last night at 160.3800. Currently trading at 161.2900 (+0.57% vs signal). Setup no longer holds \u2014 do not act on last night's plan."
+      "gap_pct": -3.17,
+      "status": "UNKNOWN",
+      "updated_entry": null,
+      "updated_stop": null,
+      "updated_score": null,
+      "plain_english": "DPM.AX: unknown strategy 'GAP_FADE_CONTINUATION', skipped."
     }
   ]
 }
