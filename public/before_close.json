@@ -1,25 +1,25 @@
 {
-  "generated_at_utc": "2026-10-28T10:52:01Z",
-  "as_of_local": "2026-10-28 20:52:01 AEST",
+  "generated_at_utc": "2026-10-29T11:08:25Z",
+  "as_of_local": "2026-10-29 21:08:25 AEST",
   "skipped": false,
   "has_signals": true,
   "source_file": "reports/recommended_orders_latest.csv",
   "n_signals": 1,
   "updates": [
     {
-      "symbol": "DPM.AX",
-      "strategy": "GAP_FADE_CONTINUATION",
-      "original_entry": 54.29,
-      "original_stop": 51.7743,
-      "original_score": 73.0,
-      "current_price": 52.57,
+      "symbol": "REH.AX",
+      "strategy": "MEAN_REVERSION",
+      "original_entry": 15.62,
+      "original_stop": 15.0543,
+      "original_score": 100.0,
+      "current_price": 15.76,
       "current_price_time": "15:10 AEST",
-      "gap_pct": -3.17,
-      "status": "UNKNOWN",
-      "updated_entry": null,
-      "updated_stop": null,
-      "updated_score": null,
-      "plain_english": "DPM.AX: unknown strategy 'GAP_FADE_CONTINUATION', skipped."
+      "gap_pct": 0.9,
+      "status": "CONFIRMED",
+      "updated_entry": 15.76,
+      "updated_stop": 15.1789,
+      "updated_score": 100,
+      "plain_english": "REH.AX (Mean Reversion) was signaled last night at 15.6200. Currently trading at 15.7600 (+0.90% vs signal). Setup unchanged \u2014 still valid."
     }
   ]
 }
