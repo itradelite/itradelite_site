@@ -1,25 +1,40 @@
 {
-  "generated_at_utc": "2026-10-29T11:08:25Z",
-  "as_of_local": "2026-10-29 21:08:25 AEST",
+  "generated_at_utc": "2026-10-30T11:03:07Z",
+  "as_of_local": "2026-10-30 21:03:07 AEST",
   "skipped": false,
   "has_signals": true,
   "source_file": "reports/recommended_orders_latest.csv",
-  "n_signals": 1,
+  "n_signals": 2,
   "updates": [
+    {
+      "symbol": "SOL.AX",
+      "strategy": "TREND_PULLBACK",
+      "original_entry": 45.9259,
+      "original_stop": 44.8753,
+      "original_score": 100.0,
+      "current_price": 45.77,
+      "current_price_time": "15:10 AEST",
+      "gap_pct": -0.34,
+      "status": "CONFIRMED",
+      "updated_entry": 46.5465,
+      "updated_stop": 44.8763,
+      "updated_score": 100,
+      "plain_english": "SOL.AX (Trend Pullback) was signaled last night at 45.9259. Currently trading at 45.7700 (-0.34% vs signal). Setup unchanged \u2014 still valid."
+    },
     {
       "symbol": "REH.AX",
       "strategy": "MEAN_REVERSION",
-      "original_entry": 15.62,
-      "original_stop": 15.0543,
+      "original_entry": 15.76,
+      "original_stop": 15.1789,
       "original_score": 100.0,
-      "current_price": 15.76,
+      "current_price": 17.09,
       "current_price_time": "15:10 AEST",
-      "gap_pct": 0.9,
-      "status": "CONFIRMED",
-      "updated_entry": 15.76,
-      "updated_stop": 15.1789,
-      "updated_score": 100,
-      "plain_english": "REH.AX (Mean Reversion) was signaled last night at 15.6200. Currently trading at 15.7600 (+0.90% vs signal). Setup unchanged \u2014 still valid."
+      "gap_pct": 8.44,
+      "status": "INVALIDATED",
+      "updated_entry": 17.09,
+      "updated_stop": 16.3739,
+      "updated_score": 25,
+      "plain_english": "REH.AX (Mean Reversion) was signaled last night at 15.7600. Currently trading at 17.0900 (+8.44% vs signal). Setup no longer holds \u2014 do not act on last night's plan."
     }
   ]
 }
