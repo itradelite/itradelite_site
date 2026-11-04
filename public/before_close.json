@@ -1,8 +1,40 @@
 {
-  "generated_at_utc": "2026-11-03T12:25:24Z",
-  "as_of_local": "2026-11-03 22:25:24 AEST",
+  "generated_at_utc": "2026-11-04T12:37:16Z",
+  "as_of_local": "2026-11-04 22:37:16 AEST",
   "skipped": false,
-  "has_signals": false,
-  "reason": "no_signals_last_night",
-  "updates": []
+  "has_signals": true,
+  "source_file": "reports/recommended_orders_latest.csv",
+  "n_signals": 2,
+  "updates": [
+    {
+      "symbol": "AMP.AX",
+      "strategy": "MEAN_REVERSION",
+      "original_entry": 2.13,
+      "original_stop": 1.992,
+      "original_score": 100.0,
+      "current_price": 2.13,
+      "current_price_time": "15:10 AEST",
+      "gap_pct": 0.0,
+      "status": "CONFIRMED",
+      "updated_entry": 2.13,
+      "updated_stop": 2.0049,
+      "updated_score": 100,
+      "plain_english": "AMP.AX (Mean Reversion) was signaled last night at 2.1300. Currently trading at 2.1300 (+0.00% vs signal). Setup unchanged \u2014 still valid."
+    },
+    {
+      "symbol": "IVV.AX",
+      "strategy": "MEAN_REVERSION",
+      "original_entry": 71.8,
+      "original_stop": 71.1117,
+      "original_score": 85.0,
+      "current_price": 71.64,
+      "current_price_time": "15:10 AEST",
+      "gap_pct": -0.22,
+      "status": "INVALIDATED",
+      "updated_entry": 71.64,
+      "updated_stop": 70.92,
+      "updated_score": 82,
+      "plain_english": "IVV.AX (Mean Reversion) was signaled last night at 71.8000. Currently trading at 71.6400 (-0.22% vs signal). Setup no longer holds \u2014 do not act on last night's plan."
+    }
+  ]
 }
