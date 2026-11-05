@@ -1,7 +1,23 @@
 {
-  "as_of": "2026-11-05 03:29:09 AEST",
+  "as_of": "2026-11-06 03:36:19 AEST",
   "horizon_trading_days": 5,
   "results": [
+    {
+      "date": "2026-10-28",
+      "valid_for": "2026-10-29",
+      "symbol": "DPM.AX",
+      "class": "Materials",
+      "strategy": "GAP_FADE_CONTINUATION",
+      "score": 73,
+      "order": "LIMIT",
+      "risk_gate": "risk_on",
+      "entry_px": 54.29,
+      "entry_src": "entry",
+      "stop": 51.7743,
+      "exit_type_5d": "STOP",
+      "exit_px_5d": 51.7743,
+      "r_5d": -1.0
+    },
     {
       "date": "2026-10-27",
       "valid_for": "2026-10-28",
@@ -453,22 +469,6 @@
     {
       "date": "2026-09-04",
       "valid_for": "2026-09-07",
-      "symbol": "TNE.AX",
-      "class": "Software & Services",
-      "strategy": "MEAN_REVERSION",
-      "score": 93,
-      "order": "LIMIT",
-      "risk_gate": "always",
-      "entry_px": 30.450000762939453,
-      "entry_src": "valid_for_open",
-      "stop": 29.7666,
-      "exit_type_5d": "STOP",
-      "exit_px_5d": 29.7666,
-      "r_5d": -1.0
-    },
-    {
-      "date": "2026-09-04",
-      "valid_for": "2026-09-07",
       "symbol": "ASX.AX",
       "class": "Financial Services",
       "strategy": "TREND_PULLBACK",
@@ -480,6 +480,22 @@
       "stop": 54.5319,
       "exit_type_5d": "STOP",
       "exit_px_5d": 54.5319,
+      "r_5d": -1.0
+    },
+    {
+      "date": "2026-09-04",
+      "valid_for": "2026-09-07",
+      "symbol": "TNE.AX",
+      "class": "Software & Services",
+      "strategy": "MEAN_REVERSION",
+      "score": 93,
+      "order": "LIMIT",
+      "risk_gate": "always",
+      "entry_px": 30.450000762939453,
+      "entry_src": "valid_for_open",
+      "stop": 29.7666,
+      "exit_type_5d": "STOP",
+      "exit_px_5d": 29.7666,
       "r_5d": -1.0
     },
     {
@@ -2123,12 +2139,12 @@
       "score": 100,
       "order": "LIMIT",
       "risk_gate": "always",
-      "entry_px": 80.95975493551468,
+      "entry_px": 80.95976239430716,
       "entry_src": "valid_for_open",
       "stop": 74.1969,
       "exit_type_5d": "H5_CLOSE",
       "exit_px_5d": 97.36676025390625,
-      "r_5d": 2.4260472056307574
+      "r_5d": 2.4260434270273126
     },
     {
       "date": "2026-03-23",
@@ -2325,22 +2341,6 @@
     {
       "date": "2026-03-06",
       "valid_for": "2026-03-09",
-      "symbol": "NAB.AX",
-      "class": "Banks",
-      "strategy": "TREND_PULLBACK",
-      "score": 100,
-      "order": "STOP",
-      "risk_gate": "risk_on",
-      "entry_px": 47.2472,
-      "entry_src": "entry",
-      "stop": 46.2065,
-      "exit_type_5d": "STOP",
-      "exit_px_5d": 46.2065,
-      "r_5d": -1.0
-    },
-    {
-      "date": "2026-03-06",
-      "valid_for": "2026-03-09",
       "symbol": "AAI.AX",
       "class": "Materials",
       "strategy": "TREND_PULLBACK",
@@ -2352,6 +2352,22 @@
       "stop": 83.7371,
       "exit_type_5d": "STOP",
       "exit_px_5d": 83.7371,
+      "r_5d": -1.0
+    },
+    {
+      "date": "2026-03-06",
+      "valid_for": "2026-03-09",
+      "symbol": "NAB.AX",
+      "class": "Banks",
+      "strategy": "TREND_PULLBACK",
+      "score": 100,
+      "order": "STOP",
+      "risk_gate": "risk_on",
+      "entry_px": 47.2472,
+      "entry_src": "entry",
+      "stop": 46.2065,
+      "exit_type_5d": "STOP",
+      "exit_px_5d": 46.2065,
       "r_5d": -1.0
     },
     {
@@ -2415,8 +2431,8 @@
       "entry_src": "valid_for_open",
       "stop": 5.3949,
       "exit_type_5d": "H5_CLOSE",
-      "exit_px_5d": 6.157110691070557,
-      "r_5d": 5.339225895037119
+      "exit_px_5d": 6.157110214233398,
+      "r_5d": 5.339221929232787
     },
     {
       "date": "2026-02-24",
@@ -2447,8 +2463,8 @@
       "entry_src": "entry",
       "stop": 4.2048,
       "exit_type_5d": "H5_CLOSE",
-      "exit_px_5d": 4.44649076461792,
-      "r_5d": -0.03168764175512728
+      "exit_px_5d": 4.446491241455078,
+      "r_5d": -0.03168573134984602
     },
     {
       "date": "2026-02-23",
@@ -2495,8 +2511,8 @@
       "entry_src": "entry",
       "stop": 80.2336,
       "exit_type_5d": "H5_CLOSE",
-      "exit_px_5d": 90.0457534790039,
-      "r_5d": 0.9195479936232394
+      "exit_px_5d": 90.04574584960938,
+      "r_5d": 0.9195465010875797
     },
     {
       "date": "2026-02-21",
@@ -2511,8 +2527,8 @@
       "entry_src": "entry",
       "stop": 80.2336,
       "exit_type_5d": "H5_CLOSE",
-      "exit_px_5d": 90.0457534790039,
-      "r_5d": 0.9195479936232394
+      "exit_px_5d": 90.04574584960938,
+      "r_5d": 0.9195465010875797
     },
     {
       "date": "2026-02-21",
@@ -2763,7 +2779,7 @@
       "score": 100,
       "order": "LIMIT",
       "risk_gate": "always",
-      "entry_px": 8.379464870914443,
+      "entry_px": 8.379463931312518,
       "entry_src": "valid_for_open",
       "stop": 8.2496,
       "exit_type_5d": "STOP",
