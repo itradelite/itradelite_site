@@ -1,40 +1,8 @@
 {
-  "generated_at_utc": "2026-11-05T12:47:16Z",
-  "as_of_local": "2026-11-05 22:47:16 AEST",
+  "generated_at_utc": "2026-11-06T12:31:50Z",
+  "as_of_local": "2026-11-06 22:31:50 AEST",
   "skipped": false,
-  "has_signals": true,
-  "source_file": "reports/recommended_orders_latest.csv",
-  "n_signals": 2,
-  "updates": [
-    {
-      "symbol": "NST.AX",
-      "strategy": "MEAN_REVERSION",
-      "original_entry": 23.6,
-      "original_stop": 22.6169,
-      "original_score": 92.0,
-      "current_price": 25.94,
-      "current_price_time": "15:10 AEST",
-      "gap_pct": 9.92,
-      "status": "INVALIDATED",
-      "updated_entry": 25.94,
-      "updated_stop": 24.8377,
-      "updated_score": 25,
-      "plain_english": "NST.AX (Mean Reversion) was signaled last night at 23.6000. Currently trading at 25.9400 (+9.92% vs signal). Setup no longer holds \u2014 do not act on last night's plan."
-    },
-    {
-      "symbol": "AMP.AX",
-      "strategy": "MEAN_REVERSION",
-      "original_entry": 2.13,
-      "original_stop": 2.0049,
-      "original_score": 100.0,
-      "current_price": 2.21,
-      "current_price_time": "15:10 AEST",
-      "gap_pct": 3.76,
-      "status": "INVALIDATED",
-      "updated_entry": 2.21,
-      "updated_stop": 2.087,
-      "updated_score": 35,
-      "plain_english": "AMP.AX (Mean Reversion) was signaled last night at 2.1300. Currently trading at 2.2100 (+3.76% vs signal). Setup no longer holds \u2014 do not act on last night's plan."
-    }
-  ]
+  "has_signals": false,
+  "reason": "no_signals_last_night",
+  "updates": []
 }
