@@ -1,7 +1,23 @@
 {
-  "as_of": "2026-11-06 03:36:19 AEST",
+  "as_of": "2026-11-07 02:56:06 AEST",
   "horizon_trading_days": 5,
   "results": [
+    {
+      "date": "2026-10-29",
+      "valid_for": "2026-10-30",
+      "symbol": "REH.AX",
+      "class": "Capital Goods",
+      "strategy": "MEAN_REVERSION",
+      "score": 100,
+      "order": "LIMIT",
+      "risk_gate": "always",
+      "entry_px": 16.579999923706055,
+      "entry_src": "valid_for_open",
+      "stop": 15.0543,
+      "exit_type_5d": "H5_CLOSE",
+      "exit_px_5d": 18.3799991607666,
+      "r_5d": 1.1797858865249173
+    },
     {
       "date": "2026-10-28",
       "valid_for": "2026-10-29",
@@ -229,22 +245,6 @@
     {
       "date": "2026-10-09",
       "valid_for": "2026-10-12",
-      "symbol": "NXL.AX",
-      "class": "Software & Services",
-      "strategy": "MEAN_REVERSION",
-      "score": 93,
-      "order": "LIMIT",
-      "risk_gate": "always",
-      "entry_px": 1.7100000381469727,
-      "entry_src": "valid_for_open",
-      "stop": 1.6012,
-      "exit_type_5d": "STOP",
-      "exit_px_5d": 1.6012,
-      "r_5d": -1.0
-    },
-    {
-      "date": "2026-10-09",
-      "valid_for": "2026-10-12",
       "symbol": "AMP.AX",
       "class": "Financial Services",
       "strategy": "MEAN_REVERSION",
@@ -256,6 +256,22 @@
       "stop": 2.323,
       "exit_type_5d": "STOP",
       "exit_px_5d": 2.323,
+      "r_5d": -1.0
+    },
+    {
+      "date": "2026-10-09",
+      "valid_for": "2026-10-12",
+      "symbol": "NXL.AX",
+      "class": "Software & Services",
+      "strategy": "MEAN_REVERSION",
+      "score": 93,
+      "order": "LIMIT",
+      "risk_gate": "always",
+      "entry_px": 1.7100000381469727,
+      "entry_src": "valid_for_open",
+      "stop": 1.6012,
+      "exit_type_5d": "STOP",
+      "exit_px_5d": 1.6012,
       "r_5d": -1.0
     },
     {
@@ -837,22 +853,6 @@
     {
       "date": "2026-07-30",
       "valid_for": "2026-07-31",
-      "symbol": "CDA.AX",
-      "class": "Technology Hardware & Equipment",
-      "strategy": "MEAN_REVERSION",
-      "score": 94,
-      "order": "LIMIT",
-      "risk_gate": "always",
-      "entry_px": 39.554268599740766,
-      "entry_src": "valid_for_open",
-      "stop": 36.5516,
-      "exit_type_5d": "H5_CLOSE",
-      "exit_px_5d": 40.80649185180664,
-      "r_5d": 0.4170367826053082
-    },
-    {
-      "date": "2026-07-30",
-      "valid_for": "2026-07-31",
       "symbol": "CGF.AX",
       "class": "Financial Services",
       "strategy": "MEAN_REVERSION",
@@ -865,6 +865,22 @@
       "exit_type_5d": "H5_CLOSE",
       "exit_px_5d": 9.808646202087402,
       "r_5d": 1.6109534443902245
+    },
+    {
+      "date": "2026-07-30",
+      "valid_for": "2026-07-31",
+      "symbol": "CDA.AX",
+      "class": "Technology Hardware & Equipment",
+      "strategy": "MEAN_REVERSION",
+      "score": 94,
+      "order": "LIMIT",
+      "risk_gate": "always",
+      "entry_px": 39.554268599740766,
+      "entry_src": "valid_for_open",
+      "stop": 36.5516,
+      "exit_type_5d": "H5_CLOSE",
+      "exit_px_5d": 40.80649185180664,
+      "r_5d": 0.4170367826053082
     },
     {
       "date": "2026-07-29",
@@ -901,22 +917,6 @@
     {
       "date": "2026-07-24",
       "valid_for": "2026-07-27",
-      "symbol": "CDA.AX",
-      "class": "Technology Hardware & Equipment",
-      "strategy": "MEAN_REVERSION",
-      "score": 100,
-      "order": "LIMIT",
-      "risk_gate": "always",
-      "entry_px": 40.23007131736209,
-      "entry_src": "valid_for_open",
-      "stop": 37.7219,
-      "exit_type_5d": "STOP",
-      "exit_px_5d": 37.7219,
-      "r_5d": -1.0
-    },
-    {
-      "date": "2026-07-24",
-      "valid_for": "2026-07-27",
       "symbol": "WES.AX",
       "class": "Consumer Discretionary Distribution & Retail",
       "strategy": "MEAN_REVERSION",
@@ -928,6 +928,22 @@
       "stop": 85.4397,
       "exit_type_5d": "STOP",
       "exit_px_5d": 85.4397,
+      "r_5d": -1.0
+    },
+    {
+      "date": "2026-07-24",
+      "valid_for": "2026-07-27",
+      "symbol": "CDA.AX",
+      "class": "Technology Hardware & Equipment",
+      "strategy": "MEAN_REVERSION",
+      "score": 100,
+      "order": "LIMIT",
+      "risk_gate": "always",
+      "entry_px": 40.23007131736209,
+      "entry_src": "valid_for_open",
+      "stop": 37.7219,
+      "exit_type_5d": "STOP",
+      "exit_px_5d": 37.7219,
       "r_5d": -1.0
     },
     {
@@ -2431,8 +2447,8 @@
       "entry_src": "valid_for_open",
       "stop": 5.3949,
       "exit_type_5d": "H5_CLOSE",
-      "exit_px_5d": 6.157110214233398,
-      "r_5d": 5.339221929232787
+      "exit_px_5d": 6.157110691070557,
+      "r_5d": 5.339225895037119
     },
     {
       "date": "2026-02-24",
