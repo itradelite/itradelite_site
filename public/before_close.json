@@ -1,8 +1,40 @@
 {
-  "generated_at_utc": "2026-11-06T12:31:50Z",
-  "as_of_local": "2026-11-06 22:31:50 AEST",
+  "generated_at_utc": "2026-11-09T13:25:29Z",
+  "as_of_local": "2026-11-09 23:25:29 AEST",
   "skipped": false,
-  "has_signals": false,
-  "reason": "no_signals_last_night",
-  "updates": []
+  "has_signals": true,
+  "source_file": "reports/recommended_orders_latest.csv",
+  "n_signals": 2,
+  "updates": [
+    {
+      "symbol": "WDS.AX",
+      "strategy": "MEAN_REVERSION",
+      "original_entry": 30.74,
+      "original_stop": 29.5679,
+      "original_score": 99.0,
+      "current_price": 30.7,
+      "current_price_time": "15:10 AEST",
+      "gap_pct": -0.13,
+      "status": "INVALIDATED",
+      "updated_entry": 30.7,
+      "updated_stop": 29.5261,
+      "updated_score": 57,
+      "plain_english": "WDS.AX (Mean Reversion) was signaled last night at 30.7400. Currently trading at 30.7000 (-0.13% vs signal). Setup no longer holds \u2014 do not act on last night's plan."
+    },
+    {
+      "symbol": "STO.AX",
+      "strategy": "MEAN_REVERSION",
+      "original_entry": 8.56,
+      "original_stop": 8.2621,
+      "original_score": 95.0,
+      "current_price": 8.62,
+      "current_price_time": "15:10 AEST",
+      "gap_pct": 0.7,
+      "status": "INVALIDATED",
+      "updated_entry": 8.62,
+      "updated_stop": 8.317,
+      "updated_score": 50,
+      "plain_english": "STO.AX (Mean Reversion) was signaled last night at 8.5600. Currently trading at 8.6200 (+0.70% vs signal). Setup no longer holds \u2014 do not act on last night's plan."
+    }
+  ]
 }
