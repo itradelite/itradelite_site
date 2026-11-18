@@ -1,40 +1,40 @@
 {
-  "generated_at_utc": "2026-11-17T13:54:53Z",
-  "as_of_local": "2026-11-17 23:54:53 AEST",
+  "generated_at_utc": "2026-11-18T13:30:40Z",
+  "as_of_local": "2026-11-18 23:30:40 AEST",
   "skipped": false,
   "has_signals": true,
   "source_file": "reports/recommended_orders_latest.csv",
   "n_signals": 2,
   "updates": [
     {
-      "symbol": "NXL.AX",
+      "symbol": "CDA.AX",
       "strategy": "MEAN_REVERSION",
-      "original_entry": 1.625,
-      "original_stop": 1.4887,
-      "original_score": 88.0,
-      "current_price": 1.59,
+      "original_entry": 49.52,
+      "original_stop": 45.7854,
+      "original_score": 100.0,
+      "current_price": 49.81,
       "current_price_time": "15:10 AEST",
-      "gap_pct": -2.15,
-      "status": "IMPROVED",
-      "updated_entry": 1.59,
-      "updated_stop": 1.4554,
-      "updated_score": 93,
-      "plain_english": "NXL.AX (Mean Reversion) was signaled last night at 1.6250. Currently trading at 1.5900 (-2.15% vs signal). Setup has improved \u2014 still valid."
+      "gap_pct": 0.59,
+      "status": "CONFIRMED",
+      "updated_entry": 49.81,
+      "updated_stop": 46.0814,
+      "updated_score": 100,
+      "plain_english": "CDA.AX (Mean Reversion) was signaled last night at 49.5200. Currently trading at 49.8100 (+0.59% vs signal). Setup unchanged \u2014 still valid."
     },
     {
-      "symbol": "MQG.AX",
+      "symbol": "NXL.AX",
       "strategy": "MEAN_REVERSION",
-      "original_entry": 241.18,
-      "original_stop": 234.3578,
-      "original_score": 86.0,
-      "current_price": 232.12,
+      "original_entry": 1.59,
+      "original_stop": 1.4554,
+      "original_score": 93.0,
+      "current_price": 2.31,
       "current_price_time": "15:10 AEST",
-      "gap_pct": -3.76,
+      "gap_pct": 45.28,
       "status": "INVALIDATED",
-      "updated_entry": 232.12,
-      "updated_stop": 224.9578,
-      "updated_score": 75,
-      "plain_english": "MQG.AX (Mean Reversion) was signaled last night at 241.1800. Currently trading at 232.1200 (-3.76% vs signal). Setup no longer holds \u2014 do not act on last night's plan. Price already traded through the original stop (234.3578) today."
+      "updated_entry": 2.31,
+      "updated_stop": 2.1081,
+      "updated_score": 25,
+      "plain_english": "NXL.AX (Mean Reversion) was signaled last night at 1.5900. Currently trading at 2.3100 (+45.28% vs signal). Setup no longer holds \u2014 do not act on last night's plan."
     }
   ]
 }
