@@ -1,40 +1,40 @@
 {
-  "generated_at_utc": "2026-11-19T13:58:21Z",
-  "as_of_local": "2026-11-19 23:58:21 AEST",
+  "generated_at_utc": "2026-11-20T03:56:11Z",
+  "as_of_local": "2026-11-20 13:56:11 AEST",
   "skipped": false,
   "has_signals": true,
   "source_file": "reports/recommended_orders_latest.csv",
   "n_signals": 2,
   "updates": [
     {
-      "symbol": "CDA.AX",
+      "symbol": "NST.AX",
       "strategy": "MEAN_REVERSION",
-      "original_entry": 49.81,
-      "original_stop": 46.0814,
+      "original_entry": 22.8,
+      "original_stop": 21.498,
       "original_score": 100.0,
-      "current_price": 49.96,
-      "current_price_time": "15:10 AEST",
-      "gap_pct": 0.3,
+      "current_price": 21.96,
+      "current_price_time": "13:35 AEST",
+      "gap_pct": -3.68,
       "status": "INVALIDATED",
-      "updated_entry": 49.96,
-      "updated_stop": 46.222,
-      "updated_score": 58,
-      "plain_english": "CDA.AX (Mean Reversion) was signaled last night at 49.8100. Currently trading at 49.9600 (+0.30% vs signal). Setup no longer holds \u2014 do not act on last night's plan."
+      "updated_entry": 21.96,
+      "updated_stop": 20.6726,
+      "updated_score": 75,
+      "plain_english": "NST.AX (Mean Reversion) was signaled last night at 22.8000. Currently trading at 21.9600 (-3.68% vs signal). Setup no longer holds \u2014 do not act on last night's plan."
     },
     {
-      "symbol": "RHC.AX",
+      "symbol": "VHY.AX",
       "strategy": "MEAN_REVERSION",
-      "original_entry": 53.58,
-      "original_stop": 52.4374,
-      "original_score": 92.0,
-      "current_price": 54.41,
-      "current_price_time": "15:10 AEST",
-      "gap_pct": 1.55,
+      "original_entry": 83.51,
+      "original_stop": 82.5371,
+      "original_score": 87.0,
+      "current_price": 82.4,
+      "current_price_time": "13:35 AEST",
+      "gap_pct": -1.33,
       "status": "INVALIDATED",
-      "updated_entry": 54.41,
-      "updated_stop": 53.2186,
-      "updated_score": 25,
-      "plain_english": "RHC.AX (Mean Reversion) was signaled last night at 53.5800. Currently trading at 54.4100 (+1.55% vs signal). Setup no longer holds \u2014 do not act on last night's plan."
+      "updated_entry": 82.4,
+      "updated_stop": 81.3946,
+      "updated_score": 71,
+      "plain_english": "VHY.AX (Mean Reversion) was signaled last night at 83.5100. Currently trading at 82.4000 (-1.33% vs signal). Setup no longer holds \u2014 do not act on last night's plan. Price already traded through the original stop (82.5371) today."
     }
   ]
 }
