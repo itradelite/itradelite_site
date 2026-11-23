@@ -34,6 +34,20 @@ check(/Buy\s+5,012\s+sh/.test(firstCard.replace(/\s+/g,' ')) || /\(cap\)/.test(f
 await page.fill('#maxPos', '500'); await page.waitForTimeout(200);
 check(/Enter 1/.test(await page.textContent('#maxPosHint')), 'max position out of range rejected');
 await page.fill('#maxPos', '25');
+// compact rows: click expands detail; watchlist collapsed and remembered
+check(await page.$$eval('#tables tr.row-detail', r => r.length > 0 && r.every(x => x.hidden)), 'setup details collapsed by default');
+await page.click('#tables tr.row-compact >> nth=0'); await page.waitForTimeout(150);
+check(await page.$eval('#tables tr.row-compact', tr => !tr.nextElementSibling.hidden && tr.getAttribute('aria-expanded') === 'true'), 'clicking a row expands its details');
+await page.click('#tables tr.row-compact >> nth=0 >> .row-toggle'); await page.waitForTimeout(150);
+check(await page.$eval('#tables tr.row-compact', tr => tr.nextElementSibling.hidden), 'toggle collapses it again');
+check(await page.$eval('#watchDetails', d => !d.open && !d.querySelector('table')), 'full watchlist collapsed by default');
+await page.click('#watchDetails > summary'); await page.waitForTimeout(300);
+check(await page.$eval('#watchDetails', d => d.open && !!d.querySelector('table')), 'watchlist expands on click');
+await page.reload(); await page.waitForTimeout(900);
+check(await page.$eval('#watchDetails', d => d.open), 'watchlist open state remembered after reload');
+await page.click('#watchDetails > summary'); await page.waitForTimeout(300);
+const h = await page.evaluate(() => document.documentElement.scrollHeight);
+check(h < 2500, 'Today page height at 1280 with fixtures: ' + h + 'px');
 // live refresh: fixtures mode => no worker call
 await page.goto(base + '/live/' + q); await page.waitForTimeout(800);
 await page.click('#refreshBtn'); await page.waitForTimeout(300);

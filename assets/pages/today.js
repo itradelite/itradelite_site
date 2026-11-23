@@ -10,7 +10,7 @@
   const DATA_PATH = "/public/today.json";
   const PREFS_KEY = "itradelite_today_prefs";
   const RISK_OPTIONS = [0.25, 0.5, 0.75, 1, 1.25, 1.5, 2, 2.5, 3];
-  const DEFAULT_PREFS = { view: "all", strat: "all", q: "", sort: "status_score", portfolio: 100000, riskPct: 1, maxPosPct: 25 };
+  const DEFAULT_PREFS = { view: "all", strat: "all", q: "", sort: "status_score", portfolio: 100000, riskPct: 1, maxPosPct: 25, watchOpen: false };
 
   // ── Prefs ───────────────────────────────────────────────────────────────
   function normalizePrefs(obj) {
@@ -27,6 +27,7 @@
     if (rp !== null && rp >= 0.25 && rp <= 3) p.riskPct = rp;
     const mp = num(obj.maxPosPct);
     if (mp !== null && mp >= 1 && mp <= 100) p.maxPosPct = mp;
+    if (typeof obj.watchOpen === "boolean") p.watchOpen = obj.watchOpen;
     return p;
   }
 
@@ -338,45 +339,67 @@
     </section>`;
   }
 
+  function rowKey(title, r) { return title + "|" + (r.symbol || "") + "|" + (r.strategy || ""); }
+
+  /** Compact one-line rows; notes, sentiment components, fail gates and the
+   *  exit plan live in a per-row detail row, collapsed unless ctx.open has it. */
   function renderTable(title, rows, prefs, ctx, opts) {
     const o = opts || {};
+    const open = ctx.open instanceof Set ? ctx.open : new Set();
     if (!rows.length) {
-      return html`<section class="card"><div class="card__head"><h2>${title}</h2><span class="count">0</span></div>
-        <div class="empty-state">${o.emptyText || "No rows match your filters."}</div></section>`;
+      return html`<div class="empty-state">${o.emptyText || "No rows match your filters."}</div>`;
     }
     const limit = o.limit || rows.length;
     const shown = rows.slice(0, limit);
     const body = shown.map(r => {
       const s = sizeFor(r, prefs);
-      return html`<tr class="row-main">
+      const key = rowKey(title, r);
+      const isOpen = open.has(key);
+      const gates = r.fail_gates.length;
+      return html`<tr class="row-main row-compact" data-key="${key}" aria-expanded="${isOpen ? "true" : "false"}">
+          <td data-label="" class="td-toggle"><button type="button" class="row-toggle" aria-expanded="${isOpen ? "true" : "false"}" aria-label="${"Details for " + (r.symbol || "row")}">${isOpen ? "\u25be" : "\u25b8"}</button></td>
           <td data-label="Symbol">${ITL.symbolCell(r.symbol, ctx.names)}</td>
-          <td data-label="Strategy">${ITL.strategyLabel(r.strategy)}</td>
-          <td data-label="Order"><b class="mono">${orderTypeLabel(r.order_type)}</b>${orderLevels(r)}</td>
-          <td data-label="Entry ref" class="mono right">${fmtPrice(r.entry_ref, r)}</td>
+          <td data-label="Strategy" class="small nowrap">${ITL.strategyLabel(r.strategy)}</td>
+          <td data-label="Order" class="mono nowrap"><b>${orderTypeLabel(r.order_type)}</b>${orderLevels(r)}</td>
           <td data-label="Stop" class="mono right">${fmtPrice(r.stop, r)}</td>
-          <td data-label="TP1 / TP2" class="mono right nowrap">${fmtPrice(r.tp1, r)} / ${fmtPrice(r.tp2, r)}</td>
           <td data-label="R" class="mono right">${fmtNum(r.r_mult, 2)}</td>
           <td data-label="Score" class="mono right nowrap" title="TA score / composite">${fmtNum(r.score, 0)} / ${fmtNum(r.composite_score, 1)}</td>
+          <td data-label="Sentiment">${sentimentChips(r)[0]}</td>
           <td data-label="Qty" class="mono right">${qtyCell(s, r)}</td>
           <td data-label="Risk" class="mono right">${riskCell(s)}</td>
-          <td data-label="Status">${statusCell(r.status)}</td>
+          <td data-label="Status" class="nowrap">${statusCell(r.status)}${gates ? html` <span class="dim small" title="Failed gates: see details">(${String(gates)})</span>` : ""}</td>
         </tr>
-        <tr class="row-note"><td colspan="11" class="td-full">
+        <tr class="row-detail"${isOpen ? "" : html` hidden`}><td colspan="11" class="td-full">
           <div class="chips">${rowChips(r, ctx)}</div>
-          <div class="small" style="margin-top:5px;"><b>Exit plan:</b> ${exitPlanText(r.exit_plan, r)}</div>
-          ${r.plain_english || r.fund_label ? html`<details class="why"><summary>Why this setup</summary>
-            ${r.plain_english ? html`<p>${r.plain_english}</p>` : ""}
-            ${r.fund_label ? html`<p class="small">Fundamentals ${fmtNum(r.fund_score, 0)}/100: ${r.fund_label}</p>` : ""}</details>` : ""}
+          <div class="small" style="margin-top:5px;"><b>Entry ref</b> ${fmtPrice(r.entry_ref, r)} \u00b7 <b>TP1 / TP2</b> ${fmtPrice(r.tp1, r)} / ${fmtPrice(r.tp2, r)} \u00b7 <b>Last close</b> ${fmtPrice(r.last_close, r)}</div>
+          <div class="small" style="margin-top:3px;"><b>Exit plan:</b> ${exitPlanText(r.exit_plan, r)}</div>
+          ${r.plain_english ? html`<p class="small" style="margin:6px 0 0;">${r.plain_english}</p>` : ""}
+          ${r.fund_label ? html`<p class="small" style="margin:4px 0 0;">Fundamentals ${fmtNum(r.fund_score, 0)}/100: ${r.fund_label}</p>` : ""}
         </td></tr>`;
     });
-    return html`<section class="card" aria-label="${title}">
-      <div class="card__head"><h2>${title}</h2><span class="count">${rows.length > limit ? "showing " + limit + " of " + rows.length : rows.length + " row(s)"}${o.subtitle ? " · " + o.subtitle : ""}</span></div>
-      <div class="tableWrap"><table class="stack">
-        <thead><tr><th>Symbol</th><th>Strategy</th><th>Order</th><th class="right">Entry ref</th><th class="right">Stop</th><th class="right">TP1 / TP2</th><th class="right">R</th><th class="right">Score</th><th class="right">Qty</th><th class="right">Risk</th><th>Status</th></tr></thead>
+    return html`<div class="tableWrap"><table class="stack compact">
+        <thead><tr><th class="td-toggle"><span class="sr-only">Details</span></th><th>Symbol</th><th>Strategy</th><th>Order</th><th class="right">Stop</th><th class="right">R</th><th class="right">Score</th><th>Sentiment</th><th class="right">Qty</th><th class="right">Risk</th><th>Status</th></tr></thead>
         <tbody>${body}</tbody>
       </table></div>
-      ${rows.length > limit ? html`<div class="card__body"><button class="btn btn--ghost" type="button" data-more="${o.moreKey || ""}">Show all ${rows.length}</button></div>` : ""}
+      ${rows.length > limit ? html`<div class="card__body"><button class="btn btn--ghost" type="button" data-more="${o.moreKey || ""}">Show all ${rows.length}</button></div>` : ""}`;
+  }
+
+  function tableCard(title, rows, prefs, ctx, opts) {
+    const o = opts || {};
+    const count = rows.length > (o.limit || rows.length) ? "showing " + o.limit + " of " + rows.length : rows.length + " row(s)";
+    return html`<section class="card" aria-label="${title}">
+      <div class="card__head"><h2>${title}</h2><span class="count">${count}${o.subtitle ? " \u00b7 " + o.subtitle : ""}</span></div>
+      ${renderTable(title, rows, prefs, ctx, o)}
     </section>`;
+  }
+
+  /** Full watchlist: collapsed <details> by default (state remembered). */
+  function watchCard(rows, total, prefs, ctx, opts) {
+    const o = opts || {};
+    return html`<details class="card card--fold" id="watchDetails"${ctx.watchOpen ? html` open` : ""}>
+      <summary class="card__head"><h2>Full watchlist</h2><span class="count">${String(rows.length)}${rows.length !== total ? " of " + total : ""} row(s) \u00b7 every evaluated symbol; Watch rows list the gates they failed \u00b7 <span class="fold-hint">${ctx.watchOpen ? "click to collapse" : "click to expand"}</span></span></summary>
+      ${ctx.watchOpen ? renderTable("Full watchlist", rows, prefs, ctx, o) : ""}
+    </details>`;
   }
 
   function renderSections(data, nd, prefs, ctx) {
@@ -388,8 +411,8 @@
     const v = prefs.view;
     if (v === "all" || v === "recommended") parts.push(dim ? html`<div class="dimmed">${renderOrders(rec, prefs, ctx)}</div>` : renderOrders(rec, prefs, ctx));
     const rest = [];
-    if (v === "all" || v === "setups") rest.push(renderTable("Setups", setups, prefs, ctx, { subtitle: "valid and near-miss setups ranked by the scan", emptyText: nd.setups.length ? null : "No setups published tonight." }));
-    if (v === "all" || v === "watch") rest.push(renderTable("Full watchlist", watch, prefs, ctx, { limit: ctx.showAllWatch ? 0 : 40, moreKey: "watch", subtitle: "every evaluated symbol; Watch rows list the gates they failed", emptyText: nd.watch.length ? null : "No watchlist published tonight." }));
+    if (v === "all" || v === "setups") rest.push(tableCard("Setups", setups, prefs, ctx, { subtitle: "valid and near-miss setups ranked by the scan \u00b7 click / tap a row for details", emptyText: nd.setups.length ? null : "No setups published tonight." }));
+    if (v === "all" || v === "watch") rest.push(watchCard(watch, nd.watch.length, prefs, Object.assign({}, ctx, { watchOpen: ctx.watchOpen || v === "watch" }), { limit: ctx.showAllWatch ? 0 : 40, moreKey: "watch", emptyText: nd.watch.length ? null : "No watchlist published tonight." }));
     if (rest.length) parts.push(dim ? html`<div class="banner banner--stale"><div class="banner__body"><div class="banner__text">Built from the same stale/unconfirmed data flagged above: dimmed, not confirmed for ${fmtDate(data.valid_for)}.</div></div></div><div class="dimmed">${rest}</div>` : html`${rest}`);
     return html`${parts}`;
   }
@@ -398,7 +421,7 @@
   function boot() {
     const $ = (id) => document.getElementById(id);
     const prefs = normalizePrefs(ITL.store.get(PREFS_KEY));
-    const state = { data: null, nd: null, names: {}, edges: {}, showAllWatch: false };
+    const state = { data: null, nd: null, names: {}, edges: {}, showAllWatch: false, open: new Set() };
     const now = () => ITL.now();
 
     function save() { ITL.store.set(PREFS_KEY, prefs); }
@@ -423,11 +446,33 @@
       $("kpiWatch").textContent = String(nd.watch.length);
       $("kpiRisk").textContent = data.risk_mode ? String(data.risk_mode).replace(/_/g, " ").toUpperCase() : DASH;
       const ctx = { names: state.names, edges: state.edges, now: n, validFor: data.valid_for, published: data.published,
-        dim: st.stale === true || data.data_fresh === false, showAllWatch: state.showAllWatch };
+        dim: st.stale === true || data.data_fresh === false, showAllWatch: state.showAllWatch,
+        open: state.open, watchOpen: prefs.watchOpen };
       ITL.setHtml($("tables"), renderSections(data, nd, prefs, ctx));
       const more = document.querySelector('[data-more="watch"]');
       if (more) more.addEventListener("click", () => { state.showAllWatch = true; render(); });
+      const wd = $("watchDetails");
+      if (wd) wd.addEventListener("toggle", () => {
+        if (wd.open === prefs.watchOpen) return;
+        prefs.watchOpen = wd.open; save(); render();
+      });
     }
+
+    // Row details: click the row (not a link/button inside it) or the toggle.
+    $("tables").addEventListener("click", (e) => {
+      const tr = e.target.closest("tr.row-compact");
+      if (!tr) return;
+      if (e.target.closest("a") || (e.target.closest("button") && !e.target.closest(".row-toggle"))) return;
+      const detail = tr.nextElementSibling;
+      if (!detail || !detail.classList.contains("row-detail")) return;
+      const opening = detail.hidden;
+      detail.hidden = !opening;
+      const key = tr.getAttribute("data-key");
+      if (opening) state.open.add(key); else state.open.delete(key);
+      tr.setAttribute("aria-expanded", opening ? "true" : "false");
+      const btn = tr.querySelector(".row-toggle");
+      if (btn) { btn.setAttribute("aria-expanded", opening ? "true" : "false"); btn.textContent = opening ? "\u25be" : "\u25b8"; }
+    });
 
     async function load() {
       $("reloadBtn").disabled = true;
@@ -496,6 +541,6 @@
     DATA_PATH, PREFS_KEY, DEFAULT_PREFS, RISK_OPTIONS,
     normalizePrefs, strategyOptions, parseEntryText, normalizeRow, normalizeData, v1Sentiment,
     orderTypeLabel, exitPlanText, sentimentChips, earningsChip, sizeFor, applyFilters,
-    renderBanners, renderMeta, renderOrders, renderTable, renderSections, boot,
+    renderBanners, renderMeta, renderOrders, renderTable, tableCard, watchCard, renderSections, boot,
   };
 });

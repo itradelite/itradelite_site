@@ -202,7 +202,7 @@ section("escaping");
   const re = /<img src=x|<script>alert|<b>BAD<\/b>|<b>QAN<\/b>|<i>gate<\/i>/;
   const prefs = TODAY.normalizePrefs({});
   const td = J("dev/fixtures/today.json");
-  const out = S(TODAY.renderSections(td, TODAY.normalizeData(td), prefs, { names: {}, edges: {}, now: new Date(), showAllWatch: true }));
+  const out = S(TODAY.renderSections(td, TODAY.normalizeData(td), prefs, { names: {}, edges: {}, now: new Date(), showAllWatch: true, watchOpen: true }));
   ok(!re.test(out) && out.includes("&lt;img src=x"), "today: data markup rendered as text");
   const ints = J("dev/fixtures/intraday.json");
   const io = S(INTRA.renderTable(ints.signals, { names: {}, total: ints.signals.length, interval: "all" }));
@@ -216,7 +216,7 @@ section("escaping");
 section("today page logic");
 {
   eq(TODAY.normalizePrefs({ portfolio: "abc", riskPct: 9, maxPosPct: 0, view: "valid", sort: "x" }),
-    { view: "setups", strat: "all", q: "", sort: "status_score", portfolio: 100000, riskPct: 1, maxPosPct: 25 }, "corrupt prefs normalised");
+    { view: "setups", strat: "all", q: "", sort: "status_score", portfolio: 100000, riskPct: 1, maxPosPct: 25, watchOpen: false }, "corrupt prefs normalised");
   const opts = TODAY.strategyOptions([{ strategy: "MEAN_REVERSION" }], "MOMENTUM");
   eq(opts.map(o => o.value), ["all", "MEAN_REVERSION", "MOMENTUM"], "saved strategy kept as an option even with no rows");
   ok(/none today/.test(opts[2].label), "missing saved strategy labelled");
@@ -242,6 +242,18 @@ section("today page logic");
   eq(f.map(r => r.symbol), ["WTC.AX"], "strategy filter");
   const sorted = TODAY.applyFilters(nd.watch, Object.assign(TODAY.normalizePrefs({}), { sort: "risk_desc" }));
   ok(sorted.length === nd.watch.length, "risk sort keeps unsized rows");
+  const ctx0 = { names: {}, edges: {}, now: new Date(), validFor: td.valid_for };
+  const closed = S(TODAY.renderSections(td, nd, TODAY.normalizePrefs({}), ctx0));
+  ok(/<details class="card card--fold" id="watchDetails">/.test(closed) && !closed.includes("XSS.AX"), "full watchlist collapsed by default (rows not rendered)");
+  const nDetail = (closed.match(/class="row-detail" hidden/g) || []).length;
+  eq(nDetail, nd.setups.length, "every setup's detail row collapsed by default");
+  ok(!/class="row-note"/.test(closed) && (closed.match(/class="row-main row-compact"/g) || []).length === nd.setups.length, "one compact line per setup row");
+  const openKey = "Setups|" + nd.setups[0].symbol + "|" + nd.setups[0].strategy;
+  const one = S(TODAY.renderSections(td, nd, TODAY.normalizePrefs({}), Object.assign({}, ctx0, { open: new Set([openKey]) })));
+  eq((one.match(/class="row-detail" hidden/g) || []).length, nd.setups.length - 1, "remembered open row stays expanded across re-render");
+  ok(/id="watchDetails" open/.test(S(TODAY.renderSections(td, nd, TODAY.normalizePrefs({ watchOpen: true }), Object.assign({}, ctx0, { watchOpen: true })))), "watchlist open state honoured");
+  ok(/id="watchDetails" open/.test(S(TODAY.renderSections(td, nd, TODAY.normalizePrefs({ view: "watch" }), ctx0))), "watchlist view forces it open");
+  ok(/class="order"/.test(closed) && /Exit plan:<\/b> Initial stop/.test(closed), "recommended cards stay fully expanded");
   const now = new Date("2026-11-24T00:00:00Z");
   for (const [name, data] of [["v2", td], ["edge", J("dev/fixtures/edge/today.json")], ["v1", J("public/today.json")], ["empty", {}]]) {
     let err = null, html = "";

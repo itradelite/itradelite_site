@@ -360,3 +360,35 @@ dl.notes dd { margin: 0; color: var(--text-body); }
 details.data-table { margin-top: 10px; }
 details.data-table summary { cursor: pointer; font-size: 12px; color: var(--text-muted); }
 details.data-table table { max-width: 520px; }
+
+/* ── Compact tables with expandable row details (Today) ───────────────── */
+table.compact td { padding-top: 6px; padding-bottom: 6px; vertical-align: middle; }
+table.compact .company-name { font-size: 10.5px; }
+table.compact .lvl { display: inline; margin-left: 6px; }
+table.compact .company-name { max-width: 150px; }
+tr.row-compact { cursor: pointer; }
+tr[hidden], table.stack tr[hidden] { display: none !important; }
+tr.row-compact[aria-expanded="true"] { background: rgba(56,189,248,0.05); }
+tr.row-compact[aria-expanded="true"] td { border-bottom: none; }
+tr.row-detail td { background: rgba(56,189,248,0.04); padding-top: 4px; padding-bottom: 12px; }
+th.td-toggle, td.td-toggle { width: 30px; padding-left: 10px; padding-right: 0; }
+.row-toggle { background: none; border: 1px solid var(--border); color: var(--text-muted); border-radius: 6px; width: 26px; height: 26px; cursor: pointer; font-size: 12px; line-height: 1; }
+.row-toggle:hover { color: #fff; border-color: var(--border-hover); }
+details.card--fold > summary { cursor: pointer; list-style: none; }
+details.card--fold > summary::-webkit-details-marker { display: none; }
+details.card--fold > summary h2::before { content: "\25b8  "; color: var(--text-muted); }
+details.card--fold[open] > summary h2::before { content: "\25be  "; }
+details.card--fold:not([open]) > summary { border-bottom: none; }
+.fold-hint { color: var(--accent); }
+@media (max-width: 760px) {
+  table.stack.compact td.td-toggle { display: none; }
+  table.stack.compact tr.row-main { display: grid; grid-template-columns: repeat(3, 1fr); column-gap: 8px; padding: 8px 12px 6px; }
+  table.stack.compact tr.row-main td { padding: 2px 0; text-align: left; min-height: 0; white-space: normal; }
+  table.stack.compact tr.row-main td::before { position: static; display: block; max-width: none; font-size: 10px; margin-bottom: 1px; }
+  table.stack.compact tr.row-main td[data-label="Symbol"] { grid-column: 1 / 3; }
+  table.stack.compact tr.row-main td[data-label="Symbol"]::before, table.stack.compact tr.row-main td[data-label="Order"]::before { display: none; }
+  table.stack.compact tr.row-main td[data-label="Order"] { grid-column: 1 / -1; }
+  table.stack.compact td .symbol-line { justify-content: flex-start; }
+  table.stack.compact td .company-name { margin-left: 0; }
+  table.stack.compact td[data-label="Strategy"], table.stack.compact td[data-label="Sentiment"] { display: none; }
+}
