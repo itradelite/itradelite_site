@@ -1,6 +1,34 @@
 {
-  "as_of": "2026-11-21 04:00:06 AEST",
+  "schema": "itl.pending_exits.v2",
+  "job": "night_scan",
+  "generated_at_utc": "2026-11-23T12:44:13+00:00",
+  "generated_at_bne": "2026-11-23T22:44:13+10:00",
+  "market_state": {
+    "now_syd": "2026-11-23T23:44:13.289397+11:00",
+    "now_bne": "2026-11-23T22:44:13.289397+10:00",
+    "trading_day": true,
+    "phase": "post_close",
+    "session_date": "2026-11-23",
+    "open_syd": "2026-11-23T10:00:00+11:00",
+    "close_syd": "2026-11-23T16:00:00+11:00",
+    "minutes_to_close": null,
+    "minutes_since_open": null,
+    "last_completed_session": "2026-11-23",
+    "next_session": "2026-11-24"
+  },
+  "stale_after_utc": "2026-11-24T08:30:00+00:00",
+  "run_id": "45176772168.1",
+  "as_of_session": "2026-11-23",
+  "as_of": "2026-11-23 22:44:13 AEST",
+  "exit_policy": {
+    "id": "fixed_5d",
+    "label": "Legacy: exit at close of day 5",
+    "kind": "time",
+    "days": 5
+  },
+  "positions": [],
   "pending_exits": [],
   "recent_auto_closes": [],
-  "notes": "pending_exits: positions flagged for exit (SELL_STOP/SELL_TRAIL20/SELL_TIME) or profit-taking (TAKE_PROFIT_2R/3R) for 3+ consecutive trading days with no action taken yet. Exit-category positions are auto-closed at 10 consecutive days (see recent_auto_closes and ITRADELITE_FOLLOWUP_REPORT.md item 4); profit-take positions are never auto-closed."
+  "errors": [],
+  "notes": "positions: every row of journal/my_positions.csv with its FROZEN initial stop, the default exit policy's trailing level (peak ratchets up only) and effective stop = max(initial, trail). pending_exits: positions flagged SELL_STOP/SELL_TRAIL/SELL_TIME or TAKE_PROFIT_2R/3R for 3+ consecutive ASX trading days with no action. Exit flags auto-close at 10 consecutive trading days (recent_auto_closes); profit-take flags are never auto-closed."
 }

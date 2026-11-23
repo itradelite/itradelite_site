@@ -1,0 +1,37 @@
+{
+  "schema": "itl.status.v2",
+  "job": "status",
+  "generated_at_utc": "2026-11-23T12:44:33+00:00",
+  "generated_at_bne": "2026-11-23T22:44:33+10:00",
+  "market_state": {
+    "now_syd": "2026-11-23T23:44:33.412389+11:00",
+    "now_bne": "2026-11-23T22:44:33.412389+10:00",
+    "trading_day": true,
+    "phase": "post_close",
+    "session_date": "2026-11-23",
+    "open_syd": "2026-11-23T10:00:00+11:00",
+    "close_syd": "2026-11-23T16:00:00+11:00",
+    "minutes_to_close": null,
+    "minutes_since_open": null,
+    "last_completed_session": "2026-11-23",
+    "next_session": "2026-11-24"
+  },
+  "stale_after_utc": "2026-11-24T12:44:33+00:00",
+  "run_id": "45176772168.1",
+  "updated_by": "night_scan",
+  "any_stale": false,
+  "jobs": {
+    "night_scan": {
+      "last_attempt_utc": "2026-11-23T12:44:33+00:00",
+      "last_status": "success",
+      "last_run_id": "45176772168.1",
+      "last_success_utc": "2026-11-23T12:44:33+00:00",
+      "last_session": "2026-11-23",
+      "detail": "ok",
+      "expected_every": "trading_day@16:30 Sydney (retry 18:30); must land by close+3h30",
+      "stale": false,
+      "stale_after_utc": "2026-11-24T19:30:00+11:00",
+      "health": "ok"
+    }
+  }
+}
