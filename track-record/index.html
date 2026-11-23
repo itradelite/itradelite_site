@@ -2,705 +2,94 @@
 <html lang="en-AU">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Track Record — iTradeLite Audit</title>
-  <meta name="description" content="iTradeLite's public performance audit — signal counts, returns, win rates, and per-strategy attribution, cross-linked to the Strategy Decay statistical audit of which strategies actually show edge." />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Track record — iTradeLite vs the ASX200 ETF</title>
+  <meta name="description" content="Every iTradeLite recommended order replayed with realistic fills and costs, compared with buying an ASX200 ETF, including a comparison of exit policies." />
   <link rel="canonical" href="https://www.itradelite.com/track-record/" />
-
-  <meta property="og:type" content="website" />
-  <meta property="og:site_name" content="iTradeLite" />
-  <meta property="og:title" content="Track Record — iTradeLite Audit" />
-  <meta property="og:description" content="Signal counts, returns, win rates, and per-strategy attribution — cross-linked to the Strategy Decay statistical audit." />
+  <meta property="og:title" content="Track record — iTradeLite" />
   <meta property="og:url" content="https://www.itradelite.com/track-record/" />
   <meta property="og:image" content="https://www.itradelite.com/assets/og.png" />
-
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Track Record — iTradeLite Audit" />
-  <meta name="twitter:description" content="Signal counts, returns, win rates, and per-strategy attribution — cross-linked to the Strategy Decay statistical audit." />
-  <meta name="twitter:image" content="https://www.itradelite.com/assets/og.png" />
-
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="icon" href="/favicon-96x96.png" sizes="96x96" type="image/png" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <link rel="manifest" href="/site.webmanifest" />
   <script src="/assets/analytics-config.js"></script>
   <script src="/assets/analytics.js"></script>
-
-  <link rel="stylesheet" href="/assets/site.css" />
-
-  <style>
-    .page-header {
-      margin-bottom: 60px;
-      padding-bottom: 40px;
-      border-bottom: 1px solid var(--border);
-      position: relative;
-    }
-    
-    .page-header::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 25%;
-      height: 2px;
-      background: linear-gradient(90deg, var(--accent), transparent);
-    }
-    
-    .page-header h1 {
-      font-size: 4.5rem;
-      letter-spacing: -3.5px;
-      margin: 0 0 16px 0;
-      font-weight: 900;
-      background: linear-gradient(135deg, #ffffff 0%, #94a3b8 60%, #64748b 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      animation: fadeInUp 1s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-    
-    .page-header p {
-      font-size: 1.3rem;
-      color: var(--text-muted);
-      font-weight: 500;
-      animation: fadeInUp 1s cubic-bezier(0.4, 0, 0.2, 1) 0.2s backwards;
-    }
-
-    /* Enhanced Chart Panel */
-    .chart-panel {
-      background: linear-gradient(135deg, rgba(255, 255, 255, 0.06) 0%, rgba(255, 255, 255, 0.02) 100%);
-      border: 1px solid var(--border);
-      border-radius: 28px;
-      padding: 48px;
-      margin: 60px 0;
-      backdrop-filter: blur(20px);
-      box-shadow: 
-        0 24px 48px rgba(0,0,0,0.3),
-        0 0 0 1px rgba(59, 130, 246, 0.1);
-      position: relative;
-      overflow: hidden;
-    }
-    
-    .chart-panel::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 2px;
-      background: linear-gradient(90deg, transparent, var(--accent), transparent);
-    }
-
-    #equity { 
-      filter: drop-shadow(0 0 20px rgba(59, 130, 246, 0.4)); 
-      width: 100%; 
-      height: 400px; 
-      display: block;
-    }
-
-    /* Professional Warning Banner */
-    .warn-panel { 
-      background: linear-gradient(135deg, rgba(251, 191, 36, 0.08) 0%, rgba(245, 158, 11, 0.04) 100%);
-      border: 1px solid rgba(251, 191, 36, 0.25); 
-      border-radius: 20px; 
-      padding: 32px 36px; 
-      margin-bottom: 60px; 
-      font-size: 0.95rem; 
-      line-height: 1.8; 
-      color: #fbbf24;
-      position: relative;
-      overflow: hidden;
-    }
-    
-    .warn-panel::before {
-      content: '';
-      position: absolute;
-      left: 0;
-      top: 0;
-      bottom: 0;
-      width: 4px;
-      background: linear-gradient(180deg, #fbbf24, #f59e0b);
-    }
-    
-    .warn-panel b {
-      text-transform: uppercase;
-      font-size: 0.7rem;
-      letter-spacing: 2px;
-      display: block;
-      margin-bottom: 12px;
-      font-weight: 800;
-      color: #fbbf24;
-    }
-
-    /* Enhanced KPI Grid */
-    .kpiGrid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 24px;
-      margin-bottom: 48px;
-    }
-    
-    .kpiBox {
-      background: linear-gradient(135deg, rgba(59, 130, 246, 0.08) 0%, rgba(139, 92, 246, 0.04) 100%);
-      border: 1px solid var(--border-hover);
-      padding: 32px 28px;
-      border-radius: 20px;
-      text-align: center;
-      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-      position: relative;
-      overflow: hidden;
-    }
-    
-    .kpiBox::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: -100%;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.1), transparent);
-      transition: left 0.5s;
-    }
-    
-    .kpiBox:hover::before {
-      left: 100%;
-    }
-    
-    .kpiBox:hover {
-      transform: translateY(-4px) scale(1.02);
-      border-color: var(--accent);
-      box-shadow: 0 16px 32px rgba(0,0,0,0.3), 0 0 24px rgba(59, 130, 246, 0.2);
-    }
-    
-    .kpiLabel { 
-      color: var(--text-muted); 
-      font-size: 0.75rem; 
-      text-transform: uppercase; 
-      letter-spacing: 1.5px; 
-      margin-bottom: 12px;
-      font-weight: 700;
-    }
-    
-    .kpiValue { 
-      font-size: 2.2rem; 
-      font-weight: 900; 
-      color: #fff;
-      letter-spacing: -1px;
-      text-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
-    }
-
-    .tag-up { 
-      color: #10b981 !important;
-      font-weight: 700;
-    }
-    
-    .tag-down {
-      color: #ef4444 !important;
-      font-weight: 700;
-    }
-
-    /* Win Rate is a hit-rate (% of trades that closed positive), not a
-       signed return — it must not be styled identically to Avg Return
-       (tag-up/tag-down), or it reads as a huge green gain at a glance.
-       Neutral color, no leading +/-. */
-    .tag-rate {
-      color: #fff !important;
-      font-weight: 700;
-    }
-    .kpiSub {
-      color: var(--text-muted);
-      font-size: 0.7rem;
-      margin-top: 6px;
-      font-weight: 500;
-      text-transform: none;
-      letter-spacing: 0;
-    }
-    .edge-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 4px;
-      padding: 3px 9px;
-      border-radius: 999px;
-      font-size: 11px;
-      font-weight: 700;
-      font-family: var(--mono-font);
-      border: 1px solid var(--border);
-      text-decoration: none;
-      margin-left: 8px;
-      white-space: nowrap;
-    }
-    .edge-badge--none { color: #ef4444; border-color: rgba(244,63,94,0.4); background: rgba(244,63,94,0.1); }
-    .edge-badge--unproven { color: var(--text-muted); }
-    .edge-badge:hover { filter: brightness(1.25); }
-    .strategy-decay-callout {
-      font-size: 0.85rem;
-      color: var(--text-muted);
-      margin: -8px 0 20px;
-      line-height: 1.6;
-    }
-    .strategy-decay-callout a { color: var(--accent); }
-
-    /* Enhanced Table Styling */
-    .table-container {
-      margin-top: 100px;
-    }
-    
-    .table-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 32px;
-    }
-    
-    .table-header h2 {
-      font-size: 2rem;
-      color: #fff;
-      font-weight: 800;
-      letter-spacing: -0.5px;
-      margin: 0;
-    }
-    
-    .table-scroll { 
-      overflow-x: auto; 
-      -webkit-overflow-scrolling: touch;
-      background: linear-gradient(135deg, rgba(255, 255, 255, 0.04) 0%, rgba(255, 255, 255, 0.01) 100%);
-      border: 1px solid var(--border);
-      border-radius: 20px;
-      padding: 8px;
-    }
-    
-    table {
-      background: transparent;
-    }
-    
-    thead {
-      background: linear-gradient(135deg, rgba(59, 130, 246, 0.12) 0%, rgba(139, 92, 246, 0.08) 100%);
-    }
-    
-    thead th {
-      padding: 20px 24px;
-      font-weight: 800;
-      font-size: 0.75rem;
-    }
-    
-    tbody tr {
-      border-bottom: 1px solid rgba(255, 255, 255, 0.04);
-    }
-    
-    tbody tr:hover {
-      background: linear-gradient(135deg, rgba(59, 130, 246, 0.08) 0%, rgba(139, 92, 246, 0.04) 100%);
-    }
-    
-    tbody td {
-      padding: 20px 24px;
-    }
-    
-    /* Ticker enrichment: company name + external link (Part B1/B2) */
-    .company-name {
-      font-family: 'Inter', -apple-system, system-ui, sans-serif;
-      font-weight: 400;
-      font-size: 11px;
-      color: var(--text-muted, #94a3b8);
-      margin-left: 8px;
-      display: inline-block;
-      max-width: 160px;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      white-space: nowrap;
-      vertical-align: middle;
-    }
-    .ext-link {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 18px;
-      height: 18px;
-      margin-left: 4px;
-      border-radius: 4px;
-      color: var(--text-muted, #94a3b8);
-      text-decoration: none;
-      font-size: 11px;
-      vertical-align: middle;
-      transition: color 0.15s, background 0.15s;
-    }
-    .ext-link:hover { color: var(--accent); background: rgba(59, 130, 246, 0.1); }
-
-    .chart-title {
-      font-size: 0.8rem;
-      text-transform: uppercase;
-      letter-spacing: 2.5px;
-      color: var(--accent);
-      margin-bottom: 36px;
-      font-weight: 800;
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-    
-    .chart-title::before {
-      content: '';
-      width: 40px;
-      height: 2px;
-      background: linear-gradient(90deg, var(--accent), transparent);
-    }
-    
-    #asof {
-      font-size: 0.7rem;
-      color: var(--text-dimmed);
-      margin-bottom: 36px;
-      text-align: right;
-      font-family: 'JetBrains Mono', monospace;
-      opacity: 0.7;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-    }
-    
-    @media (max-width: 768px) {
-      .page-header h1 {
-        font-size: 3rem;
-        letter-spacing: -2px;
-      }
-      
-      .kpiGrid {
-        grid-template-columns: 1fr;
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="/assets/itl.css" />
 </head>
-
 <body>
   <header class="topbar">
     <div class="container topbar__inner">
-      <a class="brand" href="/">
-        <img src="/assets/logo.png" alt="iTradeLite" style="height: 28px;">
-        <span>iTradeLite</span>
-      </a>
-      <nav class="nav" id="mainNav">
-        <a href="/today/">Daily Briefing</a>
-        <a href="/before-close/">Before-Close</a>
+      <a class="brand" href="/" aria-label="iTradeLite home"><img src="/assets/logo.png" alt="" width="26" height="26" /><span>iTradeLite</span></a>
+      <button class="hamburger" id="hamburgerBtn" aria-label="Toggle menu" aria-expanded="false" aria-controls="mainNav">&#9776;</button>
+      <nav class="nav" id="mainNav" aria-label="Primary">
+        <a href="/today/">Today</a>
+        <a href="/live/">Live check</a>
         <a href="/intraday/">Intraday</a>
-        <a href="/track-record/" aria-current="page">Track Record</a>
-        <a href="/strategy-decay/">Strategy Decay</a>
-        <a href="/how-it-works.html">Rules</a>
+        <a href="/track-record/">Track record</a>
+        <a href="/strategy-decay/">Strategy decay</a>
+        <a href="/how-it-works.html">How it works</a>
         <a href="/about.html">About</a>
-        <a class="btn btn--primary btn--small" href="/today/">Launch Terminal</a>
       </nav>
-      <button class="hamburger" id="hamburgerBtn" aria-label="Toggle menu">☰</button>
     </div>
   </header>
 
-  <script>
-    // Hamburger menu toggle
-    const hamburger = document.getElementById('hamburgerBtn');
-    const nav = document.getElementById('mainNav');
-    
-    hamburger.addEventListener('click', () => {
-      nav.classList.toggle('active');
-      hamburger.textContent = nav.classList.contains('active') ? '✕' : '☰';
-    });
-    
-    // Close menu when clicking outside
-    document.addEventListener('click', (e) => {
-      if (!e.target.closest('.topbar')) {
-        nav.classList.remove('active');
-        hamburger.textContent = '☰';
-      }
-    });
-    
-    // Close menu when link clicked
-    nav.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => {
-        nav.classList.remove('active');
-        hamburger.textContent = '☰';
-      });
-    });
-  </script>
-
   <main class="container pagePad">
-    <header class="page-header">
-      <h1>Performance Audit.</h1>
-      <p>Real-time strategy proxies and statistical accountability.</p>
-    </header>
-
-    <div class="warn-panel">
-      <b>Institutional Proxy Disclaimer:</b>
-      Returns are calculated using close-to-close forward returns based on published signals. This equity curve serves as a mathematical proxy for system efficacy and does not account for slippage or individual execution variance.
-    </div>
-
-    <div id="kpis" class="kpiGrid"></div>
-    
-    <div id="asof"></div>
-
-    <div class="chart-panel">
-      <h2 class="chart-title">
-        Compounded Equity Proxy (5-Day Rolling)
-      </h2>
-      <canvas id="equity"></canvas>
-    </div>
-
-    <div class="table-container">
-      <div class="table-header">
-        <h2>Strategy Attribution</h2>
-      </div>
-      <p class="strategy-decay-callout">
-        Trade counts and returns below are raw, not adjusted for luck. Whether each strategy's numbers are actually
-        distinguishable from a random-entry baseline is answered separately in <a href="/strategy-decay/">Strategy Decay</a> —
-        the "Edge" column links straight to that verdict per strategy.
-      </p>
-      <div class="table-scroll">
-        <table id="tblStrategy"></table>
+    <div id="itl-health"></div>
+    <div class="page-head">
+      <div>
+        <h1>Track record</h1>
+        <p>Every recommended order the system has published, replayed with the same fill rules as the live check, costs included, and compared with simply buying an ASX200 ETF.</p>
       </div>
     </div>
+    <div id="loadError"></div>
+    <div id="banners"></div>
+    <div id="content"><div class="card"><div class="card__body small">Loading&hellip;</div></div></div>
 
-    <div class="table-container">
-      <div class="table-header">
-        <h2>Recent Signal Log</h2>
-      </div>
-      <div class="table-scroll">
-        <table id="tblRecent"></table>
-      </div>
+    <div id="v2" hidden>
+      <div id="verdict"></div>
+      <div class="kpiGrid" id="kpis"></div>
+
+      <section class="chart-panel" aria-label="Equity curve">
+        <h3>Portfolio value (A$) vs ETF</h3>
+        <div class="chart-note" id="chartNote"></div>
+        <div id="chartHost" style="position:relative;"></div>
+        <div class="chart-tip" id="chartTip"></div>
+        <div class="legend" id="chartLegend"></div>
+        <details class="data-table"><summary>Show the numbers (month-end values)</summary><div class="tableWrap" id="chartTable"></div></details>
+      </section>
+
+      <section class="card" aria-label="Exit policy comparison">
+        <div class="card__head"><h2>Exit policies compared</h2><span class="count">same trades, different exits; every policy also honours the initial stop (gap-through exits at the open)</span></div>
+        <div id="policies"></div>
+      </section>
+
+      <section class="card" aria-label="Per strategy">
+        <div class="card__head"><h2>By strategy (default policy)</h2><a class="small" href="/strategy-decay/">Is any of it luck? Strategy decay &rarr;</a></div>
+        <div id="strategies"></div>
+      </section>
+
+      <section class="card" aria-label="Universe">
+        <div class="card__head"><h2>What is counted</h2></div>
+        <div class="card__body" id="universe"></div>
+      </section>
+
+      <section class="card" aria-label="Recent trades">
+        <div class="card__head"><h2>Recent trades</h2></div>
+        <div id="trades"></div>
+      </section>
+
+      <section class="card" aria-label="Method notes">
+        <div class="card__head"><h2>Method</h2></div>
+        <div class="card__body" id="notes"></div>
+      </section>
     </div>
+
+    <footer class="site-foot">Simulated from published signals; not a real brokerage account. Past results do not predict future results. Not financial advice.</footer>
   </main>
 
-  <footer>
-    <div class="container" style="padding: 80px 0; border-top: 1px solid var(--border); text-align: center;">
-      <p style="color: var(--text-muted); font-size: 0.85rem;">© 2026 iTradeLite • Educational Data Stream • Not Financial Advice</p>
-    </div>
-  </footer>
-
-  <script>
-    function esc(s){ return String(s??'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
-
-    // Ticker enrichment (Part B1): symbol -> full company name. Best-effort.
-    window.__NAMES__ = {};
-    async function loadNames(){
-      try{
-        const r = await fetch('/public/ticker_names.json?v=' + Date.now(), { cache: 'no-store' });
-        if (!r.ok) return;
-        window.__NAMES__ = await r.json();
-      }catch(_){ /* enrichment only, never block the page */ }
-    }
-    function companyNameHtml(sym){
-      const name = window.__NAMES__ && window.__NAMES__[sym];
-      if (!name) return "";
-      const n = esc(name);
-      return `<span class="company-name" title="${n}">${n}</span>`;
-    }
-    function extLinkHtml(sym){
-      const href = "https://finance.yahoo.com/quote/" + encodeURIComponent(sym);
-      return `<a class="ext-link" href="${href}" target="_blank" rel="noopener noreferrer" title="View ${esc(sym)} on Yahoo Finance" aria-label="View ${esc(sym)} on Yahoo Finance">↗</a>`;
-    }
-
-    const fmtPct = (x) => {
-      if (x == null || isNaN(x)) return "—";
-      const val = (x * 100).toFixed(2);
-      const cls = x >= 0 ? 'tag-up' : 'tag-down';
-      return `<span class="${cls}">${x >= 0 ? '+' : ''}${val}%</span>`;
-    };
-    
-    const fmtNum = (x, d=2) => (x == null || isNaN(x)) ? "—" : Number(x).toFixed(d);
-
-    // Win Rate is a hit-rate (share of trades that closed positive), not a
-    // return — keep it visually distinct from fmtPct (no +/- sign, no
-    // green/red) so it can't be misread as a huge gain at a glance.
-    const fmtRate = (x) => {
-      if (x == null || isNaN(x)) return "—";
-      return `<span class="tag-rate">${(x * 100).toFixed(2)}%</span>`;
-    };
-
-    function renderKpis(summary) {
-      const el = document.getElementById("kpis");
-      const items = [
-        ["Total Signals", summary.total_signals_with_entry, null],
-        ["Avg 5D Return", fmtPct(summary.avg_ret_5d), null],
-        ["Win Rate (5D)", fmtRate(summary.winrate_5d), "Share of trades closed positive — not a return"],
-        ["Max Drawdown", fmtPct(summary.equity_curve_proxy_max_drawdown), null],
-      ];
-      el.innerHTML = items.map(([k,v,sub]) => `
-        <div class="kpiBox">
-          <div class="kpiLabel">${k}</div>
-          <div class="kpiValue">${v}</div>
-          ${sub ? `<div class="kpiSub">${sub}</div>` : ""}
-        </div>
-      `).join("");
-      document.getElementById("asof").textContent = `Window: ${summary.since} — ${summary.until}`;
-    }
-
-    function drawLine(canvas, values) {
-      const ctx = canvas.getContext("2d");
-      const dpr = window.devicePixelRatio || 1;
-      const rect = canvas.getBoundingClientRect();
-      canvas.width = rect.width * dpr;
-      canvas.height = rect.height * dpr;
-      ctx.scale(dpr, dpr);
-
-      const w = rect.width;
-      const h = rect.height;
-      const padLeft = 80;
-      const padRight = 40;
-      const padTop = 40;
-      const padBottom = 60;
-      
-      const minV = Math.min(...values) * 0.99;
-      const maxV = Math.max(...values) * 1.01;
-      const range = maxV - minV;
-
-      const getX = (i) => padLeft + (i / (values.length - 1)) * (w - padLeft - padRight);
-      const getY = (v) => h - padBottom - ((v - minV) / range) * (h - padTop - padBottom);
-
-      // Clear canvas
-      ctx.clearRect(0, 0, w, h);
-
-      // Draw grid lines and Y-axis labels
-      ctx.strokeStyle = 'rgba(255, 255, 255, 0.08)';
-      ctx.lineWidth = 1;
-      ctx.font = '11px JetBrains Mono, monospace';
-      ctx.fillStyle = '#94a3b8';
-      ctx.textAlign = 'right';
-      
-      for(let i = 0; i <= 5; i++) {
-        const value = minV + (range * i / 5);
-        const y = h - padBottom - (i / 5) * (h - padTop - padBottom);
-        
-        // Grid line
-        ctx.beginPath();
-        ctx.moveTo(padLeft, y);
-        ctx.lineTo(w - padRight, y);
-        ctx.stroke();
-        
-        // Y-axis label
-        ctx.fillText('$' + value.toFixed(2), padLeft - 10, y + 4);
-      }
-
-      // X-axis labels (show first, middle, last dates)
-      ctx.textAlign = 'center';
-      const labelIndices = [0, Math.floor(values.length / 2), values.length - 1];
-      labelIndices.forEach(i => {
-        const x = getX(i);
-        ctx.fillText(`Day ${i}`, x, h - padBottom + 25);
-      });
-
-      // Enhanced Area Glow - determine if overall trend is up or down
-      const isPositive = values[values.length - 1] >= values[0];
-      const grad = ctx.createLinearGradient(0, 0, 0, h);
-      
-      if (isPositive) {
-        grad.addColorStop(0, 'rgba(16, 185, 129, 0.25)');
-        grad.addColorStop(0.5, 'rgba(16, 185, 129, 0.15)');
-        grad.addColorStop(1, 'rgba(5, 8, 16, 0)');
-      } else {
-        grad.addColorStop(0, 'rgba(239, 68, 68, 0.25)');
-        grad.addColorStop(0.5, 'rgba(239, 68, 68, 0.15)');
-        grad.addColorStop(1, 'rgba(5, 8, 16, 0)');
-      }
-      
-      ctx.beginPath();
-      ctx.moveTo(getX(0), h - padBottom);
-      values.forEach((v, i) => ctx.lineTo(getX(i), getY(v)));
-      ctx.lineTo(getX(values.length - 1), h - padBottom);
-      ctx.fillStyle = grad;
-      ctx.fill();
-
-      // Enhanced Line with Glow - color based on performance
-      ctx.shadowBlur = 20;
-      ctx.shadowColor = isPositive ? 'rgba(16, 185, 129, 0.6)' : 'rgba(239, 68, 68, 0.6)';
-      ctx.beginPath();
-      values.forEach((v, i) => i === 0 ? ctx.moveTo(getX(i), getY(v)) : ctx.lineTo(getX(i), getY(v)));
-      ctx.strokeStyle = isPositive ? '#10b981' : '#ef4444';
-      ctx.lineWidth = 3;
-      ctx.stroke();
-      
-      // Reset shadow
-      ctx.shadowBlur = 0;
-
-      // Draw legend
-      const startValue = values[0];
-      const endValue = values[values.length - 1];
-      const change = endValue - startValue;
-      const changePercent = ((change / startValue) * 100).toFixed(2);
-      
-      ctx.font = '12px Space Grotesk, sans-serif';
-      ctx.textAlign = 'left';
-      ctx.fillStyle = '#fff';
-      ctx.fillText('Equity Curve Performance:', 20, 25);
-      
-      ctx.font = 'bold 14px Space Grotesk, sans-serif';
-      ctx.fillStyle = isPositive ? '#10b981' : '#ef4444';
-      ctx.fillText(
-        `${isPositive ? '+' : ''}${changePercent}% (${isPositive ? '+' : ''}$${change.toFixed(2)})`, 
-        220, 
-        25
-      );
-    }
-
-    async function main() {
-      try {
-        const [res] = await Promise.all([fetch("/track-record/metrics.json"), loadNames()]);
-        const data = await res.json();
-        renderKpis(data.summary);
-
-        // Strategy Table — always list every live archetype, even ones with
-        // zero rows in data.by_strategy_5d yet (new strategies start with no
-        // history; showing them as "insufficient data" rather than omitting
-        // them is what the Strategy Decay page already does, and hiding them
-        // here made it look like they don't exist). Keep ALL_STRATEGIES and
-        // edgeInfoFor() in sync with strategy-decay/index.html's archetypes.
-        const ALL_STRATEGIES = [
-          { key: "TREND_PULLBACK",        label: "TREND_PULLBACK" },
-          { key: "MEAN_REVERSION",        label: "MEAN_REVERSION" },
-          { key: "MOMENTUM",              label: "MOMENTUM (Breakout)" },
-          { key: "GAP_FADE_CONTINUATION", label: "GAP_FADE_CONTINUATION" },
-          { key: "PEAD",                  label: "PEAD" },
-          { key: "HIGH52W_MOMENTUM",      label: "HIGH52W_MOMENTUM" },
-        ];
-        const EDGE_INFO = {
-          "TREND_PULLBACK":        { level: "none",     label: "No confirmed edge" },
-          "MEAN_REVERSION":        { level: "none",     label: "No confirmed edge" },
-          "MOMENTUM":              { level: "unproven", label: "Insufficient data" },
-          "GAP_FADE_CONTINUATION": { level: "unproven", label: "Unproven — new" },
-          "PEAD":                  { level: "unproven", label: "Unproven — new" },
-          "HIGH52W_MOMENTUM":      { level: "unproven", label: "Unproven — new" },
-        };
-        function edgeBadge(key){
-          const info = EDGE_INFO[key];
-          if (!info) return "—";
-          const cls = info.level === "none" ? "edge-badge--none" : "edge-badge--unproven";
-          return `<a href="/strategy-decay/" class="edge-badge ${cls}">${info.label} →</a>`;
-        }
-        const byStrategy = {};
-        (data.by_strategy_5d || []).forEach(r => { byStrategy[r.strategy] = r; });
-
-        document.getElementById("tblStrategy").innerHTML = `
-          <thead><tr><th>Strategy</th><th class="right">Trades</th><th class="right">Avg 5D</th><th class="right">Win 5D</th><th>Edge (per Strategy Decay)</th></tr></thead>
-          <tbody>${ALL_STRATEGIES.map(({key, label}) => {
-            const r = byStrategy[key];
-            return `
-            <tr>
-              <td><span class="mono" style="color:var(--accent); font-weight:bold;">${label}</span></td>
-              <td class="right mono">${r ? r.trades : 0}</td>
-              <td class="right mono">${r ? fmtPct(r.avg_5d) : "—"}</td>
-              <td class="right mono">${r ? fmtRate(r.win_5d) : "—"}</td>
-              <td>${edgeBadge(key)}</td>
-            </tr>`;
-          }).join("")}</tbody>`;
-
-        // Recent Signal Log
-        document.getElementById("tblRecent").innerHTML = `
-          <thead><tr><th>Date</th><th>Symbol</th><th>Strategy</th><th class="right">Entry</th><th class="right">5D</th></tr></thead>
-          <tbody>${(data.recent_signals || []).map(r => `
-            <tr>
-              <td class="mono small muted">${r.date}</td>
-              <td class="mono" style="color:#fff; font-weight:700; letter-spacing:1px; white-space:nowrap;">${esc(r.symbol)}${extLinkHtml(String(r.symbol||''))}${companyNameHtml(String(r.symbol||''))}</td>
-              <td class="small muted">${r.strategy}</td>
-              <td class="right mono">$${fmtNum(r.entry_px, 2)}</td>
-              <td class="right mono">${fmtPct(r.ret_5d)}</td>
-            </tr>`).join("")}</tbody>`;
-
-        const series = (data.equity_curve_proxy_5d || []).map(d => d.equity);
-        if(series.length > 1) {
-          drawLine(document.getElementById("equity"), series);
-          window.addEventListener("resize", () => drawLine(document.getElementById("equity"), series));
-        }
-      } catch(e) {
-        document.getElementById("kpis").innerHTML = `<div class="warn-panel" style="color:var(--danger); border-color: var(--danger);">System Offline: Check Data Provider.</div>`;
-      }
-    }
-    main();
-  </script>
+  <script src="/assets/itl.js"></script>
+  <script src="/assets/pages/track.js"></script>
+  <script>ITL_TRACK.boot();</script>
 </body>
 </html>

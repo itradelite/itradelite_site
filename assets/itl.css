@@ -346,3 +346,16 @@ a.tile:hover { border-color: var(--border-hover); filter: none; }
 
 footer.site-foot { padding: 28px 0 40px; border-top: 1px solid var(--border); margin-top: 28px; color: var(--text-muted); font-size: 12px; }
 footer.site-foot a { color: var(--text-muted); }
+
+/* ── Track record ─────────────────────────────────────────────────────── */
+.verdict { font-size: 18px; font-weight: 700; padding: 14px 16px; border-radius: 12px; border: 1px solid var(--border); background: var(--card-bg); margin: 6px 0 6px; }
+.verdict--ok { border-left: 4px solid var(--accent-green); }
+.verdict--bad { border-left: 4px solid var(--accent-red); }
+.verdict--info { border-left: 4px solid var(--accent); }
+dl.notes { display: grid; grid-template-columns: 180px 1fr; gap: 8px 16px; margin: 0; font-size: 13px; }
+dl.notes dt { color: var(--text-muted); font-weight: 700; }
+dl.notes dd { margin: 0; color: var(--text-body); }
+@media (max-width: 600px) { dl.notes { grid-template-columns: 1fr; } dl.notes dd { margin-bottom: 6px; } }
+details.data-table { margin-top: 10px; }
+details.data-table summary { cursor: pointer; font-size: 12px; color: var(--text-muted); }
+details.data-table table { max-width: 520px; }
