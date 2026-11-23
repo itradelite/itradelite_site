@@ -1,27 +1,27 @@
 {
   "schema": "itl.live.v2",
   "job": "live_check",
-  "generated_at_utc": "2026-11-23T20:17:36+00:00",
-  "generated_at_bne": "2026-11-24T06:17:36+10:00",
+  "generated_at_utc": "2026-11-23T23:10:55+00:00",
+  "generated_at_bne": "2026-11-24T09:10:55+10:00",
   "market_state": {
-    "now_syd": "2026-11-24T07:17:36.588290+11:00",
-    "now_bne": "2026-11-24T06:17:36.588290+10:00",
+    "now_syd": "2026-11-24T10:10:55.186110+11:00",
+    "now_bne": "2026-11-24T09:10:55.186110+10:00",
     "trading_day": true,
-    "phase": "pre_open",
+    "phase": "open",
     "session_date": "2026-11-24",
     "open_syd": "2026-11-24T10:00:00+11:00",
     "close_syd": "2026-11-24T16:00:00+11:00",
-    "minutes_to_close": null,
-    "minutes_since_open": null,
+    "minutes_to_close": 349.0802315,
+    "minutes_since_open": 10.9197685,
     "last_completed_session": "2026-11-23",
-    "next_session": "2026-11-24"
+    "next_session": "2026-11-25"
   },
-  "stale_after_utc": "2026-11-24T00:15:00+00:00",
-  "run_id": "45257794096.1",
+  "stale_after_utc": "2026-11-24T02:10:55+00:00",
+  "run_id": "45286473100.1",
   "target_session": "2026-11-24",
-  "phase": "pre_open",
+  "phase": "open",
   "session_closed": false,
-  "live_data": false,
+  "live_data": true,
   "picks_signal_session": "2026-11-23",
   "picks_valid_for": "2026-11-24",
   "picks_source": "site/public/today.json",
@@ -60,7 +60,7 @@
       "effective_stop": null,
       "verdict": "WAIT",
       "reasons": [
-        "Market not open yet: ASX opens 10:00 Sydney (09:00 Brisbane) on Tue 24 Nov. No live verdicts before the open."
+        "No trades in ANZ.AX yet this session (staggered open / thin stock)."
       ]
     }
   ],
