@@ -1,11 +1,11 @@
 {
   "schema": "itl.today.v2",
   "job": "night_scan",
-  "generated_at_utc": "2026-11-23T12:44:12+00:00",
-  "generated_at_bne": "2026-11-23T22:44:12+10:00",
+  "generated_at_utc": "2026-11-23T12:45:30+00:00",
+  "generated_at_bne": "2026-11-23T22:45:30+10:00",
   "market_state": {
-    "now_syd": "2026-11-23T23:44:12.538443+11:00",
-    "now_bne": "2026-11-23T22:44:12.538443+10:00",
+    "now_syd": "2026-11-23T23:45:30.164461+11:00",
+    "now_bne": "2026-11-23T22:45:30.164461+10:00",
     "trading_day": true,
     "phase": "post_close",
     "session_date": "2026-11-23",
@@ -17,10 +17,10 @@
     "next_session": "2026-11-24"
   },
   "stale_after_utc": "2026-11-24T08:30:00+00:00",
-  "run_id": "45176772168.1",
+  "run_id": "45176767724.1",
   "signal_session": "2026-11-23",
   "valid_for": "2026-11-24",
-  "scan_completed_at_utc": "2026-11-23T12:44:11+00:00",
+  "scan_completed_at_utc": "2026-11-23T12:45:29+00:00",
   "published": true,
   "reason": null,
   "reasons": [],
@@ -48,7 +48,7 @@
     "days": 5
   },
   "scan_meta": {
-    "generated_at_utc": "2026-11-23T12:44:11+00:00",
+    "generated_at_utc": "2026-11-23T12:45:29+00:00",
     "universe_limited": false,
     "counts": {
       "watchlist_full": 132,
@@ -56,7 +56,7 @@
       "trade_candidates": 1,
       "recommended": 1
     },
-    "runtime_sec": 110.2
+    "runtime_sec": 189.6
   },
   "recommended_orders": [
     {

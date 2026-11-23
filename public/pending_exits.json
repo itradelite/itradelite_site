@@ -1,11 +1,11 @@
 {
   "schema": "itl.pending_exits.v2",
   "job": "night_scan",
-  "generated_at_utc": "2026-11-23T12:44:13+00:00",
-  "generated_at_bne": "2026-11-23T22:44:13+10:00",
+  "generated_at_utc": "2026-11-23T12:45:30+00:00",
+  "generated_at_bne": "2026-11-23T22:45:30+10:00",
   "market_state": {
-    "now_syd": "2026-11-23T23:44:13.289397+11:00",
-    "now_bne": "2026-11-23T22:44:13.289397+10:00",
+    "now_syd": "2026-11-23T23:45:30.923153+11:00",
+    "now_bne": "2026-11-23T22:45:30.923153+10:00",
     "trading_day": true,
     "phase": "post_close",
     "session_date": "2026-11-23",
@@ -17,9 +17,9 @@
     "next_session": "2026-11-24"
   },
   "stale_after_utc": "2026-11-24T08:30:00+00:00",
-  "run_id": "45176772168.1",
+  "run_id": "45176767724.1",
   "as_of_session": "2026-11-23",
-  "as_of": "2026-11-23 22:44:13 AEST",
+  "as_of": "2026-11-23 22:45:30 AEST",
   "exit_policy": {
     "id": "fixed_5d",
     "label": "Legacy: exit at close of day 5",
