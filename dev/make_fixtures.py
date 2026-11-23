@@ -398,6 +398,10 @@ dump("preopen/live.json", lp)
 ip = copy.deepcopy(intr)
 ip.update(env("intraday", "intraday_scan", "2026-11-23T05:15:00+00:00", "pre_open", "2026-11-24", "2026-11-24T00:30:00+00:00", "2026-11-25"))
 ip["session_closed"] = True
+for sg in ip["signals"]:
+    for o in [sg] + (sg.get("other_signals") or []):
+        if o.get("bar_time_utc"):
+            o["bar_time_utc"] = (datetime.fromisoformat(o["bar_time_utc"]) - timedelta(days=1)).isoformat()
 dump("preopen/intraday.json", ip)
 sp = copy.deepcopy(status)
 sp["jobs"]["intraday_scan"].update({"stale": False, "last_status": "success", "last_success_utc": "2026-11-23T05:15:00+00:00"})

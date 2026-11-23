@@ -29,7 +29,7 @@
    "note": "Broke 64.825 (15m 20-bar high), RSI14=74.0, vol 140167 vs avg 22010. ATR=0.1043.",
    "symbol": "AMC.AX",
    "interval": "15m",
-   "bar_time_utc": "2026-11-23T23:15:00+00:00",
+   "bar_time_utc": "2026-11-22T23:15:00+00:00",
    "bar_is_complete": false
   },
   {
@@ -48,18 +48,18 @@
      "interval": "30m",
      "strategy": "Mean Reversion",
      "score": 100,
-     "bar_time_utc": "2026-11-24T01:00:00+00:00",
+     "bar_time_utc": "2026-11-23T01:00:00+00:00",
      "bar_is_complete": true
     },
     {
      "interval": "15m",
      "strategy": "Mean Reversion",
      "score": 100,
-     "bar_time_utc": "2026-11-24T01:00:00+00:00",
+     "bar_time_utc": "2026-11-23T01:00:00+00:00",
      "bar_is_complete": true
     }
    ],
-   "bar_time_utc": "2026-11-24T01:00:00+00:00",
+   "bar_time_utc": "2026-11-23T01:00:00+00:00",
    "bar_is_complete": true
   },
   {
@@ -73,7 +73,7 @@
    "note": "Below BB lower (149.458), RSI2=0.0. ATR=0.2629. Mean reversion bounce setup.",
    "symbol": "COH.AX",
    "interval": "15m",
-   "bar_time_utc": "2026-11-23T23:45:00+00:00",
+   "bar_time_utc": "2026-11-22T23:45:00+00:00",
    "bar_is_complete": true
   },
   {
@@ -92,18 +92,18 @@
      "interval": "30m",
      "strategy": "Mean Reversion",
      "score": 100,
-     "bar_time_utc": "2026-11-24T00:00:00+00:00",
+     "bar_time_utc": "2026-11-23T00:00:00+00:00",
      "bar_is_complete": true
     },
     {
      "interval": "15m",
      "strategy": "Mean Reversion",
      "score": 100,
-     "bar_time_utc": "2026-11-24T00:00:00+00:00",
+     "bar_time_utc": "2026-11-23T00:00:00+00:00",
      "bar_is_complete": true
     }
    ],
-   "bar_time_utc": "2026-11-24T00:00:00+00:00",
+   "bar_time_utc": "2026-11-23T00:00:00+00:00",
    "bar_is_complete": true
   },
   {
@@ -122,18 +122,18 @@
      "interval": "30m",
      "strategy": "Mean Reversion",
      "score": 100,
-     "bar_time_utc": "2026-11-24T01:00:00+00:00",
+     "bar_time_utc": "2026-11-23T01:00:00+00:00",
      "bar_is_complete": true
     },
     {
      "interval": "15m",
      "strategy": "Mean Reversion",
      "score": 100,
-     "bar_time_utc": "2026-11-24T01:00:00+00:00",
+     "bar_time_utc": "2026-11-23T01:00:00+00:00",
      "bar_is_complete": true
     }
    ],
-   "bar_time_utc": "2026-11-24T01:00:00+00:00",
+   "bar_time_utc": "2026-11-23T01:00:00+00:00",
    "bar_is_complete": false
   },
   {
@@ -147,7 +147,7 @@
    "note": "Below BB lower (1.574), RSI2=0.0. ATR=0.0056. Mean reversion bounce setup.",
    "symbol": "ORA.AX",
    "interval": "15m",
-   "bar_time_utc": "2026-11-23T23:45:00+00:00",
+   "bar_time_utc": "2026-11-22T23:45:00+00:00",
    "bar_is_complete": true
   },
   {
@@ -161,7 +161,7 @@
    "note": "Below BB lower (12.425), RSI2=0.0. ATR=0.0304. Mean reversion bounce setup.",
    "symbol": "ORG.AX",
    "interval": "15m",
-   "bar_time_utc": "2026-11-23T23:15:00+00:00",
+   "bar_time_utc": "2026-11-22T23:15:00+00:00",
    "bar_is_complete": true
   },
   {
@@ -180,11 +180,11 @@
      "interval": "15m",
      "strategy": "Mean Reversion",
      "score": 100,
-     "bar_time_utc": "2026-11-24T00:00:00+00:00",
+     "bar_time_utc": "2026-11-23T00:00:00+00:00",
      "bar_is_complete": true
     }
    ],
-   "bar_time_utc": "2026-11-24T00:00:00+00:00",
+   "bar_time_utc": "2026-11-23T00:00:00+00:00",
    "bar_is_complete": true
   },
   {
@@ -203,18 +203,18 @@
      "interval": "30m",
      "strategy": "Mean Reversion",
      "score": 100,
-     "bar_time_utc": "2026-11-24T02:00:00+00:00",
+     "bar_time_utc": "2026-11-23T02:00:00+00:00",
      "bar_is_complete": true
     },
     {
      "interval": "15m",
      "strategy": "Mean Reversion",
      "score": 100,
-     "bar_time_utc": "2026-11-24T02:00:00+00:00",
+     "bar_time_utc": "2026-11-23T02:00:00+00:00",
      "bar_is_complete": true
     }
    ],
-   "bar_time_utc": "2026-11-24T02:00:00+00:00",
+   "bar_time_utc": "2026-11-23T02:00:00+00:00",
    "bar_is_complete": true
   },
   {
@@ -228,7 +228,7 @@
    "note": "Below BB lower (44.639), RSI2=0.0. ATR=0.2239. Mean reversion bounce setup.",
    "symbol": "WTC.AX",
    "interval": "15m",
-   "bar_time_utc": "2026-11-23T23:15:00+00:00",
+   "bar_time_utc": "2026-11-22T23:15:00+00:00",
    "bar_is_complete": true
   },
   {
@@ -247,11 +247,11 @@
      "interval": "30m",
      "strategy": "Mean Reversion",
      "score": 100,
-     "bar_time_utc": "2026-11-24T01:00:00+00:00",
+     "bar_time_utc": "2026-11-23T01:00:00+00:00",
      "bar_is_complete": true
     }
    ],
-   "bar_time_utc": "2026-11-24T01:00:00+00:00",
+   "bar_time_utc": "2026-11-23T01:00:00+00:00",
    "bar_is_complete": true
   },
   {
@@ -265,7 +265,7 @@
    "note": "Below BB lower (11.695), RSI2=0.0. ATR=0.0425. Mean reversion bounce setup.",
    "symbol": "CGF.AX",
    "interval": "30m",
-   "bar_time_utc": "2026-11-24T00:30:00+00:00",
+   "bar_time_utc": "2026-11-23T00:30:00+00:00",
    "bar_is_complete": true
   },
   {
@@ -284,11 +284,11 @@
      "interval": "30m",
      "strategy": "Mean Reversion",
      "score": 100,
-     "bar_time_utc": "2026-11-24T00:00:00+00:00",
+     "bar_time_utc": "2026-11-23T00:00:00+00:00",
      "bar_is_complete": true
     }
    ],
-   "bar_time_utc": "2026-11-24T00:00:00+00:00",
+   "bar_time_utc": "2026-11-23T00:00:00+00:00",
    "bar_is_complete": true
   },
   {
@@ -302,7 +302,7 @@
    "note": "Below BB lower (4.937), RSI2=0.0. ATR=0.0229. Mean reversion bounce setup.",
    "symbol": "GPT.AX",
    "interval": "30m",
-   "bar_time_utc": "2026-11-24T00:00:00+00:00",
+   "bar_time_utc": "2026-11-23T00:00:00+00:00",
    "bar_is_complete": true
   },
   {
@@ -316,7 +316,7 @@
    "note": "Below BB lower (74.057), RSI2=0.0. ATR=0.3775. Mean reversion bounce setup.",
    "symbol": "JBH.AX",
    "interval": "30m",
-   "bar_time_utc": "2026-11-24T00:30:00+00:00",
+   "bar_time_utc": "2026-11-23T00:30:00+00:00",
    "bar_is_complete": true
   },
   {
@@ -330,7 +330,7 @@
    "note": "Below BB lower (38.488), RSI2=0.0. ATR=0.0971. Mean reversion bounce setup.",
    "symbol": "MVW.AX",
    "interval": "30m",
-   "bar_time_utc": "2026-11-23T23:30:00+00:00",
+   "bar_time_utc": "2026-11-22T23:30:00+00:00",
    "bar_is_complete": true
   },
   {
@@ -344,7 +344,7 @@
    "note": "Intraday pullback to EMA20 (6.767), RSI14=40.9, vol dry. ATR=0.0371. Stop below 6.6629.",
    "symbol": "AFI.AX",
    "interval": "1h",
-   "bar_time_utc": "2026-11-24T01:00:00+00:00",
+   "bar_time_utc": "2026-11-23T01:00:00+00:00",
    "bar_is_complete": true
   },
   {
@@ -358,7 +358,7 @@
    "note": "Below BB lower (39.641), RSI2=0.0. ATR=0.3007. Mean reversion bounce setup.",
    "symbol": "FPH.AX",
    "interval": "1h",
-   "bar_time_utc": "2026-11-24T02:00:00+00:00",
+   "bar_time_utc": "2026-11-23T02:00:00+00:00",
    "bar_is_complete": true
   },
   {
@@ -371,7 +371,7 @@
    "symbol": "<b>BAD</b>.AX",
    "interval": "30m",
    "note": "escaping test <script>x</script>",
-   "bar_time_utc": "2026-11-24T00:00:00+00:00",
+   "bar_time_utc": "2026-11-23T00:00:00+00:00",
    "bar_is_complete": true
   }
  ]
