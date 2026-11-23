@@ -599,7 +599,7 @@
           <br />
           <b>Institutional framing:</b> Targets shown are <b>ATR-based</b> and may be <b>capped by structural ceiling</b>. Setups are filtered by capped risk-efficiency (<b>min R multiple</b> + <b>min upside ATR</b>).
           <br />
-          <b>Sizing:</b> uses your Portfolio and Risk % to compute Qty. Qty is floor(risk_budget / |Entry − Stop|). For STOP-LIMIT entries, sizing uses the <b>LIMIT</b> price (worst-case fill).
+          <b>Sizing:</b> uses your Portfolio and Risk % to compute Qty. Qty is floor(risk_budget / |Entry − Stop|), capped so Qty × Entry never exceeds your Portfolio (shown as "(cap)"; Risk then shows the lower actual risk). For STOP-LIMIT entries, sizing uses the <b>LIMIT</b> price (worst-case fill).
           <br />
           <b>Edge status:</b> rows tagged <span class="sent-chip sent-chip--edge-none" style="display:inline;">No confirmed edge</span> or <span class="sent-chip sent-chip--edge-unproven" style="display:inline;">Unproven</span> have been checked against a random-entry baseline in our own <a href="/strategy-decay/">Strategy Decay</a> audit — read that before sizing a real trade off them.
         </div>
@@ -947,19 +947,29 @@
       const riskPct = clamp(prefs.riskPct, 0.25, 3);
       const riskBudget = portfolio * (riskPct / 100);
 
-      const qty = Math.floor(riskBudget / riskPerShare);
+      // Risk-based qty can exceed what the portfolio can buy when the stop is
+      // tight (e.g. A$100k, 3% risk, stop 1% away => A$300k notional). Cap the
+      // position so notional (qty x entry) never exceeds the Portfolio input.
+      if (!(entry > 0)) return null;
+      const riskQty = Math.floor(riskBudget / riskPerShare);
+      const capitalQty = Math.floor(portfolio / entry);
+      const capped = riskQty > capitalQty;
+      const qty = Math.max(0, Math.min(riskQty, capitalQty));
+      const actualRisk = qty * riskPerShare;
+      const notional = qty * entry;
+
       if (!Number.isFinite(qty) || qty <= 0) {
-        return { qty: 0, riskBudget, riskPerShare, entryUsed: entry };
+        return { qty: 0, riskBudget, actualRisk: 0, notional: 0, capped, riskPerShare, entryUsed: entry };
       }
 
-      return { qty, riskBudget, riskPerShare, entryUsed: entry };
+      return { qty, riskBudget, actualRisk, notional, capped, riskPerShare, entryUsed: entry };
     }
 
     // --- NEW: "Risk (A$)" for sorting + display is user risk budget per row (sizing truth = UI) ---
     function riskBudgetForRow(r){
       const s = sizingForRow(r);
       if (!s) return null;
-      return s.riskBudget;
+      return s.capped ? s.actualRisk : s.riskBudget;
     }
 
     function rawRiskVal(r){
@@ -1075,8 +1085,13 @@
         const pill = statusPill(r.status);
 
         const s = sizingForRow(r);
-        const qtyTxt = s ? (s.qty > 0 ? String(s.qty) : "—") : "—";
-        const riskBudgetTxt = s ? ("~" + Math.round(s.riskBudget).toString()) : "—";
+        const qtyTxt = s ? (s.qty > 0 ? String(s.qty) + (s.capped ? " (cap)" : "") : "—") : "—";
+        const riskBudgetTxt = s
+          ? ("~" + Math.round(s.capped ? s.actualRisk : s.riskBudget).toString())
+          : "—";
+        const qtyTitle = (s && s.capped)
+          ? ` title="Capped at portfolio value: ${s.qty} x ${fmt(s.entryUsed, 4)} = A$${Math.round(s.notional)}. Risk-based size would need more capital, so actual risk is below your Risk %."`
+          : "";
 
         const tp1 = displayTp1(r);
         const cap = displayCapTarget(r);
@@ -1102,7 +1117,7 @@
             <td class="mono">${entryTxt}</td>
             <td class="mono">${lastClose}</td>
             <td class="mono">${stopTxt}</td>
-            <td class="mono">${escapeHtml(qtyTxt)}</td>
+            <td class="mono"${qtyTitle}>${escapeHtml(qtyTxt)}</td>
             <td class="mono">${escapeHtml(riskBudgetTxt)}</td>
             <td class="mono">${escapeHtml(tp1Txt)}</td>
             <td class="mono">${escapeHtml(capTxt)}</td>
