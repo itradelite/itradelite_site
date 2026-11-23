@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Live check — iTradeLite</title>
+  <meta name="description" content="Re-checks the iTradeLite picks valid for the current ASX session against live prices: fill status, trailing stop and an ENTER / WAIT / SKIP / HOLD / EXIT verdict." />
+  <link rel="canonical" href="https://www.itradelite.com/live/" />
+  <meta property="og:title" content="Live check — iTradeLite" />
+  <meta property="og:url" content="https://www.itradelite.com/live/" />
+  <meta property="og:image" content="https://www.itradelite.com/assets/og.png" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="icon" href="/favicon-96x96.png" sizes="96x96" type="image/png" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+  <script src="/assets/analytics-config.js"></script>
+  <script src="/assets/analytics.js"></script>
+  <link rel="stylesheet" href="/assets/itl.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="container topbar__inner">
+      <a class="brand" href="/" aria-label="iTradeLite home"><img src="/assets/logo.png" alt="" width="26" height="26" /><span>iTradeLite</span></a>
+      <button class="hamburger" id="hamburgerBtn" aria-label="Toggle menu" aria-expanded="false" aria-controls="mainNav">&#9776;</button>
+      <nav class="nav" id="mainNav" aria-label="Primary">
+        <a href="/today/">Today</a>
+        <a href="/live/">Live check</a>
+        <a href="/intraday/">Intraday</a>
+        <a href="/track-record/">Track record</a>
+        <a href="/strategy-decay/">Strategy decay</a>
+        <a href="/how-it-works.html">How it works</a>
+        <a href="/about.html">About</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container pagePad">
+    <div id="itl-health"></div>
+
+    <div class="page-head">
+      <div>
+        <h1>Live check</h1>
+        <p>Last night's picks re-checked against live 15-minute prices during the session: did the order fill, where is the trailing stop, and what to do now. Runs automatically at ~10:20, ~12:30 and ~15:00 Sydney; the button runs one on demand (~1&ndash;2 min).</p>
+      </div>
+      <div>
+        <div class="btn-row">
+          <button class="btn btn--ghost" id="reloadBtn" type="button">Reload</button>
+          <button class="btn" id="refreshBtn" type="button">Run live check now</button>
+        </div>
+        <div class="refresh-status" id="refreshStatus" role="status" aria-live="polite"></div>
+      </div>
+    </div>
+
+    <div id="loadError"></div>
+    <div id="banners"></div>
+
+    <section class="card" aria-label="Check details">
+      <div class="card__head"><h2>Check</h2><a class="small" href="/today/">Tonight's picks &rarr;</a></div>
+      <div class="meta" id="meta"><span class="pill">Loading&hellip;</span></div>
+    </section>
+
+    <div class="kpiGrid kpiGrid--compact" id="kpis" aria-label="Verdicts"></div>
+
+    <div id="items"></div>
+
+    <footer class="site-foot">
+      Verdicts are rule-based and use the same fill rules as the track-record simulator. Live prices come from delayed 15-minute bars. Not financial advice.
+    </footer>
+  </main>
+
+  <script src="/assets/itl.js"></script>
+  <script src="/assets/pages/live.js"></script>
+  <script>ITL_LIVE.boot();</script>
+</body>
+</html>

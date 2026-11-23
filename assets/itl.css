@@ -173,6 +173,12 @@ code { font-family: var(--mono-font); font-size: 0.9em; background: rgba(255,255
 .kpiValue.pos { color: var(--accent-green); }
 .kpiValue.neg { color: var(--accent-red); }
 .kpiSub { font-size: 11px; color: var(--text-muted); margin-top: 4px; }
+@media (max-width: 600px) {
+  .kpiGrid--compact { grid-template-columns: repeat(3, 1fr); gap: 8px; }
+  .kpiGrid--compact .kpiBox { padding: 10px; }
+  .kpiGrid--compact .kpiValue { font-size: 20px; margin-top: 2px; }
+  .kpiGrid--compact .kpiSub { display: none; }
+}
 
 .meta { display: flex; flex-wrap: wrap; gap: 8px; padding: 12px 18px; }
 .pill {
@@ -266,9 +272,12 @@ details.why p { margin: 6px 0 2px; }
   table.stack thead { display: none; }
   table.stack, table.stack tbody, table.stack tr, table.stack td { display: block; width: 100%; }
   table.stack tr.row-main { border-top: 1px solid var(--border); padding: 8px 0 0; }
-  table.stack td { border: none; padding: 5px 14px; display: flex; justify-content: space-between; gap: 12px; text-align: right; }
-  table.stack td::before { content: attr(data-label); color: var(--text-muted); font-size: 11px; text-transform: uppercase; letter-spacing: 0.05em; text-align: left; flex: 0 0 auto; padding-top: 2px; }
-  table.stack td.td-full { display: block; text-align: left; }
+  table.stack td { border: none; padding: 5px 14px 5px 42%; position: relative; text-align: right; min-height: 28px; }
+  table.stack td::before { content: attr(data-label); position: absolute; left: 14px; top: 7px; max-width: 38%; color: var(--text-muted); font-size: 11px; text-transform: uppercase; letter-spacing: 0.05em; text-align: left; }
+  table.stack td .lvl { display: inline-block; margin-left: 8px; }
+  table.stack td .symbol-line { justify-content: flex-end; }
+  table.stack td .company-name { margin-left: auto; }
+  table.stack td.td-full { padding-left: 14px; text-align: left; }
   table.stack td.td-full::before { display: none; }
   table.stack tr.row-note td { padding-bottom: 12px; border-bottom: 1px solid var(--border); }
   .company-name { max-width: 55vw; }
