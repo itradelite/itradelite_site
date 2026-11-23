@@ -1,0 +1,68 @@
+{
+  "schema": "itl.live.v2",
+  "job": "live_check",
+  "generated_at_utc": "2026-11-23T20:17:36+00:00",
+  "generated_at_bne": "2026-11-24T06:17:36+10:00",
+  "market_state": {
+    "now_syd": "2026-11-24T07:17:36.588290+11:00",
+    "now_bne": "2026-11-24T06:17:36.588290+10:00",
+    "trading_day": true,
+    "phase": "pre_open",
+    "session_date": "2026-11-24",
+    "open_syd": "2026-11-24T10:00:00+11:00",
+    "close_syd": "2026-11-24T16:00:00+11:00",
+    "minutes_to_close": null,
+    "minutes_since_open": null,
+    "last_completed_session": "2026-11-23",
+    "next_session": "2026-11-24"
+  },
+  "stale_after_utc": "2026-11-24T00:15:00+00:00",
+  "run_id": "45257794096.1",
+  "target_session": "2026-11-24",
+  "phase": "pre_open",
+  "session_closed": false,
+  "live_data": false,
+  "picks_signal_session": "2026-11-23",
+  "picks_valid_for": "2026-11-24",
+  "picks_source": "site/public/today.json",
+  "exit_policy": {
+    "id": "fixed_5d",
+    "label": "Legacy: exit at close of day 5",
+    "kind": "time",
+    "days": 5
+  },
+  "reason": null,
+  "items": [
+    {
+      "symbol": "ANZ.AX",
+      "strategy": "MEAN_REVERSION",
+      "order_type": "LIMIT",
+      "trigger": null,
+      "limit": 37.93,
+      "entry_ref": 37.93,
+      "stop": 36.76,
+      "original_score": 98.0,
+      "price_decimals": 2,
+      "live_price": null,
+      "live_time_utc": null,
+      "live_bar_is_complete": null,
+      "day_open": null,
+      "day_high": null,
+      "day_low": null,
+      "gap_pct_open": null,
+      "fill_status": "not_triggered",
+      "fill_price_est": null,
+      "fill_time_utc": null,
+      "signal_still_valid": null,
+      "revalidated_score": null,
+      "peak_since_fill": null,
+      "trail_level": null,
+      "effective_stop": null,
+      "verdict": "WAIT",
+      "reasons": [
+        "Market not open yet: ASX opens 10:00 Sydney (09:00 Brisbane) on Tue 24 Nov. No live verdicts before the open."
+      ]
+    }
+  ],
+  "fetch_failures": 0
+}
