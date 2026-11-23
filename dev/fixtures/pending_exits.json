@@ -1,0 +1,43 @@
+{
+ "schema": "itl.pending_exits.v2",
+ "job": "portfolio_monitor",
+ "generated_at_utc": "2026-11-23T09:45:00+00:00",
+ "generated_at_bne": "2026-11-23T19:45:00+10:00",
+ "market_state": {
+  "now_sydney": "2026-11-23T20:45:00+11:00",
+  "session_date": "2026-11-23",
+  "is_trading_day": true,
+  "phase": "post_close",
+  "next_trading_day": "2026-11-24",
+  "open_sydney": "10:00",
+  "close_sydney": "16:10"
+ },
+ "stale_after_utc": "2026-11-24T12:00:00+00:00",
+ "run_id": "19412345678",
+ "as_of": "2026-11-23 20:45:00 AEDT",
+ "pending_exits": [
+  {
+   "symbol": "NST.AX",
+   "action": "SELL_TRAIL",
+   "category": "exit",
+   "streak_days": 3,
+   "status": "PENDING",
+   "pnl_%": -1.8
+  },
+  {
+   "symbol": "<b>QAN</b>.AX",
+   "action": "TAKE_PROFIT_2R",
+   "category": "profit_take",
+   "streak_days": 4,
+   "status": "PENDING",
+   "pnl_%": 5.2
+  }
+ ],
+ "recent_auto_closes": [
+  {
+   "symbol": "ORG.AX",
+   "closed_date": "2026-11-20",
+   "pnl_pct": -2.4
+  }
+ ]
+}

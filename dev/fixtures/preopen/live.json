@@ -1,0 +1,75 @@
+{
+ "schema": "itl.live.v2",
+ "job": "live_check",
+ "generated_at_utc": "2026-11-23T22:40:00+00:00",
+ "generated_at_bne": "2026-11-24T08:40:00+10:00",
+ "market_state": {
+  "now_sydney": "2026-11-24T09:40:00+11:00",
+  "session_date": "2026-11-24",
+  "is_trading_day": true,
+  "phase": "pre_open",
+  "next_trading_day": "2026-11-25",
+  "open_sydney": "10:00",
+  "close_sydney": "16:10"
+ },
+ "stale_after_utc": "2026-11-23T23:45:00+00:00",
+ "run_id": "19412345678",
+ "picks_signal_session": "2026-11-23",
+ "picks_valid_for": "2026-11-24",
+ "items": [
+  {
+   "symbol": "AMP.AX",
+   "strategy": "MEAN_REVERSION",
+   "order_type": "LIMIT",
+   "trigger": null,
+   "limit": 1.995,
+   "entry_ref": 1.995,
+   "stop": 1.895,
+   "original_score": 94.0,
+   "price_decimals": 3,
+   "live_price": null,
+   "live_time_utc": null,
+   "day_open": null,
+   "day_high": null,
+   "day_low": null,
+   "gap_pct_open": null,
+   "fill_status": "not_triggered",
+   "fill_price_est": null,
+   "signal_still_valid": null,
+   "revalidated_score": null,
+   "peak_since_fill": null,
+   "trail_level": null,
+   "verdict": "WAIT",
+   "reasons": [
+    "Market not open yet — order can be placed for the open."
+   ]
+  },
+  {
+   "symbol": "PME.AX",
+   "strategy": "MEAN_REVERSION",
+   "order_type": "LIMIT",
+   "trigger": null,
+   "limit": 187.76,
+   "entry_ref": 187.76,
+   "stop": 178.0,
+   "original_score": 86.0,
+   "price_decimals": 2,
+   "live_price": null,
+   "live_time_utc": null,
+   "day_open": null,
+   "day_high": null,
+   "day_low": null,
+   "gap_pct_open": null,
+   "fill_status": "not_triggered",
+   "fill_price_est": null,
+   "signal_still_valid": null,
+   "revalidated_score": null,
+   "peak_since_fill": null,
+   "trail_level": null,
+   "verdict": "WAIT",
+   "reasons": [
+    "Market not open yet — order can be placed for the open."
+   ]
+  }
+ ]
+}

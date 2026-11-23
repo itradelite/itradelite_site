@@ -1,0 +1,79 @@
+{
+ "schema": "itl.live.v2",
+ "job": "live_check",
+ "generated_at_utc": "2026-11-23T23:21:00+00:00",
+ "generated_at_bne": "2026-11-24T09:21:00+10:00",
+ "market_state": {
+  "now_sydney": "2026-11-24T10:21:00+11:00",
+  "session_date": "2026-11-24",
+  "is_trading_day": true,
+  "phase": "open",
+  "next_trading_day": "2026-11-25",
+  "open_sydney": "10:00",
+  "close_sydney": "16:10"
+ },
+ "stale_after_utc": "2026-11-24T01:45:00+00:00",
+ "run_id": "19412345678",
+ "picks_signal_session": "2026-11-23",
+ "picks_valid_for": "2026-11-24",
+ "items": [
+  {
+   "symbol": "AMP.AX",
+   "strategy": "MEAN_REVERSION",
+   "order_type": "LIMIT",
+   "trigger": null,
+   "limit": 1.995,
+   "entry_ref": 1.995,
+   "stop": 1.895,
+   "original_score": 94.0,
+   "price_decimals": 3,
+   "live_price": 2.04,
+   "live_time_utc": "2026-11-23T23:15:00+00:00",
+   "day_open": 2.03,
+   "day_high": 2.05,
+   "day_low": 2.01,
+   "gap_pct_open": 1.75,
+   "fill_status": "not_triggered",
+   "fill_price_est": null,
+   "signal_still_valid": true,
+   "revalidated_score": 71,
+   "peak_since_fill": null,
+   "trail_level": null,
+   "verdict": "WAIT",
+   "reasons": [
+    "Low so far 2.010 is above the 1.995 limit — order not filled yet.",
+    "Opened +1.75% above last close; still inside the setup's range.",
+    "Leave the limit order in; re-check at ~12:30 Sydney."
+   ]
+  },
+  {
+   "symbol": "PME.AX",
+   "strategy": "MEAN_REVERSION",
+   "order_type": "LIMIT",
+   "trigger": null,
+   "limit": 187.76,
+   "entry_ref": 187.76,
+   "stop": 178.0,
+   "original_score": 86.0,
+   "price_decimals": 2,
+   "live_price": 185.1,
+   "live_time_utc": "2026-11-23T23:15:00+00:00",
+   "day_open": 186.9,
+   "day_high": 188.42,
+   "day_low": 184.05,
+   "gap_pct_open": -0.46,
+   "fill_status": "filled",
+   "fill_price_est": 186.9,
+   "signal_still_valid": true,
+   "revalidated_score": 84,
+   "peak_since_fill": 188.42,
+   "trail_level": 184.65,
+   "verdict": "HOLD",
+   "reasons": [
+    "Opened at 186.90, below the 187.76 limit — filled at the open (est.).",
+    "Trail (2% below peak 188.42) is 184.65; initial stop 178.00.",
+    "Price 185.10 is above the trail — hold."
+   ]
+  }
+ ]
+}

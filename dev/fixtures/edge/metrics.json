@@ -1,0 +1,218 @@
+{
+ "schema": "itl.metrics.v2",
+ "job": "metrics",
+ "generated_at_utc": "2026-11-23T09:40:00+00:00",
+ "generated_at_bne": "2026-11-23T19:40:00+10:00",
+ "market_state": {
+  "now_sydney": "2026-11-23T20:40:00+11:00",
+  "session_date": "2026-11-23",
+  "is_trading_day": true,
+  "phase": "post_close",
+  "next_trading_day": "2026-11-24",
+  "open_sydney": "10:00",
+  "close_sydney": "16:10"
+ },
+ "stale_after_utc": "2026-11-24T12:00:00+00:00",
+ "run_id": "19412345678",
+ "universe": {
+  "n_signals": 226,
+  "n_dedup": 212,
+  "n_filled": 149,
+  "n_unfilled": 57,
+  "excluded": {
+   "no_bars_after_signal": 4,
+   "duplicate_symbol_same_day": 14,
+   "entry_ref_missing": 2
+  }
+ },
+ "fill_model": "LIMIT fills at min(open, limit) if low <= limit; STOP/STOP_LIMIT fill at max(open, trigger) if high >= trigger and that price <= limit; gaps past the limit are unfilled. Same rules as the live check.",
+ "bar_resolution": "1h where available (since 2026-06-01), else 1d conservative (stop assumed hit before target on the same bar)",
+ "costs": {
+  "brokerage_per_side_aud": 10.0,
+  "slippage_ticks": 1
+ },
+ "policies": [
+  {
+   "id": "fixed_5d",
+   "label": "Legacy: exit at close of day 5",
+   "params": {
+    "kind": "time",
+    "days": 5
+   },
+   "stats": {
+    "n": 149,
+    "winrate": 0.53,
+    "avg_r": -0.08,
+    "median_r": -0.23,
+    "avg_ret_pct": -0.17,
+    "expectancy_aud_per_trade": -52.8,
+    "profit_factor": 0.87,
+    "avg_hold_days": 5.0,
+    "avg_win_r": 1.74,
+    "avg_loss_r": -0.93,
+    "min_r": -1.0,
+    "max_r": 5.11
+   },
+   "by_strategy": {
+    "MEAN_REVERSION": {
+     "n": 121,
+     "winrate": 0.52,
+     "avg_r": -0.1,
+     "median_r": -0.25,
+     "avg_ret_pct": -0.21,
+     "expectancy_aud_per_trade": -61.0,
+     "profit_factor": 0.84,
+     "avg_hold_days": 5.0,
+     "avg_win_r": 1.78,
+     "avg_loss_r": -0.78,
+     "min_r": -1.0,
+     "max_r": 4.8
+    },
+    "TREND_PULLBACK": {
+     "n": 22,
+     "winrate": 0.56,
+     "avg_r": 0.01,
+     "median_r": -0.14,
+     "avg_ret_pct": 0.02,
+     "expectancy_aud_per_trade": -15.9,
+     "profit_factor": 1.02,
+     "avg_hold_days": 5.8,
+     "avg_win_r": 1.3,
+     "avg_loss_r": -0.63,
+     "min_r": -1.0,
+     "max_r": 3.79
+    },
+    "MOMENTUM": {
+     "n": 5,
+     "winrate": 0.43,
+     "avg_r": -0.38,
+     "median_r": -0.53,
+     "avg_ret_pct": -0.8,
+     "expectancy_aud_per_trade": -175.8,
+     "profit_factor": 0.39,
+     "avg_hold_days": 4.5,
+     "avg_win_r": 1.83,
+     "avg_loss_r": -0.65,
+     "min_r": -1.0,
+     "max_r": 2.23
+    },
+    "GAP_FADE_CONTINUATION": {
+     "n": 1,
+     "winrate": 1.0,
+     "avg_r": 1.4,
+     "median_r": 1.25,
+     "avg_ret_pct": 2.94,
+     "expectancy_aud_per_trade": 554.0,
+     "profit_factor": 3.24,
+     "avg_hold_days": 2.0,
+     "avg_win_r": 1.39,
+     "avg_loss_r": -0.94,
+     "min_r": -1.0,
+     "max_r": 3.78
+    }
+   }
+  },
+  {
+   "id": "trail_1pct",
+   "label": "Trail 1% from peak",
+   "params": {
+    "kind": "trail_pct",
+    "pct": 1.0,
+    "time_stop_days": 20
+   },
+   "stats": {},
+   "by_strategy": {
+    "MEAN_REVERSION": {
+     "n": 121,
+     "winrate": 0.4,
+     "avg_r": -0.13,
+     "median_r": -0.28,
+     "avg_ret_pct": -0.27,
+     "expectancy_aud_per_trade": -73.3,
+     "profit_factor": 0.79,
+     "avg_hold_days": 1.9,
+     "avg_win_r": 1.66,
+     "avg_loss_r": -0.6,
+     "min_r": -1.0,
+     "max_r": 5.62
+    },
+    "TREND_PULLBACK": {
+     "n": 22,
+     "winrate": 0.44,
+     "avg_r": -0.02,
+     "median_r": -0.17,
+     "avg_ret_pct": -0.04,
+     "expectancy_aud_per_trade": -28.2,
+     "profit_factor": 0.97,
+     "avg_hold_days": 2.7,
+     "avg_win_r": 1.44,
+     "avg_loss_r": -0.73,
+     "min_r": -1.0,
+     "max_r": 2.38
+    },
+    "MOMENTUM": {
+     "n": 5,
+     "winrate": 0.31,
+     "avg_r": -0.41,
+     "median_r": -0.56,
+     "avg_ret_pct": -0.86,
+     "expectancy_aud_per_trade": -188.1,
+     "profit_factor": 0.34,
+     "avg_hold_days": 1.4,
+     "avg_win_r": 1.69,
+     "avg_loss_r": -0.91,
+     "min_r": -1.0,
+     "max_r": 3.47
+    },
+    "GAP_FADE_CONTINUATION": {
+     "n": 1,
+     "winrate": 1.0,
+     "avg_r": 1.4,
+     "median_r": 1.25,
+     "avg_ret_pct": 2.94,
+     "expectancy_aud_per_trade": 554.0,
+     "profit_factor": 3.24,
+     "avg_hold_days": 2.0,
+     "avg_win_r": 1.7,
+     "avg_loss_r": -0.79,
+     "min_r": -1.0,
+     "max_r": 5.92
+    }
+   }
+  }
+ ],
+ "default_policy_id": "trail_2pct",
+ "portfolio": {
+  "start_aud": 100000,
+  "risk_pct": 1.0,
+  "max_position_pct": 25,
+  "max_concurrent": 4,
+  "policy_id": "trail_2pct",
+  "equity": [
+   {
+    "date": "2026-11-20",
+    "equity": 100000
+   }
+  ],
+  "benchmark": {
+   "symbol": "A200.AX",
+   "equity": [
+    {
+     "date": "2026-11-20",
+     "equity": 100000
+    },
+    {
+     "date": "2026-11-21",
+     "equity": 100000
+    }
+   ]
+  },
+  "total_return": 0.0414,
+  "benchmark_total_return": 0.0312,
+  "cagr": 0.0506,
+  "max_drawdown": -0.0848,
+  "benchmark_max_drawdown": -0.1052
+ },
+ "trades": [],
+ "verdict": null
+}

@@ -1,0 +1,2702 @@
+{
+ "schema": "itl.metrics.v2",
+ "job": "metrics",
+ "generated_at_utc": "2026-11-23T09:40:00+00:00",
+ "generated_at_bne": "2026-11-23T19:40:00+10:00",
+ "market_state": {
+  "now_sydney": "2026-11-23T20:40:00+11:00",
+  "session_date": "2026-11-23",
+  "is_trading_day": true,
+  "phase": "post_close",
+  "next_trading_day": "2026-11-24",
+  "open_sydney": "10:00",
+  "close_sydney": "16:10"
+ },
+ "stale_after_utc": "2026-11-24T12:00:00+00:00",
+ "run_id": "19412345678",
+ "universe": {
+  "n_signals": 226,
+  "n_dedup": 212,
+  "n_filled": 149,
+  "n_unfilled": 57,
+  "excluded": {
+   "no_bars_after_signal": 4,
+   "duplicate_symbol_same_day": 14,
+   "entry_ref_missing": 2
+  }
+ },
+ "fill_model": "LIMIT fills at min(open, limit) if low <= limit; STOP/STOP_LIMIT fill at max(open, trigger) if high >= trigger and that price <= limit; gaps past the limit are unfilled. Same rules as the live check.",
+ "bar_resolution": "1h where available (since 2026-06-01), else 1d conservative (stop assumed hit before target on the same bar)",
+ "costs": {
+  "brokerage_per_side_aud": 10.0,
+  "slippage_ticks": 1
+ },
+ "policies": [
+  {
+   "id": "fixed_5d",
+   "label": "Legacy: exit at close of day 5",
+   "params": {
+    "kind": "time",
+    "days": 5
+   },
+   "stats": {
+    "n": 149,
+    "winrate": 0.53,
+    "avg_r": -0.08,
+    "median_r": -0.23,
+    "avg_ret_pct": -0.17,
+    "expectancy_aud_per_trade": -52.8,
+    "profit_factor": 0.87,
+    "avg_hold_days": 5.0,
+    "avg_win_r": 1.74,
+    "avg_loss_r": -0.93,
+    "min_r": -1.0,
+    "max_r": 5.11
+   },
+   "by_strategy": {
+    "MEAN_REVERSION": {
+     "n": 121,
+     "winrate": 0.52,
+     "avg_r": -0.1,
+     "median_r": -0.25,
+     "avg_ret_pct": -0.21,
+     "expectancy_aud_per_trade": -61.0,
+     "profit_factor": 0.84,
+     "avg_hold_days": 5.0,
+     "avg_win_r": 1.78,
+     "avg_loss_r": -0.78,
+     "min_r": -1.0,
+     "max_r": 4.8
+    },
+    "TREND_PULLBACK": {
+     "n": 22,
+     "winrate": 0.56,
+     "avg_r": 0.01,
+     "median_r": -0.14,
+     "avg_ret_pct": 0.02,
+     "expectancy_aud_per_trade": -15.9,
+     "profit_factor": 1.02,
+     "avg_hold_days": 5.8,
+     "avg_win_r": 1.3,
+     "avg_loss_r": -0.63,
+     "min_r": -1.0,
+     "max_r": 3.79
+    },
+    "MOMENTUM": {
+     "n": 5,
+     "winrate": 0.43,
+     "avg_r": -0.38,
+     "median_r": -0.53,
+     "avg_ret_pct": -0.8,
+     "expectancy_aud_per_trade": -175.8,
+     "profit_factor": 0.39,
+     "avg_hold_days": 4.5,
+     "avg_win_r": 1.83,
+     "avg_loss_r": -0.65,
+     "min_r": -1.0,
+     "max_r": 2.23
+    },
+    "GAP_FADE_CONTINUATION": {
+     "n": 1,
+     "winrate": 1.0,
+     "avg_r": 1.4,
+     "median_r": 1.25,
+     "avg_ret_pct": 2.94,
+     "expectancy_aud_per_trade": 554.0,
+     "profit_factor": 3.24,
+     "avg_hold_days": 2.0,
+     "avg_win_r": 1.39,
+     "avg_loss_r": -0.94,
+     "min_r": -1.0,
+     "max_r": 3.78
+    }
+   }
+  },
+  {
+   "id": "trail_1pct",
+   "label": "Trail 1% from peak",
+   "params": {
+    "kind": "trail_pct",
+    "pct": 1.0,
+    "time_stop_days": 20
+   },
+   "stats": {
+    "n": 149,
+    "winrate": 0.41,
+    "avg_r": -0.11,
+    "median_r": -0.26,
+    "avg_ret_pct": -0.23,
+    "expectancy_aud_per_trade": -65.1,
+    "profit_factor": 0.82,
+    "avg_hold_days": 1.9,
+    "avg_win_r": 1.33,
+    "avg_loss_r": -0.61,
+    "min_r": -1.0,
+    "max_r": 2.39
+   },
+   "by_strategy": {
+    "MEAN_REVERSION": {
+     "n": 121,
+     "winrate": 0.4,
+     "avg_r": -0.13,
+     "median_r": -0.28,
+     "avg_ret_pct": -0.27,
+     "expectancy_aud_per_trade": -73.3,
+     "profit_factor": 0.79,
+     "avg_hold_days": 1.9,
+     "avg_win_r": 1.66,
+     "avg_loss_r": -0.6,
+     "min_r": -1.0,
+     "max_r": 5.62
+    },
+    "TREND_PULLBACK": {
+     "n": 22,
+     "winrate": 0.44,
+     "avg_r": -0.02,
+     "median_r": -0.17,
+     "avg_ret_pct": -0.04,
+     "expectancy_aud_per_trade": -28.2,
+     "profit_factor": 0.97,
+     "avg_hold_days": 2.7,
+     "avg_win_r": 1.44,
+     "avg_loss_r": -0.73,
+     "min_r": -1.0,
+     "max_r": 2.38
+    },
+    "MOMENTUM": {
+     "n": 5,
+     "winrate": 0.31,
+     "avg_r": -0.41,
+     "median_r": -0.56,
+     "avg_ret_pct": -0.86,
+     "expectancy_aud_per_trade": -188.1,
+     "profit_factor": 0.34,
+     "avg_hold_days": 1.4,
+     "avg_win_r": 1.69,
+     "avg_loss_r": -0.91,
+     "min_r": -1.0,
+     "max_r": 3.47
+    },
+    "GAP_FADE_CONTINUATION": {
+     "n": 1,
+     "winrate": 1.0,
+     "avg_r": 1.4,
+     "median_r": 1.25,
+     "avg_ret_pct": 2.94,
+     "expectancy_aud_per_trade": 554.0,
+     "profit_factor": 3.24,
+     "avg_hold_days": 2.0,
+     "avg_win_r": 1.7,
+     "avg_loss_r": -0.79,
+     "min_r": -1.0,
+     "max_r": 5.92
+    }
+   }
+  },
+  {
+   "id": "trail_2pct",
+   "label": "Trail 2% from peak",
+   "params": {
+    "kind": "trail_pct",
+    "pct": 2.0,
+    "time_stop_days": 20
+   },
+   "stats": {
+    "n": 149,
+    "winrate": 0.46,
+    "avg_r": 0.04,
+    "median_r": -0.11,
+    "avg_ret_pct": 0.08,
+    "expectancy_aud_per_trade": -3.6,
+    "profit_factor": 1.06,
+    "avg_hold_days": 3.6,
+    "avg_win_r": 1.87,
+    "avg_loss_r": -0.66,
+    "min_r": -1.0,
+    "max_r": 5.5
+   },
+   "by_strategy": {
+    "MEAN_REVERSION": {
+     "n": 121,
+     "winrate": 0.45,
+     "avg_r": 0.02,
+     "median_r": -0.13,
+     "avg_ret_pct": 0.04,
+     "expectancy_aud_per_trade": -11.8,
+     "profit_factor": 1.03,
+     "avg_hold_days": 3.6,
+     "avg_win_r": 1.59,
+     "avg_loss_r": -0.84,
+     "min_r": -1.0,
+     "max_r": 4.33
+    },
+    "TREND_PULLBACK": {
+     "n": 22,
+     "winrate": 0.49,
+     "avg_r": 0.13,
+     "median_r": -0.02,
+     "avg_ret_pct": 0.27,
+     "expectancy_aud_per_trade": 33.3,
+     "profit_factor": 1.21,
+     "avg_hold_days": 4.4,
+     "avg_win_r": 1.32,
+     "avg_loss_r": -0.93,
+     "min_r": -1.0,
+     "max_r": 2.23
+    },
+    "MOMENTUM": {
+     "n": 5,
+     "winrate": 0.36,
+     "avg_r": -0.26,
+     "median_r": -0.41,
+     "avg_ret_pct": -0.55,
+     "expectancy_aud_per_trade": -126.6,
+     "profit_factor": 0.58,
+     "avg_hold_days": 3.1,
+     "avg_win_r": 1.44,
+     "avg_loss_r": -0.91,
+     "min_r": -1.0,
+     "max_r": 4.86
+    },
+    "GAP_FADE_CONTINUATION": {
+     "n": 1,
+     "winrate": 1.0,
+     "avg_r": 1.4,
+     "median_r": 1.25,
+     "avg_ret_pct": 2.94,
+     "expectancy_aud_per_trade": 554.0,
+     "profit_factor": 3.24,
+     "avg_hold_days": 2.0,
+     "avg_win_r": 1.55,
+     "avg_loss_r": -0.85,
+     "min_r": -1.0,
+     "max_r": 5.26
+    }
+   }
+  },
+  {
+   "id": "trail_3pct",
+   "label": "Trail 3% from peak",
+   "params": {
+    "kind": "trail_pct",
+    "pct": 3.0,
+    "time_stop_days": 20
+   },
+   "stats": {
+    "n": 149,
+    "winrate": 0.49,
+    "avg_r": 0.02,
+    "median_r": -0.13,
+    "avg_ret_pct": 0.04,
+    "expectancy_aud_per_trade": -11.8,
+    "profit_factor": 1.03,
+    "avg_hold_days": 5.8,
+    "avg_win_r": 1.7,
+    "avg_loss_r": -0.68,
+    "min_r": -1.0,
+    "max_r": 2.1
+   },
+   "by_strategy": {
+    "MEAN_REVERSION": {
+     "n": 121,
+     "winrate": 0.48,
+     "avg_r": 0.0,
+     "median_r": -0.15,
+     "avg_ret_pct": 0.0,
+     "expectancy_aud_per_trade": -20.0,
+     "profit_factor": 1.0,
+     "avg_hold_days": 5.8,
+     "avg_win_r": 1.45,
+     "avg_loss_r": -0.77,
+     "min_r": -1.0,
+     "max_r": 3.77
+    },
+    "TREND_PULLBACK": {
+     "n": 22,
+     "winrate": 0.52,
+     "avg_r": 0.11,
+     "median_r": -0.04,
+     "avg_ret_pct": 0.23,
+     "expectancy_aud_per_trade": 25.1,
+     "profit_factor": 1.18,
+     "avg_hold_days": 6.6,
+     "avg_win_r": 1.82,
+     "avg_loss_r": -0.81,
+     "min_r": -1.0,
+     "max_r": 5.14
+    },
+    "MOMENTUM": {
+     "n": 5,
+     "winrate": 0.39,
+     "avg_r": -0.28,
+     "median_r": -0.43,
+     "avg_ret_pct": -0.59,
+     "expectancy_aud_per_trade": -134.8,
+     "profit_factor": 0.55,
+     "avg_hold_days": 5.3,
+     "avg_win_r": 1.89,
+     "avg_loss_r": -0.81,
+     "min_r": -1.0,
+     "max_r": 4.37
+    },
+    "GAP_FADE_CONTINUATION": {
+     "n": 1,
+     "winrate": 1.0,
+     "avg_r": 1.4,
+     "median_r": 1.25,
+     "avg_ret_pct": 2.94,
+     "expectancy_aud_per_trade": 554.0,
+     "profit_factor": 3.24,
+     "avg_hold_days": 2.0,
+     "avg_win_r": 1.4,
+     "avg_loss_r": -0.68,
+     "min_r": -1.0,
+     "max_r": 5.96
+    }
+   }
+  },
+  {
+   "id": "trail_1atr",
+   "label": "Trail 1x ATR from peak",
+   "params": {
+    "kind": "trail_atr",
+    "atr_mult": 1.0,
+    "time_stop_days": 20
+   },
+   "stats": {
+    "n": 149,
+    "winrate": 0.44,
+    "avg_r": -0.02,
+    "median_r": -0.17,
+    "avg_ret_pct": -0.04,
+    "expectancy_aud_per_trade": -28.2,
+    "profit_factor": 0.97,
+    "avg_hold_days": 3.1,
+    "avg_win_r": 1.3,
+    "avg_loss_r": -0.77,
+    "min_r": -1.0,
+    "max_r": 5.78
+   },
+   "by_strategy": {
+    "MEAN_REVERSION": {
+     "n": 121,
+     "winrate": 0.43,
+     "avg_r": -0.04,
+     "median_r": -0.19,
+     "avg_ret_pct": -0.08,
+     "expectancy_aud_per_trade": -36.4,
+     "profit_factor": 0.94,
+     "avg_hold_days": 3.1,
+     "avg_win_r": 1.86,
+     "avg_loss_r": -0.66,
+     "min_r": -1.0,
+     "max_r": 2.42
+    },
+    "TREND_PULLBACK": {
+     "n": 22,
+     "winrate": 0.47,
+     "avg_r": 0.07,
+     "median_r": -0.08,
+     "avg_ret_pct": 0.15,
+     "expectancy_aud_per_trade": 8.7,
+     "profit_factor": 1.11,
+     "avg_hold_days": 3.9000000000000004,
+     "avg_win_r": 1.61,
+     "avg_loss_r": -0.6,
+     "min_r": -1.0,
+     "max_r": 5.87
+    },
+    "MOMENTUM": {
+     "n": 5,
+     "winrate": 0.34,
+     "avg_r": -0.32,
+     "median_r": -0.47,
+     "avg_ret_pct": -0.67,
+     "expectancy_aud_per_trade": -151.2,
+     "profit_factor": 0.49,
+     "avg_hold_days": 2.6,
+     "avg_win_r": 1.33,
+     "avg_loss_r": -0.84,
+     "min_r": -1.0,
+     "max_r": 2.25
+    },
+    "GAP_FADE_CONTINUATION": {
+     "n": 1,
+     "winrate": 1.0,
+     "avg_r": 1.4,
+     "median_r": 1.25,
+     "avg_ret_pct": 2.94,
+     "expectancy_aud_per_trade": 554.0,
+     "profit_factor": 3.24,
+     "avg_hold_days": 2.0,
+     "avg_win_r": 1.27,
+     "avg_loss_r": -0.65,
+     "min_r": -1.0,
+     "max_r": 5.07
+    }
+   }
+  },
+  {
+   "id": "trail_2atr",
+   "label": "Trail 2x ATR from peak",
+   "params": {
+    "kind": "trail_atr",
+    "atr_mult": 2.0,
+    "time_stop_days": 20
+   },
+   "stats": {
+    "n": 149,
+    "winrate": 0.5,
+    "avg_r": 0.01,
+    "median_r": -0.14,
+    "avg_ret_pct": 0.02,
+    "expectancy_aud_per_trade": -15.9,
+    "profit_factor": 1.02,
+    "avg_hold_days": 7.2,
+    "avg_win_r": 1.14,
+    "avg_loss_r": -0.67,
+    "min_r": -1.0,
+    "max_r": 4.44
+   },
+   "by_strategy": {
+    "MEAN_REVERSION": {
+     "n": 121,
+     "winrate": 0.49,
+     "avg_r": -0.01,
+     "median_r": -0.16,
+     "avg_ret_pct": -0.02,
+     "expectancy_aud_per_trade": -24.1,
+     "profit_factor": 0.98,
+     "avg_hold_days": 7.2,
+     "avg_win_r": 1.16,
+     "avg_loss_r": -0.89,
+     "min_r": -1.0,
+     "max_r": 2.75
+    },
+    "TREND_PULLBACK": {
+     "n": 22,
+     "winrate": 0.53,
+     "avg_r": 0.1,
+     "median_r": -0.05,
+     "avg_ret_pct": 0.21,
+     "expectancy_aud_per_trade": 21.0,
+     "profit_factor": 1.16,
+     "avg_hold_days": 8.0,
+     "avg_win_r": 1.66,
+     "avg_loss_r": -0.84,
+     "min_r": -1.0,
+     "max_r": 3.56
+    },
+    "MOMENTUM": {
+     "n": 5,
+     "winrate": 0.4,
+     "avg_r": -0.29,
+     "median_r": -0.44,
+     "avg_ret_pct": -0.61,
+     "expectancy_aud_per_trade": -138.9,
+     "profit_factor": 0.54,
+     "avg_hold_days": 6.7,
+     "avg_win_r": 1.67,
+     "avg_loss_r": -0.79,
+     "min_r": -1.0,
+     "max_r": 3.51
+    },
+    "GAP_FADE_CONTINUATION": {
+     "n": 1,
+     "winrate": 1.0,
+     "avg_r": 1.4,
+     "median_r": 1.25,
+     "avg_ret_pct": 2.94,
+     "expectancy_aud_per_trade": 554.0,
+     "profit_factor": 3.24,
+     "avg_hold_days": 2.0,
+     "avg_win_r": 1.31,
+     "avg_loss_r": -0.83,
+     "min_r": -1.0,
+     "max_r": 3.86
+    }
+   }
+  },
+  {
+   "id": "trail_2pct_after_1r",
+   "label": "Trail 2% once +1R reached",
+   "params": {
+    "kind": "trail_pct",
+    "pct": 2.0,
+    "activate_after_r": 1.0,
+    "time_stop_days": 20
+   },
+   "stats": {
+    "n": 149,
+    "winrate": 0.38,
+    "avg_r": 0.03,
+    "median_r": -0.12,
+    "avg_ret_pct": 0.06,
+    "expectancy_aud_per_trade": -7.7,
+    "profit_factor": 1.05,
+    "avg_hold_days": 6.4,
+    "avg_win_r": 1.27,
+    "avg_loss_r": -0.89,
+    "min_r": -1.0,
+    "max_r": 3.66
+   },
+   "by_strategy": {
+    "MEAN_REVERSION": {
+     "n": 121,
+     "winrate": 0.37,
+     "avg_r": 0.01,
+     "median_r": -0.14,
+     "avg_ret_pct": 0.02,
+     "expectancy_aud_per_trade": -15.9,
+     "profit_factor": 1.02,
+     "avg_hold_days": 6.4,
+     "avg_win_r": 1.65,
+     "avg_loss_r": -0.82,
+     "min_r": -1.0,
+     "max_r": 3.19
+    },
+    "TREND_PULLBACK": {
+     "n": 22,
+     "winrate": 0.41,
+     "avg_r": 0.12,
+     "median_r": -0.03,
+     "avg_ret_pct": 0.25,
+     "expectancy_aud_per_trade": 29.2,
+     "profit_factor": 1.19,
+     "avg_hold_days": 7.2,
+     "avg_win_r": 1.39,
+     "avg_loss_r": -0.61,
+     "min_r": -1.0,
+     "max_r": 5.8
+    },
+    "MOMENTUM": {
+     "n": 5,
+     "winrate": 0.28,
+     "avg_r": -0.27,
+     "median_r": -0.42,
+     "avg_ret_pct": -0.57,
+     "expectancy_aud_per_trade": -130.7,
+     "profit_factor": 0.57,
+     "avg_hold_days": 5.9,
+     "avg_win_r": 1.23,
+     "avg_loss_r": -0.92,
+     "min_r": -1.0,
+     "max_r": 4.73
+    },
+    "GAP_FADE_CONTINUATION": {
+     "n": 1,
+     "winrate": 1.0,
+     "avg_r": 1.4,
+     "median_r": 1.25,
+     "avg_ret_pct": 2.94,
+     "expectancy_aud_per_trade": 554.0,
+     "profit_factor": 3.24,
+     "avg_hold_days": 2.0,
+     "avg_win_r": 1.16,
+     "avg_loss_r": -0.75,
+     "min_r": -1.0,
+     "max_r": 4.58
+    }
+   }
+  }
+ ],
+ "default_policy_id": "trail_2pct",
+ "portfolio": {
+  "start_aud": 100000,
+  "risk_pct": 1.0,
+  "max_position_pct": 25,
+  "max_concurrent": 4,
+  "policy_id": "trail_2pct",
+  "equity": [
+   {
+    "date": "2026-02-05",
+    "equity": 100058.99
+   },
+   {
+    "date": "2026-02-06",
+    "equity": 99879.76
+   },
+   {
+    "date": "2026-02-09",
+    "equity": 99999.14
+   },
+   {
+    "date": "2026-02-10",
+    "equity": 100378.44
+   },
+   {
+    "date": "2026-02-11",
+    "equity": 100742.75
+   },
+   {
+    "date": "2026-02-12",
+    "equity": 101331.15
+   },
+   {
+    "date": "2026-02-13",
+    "equity": 101311.44
+   },
+   {
+    "date": "2026-02-16",
+    "equity": 101495.87
+   },
+   {
+    "date": "2026-02-17",
+    "equity": 100986.37
+   },
+   {
+    "date": "2026-02-18",
+    "equity": 101975.07
+   },
+   {
+    "date": "2026-02-19",
+    "equity": 103076.23
+   },
+   {
+    "date": "2026-02-20",
+    "equity": 103173.5
+   },
+   {
+    "date": "2026-02-23",
+    "equity": 103629.84
+   },
+   {
+    "date": "2026-02-24",
+    "equity": 103347.67
+   },
+   {
+    "date": "2026-02-25",
+    "equity": 102643.36
+   },
+   {
+    "date": "2026-02-26",
+    "equity": 102175.69
+   },
+   {
+    "date": "2026-02-27",
+    "equity": 102865.84
+   },
+   {
+    "date": "2026-03-02",
+    "equity": 102021.53
+   },
+   {
+    "date": "2026-03-03",
+    "equity": 100923.23
+   },
+   {
+    "date": "2026-03-04",
+    "equity": 100426.11
+   },
+   {
+    "date": "2026-03-05",
+    "equity": 100823.3
+   },
+   {
+    "date": "2026-03-06",
+    "equity": 100129.37
+   },
+   {
+    "date": "2026-03-09",
+    "equity": 100017.0
+   },
+   {
+    "date": "2026-03-10",
+    "equity": 100406.06
+   },
+   {
+    "date": "2026-03-11",
+    "equity": 99950.42
+   },
+   {
+    "date": "2026-03-12",
+    "equity": 99483.81
+   },
+   {
+    "date": "2026-03-13",
+    "equity": 99829.08
+   },
+   {
+    "date": "2026-03-16",
+    "equity": 100393.73
+   },
+   {
+    "date": "2026-03-17",
+    "equity": 100135.26
+   },
+   {
+    "date": "2026-03-18",
+    "equity": 100445.79
+   },
+   {
+    "date": "2026-03-19",
+    "equity": 100415.7
+   },
+   {
+    "date": "2026-03-20",
+    "equity": 100417.18
+   },
+   {
+    "date": "2026-03-23",
+    "equity": 101167.35
+   },
+   {
+    "date": "2026-03-24",
+    "equity": 100673.75
+   },
+   {
+    "date": "2026-03-25",
+    "equity": 100391.33
+   },
+   {
+    "date": "2026-03-26",
+    "equity": 100794.03
+   },
+   {
+    "date": "2026-03-27",
+    "equity": 101110.32
+   },
+   {
+    "date": "2026-03-30",
+    "equity": 100981.13
+   },
+   {
+    "date": "2026-03-31",
+    "equity": 100543.49
+   },
+   {
+    "date": "2026-04-01",
+    "equity": 101655.32
+   },
+   {
+    "date": "2026-04-02",
+    "equity": 101921.14
+   },
+   {
+    "date": "2026-04-03",
+    "equity": 101640.17
+   },
+   {
+    "date": "2026-04-06",
+    "equity": 101696.3
+   },
+   {
+    "date": "2026-04-07",
+    "equity": 101863.13
+   },
+   {
+    "date": "2026-04-08",
+    "equity": 101495.81
+   },
+   {
+    "date": "2026-04-09",
+    "equity": 101134.99
+   },
+   {
+    "date": "2026-04-10",
+    "equity": 101446.77
+   },
+   {
+    "date": "2026-04-13",
+    "equity": 100803.05
+   },
+   {
+    "date": "2026-04-14",
+    "equity": 100039.28
+   },
+   {
+    "date": "2026-04-15",
+    "equity": 99502.13
+   },
+   {
+    "date": "2026-04-16",
+    "equity": 98854.4
+   },
+   {
+    "date": "2026-04-17",
+    "equity": 99375.6
+   },
+   {
+    "date": "2026-04-20",
+    "equity": 99145.92
+   },
+   {
+    "date": "2026-04-21",
+    "equity": 99048.37
+   },
+   {
+    "date": "2026-04-22",
+    "equity": 98801.92
+   },
+   {
+    "date": "2026-04-23",
+    "equity": 98199.64
+   },
+   {
+    "date": "2026-04-24",
+    "equity": 98111.84
+   },
+   {
+    "date": "2026-04-27",
+    "equity": 98263.95
+   },
+   {
+    "date": "2026-04-28",
+    "equity": 97952.7
+   },
+   {
+    "date": "2026-04-29",
+    "equity": 97857.2
+   },
+   {
+    "date": "2026-04-30",
+    "equity": 98466.64
+   },
+   {
+    "date": "2026-05-01",
+    "equity": 98588.77
+   },
+   {
+    "date": "2026-05-04",
+    "equity": 98867.59
+   },
+   {
+    "date": "2026-05-05",
+    "equity": 98596.35
+   },
+   {
+    "date": "2026-05-06",
+    "equity": 99203.15
+   },
+   {
+    "date": "2026-05-07",
+    "equity": 100675.47
+   },
+   {
+    "date": "2026-05-08",
+    "equity": 100497.28
+   },
+   {
+    "date": "2026-05-11",
+    "equity": 100643.07
+   },
+   {
+    "date": "2026-05-12",
+    "equity": 101620.25
+   },
+   {
+    "date": "2026-05-13",
+    "equity": 101486.28
+   },
+   {
+    "date": "2026-05-14",
+    "equity": 100359.22
+   },
+   {
+    "date": "2026-05-15",
+    "equity": 101226.95
+   },
+   {
+    "date": "2026-05-18",
+    "equity": 100766.89
+   },
+   {
+    "date": "2026-05-19",
+    "equity": 100779.34
+   },
+   {
+    "date": "2026-05-20",
+    "equity": 100624.35
+   },
+   {
+    "date": "2026-05-21",
+    "equity": 99955.42
+   },
+   {
+    "date": "2026-05-22",
+    "equity": 99223.15
+   },
+   {
+    "date": "2026-05-25",
+    "equity": 99245.12
+   },
+   {
+    "date": "2026-05-26",
+    "equity": 98113.54
+   },
+   {
+    "date": "2026-05-27",
+    "equity": 98445.77
+   },
+   {
+    "date": "2026-05-28",
+    "equity": 98718.08
+   },
+   {
+    "date": "2026-05-29",
+    "equity": 99236.36
+   },
+   {
+    "date": "2026-06-01",
+    "equity": 99911.74
+   },
+   {
+    "date": "2026-06-02",
+    "equity": 99168.4
+   },
+   {
+    "date": "2026-06-03",
+    "equity": 99168.41
+   },
+   {
+    "date": "2026-06-04",
+    "equity": 98547.65
+   },
+   {
+    "date": "2026-06-05",
+    "equity": 99375.37
+   },
+   {
+    "date": "2026-06-08",
+    "equity": 99848.76
+   },
+   {
+    "date": "2026-06-09",
+    "equity": 100010.99
+   },
+   {
+    "date": "2026-06-10",
+    "equity": 99715.65
+   },
+   {
+    "date": "2026-06-11",
+    "equity": 99373.48
+   },
+   {
+    "date": "2026-06-12",
+    "equity": 99574.74
+   },
+   {
+    "date": "2026-06-15",
+    "equity": 99632.97
+   },
+   {
+    "date": "2026-06-16",
+    "equity": 99779.51
+   },
+   {
+    "date": "2026-06-17",
+    "equity": 98953.93
+   },
+   {
+    "date": "2026-06-18",
+    "equity": 98567.1
+   },
+   {
+    "date": "2026-06-19",
+    "equity": 97759.74
+   },
+   {
+    "date": "2026-06-22",
+    "equity": 97070.48
+   },
+   {
+    "date": "2026-06-23",
+    "equity": 96307.6
+   },
+   {
+    "date": "2026-06-24",
+    "equity": 96202.83
+   },
+   {
+    "date": "2026-06-25",
+    "equity": 96698.12
+   },
+   {
+    "date": "2026-06-26",
+    "equity": 96541.98
+   },
+   {
+    "date": "2026-06-29",
+    "equity": 96091.36
+   },
+   {
+    "date": "2026-06-30",
+    "equity": 94841.45
+   },
+   {
+    "date": "2026-07-01",
+    "equity": 95261.65
+   },
+   {
+    "date": "2026-07-02",
+    "equity": 96199.57
+   },
+   {
+    "date": "2026-07-03",
+    "equity": 95474.01
+   },
+   {
+    "date": "2026-07-06",
+    "equity": 95809.33
+   },
+   {
+    "date": "2026-07-07",
+    "equity": 96435.67
+   },
+   {
+    "date": "2026-07-08",
+    "equity": 96719.23
+   },
+   {
+    "date": "2026-07-09",
+    "equity": 97578.01
+   },
+   {
+    "date": "2026-07-10",
+    "equity": 97162.46
+   },
+   {
+    "date": "2026-07-13",
+    "equity": 97614.05
+   },
+   {
+    "date": "2026-07-14",
+    "equity": 97472.48
+   },
+   {
+    "date": "2026-07-15",
+    "equity": 98255.07
+   },
+   {
+    "date": "2026-07-16",
+    "equity": 97836.96
+   },
+   {
+    "date": "2026-07-17",
+    "equity": 97577.84
+   },
+   {
+    "date": "2026-07-20",
+    "equity": 96487.92
+   },
+   {
+    "date": "2026-07-21",
+    "equity": 96718.46
+   },
+   {
+    "date": "2026-07-22",
+    "equity": 97777.96
+   },
+   {
+    "date": "2026-07-23",
+    "equity": 97832.18
+   },
+   {
+    "date": "2026-07-24",
+    "equity": 97115.85
+   },
+   {
+    "date": "2026-07-27",
+    "equity": 96551.68
+   },
+   {
+    "date": "2026-07-28",
+    "equity": 96786.27
+   },
+   {
+    "date": "2026-07-29",
+    "equity": 97014.19
+   },
+   {
+    "date": "2026-07-30",
+    "equity": 97164.77
+   },
+   {
+    "date": "2026-07-31",
+    "equity": 97841.89
+   },
+   {
+    "date": "2026-08-03",
+    "equity": 97368.59
+   },
+   {
+    "date": "2026-08-04",
+    "equity": 97167.52
+   },
+   {
+    "date": "2026-08-05",
+    "equity": 97338.54
+   },
+   {
+    "date": "2026-08-06",
+    "equity": 96916.87
+   },
+   {
+    "date": "2026-08-07",
+    "equity": 97193.87
+   },
+   {
+    "date": "2026-08-10",
+    "equity": 97606.63
+   },
+   {
+    "date": "2026-08-11",
+    "equity": 98194.86
+   },
+   {
+    "date": "2026-08-12",
+    "equity": 99236.21
+   },
+   {
+    "date": "2026-08-13",
+    "equity": 99274.14
+   },
+   {
+    "date": "2026-08-14",
+    "equity": 98410.85
+   },
+   {
+    "date": "2026-08-17",
+    "equity": 99219.69
+   },
+   {
+    "date": "2026-08-18",
+    "equity": 99176.26
+   },
+   {
+    "date": "2026-08-19",
+    "equity": 97497.9
+   },
+   {
+    "date": "2026-08-20",
+    "equity": 97648.21
+   },
+   {
+    "date": "2026-08-21",
+    "equity": 97585.56
+   },
+   {
+    "date": "2026-08-24",
+    "equity": 97822.65
+   },
+   {
+    "date": "2026-08-25",
+    "equity": 97428.64
+   },
+   {
+    "date": "2026-08-26",
+    "equity": 96431.71
+   },
+   {
+    "date": "2026-08-27",
+    "equity": 96388.84
+   },
+   {
+    "date": "2026-08-28",
+    "equity": 96762.16
+   },
+   {
+    "date": "2026-08-31",
+    "equity": 97572.68
+   },
+   {
+    "date": "2026-09-01",
+    "equity": 98216.41
+   },
+   {
+    "date": "2026-09-02",
+    "equity": 96323.93
+   },
+   {
+    "date": "2026-09-03",
+    "equity": 97090.05
+   },
+   {
+    "date": "2026-09-04",
+    "equity": 96817.72
+   },
+   {
+    "date": "2026-09-07",
+    "equity": 97412.06
+   },
+   {
+    "date": "2026-09-08",
+    "equity": 97442.38
+   },
+   {
+    "date": "2026-09-09",
+    "equity": 97472.03
+   },
+   {
+    "date": "2026-09-10",
+    "equity": 97403.29
+   },
+   {
+    "date": "2026-09-11",
+    "equity": 96996.7
+   },
+   {
+    "date": "2026-09-14",
+    "equity": 98312.43
+   },
+   {
+    "date": "2026-09-15",
+    "equity": 97904.0
+   },
+   {
+    "date": "2026-09-16",
+    "equity": 96982.48
+   },
+   {
+    "date": "2026-09-17",
+    "equity": 96681.61
+   },
+   {
+    "date": "2026-09-18",
+    "equity": 96200.53
+   },
+   {
+    "date": "2026-09-21",
+    "equity": 95058.55
+   },
+   {
+    "date": "2026-09-22",
+    "equity": 96230.0
+   },
+   {
+    "date": "2026-09-23",
+    "equity": 96694.89
+   },
+   {
+    "date": "2026-09-24",
+    "equity": 96508.22
+   },
+   {
+    "date": "2026-09-25",
+    "equity": 96825.85
+   },
+   {
+    "date": "2026-09-28",
+    "equity": 96691.8
+   },
+   {
+    "date": "2026-09-29",
+    "equity": 97221.86
+   },
+   {
+    "date": "2026-09-30",
+    "equity": 97444.78
+   },
+   {
+    "date": "2026-10-01",
+    "equity": 97637.47
+   },
+   {
+    "date": "2026-10-02",
+    "equity": 97728.04
+   },
+   {
+    "date": "2026-10-05",
+    "equity": 98320.92
+   },
+   {
+    "date": "2026-10-06",
+    "equity": 98354.16
+   },
+   {
+    "date": "2026-10-07",
+    "equity": 98712.25
+   },
+   {
+    "date": "2026-10-08",
+    "equity": 97963.79
+   },
+   {
+    "date": "2026-10-09",
+    "equity": 97869.86
+   },
+   {
+    "date": "2026-10-12",
+    "equity": 98456.93
+   },
+   {
+    "date": "2026-10-13",
+    "equity": 98824.27
+   },
+   {
+    "date": "2026-10-14",
+    "equity": 97671.56
+   },
+   {
+    "date": "2026-10-15",
+    "equity": 98261.6
+   },
+   {
+    "date": "2026-10-16",
+    "equity": 97892.68
+   },
+   {
+    "date": "2026-10-19",
+    "equity": 97265.85
+   },
+   {
+    "date": "2026-10-20",
+    "equity": 98005.19
+   },
+   {
+    "date": "2026-10-21",
+    "equity": 97469.85
+   },
+   {
+    "date": "2026-10-22",
+    "equity": 97920.81
+   },
+   {
+    "date": "2026-10-23",
+    "equity": 97784.83
+   },
+   {
+    "date": "2026-10-26",
+    "equity": 97717.58
+   },
+   {
+    "date": "2026-10-27",
+    "equity": 98693.31
+   },
+   {
+    "date": "2026-10-28",
+    "equity": 98356.68
+   },
+   {
+    "date": "2026-10-29",
+    "equity": 99324.08
+   },
+   {
+    "date": "2026-10-30",
+    "equity": 101051.32
+   },
+   {
+    "date": "2026-11-02",
+    "equity": 101512.29
+   },
+   {
+    "date": "2026-11-03",
+    "equity": 100982.79
+   },
+   {
+    "date": "2026-11-04",
+    "equity": 101590.08
+   },
+   {
+    "date": "2026-11-05",
+    "equity": 101744.5
+   },
+   {
+    "date": "2026-11-06",
+    "equity": 102502.89
+   },
+   {
+    "date": "2026-11-09",
+    "equity": 100921.66
+   },
+   {
+    "date": "2026-11-10",
+    "equity": 100486.0
+   },
+   {
+    "date": "2026-11-11",
+    "equity": 100934.8
+   },
+   {
+    "date": "2026-11-12",
+    "equity": 101311.43
+   },
+   {
+    "date": "2026-11-13",
+    "equity": 101861.3
+   },
+   {
+    "date": "2026-11-16",
+    "equity": 102108.71
+   },
+   {
+    "date": "2026-11-17",
+    "equity": 102534.26
+   },
+   {
+    "date": "2026-11-18",
+    "equity": 103381.12
+   },
+   {
+    "date": "2026-11-19",
+    "equity": 103651.92
+   },
+   {
+    "date": "2026-11-20",
+    "equity": 104136.6
+   }
+  ],
+  "benchmark": {
+   "symbol": "A200.AX",
+   "equity": [
+    {
+     "date": "2026-02-05",
+     "equity": 98328.32
+    },
+    {
+     "date": "2026-02-06",
+     "equity": 97978.68
+    },
+    {
+     "date": "2026-02-09",
+     "equity": 97700.93
+    },
+    {
+     "date": "2026-02-10",
+     "equity": 97116.96
+    },
+    {
+     "date": "2026-02-11",
+     "equity": 98192.95
+    },
+    {
+     "date": "2026-02-12",
+     "equity": 98596.85
+    },
+    {
+     "date": "2026-02-13",
+     "equity": 99009.98
+    },
+    {
+     "date": "2026-02-16",
+     "equity": 98436.52
+    },
+    {
+     "date": "2026-02-17",
+     "equity": 98616.6
+    },
+    {
+     "date": "2026-02-18",
+     "equity": 98231.46
+    },
+    {
+     "date": "2026-02-19",
+     "equity": 98721.02
+    },
+    {
+     "date": "2026-02-20",
+     "equity": 96537.43
+    },
+    {
+     "date": "2026-02-23",
+     "equity": 98108.41
+    },
+    {
+     "date": "2026-02-24",
+     "equity": 98197.88
+    },
+    {
+     "date": "2026-02-25",
+     "equity": 97164.33
+    },
+    {
+     "date": "2026-02-26",
+     "equity": 97620.63
+    },
+    {
+     "date": "2026-02-27",
+     "equity": 96906.96
+    },
+    {
+     "date": "2026-03-02",
+     "equity": 97545.96
+    },
+    {
+     "date": "2026-03-03",
+     "equity": 97238.63
+    },
+    {
+     "date": "2026-03-04",
+     "equity": 97196.48
+    },
+    {
+     "date": "2026-03-05",
+     "equity": 97727.99
+    },
+    {
+     "date": "2026-03-06",
+     "equity": 98478.78
+    },
+    {
+     "date": "2026-03-09",
+     "equity": 97915.77
+    },
+    {
+     "date": "2026-03-10",
+     "equity": 96432.78
+    },
+    {
+     "date": "2026-03-11",
+     "equity": 95789.19
+    },
+    {
+     "date": "2026-03-12",
+     "equity": 95641.59
+    },
+    {
+     "date": "2026-03-13",
+     "equity": 96671.09
+    },
+    {
+     "date": "2026-03-16",
+     "equity": 96240.71
+    },
+    {
+     "date": "2026-03-17",
+     "equity": 95240.71
+    },
+    {
+     "date": "2026-03-18",
+     "equity": 95960.4
+    },
+    {
+     "date": "2026-03-19",
+     "equity": 95599.94
+    },
+    {
+     "date": "2026-03-20",
+     "equity": 96023.81
+    },
+    {
+     "date": "2026-03-23",
+     "equity": 95913.93
+    },
+    {
+     "date": "2026-03-24",
+     "equity": 96978.56
+    },
+    {
+     "date": "2026-03-25",
+     "equity": 96567.95
+    },
+    {
+     "date": "2026-03-26",
+     "equity": 96108.63
+    },
+    {
+     "date": "2026-03-27",
+     "equity": 97023.5
+    },
+    {
+     "date": "2026-03-30",
+     "equity": 97555.57
+    },
+    {
+     "date": "2026-03-31",
+     "equity": 97058.33
+    },
+    {
+     "date": "2026-04-01",
+     "equity": 97499.64
+    },
+    {
+     "date": "2026-04-02",
+     "equity": 97683.08
+    },
+    {
+     "date": "2026-04-03",
+     "equity": 98396.56
+    },
+    {
+     "date": "2026-04-06",
+     "equity": 98956.92
+    },
+    {
+     "date": "2026-04-07",
+     "equity": 99560.42
+    },
+    {
+     "date": "2026-04-08",
+     "equity": 99951.76
+    },
+    {
+     "date": "2026-04-09",
+     "equity": 99593.2
+    },
+    {
+     "date": "2026-04-10",
+     "equity": 99025.8
+    },
+    {
+     "date": "2026-04-13",
+     "equity": 100184.45
+    },
+    {
+     "date": "2026-04-14",
+     "equity": 100511.33
+    },
+    {
+     "date": "2026-04-15",
+     "equity": 100289.07
+    },
+    {
+     "date": "2026-04-16",
+     "equity": 99808.17
+    },
+    {
+     "date": "2026-04-17",
+     "equity": 100305.56
+    },
+    {
+     "date": "2026-04-20",
+     "equity": 100334.28
+    },
+    {
+     "date": "2026-04-21",
+     "equity": 100741.45
+    },
+    {
+     "date": "2026-04-22",
+     "equity": 101393.28
+    },
+    {
+     "date": "2026-04-23",
+     "equity": 100816.57
+    },
+    {
+     "date": "2026-04-24",
+     "equity": 101176.48
+    },
+    {
+     "date": "2026-04-27",
+     "equity": 101196.53
+    },
+    {
+     "date": "2026-04-28",
+     "equity": 100349.3
+    },
+    {
+     "date": "2026-04-29",
+     "equity": 100070.33
+    },
+    {
+     "date": "2026-04-30",
+     "equity": 99823.36
+    },
+    {
+     "date": "2026-05-01",
+     "equity": 98464.32
+    },
+    {
+     "date": "2026-05-04",
+     "equity": 98336.46
+    },
+    {
+     "date": "2026-05-05",
+     "equity": 97693.86
+    },
+    {
+     "date": "2026-05-06",
+     "equity": 96096.64
+    },
+    {
+     "date": "2026-05-07",
+     "equity": 95031.44
+    },
+    {
+     "date": "2026-05-08",
+     "equity": 96305.92
+    },
+    {
+     "date": "2026-05-11",
+     "equity": 95378.75
+    },
+    {
+     "date": "2026-05-12",
+     "equity": 96797.4
+    },
+    {
+     "date": "2026-05-13",
+     "equity": 98369.42
+    },
+    {
+     "date": "2026-05-14",
+     "equity": 98986.18
+    },
+    {
+     "date": "2026-05-15",
+     "equity": 98924.64
+    },
+    {
+     "date": "2026-05-18",
+     "equity": 99803.94
+    },
+    {
+     "date": "2026-05-19",
+     "equity": 99228.95
+    },
+    {
+     "date": "2026-05-20",
+     "equity": 99927.62
+    },
+    {
+     "date": "2026-05-21",
+     "equity": 100661.04
+    },
+    {
+     "date": "2026-05-22",
+     "equity": 99932.21
+    },
+    {
+     "date": "2026-05-25",
+     "equity": 100594.49
+    },
+    {
+     "date": "2026-05-26",
+     "equity": 101916.8
+    },
+    {
+     "date": "2026-05-27",
+     "equity": 102226.59
+    },
+    {
+     "date": "2026-05-28",
+     "equity": 102046.97
+    },
+    {
+     "date": "2026-05-29",
+     "equity": 103094.17
+    },
+    {
+     "date": "2026-06-01",
+     "equity": 102245.69
+    },
+    {
+     "date": "2026-06-02",
+     "equity": 103083.27
+    },
+    {
+     "date": "2026-06-03",
+     "equity": 100906.2
+    },
+    {
+     "date": "2026-06-04",
+     "equity": 100804.84
+    },
+    {
+     "date": "2026-06-05",
+     "equity": 99657.22
+    },
+    {
+     "date": "2026-06-08",
+     "equity": 100802.42
+    },
+    {
+     "date": "2026-06-09",
+     "equity": 100841.89
+    },
+    {
+     "date": "2026-06-10",
+     "equity": 100913.21
+    },
+    {
+     "date": "2026-06-11",
+     "equity": 101844.89
+    },
+    {
+     "date": "2026-06-12",
+     "equity": 101932.37
+    },
+    {
+     "date": "2026-06-15",
+     "equity": 102461.13
+    },
+    {
+     "date": "2026-06-16",
+     "equity": 101184.15
+    },
+    {
+     "date": "2026-06-17",
+     "equity": 99340.8
+    },
+    {
+     "date": "2026-06-18",
+     "equity": 99668.37
+    },
+    {
+     "date": "2026-06-19",
+     "equity": 100588.4
+    },
+    {
+     "date": "2026-06-22",
+     "equity": 101561.56
+    },
+    {
+     "date": "2026-06-23",
+     "equity": 100622.14
+    },
+    {
+     "date": "2026-06-24",
+     "equity": 100291.22
+    },
+    {
+     "date": "2026-06-25",
+     "equity": 101278.09
+    },
+    {
+     "date": "2026-06-26",
+     "equity": 100577.66
+    },
+    {
+     "date": "2026-06-29",
+     "equity": 100288.92
+    },
+    {
+     "date": "2026-06-30",
+     "equity": 99933.28
+    },
+    {
+     "date": "2026-07-01",
+     "equity": 99227.26
+    },
+    {
+     "date": "2026-07-02",
+     "equity": 99021.06
+    },
+    {
+     "date": "2026-07-03",
+     "equity": 97810.39
+    },
+    {
+     "date": "2026-07-06",
+     "equity": 98091.35
+    },
+    {
+     "date": "2026-07-07",
+     "equity": 98404.09
+    },
+    {
+     "date": "2026-07-08",
+     "equity": 97901.45
+    },
+    {
+     "date": "2026-07-09",
+     "equity": 98400.34
+    },
+    {
+     "date": "2026-07-10",
+     "equity": 98938.04
+    },
+    {
+     "date": "2026-07-13",
+     "equity": 99192.16
+    },
+    {
+     "date": "2026-07-14",
+     "equity": 98420.04
+    },
+    {
+     "date": "2026-07-15",
+     "equity": 97480.47
+    },
+    {
+     "date": "2026-07-16",
+     "equity": 97235.99
+    },
+    {
+     "date": "2026-07-17",
+     "equity": 96700.48
+    },
+    {
+     "date": "2026-07-20",
+     "equity": 96994.31
+    },
+    {
+     "date": "2026-07-21",
+     "equity": 95590.8
+    },
+    {
+     "date": "2026-07-22",
+     "equity": 95129.25
+    },
+    {
+     "date": "2026-07-23",
+     "equity": 96199.99
+    },
+    {
+     "date": "2026-07-24",
+     "equity": 95141.12
+    },
+    {
+     "date": "2026-07-27",
+     "equity": 93766.28
+    },
+    {
+     "date": "2026-07-28",
+     "equity": 94696.25
+    },
+    {
+     "date": "2026-07-29",
+     "equity": 93714.79
+    },
+    {
+     "date": "2026-07-30",
+     "equity": 94013.38
+    },
+    {
+     "date": "2026-07-31",
+     "equity": 92615.81
+    },
+    {
+     "date": "2026-08-03",
+     "equity": 92609.37
+    },
+    {
+     "date": "2026-08-04",
+     "equity": 92995.73
+    },
+    {
+     "date": "2026-08-05",
+     "equity": 93051.83
+    },
+    {
+     "date": "2026-08-06",
+     "equity": 92631.77
+    },
+    {
+     "date": "2026-08-07",
+     "equity": 92559.08
+    },
+    {
+     "date": "2026-08-10",
+     "equity": 92597.24
+    },
+    {
+     "date": "2026-08-11",
+     "equity": 92244.15
+    },
+    {
+     "date": "2026-08-12",
+     "equity": 92505.87
+    },
+    {
+     "date": "2026-08-13",
+     "equity": 93386.0
+    },
+    {
+     "date": "2026-08-14",
+     "equity": 94263.43
+    },
+    {
+     "date": "2026-08-17",
+     "equity": 93513.6
+    },
+    {
+     "date": "2026-08-18",
+     "equity": 94953.64
+    },
+    {
+     "date": "2026-08-19",
+     "equity": 94633.64
+    },
+    {
+     "date": "2026-08-20",
+     "equity": 94965.57
+    },
+    {
+     "date": "2026-08-21",
+     "equity": 95113.67
+    },
+    {
+     "date": "2026-08-24",
+     "equity": 95641.06
+    },
+    {
+     "date": "2026-08-25",
+     "equity": 95357.92
+    },
+    {
+     "date": "2026-08-26",
+     "equity": 96526.75
+    },
+    {
+     "date": "2026-08-27",
+     "equity": 96816.12
+    },
+    {
+     "date": "2026-08-28",
+     "equity": 96658.23
+    },
+    {
+     "date": "2026-08-31",
+     "equity": 97333.22
+    },
+    {
+     "date": "2026-09-01",
+     "equity": 97522.41
+    },
+    {
+     "date": "2026-09-02",
+     "equity": 96204.7
+    },
+    {
+     "date": "2026-09-03",
+     "equity": 95727.75
+    },
+    {
+     "date": "2026-09-04",
+     "equity": 96638.61
+    },
+    {
+     "date": "2026-09-07",
+     "equity": 96558.31
+    },
+    {
+     "date": "2026-09-08",
+     "equity": 96932.54
+    },
+    {
+     "date": "2026-09-09",
+     "equity": 96685.39
+    },
+    {
+     "date": "2026-09-10",
+     "equity": 97207.81
+    },
+    {
+     "date": "2026-09-11",
+     "equity": 97650.48
+    },
+    {
+     "date": "2026-09-14",
+     "equity": 98089.87
+    },
+    {
+     "date": "2026-09-15",
+     "equity": 98158.47
+    },
+    {
+     "date": "2026-09-16",
+     "equity": 99429.76
+    },
+    {
+     "date": "2026-09-17",
+     "equity": 99111.95
+    },
+    {
+     "date": "2026-09-18",
+     "equity": 100295.1
+    },
+    {
+     "date": "2026-09-21",
+     "equity": 99699.26
+    },
+    {
+     "date": "2026-09-22",
+     "equity": 100140.33
+    },
+    {
+     "date": "2026-09-23",
+     "equity": 100551.39
+    },
+    {
+     "date": "2026-09-24",
+     "equity": 100156.13
+    },
+    {
+     "date": "2026-09-25",
+     "equity": 100258.64
+    },
+    {
+     "date": "2026-09-28",
+     "equity": 99197.9
+    },
+    {
+     "date": "2026-09-29",
+     "equity": 100610.59
+    },
+    {
+     "date": "2026-09-30",
+     "equity": 101664.54
+    },
+    {
+     "date": "2026-10-01",
+     "equity": 102223.35
+    },
+    {
+     "date": "2026-10-02",
+     "equity": 101880.83
+    },
+    {
+     "date": "2026-10-05",
+     "equity": 102116.38
+    },
+    {
+     "date": "2026-10-06",
+     "equity": 103174.95
+    },
+    {
+     "date": "2026-10-07",
+     "equity": 102907.4
+    },
+    {
+     "date": "2026-10-08",
+     "equity": 101999.67
+    },
+    {
+     "date": "2026-10-09",
+     "equity": 101882.92
+    },
+    {
+     "date": "2026-10-12",
+     "equity": 101541.66
+    },
+    {
+     "date": "2026-10-13",
+     "equity": 102119.85
+    },
+    {
+     "date": "2026-10-14",
+     "equity": 103068.79
+    },
+    {
+     "date": "2026-10-15",
+     "equity": 101776.27
+    },
+    {
+     "date": "2026-10-16",
+     "equity": 101744.28
+    },
+    {
+     "date": "2026-10-19",
+     "equity": 102273.16
+    },
+    {
+     "date": "2026-10-20",
+     "equity": 102378.23
+    },
+    {
+     "date": "2026-10-21",
+     "equity": 101074.3
+    },
+    {
+     "date": "2026-10-22",
+     "equity": 100468.9
+    },
+    {
+     "date": "2026-10-23",
+     "equity": 101704.26
+    },
+    {
+     "date": "2026-10-26",
+     "equity": 100800.63
+    },
+    {
+     "date": "2026-10-27",
+     "equity": 100662.47
+    },
+    {
+     "date": "2026-10-28",
+     "equity": 101349.34
+    },
+    {
+     "date": "2026-10-29",
+     "equity": 101339.06
+    },
+    {
+     "date": "2026-10-30",
+     "equity": 101469.69
+    },
+    {
+     "date": "2026-11-02",
+     "equity": 100689.83
+    },
+    {
+     "date": "2026-11-03",
+     "equity": 100829.26
+    },
+    {
+     "date": "2026-11-04",
+     "equity": 102375.03
+    },
+    {
+     "date": "2026-11-05",
+     "equity": 102334.46
+    },
+    {
+     "date": "2026-11-06",
+     "equity": 102619.16
+    },
+    {
+     "date": "2026-11-09",
+     "equity": 102235.29
+    },
+    {
+     "date": "2026-11-10",
+     "equity": 101257.26
+    },
+    {
+     "date": "2026-11-11",
+     "equity": 102136.17
+    },
+    {
+     "date": "2026-11-12",
+     "equity": 102587.26
+    },
+    {
+     "date": "2026-11-13",
+     "equity": 101870.21
+    },
+    {
+     "date": "2026-11-16",
+     "equity": 102090.94
+    },
+    {
+     "date": "2026-11-17",
+     "equity": 102101.13
+    },
+    {
+     "date": "2026-11-18",
+     "equity": 102727.91
+    },
+    {
+     "date": "2026-11-19",
+     "equity": 102649.96
+    },
+    {
+     "date": "2026-11-20",
+     "equity": 103123.96
+    }
+   ]
+  },
+  "total_return": 0.0414,
+  "benchmark_total_return": 0.0312,
+  "cagr": 0.0506,
+  "max_drawdown": -0.0848,
+  "benchmark_max_drawdown": -0.1052
+ },
+ "trades": [
+  {
+   "signal_session": "2026-11-13",
+   "valid_for": "2026-11-16",
+   "symbol": "BOQ.AX",
+   "strategy": "MEAN_REVERSION",
+   "entry_time": "2026-11-16T00:00:00+00:00",
+   "entry_px": 7.13,
+   "exit_time": "2026-11-20T04:00:00+00:00",
+   "exit_px": 7.27,
+   "exit_reason": "trail",
+   "r": 0.8,
+   "ret_pct": 2.0,
+   "policy_id": "trail_2pct"
+  },
+  {
+   "signal_session": "2026-11-10",
+   "valid_for": "2026-11-11",
+   "symbol": "NST.AX",
+   "strategy": "MEAN_REVERSION",
+   "entry_time": "2026-11-11T00:00:00+00:00",
+   "entry_px": 32.7,
+   "exit_time": "2026-11-13T04:00:00+00:00",
+   "exit_px": 31.88,
+   "exit_reason": "stop",
+   "r": -1.0,
+   "ret_pct": -2.5,
+   "policy_id": "trail_2pct"
+  },
+  {
+   "signal_session": "2026-11-05",
+   "valid_for": "2026-11-06",
+   "symbol": "QAN.AX",
+   "strategy": "TREND_PULLBACK",
+   "entry_time": "2026-11-06T00:00:00+00:00",
+   "entry_px": 20.85,
+   "exit_time": "2026-11-10T04:00:00+00:00",
+   "exit_px": 21.27,
+   "exit_reason": "trail",
+   "r": 0.8,
+   "ret_pct": 2.0,
+   "policy_id": "trail_2pct"
+  },
+  {
+   "signal_session": "2026-11-02",
+   "valid_for": "2026-11-03",
+   "symbol": "COH.AX",
+   "strategy": "MEAN_REVERSION",
+   "entry_time": "2026-11-03T00:00:00+00:00",
+   "entry_px": 13.93,
+   "exit_time": "2026-11-11T04:00:00+00:00",
+   "exit_px": 13.72,
+   "exit_reason": "time",
+   "r": -0.6,
+   "ret_pct": -1.5,
+   "policy_id": "trail_2pct"
+  },
+  {
+   "signal_session": "2026-10-28",
+   "valid_for": "2026-10-29",
+   "symbol": "WTC.AX",
+   "strategy": "TREND_PULLBACK",
+   "entry_time": "2026-10-29T00:00:00+00:00",
+   "entry_px": 90.2,
+   "exit_time": "2026-10-30T04:00:00+00:00",
+   "exit_px": 90.65,
+   "exit_reason": "trail",
+   "r": 0.2,
+   "ret_pct": 0.5,
+   "policy_id": "trail_2pct"
+  },
+  {
+   "signal_session": "2026-10-23",
+   "valid_for": "2026-10-26",
+   "symbol": "PME.AX",
+   "strategy": "MOMENTUM",
+   "entry_time": "2026-10-26T00:00:00+00:00",
+   "entry_px": 77.2,
+   "exit_time": "2026-11-03T04:00:00+00:00",
+   "exit_px": 80.1,
+   "exit_reason": "trail",
+   "r": 1.5,
+   "ret_pct": 3.75,
+   "policy_id": "trail_2pct"
+  },
+  {
+   "signal_session": "2026-10-20",
+   "valid_for": "2026-10-21",
+   "symbol": "QAN.AX",
+   "strategy": "TREND_PULLBACK",
+   "entry_time": "2026-10-21T00:00:00+00:00",
+   "entry_px": 58.57,
+   "exit_time": "2026-10-23T04:00:00+00:00",
+   "exit_px": 59.74,
+   "exit_reason": "trail",
+   "r": 0.8,
+   "ret_pct": 2.0,
+   "policy_id": "trail_2pct"
+  },
+  {
+   "signal_session": "2026-10-15",
+   "valid_for": "2026-10-16",
+   "symbol": "PME.AX",
+   "strategy": "TREND_PULLBACK",
+   "entry_time": "2026-10-16T00:00:00+00:00",
+   "entry_px": 31.81,
+   "exit_time": "2026-10-21T04:00:00+00:00",
+   "exit_px": 31.57,
+   "exit_reason": "trail",
+   "r": -0.3,
+   "ret_pct": -0.75,
+   "policy_id": "trail_2pct"
+  },
+  {
+   "signal_session": "2026-10-12",
+   "valid_for": "2026-10-13",
+   "symbol": "ALL.AX",
+   "strategy": "MEAN_REVERSION",
+   "entry_time": "2026-10-13T00:00:00+00:00",
+   "entry_px": 20.54,
+   "exit_time": "2026-10-21T04:00:00+00:00",
+   "exit_px": 21.77,
+   "exit_reason": "trail",
+   "r": 2.4,
+   "ret_pct": 6.0,
+   "policy_id": "trail_2pct"
+  },
+  {
+   "signal_session": "2026-10-07",
+   "valid_for": "2026-10-08",
+   "symbol": "COH.AX",
+   "strategy": "MOMENTUM",
+   "entry_time": "2026-10-08T00:00:00+00:00",
+   "entry_px": 50.11,
+   "exit_time": "2026-10-09T04:00:00+00:00",
+   "exit_px": 51.11,
+   "exit_reason": "trail",
+   "r": 0.8,
+   "ret_pct": 2.0,
+   "policy_id": "trail_2pct"
+  },
+  {
+   "signal_session": "2026-10-02",
+   "valid_for": "2026-10-05",
+   "symbol": "AMP.AX",
+   "strategy": "MEAN_REVERSION",
+   "entry_time": "2026-10-05T00:00:00+00:00",
+   "entry_px": 56.51,
+   "exit_time": "2026-10-09T04:00:00+00:00",
+   "exit_px": 56.79,
+   "exit_reason": "trail",
+   "r": 0.2,
+   "ret_pct": 0.5,
+   "policy_id": "trail_2pct"
+  },
+  {
+   "signal_session": "2026-09-29",
+   "valid_for": "2026-09-30",
+   "symbol": "QAN.AX",
+   "strategy": "MEAN_REVERSION",
+   "entry_time": "2026-09-30T00:00:00+00:00",
+   "entry_px": 60.86,
+   "exit_time": "2026-10-02T04:00:00+00:00",
+   "exit_px": 64.51,
+   "exit_reason": "trail",
+   "r": 2.4,
+   "ret_pct": 6.0,
+   "policy_id": "trail_2pct"
+  },
+  {
+   "signal_session": "2026-09-24",
+   "valid_for": "2026-09-25",
+   "symbol": "BOQ.AX",
+   "strategy": "TREND_PULLBACK",
+   "entry_time": "2026-09-25T00:00:00+00:00",
+   "entry_px": 116.29,
+   "exit_time": "2026-09-30T04:00:00+00:00",
+   "exit_px": 113.38,
+   "exit_reason": "stop",
+   "r": -1.0,
+   "ret_pct": -2.5,
+   "policy_id": "trail_2pct"
+  },
+  {
+   "signal_session": "2026-09-21",
+   "valid_for": "2026-09-22",
+   "symbol": "NST.AX",
+   "strategy": "MEAN_REVERSION",
+   "entry_time": "2026-09-22T00:00:00+00:00",
+   "entry_px": 11.76,
+   "exit_time": "2026-09-24T04:00:00+00:00",
+   "exit_px": 11.47,
+   "exit_reason": "stop",
+   "r": -1.0,
+   "ret_pct": -2.5,
+   "policy_id": "trail_2pct"
+  },
+  {
+   "signal_session": "2026-09-16",
+   "valid_for": "2026-09-17",
+   "symbol": "AMP.AX",
+   "strategy": "MEAN_REVERSION",
+   "entry_time": "2026-09-17T00:00:00+00:00",
+   "entry_px": 13.11,
+   "exit_time": "2026-09-21T04:00:00+00:00",
+   "exit_px": 13.01,
+   "exit_reason": "time",
+   "r": -0.3,
+   "ret_pct": -0.75,
+   "policy_id": "trail_2pct"
+  },
+  {
+   "signal_session": "2026-09-11",
+   "valid_for": "2026-09-14",
+   "symbol": "AMP.AX",
+   "strategy": "MEAN_REVERSION",
+   "entry_time": "2026-09-14T00:00:00+00:00",
+   "entry_px": 52.41,
+   "exit_time": "2026-09-17T04:00:00+00:00",
+   "exit_px": 52.67,
+   "exit_reason": "trail",
+   "r": 0.2,
+   "ret_pct": 0.5,
+   "policy_id": "trail_2pct"
+  },
+  {
+   "signal_session": "2026-09-08",
+   "valid_for": "2026-09-09",
+   "symbol": "QAN.AX",
+   "strategy": "TREND_PULLBACK",
+   "entry_time": "2026-09-09T00:00:00+00:00",
+   "entry_px": 18.18,
+   "exit_time": "2026-09-14T04:00:00+00:00",
+   "exit_px": 18.86,
+   "exit_reason": "trail",
+   "r": 1.5,
+   "ret_pct": 3.75,
+   "policy_id": "trail_2pct"
+  },
+  {
+   "signal_session": "2026-09-03",
+   "valid_for": "2026-09-04",
+   "symbol": "ORG.AX",
+   "strategy": "TREND_PULLBACK",
+   "entry_time": "2026-09-04T00:00:00+00:00",
+   "entry_px": 118.76,
+   "exit_time": "2026-09-09T04:00:00+00:00",
+   "exit_px": 115.79,
+   "exit_reason": "stop",
+   "r": -1.0,
+   "ret_pct": -2.5,
+   "policy_id": "trail_2pct"
+  },
+  {
+   "signal_session": "2026-08-31",
+   "valid_for": "2026-09-01",
+   "symbol": "BOQ.AX",
+   "strategy": "TREND_PULLBACK",
+   "entry_time": "2026-09-01T00:00:00+00:00",
+   "entry_px": 79.66,
+   "exit_time": "2026-09-09T04:00:00+00:00",
+   "exit_px": 82.65,
+   "exit_reason": "trail",
+   "r": 1.5,
+   "ret_pct": 3.75,
+   "policy_id": "trail_2pct"
+  },
+  {
+   "signal_session": "2026-08-26",
+   "valid_for": "2026-08-27",
+   "symbol": "BOQ.AX",
+   "strategy": "MEAN_REVERSION",
+   "entry_time": "2026-08-27T00:00:00+00:00",
+   "entry_px": 58.68,
+   "exit_time": "2026-09-04T04:00:00+00:00",
+   "exit_px": 57.21,
+   "exit_reason": "stop",
+   "r": -1.0,
+   "ret_pct": -2.5,
+   "policy_id": "trail_2pct"
+  },
+  {
+   "signal_session": "2026-08-21",
+   "valid_for": "2026-08-24",
+   "symbol": "WTC.AX",
+   "strategy": "MEAN_REVERSION",
+   "entry_time": "2026-08-24T00:00:00+00:00",
+   "entry_px": 50.92,
+   "exit_time": "2026-08-25T04:00:00+00:00",
+   "exit_px": 52.83,
+   "exit_reason": "trail",
+   "r": 1.5,
+   "ret_pct": 3.75,
+   "policy_id": "trail_2pct"
+  },
+  {
+   "signal_session": "2026-08-18",
+   "valid_for": "2026-08-19",
+   "symbol": "SUN.AX",
+   "strategy": "TREND_PULLBACK",
+   "entry_time": "2026-08-19T00:00:00+00:00",
+   "entry_px": 18.97,
+   "exit_time": "2026-08-26T04:00:00+00:00",
+   "exit_px": 19.06,
+   "exit_reason": "trail",
+   "r": 0.2,
+   "ret_pct": 0.5,
+   "policy_id": "trail_2pct"
+  },
+  {
+   "signal_session": "2026-08-13",
+   "valid_for": "2026-08-14",
+   "symbol": "WTC.AX",
+   "strategy": "MEAN_REVERSION",
+   "entry_time": "2026-08-14T00:00:00+00:00",
+   "entry_px": 113.37,
+   "exit_time": "2026-08-21T04:00:00+00:00",
+   "exit_px": 117.62,
+   "exit_reason": "trail",
+   "r": 1.5,
+   "ret_pct": 3.75,
+   "policy_id": "trail_2pct"
+  },
+  {
+   "signal_session": "2026-08-10",
+   "valid_for": "2026-08-11",
+   "symbol": "ALL.AX",
+   "strategy": "MOMENTUM",
+   "entry_time": "2026-08-11T00:00:00+00:00",
+   "entry_px": 59.95,
+   "exit_time": "2026-08-17T04:00:00+00:00",
+   "exit_px": 59.05,
+   "exit_reason": "trail",
+   "r": -0.6,
+   "ret_pct": -1.5,
+   "policy_id": "trail_2pct"
+  },
+  {
+   "signal_session": "2026-08-05",
+   "valid_for": "2026-08-06",
+   "symbol": "WTC.AX",
+   "strategy": "MEAN_REVERSION",
+   "entry_time": "2026-08-06T00:00:00+00:00",
+   "entry_px": 71.51,
+   "exit_time": "2026-08-14T04:00:00+00:00",
+   "exit_px": 75.8,
+   "exit_reason": "trail",
+   "r": 2.4,
+   "ret_pct": 6.0,
+   "policy_id": "trail_2pct"
+  },
+  {
+   "signal_session": "2026-07-31",
+   "valid_for": "2026-08-03",
+   "symbol": "WTC.AX",
+   "strategy": "MEAN_REVERSION",
+   "entry_time": "2026-08-03T00:00:00+00:00",
+   "entry_px": 99.16,
+   "exit_time": "2026-08-06T04:00:00+00:00",
+   "exit_px": 96.68,
+   "exit_reason": "stop",
+   "r": -1.0,
+   "ret_pct": -2.5,
+   "policy_id": "trail_2pct"
+  },
+  {
+   "signal_session": "2026-07-28",
+   "valid_for": "2026-07-29",
+   "symbol": "BOQ.AX",
+   "strategy": "TREND_PULLBACK",
+   "entry_time": "2026-07-29T00:00:00+00:00",
+   "entry_px": 32.51,
+   "exit_time": "2026-08-03T04:00:00+00:00",
+   "exit_px": 34.46,
+   "exit_reason": "trail",
+   "r": 2.4,
+   "ret_pct": 6.0,
+   "policy_id": "trail_2pct"
+  },
+  {
+   "signal_session": "2026-07-23",
+   "valid_for": "2026-07-24",
+   "symbol": "SUN.AX",
+   "strategy": "MEAN_REVERSION",
+   "entry_time": "2026-07-24T00:00:00+00:00",
+   "entry_px": 97.23,
+   "exit_time": "2026-07-31T04:00:00+00:00",
+   "exit_px": 97.72,
+   "exit_reason": "trail",
+   "r": 0.2,
+   "ret_pct": 0.5,
+   "policy_id": "trail_2pct"
+  },
+  {
+   "signal_session": "2026-07-20",
+   "valid_for": "2026-07-21",
+   "symbol": "BOQ.AX",
+   "strategy": "MEAN_REVERSION",
+   "entry_time": "2026-07-21T00:00:00+00:00",
+   "entry_px": 112.15,
+   "exit_time": "2026-07-24T04:00:00+00:00",
+   "exit_px": 110.47,
+   "exit_reason": "time",
+   "r": -0.6,
+   "ret_pct": -1.5,
+   "policy_id": "trail_2pct"
+  },
+  {
+   "signal_session": "2026-07-15",
+   "valid_for": "2026-07-16",
+   "symbol": "ALL.AX",
+   "strategy": "MOMENTUM",
+   "entry_time": "2026-07-16T00:00:00+00:00",
+   "entry_px": 72.03,
+   "exit_time": "2026-07-24T04:00:00+00:00",
+   "exit_px": 71.49,
+   "exit_reason": "time",
+   "r": -0.3,
+   "ret_pct": -0.75,
+   "policy_id": "trail_2pct"
+  }
+ ],
+ "verdict": "Outperforming the ASX200 ETF (A200.AX) by 1.0 pp since 5 Feb 2026 under the default exit policy (trail 2%), after costs."
+}

@@ -1,0 +1,3584 @@
+{
+ "schema": "itl.today.v2",
+ "job": "night_scan",
+ "generated_at_utc": "2026-11-23T09:12:00+00:00",
+ "generated_at_bne": "2026-11-23T19:12:00+10:00",
+ "market_state": {
+  "now_sydney": "2026-11-23T20:12:00+11:00",
+  "session_date": "2026-11-23",
+  "is_trading_day": true,
+  "phase": "post_close",
+  "next_trading_day": "2026-11-24",
+  "open_sydney": "10:00",
+  "close_sydney": "16:10"
+ },
+ "stale_after_utc": "2026-11-24T10:30:00+00:00",
+ "run_id": "19412345678",
+ "signal_session": "2026-11-23",
+ "valid_for": "2026-11-24",
+ "risk_mode": "risk_off",
+ "regime": {
+  "axjo_close": 8412.3,
+  "ma50": 8530.1,
+  "ma200": 8475.6,
+  "risk_on": false
+ },
+ "data_fresh": true,
+ "coverage": {
+  "universe": 147,
+  "downloaded": 146,
+  "fresh": 145,
+  "coverage_pct": 98.6
+ },
+ "published": true,
+ "reason": null,
+ "recommended_orders": [
+  {
+   "symbol": "AMP.AX",
+   "strategy": "MEAN_REVERSION",
+   "status": "Valid",
+   "score": 94.0,
+   "order_type": "LIMIT",
+   "trigger": null,
+   "limit": 1.995,
+   "entry_ref": 1.995,
+   "entry_text": "limit=1.995",
+   "last_close": 1.995,
+   "stop": 1.895,
+   "tp1": 2.12,
+   "tp2": 2.25,
+   "atr14": 0.0833,
+   "price_decimals": 3,
+   "r_mult": 2.5,
+   "risk_per_share": 0.1,
+   "exit_plan": {
+    "policy_id": "trail_2pct",
+    "trail_pct": 2.0,
+    "activate_after_r": null,
+    "time_stop_days": 20,
+    "initial_stop": 1.895
+   },
+   "composite_score": 71.6,
+   "sentiment": {
+    "score": 100.0,
+    "components": {
+     "news": {
+      "score": null,
+      "status": "failed",
+      "label": "news score failed: HTTP 429 from news provider",
+      "weight_used": 0.0
+     },
+     "insider": {
+      "score": 100.0,
+      "status": "ok",
+      "label": "strong insider buying (66,588 bought vs 0 sold)",
+      "weight_used": 0.4
+     },
+     "trends": {
+      "score": null,
+      "status": "no_data",
+      "label": "trends not used (pytrends rate-limited)",
+      "weight_used": 0.0
+     }
+    }
+   },
+   "fund_score": 19.6,
+   "fund_label": "ROE=5.1% NM=6.7% | D/E=790 CR=0.1 | MCap=$4.7B Inst=38%",
+   "earnings": {
+    "days_to": 83,
+    "suppress": false,
+    "status": "ok"
+   },
+   "plain_english": "Mean Reversion (oversold bounce): LIMIT buy near 2.00. RSI(2) and Bollinger Band signals suggest a short-term oversold condition — the setup anticipates a snap-back toward the mean, not a new uptrend. Stop 1.89 (~1.2 ATR below entry). Reward/risk 2.5R. TA score 94/100. Respect position sizing — mean reversion trades carry higher failure rates than trend trades. Fundamentals (20/100): modest ROE, thin margins; but: high debt, tight liquidity. ⚠ weak fundamentals — treat as speculative.",
+   "fail_gates": [],
+   "also_fired": []
+  },
+  {
+   "symbol": "PME.AX",
+   "strategy": "MEAN_REVERSION",
+   "status": "Valid",
+   "score": 86.0,
+   "order_type": "LIMIT",
+   "trigger": null,
+   "limit": 187.76,
+   "entry_ref": 187.76,
+   "entry_text": "limit=187.76",
+   "last_close": 187.76,
+   "stop": 178.0,
+   "tp1": 199.96,
+   "tp2": 212.16,
+   "atr14": 8.1333,
+   "price_decimals": 2,
+   "r_mult": 2.5,
+   "risk_per_share": 9.76,
+   "exit_plan": {
+    "policy_id": "trail_2pct",
+    "trail_pct": 2.0,
+    "activate_after_r": null,
+    "time_stop_days": 20,
+    "initial_stop": 178.0
+   },
+   "composite_score": 70.80000000000001,
+   "sentiment": {
+    "score": null,
+    "components": {
+     "news": {
+      "score": null,
+      "status": "failed",
+      "label": "news score failed: HTTP 429 from news provider",
+      "weight_used": 0.0
+     },
+     "insider": {
+      "score": null,
+      "status": "no_data",
+      "label": "no insider trades in the last 90 days",
+      "weight_used": 0.0
+     },
+     "trends": {
+      "score": null,
+      "status": "no_data",
+      "label": "trends not used (pytrends rate-limited)",
+      "weight_used": 0.0
+     }
+    }
+   },
+   "fund_score": 54.0,
+   "fund_label": "ROE=75.0% NM=101.4% | D/E=0 CR=6.9 | MCap=$19.6B Inst=26%",
+   "earnings": {
+    "days_to": 82,
+    "suppress": false,
+    "status": "ok"
+   },
+   "plain_english": "Mean Reversion (oversold bounce): LIMIT buy near 187.76. RSI(2) and Bollinger Band signals suggest a short-term oversold condition — the setup anticipates a snap-back toward the mean, not a new uptrend. Stop 178.00 (~1.2 ATR below entry). Reward/risk 2.5R. TA score 86/100. Respect position sizing — mean reversion trades carry higher failure rates than trend trades. Fundamentals (54/100): strong ROE, healthy margins, low debt. mixed fundamentals.",
+   "fail_gates": [],
+   "also_fired": [
+    "TREND_PULLBACK"
+   ]
+  }
+ ],
+ "setups": [
+  {
+   "symbol": "AMP.AX",
+   "strategy": "MEAN_REVERSION",
+   "status": "Valid",
+   "score": 94.0,
+   "order_type": "LIMIT",
+   "trigger": null,
+   "limit": 1.995,
+   "entry_ref": 1.995,
+   "entry_text": "limit=1.995",
+   "last_close": 1.995,
+   "stop": 1.895,
+   "tp1": 2.12,
+   "tp2": 2.25,
+   "atr14": 0.0833,
+   "price_decimals": 3,
+   "r_mult": 2.5,
+   "risk_per_share": 0.1,
+   "exit_plan": {
+    "policy_id": "trail_2pct",
+    "trail_pct": 2.0,
+    "activate_after_r": null,
+    "time_stop_days": 20,
+    "initial_stop": 1.895
+   },
+   "composite_score": 71.6,
+   "sentiment": {
+    "score": 100.0,
+    "components": {
+     "news": {
+      "score": null,
+      "status": "failed",
+      "label": "news score failed: HTTP 429 from news provider",
+      "weight_used": 0.0
+     },
+     "insider": {
+      "score": 100.0,
+      "status": "ok",
+      "label": "strong insider buying (66,588 bought vs 0 sold)",
+      "weight_used": 0.4
+     },
+     "trends": {
+      "score": null,
+      "status": "no_data",
+      "label": "trends not used (pytrends rate-limited)",
+      "weight_used": 0.0
+     }
+    }
+   },
+   "fund_score": 19.6,
+   "fund_label": "ROE=5.1% NM=6.7% | D/E=790 CR=0.1 | MCap=$4.7B Inst=38%",
+   "earnings": {
+    "days_to": 83,
+    "suppress": false,
+    "status": "ok"
+   },
+   "plain_english": "Mean Reversion (oversold bounce): LIMIT buy near 2.00. RSI(2) and Bollinger Band signals suggest a short-term oversold condition — the setup anticipates a snap-back toward the mean, not a new uptrend. Stop 1.89 (~1.2 ATR below entry). Reward/risk 2.5R. TA score 94/100. Respect position sizing — mean reversion trades carry higher failure rates than trend trades. Fundamentals (20/100): modest ROE, thin margins; but: high debt, tight liquidity. ⚠ weak fundamentals — treat as speculative.",
+   "fail_gates": [],
+   "also_fired": []
+  },
+  {
+   "symbol": "PME.AX",
+   "strategy": "MEAN_REVERSION",
+   "status": "Valid",
+   "score": 86.0,
+   "order_type": "LIMIT",
+   "trigger": null,
+   "limit": 187.76,
+   "entry_ref": 187.76,
+   "entry_text": "limit=187.76",
+   "last_close": 187.76,
+   "stop": 178.0,
+   "tp1": 199.96,
+   "tp2": 212.16,
+   "atr14": 8.1333,
+   "price_decimals": 2,
+   "r_mult": 2.5,
+   "risk_per_share": 9.76,
+   "exit_plan": {
+    "policy_id": "trail_2pct",
+    "trail_pct": 2.0,
+    "activate_after_r": null,
+    "time_stop_days": 20,
+    "initial_stop": 178.0
+   },
+   "composite_score": 70.8,
+   "sentiment": {
+    "score": null,
+    "components": {
+     "news": {
+      "score": null,
+      "status": "failed",
+      "label": "news score failed: HTTP 429 from news provider",
+      "weight_used": 0.0
+     },
+     "insider": {
+      "score": null,
+      "status": "no_data",
+      "label": "no insider trades in the last 90 days",
+      "weight_used": 0.0
+     },
+     "trends": {
+      "score": null,
+      "status": "no_data",
+      "label": "trends not used (pytrends rate-limited)",
+      "weight_used": 0.0
+     }
+    }
+   },
+   "fund_score": 54.0,
+   "fund_label": "ROE=75.0% NM=101.4% | D/E=0 CR=6.9 | MCap=$19.6B Inst=26%",
+   "earnings": {
+    "days_to": 82,
+    "suppress": false,
+    "status": "ok"
+   },
+   "plain_english": "Mean Reversion (oversold bounce): LIMIT buy near 187.76. RSI(2) and Bollinger Band signals suggest a short-term oversold condition — the setup anticipates a snap-back toward the mean, not a new uptrend. Stop 178.00 (~1.2 ATR below entry). Reward/risk 2.5R. TA score 86/100. Respect position sizing — mean reversion trades carry higher failure rates than trend trades. Fundamentals (54/100): strong ROE, healthy margins, low debt. mixed fundamentals.",
+   "fail_gates": [],
+   "also_fired": [
+    "TREND_PULLBACK"
+   ]
+  },
+  {
+   "symbol": "WTC.AX",
+   "strategy": "MOMENTUM",
+   "status": "Valid",
+   "score": 88.0,
+   "order_type": "STOP_LIMIT",
+   "trigger": 44.8,
+   "limit": 44.95,
+   "entry_ref": 44.95,
+   "entry_text": "trigger=44.80 limit=44.95",
+   "last_close": 44.56,
+   "stop": 43.62,
+   "tp1": 46.95,
+   "tp2": 48.95,
+   "atr14": 1.12,
+   "price_decimals": 2,
+   "r_mult": 3.0,
+   "risk_per_share": 1.33,
+   "exit_plan": {
+    "initial_stop": 43.62,
+    "policy_id": "trail_2pct_after_1r",
+    "trail_pct": 2.0,
+    "activate_after_r": 1.0,
+    "time_stop_days": 20
+   },
+   "composite_score": 69.2,
+   "sentiment": {
+    "score": 100.0,
+    "components": {
+     "news": {
+      "score": null,
+      "status": "failed",
+      "label": "news score failed: HTTP 429 from news provider",
+      "weight_used": 0.0
+     },
+     "insider": {
+      "score": 100.0,
+      "status": "ok",
+      "label": "strong insider buying (14,700 bought vs 0 sold)",
+      "weight_used": 0.4
+     },
+     "trends": {
+      "score": null,
+      "status": "no_data",
+      "label": "trends not used (pytrends rate-limited)",
+      "weight_used": 0.0
+     }
+    }
+   },
+   "fund_score": 27.4,
+   "fund_label": "ROE=5.6% NM=19.2% | MCap=$6.0B Inst=30%",
+   "earnings": {
+    "days_to": 3,
+    "suppress": true,
+    "status": "ok"
+   },
+   "plain_english": "Momentum breakout: STOP-LIMIT buy if price trades through 44.80, pay no more than 44.95. Stop 43.62. Earnings in 3 trading days — suppressed from recommendations.",
+   "fail_gates": [],
+   "also_fired": []
+  },
+  {
+   "symbol": "CSL.AX",
+   "strategy": "TREND_PULLBACK",
+   "status": "Valid",
+   "score": 82.0,
+   "order_type": "LIMIT",
+   "trigger": null,
+   "limit": 231.4,
+   "entry_ref": 231.4,
+   "entry_text": "limit=231.40",
+   "last_close": 233.15,
+   "stop": 226.8,
+   "tp1": 238.3,
+   "tp2": 245.2,
+   "atr14": 3.83,
+   "price_decimals": 2,
+   "r_mult": 3.0,
+   "risk_per_share": 4.6,
+   "exit_plan": {
+    "policy_id": "trail_2pct",
+    "trail_pct": 2.0,
+    "activate_after_r": null,
+    "time_stop_days": 20,
+    "initial_stop": 226.8
+   },
+   "composite_score": 65.4,
+   "sentiment": {
+    "score": null,
+    "components": {
+     "news": {
+      "score": null,
+      "status": "failed",
+      "label": "news score failed: HTTP 429 from news provider",
+      "weight_used": 0.0
+     },
+     "insider": {
+      "score": null,
+      "status": "no_data",
+      "label": "no insider trades in the last 90 days",
+      "weight_used": 0.0
+     },
+     "trends": {
+      "score": null,
+      "status": "no_data",
+      "label": "trends not used (pytrends rate-limited)",
+      "weight_used": 0.0
+     }
+    }
+   },
+   "fund_score": 32.4,
+   "fund_label": "ROE=8.1% NM=4.8% | D/E=16 CR=1.9 | Inst=53%",
+   "earnings": {
+    "days_to": null,
+    "suppress": false,
+    "status": "unknown"
+   },
+   "plain_english": "Trend pullback: LIMIT buy at 231.40 near the 20-day mean inside an uptrend. Stop 226.80. Earnings date unknown — check before trading.",
+   "fail_gates": [],
+   "also_fired": []
+  },
+  {
+   "symbol": "AFI.AX",
+   "strategy": "MEAN_REVERSION",
+   "status": "Valid",
+   "score": 86.0,
+   "order_type": "LIMIT",
+   "trigger": null,
+   "limit": 6.71,
+   "entry_ref": 6.71,
+   "entry_text": "limit=6.71",
+   "last_close": 6.71,
+   "stop": 6.6,
+   "tp1": 6.85,
+   "tp2": 6.99,
+   "atr14": 0.0917,
+   "price_decimals": 2,
+   "r_mult": 2.5,
+   "risk_per_share": 0.11,
+   "exit_plan": {
+    "policy_id": "trail_2pct",
+    "trail_pct": 2.0,
+    "activate_after_r": null,
+    "time_stop_days": 20,
+    "initial_stop": 6.6
+   },
+   "composite_score": 70.3,
+   "sentiment": {
+    "score": 100.0,
+    "components": {
+     "news": {
+      "score": null,
+      "status": "failed",
+      "label": "news score failed: HTTP 429 from news provider",
+      "weight_used": 0.0
+     },
+     "insider": {
+      "score": 100.0,
+      "status": "ok",
+      "label": "strong insider buying (25,504 bought vs 0 sold)",
+      "weight_used": 0.4
+     },
+     "trends": {
+      "score": null,
+      "status": "no_data",
+      "label": "trends not used (pytrends rate-limited)",
+      "weight_used": 0.0
+     }
+    }
+   },
+   "fund_score": 32.1,
+   "fund_label": "ROE=3.5% NM=86.1% | CR=4.5 | MCap=$8.2B Inst=2%",
+   "earnings": {
+    "days_to": null,
+    "suppress": false,
+    "status": "unknown"
+   },
+   "plain_english": "Mean Reversion (oversold bounce): LIMIT buy near 6.71. RSI(2) and Bollinger Band signals suggest a short-term oversold condition — the setup anticipates a snap-back toward the mean, not a new uptrend. Stop 6.60 (~1.2 ATR below entry). Reward/risk 2.5R. TA score 86/100. Respect position sizing — mean reversion trades carry higher failure rates than trend trades. Fundamentals (32/100): modest ROE, healthy margins. ⚠ weak fundamentals — treat as speculative.",
+   "fail_gates": [],
+   "also_fired": []
+  },
+  {
+   "symbol": "BEN.AX",
+   "strategy": "MEAN_REVERSION",
+   "status": "Valid",
+   "score": 86.0,
+   "order_type": "LIMIT",
+   "trigger": null,
+   "limit": 10.41,
+   "entry_ref": 10.41,
+   "entry_text": "limit=10.41",
+   "last_close": 10.41,
+   "stop": 10.18,
+   "tp1": 10.7,
+   "tp2": 10.97,
+   "atr14": 0.1917,
+   "price_decimals": 2,
+   "r_mult": 2.4242,
+   "risk_per_share": 0.23,
+   "exit_plan": {
+    "policy_id": "trail_2pct",
+    "trail_pct": 2.0,
+    "activate_after_r": null,
+    "time_stop_days": 20,
+    "initial_stop": 10.18
+   },
+   "composite_score": 69.2,
+   "sentiment": {
+    "score": 100.0,
+    "components": {
+     "news": {
+      "score": null,
+      "status": "failed",
+      "label": "news score failed: HTTP 429 from news provider",
+      "weight_used": 0.0
+     },
+     "insider": {
+      "score": 100.0,
+      "status": "ok",
+      "label": "strong insider buying (14,700 bought vs 0 sold)",
+      "weight_used": 0.4
+     },
+     "trends": {
+      "score": null,
+      "status": "no_data",
+      "label": "trends not used (pytrends rate-limited)",
+      "weight_used": 0.0
+     }
+    }
+   },
+   "fund_score": 27.4,
+   "fund_label": "ROE=5.6% NM=19.2% | MCap=$6.0B Inst=30%",
+   "earnings": {
+    "days_to": -88,
+    "suppress": false,
+    "status": "ok"
+   },
+   "plain_english": "Mean Reversion (oversold bounce): LIMIT buy near 10.41. RSI(2) and Bollinger Band signals suggest a short-term oversold condition — the setup anticipates a snap-back toward the mean, not a new uptrend. Stop 10.18 (~1.2 ATR below entry). Reward/risk 2.4R. TA score 86/100. Respect position sizing — mean reversion trades carry higher failure rates than trend trades. Fundamentals (27/100): modest ROE, healthy margins. ⚠ weak fundamentals — treat as speculative.",
+   "fail_gates": [],
+   "also_fired": []
+  },
+  {
+   "symbol": "BSL.AX",
+   "strategy": "MEAN_REVERSION",
+   "status": "Valid",
+   "score": 95.0,
+   "order_type": "LIMIT",
+   "trigger": null,
+   "limit": 30.76,
+   "entry_ref": 30.76,
+   "entry_text": "limit=30.76",
+   "last_close": 30.76,
+   "stop": 29.75,
+   "tp1": 32.03,
+   "tp2": 33.29,
+   "atr14": 0.8417,
+   "price_decimals": 2,
+   "r_mult": 2.5,
+   "risk_per_share": 1.01,
+   "exit_plan": {
+    "policy_id": "trail_2pct",
+    "trail_pct": 2.0,
+    "activate_after_r": null,
+    "time_stop_days": 20,
+    "initial_stop": 29.75
+   },
+   "composite_score": 65.4,
+   "sentiment": {
+    "score": null,
+    "components": {
+     "news": {
+      "score": null,
+      "status": "failed",
+      "label": "news score failed: HTTP 429 from news provider",
+      "weight_used": 0.0
+     },
+     "insider": {
+      "score": null,
+      "status": "no_data",
+      "label": "no insider trades in the last 90 days",
+      "weight_used": 0.0
+     },
+     "trends": {
+      "score": null,
+      "status": "no_data",
+      "label": "trends not used (pytrends rate-limited)",
+      "weight_used": 0.0
+     }
+    }
+   },
+   "fund_score": 32.4,
+   "fund_label": "ROE=8.1% NM=4.8% | D/E=16 CR=1.9 | Inst=53%",
+   "earnings": {
+    "days_to": 87,
+    "suppress": false,
+    "status": "ok"
+   },
+   "plain_english": "Mean Reversion (oversold bounce): LIMIT buy near 30.76. RSI(2) and Bollinger Band signals suggest a short-term oversold condition — the setup anticipates a snap-back toward the mean, not a new uptrend. Stop 29.75 (~1.2 ATR below entry). Reward/risk 2.5R. TA score 95/100. Respect position sizing — mean reversion trades carry higher failure rates than trend trades. Fundamentals (32/100): modest ROE, low debt. ⚠ weak fundamentals — treat as speculative.",
+   "fail_gates": [],
+   "also_fired": []
+  },
+  {
+   "symbol": "DHHF.AX",
+   "strategy": "MEAN_REVERSION",
+   "status": "Valid",
+   "score": 89.0,
+   "order_type": "LIMIT",
+   "trigger": null,
+   "limit": 40.47,
+   "entry_ref": 40.47,
+   "entry_text": "limit=40.47",
+   "last_close": 40.47,
+   "stop": 39.9,
+   "tp1": 41.19,
+   "tp2": 41.9,
+   "atr14": 0.475,
+   "price_decimals": 2,
+   "r_mult": 2.5,
+   "risk_per_share": 0.57,
+   "exit_plan": {
+    "policy_id": "trail_2pct",
+    "trail_pct": 2.0,
+    "activate_after_r": null,
+    "time_stop_days": 20,
+    "initial_stop": 39.9
+   },
+   "composite_score": 65.4,
+   "sentiment": {
+    "score": null,
+    "components": {
+     "news": {
+      "score": null,
+      "status": "failed",
+      "label": "news score failed: HTTP 429 from news provider",
+      "weight_used": 0.0
+     },
+     "insider": {
+      "score": null,
+      "status": "no_data",
+      "label": "no insider trades in the last 90 days",
+      "weight_used": 0.0
+     },
+     "trends": {
+      "score": null,
+      "status": "no_data",
+      "label": "trends not used (pytrends rate-limited)",
+      "weight_used": 0.0
+     }
+    }
+   },
+   "fund_score": 26.0,
+   "fund_label": "ETF | BS=6/20 Mkt=0/20",
+   "earnings": {
+    "days_to": null,
+    "suppress": false,
+    "status": "unknown"
+   },
+   "plain_english": "Mean Reversion (oversold bounce): LIMIT buy near 40.47. RSI(2) and Bollinger Band signals suggest a short-term oversold condition — the setup anticipates a snap-back toward the mean, not a new uptrend. Stop 39.90 (~1.2 ATR below entry). Reward/risk 2.5R. TA score 89/100. Respect position sizing — mean reversion trades carry higher failure rates than trend trades. Fundamentals (26/100): ETF/LIC — no earnings data; scored on size and balance sheet.",
+   "fail_gates": [],
+   "also_fired": []
+  },
+  {
+   "symbol": "DPM.AX",
+   "strategy": "MEAN_REVERSION",
+   "status": "Watch",
+   "score": 75.0,
+   "order_type": "LIMIT",
+   "trigger": null,
+   "limit": 43.02,
+   "entry_ref": 43.02,
+   "entry_text": "limit=43.02",
+   "last_close": 43.02,
+   "stop": 39.75,
+   "tp1": 47.1,
+   "tp2": 51.19,
+   "atr14": 2.725,
+   "price_decimals": 2,
+   "r_mult": 2.5,
+   "risk_per_share": 3.27,
+   "exit_plan": {
+    "policy_id": "trail_2pct",
+    "trail_pct": 2.0,
+    "activate_after_r": null,
+    "time_stop_days": 20,
+    "initial_stop": 39.75
+   },
+   "composite_score": 72.2,
+   "sentiment": {
+    "score": null,
+    "components": {
+     "news": {
+      "score": null,
+      "status": "failed",
+      "label": "news score failed: HTTP 429 from news provider",
+      "weight_used": 0.0
+     },
+     "insider": {
+      "score": null,
+      "status": "no_data",
+      "label": "no insider trades in the last 90 days",
+      "weight_used": 0.0
+     },
+     "trends": {
+      "score": null,
+      "status": "no_data",
+      "label": "trends not used (pytrends rate-limited)",
+      "weight_used": 0.0
+     }
+    }
+   },
+   "fund_score": 84.0,
+   "fund_label": "ROE=25.7% NM=51.4% | NI_slope=9.5%/qtr | Rev_slope=3.0%/qtr | D/E=0 CR=5.9 | MCap=$9.3B Inst=6%",
+   "earnings": {
+    "days_to": null,
+    "suppress": false,
+    "status": "unknown"
+   },
+   "plain_english": "Mean Reversion (oversold bounce): LIMIT buy near 43.02. RSI(2) and Bollinger Band signals suggest a short-term oversold condition — the setup anticipates a snap-back toward the mean, not a new uptrend. Stop 39.75 (~1.2 ATR below entry). Reward/risk 2.5R. TA score 75/100. Respect position sizing — mean reversion trades carry higher failure rates than trend trades. Fundamentals (84/100): strong ROE, healthy margins, earnings growing, low debt. ✓ solid fundamentals.",
+   "fail_gates": [
+    "score 75 < 80 (Valid threshold)"
+   ],
+   "also_fired": []
+  },
+  {
+   "symbol": "NST.AX",
+   "strategy": "MEAN_REVERSION",
+   "status": "Watch",
+   "score": 75.0,
+   "order_type": "LIMIT",
+   "trigger": null,
+   "limit": 21.95,
+   "entry_ref": 21.95,
+   "entry_text": "limit=21.95",
+   "last_close": 21.95,
+   "stop": 20.66,
+   "tp1": 23.56,
+   "tp2": 25.17,
+   "atr14": 1.075,
+   "price_decimals": 2,
+   "r_mult": 2.5,
+   "risk_per_share": 1.29,
+   "exit_plan": {
+    "policy_id": "trail_2pct",
+    "trail_pct": 2.0,
+    "activate_after_r": null,
+    "time_stop_days": 20,
+    "initial_stop": 20.66
+   },
+   "composite_score": 69.1,
+   "sentiment": {
+    "score": 100.0,
+    "components": {
+     "news": {
+      "score": null,
+      "status": "failed",
+      "label": "news score failed: HTTP 429 from news provider",
+      "weight_used": 0.0
+     },
+     "insider": {
+      "score": 100.0,
+      "status": "ok",
+      "label": "strong insider buying (15,225 bought vs 0 sold)",
+      "weight_used": 0.4
+     },
+     "trends": {
+      "score": null,
+      "status": "no_data",
+      "label": "trends not used (pytrends rate-limited)",
+      "weight_used": 0.0
+     }
+    }
+   },
+   "fund_score": 51.5,
+   "fund_label": "ROE=10.9% NM=21.8% | D/E=11 CR=1.6 | MCap=$31.3B Inst=68%",
+   "earnings": {
+    "days_to": 90,
+    "suppress": false,
+    "status": "ok"
+   },
+   "plain_english": "Mean Reversion (oversold bounce): LIMIT buy near 21.95. RSI(2) and Bollinger Band signals suggest a short-term oversold condition — the setup anticipates a snap-back toward the mean, not a new uptrend. Stop 20.66 (~1.2 ATR below entry). Reward/risk 2.5R. TA score 75/100. Respect position sizing — mean reversion trades carry higher failure rates than trend trades. Fundamentals (52/100): modest ROE, healthy margins, low debt. mixed fundamentals.",
+   "fail_gates": [
+    "score 75 < 80 (Valid threshold)",
+    "composite 69.1 < 70"
+   ],
+   "also_fired": []
+  },
+  {
+   "symbol": "CSC.AX",
+   "strategy": "MEAN_REVERSION",
+   "status": "Watch",
+   "score": 75.0,
+   "order_type": "LIMIT",
+   "trigger": null,
+   "limit": 8.84,
+   "entry_ref": 8.84,
+   "entry_text": "limit=8.84",
+   "last_close": 8.84,
+   "stop": 8.12,
+   "tp1": 9.74,
+   "tp2": 10.65,
+   "atr14": 0.6,
+   "price_decimals": 2,
+   "r_mult": 2.5,
+   "risk_per_share": 0.72,
+   "exit_plan": {
+    "policy_id": "trail_2pct",
+    "trail_pct": 2.0,
+    "activate_after_r": null,
+    "time_stop_days": 20,
+    "initial_stop": 8.12
+   },
+   "composite_score": 68.8,
+   "sentiment": {
+    "score": null,
+    "components": {
+     "news": {
+      "score": null,
+      "status": "failed",
+      "label": "news score failed: HTTP 429 from news provider",
+      "weight_used": 0.0
+     },
+     "insider": {
+      "score": null,
+      "status": "no_data",
+      "label": "no insider trades in the last 90 days",
+      "weight_used": 0.0
+     },
+     "trends": {
+      "score": null,
+      "status": "no_data",
+      "label": "trends not used (pytrends rate-limited)",
+      "weight_used": 0.0
+     }
+    }
+   },
+   "fund_score": 70.3,
+   "fund_label": "ROE=10.2% NM=11.7% | NI_slope=24.7%/qtr | Rev_slope=5.9%/qtr | D/E=35 CR=1.0 | MCap=$6.8B Inst=10%",
+   "earnings": {
+    "days_to": null,
+    "suppress": false,
+    "status": "unknown"
+   },
+   "plain_english": "Mean Reversion (oversold bounce): LIMIT buy near 8.84. RSI(2) and Bollinger Band signals suggest a short-term oversold condition — the setup anticipates a snap-back toward the mean, not a new uptrend. Stop 8.12 (~1.2 ATR below entry). Reward/risk 2.5R. TA score 75/100. Respect position sizing — mean reversion trades carry higher failure rates than trend trades. Fundamentals (70/100): modest ROE, thin margins, earnings growing, revenue growing, low debt. ✓ solid fundamentals.",
+   "fail_gates": [
+    "score 75 < 80 (Valid threshold)",
+    "composite 68.8 < 70"
+   ],
+   "also_fired": []
+  },
+  {
+   "symbol": "CDA.AX",
+   "strategy": "MEAN_REVERSION",
+   "status": "Watch",
+   "score": 85.0,
+   "order_type": "LIMIT",
+   "trigger": null,
+   "limit": 49.04,
+   "entry_ref": 49.04,
+   "entry_text": "limit=49.04",
+   "last_close": 49.04,
+   "stop": 45.52,
+   "tp1": 53.44,
+   "tp2": 57.84,
+   "atr14": 2.9333,
+   "price_decimals": 2,
+   "r_mult": 2.5,
+   "risk_per_share": 3.52,
+   "exit_plan": {
+    "policy_id": "trail_2pct",
+    "trail_pct": 2.0,
+    "activate_after_r": null,
+    "time_stop_days": 20,
+    "initial_stop": 45.52
+   },
+   "composite_score": 67.8,
+   "sentiment": {
+    "score": null,
+    "components": {
+     "news": {
+      "score": null,
+      "status": "failed",
+      "label": "news score failed: HTTP 429 from news provider",
+      "weight_used": 0.0
+     },
+     "insider": {
+      "score": null,
+      "status": "no_data",
+      "label": "no insider trades in the last 90 days",
+      "weight_used": 0.0
+     },
+     "trends": {
+      "score": null,
+      "status": "no_data",
+      "label": "trends not used (pytrends rate-limited)",
+      "weight_used": 0.0
+     }
+    }
+   },
+   "fund_score": 44.0,
+   "fund_label": "ROE=30.9% NM=20.0% | D/E=9 CR=1.5 | MCap=$8.9B Inst=16%",
+   "earnings": {
+    "days_to": 90,
+    "suppress": false,
+    "status": "ok"
+   },
+   "plain_english": "Mean Reversion (oversold bounce): LIMIT buy near 49.04. RSI(2) and Bollinger Band signals suggest a short-term oversold condition — the setup anticipates a snap-back toward the mean, not a new uptrend. Stop 45.52 (~1.2 ATR below entry). Reward/risk 2.5R. TA score 85/100. Respect position sizing — mean reversion trades carry higher failure rates than trend trades. Fundamentals (44/100): strong ROE, healthy margins, low debt. mixed fundamentals.",
+   "fail_gates": [
+    "composite 67.8 < 70"
+   ],
+   "also_fired": []
+  },
+  {
+   "symbol": "ALQ.AX",
+   "strategy": "MEAN_REVERSION",
+   "status": "Watch",
+   "score": 75.0,
+   "order_type": "LIMIT",
+   "trigger": null,
+   "limit": 19.3,
+   "entry_ref": 19.3,
+   "entry_text": "limit=19.3",
+   "last_close": 19.3,
+   "stop": 18.61,
+   "tp1": 20.16,
+   "tp2": 21.03,
+   "atr14": 0.575,
+   "price_decimals": 2,
+   "r_mult": 2.5,
+   "risk_per_share": 0.69,
+   "exit_plan": {
+    "policy_id": "trail_2pct",
+    "trail_pct": 2.0,
+    "activate_after_r": null,
+    "time_stop_days": 20,
+    "initial_stop": 18.61
+   },
+   "composite_score": 67.0,
+   "sentiment": {
+    "score": 100.0,
+    "components": {
+     "news": {
+      "score": null,
+      "status": "failed",
+      "label": "news score failed: HTTP 429 from news provider",
+      "weight_used": 0.0
+     },
+     "insider": {
+      "score": 100.0,
+      "status": "ok",
+      "label": "strong insider buying (2,000 bought vs 0 sold)",
+      "weight_used": 0.4
+     },
+     "trends": {
+      "score": null,
+      "status": "no_data",
+      "label": "trends not used (pytrends rate-limited)",
+      "weight_used": 0.0
+     }
+    }
+   },
+   "fund_score": 43.1,
+   "fund_label": "ROE=21.4% NM=9.6% | D/E=92 CR=1.5 | MCap=$9.8B Inst=50%",
+   "earnings": {
+    "days_to": 3,
+    "suppress": true,
+    "status": "ok"
+   },
+   "plain_english": "Mean Reversion (oversold bounce): LIMIT buy near 19.30. RSI(2) and Bollinger Band signals suggest a short-term oversold condition — the setup anticipates a snap-back toward the mean, not a new uptrend. Stop 18.61 (~1.2 ATR below entry). Reward/risk 2.5R. TA score 75/100. Respect position sizing — mean reversion trades carry higher failure rates than trend trades. Fundamentals (43/100): strong ROE, thin margins. mixed fundamentals.",
+   "fail_gates": [
+    "score 75 < 80 (Valid threshold)",
+    "composite 67.0 < 70"
+   ],
+   "also_fired": []
+  },
+  {
+   "symbol": "LTR.AX",
+   "strategy": "MEAN_REVERSION",
+   "status": "Watch",
+   "score": 75.0,
+   "order_type": "LIMIT",
+   "trigger": null,
+   "limit": 0.555,
+   "entry_ref": 0.555,
+   "entry_text": "limit=0.555",
+   "last_close": 0.555,
+   "stop": 0.505,
+   "tp1": 0.62,
+   "tp2": 0.68,
+   "atr14": 0.0417,
+   "price_decimals": 3,
+   "r_mult": 2.5,
+   "risk_per_share": 0.05,
+   "exit_plan": {
+    "policy_id": "trail_2pct",
+    "trail_pct": 2.0,
+    "activate_after_r": null,
+    "time_stop_days": 20,
+    "initial_stop": 0.505
+   },
+   "composite_score": 67.0,
+   "sentiment": {
+    "score": 100.0,
+    "components": {
+     "news": {
+      "score": null,
+      "status": "failed",
+      "label": "news score failed: HTTP 429 from news provider",
+      "weight_used": 0.0
+     },
+     "insider": {
+      "score": 100.0,
+      "status": "ok",
+      "label": "strong insider buying (1,261,185 bought vs 0 sold)",
+      "weight_used": 0.4
+     },
+     "trends": {
+      "score": null,
+      "status": "no_data",
+      "label": "trends not used (pytrends rate-limited)",
+      "weight_used": 0.0
+     }
+    }
+   },
+   "fund_score": 43.1,
+   "fund_label": "ROE=9.0% NM=14.5% | D/E=34 CR=3.5 | MCap=$1.8B Inst=24%",
+   "earnings": {
+    "days_to": -57,
+    "suppress": false,
+    "status": "ok"
+   },
+   "plain_english": "Mean Reversion (oversold bounce): LIMIT buy near 0.56. RSI(2) and Bollinger Band signals suggest a short-term oversold condition — the setup anticipates a snap-back toward the mean, not a new uptrend. Stop 0.50 (~1.2 ATR below entry). Reward/risk 2.5R. TA score 75/100. Respect position sizing — mean reversion trades carry higher failure rates than trend trades. Fundamentals (43/100): modest ROE, thin margins, low debt. mixed fundamentals.",
+   "fail_gates": [
+    "score 75 < 80 (Valid threshold)",
+    "composite 67.0 < 70"
+   ],
+   "also_fired": []
+  },
+  {
+   "symbol": "MIN.AX",
+   "strategy": "MEAN_REVERSION",
+   "status": "Watch",
+   "score": 73.0,
+   "order_type": "LIMIT",
+   "trigger": null,
+   "limit": 38.69,
+   "entry_ref": 38.69,
+   "entry_text": "limit=38.69",
+   "last_close": 38.69,
+   "stop": 35.82,
+   "tp1": 42.28,
+   "tp2": 45.87,
+   "atr14": 2.3917,
+   "price_decimals": 2,
+   "r_mult": 2.5,
+   "risk_per_share": 2.87,
+   "exit_plan": {
+    "policy_id": "trail_2pct",
+    "trail_pct": 2.0,
+    "activate_after_r": null,
+    "time_stop_days": 20,
+    "initial_stop": 35.82
+   },
+   "composite_score": 65.6,
+   "sentiment": {
+    "score": 100.0,
+    "components": {
+     "news": {
+      "score": null,
+      "status": "failed",
+      "label": "news score failed: HTTP 429 from news provider",
+      "weight_used": 0.0
+     },
+     "insider": {
+      "score": 100.0,
+      "status": "ok",
+      "label": "strong insider buying (19 bought vs 0 sold)",
+      "weight_used": 0.4
+     },
+     "trends": {
+      "score": null,
+      "status": "no_data",
+      "label": "trends not used (pytrends rate-limited)",
+      "weight_used": 0.0
+     }
+    }
+   },
+   "fund_score": 42.0,
+   "fund_label": "ROE=28.7% NM=16.4% | D/E=121 CR=1.6 | MCap=$7.7B Inst=45%",
+   "earnings": {
+    "days_to": -85,
+    "suppress": false,
+    "status": "ok"
+   },
+   "plain_english": "Mean Reversion (oversold bounce): LIMIT buy near 38.69. RSI(2) and Bollinger Band signals suggest a short-term oversold condition — the setup anticipates a snap-back toward the mean, not a new uptrend. Stop 35.82 (~1.2 ATR below entry). Reward/risk 2.5R. TA score 73/100. Respect position sizing — mean reversion trades carry higher failure rates than trend trades. Fundamentals (42/100): strong ROE, healthy margins. mixed fundamentals.",
+   "fail_gates": [
+    "score 73 < 80 (Valid threshold)",
+    "composite 65.6 < 70"
+   ],
+   "also_fired": []
+  },
+  {
+   "symbol": "AAI.AX",
+   "strategy": "MEAN_REVERSION",
+   "status": "Watch",
+   "score": 63.0,
+   "order_type": "LIMIT",
+   "trigger": null,
+   "limit": 52.3,
+   "entry_ref": 52.3,
+   "entry_text": "limit=52.3",
+   "last_close": 52.3,
+   "stop": 49.72,
+   "tp1": 55.53,
+   "tp2": 58.76,
+   "atr14": 2.15,
+   "price_decimals": 2,
+   "r_mult": 2.5,
+   "risk_per_share": 2.58,
+   "exit_plan": {
+    "policy_id": "trail_2pct",
+    "trail_pct": 2.0,
+    "activate_after_r": null,
+    "time_stop_days": 20,
+    "initial_stop": 49.72
+   },
+   "composite_score": 65.1,
+   "sentiment": {
+    "score": null,
+    "components": {
+     "news": {
+      "score": null,
+      "status": "failed",
+      "label": "news score failed: HTTP 429 from news provider",
+      "weight_used": 0.0
+     },
+     "insider": {
+      "score": null,
+      "status": "no_data",
+      "label": "no insider trades in the last 90 days",
+      "weight_used": 0.0
+     },
+     "trends": {
+      "score": null,
+      "status": "no_data",
+      "label": "trends not used (pytrends rate-limited)",
+      "weight_used": 0.0
+     }
+    }
+   },
+   "fund_score": 81.7,
+   "fund_label": "ROE=20.6% NM=10.7% | NI_slope=19.8%/qtr | Rev_slope=5.6%/qtr | D/E=58 CR=2.3 | MCap=$13.8B Inst=7%",
+   "earnings": {
+    "days_to": null,
+    "suppress": false,
+    "status": "unknown"
+   },
+   "plain_english": "Mean Reversion (oversold bounce): LIMIT buy near 52.30. RSI(2) and Bollinger Band signals suggest a short-term oversold condition — the setup anticipates a snap-back toward the mean, not a new uptrend. Stop 49.72 (~1.2 ATR below entry). Reward/risk 2.5R. TA score 63/100. Respect position sizing — mean reversion trades carry higher failure rates than trend trades. Fundamentals (82/100): strong ROE, thin margins, earnings growing, revenue growing. ✓ solid fundamentals.",
+   "fail_gates": [
+    "score 63 < 80 (Valid threshold)",
+    "composite 65.1 < 70"
+   ],
+   "also_fired": []
+  },
+  {
+   "symbol": "NEM.AX",
+   "strategy": "MEAN_REVERSION",
+   "status": "Watch",
+   "score": 61.0,
+   "order_type": "LIMIT",
+   "trigger": null,
+   "limit": 144.71,
+   "entry_ref": 144.71,
+   "entry_text": "limit=144.71",
+   "last_close": 144.71,
+   "stop": 136.89,
+   "tp1": 154.48,
+   "tp2": 164.26,
+   "atr14": 6.5167,
+   "price_decimals": 2,
+   "r_mult": 2.5,
+   "risk_per_share": 7.82,
+   "exit_plan": {
+    "policy_id": "trail_2pct",
+    "trail_pct": 2.0,
+    "activate_after_r": null,
+    "time_stop_days": 20,
+    "initial_stop": 136.89
+   },
+   "composite_score": 64.6,
+   "sentiment": {
+    "score": null,
+    "components": {
+     "news": {
+      "score": null,
+      "status": "failed",
+      "label": "news score failed: HTTP 429 from news provider",
+      "weight_used": 0.0
+     },
+     "insider": {
+      "score": null,
+      "status": "no_data",
+      "label": "no insider trades in the last 90 days",
+      "weight_used": 0.0
+     },
+     "trends": {
+      "score": null,
+      "status": "no_data",
+      "label": "trends not used (pytrends rate-limited)",
+      "weight_used": 0.0
+     }
+    }
+   },
+   "fund_score": 84.0,
+   "fund_label": "ROE=27.3% NM=34.7% | NI_slope=9.9%/qtr | Rev_slope=1.5%/qtr | D/E=16 CR=2.5 | MCap=$150.4B Inst=14%",
+   "earnings": {
+    "days_to": null,
+    "suppress": false,
+    "status": "unknown"
+   },
+   "plain_english": "Mean Reversion (oversold bounce): LIMIT buy near 144.71. RSI(2) and Bollinger Band signals suggest a short-term oversold condition — the setup anticipates a snap-back toward the mean, not a new uptrend. Stop 136.89 (~1.2 ATR below entry). Reward/risk 2.5R. TA score 61/100. Respect position sizing — mean reversion trades carry higher failure rates than trend trades. Fundamentals (84/100): strong ROE, healthy margins, earnings growing, low debt. ✓ solid fundamentals.",
+   "fail_gates": [
+    "score 61 < 80 (Valid threshold)",
+    "composite 64.6 < 70"
+   ],
+   "also_fired": []
+  }
+ ],
+ "watchlist_full": [
+  {
+   "symbol": "AMP.AX",
+   "strategy": "MEAN_REVERSION",
+   "status": "Valid",
+   "score": 94.0,
+   "order_type": "LIMIT",
+   "trigger": null,
+   "limit": 1.995,
+   "entry_ref": 1.995,
+   "entry_text": "limit=1.995",
+   "last_close": 1.995,
+   "stop": 1.895,
+   "tp1": 2.12,
+   "tp2": 2.25,
+   "atr14": 0.0833,
+   "price_decimals": 3,
+   "r_mult": 2.5,
+   "risk_per_share": 0.1,
+   "exit_plan": {
+    "policy_id": "trail_2pct",
+    "trail_pct": 2.0,
+    "activate_after_r": null,
+    "time_stop_days": 20,
+    "initial_stop": 1.895
+   },
+   "composite_score": 71.6,
+   "sentiment": {
+    "score": 100.0,
+    "components": {
+     "news": {
+      "score": null,
+      "status": "failed",
+      "label": "news score failed: HTTP 429 from news provider",
+      "weight_used": 0.0
+     },
+     "insider": {
+      "score": 100.0,
+      "status": "ok",
+      "label": "strong insider buying (66,588 bought vs 0 sold)",
+      "weight_used": 0.4
+     },
+     "trends": {
+      "score": null,
+      "status": "no_data",
+      "label": "trends not used (pytrends rate-limited)",
+      "weight_used": 0.0
+     }
+    }
+   },
+   "fund_score": 19.6,
+   "fund_label": "ROE=5.1% NM=6.7% | D/E=790 CR=0.1 | MCap=$4.7B Inst=38%",
+   "earnings": {
+    "days_to": 83,
+    "suppress": false,
+    "status": "ok"
+   },
+   "plain_english": "Mean Reversion (oversold bounce): LIMIT buy near 2.00. RSI(2) and Bollinger Band signals suggest a short-term oversold condition — the setup anticipates a snap-back toward the mean, not a new uptrend. Stop 1.89 (~1.2 ATR below entry). Reward/risk 2.5R. TA score 94/100. Respect position sizing — mean reversion trades carry higher failure rates than trend trades. Fundamentals (20/100): modest ROE, thin margins; but: high debt, tight liquidity. ⚠ weak fundamentals — treat as speculative.",
+   "fail_gates": [],
+   "also_fired": []
+  },
+  {
+   "symbol": "PME.AX",
+   "strategy": "MEAN_REVERSION",
+   "status": "Valid",
+   "score": 86.0,
+   "order_type": "LIMIT",
+   "trigger": null,
+   "limit": 187.76,
+   "entry_ref": 187.76,
+   "entry_text": "limit=187.76",
+   "last_close": 187.76,
+   "stop": 178.0,
+   "tp1": 199.96,
+   "tp2": 212.16,
+   "atr14": 8.1333,
+   "price_decimals": 2,
+   "r_mult": 2.5,
+   "risk_per_share": 9.76,
+   "exit_plan": {
+    "policy_id": "trail_2pct",
+    "trail_pct": 2.0,
+    "activate_after_r": null,
+    "time_stop_days": 20,
+    "initial_stop": 178.0
+   },
+   "composite_score": 70.8,
+   "sentiment": {
+    "score": null,
+    "components": {
+     "news": {
+      "score": null,
+      "status": "failed",
+      "label": "news score failed: HTTP 429 from news provider",
+      "weight_used": 0.0
+     },
+     "insider": {
+      "score": null,
+      "status": "no_data",
+      "label": "no insider trades in the last 90 days",
+      "weight_used": 0.0
+     },
+     "trends": {
+      "score": null,
+      "status": "no_data",
+      "label": "trends not used (pytrends rate-limited)",
+      "weight_used": 0.0
+     }
+    }
+   },
+   "fund_score": 54.0,
+   "fund_label": "ROE=75.0% NM=101.4% | D/E=0 CR=6.9 | MCap=$19.6B Inst=26%",
+   "earnings": {
+    "days_to": 82,
+    "suppress": false,
+    "status": "ok"
+   },
+   "plain_english": "Mean Reversion (oversold bounce): LIMIT buy near 187.76. RSI(2) and Bollinger Band signals suggest a short-term oversold condition — the setup anticipates a snap-back toward the mean, not a new uptrend. Stop 178.00 (~1.2 ATR below entry). Reward/risk 2.5R. TA score 86/100. Respect position sizing — mean reversion trades carry higher failure rates than trend trades. Fundamentals (54/100): strong ROE, healthy margins, low debt. mixed fundamentals.",
+   "fail_gates": [],
+   "also_fired": []
+  },
+  {
+   "symbol": "AFI.AX",
+   "strategy": "MEAN_REVERSION",
+   "status": "Valid",
+   "score": 86.0,
+   "order_type": "LIMIT",
+   "trigger": null,
+   "limit": 6.71,
+   "entry_ref": 6.71,
+   "entry_text": "limit=6.71",
+   "last_close": 6.71,
+   "stop": 6.6,
+   "tp1": 6.85,
+   "tp2": 6.99,
+   "atr14": 0.0917,
+   "price_decimals": 2,
+   "r_mult": 2.5,
+   "risk_per_share": 0.11,
+   "exit_plan": {
+    "policy_id": "trail_2pct",
+    "trail_pct": 2.0,
+    "activate_after_r": null,
+    "time_stop_days": 20,
+    "initial_stop": 6.6
+   },
+   "composite_score": 70.3,
+   "sentiment": {
+    "score": 100.0,
+    "components": {
+     "news": {
+      "score": null,
+      "status": "failed",
+      "label": "news score failed: HTTP 429 from news provider",
+      "weight_used": 0.0
+     },
+     "insider": {
+      "score": 100.0,
+      "status": "ok",
+      "label": "strong insider buying (25,504 bought vs 0 sold)",
+      "weight_used": 0.4
+     },
+     "trends": {
+      "score": null,
+      "status": "no_data",
+      "label": "trends not used (pytrends rate-limited)",
+      "weight_used": 0.0
+     }
+    }
+   },
+   "fund_score": 32.1,
+   "fund_label": "ROE=3.5% NM=86.1% | CR=4.5 | MCap=$8.2B Inst=2%",
+   "earnings": {
+    "days_to": null,
+    "suppress": false,
+    "status": "unknown"
+   },
+   "plain_english": "Mean Reversion (oversold bounce): LIMIT buy near 6.71. RSI(2) and Bollinger Band signals suggest a short-term oversold condition — the setup anticipates a snap-back toward the mean, not a new uptrend. Stop 6.60 (~1.2 ATR below entry). Reward/risk 2.5R. TA score 86/100. Respect position sizing — mean reversion trades carry higher failure rates than trend trades. Fundamentals (32/100): modest ROE, healthy margins. ⚠ weak fundamentals — treat as speculative.",
+   "fail_gates": [],
+   "also_fired": []
+  },
+  {
+   "symbol": "BEN.AX",
+   "strategy": "MEAN_REVERSION",
+   "status": "Valid",
+   "score": 86.0,
+   "order_type": "LIMIT",
+   "trigger": null,
+   "limit": 10.41,
+   "entry_ref": 10.41,
+   "entry_text": "limit=10.41",
+   "last_close": 10.41,
+   "stop": 10.18,
+   "tp1": 10.7,
+   "tp2": 10.97,
+   "atr14": 0.1917,
+   "price_decimals": 2,
+   "r_mult": 2.4242,
+   "risk_per_share": 0.23,
+   "exit_plan": {
+    "policy_id": "trail_2pct",
+    "trail_pct": 2.0,
+    "activate_after_r": null,
+    "time_stop_days": 20,
+    "initial_stop": 10.18
+   },
+   "composite_score": 69.2,
+   "sentiment": {
+    "score": 100.0,
+    "components": {
+     "news": {
+      "score": null,
+      "status": "failed",
+      "label": "news score failed: HTTP 429 from news provider",
+      "weight_used": 0.0
+     },
+     "insider": {
+      "score": 100.0,
+      "status": "ok",
+      "label": "strong insider buying (14,700 bought vs 0 sold)",
+      "weight_used": 0.4
+     },
+     "trends": {
+      "score": null,
+      "status": "no_data",
+      "label": "trends not used (pytrends rate-limited)",
+      "weight_used": 0.0
+     }
+    }
+   },
+   "fund_score": 27.4,
+   "fund_label": "ROE=5.6% NM=19.2% | MCap=$6.0B Inst=30%",
+   "earnings": {
+    "days_to": -88,
+    "suppress": false,
+    "status": "ok"
+   },
+   "plain_english": "Mean Reversion (oversold bounce): LIMIT buy near 10.41. RSI(2) and Bollinger Band signals suggest a short-term oversold condition — the setup anticipates a snap-back toward the mean, not a new uptrend. Stop 10.18 (~1.2 ATR below entry). Reward/risk 2.4R. TA score 86/100. Respect position sizing — mean reversion trades carry higher failure rates than trend trades. Fundamentals (27/100): modest ROE, healthy margins. ⚠ weak fundamentals — treat as speculative.",
+   "fail_gates": [],
+   "also_fired": []
+  },
+  {
+   "symbol": "BSL.AX",
+   "strategy": "MEAN_REVERSION",
+   "status": "Valid",
+   "score": 95.0,
+   "order_type": "LIMIT",
+   "trigger": null,
+   "limit": 30.76,
+   "entry_ref": 30.76,
+   "entry_text": "limit=30.76",
+   "last_close": 30.76,
+   "stop": 29.75,
+   "tp1": 32.03,
+   "tp2": 33.29,
+   "atr14": 0.8417,
+   "price_decimals": 2,
+   "r_mult": 2.5,
+   "risk_per_share": 1.01,
+   "exit_plan": {
+    "policy_id": "trail_2pct",
+    "trail_pct": 2.0,
+    "activate_after_r": null,
+    "time_stop_days": 20,
+    "initial_stop": 29.75
+   },
+   "composite_score": 65.4,
+   "sentiment": {
+    "score": null,
+    "components": {
+     "news": {
+      "score": null,
+      "status": "failed",
+      "label": "news score failed: HTTP 429 from news provider",
+      "weight_used": 0.0
+     },
+     "insider": {
+      "score": null,
+      "status": "no_data",
+      "label": "no insider trades in the last 90 days",
+      "weight_used": 0.0
+     },
+     "trends": {
+      "score": null,
+      "status": "no_data",
+      "label": "trends not used (pytrends rate-limited)",
+      "weight_used": 0.0
+     }
+    }
+   },
+   "fund_score": 32.4,
+   "fund_label": "ROE=8.1% NM=4.8% | D/E=16 CR=1.9 | Inst=53%",
+   "earnings": {
+    "days_to": 87,
+    "suppress": false,
+    "status": "ok"
+   },
+   "plain_english": "Mean Reversion (oversold bounce): LIMIT buy near 30.76. RSI(2) and Bollinger Band signals suggest a short-term oversold condition — the setup anticipates a snap-back toward the mean, not a new uptrend. Stop 29.75 (~1.2 ATR below entry). Reward/risk 2.5R. TA score 95/100. Respect position sizing — mean reversion trades carry higher failure rates than trend trades. Fundamentals (32/100): modest ROE, low debt. ⚠ weak fundamentals — treat as speculative.",
+   "fail_gates": [],
+   "also_fired": []
+  },
+  {
+   "symbol": "XSS.AX",
+   "strategy": "MEAN_REVERSION",
+   "status": "Watch",
+   "score": 60.0,
+   "order_type": "LIMIT",
+   "trigger": null,
+   "limit": 14.7,
+   "entry_ref": 14.7,
+   "entry_text": "limit=14.7",
+   "last_close": 14.7,
+   "stop": 14.37,
+   "tp1": 15.11,
+   "tp2": 15.27,
+   "atr14": 0.275,
+   "price_decimals": 2,
+   "r_mult": 1.7408,
+   "risk_per_share": 0.33,
+   "exit_plan": {
+    "policy_id": "trail_2pct",
+    "trail_pct": 2.0,
+    "activate_after_r": null,
+    "time_stop_days": 20,
+    "initial_stop": 14.37
+   },
+   "composite_score": 55.0,
+   "sentiment": {
+    "score": 100.0,
+    "components": {
+     "news": {
+      "score": null,
+      "status": "failed",
+      "label": "news score failed: HTTP 429 from news provider",
+      "weight_used": 0.0
+     },
+     "insider": {
+      "score": 100.0,
+      "status": "ok",
+      "label": "strong insider buying (30,000 bought vs 0 sold)",
+      "weight_used": 0.4
+     },
+     "trends": {
+      "score": null,
+      "status": "no_data",
+      "label": "trends not used (pytrends rate-limited)",
+      "weight_used": 0.0
+     }
+    }
+   },
+   "fund_score": 28.0,
+   "fund_label": "ROE=<script>alert(1)</script> D/E=1 & CR=2",
+   "earnings": {
+    "days_to": 89,
+    "suppress": false,
+    "status": "ok"
+   },
+   "plain_english": "Escaping test row: <img src=x onerror=alert('xss')> & <b>bold</b> should render as text.",
+   "fail_gates": [
+    "<i>gate</i> with markup",
+    "score 61 < 80 (Valid threshold)"
+   ],
+   "also_fired": []
+  },
+  {
+   "symbol": "DHHF.AX",
+   "strategy": "MEAN_REVERSION",
+   "status": "Valid",
+   "score": 89.0,
+   "order_type": "LIMIT",
+   "trigger": null,
+   "limit": 40.47,
+   "entry_ref": 40.47,
+   "entry_text": "limit=40.47",
+   "last_close": 40.47,
+   "stop": 39.9,
+   "tp1": 41.19,
+   "tp2": 41.9,
+   "atr14": 0.475,
+   "price_decimals": 2,
+   "r_mult": 2.5,
+   "risk_per_share": 0.57,
+   "exit_plan": {
+    "policy_id": "trail_2pct",
+    "trail_pct": 2.0,
+    "activate_after_r": null,
+    "time_stop_days": 20,
+    "initial_stop": 39.9
+   },
+   "composite_score": 65.4,
+   "sentiment": {
+    "score": null,
+    "components": {
+     "news": {
+      "score": null,
+      "status": "failed",
+      "label": "news score failed: HTTP 429 from news provider",
+      "weight_used": 0.0
+     },
+     "insider": {
+      "score": null,
+      "status": "no_data",
+      "label": "no insider trades in the last 90 days",
+      "weight_used": 0.0
+     },
+     "trends": {
+      "score": null,
+      "status": "no_data",
+      "label": "trends not used (pytrends rate-limited)",
+      "weight_used": 0.0
+     }
+    }
+   },
+   "fund_score": 26.0,
+   "fund_label": "ETF | BS=6/20 Mkt=0/20",
+   "earnings": {
+    "days_to": null,
+    "suppress": false,
+    "status": "unknown"
+   },
+   "plain_english": "Mean Reversion (oversold bounce): LIMIT buy near 40.47. RSI(2) and Bollinger Band signals suggest a short-term oversold condition — the setup anticipates a snap-back toward the mean, not a new uptrend. Stop 39.90 (~1.2 ATR below entry). Reward/risk 2.5R. TA score 89/100. Respect position sizing — mean reversion trades carry higher failure rates than trend trades. Fundamentals (26/100): ETF/LIC — no earnings data; scored on size and balance sheet.",
+   "fail_gates": [],
+   "also_fired": []
+  },
+  {
+   "symbol": "DPM.AX",
+   "strategy": "MEAN_REVERSION",
+   "status": "Watch",
+   "score": 75.0,
+   "order_type": "LIMIT",
+   "trigger": null,
+   "limit": 43.02,
+   "entry_ref": 43.02,
+   "entry_text": "limit=43.02",
+   "last_close": 43.02,
+   "stop": 39.75,
+   "tp1": 47.1,
+   "tp2": 51.19,
+   "atr14": 2.725,
+   "price_decimals": 2,
+   "r_mult": 2.5,
+   "risk_per_share": 3.27,
+   "exit_plan": {
+    "policy_id": "trail_2pct",
+    "trail_pct": 2.0,
+    "activate_after_r": null,
+    "time_stop_days": 20,
+    "initial_stop": 39.75
+   },
+   "composite_score": 72.2,
+   "sentiment": {
+    "score": null,
+    "components": {
+     "news": {
+      "score": null,
+      "status": "failed",
+      "label": "news score failed: HTTP 429 from news provider",
+      "weight_used": 0.0
+     },
+     "insider": {
+      "score": null,
+      "status": "no_data",
+      "label": "no insider trades in the last 90 days",
+      "weight_used": 0.0
+     },
+     "trends": {
+      "score": null,
+      "status": "no_data",
+      "label": "trends not used (pytrends rate-limited)",
+      "weight_used": 0.0
+     }
+    }
+   },
+   "fund_score": 84.0,
+   "fund_label": "ROE=25.7% NM=51.4% | NI_slope=9.5%/qtr | Rev_slope=3.0%/qtr | D/E=0 CR=5.9 | MCap=$9.3B Inst=6%",
+   "earnings": {
+    "days_to": null,
+    "suppress": false,
+    "status": "unknown"
+   },
+   "plain_english": "Mean Reversion (oversold bounce): LIMIT buy near 43.02. RSI(2) and Bollinger Band signals suggest a short-term oversold condition — the setup anticipates a snap-back toward the mean, not a new uptrend. Stop 39.75 (~1.2 ATR below entry). Reward/risk 2.5R. TA score 75/100. Respect position sizing — mean reversion trades carry higher failure rates than trend trades. Fundamentals (84/100): strong ROE, healthy margins, earnings growing, low debt. ✓ solid fundamentals.",
+   "fail_gates": [
+    "score 75 < 80 (Valid threshold)"
+   ],
+   "also_fired": []
+  },
+  {
+   "symbol": "ZIP.AX",
+   "strategy": "GAP_FADE_CONTINUATION",
+   "status": "Watch",
+   "score": 70.0,
+   "order_type": "MARKET_OPEN",
+   "trigger": null,
+   "limit": null,
+   "entry_ref": null,
+   "entry_text": "market on open (no reference price)",
+   "last_close": 82.52,
+   "stop": 81.51,
+   "tp1": 83.78,
+   "tp2": 85.03,
+   "atr14": 0.8417,
+   "price_decimals": 2,
+   "r_mult": 2.5,
+   "risk_per_share": 1.01,
+   "exit_plan": {
+    "policy_id": "trail_2pct",
+    "trail_pct": 2.0,
+    "activate_after_r": null,
+    "time_stop_days": 20,
+    "initial_stop": 81.51
+   },
+   "composite_score": 55.0,
+   "sentiment": {
+    "score": null,
+    "components": {
+     "news": {
+      "score": null,
+      "status": "failed",
+      "label": "news score failed: HTTP 429 from news provider",
+      "weight_used": 0.0
+     },
+     "insider": {
+      "score": null,
+      "status": "no_data",
+      "label": "no insider trades in the last 90 days",
+      "weight_used": 0.0
+     },
+     "trends": {
+      "score": null,
+      "status": "no_data",
+      "label": "trends not used (pytrends rate-limited)",
+      "weight_used": 0.0
+     }
+    }
+   },
+   "fund_score": 26.0,
+   "fund_label": "ETF | BS=6/20 Mkt=0/20",
+   "earnings": {
+    "days_to": null,
+    "suppress": false,
+    "status": "unknown"
+   },
+   "plain_english": "Mean Reversion (oversold bounce): LIMIT buy near 82.52. RSI(2) and Bollinger Band signals suggest a short-term oversold condition — the setup anticipates a snap-back toward the mean, not a new uptrend. Stop 81.51 (~1.2 ATR below entry). Reward/risk 2.5R. TA score 70/100. Respect position sizing — mean reversion trades carry higher failure rates than trend trades. Fundamentals (26/100): ETF/LIC — no earnings data; scored on size and balance sheet.",
+   "fail_gates": [
+    "gap not confirmed",
+    "liquidity < A$2m/day"
+   ],
+   "also_fired": []
+  },
+  {
+   "symbol": "NST.AX",
+   "strategy": "MEAN_REVERSION",
+   "status": "Watch",
+   "score": 75.0,
+   "order_type": "LIMIT",
+   "trigger": null,
+   "limit": 21.95,
+   "entry_ref": 21.95,
+   "entry_text": "limit=21.95",
+   "last_close": 21.95,
+   "stop": 20.66,
+   "tp1": 23.56,
+   "tp2": 25.17,
+   "atr14": 1.075,
+   "price_decimals": 2,
+   "r_mult": 2.5,
+   "risk_per_share": 1.29,
+   "exit_plan": {
+    "policy_id": "trail_2pct",
+    "trail_pct": 2.0,
+    "activate_after_r": null,
+    "time_stop_days": 20,
+    "initial_stop": 20.66
+   },
+   "composite_score": 69.1,
+   "sentiment": {
+    "score": 100.0,
+    "components": {
+     "news": {
+      "score": null,
+      "status": "failed",
+      "label": "news score failed: HTTP 429 from news provider",
+      "weight_used": 0.0
+     },
+     "insider": {
+      "score": 100.0,
+      "status": "ok",
+      "label": "strong insider buying (15,225 bought vs 0 sold)",
+      "weight_used": 0.4
+     },
+     "trends": {
+      "score": null,
+      "status": "no_data",
+      "label": "trends not used (pytrends rate-limited)",
+      "weight_used": 0.0
+     }
+    }
+   },
+   "fund_score": 51.5,
+   "fund_label": "ROE=10.9% NM=21.8% | D/E=11 CR=1.6 | MCap=$31.3B Inst=68%",
+   "earnings": {
+    "days_to": 90,
+    "suppress": false,
+    "status": "ok"
+   },
+   "plain_english": "Mean Reversion (oversold bounce): LIMIT buy near 21.95. RSI(2) and Bollinger Band signals suggest a short-term oversold condition — the setup anticipates a snap-back toward the mean, not a new uptrend. Stop 20.66 (~1.2 ATR below entry). Reward/risk 2.5R. TA score 75/100. Respect position sizing — mean reversion trades carry higher failure rates than trend trades. Fundamentals (52/100): modest ROE, healthy margins, low debt. mixed fundamentals.",
+   "fail_gates": [
+    "score 75 < 80 (Valid threshold)",
+    "composite 69.1 < 70"
+   ],
+   "also_fired": []
+  },
+  {
+   "symbol": "CSC.AX",
+   "strategy": "MEAN_REVERSION",
+   "status": "Watch",
+   "score": 75.0,
+   "order_type": "LIMIT",
+   "trigger": null,
+   "limit": 8.84,
+   "entry_ref": 8.84,
+   "entry_text": "limit=8.84",
+   "last_close": 8.84,
+   "stop": 8.12,
+   "tp1": 9.74,
+   "tp2": 10.65,
+   "atr14": 0.6,
+   "price_decimals": 2,
+   "r_mult": 2.5,
+   "risk_per_share": 0.72,
+   "exit_plan": {
+    "policy_id": "trail_2pct",
+    "trail_pct": 2.0,
+    "activate_after_r": null,
+    "time_stop_days": 20,
+    "initial_stop": 8.12
+   },
+   "composite_score": 68.8,
+   "sentiment": {
+    "score": null,
+    "components": {
+     "news": {
+      "score": null,
+      "status": "failed",
+      "label": "news score failed: HTTP 429 from news provider",
+      "weight_used": 0.0
+     },
+     "insider": {
+      "score": null,
+      "status": "no_data",
+      "label": "no insider trades in the last 90 days",
+      "weight_used": 0.0
+     },
+     "trends": {
+      "score": null,
+      "status": "no_data",
+      "label": "trends not used (pytrends rate-limited)",
+      "weight_used": 0.0
+     }
+    }
+   },
+   "fund_score": 70.3,
+   "fund_label": "ROE=10.2% NM=11.7% | NI_slope=24.7%/qtr | Rev_slope=5.9%/qtr | D/E=35 CR=1.0 | MCap=$6.8B Inst=10%",
+   "earnings": {
+    "days_to": null,
+    "suppress": false,
+    "status": "unknown"
+   },
+   "plain_english": "Mean Reversion (oversold bounce): LIMIT buy near 8.84. RSI(2) and Bollinger Band signals suggest a short-term oversold condition — the setup anticipates a snap-back toward the mean, not a new uptrend. Stop 8.12 (~1.2 ATR below entry). Reward/risk 2.5R. TA score 75/100. Respect position sizing — mean reversion trades carry higher failure rates than trend trades. Fundamentals (70/100): modest ROE, thin margins, earnings growing, revenue growing, low debt. ✓ solid fundamentals.",
+   "fail_gates": [
+    "score 75 < 80 (Valid threshold)",
+    "composite 68.8 < 70"
+   ],
+   "also_fired": []
+  },
+  {
+   "symbol": "CDA.AX",
+   "strategy": "MEAN_REVERSION",
+   "status": "Watch",
+   "score": 85.0,
+   "order_type": "LIMIT",
+   "trigger": null,
+   "limit": 49.04,
+   "entry_ref": 49.04,
+   "entry_text": "limit=49.04",
+   "last_close": 49.04,
+   "stop": 45.52,
+   "tp1": 53.44,
+   "tp2": 57.84,
+   "atr14": 2.9333,
+   "price_decimals": 2,
+   "r_mult": 2.5,
+   "risk_per_share": 3.52,
+   "exit_plan": {
+    "policy_id": "trail_2pct",
+    "trail_pct": 2.0,
+    "activate_after_r": null,
+    "time_stop_days": 20,
+    "initial_stop": 45.52
+   },
+   "composite_score": 67.8,
+   "sentiment": {
+    "score": null,
+    "components": {
+     "news": {
+      "score": null,
+      "status": "failed",
+      "label": "news score failed: HTTP 429 from news provider",
+      "weight_used": 0.0
+     },
+     "insider": {
+      "score": null,
+      "status": "no_data",
+      "label": "no insider trades in the last 90 days",
+      "weight_used": 0.0
+     },
+     "trends": {
+      "score": null,
+      "status": "no_data",
+      "label": "trends not used (pytrends rate-limited)",
+      "weight_used": 0.0
+     }
+    }
+   },
+   "fund_score": 44.0,
+   "fund_label": "ROE=30.9% NM=20.0% | D/E=9 CR=1.5 | MCap=$8.9B Inst=16%",
+   "earnings": {
+    "days_to": 90,
+    "suppress": false,
+    "status": "ok"
+   },
+   "plain_english": "Mean Reversion (oversold bounce): LIMIT buy near 49.04. RSI(2) and Bollinger Band signals suggest a short-term oversold condition — the setup anticipates a snap-back toward the mean, not a new uptrend. Stop 45.52 (~1.2 ATR below entry). Reward/risk 2.5R. TA score 85/100. Respect position sizing — mean reversion trades carry higher failure rates than trend trades. Fundamentals (44/100): strong ROE, healthy margins, low debt. mixed fundamentals.",
+   "fail_gates": [
+    "composite 67.8 < 70"
+   ],
+   "also_fired": []
+  },
+  {
+   "symbol": "ALQ.AX",
+   "strategy": "MEAN_REVERSION",
+   "status": "Watch",
+   "score": 75.0,
+   "order_type": "LIMIT",
+   "trigger": null,
+   "limit": 19.3,
+   "entry_ref": 19.3,
+   "entry_text": "limit=19.3",
+   "last_close": 19.3,
+   "stop": 18.61,
+   "tp1": 20.16,
+   "tp2": 21.03,
+   "atr14": 0.575,
+   "price_decimals": 2,
+   "r_mult": 2.5,
+   "risk_per_share": 0.69,
+   "exit_plan": {
+    "policy_id": "trail_2pct",
+    "trail_pct": 2.0,
+    "activate_after_r": null,
+    "time_stop_days": 20,
+    "initial_stop": 18.61
+   },
+   "composite_score": 67.0,
+   "sentiment": {
+    "score": 100.0,
+    "components": {
+     "news": {
+      "score": null,
+      "status": "failed",
+      "label": "news score failed: HTTP 429 from news provider",
+      "weight_used": 0.0
+     },
+     "insider": {
+      "score": 100.0,
+      "status": "ok",
+      "label": "strong insider buying (2,000 bought vs 0 sold)",
+      "weight_used": 0.4
+     },
+     "trends": {
+      "score": null,
+      "status": "no_data",
+      "label": "trends not used (pytrends rate-limited)",
+      "weight_used": 0.0
+     }
+    }
+   },
+   "fund_score": 43.1,
+   "fund_label": "ROE=21.4% NM=9.6% | D/E=92 CR=1.5 | MCap=$9.8B Inst=50%",
+   "earnings": {
+    "days_to": 3,
+    "suppress": true,
+    "status": "ok"
+   },
+   "plain_english": "Mean Reversion (oversold bounce): LIMIT buy near 19.30. RSI(2) and Bollinger Band signals suggest a short-term oversold condition — the setup anticipates a snap-back toward the mean, not a new uptrend. Stop 18.61 (~1.2 ATR below entry). Reward/risk 2.5R. TA score 75/100. Respect position sizing — mean reversion trades carry higher failure rates than trend trades. Fundamentals (43/100): strong ROE, thin margins. mixed fundamentals.",
+   "fail_gates": [
+    "score 75 < 80 (Valid threshold)",
+    "composite 67.0 < 70"
+   ],
+   "also_fired": []
+  },
+  {
+   "symbol": "LTR.AX",
+   "strategy": "MEAN_REVERSION",
+   "status": "Watch",
+   "score": 75.0,
+   "order_type": "LIMIT",
+   "trigger": null,
+   "limit": 0.555,
+   "entry_ref": 0.555,
+   "entry_text": "limit=0.555",
+   "last_close": 0.555,
+   "stop": 0.505,
+   "tp1": 0.62,
+   "tp2": 0.68,
+   "atr14": 0.0417,
+   "price_decimals": 3,
+   "r_mult": 2.5,
+   "risk_per_share": 0.05,
+   "exit_plan": {
+    "policy_id": "trail_2pct",
+    "trail_pct": 2.0,
+    "activate_after_r": null,
+    "time_stop_days": 20,
+    "initial_stop": 0.505
+   },
+   "composite_score": 67.0,
+   "sentiment": {
+    "score": 100.0,
+    "components": {
+     "news": {
+      "score": null,
+      "status": "failed",
+      "label": "news score failed: HTTP 429 from news provider",
+      "weight_used": 0.0
+     },
+     "insider": {
+      "score": 100.0,
+      "status": "ok",
+      "label": "strong insider buying (1,261,185 bought vs 0 sold)",
+      "weight_used": 0.4
+     },
+     "trends": {
+      "score": null,
+      "status": "no_data",
+      "label": "trends not used (pytrends rate-limited)",
+      "weight_used": 0.0
+     }
+    }
+   },
+   "fund_score": 43.1,
+   "fund_label": "ROE=9.0% NM=14.5% | D/E=34 CR=3.5 | MCap=$1.8B Inst=24%",
+   "earnings": {
+    "days_to": -57,
+    "suppress": false,
+    "status": "ok"
+   },
+   "plain_english": "Mean Reversion (oversold bounce): LIMIT buy near 0.56. RSI(2) and Bollinger Band signals suggest a short-term oversold condition — the setup anticipates a snap-back toward the mean, not a new uptrend. Stop 0.50 (~1.2 ATR below entry). Reward/risk 2.5R. TA score 75/100. Respect position sizing — mean reversion trades carry higher failure rates than trend trades. Fundamentals (43/100): modest ROE, thin margins, low debt. mixed fundamentals.",
+   "fail_gates": [
+    "score 75 < 80 (Valid threshold)",
+    "composite 67.0 < 70"
+   ],
+   "also_fired": []
+  },
+  {
+   "symbol": "MIN.AX",
+   "strategy": "MEAN_REVERSION",
+   "status": "Watch",
+   "score": 73.0,
+   "order_type": "LIMIT",
+   "trigger": null,
+   "limit": 38.69,
+   "entry_ref": 38.69,
+   "entry_text": "limit=38.69",
+   "last_close": 38.69,
+   "stop": 35.82,
+   "tp1": 42.28,
+   "tp2": 45.87,
+   "atr14": 2.3917,
+   "price_decimals": 2,
+   "r_mult": 2.5,
+   "risk_per_share": 2.87,
+   "exit_plan": {
+    "policy_id": "trail_2pct",
+    "trail_pct": 2.0,
+    "activate_after_r": null,
+    "time_stop_days": 20,
+    "initial_stop": 35.82
+   },
+   "composite_score": 65.6,
+   "sentiment": {
+    "score": 100.0,
+    "components": {
+     "news": {
+      "score": null,
+      "status": "failed",
+      "label": "news score failed: HTTP 429 from news provider",
+      "weight_used": 0.0
+     },
+     "insider": {
+      "score": 100.0,
+      "status": "ok",
+      "label": "strong insider buying (19 bought vs 0 sold)",
+      "weight_used": 0.4
+     },
+     "trends": {
+      "score": null,
+      "status": "no_data",
+      "label": "trends not used (pytrends rate-limited)",
+      "weight_used": 0.0
+     }
+    }
+   },
+   "fund_score": 42.0,
+   "fund_label": "ROE=28.7% NM=16.4% | D/E=121 CR=1.6 | MCap=$7.7B Inst=45%",
+   "earnings": {
+    "days_to": -85,
+    "suppress": false,
+    "status": "ok"
+   },
+   "plain_english": "Mean Reversion (oversold bounce): LIMIT buy near 38.69. RSI(2) and Bollinger Band signals suggest a short-term oversold condition — the setup anticipates a snap-back toward the mean, not a new uptrend. Stop 35.82 (~1.2 ATR below entry). Reward/risk 2.5R. TA score 73/100. Respect position sizing — mean reversion trades carry higher failure rates than trend trades. Fundamentals (42/100): strong ROE, healthy margins. mixed fundamentals.",
+   "fail_gates": [
+    "score 73 < 80 (Valid threshold)",
+    "composite 65.6 < 70"
+   ],
+   "also_fired": []
+  },
+  {
+   "symbol": "AAI.AX",
+   "strategy": "MEAN_REVERSION",
+   "status": "Watch",
+   "score": 63.0,
+   "order_type": "LIMIT",
+   "trigger": null,
+   "limit": 52.3,
+   "entry_ref": 52.3,
+   "entry_text": "limit=52.3",
+   "last_close": 52.3,
+   "stop": 49.72,
+   "tp1": 55.53,
+   "tp2": 58.76,
+   "atr14": 2.15,
+   "price_decimals": 2,
+   "r_mult": 2.5,
+   "risk_per_share": 2.58,
+   "exit_plan": {
+    "policy_id": "trail_2pct",
+    "trail_pct": 2.0,
+    "activate_after_r": null,
+    "time_stop_days": 20,
+    "initial_stop": 49.72
+   },
+   "composite_score": 65.1,
+   "sentiment": {
+    "score": null,
+    "components": {
+     "news": {
+      "score": null,
+      "status": "failed",
+      "label": "news score failed: HTTP 429 from news provider",
+      "weight_used": 0.0
+     },
+     "insider": {
+      "score": null,
+      "status": "no_data",
+      "label": "no insider trades in the last 90 days",
+      "weight_used": 0.0
+     },
+     "trends": {
+      "score": null,
+      "status": "no_data",
+      "label": "trends not used (pytrends rate-limited)",
+      "weight_used": 0.0
+     }
+    }
+   },
+   "fund_score": 81.7,
+   "fund_label": "ROE=20.6% NM=10.7% | NI_slope=19.8%/qtr | Rev_slope=5.6%/qtr | D/E=58 CR=2.3 | MCap=$13.8B Inst=7%",
+   "earnings": {
+    "days_to": null,
+    "suppress": false,
+    "status": "unknown"
+   },
+   "plain_english": "Mean Reversion (oversold bounce): LIMIT buy near 52.30. RSI(2) and Bollinger Band signals suggest a short-term oversold condition — the setup anticipates a snap-back toward the mean, not a new uptrend. Stop 49.72 (~1.2 ATR below entry). Reward/risk 2.5R. TA score 63/100. Respect position sizing — mean reversion trades carry higher failure rates than trend trades. Fundamentals (82/100): strong ROE, thin margins, earnings growing, revenue growing. ✓ solid fundamentals.",
+   "fail_gates": [
+    "score 63 < 80 (Valid threshold)",
+    "composite 65.1 < 70"
+   ],
+   "also_fired": []
+  },
+  {
+   "symbol": "NEM.AX",
+   "strategy": "MEAN_REVERSION",
+   "status": "Watch",
+   "score": 61.0,
+   "order_type": "LIMIT",
+   "trigger": null,
+   "limit": 144.71,
+   "entry_ref": 144.71,
+   "entry_text": "limit=144.71",
+   "last_close": 144.71,
+   "stop": 136.89,
+   "tp1": 154.48,
+   "tp2": 164.26,
+   "atr14": 6.5167,
+   "price_decimals": 2,
+   "r_mult": 2.5,
+   "risk_per_share": 7.82,
+   "exit_plan": {
+    "policy_id": "trail_2pct",
+    "trail_pct": 2.0,
+    "activate_after_r": null,
+    "time_stop_days": 20,
+    "initial_stop": 136.89
+   },
+   "composite_score": 64.6,
+   "sentiment": {
+    "score": null,
+    "components": {
+     "news": {
+      "score": null,
+      "status": "failed",
+      "label": "news score failed: HTTP 429 from news provider",
+      "weight_used": 0.0
+     },
+     "insider": {
+      "score": null,
+      "status": "no_data",
+      "label": "no insider trades in the last 90 days",
+      "weight_used": 0.0
+     },
+     "trends": {
+      "score": null,
+      "status": "no_data",
+      "label": "trends not used (pytrends rate-limited)",
+      "weight_used": 0.0
+     }
+    }
+   },
+   "fund_score": 84.0,
+   "fund_label": "ROE=27.3% NM=34.7% | NI_slope=9.9%/qtr | Rev_slope=1.5%/qtr | D/E=16 CR=2.5 | MCap=$150.4B Inst=14%",
+   "earnings": {
+    "days_to": null,
+    "suppress": false,
+    "status": "unknown"
+   },
+   "plain_english": "Mean Reversion (oversold bounce): LIMIT buy near 144.71. RSI(2) and Bollinger Band signals suggest a short-term oversold condition — the setup anticipates a snap-back toward the mean, not a new uptrend. Stop 136.89 (~1.2 ATR below entry). Reward/risk 2.5R. TA score 61/100. Respect position sizing — mean reversion trades carry higher failure rates than trend trades. Fundamentals (84/100): strong ROE, healthy margins, earnings growing, low debt. ✓ solid fundamentals.",
+   "fail_gates": [
+    "score 61 < 80 (Valid threshold)",
+    "composite 64.6 < 70"
+   ],
+   "also_fired": []
+  },
+  {
+   "symbol": "RIO.AX",
+   "strategy": "MEAN_REVERSION",
+   "status": "Watch",
+   "score": 75.0,
+   "order_type": "LIMIT",
+   "trigger": null,
+   "limit": 135.05,
+   "entry_ref": 135.05,
+   "entry_text": "limit=135.05",
+   "last_close": 135.05,
+   "stop": 129.97,
+   "tp1": 141.4,
+   "tp2": 147.75,
+   "atr14": 4.2333,
+   "price_decimals": 2,
+   "r_mult": 2.5,
+   "risk_per_share": 5.08,
+   "exit_plan": {
+    "policy_id": "trail_2pct",
+    "trail_pct": 2.0,
+    "activate_after_r": null,
+    "time_stop_days": 20,
+    "initial_stop": 129.97
+   },
+   "composite_score": 64.6,
+   "sentiment": {
+    "score": null,
+    "components": {
+     "news": {
+      "score": null,
+      "status": "failed",
+      "label": "news score failed: HTTP 429 from news provider",
+      "weight_used": 0.0
+     },
+     "insider": {
+      "score": null,
+      "status": "no_data",
+      "label": "no insider trades in the last 90 days",
+      "weight_used": 0.0
+     },
+     "trends": {
+      "score": null,
+      "status": "no_data",
+      "label": "trends not used (pytrends rate-limited)",
+      "weight_used": 0.0
+     }
+    }
+   },
+   "fund_score": 53.6,
+   "fund_label": "ROE=19.3% NM=19.6% | D/E=32 CR=1.4 | MCap=$219.6B Inst=65%",
+   "earnings": {
+    "days_to": 90,
+    "suppress": false,
+    "status": "ok"
+   },
+   "plain_english": "Mean Reversion (oversold bounce): LIMIT buy near 135.05. RSI(2) and Bollinger Band signals suggest a short-term oversold condition — the setup anticipates a snap-back toward the mean, not a new uptrend. Stop 129.97 (~1.2 ATR below entry). Reward/risk 2.5R. TA score 75/100. Respect position sizing — mean reversion trades carry higher failure rates than trend trades. Fundamentals (54/100): strong ROE, healthy margins, low debt. mixed fundamentals.",
+   "fail_gates": [
+    "score 75 < 80 (Valid threshold)",
+    "composite 64.6 < 70"
+   ],
+   "also_fired": []
+  },
+  {
+   "symbol": "ASX.AX",
+   "strategy": "MEAN_REVERSION",
+   "status": "Watch",
+   "score": 67.0,
+   "order_type": "LIMIT",
+   "trigger": null,
+   "limit": 65.25,
+   "entry_ref": 65.25,
+   "entry_text": "limit=65.25",
+   "last_close": 65.25,
+   "stop": 63.9,
+   "tp1": 66.94,
+   "tp2": 67.79,
+   "atr14": 1.125,
+   "price_decimals": 2,
+   "r_mult": 1.8809,
+   "risk_per_share": 1.35,
+   "exit_plan": {
+    "policy_id": "trail_2pct",
+    "trail_pct": 2.0,
+    "activate_after_r": null,
+    "time_stop_days": 20,
+    "initial_stop": 63.9
+   },
+   "composite_score": 64.2,
+   "sentiment": {
+    "score": 100.0,
+    "components": {
+     "news": {
+      "score": null,
+      "status": "failed",
+      "label": "news score failed: HTTP 429 from news provider",
+      "weight_used": 0.0
+     },
+     "insider": {
+      "score": 100.0,
+      "status": "ok",
+      "label": "strong insider buying (6,327 bought vs 0 sold)",
+      "weight_used": 0.4
+     },
+     "trends": {
+      "score": null,
+      "status": "no_data",
+      "label": "trends not used (pytrends rate-limited)",
+      "weight_used": 0.0
+     }
+    }
+   },
+   "fund_score": 49.4,
+   "fund_label": "ROE=12.3% NM=38.4% | D/E=12 CR=1.1 | MCap=$12.9B Inst=57%",
+   "earnings": {
+    "days_to": 84,
+    "suppress": false,
+    "status": "ok"
+   },
+   "plain_english": "Mean Reversion (oversold bounce): LIMIT buy near 65.25. RSI(2) and Bollinger Band signals suggest a short-term oversold condition — the setup anticipates a snap-back toward the mean, not a new uptrend. Stop 63.90 (~1.2 ATR below entry). Reward/risk 1.9R. TA score 67/100. Respect position sizing — mean reversion trades carry higher failure rates than trend trades. Fundamentals (49/100): modest ROE, healthy margins, low debt. mixed fundamentals.",
+   "fail_gates": [
+    "score 67 < 80 (Valid threshold)",
+    "composite 64.2 < 70"
+   ],
+   "also_fired": []
+  },
+  {
+   "symbol": "BHP.AX",
+   "strategy": "MEAN_REVERSION",
+   "status": "Watch",
+   "score": 75.0,
+   "order_type": "LIMIT",
+   "trigger": null,
+   "limit": 51.4,
+   "entry_ref": 51.4,
+   "entry_text": "limit=51.4",
+   "last_close": 51.4,
+   "stop": 49.18,
+   "tp1": 54.18,
+   "tp2": 56.96,
+   "atr14": 1.85,
+   "price_decimals": 2,
+   "r_mult": 2.5,
+   "risk_per_share": 2.22,
+   "exit_plan": {
+    "policy_id": "trail_2pct",
+    "trail_pct": 2.0,
+    "activate_after_r": null,
+    "time_stop_days": 20,
+    "initial_stop": 49.18
+   },
+   "composite_score": 63.8,
+   "sentiment": {
+    "score": null,
+    "components": {
+     "news": {
+      "score": null,
+      "status": "failed",
+      "label": "news score failed: HTTP 429 from news provider",
+      "weight_used": 0.0
+     },
+     "insider": {
+      "score": null,
+      "status": "no_data",
+      "label": "no insider trades in the last 90 days",
+      "weight_used": 0.0
+     },
+     "trends": {
+      "score": null,
+      "status": "no_data",
+      "label": "trends not used (pytrends rate-limited)",
+      "weight_used": 0.0
+     }
+    }
+   },
+   "fund_score": 50.0,
+   "fund_label": "ROE=24.0% NM=16.7% | D/E=50 CR=1.9 | MCap=$261.3B Inst=41%",
+   "earnings": {
+    "days_to": 87,
+    "suppress": false,
+    "status": "ok"
+   },
+   "plain_english": "Mean Reversion (oversold bounce): LIMIT buy near 51.40. RSI(2) and Bollinger Band signals suggest a short-term oversold condition — the setup anticipates a snap-back toward the mean, not a new uptrend. Stop 49.18 (~1.2 ATR below entry). Reward/risk 2.5R. TA score 75/100. Respect position sizing — mean reversion trades carry higher failure rates than trend trades. Fundamentals (50/100): strong ROE, healthy margins. mixed fundamentals.",
+   "fail_gates": [
+    "score 75 < 80 (Valid threshold)",
+    "composite 63.8 < 70"
+   ],
+   "also_fired": []
+  },
+  {
+   "symbol": "IGO.AX",
+   "strategy": "MEAN_REVERSION",
+   "status": "Watch",
+   "score": 75.0,
+   "order_type": "LIMIT",
+   "trigger": null,
+   "limit": 4.5,
+   "entry_ref": 4.5,
+   "entry_text": "limit=4.5",
+   "last_close": 4.5,
+   "stop": 4.18,
+   "tp1": 4.9,
+   "tp2": 5.3,
+   "atr14": 0.2667,
+   "price_decimals": 2,
+   "r_mult": 2.5,
+   "risk_per_share": 0.32,
+   "exit_plan": {
+    "policy_id": "trail_2pct",
+    "trail_pct": 2.0,
+    "activate_after_r": null,
+    "time_stop_days": 20,
+    "initial_stop": 4.18
+   },
+   "composite_score": 63.2,
+   "sentiment": {
+    "score": null,
+    "components": {
+     "news": {
+      "score": null,
+      "status": "failed",
+      "label": "news score failed: HTTP 429 from news provider",
+      "weight_used": 0.0
+     },
+     "insider": {
+      "score": null,
+      "status": "no_data",
+      "label": "no insider trades in the last 90 days",
+      "weight_used": 0.0
+     },
+     "trends": {
+      "score": null,
+      "status": "no_data",
+      "label": "trends not used (pytrends rate-limited)",
+      "weight_used": 0.0
+     }
+    }
+   },
+   "fund_score": 48.0,
+   "fund_label": "ROE=6.7% NM=31.4% | D/E=1 CR=5.5 | MCap=$3.4B Inst=53%",
+   "earnings": {
+    "days_to": -85,
+    "suppress": false,
+    "status": "ok"
+   },
+   "plain_english": "Mean Reversion (oversold bounce): LIMIT buy near 4.50. RSI(2) and Bollinger Band signals suggest a short-term oversold condition — the setup anticipates a snap-back toward the mean, not a new uptrend. Stop 4.18 (~1.2 ATR below entry). Reward/risk 2.5R. TA score 75/100. Respect position sizing — mean reversion trades carry higher failure rates than trend trades. Fundamentals (48/100): modest ROE, healthy margins, low debt. mixed fundamentals.",
+   "fail_gates": [
+    "score 75 < 80 (Valid threshold)",
+    "composite 63.2 < 70"
+   ],
+   "also_fired": []
+  },
+  {
+   "symbol": "ARG.AX",
+   "strategy": "MEAN_REVERSION",
+   "status": "Watch",
+   "score": 70.0,
+   "order_type": "LIMIT",
+   "trigger": null,
+   "limit": 9.22,
+   "entry_ref": 9.22,
+   "entry_text": "limit=9.22",
+   "last_close": 9.22,
+   "stop": 9.09,
+   "tp1": 9.38,
+   "tp2": 9.54,
+   "atr14": 0.1083,
+   "price_decimals": 2,
+   "r_mult": 2.5,
+   "risk_per_share": 0.13,
+   "exit_plan": {
+    "policy_id": "trail_2pct",
+    "trail_pct": 2.0,
+    "activate_after_r": null,
+    "time_stop_days": 20,
+    "initial_stop": 9.09
+   },
+   "composite_score": 63.1,
+   "sentiment": {
+    "score": 100.0,
+    "components": {
+     "news": {
+      "score": null,
+      "status": "failed",
+      "label": "news score failed: HTTP 429 from news provider",
+      "weight_used": 0.0
+     },
+     "insider": {
+      "score": 100.0,
+      "status": "ok",
+      "label": "strong insider buying (720 bought vs 0 sold)",
+      "weight_used": 0.4
+     },
+     "trends": {
+      "score": null,
+      "status": "no_data",
+      "label": "trends not used (pytrends rate-limited)",
+      "weight_used": 0.0
+     }
+    }
+   },
+   "fund_score": 38.3,
+   "fund_label": "ROE=3.8% NM=89.3% | D/E=0 CR=2.3 | MCap=$6.9B Inst=2%",
+   "earnings": {
+    "days_to": null,
+    "suppress": false,
+    "status": "unknown"
+   },
+   "plain_english": "Mean Reversion (oversold bounce): LIMIT buy near 9.22. RSI(2) and Bollinger Band signals suggest a short-term oversold condition — the setup anticipates a snap-back toward the mean, not a new uptrend. Stop 9.09 (~1.2 ATR below entry). Reward/risk 2.5R. TA score 70/100. Respect position sizing — mean reversion trades carry higher failure rates than trend trades. Fundamentals (38/100): modest ROE, healthy margins, low debt. ⚠ weak fundamentals — treat as speculative.",
+   "fail_gates": [
+    "score 70 < 80 (Valid threshold)",
+    "composite 63.1 < 70"
+   ],
+   "also_fired": []
+  },
+  {
+   "symbol": "EVN.AX",
+   "strategy": "MEAN_REVERSION",
+   "status": "Watch",
+   "score": 70.0,
+   "order_type": "LIMIT",
+   "trigger": null,
+   "limit": 10.36,
+   "entry_ref": 10.36,
+   "entry_text": "limit=10.36",
+   "last_close": 10.36,
+   "stop": 9.53,
+   "tp1": 11.4,
+   "tp2": 12.44,
+   "atr14": 0.6917,
+   "price_decimals": 2,
+   "r_mult": 2.5,
+   "risk_per_share": 0.83,
+   "exit_plan": {
+    "policy_id": "trail_2pct",
+    "trail_pct": 2.0,
+    "activate_after_r": null,
+    "time_stop_days": 20,
+    "initial_stop": 9.53
+   },
+   "composite_score": 62.8,
+   "sentiment": {
+    "score": null,
+    "components": {
+     "news": {
+      "score": null,
+      "status": "failed",
+      "label": "news score failed: HTTP 429 from news provider",
+      "weight_used": 0.0
+     },
+     "insider": {
+      "score": null,
+      "status": "no_data",
+      "label": "no insider trades in the last 90 days",
+      "weight_used": 0.0
+     },
+     "trends": {
+      "score": null,
+      "status": "no_data",
+      "label": "trends not used (pytrends rate-limited)",
+      "weight_used": 0.0
+     }
+    }
+   },
+   "fund_score": 57.0,
+   "fund_label": "ROE=27.4% NM=26.5% | D/E=25 CR=1.8 | MCap=$21.4B Inst=60%",
+   "earnings": {
+    "days_to": 82,
+    "suppress": false,
+    "status": "ok"
+   },
+   "plain_english": "Mean Reversion (oversold bounce): LIMIT buy near 10.36. RSI(2) and Bollinger Band signals suggest a short-term oversold condition — the setup anticipates a snap-back toward the mean, not a new uptrend. Stop 9.53 (~1.2 ATR below entry). Reward/risk 2.5R. TA score 70/100. Respect position sizing — mean reversion trades carry higher failure rates than trend trades. Fundamentals (57/100): strong ROE, healthy margins, low debt. mixed fundamentals.",
+   "fail_gates": [
+    "score 70 < 80 (Valid threshold)",
+    "composite 62.8 < 70"
+   ],
+   "also_fired": []
+  },
+  {
+   "symbol": "LLC.AX",
+   "strategy": "MEAN_REVERSION",
+   "status": "Watch",
+   "score": 75.0,
+   "order_type": "LIMIT",
+   "trigger": null,
+   "limit": 1.63,
+   "entry_ref": 1.63,
+   "entry_text": "limit=1.63",
+   "last_close": 1.63,
+   "stop": 1.445,
+   "tp1": 1.86,
+   "tp2": 2.09,
+   "atr14": 0.1542,
+   "price_decimals": 3,
+   "r_mult": 2.5,
+   "risk_per_share": 0.185,
+   "exit_plan": {
+    "policy_id": "trail_2pct",
+    "trail_pct": 2.0,
+    "activate_after_r": null,
+    "time_stop_days": 20,
+    "initial_stop": 1.445
+   },
+   "composite_score": 62.8,
+   "sentiment": {
+    "score": 100.0,
+    "components": {
+     "news": {
+      "score": null,
+      "status": "failed",
+      "label": "news score failed: HTTP 429 from news provider",
+      "weight_used": 0.0
+     },
+     "insider": {
+      "score": 100.0,
+      "status": "ok",
+      "label": "strong insider buying (34,000 bought vs 0 sold)",
+      "weight_used": 0.4
+     },
+     "trends": {
+      "score": null,
+      "status": "no_data",
+      "label": "trends not used (pytrends rate-limited)",
+      "weight_used": 0.0
+     }
+    }
+   },
+   "fund_score": 26.0,
+   "fund_label": "ROE=-15.0% NM=-13.8% | D/E=97 CR=1.2 | MCap=$1.1B Inst=71%",
+   "earnings": {
+    "days_to": 94,
+    "suppress": false,
+    "status": "ok"
+   },
+   "plain_english": "Mean Reversion (oversold bounce): LIMIT buy near 1.63. RSI(2) and Bollinger Band signals suggest a short-term oversold condition — the setup anticipates a snap-back toward the mean, not a new uptrend. Stop 1.45 (~1.2 ATR below entry). Reward/risk 2.5R. TA score 75/100. Respect position sizing — mean reversion trades carry higher failure rates than trend trades. Fundamentals (26/100): but: negative ROE, unprofitable. ⚠ weak fundamentals — treat as speculative.",
+   "fail_gates": [
+    "score 75 < 80 (Valid threshold)",
+    "composite 62.8 < 70"
+   ],
+   "also_fired": []
+  },
+  {
+   "symbol": "PDN.AX",
+   "strategy": "MEAN_REVERSION",
+   "status": "Watch",
+   "score": 75.0,
+   "order_type": "LIMIT",
+   "trigger": null,
+   "limit": 5.85,
+   "entry_ref": 5.85,
+   "entry_text": "limit=5.85",
+   "last_close": 5.85,
+   "stop": 5.24,
+   "tp1": 6.61,
+   "tp2": 7.38,
+   "atr14": 0.5083,
+   "price_decimals": 2,
+   "r_mult": 2.5,
+   "risk_per_share": 0.61,
+   "exit_plan": {
+    "policy_id": "trail_2pct",
+    "trail_pct": 2.0,
+    "activate_after_r": null,
+    "time_stop_days": 20,
+    "initial_stop": 5.24
+   },
+   "composite_score": 60.8,
+   "sentiment": {
+    "score": null,
+    "components": {
+     "news": {
+      "score": null,
+      "status": "failed",
+      "label": "news score failed: HTTP 429 from news provider",
+      "weight_used": 0.0
+     },
+     "insider": {
+      "score": null,
+      "status": "no_data",
+      "label": "no insider trades in the last 90 days",
+      "weight_used": 0.0
+     },
+     "trends": {
+      "score": null,
+      "status": "no_data",
+      "label": "trends not used (pytrends rate-limited)",
+      "weight_used": 0.0
+     }
+    }
+   },
+   "fund_score": 38.2,
+   "fund_label": "ROE=0.1% NM=4.2% | D/E=20 CR=3.8 | MCap=$3.0B Inst=64%",
+   "earnings": {
+    "days_to": -86,
+    "suppress": false,
+    "status": "ok"
+   },
+   "plain_english": "Mean Reversion (oversold bounce): LIMIT buy near 5.85. RSI(2) and Bollinger Band signals suggest a short-term oversold condition — the setup anticipates a snap-back toward the mean, not a new uptrend. Stop 5.24 (~1.2 ATR below entry). Reward/risk 2.5R. TA score 75/100. Respect position sizing — mean reversion trades carry higher failure rates than trend trades. Fundamentals (38/100): modest ROE, low debt. ⚠ weak fundamentals — treat as speculative.",
+   "fail_gates": [
+    "score 75 < 80 (Valid threshold)",
+    "composite 60.8 < 70"
+   ],
+   "also_fired": []
+  },
+  {
+   "symbol": "A2M.AX",
+   "strategy": "MEAN_REVERSION",
+   "status": "Watch",
+   "score": 71.0,
+   "order_type": "LIMIT",
+   "trigger": null,
+   "limit": 6.47,
+   "entry_ref": 6.47,
+   "entry_text": "limit=6.47",
+   "last_close": 6.47,
+   "stop": 6.16,
+   "tp1": 6.85,
+   "tp2": 7.24,
+   "atr14": 0.2583,
+   "price_decimals": 2,
+   "r_mult": 2.5,
+   "risk_per_share": 0.31,
+   "exit_plan": {
+    "policy_id": "trail_2pct",
+    "trail_pct": 2.0,
+    "activate_after_r": null,
+    "time_stop_days": 20,
+    "initial_stop": 6.16
+   },
+   "composite_score": 60.6,
+   "sentiment": {
+    "score": null,
+    "components": {
+     "news": {
+      "score": null,
+      "status": "failed",
+      "label": "news score failed: HTTP 429 from news provider",
+      "weight_used": 0.0
+     },
+     "insider": {
+      "score": null,
+      "status": "no_data",
+      "label": "no insider trades in the last 90 days",
+      "weight_used": 0.0
+     },
+     "trends": {
+      "score": null,
+      "status": "no_data",
+      "label": "trends not used (pytrends rate-limited)",
+      "weight_used": 0.0
+     }
+    }
+   },
+   "fund_score": 46.0,
+   "fund_label": "ROE=16.6% NM=5.8% | D/E=2 CR=1.6 | MCap=$4.7B Inst=55%",
+   "earnings": {
+    "days_to": 94,
+    "suppress": false,
+    "status": "ok"
+   },
+   "plain_english": "Mean Reversion (oversold bounce): LIMIT buy near 6.47. RSI(2) and Bollinger Band signals suggest a short-term oversold condition — the setup anticipates a snap-back toward the mean, not a new uptrend. Stop 6.16 (~1.2 ATR below entry). Reward/risk 2.5R. TA score 71/100. Respect position sizing — mean reversion trades carry higher failure rates than trend trades. Fundamentals (46/100): strong ROE, thin margins, low debt. mixed fundamentals.",
+   "fail_gates": [
+    "score 71 < 80 (Valid threshold)",
+    "composite 60.6 < 70"
+   ],
+   "also_fired": []
+  },
+  {
+   "symbol": "NAB.AX",
+   "strategy": "MEAN_REVERSION",
+   "status": "Watch",
+   "score": 73.0,
+   "order_type": "LIMIT",
+   "trigger": null,
+   "limit": 36.24,
+   "entry_ref": 36.24,
+   "entry_text": "limit=36.24",
+   "last_close": 36.24,
+   "stop": 35.05,
+   "tp1": 37.73,
+   "tp2": 39.22,
+   "atr14": 0.9917,
+   "price_decimals": 2,
+   "r_mult": 2.5,
+   "risk_per_share": 1.19,
+   "exit_plan": {
+    "policy_id": "trail_2pct",
+    "trail_pct": 2.0,
+    "activate_after_r": null,
+    "time_stop_days": 20,
+    "initial_stop": 35.05
+   },
+   "composite_score": 60.1,
+   "sentiment": {
+    "score": null,
+    "components": {
+     "news": {
+      "score": null,
+      "status": "failed",
+      "label": "news score failed: HTTP 429 from news provider",
+      "weight_used": 0.0
+     },
+     "insider": {
+      "score": null,
+      "status": "no_data",
+      "label": "no insider trades in the last 90 days",
+      "weight_used": 0.0
+     },
+     "trends": {
+      "score": null,
+      "status": "no_data",
+      "label": "trends not used (pytrends rate-limited)",
+      "weight_used": 0.0
+     }
+    }
+   },
+   "fund_score": 39.8,
+   "fund_label": "ROE=9.7% NM=29.7% | MCap=$112.8B Inst=51%",
+   "earnings": {
+    "days_to": -16,
+    "suppress": false,
+    "status": "ok"
+   },
+   "plain_english": "Mean Reversion (oversold bounce): LIMIT buy near 36.24. RSI(2) and Bollinger Band signals suggest a short-term oversold condition — the setup anticipates a snap-back toward the mean, not a new uptrend. Stop 35.05 (~1.2 ATR below entry). Reward/risk 2.5R. TA score 73/100. Respect position sizing — mean reversion trades carry higher failure rates than trend trades. Fundamentals (40/100): modest ROE, healthy margins. ⚠ weak fundamentals — treat as speculative.",
+   "fail_gates": [
+    "score 73 < 80 (Valid threshold)",
+    "composite 60.1 < 70"
+   ],
+   "also_fired": []
+  },
+  {
+   "symbol": "XYZ.AX",
+   "strategy": "MEAN_REVERSION",
+   "status": "Watch",
+   "score": 60.0,
+   "order_type": "LIMIT",
+   "trigger": null,
+   "limit": 110.75,
+   "entry_ref": 110.75,
+   "entry_text": "limit=110.75",
+   "last_close": 110.75,
+   "stop": 105.45,
+   "tp1": 117.38,
+   "tp2": 124.01,
+   "atr14": 4.4167,
+   "price_decimals": 2,
+   "r_mult": 2.5,
+   "risk_per_share": 5.3,
+   "exit_plan": {
+    "policy_id": "trail_2pct",
+    "trail_pct": 2.0,
+    "activate_after_r": null,
+    "time_stop_days": 20,
+    "initial_stop": 105.45
+   },
+   "composite_score": 60.0,
+   "sentiment": {
+    "score": null,
+    "components": {
+     "news": {
+      "score": null,
+      "status": "failed",
+      "label": "news score failed: HTTP 429 from news provider",
+      "weight_used": 0.0
+     },
+     "insider": {
+      "score": null,
+      "status": "no_data",
+      "label": "no insider trades in the last 90 days",
+      "weight_used": 0.0
+     },
+     "trends": {
+      "score": null,
+      "status": "no_data",
+      "label": "trends not used (pytrends rate-limited)",
+      "weight_used": 0.0
+     }
+    }
+   },
+   "fund_score": 68.2,
+   "fund_label": "ROE=2.0% NM=1.8% | NI_slope=5.9%/qtr | Rev_slope=2.5%/qtr | D/E=33 CR=2.2 | MCap=$67.0B Inst=8%",
+   "earnings": {
+    "days_to": null,
+    "suppress": false,
+    "status": "unknown"
+   },
+   "plain_english": "Mean Reversion (oversold bounce): LIMIT buy near 110.75. RSI(2) and Bollinger Band signals suggest a short-term oversold condition — the setup anticipates a snap-back toward the mean, not a new uptrend. Stop 105.45 (~1.2 ATR below entry). Reward/risk 2.5R. TA score 60/100. Respect position sizing — mean reversion trades carry higher failure rates than trend trades. Fundamentals (68/100): modest ROE, earnings growing, low debt. ✓ solid fundamentals.",
+   "fail_gates": [
+    "score 60 < 80 (Valid threshold)",
+    "composite 60.0 < 70"
+   ],
+   "also_fired": []
+  },
+  {
+   "symbol": "SFR.AX",
+   "strategy": "MEAN_REVERSION",
+   "status": "Watch",
+   "score": 75.0,
+   "order_type": "LIMIT",
+   "trigger": null,
+   "limit": 16.27,
+   "entry_ref": 16.27,
+   "entry_text": "limit=16.27",
+   "last_close": 16.27,
+   "stop": 15.04,
+   "tp1": 17.8,
+   "tp2": 19.34,
+   "atr14": 1.025,
+   "price_decimals": 2,
+   "r_mult": 2.5,
+   "risk_per_share": 1.23,
+   "exit_plan": {
+    "policy_id": "trail_2pct",
+    "trail_pct": 2.0,
+    "activate_after_r": null,
+    "time_stop_days": 20,
+    "initial_stop": 15.04
+   },
+   "composite_score": 59.9,
+   "sentiment": {
+    "score": null,
+    "components": {
+     "news": {
+      "score": null,
+      "status": "failed",
+      "label": "news score failed: HTTP 429 from news provider",
+      "weight_used": 0.0
+     },
+     "insider": {
+      "score": null,
+      "status": "no_data",
+      "label": "no insider trades in the last 90 days",
+      "weight_used": 0.0
+     },
+     "trends": {
+      "score": null,
+      "status": "no_data",
+      "label": "trends not used (pytrends rate-limited)",
+      "weight_used": 0.0
+     }
+    }
+   },
+   "fund_score": 54.6,
+   "fund_label": "ROE=17.7% NM=21.6% | D/E=2 CR=2.1 | MCap=$7.6B Inst=62%",
+   "earnings": {
+    "days_to": -86,
+    "suppress": false,
+    "status": "ok"
+   },
+   "plain_english": "Mean Reversion (oversold bounce): LIMIT buy near 16.27. RSI(2) and Bollinger Band signals suggest a short-term oversold condition — the setup anticipates a snap-back toward the mean, not a new uptrend. Stop 15.04 (~1.2 ATR below entry). Reward/risk 2.5R. TA score 75/100. Respect position sizing — mean reversion trades carry higher failure rates than trend trades. Fundamentals (55/100): strong ROE, healthy margins, low debt. mixed fundamentals.",
+   "fail_gates": [
+    "score 75 < 80 (Valid threshold)",
+    "composite 59.9 < 70"
+   ],
+   "also_fired": []
+  },
+  {
+   "symbol": "NXG.AX",
+   "strategy": "MEAN_REVERSION",
+   "status": "Watch",
+   "score": 75.0,
+   "order_type": "LIMIT",
+   "trigger": null,
+   "limit": 10.19,
+   "entry_ref": 10.19,
+   "entry_text": "limit=10.19",
+   "last_close": 10.19,
+   "stop": 9.61,
+   "tp1": 10.92,
+   "tp2": 11.65,
+   "atr14": 0.4833,
+   "price_decimals": 2,
+   "r_mult": 2.5,
+   "risk_per_share": 0.58,
+   "exit_plan": {
+    "policy_id": "trail_2pct",
+    "trail_pct": 2.0,
+    "activate_after_r": null,
+    "time_stop_days": 20,
+    "initial_stop": 9.61
+   },
+   "composite_score": 59.8,
+   "sentiment": {
+    "score": null,
+    "components": {
+     "news": {
+      "score": null,
+      "status": "failed",
+      "label": "news score failed: HTTP 429 from news provider",
+      "weight_used": 0.0
+     },
+     "insider": {
+      "score": null,
+      "status": "no_data",
+      "label": "no insider trades in the last 90 days",
+      "weight_used": 0.0
+     },
+     "trends": {
+      "score": null,
+      "status": "no_data",
+      "label": "trends not used (pytrends rate-limited)",
+      "weight_used": 0.0
+     }
+    }
+   },
+   "fund_score": 34.0,
+   "fund_label": "ROE=-10.3% NM=0.0% | NI_slope=39.0%/qtr | Rev_slope=0.0%/qtr | D/E=27 CR=1.4 | MCap=$7.0B Inst=10%",
+   "earnings": {
+    "days_to": null,
+    "suppress": false,
+    "status": "unknown"
+   },
+   "plain_english": "Mean Reversion (oversold bounce): LIMIT buy near 10.19. RSI(2) and Bollinger Band signals suggest a short-term oversold condition — the setup anticipates a snap-back toward the mean, not a new uptrend. Stop 9.61 (~1.2 ATR below entry). Reward/risk 2.5R. TA score 75/100. Respect position sizing — mean reversion trades carry higher failure rates than trend trades. Fundamentals (34/100): earnings growing, low debt; but: negative ROE. ⚠ weak fundamentals — treat as speculative.",
+   "fail_gates": [
+    "score 75 < 80 (Valid threshold)",
+    "composite 59.8 < 70"
+   ],
+   "also_fired": []
+  },
+  {
+   "symbol": "RMS.AX",
+   "strategy": "MEAN_REVERSION",
+   "status": "Watch",
+   "score": 61.0,
+   "order_type": "LIMIT",
+   "trigger": null,
+   "limit": 3.14,
+   "entry_ref": 3.14,
+   "entry_text": "limit=3.14",
+   "last_close": 3.14,
+   "stop": 2.92,
+   "tp1": 3.42,
+   "tp2": 3.69,
+   "atr14": 0.1833,
+   "price_decimals": 2,
+   "r_mult": 2.5,
+   "risk_per_share": 0.22,
+   "exit_plan": {
+    "policy_id": "trail_2pct",
+    "trail_pct": 2.0,
+    "activate_after_r": null,
+    "time_stop_days": 20,
+    "initial_stop": 2.92
+   },
+   "composite_score": 59.7,
+   "sentiment": {
+    "score": 100.0,
+    "components": {
+     "news": {
+      "score": null,
+      "status": "failed",
+      "label": "news score failed: HTTP 429 from news provider",
+      "weight_used": 0.0
+     },
+     "insider": {
+      "score": 100.0,
+      "status": "ok",
+      "label": "strong insider buying (30,934 bought vs 0 sold)",
+      "weight_used": 0.4
+     },
+     "trends": {
+      "score": null,
+      "status": "no_data",
+      "label": "trends not used (pytrends rate-limited)",
+      "weight_used": 0.0
+     }
+    }
+   },
+   "fund_score": 44.7,
+   "fund_label": "ROE=4.3% NM=11.5% | D/E=2 CR=2.1 | MCap=$5.9B Inst=55%",
+   "earnings": {
+    "days_to": -91,
+    "suppress": false,
+    "status": "ok"
+   },
+   "plain_english": "Mean Reversion (oversold bounce): LIMIT buy near 3.14. RSI(2) and Bollinger Band signals suggest a short-term oversold condition — the setup anticipates a snap-back toward the mean, not a new uptrend. Stop 2.92 (~1.2 ATR below entry). Reward/risk 2.5R. TA score 61/100. Respect position sizing — mean reversion trades carry higher failure rates than trend trades. Fundamentals (45/100): modest ROE, thin margins, low debt. mixed fundamentals.",
+   "fail_gates": [
+    "score 61 < 80 (Valid threshold)",
+    "composite 59.7 < 70"
+   ],
+   "also_fired": []
+  },
+  {
+   "symbol": "NHF.AX",
+   "strategy": "MEAN_REVERSION",
+   "status": "Watch",
+   "score": 60.0,
+   "order_type": "LIMIT",
+   "trigger": null,
+   "limit": 6.75,
+   "entry_ref": 6.75,
+   "entry_text": "limit=6.75",
+   "last_close": 6.75,
+   "stop": 6.6,
+   "tp1": 6.94,
+   "tp2": 7.06,
+   "atr14": 0.125,
+   "price_decimals": 2,
+   "r_mult": 2.0785,
+   "risk_per_share": 0.15,
+   "exit_plan": {
+    "policy_id": "trail_2pct",
+    "trail_pct": 2.0,
+    "activate_after_r": null,
+    "time_stop_days": 20,
+    "initial_stop": 6.6
+   },
+   "composite_score": 59.4,
+   "sentiment": {
+    "score": 100.0,
+    "components": {
+     "news": {
+      "score": null,
+      "status": "failed",
+      "label": "news score failed: HTTP 429 from news provider",
+      "weight_used": 0.0
+     },
+     "insider": {
+      "score": 100.0,
+      "status": "ok",
+      "label": "strong insider buying (11,197 bought vs 0 sold)",
+      "weight_used": 0.4
+     },
+     "trends": {
+      "score": null,
+      "status": "no_data",
+      "label": "trends not used (pytrends rate-limited)",
+      "weight_used": 0.0
+     }
+    }
+   },
+   "fund_score": 45.4,
+   "fund_label": "ROE=16.4% NM=4.9% | D/E=20 CR=2.4 | MCap=$3.3B Inst=33%",
+   "earnings": {
+    "days_to": -88,
+    "suppress": false,
+    "status": "ok"
+   },
+   "plain_english": "Mean Reversion (oversold bounce): LIMIT buy near 6.75. RSI(2) and Bollinger Band signals suggest a short-term oversold condition — the setup anticipates a snap-back toward the mean, not a new uptrend. Stop 6.60 (~1.2 ATR below entry). Reward/risk 2.1R. TA score 60/100. Respect position sizing — mean reversion trades carry higher failure rates than trend trades. Fundamentals (45/100): strong ROE, low debt. mixed fundamentals.",
+   "fail_gates": [
+    "score 60 < 80 (Valid threshold)",
+    "composite 59.4 < 70"
+   ],
+   "also_fired": []
+  },
+  {
+   "symbol": "BPT.AX",
+   "strategy": "MEAN_REVERSION",
+   "status": "Watch",
+   "score": 75.0,
+   "order_type": "LIMIT",
+   "trigger": null,
+   "limit": 0.83,
+   "entry_ref": 0.83,
+   "entry_text": "limit=0.83",
+   "last_close": 0.83,
+   "stop": 0.795,
+   "tp1": 0.87,
+   "tp2": 0.915,
+   "atr14": 0.0292,
+   "price_decimals": 3,
+   "r_mult": 2.5,
+   "risk_per_share": 0.035,
+   "exit_plan": {
+    "policy_id": "trail_2pct",
+    "trail_pct": 2.0,
+    "activate_after_r": null,
+    "time_stop_days": 20,
+    "initial_stop": 0.795
+   },
+   "composite_score": 59.2,
+   "sentiment": {
+    "score": null,
+    "components": {
+     "news": {
+      "score": null,
+      "status": "failed",
+      "label": "news score failed: HTTP 429 from news provider",
+      "weight_used": 0.0
+     },
+     "insider": {
+      "score": null,
+      "status": "no_data",
+      "label": "no insider trades in the last 90 days",
+      "weight_used": 0.0
+     },
+     "trends": {
+      "score": null,
+      "status": "no_data",
+      "label": "trends not used (pytrends rate-limited)",
+      "weight_used": 0.0
+     }
+    }
+   },
+   "fund_score": 32.0,
+   "fund_label": "ROE=8.7% NM=14.6% | D/E=19 CR=1.4 | Inst=34%",
+   "earnings": {
+    "days_to": 76,
+    "suppress": false,
+    "status": "ok"
+   },
+   "plain_english": "Mean Reversion (oversold bounce): LIMIT buy near 0.83. RSI(2) and Bollinger Band signals suggest a short-term oversold condition — the setup anticipates a snap-back toward the mean, not a new uptrend. Stop 0.80 (~1.2 ATR below entry). Reward/risk 2.5R. TA score 75/100. Respect position sizing — mean reversion trades carry higher failure rates than trend trades. Fundamentals (32/100): modest ROE, thin margins, low debt. ⚠ weak fundamentals — treat as speculative.",
+   "fail_gates": [
+    "score 75 < 80 (Valid threshold)",
+    "composite 59.2 < 70"
+   ],
+   "also_fired": []
+  },
+  {
+   "symbol": "SIG.AX",
+   "strategy": "MEAN_REVERSION",
+   "status": "Watch",
+   "score": 60.0,
+   "order_type": "LIMIT",
+   "trigger": null,
+   "limit": 2.89,
+   "entry_ref": 2.89,
+   "entry_text": "limit=2.89",
+   "last_close": 2.89,
+   "stop": 2.83,
+   "tp1": 2.96,
+   "tp2": 2.94,
+   "atr14": 0.05,
+   "price_decimals": 2,
+   "r_mult": 0.7836,
+   "risk_per_share": 0.06,
+   "exit_plan": {
+    "policy_id": "trail_2pct",
+    "trail_pct": 2.0,
+    "activate_after_r": null,
+    "time_stop_days": 20,
+    "initial_stop": 2.83
+   },
+   "composite_score": 58.8,
+   "sentiment": {
+    "score": 100.0,
+    "components": {
+     "news": {
+      "score": null,
+      "status": "failed",
+      "label": "news score failed: HTTP 429 from news provider",
+      "weight_used": 0.0
+     },
+     "insider": {
+      "score": 100.0,
+      "status": "ok",
+      "label": "strong insider buying (2,040,000 bought vs 0 sold)",
+      "weight_used": 0.4
+     },
+     "trends": {
+      "score": null,
+      "status": "no_data",
+      "label": "trends not used (pytrends rate-limited)",
+      "weight_used": 0.0
+     }
+    }
+   },
+   "fund_score": 43.3,
+   "fund_label": "ROE=14.7% NM=6.5% | D/E=40 CR=1.7 | MCap=$33.4B Inst=12%",
+   "earnings": {
+    "days_to": -85,
+    "suppress": false,
+    "status": "ok"
+   },
+   "plain_english": "Mean Reversion (oversold bounce): LIMIT buy near 2.89. RSI(2) and Bollinger Band signals suggest a short-term oversold condition — the setup anticipates a snap-back toward the mean, not a new uptrend. Stop 2.83 (~1.2 ATR below entry). Reward/risk 0.8R. TA score 60/100. Respect position sizing — mean reversion trades carry higher failure rates than trend trades. Fundamentals (43/100): modest ROE, thin margins, low debt. mixed fundamentals.",
+   "fail_gates": [
+    "score 60 < 80 (Valid threshold)",
+    "composite 58.8 < 70"
+   ],
+   "also_fired": []
+  },
+  {
+   "symbol": "S32.AX",
+   "strategy": "MEAN_REVERSION",
+   "status": "Watch",
+   "score": 65.0,
+   "order_type": "LIMIT",
+   "trigger": null,
+   "limit": 4.02,
+   "entry_ref": 4.02,
+   "entry_text": "limit=4.02",
+   "last_close": 4.02,
+   "stop": 3.83,
+   "tp1": 4.26,
+   "tp2": 4.51,
+   "atr14": 0.1583,
+   "price_decimals": 2,
+   "r_mult": 2.5,
+   "risk_per_share": 0.19,
+   "exit_plan": {
+    "policy_id": "trail_2pct",
+    "trail_pct": 2.0,
+    "activate_after_r": null,
+    "time_stop_days": 20,
+    "initial_stop": 3.83
+   },
+   "composite_score": 58.7,
+   "sentiment": {
+    "score": null,
+    "components": {
+     "news": {
+      "score": null,
+      "status": "failed",
+      "label": "news score failed: HTTP 429 from news provider",
+      "weight_used": 0.0
+     },
+     "insider": {
+      "score": null,
+      "status": "no_data",
+      "label": "no insider trades in the last 90 days",
+      "weight_used": 0.0
+     },
+     "trends": {
+      "score": null,
+      "status": "no_data",
+      "label": "trends not used (pytrends rate-limited)",
+      "weight_used": 0.0
+     }
+    }
+   },
+   "fund_score": 51.8,
+   "fund_label": "ROE=11.4% NM=18.3% | D/E=19 CR=2.4 | MCap=$18.0B Inst=48%",
+   "earnings": {
+    "days_to": -85,
+    "suppress": false,
+    "status": "ok"
+   },
+   "plain_english": "Mean Reversion (oversold bounce): LIMIT buy near 4.02. RSI(2) and Bollinger Band signals suggest a short-term oversold condition — the setup anticipates a snap-back toward the mean, not a new uptrend. Stop 3.83 (~1.2 ATR below entry). Reward/risk 2.5R. TA score 65/100. Respect position sizing — mean reversion trades carry higher failure rates than trend trades. Fundamentals (52/100): modest ROE, healthy margins, low debt. mixed fundamentals.",
+   "fail_gates": [
+    "score 65 < 80 (Valid threshold)",
+    "composite 58.7 < 70"
+   ],
+   "also_fired": []
+  },
+  {
+   "symbol": "ANZ.AX",
+   "strategy": "MEAN_REVERSION",
+   "status": "Watch",
+   "score": 77.0,
+   "order_type": "LIMIT",
+   "trigger": null,
+   "limit": 38.58,
+   "entry_ref": 38.58,
+   "entry_text": "limit=38.58",
+   "last_close": 38.58,
+   "stop": 37.46,
+   "tp1": 39.97,
+   "tp2": 40.47,
+   "atr14": 0.9333,
+   "price_decimals": 2,
+   "r_mult": 1.6962,
+   "risk_per_share": 1.12,
+   "exit_plan": {
+    "policy_id": "trail_2pct",
+    "trail_pct": 2.0,
+    "activate_after_r": null,
+    "time_stop_days": 20,
+    "initial_stop": 37.46
+   },
+   "composite_score": 58.6,
+   "sentiment": {
+    "score": null,
+    "components": {
+     "news": {
+      "score": null,
+      "status": "failed",
+      "label": "news score failed: HTTP 429 from news provider",
+      "weight_used": 0.0
+     },
+     "insider": {
+      "score": null,
+      "status": "no_data",
+      "label": "no insider trades in the last 90 days",
+      "weight_used": 0.0
+     },
+     "trends": {
+      "score": null,
+      "status": "no_data",
+      "label": "trends not used (pytrends rate-limited)",
+      "weight_used": 0.0
+     }
+    }
+   },
+   "fund_score": 25.1,
+   "fund_label": "ROE=10.2% NM=33.8% | Inst=42%",
+   "earnings": {
+    "days_to": -11,
+    "suppress": false,
+    "status": "ok"
+   },
+   "plain_english": "Mean Reversion (oversold bounce): LIMIT buy near 38.58. RSI(2) and Bollinger Band signals suggest a short-term oversold condition — the setup anticipates a snap-back toward the mean, not a new uptrend. Stop 37.46 (~1.2 ATR below entry). Reward/risk 1.7R. TA score 77/100. Respect position sizing — mean reversion trades carry higher failure rates than trend trades. Fundamentals (25/100): modest ROE, healthy margins. ⚠ weak fundamentals — treat as speculative.",
+   "fail_gates": [
+    "score 77 < 80 (Valid threshold)",
+    "composite 58.6 < 70"
+   ],
+   "also_fired": []
+  },
+  {
+   "symbol": "ORI.AX",
+   "strategy": "MEAN_REVERSION",
+   "status": "Watch",
+   "score": 75.0,
+   "order_type": "LIMIT",
+   "trigger": null,
+   "limit": 20.57,
+   "entry_ref": 20.57,
+   "entry_text": "limit=20.57",
+   "last_close": 20.57,
+   "stop": 19.6,
+   "tp1": 21.78,
+   "tp2": 22.99,
+   "atr14": 0.8083,
+   "price_decimals": 2,
+   "r_mult": 2.5,
+   "risk_per_share": 0.97,
+   "exit_plan": {
+    "policy_id": "trail_2pct",
+    "trail_pct": 2.0,
+    "activate_after_r": null,
+    "time_stop_days": 20,
+    "initial_stop": 19.6
+   },
+   "composite_score": 58.5,
+   "sentiment": {
+    "score": null,
+    "components": {
+     "news": {
+      "score": null,
+      "status": "failed",
+      "label": "news score failed: HTTP 429 from news provider",
+      "weight_used": 0.0
+     },
+     "insider": {
+      "score": null,
+      "status": "no_data",
+      "label": "no insider trades in the last 90 days",
+      "weight_used": 0.0
+     },
+     "trends": {
+      "score": null,
+      "status": "no_data",
+      "label": "trends not used (pytrends rate-limited)",
+      "weight_used": 0.0
+     }
+    }
+   },
+   "fund_score": 28.9,
+   "fund_label": "ROE=7.1% NM=3.2% | D/E=84 CR=1.0 | MCap=$9.6B Inst=48%",
+   "earnings": {
+    "days_to": -8,
+    "suppress": false,
+    "status": "ok"
+   },
+   "plain_english": "Mean Reversion (oversold bounce): LIMIT buy near 20.57. RSI(2) and Bollinger Band signals suggest a short-term oversold condition — the setup anticipates a snap-back toward the mean, not a new uptrend. Stop 19.60 (~1.2 ATR below entry). Reward/risk 2.5R. TA score 75/100. Respect position sizing — mean reversion trades carry higher failure rates than trend trades. Fundamentals (29/100): modest ROE. ⚠ weak fundamentals — treat as speculative.",
+   "fail_gates": [
+    "score 75 < 80 (Valid threshold)",
+    "composite 58.5 < 70"
+   ],
+   "also_fired": []
+  },
+  {
+   "symbol": "QBE.AX",
+   "strategy": "MEAN_REVERSION",
+   "status": "Watch",
+   "score": 60.0,
+   "order_type": "LIMIT",
+   "trigger": null,
+   "limit": 26.11,
+   "entry_ref": 26.11,
+   "entry_text": "limit=26.11",
+   "last_close": 26.11,
+   "stop": 25.52,
+   "tp1": 26.84,
+   "tp2": 26.96,
+   "atr14": 0.4917,
+   "price_decimals": 2,
+   "r_mult": 1.4456,
+   "risk_per_share": 0.59,
+   "exit_plan": {
+    "policy_id": "trail_2pct",
+    "trail_pct": 2.0,
+    "activate_after_r": null,
+    "time_stop_days": 20,
+    "initial_stop": 25.52
+   },
+   "composite_score": 57.4,
+   "sentiment": {
+    "score": null,
+    "components": {
+     "news": {
+      "score": null,
+      "status": "failed",
+      "label": "news score failed: HTTP 429 from news provider",
+      "weight_used": 0.0
+     },
+     "insider": {
+      "score": null,
+      "status": "no_data",
+      "label": "no insider trades in the last 90 days",
+      "weight_used": 0.0
+     },
+     "trends": {
+      "score": null,
+      "status": "no_data",
+      "label": "trends not used (pytrends rate-limited)",
+      "weight_used": 0.0
+     }
+    }
+   },
+   "fund_score": 57.5,
+   "fund_label": "ROE=19.3% NM=11.1% | D/E=38 CR=62.1 | MCap=$39.0B Inst=59%",
+   "earnings": {
+    "days_to": 91,
+    "suppress": false,
+    "status": "ok"
+   },
+   "plain_english": "Mean Reversion (oversold bounce): LIMIT buy near 26.11. RSI(2) and Bollinger Band signals suggest a short-term oversold condition — the setup anticipates a snap-back toward the mean, not a new uptrend. Stop 25.52 (~1.2 ATR below entry). Reward/risk 1.4R. TA score 60/100. Respect position sizing — mean reversion trades carry higher failure rates than trend trades. Fundamentals (58/100): strong ROE, thin margins, low debt. mixed fundamentals.",
+   "fail_gates": [
+    "score 60 < 80 (Valid threshold)",
+    "composite 57.4 < 70"
+   ],
+   "also_fired": []
+  }
+ ]
+}

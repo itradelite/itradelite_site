@@ -1,0 +1,47 @@
+{
+ "schema": "itl.status.v2",
+ "job": "status",
+ "generated_at_utc": "2026-11-24T00:00:00+00:00",
+ "generated_at_bne": "2026-11-24T10:00:00+10:00",
+ "market_state": {
+  "now_sydney": "2026-11-24T11:00:00+11:00",
+  "session_date": "2026-11-24",
+  "is_trading_day": true,
+  "phase": "open",
+  "next_trading_day": "2026-11-25",
+  "open_sydney": "10:00",
+  "close_sydney": "16:10"
+ },
+ "stale_after_utc": "2026-11-20T00:00:00+00:00",
+ "run_id": "19412345678",
+ "jobs": {
+  "night_scan": {
+   "last_success_utc": "2026-11-23T09:12:00+00:00",
+   "last_attempt_utc": "2026-11-23T09:05:00+00:00",
+   "last_status": "success",
+   "expected_every": "trading_day@19:00 Sydney",
+   "stale": false
+  },
+  "live_check": {
+   "last_success_utc": "2026-11-23T23:21:00+00:00",
+   "last_attempt_utc": "2026-11-23T23:20:00+00:00",
+   "last_status": "success",
+   "expected_every": "trading_day@10:20,12:30,15:00 Sydney",
+   "stale": false
+  },
+  "intraday_scan": {
+   "last_success_utc": "2026-11-21T04:30:00+00:00",
+   "last_attempt_utc": "2026-11-23T23:45:00+00:00",
+   "last_status": "failure",
+   "expected_every": "trading_day hourly 10:00-16:00 Sydney",
+   "stale": true
+  },
+  "metrics": {
+   "last_success_utc": "2026-11-23T09:40:00+00:00",
+   "last_attempt_utc": "2026-11-23T09:38:00+00:00",
+   "last_status": "success",
+   "expected_every": "trading_day@19:30 Sydney",
+   "stale": false
+  }
+ }
+}
