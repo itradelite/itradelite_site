@@ -865,8 +865,10 @@
     // - direct numeric entry (LIMIT strategies)
     // - else STOP-LIMIT parse => use LIMIT (worst-case fill), else TRIGGER
     function numericEntryForSizing(r){
-      const direct = Number(r.entry);
-      if (Number.isFinite(direct)) return direct;
+      // numOrNull, not Number(): JSON entry is null for STOP-LIMIT rows and
+      // Number(null) === 0 would short-circuit to entry=0 (Qty/Risk blank).
+      const direct = numOrNull(r.entry);
+      if (direct !== null && direct > 0) return direct;
 
       const entryText = (r.entry_text !== undefined && r.entry_text !== null)
         ? r.entry_text
@@ -936,9 +938,9 @@
 
     function sizingForRow(r){
       const entry = numericEntryForSizing(r);
-      const stop  = Number(r.stop);
+      const stop  = numOrNull(r.stop);
 
-      if (!Number.isFinite(entry) || !Number.isFinite(stop)) return null;
+      if (!Number.isFinite(entry) || stop === null || !Number.isFinite(stop)) return null;
 
       const riskPerShare = Math.abs(entry - stop);
       if (!Number.isFinite(riskPerShare) || riskPerShare <= 0) return null;
