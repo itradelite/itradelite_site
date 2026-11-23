@@ -388,8 +388,8 @@
     const v = prefs.view;
     if (v === "all" || v === "recommended") parts.push(dim ? html`<div class="dimmed">${renderOrders(rec, prefs, ctx)}</div>` : renderOrders(rec, prefs, ctx));
     const rest = [];
-    if (v === "all" || v === "setups") rest.push(renderTable("Setups", setups, prefs, ctx, { subtitle: "valid and near-miss setups ranked by the scan" }));
-    if (v === "all" || v === "watch") rest.push(renderTable("Full watchlist", watch, prefs, ctx, { limit: ctx.showAllWatch ? 0 : 40, moreKey: "watch", subtitle: "every evaluated symbol; Watch rows list the gates they failed" }));
+    if (v === "all" || v === "setups") rest.push(renderTable("Setups", setups, prefs, ctx, { subtitle: "valid and near-miss setups ranked by the scan", emptyText: nd.setups.length ? null : "No setups published tonight." }));
+    if (v === "all" || v === "watch") rest.push(renderTable("Full watchlist", watch, prefs, ctx, { limit: ctx.showAllWatch ? 0 : 40, moreKey: "watch", subtitle: "every evaluated symbol; Watch rows list the gates they failed", emptyText: nd.watch.length ? null : "No watchlist published tonight." }));
     if (rest.length) parts.push(dim ? html`<div class="banner banner--stale"><div class="banner__body"><div class="banner__text">Built from the same stale/unconfirmed data flagged above: dimmed, not confirmed for ${fmtDate(data.valid_for)}.</div></div></div><div class="dimmed">${rest}</div>` : html`${rest}`);
     return html`${parts}`;
   }

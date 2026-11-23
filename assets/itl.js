@@ -193,7 +193,7 @@
     return {
       ok: true, qty, riskQty, posQty, cashQty, capped, binding,
       riskPerShare: rps, riskBudget,
-      actualRisk: qty * rps, notional: qty * entry, entry, stop,
+      actualRisk: Math.round(qty * rps * 100) / 100, notional: Math.round(qty * entry * 100) / 100, entry, stop,
       message: qty === 0 ? "Position rounds to 0 shares at these inputs." : "",
     };
   }
