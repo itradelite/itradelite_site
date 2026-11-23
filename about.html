@@ -3,245 +3,64 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>About iTradeLite | Rule-Based Trading</title>
-  <meta name="description" content="About iTradeLite — a lean, rule-based system that publishes daily ASX trade lists with explicit entries, stops, and modelled risk, built on quantitative logic instead of discretionary calls." />
+  <title>About — iTradeLite</title>
+  <meta name="description" content="About iTradeLite: a personal, rule-based ASX trading tool built and used by one engineer. Not a service, not financial advice." />
   <link rel="canonical" href="https://www.itradelite.com/about.html" />
-
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="iTradeLite" />
-  <meta property="og:title" content="About iTradeLite | Rule-Based Trading" />
-  <meta property="og:description" content="A lean, rule-based system that publishes daily ASX trade lists with explicit entries, stops, and modelled risk." />
+  <meta property="og:title" content="About — iTradeLite" />
+  <meta property="og:description" content="About iTradeLite: a personal, rule-based ASX trading tool built and used by one engineer. Not a service, not financial advice." />
   <meta property="og:url" content="https://www.itradelite.com/about.html" />
   <meta property="og:image" content="https://www.itradelite.com/assets/og.png" />
-
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="About iTradeLite | Rule-Based Trading" />
-  <meta name="twitter:description" content="A lean, rule-based system that publishes daily ASX trade lists with explicit entries, stops, and modelled risk." />
+  <meta name="twitter:title" content="About — iTradeLite" />
   <meta name="twitter:image" content="https://www.itradelite.com/assets/og.png" />
-
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="icon" href="/favicon-96x96.png" sizes="96x96" type="image/png" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <link rel="manifest" href="/site.webmanifest" />
   <script src="/assets/analytics-config.js"></script>
   <script src="/assets/analytics.js"></script>
-
-  <link rel="stylesheet" href="/assets/site.css?v=3" />
-
-  <style>
-    .about-header { 
-      padding: 100px 0 80px; 
-      border-bottom: 1px solid var(--border); 
-      margin-bottom: 60px;
-      position: relative;
-    }
-    
-    .about-header::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 40%;
-      height: 1px;
-      background: linear-gradient(90deg, transparent, var(--accent), transparent);
-    }
-    
-    .about-header h1 {
-      font-size: 4.5rem;
-      line-height: 1.05;
-      letter-spacing: -3px;
-      margin: 0;
-      font-weight: 900;
-      background: linear-gradient(135deg, #ffffff 0%, #94a3b8 60%, #64748b 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      animation: fadeInUp 1s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-    
-    .lead {
-      margin-top: 28px;
-      max-width: 640px;
-      font-size: 1.25rem;
-      line-height: 1.7;
-      color: var(--text-muted);
-      font-weight: 500;
-      animation: fadeInUp 1s cubic-bezier(0.4, 0, 0.2, 1) 0.2s backwards;
-    }
-    
-    .legal-notice { 
-      background: linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(78, 142, 247, 0.05) 100%);
-      border: 1px solid rgba(59, 130, 246, 0.3); 
-      padding: 28px 32px; 
-      border-radius: 16px; 
-      margin-top: 32px;
-      position: relative;
-      overflow: hidden;
-    }
-    
-    .legal-notice::before {
-      content: '';
-      position: absolute;
-      left: 0;
-      top: 0;
-      bottom: 0;
-      width: 4px;
-      background: linear-gradient(180deg, #3b82f6, #2563eb);
-    }
-
-    .philosophy-list {
-      margin-top: 24px;
-      padding-left: 0;
-      color: var(--text-muted);
-      font-size: 0.95rem;
-      line-height: 1.8;
-      list-style: none;
-    }
-    
-    .philosophy-list li {
-      margin-bottom: 16px;
-      padding-left: 32px;
-      position: relative;
-    }
-    
-    .philosophy-list li::before {
-      content: '→';
-      position: absolute;
-      left: 0;
-      color: var(--accent);
-      font-weight: 700;
-      font-size: 1.2rem;
-    }
-    
-    .philosophy-list strong {
-      color: var(--text-main);
-      font-weight: 700;
-    }
-    
-    .section-card {
-      background: linear-gradient(135deg, rgba(255, 255, 255, 0.06) 0%, rgba(255, 255, 255, 0.02) 100%);
-      border: 1px solid var(--border);
-      backdrop-filter: blur(16px);
-      padding: 48px;
-      border-radius: 24px;
-      transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-    
-    .section-card:hover {
-      transform: translateY(-4px);
-      border-color: var(--border-hover);
-      box-shadow: 0 20px 40px rgba(0,0,0,0.3), 0 0 0 1px rgba(59, 130, 246, 0.1);
-    }
-    
-    .section-title {
-      color: var(--accent);
-      font-size: 1.6rem;
-      margin-bottom: 20px;
-      font-weight: 800;
-      letter-spacing: -0.5px;
-    }
-    
-    .danger-title {
-      color: #ef4444;
-    }
-    
-    @media (max-width: 768px) {
-      .about-header h1 {
-        font-size: 3rem;
-        letter-spacing: -2px;
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="/assets/itl.css" />
 </head>
 <body>
   <header class="topbar">
     <div class="container topbar__inner">
-      <a class="brand" href="/">
-        <img src="/assets/logo.png" alt="iTradeLite" style="height: 28px;">
-        <span>iTradeLite</span>
-      </a>
-
-      <nav class="nav" id="mainNav">
-        <a href="/today/">Daily Briefing</a>
-        <a href="/before-close/">Before-Close</a>
+      <a class="brand" href="/" aria-label="iTradeLite home"><img src="/assets/logo.png" alt="" width="26" height="26" /><span>iTradeLite</span></a>
+      <button class="hamburger" id="hamburgerBtn" aria-label="Toggle menu" aria-expanded="false" aria-controls="mainNav">&#9776;</button>
+      <nav class="nav" id="mainNav" aria-label="Primary">
+        <a href="/today/">Today</a>
+        <a href="/live/">Live check</a>
         <a href="/intraday/">Intraday</a>
-        <a href="/track-record/">Track Record</a>
-        <a href="/strategy-decay/">Strategy Decay</a>
-        <a href="/how-it-works.html">Rules</a>
-        <a href="/about.html" aria-current="page">About</a>
-        <a class="btn btn--primary btn--small" href="/today/">Launch Terminal</a>
+        <a href="/track-record/">Track record</a>
+        <a href="/strategy-decay/">Strategy decay</a>
+        <a href="/how-it-works.html">How it works</a>
+        <a href="/about.html">About</a>
       </nav>
-      <button class="hamburger" id="hamburgerBtn" aria-label="Toggle menu">☰</button>
     </div>
   </header>
 
-  <script>
-    // Hamburger menu toggle
-    const hamburger = document.getElementById('hamburgerBtn');
-    const nav = document.getElementById('mainNav');
-    
-    hamburger.addEventListener('click', () => {
-      nav.classList.toggle('active');
-      hamburger.textContent = nav.classList.contains('active') ? '✕' : '☰';
-    });
-    
-    // Close menu when clicking outside
-    document.addEventListener('click', (e) => {
-      if (!e.target.closest('.topbar')) {
-        nav.classList.remove('active');
-        hamburger.textContent = '☰';
-      }
-    });
-    
-    // Close menu when link clicked
-    nav.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => {
-        nav.classList.remove('active');
-        hamburger.textContent = '☰';
-      });
-    });
-  </script>
-
-  <main class="container">
-    <section class="about-header">
-      <h1>Clarity & Discipline.</h1>
-      <p class="lead">
-        A lean system that publishes daily rule-based lists with explicit entries, stops, and modelled risk.
-      </p>
-    </section>
-
-    <div class="grid2" style="margin-bottom: 100px;">
-      <div class="section-card">
-        <h2 class="section-title">The Philosophy</h2>
-        <p style="color: var(--text-muted); line-height: 1.8; margin-bottom: 8px;">
-          Most signals are vague. iTradeLite is intentionally explicit. We believe that if a trade plan can't be explained and repeated by a machine, it isn't a system—it's just vibes.
-        </p>
-        
-        <ul class="philosophy-list">
-          <li><strong>Quantitative Logic:</strong> Every setup is based on mathematical price action, not intuition.</li>
-          <li><strong>Risk First:</strong> We prioritize the "Stop" and "Position Size" over the potential profit.</li>
-          <li><strong>Regime Gating:</strong> We toggle strategies off when the broader market environment is unfavorable.</li>
-        </ul>
-      </div>
-
-      <div class="section-card">
-        <h2 class="section-title">How We Operate</h2>
-        <p style="color: var(--text-muted); line-height: 1.8; margin-bottom: 8px;">
-          iTradeLite delivers institutional-grade trade signals through pure algorithmic analysis. We transform raw market data into actionable intelligence using the same quantitative methods employed by professional trading desks.
-        </p>
-        
-        <div class="legal-notice">
-          <b style="color: #3b82f6; display: block; margin-bottom: 12px; text-transform: uppercase; font-size: 0.75rem; letter-spacing: 1.5px; font-weight: 800;">Data-Driven Research</b>
-          <p class="small" style="margin: 0; line-height: 1.7; color: rgba(255, 255, 255, 0.8);">
-            Our signals are published for educational and research purposes. All trading involves risk. We provide systematic analysis, not personalized financial advice. Your trading decisions, risk management, and capital deployment remain entirely your responsibility.
-          </p>
-        </div>
-      </div>
+  <main class="container pagePad">
+    <div id="itl-health"></div>
+    <div class="prose">
+      <div class="page-head"><div><h1>About</h1>
+        <p>iTradeLite is a personal tool: one engineer&rsquo;s rule-based system for picking ASX trades for his own money. There are no customers and nothing is for sale.</p></div></div>
+      <h2>Why it exists</h2>
+      <p>To make trading decisions explicit and repeatable: if a trade plan can&rsquo;t be written down as rules and checked afterwards, it isn&rsquo;t a system. Every pick comes with an entry, a stop, an exit plan and a size, and every pick is later scored in the <a href="/track-record/">track record</a> &mdash; including when the answer is &ldquo;an index ETF would have done better&rdquo;.</p>
+      <h2>What it is not</h2>
+      <ul>
+        <li>Not financial advice, and not personalised to anyone else&rsquo;s situation.</li>
+        <li>Not proven: the <a href="/strategy-decay/">Strategy decay</a> audit currently finds no edge distinguishable from luck in the strategies with enough history.</li>
+        <li>Not real-time: prices are end-of-day for the night scan and delayed 15-minute bars intraday.</li>
+      </ul>
+      <h2>How it runs</h2>
+      <p>A scheduled pipeline (GitHub Actions) runs the scans on ASX trading days and publishes JSON files; this site is a static page that renders them. See <a href="/how-it-works.html">How it works</a> for the rules and schedule.</p>
+      <div class="warn-panel"><b>Disclaimer</b>Educational and personal use. Trading involves significant risk of loss. Your decisions are your own responsibility.</div>
     </div>
+    <footer class="site-foot">&copy; iTradeLite</footer>
   </main>
 
-  <footer style="border-top: 1px solid var(--border); text-align: center; padding: 80px 0;">
-    <div class="container">
-      <p class="small muted">© iTradeLite. Educational output only — not financial advice.</p>
-    </div>
-  </footer>
+  <script src="/assets/itl.js"></script>
+  <script>ITL.bootCommon();</script>
 </body>
 </html>
-

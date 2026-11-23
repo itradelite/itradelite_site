@@ -331,7 +331,8 @@ details.why p { margin: 6px 0 2px; }
 .prose h3 { margin: 20px 0 6px; font-size: 16px; }
 .formula { background: var(--bg-deep); border: 1px solid var(--border); border-radius: 10px; padding: 12px 14px; font: 13.5px/1.7 var(--mono-font); color: #e2e8f0; overflow-x: auto; white-space: pre; }
 .grid2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 16px; }
-.grid3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; }
+.grid3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 16px; }
+@media (max-width: 400px) { .grid3 { grid-template-columns: 1fr; } }
 .tile { background: var(--card-bg); border: 1px solid var(--border); border-radius: 14px; padding: 18px; text-decoration: none; color: inherit; display: block; }
 a.tile:hover { border-color: var(--border-hover); filter: none; }
 .tile h3 { margin: 0 0 6px; font-size: 16px; color: #fff; }

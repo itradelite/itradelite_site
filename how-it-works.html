@@ -3,409 +3,115 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>How it Works | iTradeLite Methodology</title>
-  <meta name="description" content="How iTradeLite's rule-based ASX scanner works — the risk sizing model, the strategy archetypes it trades, and the market regime gating that turns them on and off." />
+  <title>How it works — iTradeLite rules</title>
+  <meta name="description" content="How iTradeLite works: the strategies, the risk-off regime gate, order types, position sizing with caps, trailing-stop exit policies and the daily schedule (Sydney time)." />
   <link rel="canonical" href="https://www.itradelite.com/how-it-works.html" />
-
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="iTradeLite" />
-  <meta property="og:title" content="How it Works | iTradeLite Methodology" />
-  <meta property="og:description" content="The risk sizing model, the strategy archetypes iTradeLite trades, and the market regime gating that turns them on and off." />
+  <meta property="og:title" content="How it works — iTradeLite rules" />
+  <meta property="og:description" content="How iTradeLite works: the strategies, the risk-off regime gate, order types, position sizing with caps, trailing-stop exit policies and the daily schedule (Sydney time)." />
   <meta property="og:url" content="https://www.itradelite.com/how-it-works.html" />
   <meta property="og:image" content="https://www.itradelite.com/assets/og.png" />
-
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="How it Works | iTradeLite Methodology" />
-  <meta name="twitter:description" content="The risk sizing model, the strategy archetypes iTradeLite trades, and the market regime gating that turns them on and off." />
+  <meta name="twitter:title" content="How it works — iTradeLite rules" />
   <meta name="twitter:image" content="https://www.itradelite.com/assets/og.png" />
-
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="icon" href="/favicon-96x96.png" sizes="96x96" type="image/png" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <link rel="manifest" href="/site.webmanifest" />
   <script src="/assets/analytics-config.js"></script>
   <script src="/assets/analytics.js"></script>
-
-  <link rel="stylesheet" href="/assets/site.css?v=3" />
-
-  <style>
-    .page-header {
-      margin-bottom: 80px;
-      padding-bottom: 40px;
-      border-bottom: 1px solid var(--border);
-      position: relative;
-    }
-    
-    .page-header::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 30%;
-      height: 2px;
-      background: linear-gradient(90deg, var(--accent), transparent);
-    }
-    
-    .page-header h1 {
-      font-size: 4rem;
-      margin-bottom: 20px;
-      font-weight: 900;
-      letter-spacing: -2.5px;
-      background: linear-gradient(135deg, #ffffff 0%, #94a3b8 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      animation: fadeInUp 1s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-    
-    .page-header .lead {
-      max-width: 760px;
-      font-size: 1.2rem;
-      line-height: 1.8;
-      color: var(--text-muted);
-      animation: fadeInUp 1s cubic-bezier(0.4, 0, 0.2, 1) 0.2s backwards;
-    }
-
-    .formula-container {
-      background: linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(139, 92, 246, 0.05) 100%);
-      border: 2px dashed rgba(59, 130, 246, 0.3);
-      padding: 40px;
-      border-radius: 20px;
-      margin: 32px 0;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-    }
-    
-    .formula-container::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: -100%;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.1), transparent);
-      animation: slide 3s infinite;
-    }
-    
-    @keyframes slide {
-      0% { left: -100%; }
-      100% { left: 100%; }
-    }
-
-    .formula-text {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 1.4rem;
-      font-weight: 700;
-      color: #fff;
-      text-shadow: 0 0 20px rgba(59, 130, 246, 0.5);
-      position: relative;
-      z-index: 1;
-    }
-
-    .math-label {
-      color: var(--accent);
-      font-size: 0.75rem;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      margin-bottom: 16px;
-      font-weight: 800;
-    }
-
-    .setup-number {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.8rem;
-      color: var(--accent);
-      margin-bottom: 12px;
-      display: block;
-      font-weight: 700;
-      letter-spacing: 1px;
-    }
-    
-    .method-card {
-      background: linear-gradient(135deg, rgba(255, 255, 255, 0.06) 0%, rgba(255, 255, 255, 0.02) 100%);
-      border: 1px solid var(--border);
-      backdrop-filter: blur(16px);
-      padding: 48px;
-      border-radius: 24px;
-      margin-bottom: 48px;
-      transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-      position: relative;
-    }
-    
-    .method-card:hover {
-      transform: translateY(-4px);
-      border-color: var(--border-hover);
-      box-shadow: 0 20px 40px rgba(0,0,0,0.3), 0 0 0 1px rgba(59, 130, 246, 0.1);
-    }
-    
-    .method-card h2 {
-      margin-top: 0;
-      font-size: 1.8rem;
-      font-weight: 800;
-      color: #fff;
-      letter-spacing: -0.5px;
-      margin-bottom: 20px;
-    }
-    
-    .setup-card {
-      background: linear-gradient(135deg, rgba(255, 255, 255, 0.04) 0%, rgba(255, 255, 255, 0.01) 100%);
-      border: 1px solid var(--border);
-      padding: 36px;
-      border-radius: 20px;
-      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-      position: relative;
-      overflow: hidden;
-    }
-    
-    .setup-card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 3px;
-      background: linear-gradient(90deg, var(--accent), #8b5cf6);
-      transform: scaleX(0);
-      transform-origin: left;
-      transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-    
-    .setup-card:hover::before {
-      transform: scaleX(1);
-    }
-    
-    .setup-card:hover {
-      transform: translateY(-6px) scale(1.02);
-      background: linear-gradient(135deg, rgba(59, 130, 246, 0.08) 0%, rgba(139, 92, 246, 0.04) 100%);
-      border-color: var(--border-hover);
-      box-shadow: 0 16px 32px rgba(0,0,0,0.3);
-    }
-    
-    .setup-card h3 {
-      color: #fff;
-      font-size: 1.3rem;
-      margin: 0 0 12px 0;
-      font-weight: 800;
-      letter-spacing: -0.3px;
-    }
-    
-    .regime-card {
-      border-left: 4px solid var(--accent);
-      background: linear-gradient(135deg, rgba(59, 130, 246, 0.06) 0%, rgba(139, 92, 246, 0.03) 100%);
-      border: 1px solid var(--border-hover);
-      border-left-width: 4px;
-      border-left-color: var(--accent);
-      padding: 48px;
-      border-radius: 24px;
-      margin-top: 48px;
-    }
-    
-    .regime-list {
-      line-height: 2.2;
-      padding-left: 0;
-      list-style: none;
-    }
-    
-    .regime-list li {
-      margin-bottom: 16px;
-      padding-left: 36px;
-      position: relative;
-      color: var(--text-muted);
-    }
-    
-    .regime-list li::before {
-      content: '●';
-      position: absolute;
-      left: 0;
-      font-size: 1.2rem;
-    }
-    
-    .regime-list strong {
-      font-weight: 800;
-      font-size: 1.05rem;
-    }
-    
-    .example-box {
-      background: rgba(0, 0, 0, 0.3);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      padding: 24px 28px;
-      border-radius: 12px;
-      margin-top: 24px;
-      font-size: 0.9rem;
-      line-height: 1.8;
-    }
-    
-    .example-box strong {
-      color: var(--accent);
-      font-weight: 700;
-    }
-    
-    @media (max-width: 768px) {
-      .page-header h1 {
-        font-size: 2.8rem;
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="/assets/itl.css" />
 </head>
-
 <body>
   <header class="topbar">
     <div class="container topbar__inner">
-      <a class="brand" href="/">
-        <img src="/assets/logo.png" alt="iTradeLite" style="height: 28px;">
-        <span>iTradeLite</span>
-      </a>
-      <nav class="nav" id="mainNav">
-        <a href="/today/">Daily Briefing</a>
-        <a href="/before-close/">Before-Close</a>
+      <a class="brand" href="/" aria-label="iTradeLite home"><img src="/assets/logo.png" alt="" width="26" height="26" /><span>iTradeLite</span></a>
+      <button class="hamburger" id="hamburgerBtn" aria-label="Toggle menu" aria-expanded="false" aria-controls="mainNav">&#9776;</button>
+      <nav class="nav" id="mainNav" aria-label="Primary">
+        <a href="/today/">Today</a>
+        <a href="/live/">Live check</a>
         <a href="/intraday/">Intraday</a>
-        <a href="/track-record/">Track Record</a>
-        <a href="/strategy-decay/">Strategy Decay</a>
-        <a href="/how-it-works.html" aria-current="page">Rules</a>
+        <a href="/track-record/">Track record</a>
+        <a href="/strategy-decay/">Strategy decay</a>
+        <a href="/how-it-works.html">How it works</a>
         <a href="/about.html">About</a>
-        <a class="btn btn--primary btn--small" href="/today/">Launch Terminal</a>
       </nav>
-      <button class="hamburger" id="hamburgerBtn" aria-label="Toggle menu">☰</button>
     </div>
   </header>
 
-  <script>
-    // Hamburger menu toggle
-    const hamburger = document.getElementById('hamburgerBtn');
-    const nav = document.getElementById('mainNav');
-    
-    hamburger.addEventListener('click', () => {
-      nav.classList.toggle('active');
-      hamburger.textContent = nav.classList.contains('active') ? '✕' : '☰';
-    });
-    
-    // Close menu when clicking outside
-    document.addEventListener('click', (e) => {
-      if (!e.target.closest('.topbar')) {
-        nav.classList.remove('active');
-        hamburger.textContent = '☰';
-      }
-    });
-    
-    // Close menu when link clicked
-    nav.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => {
-        nav.classList.remove('active');
-        hamburger.textContent = '☰';
-      });
-    });
-  </script>
-
   <main class="container pagePad">
-    <header class="page-header">
-      <h1>The Methodology</h1>
-      <p class="lead">Our process moves from raw end-of-day market data to a disciplined, rule-based trade plan using institutional risk management.</p>
-    </header>
+    <div id="itl-health"></div>
+    <div class="prose">
+      <div class="page-head"><div><h1>How it works</h1>
+        <p>Everything the system does, in plain words. The browser only displays published data and does the position-size arithmetic; all trading logic runs in the nightly pipeline.</p></div></div>
 
-    <section class="method-card">
-      <h2>01. Risk Sizing Model</h2>
-      <p style="color: var(--text-muted); line-height: 1.8; margin-bottom: 16px;">
-        Position sizing is the most critical component of the system. We do not use arbitrary share counts. Instead, size is derived mathematically based on the "Risk-to-Stop" distance.
-      </p>
-
-      <div class="formula-container">
-        <div class="math-label">Institutional Calculation</div>
-        <div class="formula-text">
-          Shares = (Portfolio Equity × Risk %) ÷ (Entry - Stop)
-        </div>
-      </div>
-      
-      <div class="example-box">
-        <strong>Example:</strong> On a $100k portfolio risking 1% ($1,000), if the distance between your entry and stop is $0.50, the system mandates a size of 2,000 shares.
-      </div>
-    </section>
-
-    <h2 style="margin-bottom: 36px; font-size: 2rem; font-weight: 800; letter-spacing: -0.5px;">02. Setup Archetypes</h2>
-    <div class="grid3">
-      <div class="setup-card">
-        <span class="setup-number">TYPE_01</span>
-        <h3>Trend Pullback</h3>
-        <p class="small muted" style="line-height: 1.7;">
-          Identifying institutional "buy zones" within established uptrends. We look for price to mean-revert to key moving averages before resuming the primary trend.
-        </p>
-      </div>
-      
-      <div class="setup-card">
-        <span class="setup-number">TYPE_02</span>
-        <h3>Momentum Breakout</h3>
-        <p class="small muted" style="line-height: 1.7;">
-          Scanning for high-volume expansions above defined resistance levels. These setups utilize <strong style="color: var(--accent);">Stop-Limit</strong> orders to ensure we only enter on confirmed strength.
-        </p>
-      </div>
-
-      <div class="setup-card">
-        <span class="setup-number">TYPE_03</span>
-        <h3>Mean Reversion</h3>
-        <p class="small muted" style="line-height: 1.7;">
-          Spotting extreme oversold conditions within long-term bullish structures. This targets "rubber band" effects where price has stretched too far from its value area.
-        </p>
-      </div>
-    </div>
-
-    <h2 style="margin: 48px 0 12px; font-size: 1.4rem; font-weight: 800; letter-spacing: -0.3px; color: var(--text-muted);">
-      Added in a later pass — live, but no track record yet
-    </h2>
-    <p class="small muted" style="margin-bottom: 24px; max-width: 760px; line-height: 1.7;">
-      These four were wired into the daily scan more recently and can already appear in today's list. They start with
-      zero historical signals, so <a href="/strategy-decay/">Strategy Decay</a> currently reports "insufficient data"
-      for all of them — that's expected, not a bug, and it means they haven't been shown to work yet either.
-    </p>
-    <div class="grid3">
-      <div class="setup-card">
-        <span class="setup-number">TYPE_04</span>
-        <h3>Post-Earnings Drift</h3>
-        <p class="small muted" style="line-height: 1.7;">
-          Betting that a stock keeps drifting in the direction of its last earnings surprise for a short window afterward, instead of the market having already fully priced it in.
-        </p>
-      </div>
-
-      <div class="setup-card">
-        <span class="setup-number">TYPE_05</span>
-        <h3>52-Week-High Momentum</h3>
-        <p class="small muted" style="line-height: 1.7;">
-          Scanning for stocks pushing to new 52-week highs on the theory that strength near a long-term high tends to keep attracting buyers rather than reversing.
-        </p>
-      </div>
-
-      <div class="setup-card">
-        <span class="setup-number">TYPE_06</span>
-        <h3>Gap Fade / Continuation</h3>
-        <p class="small muted" style="line-height: 1.7;">
-          Reacts to an overnight price gap two ways depending on context: fading a gap down (betting it reverts) or riding a gap up (betting it continues).
-        </p>
-      </div>
-    </div>
-
-    <section class="regime-card" style="margin-top: 32px; border-left-color: var(--danger);">
-      <h2 style="margin-top: 0; font-size: 1.4rem; font-weight: 800; letter-spacing: -0.3px;">Does any of this actually have edge?</h2>
-      <p style="color: var(--text-muted); line-height: 1.8; margin-bottom: 0;">
-        We run a separate statistical audit on every archetype above — isolated, no composite blending, checked against
-        a random-entry baseline under the same risk and regime rules — specifically to answer that honestly, including
-        when the answer is no. As of the most recent run: <strong style="color:#fff;">Trend Pullback and Mean Reversion
-        (our two archetypes with real trade history) show no edge distinguishable from noise</strong> at any tested
-        holding period. The other four are too new to test either way. Read the methodology and full results on
-        <a href="/strategy-decay/" style="color: var(--accent); font-weight: 700;">Strategy Decay →</a>
-      </p>
-    </section>
-
-    <section class="regime-card">
-      <h2 style="margin-top: 0; font-size: 1.8rem; font-weight: 800; letter-spacing: -0.5px;">03. Market Regime Gating</h2>
-      <p style="color: var(--text-muted); line-height: 1.8; margin-bottom: 24px;">
-        Strategy execution is binary based on the <strong style="color: #fff;">Market Regime</strong>. We utilize a proprietary filter (Risk-On / Risk-Off) to determine participation:
-      </p>
-      <ul class="regime-list">
-        <li><strong style="color: var(--success);">Risk-On:</strong> All strategies active. Full exposure allowed.</li>
-        <li><strong style="color: var(--danger);">Risk-Off:</strong> Momentum and Breakout setups are gated. Only high-conviction pullbacks or cash positions are recommended.</li>
+      <h2>1. Schedule (Sydney time, ASX trading days only)</h2>
+      <ul>
+        <li><b>~19:00 &mdash; night scan.</b> After the close, daily bars for the universe are downloaded and checked for freshness and coverage. If coverage is below 90% or the index bar is stale, recommendations are withheld (the Today page says so). Otherwise it publishes up to two recommended orders <i>valid for the next trading day</i>, plus setups and the full watchlist.</li>
+        <li><b>~10:20, ~12:30, ~15:00 &mdash; live checks.</b> The picks valid for today are re-checked against 15-minute bars: fill status, trailing level and a verdict. You can also trigger a check from the <a href="/live/">Live check</a> page.</li>
+        <li><b>During the session &mdash; intraday scanner.</b> Separate, shorter-horizon signals on 15m / 30m / 1h bars (<a href="/intraday/">Intraday</a>), runnable on demand.</li>
+        <li><b>After the night scan &mdash; metrics.</b> The <a href="/track-record/">track record</a> replays every recommended order ever published.</li>
       </ul>
-    </section>
+      <p>Each data file carries a <i>fresh until</i> time. When it passes without a new run, every page shows a STALE banner; a health banner appears when any job is late or failing. Times are displayed in Brisbane time (AEST, no daylight saving); during daylight saving Sydney is one hour ahead.</p>
+
+      <h2>2. Strategies</h2>
+      <div class="grid2">
+        <div class="tile"><h3>Trend pullback</h3><p>Buys a dip toward short-term moving averages inside an established uptrend.</p></div>
+        <div class="tile"><h3>Momentum breakout</h3><p>Buys strength through a recent high on volume, using STOP or STOP-LIMIT orders so it only enters if the breakout happens.</p></div>
+        <div class="tile"><h3>Mean reversion</h3><p>Buys short-term oversold conditions (RSI(2), Bollinger band) expecting a snap-back, not a new trend.</p></div>
+        <div class="tile"><h3>Post-earnings drift</h3><p>Follows the direction of the last earnings surprise for a short window.</p></div>
+        <div class="tile"><h3>52-week-high momentum</h3><p>Buys stocks pushing to new 52-week highs.</p></div>
+        <div class="tile"><h3>Gap fade / continuation</h3><p>Fades an overnight gap down or rides a gap up, depending on context.</p></div>
+        <div class="tile"><h3>Baseline (random entry)</h3><p>Not a live strategy: a random-entry control used only in the <a href="/strategy-decay/">Strategy decay</a> audit to show what luck alone looks like under the same rules.</p></div>
+      </div>
+      <p>Whether any of these has real edge is tested separately on <a href="/strategy-decay/">Strategy decay</a>. At the last run, trend pullback and mean reversion showed no edge distinguishable from noise, and the newer strategies had too few trades to judge.</p>
+
+      <h2>3. Market regime gate</h2>
+      <p>The regime compares the ASX200 index with its 50- and 200-day moving averages.</p>
+      <ul>
+        <li><b>Risk-on:</b> all strategies may produce recommendations.</li>
+        <li><b>Risk-off:</b> trend, momentum and breakout style strategies are gated off. Mean reversion is still allowed, so risk-off nights can still have picks (often all mean reversion).</li>
+      </ul>
+
+      <h2>4. Orders</h2>
+      <ul>
+        <li><b>LIMIT</b>: buy only at or below the limit price.</li>
+        <li><b>STOP</b>: buy once price trades up through the trigger.</li>
+        <li><b>STOP-LIMIT</b>: like STOP, but never pay more than the limit; if the stock gaps above the limit the order is not filled.</li>
+        <li><b>Market on open</b>: buy at the opening price.</li>
+      </ul>
+      <p><b>Entry ref</b> is the worst-case fill price (the limit for STOP-LIMIT) and is what sizing uses. Prices are shown to the ASX tick: 3 decimals under A$2.00, 2 decimals otherwise. At most two orders are recommended per night and never two for the same stock.</p>
+
+      <h2>5. Position sizing</h2>
+      <div class="formula">risk budget = portfolio &times; risk %
+risk qty    = floor( risk budget / |entry ref &minus; stop| )
+position cap= floor( portfolio &times; max position % / entry ref )
+cash cap    = floor( portfolio / entry ref )
+qty         = min( risk qty, position cap, cash cap )
+actual risk = qty &times; |entry ref &minus; stop|</div>
+      <p>Example: A$100,000 portfolio, 1% risk (A$1,000), entry 10.00, stop 9.80. Risk qty = 1,000 / 0.20 = 5,000 shares (A$50,000). With max position 25% the cap is 2,500 shares (A$25,000), so the order is <b>2,500 (cap)</b> and the actual risk is A$500, half the budget. The Today page shows <i>(cap)</i> and the actual A$ risk whenever a cap binds. Rows without an entry price are not sized.</p>
+
+      <h2>6. Exits</h2>
+      <p>Every trade starts with the strategy&rsquo;s <b>initial stop</b>. If the stock opens below the stop, the exit is at the open (gap-through), not at the stop price.</p>
+      <p>After entry, the position is managed by an <b>exit policy</b>, shown on each pick in words, for example &ldquo;Trail 2% below highest price since entry, max 20 days&rdquo;. Policies compared in the track record:</p>
+      <ul>
+        <li><b>Fixed 5 days</b> (the old rule): exit at the close of day 5.</li>
+        <li><b>Percentage trail</b> (1%, 2%, 3%): exit when price falls that far below the highest price since entry.</li>
+        <li><b>ATR trail</b> (1&times; or 2&times; ATR): the same, with the distance set by recent volatility.</li>
+        <li><b>Trail after +1R</b>: keep the initial stop until the trade is up one risk unit, then trail.</li>
+        <li>All trailing policies also have a <b>time stop</b> (20 trading days).</li>
+      </ul>
+      <p>The default policy is chosen from the simulation evidence, which uses hourly bars where available, and is marked on the <a href="/track-record/">track record</a>. Targets (TP1 / TP2) are reference levels from ATR, not automatic exits.</p>
+
+      <h2>7. Signals and context</h2>
+      <p>Each row shows a TA score, a composite score, sentiment (news, insider trades, search trends) and the next earnings date. A sentiment component that <i>failed</i> or had <i>no data</i> is shown as such and is left out of the score; it is never treated as neutral. Stocks too close to earnings are suppressed from recommendations; an unknown earnings date is flagged.</p>
+    </div>
+
+    <footer class="site-foot">Not financial advice. Trading involves risk of loss.</footer>
   </main>
 
-  <footer style="border-top: 1px solid var(--border); text-align: center; padding: 80px 0;">
-    <div class="container">
-      <p class="small muted">© iTradeLite. Educational output only — not financial advice.</p>
-    </div>
-  </footer>
+  <script src="/assets/itl.js"></script>
+  <script>ITL.bootCommon();</script>
 </body>
 </html>
