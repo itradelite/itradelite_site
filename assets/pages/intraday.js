@@ -123,6 +123,11 @@
     const info = ITL.schemaInfo(data, "intraday");
     if (!info.ok) out.push(ITL.outdatedBanner("intraday.json", info));
     out.push(ITL.staleBanner(data, now, "intraday.json"));
+    if (data && data.degraded === true) {
+      const cov = data.coverage && typeof data.coverage === "object" ? data.coverage.coverage_pct : data.coverage_pct;
+      out.push(ITL.banner("stale", "Degraded scan: price data missing for part of the universe",
+        "Only " + (cov != null ? cov + "%" : "part") + " of symbols downloaded on this run, so some signals may be missing. The next scheduled run will retry.", "DEGRADED"));
+    }
     const ss = sessionState(data, now);
     if (ss.closed) {
       const sess = lastSessionDate(data);

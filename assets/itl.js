@@ -181,6 +181,7 @@
     if (!(portfolio > 0) || !(riskPct > 0) || !(maxPosPct > 0)) return { ok: false, reason: "bad_inputs", message: "Check Portfolio / Risk % / Max position % inputs." };
     const rps = Math.abs(entry - stop);
     if (!(rps > 0)) return { ok: false, reason: "zero_risk", message: "Entry equals stop: risk per share is zero." };
+    if (!(entry > stop)) return { ok: false, reason: "stop_not_below_entry", message: "Stop is above the entry: not a valid long setup, no size." };
     const EPS = 1e-9;
     const riskBudget = portfolio * riskPct / 100;
     const riskQty = Math.floor(riskBudget / rps + EPS);
@@ -375,7 +376,10 @@
   function picksStale(live, now) {
     const today = sydneyDate(now || new Date());
     const vf = live && live.picks_valid_for ? String(live.picks_valid_for) : null;
-    return { stale: !vf || vf !== today, validFor: vf, today };
+    // Picks for a FUTURE session (e.g. an evening check after tonight's scan)
+    // are not stale: they are upcoming and simply cannot be live-checked yet.
+    const upcoming = !!vf && vf > today;
+    return { stale: !vf || (vf !== today && !upcoming), upcoming, validFor: vf, today };
   }
 
   /** Stale jobs from status.json. */
@@ -385,7 +389,10 @@
     const jobs = status.jobs && typeof status.jobs === "object" ? status.jobs : {};
     for (const name of Object.keys(jobs)) {
       const j = jobs[name] || {};
-      const failed = j.last_status && !/^(ok|success|succeeded|skipped)$/i.test(String(j.last_status));
+      // routine, harmless outcomes (button outside session, index bar not
+      // updated yet -> retry, older data refused) are not failures; real
+      // staleness is still caught by j.stale
+      const failed = j.last_status && !/^(ok|success|succeeded|skipped|not_in_session|stale_data|refused_older)$/i.test(String(j.last_status));
       if (j.stale === true || failed) {
         out.push({ job: name, stale: j.stale === true, failed: !!failed, last_success_utc: j.last_success_utc || null,
           last_attempt_utc: j.last_attempt_utc || null, last_status: j.last_status || null, expected_every: j.expected_every || null });

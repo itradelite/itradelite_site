@@ -132,17 +132,20 @@
     out.push(ITL.staleBanner(data, now, "live.json"));
     if (!data._legacy) {
       const ps = ITL.picksStale(data, now);
-      if (ps.stale) {
+      if (ps.upcoming) {
+        out.push(ITL.banner("info", "Picks for " + fmtDate(ps.validFor) + " — market not open yet for that session",
+          "Tonight's picks are listed below. Live verdicts start after the 10:00 Sydney open; scheduled checks run at ~10:20, ~12:30 and ~15:00 Sydney. Today's earlier checks are archived.", "UPCOMING"));
+      } else if (ps.stale) {
         const tv = todayData && todayData.valid_for === ps.today && Array.isArray(todayData.recommended_orders) ? todayData.recommended_orders : null;
         out.push(ITL.banner("stale", "STALE PICKS: this check is for " + (ps.validFor ? fmtDate(ps.validFor) : "an unknown session"),
           html`Today in Sydney is ${fmtDate(ps.today)}. Nothing below applies to today's session.${tv ? html` Tonight's scan has ${tv.length} pick(s) valid today (${tv.map(r => r.symbol).join(", ") || "none"}); they have not been live-checked yet — see <a href="/today/">Today</a>.` : ""}`, "STALE PICKS"));
       }
     }
     const ph = ITL.marketPhase(data.market_state);
-    if (ph.preOpen) {
+    if (ph.preOpen && !(ITL.picksStale(data, now).upcoming)) {
       out.push(ITL.banner("info", "Market not open yet",
         "This check ran before the 10:00 Sydney open, so there are no live prices. Orders can be placed for the open; scheduled checks run at ~10:20, ~12:30 and ~15:00 Sydney.", "PRE-OPEN"));
-    } else if (ph.key && !ph.open && !ITL.picksStale(data, now).stale) {
+    } else if (ph.key && !ph.open && !ITL.picksStale(data, now).stale && !ITL.picksStale(data, now).upcoming) {
       out.push(ITL.banner("info", "Market phase at check time: " + ph.label, "Prices below are the last available for the session.", ph.label.toUpperCase()));
     }
     return out;

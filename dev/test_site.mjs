@@ -176,6 +176,12 @@ section("staleness, picks session, schema, health");
   eq(ITL.picksStale({ picks_valid_for: "2026-11-24" }, new Date("2026-11-23T23:30:00Z")).stale, false, "picks for today (Sydney)");
   eq(ITL.picksStale({ picks_valid_for: "2026-11-24" }, new Date("2026-11-24T13:30:00Z")).stale, true, "picks for yesterday (Sydney midnight passed)");
   eq(ITL.picksStale({}, new Date()).stale, true, "missing picks_valid_for is stale");
+  { const ps = ITL.picksStale({ picks_valid_for: "2026-11-24" }, new Date("2026-11-23T12:30:00Z"));
+    eq([ps.stale, ps.upcoming], [false, true], "evening check with tomorrow's picks => upcoming, not stale"); }
+  { const z = ITL.computeSize({ entry: 10, stop: 10.5, portfolio: 100000, riskPct: 1, maxPosPct: 25 });
+    eq([z.ok, z.reason], [false, "stop_not_below_entry"], "stop above entry => no size"); }
+  eq(ITL.healthIssues({ jobs: { live_check: { last_status: "not_in_session" }, night_scan: { last_status: "stale_data" }, metrics: { last_status: "refused_older" } } }, new Date()), [], "routine statuses are not health failures");
+  eq(ITL.healthIssues({ jobs: { night_scan: { last_status: "failure" } } }, new Date()).length, 1, "real failure still flagged");
   eq(ITL.schemaInfo({ schema: "itl.today.v2" }, "today").ok, true, "v2 schema");
   eq(ITL.schemaInfo({ schema: "itl.today.v3" }, "today").ok, true, "newer schema accepted");
   eq(ITL.schemaInfo({}, "today").ok, false, "v1 (no schema) flagged");
