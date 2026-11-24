@@ -1,7 +1,9 @@
 // Unit tests for the site's shared module and page logic (no browser needed).
 //   node dev/test_site.mjs
 // Loads assets/itl.js and assets/pages/*.js as CommonJS (they are UMD) and
-// renders against dev/fixtures/*.json and the current public/ (v1) files.
+// renders against dev/fixtures/*.json, frozen v1 samples (dev/fixtures/v1/,
+// taken from git history before production switched to v2) and the current
+// public/ files.
 import { createRequire } from "node:module";
 import { readFileSync } from "node:fs";
 import { fileURLToPath } from "node:url";
@@ -261,7 +263,7 @@ section("today page logic");
   ok(/id="watchDetails" open/.test(S(TODAY.renderSections(td, nd, TODAY.normalizePrefs({ view: "watch" }), ctx0))), "watchlist view forces it open");
   ok(/class="order"/.test(closed) && /Exit plan:<\/b> Initial stop/.test(closed), "recommended cards stay fully expanded");
   const now = new Date("2026-11-24T00:00:00Z");
-  for (const [name, data] of [["v2", td], ["edge", J("dev/fixtures/edge/today.json")], ["v1", J("public/today.json")], ["empty", {}]]) {
+  for (const [name, data] of [["v2", td], ["edge", J("dev/fixtures/edge/today.json")], ["v1", J("dev/fixtures/v1/today.json")], ["empty", {}]]) {
     let err = null, html = "";
     try {
       const n2 = TODAY.normalizeData(data);
@@ -317,7 +319,7 @@ section("intraday interval filter and session state");
   eq(INTRA.sessionState(pre).closed, true, "session_closed");
   eq(INTRA.lastSessionDate(pre), "2026-11-23", "closed session labelled with the session the bars came from");
   ok(/Session closed/.test(INTRA.renderBanners(pre, new Date("2026-11-23T22:45:00Z")).map(S).join("")), "session closed banner");
-  const v1 = J("public/intraday.json");
+  const v1 = J("dev/fixtures/v1/intraday.json");
   const vb = INTRA.renderBanners(v1, new Date()).map(S).join("") + S(INTRA.renderTable(v1.signals, { names: {}, total: v1.signals.length, interval: "all" }));
   ok(/Data format outdated/.test(vb) && !/NaN|undefined/.test(vb), "v1 intraday renders with notice");
 }
@@ -352,7 +354,7 @@ section("track record chart + tables");
   let err = null, html = "";
   try { html = [TRACK.policyTable(edge), TRACK.strategyTable(edge, {}), TRACK.tradesTable(edge, {}), TRACK.notesBlock(edge), TRACK.universeBlock(edge), TRACK.kpis(edge)].map(S).join(""); } catch (e) { err = e; }
   ok(!err && !/NaN|undefined/.test(html), "edge metrics render " + (err ? err.stack : ""));
-  const lv = S(TRACK.legacyView(J("track-record/metrics.json")));
+  const lv = S(TRACK.legacyView(J("dev/fixtures/v1/metrics.json")));
   ok(/Legacy proxy/.test(lv) && !/NaN|undefined/.test(lv), "v1 metrics legacy view");
   eq(Math.round(TRACK.maxDrawdown(pts([["2026-01-01", 100], ["2026-01-02", 120], ["2026-01-03", 90]])) * 100), -25, "max drawdown");
 }
@@ -363,8 +365,8 @@ section("home + decay");
   const pe = J("dev/fixtures/pending_exits.json");
   ok(/need action/.test(S(HOME.pendingExitsBanner(pe, new Date("2026-11-24T00:00:00Z")))), "pending exits banner");
   ok(/old/.test(S(HOME.pendingExitsBanner(J("dev/fixtures/edge/pending_exits.json"), new Date("2026-11-24T00:00:00Z")))), "old pending exits labelled old");
-  eq(S(HOME.pendingExitsBanner(J("public/pending_exits.json"), new Date())), "", "empty pending exits => no banner");
-  eq(HOME.statsTiles(J("track-record/metrics.json")), null, "home shows no stats from v1 metrics (no invented numbers)");
+  eq(S(HOME.pendingExitsBanner({ schema: "itl.pending_exits.v2", pending_exits: [], recent_auto_closes: [] }, new Date())), "", "empty pending exits => no banner");
+  eq(HOME.statsTiles(J("dev/fixtures/v1/metrics.json")), null, "home shows no stats from v1 metrics (no invented numbers)");
   eq(HOME.statsTiles(J("dev/fixtures/metrics.json")).tiles[0].v, "149", "home stats from v2 metrics");
   const an = J("public/strategy_decay_analysis.json");
   let err = null;
