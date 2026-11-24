@@ -297,6 +297,33 @@
   }
 
   // ── Sections ────────────────────────────────────────────────────────────
+  // ── Fundamentals: current score + fund_v2 (contract v2.2, evaluation only) ──
+  const FUND_V2_PILLARS = ["valuation", "cash", "quality", "balance", "growth"];
+  const FUND_V2_TIP = "v2 is being evaluated; it does not affect rankings yet";
+
+  /** Rows from engines before v2.2 have no fund_v2 keys at all: keep the old line. */
+  function hasFundV2(row) {
+    return !!row && (Object.prototype.hasOwnProperty.call(row, "fund_v2") || (row.fund_v2_pillars && typeof row.fund_v2_pillars === "object"));
+  }
+
+  /** "v2: 62 — valuation 71, cash 58, quality 66, balance 40, growth —" (null pillar = —). */
+  function fundV2Text(row) {
+    const p = row && row.fund_v2_pillars && typeof row.fund_v2_pillars === "object" ? row.fund_v2_pillars : {};
+    const parts = FUND_V2_PILLARS.map(k => k + " " + fmtNum(p[k], 0));
+    return "v2: " + fmtNum(row && row.fund_v2, 0) + " \u2014 " + parts.join(", ");
+  }
+
+  /** Fundamentals line for order cards and row details. Without v2 fields
+   *  it is exactly the pre-v2.2 line ("Fundamentals 45/100: label"). */
+  function fundamentalsHtml(row) {
+    if (!row) return "";
+    if (!hasFundV2(row)) {
+      return row.fund_label ? html`Fundamentals ${fmtNum(row.fund_score, 0)}/100: ${row.fund_label}` : "";
+    }
+    const v2Label = row.fund_v2_label ? html`<br><span class="dim">v2 ${row.fund_v2_label}</span>` : "";
+    return html`Fundamentals: ${fmtNum(row.fund_score, 0)} (current) \u00b7 <span class="fund-v2" title="${FUND_V2_TIP}">${fundV2Text(row)}</span><span class="sr-only"> (${FUND_V2_TIP})</span>${row.fund_label ? html`<br><span class="dim">current: ${row.fund_label}</span>` : ""}${v2Label}`;
+  }
+
   function rowChips(row, ctx) {
     return [ITL.edgeBadge(row.strategy, ctx.edges)].concat(sentimentChips(row), [earningsChip(row.earnings)], gateChips(row), alsoFiredChips(row));
   }
@@ -326,7 +353,7 @@
       ${ITL.exitPlansHtml(row, { defaultId: ctx.defaultPolicy })}
       <div class="chips">${rowChips(row, ctx)}</div>
       ${row.plain_english ? html`<div class="order__note">${row.plain_english}</div>` : ""}
-      ${row.fund_label ? html`<div class="small" style="margin-top:6px;">Fundamentals ${fmtNum(row.fund_score, 0)}/100: ${row.fund_label}</div>` : ""}
+      ${(row.fund_label || hasFundV2(row)) ? html`<div class="small fund-line" style="margin-top:6px;">${fundamentalsHtml(row)}</div>` : ""}
     </article>`;
   }
 
@@ -378,7 +405,7 @@
           <div class="small" style="margin-top:5px;"><b>Entry ref</b> ${fmtPrice(r.entry_ref, r)} \u00b7 <b>TP1 / TP2</b> ${fmtPrice(r.tp1, r)} / ${fmtPrice(r.tp2, r)} \u00b7 <b>Last close</b> ${fmtPrice(r.last_close, r)}</div>
           ${ITL.exitPlansHtml(r, { defaultId: ctx.defaultPolicy })}
           ${r.plain_english ? html`<p class="small" style="margin:6px 0 0;">${r.plain_english}</p>` : ""}
-          ${r.fund_label ? html`<p class="small" style="margin:4px 0 0;">Fundamentals ${fmtNum(r.fund_score, 0)}/100: ${r.fund_label}</p>` : ""}
+          ${(r.fund_label || hasFundV2(r)) ? html`<p class="small fund-line" style="margin:4px 0 0;">${fundamentalsHtml(r)}</p>` : ""}
         </td></tr>`;
     });
     return html`<div class="tableWrap"><table class="stack compact">
@@ -550,7 +577,7 @@
   return {
     DATA_PATH, PREFS_KEY, DEFAULT_PREFS, RISK_OPTIONS,
     normalizePrefs, strategyOptions, parseEntryText, normalizeRow, normalizeData, v1Sentiment, defaultPolicyId,
-    sizeSummary, orderCard,
+    sizeSummary, orderCard, FUND_V2_PILLARS, FUND_V2_TIP, hasFundV2, fundV2Text, fundamentalsHtml,
     orderTypeLabel, exitPlanText, sentimentChips, earningsChip, sizeFor, applyFilters,
     renderBanners, renderMeta, renderOrders, renderTable, tableCard, watchCard, renderSections, boot,
   };

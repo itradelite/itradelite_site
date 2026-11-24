@@ -472,3 +472,6 @@ details.card--fold:not([open]) > summary { border-bottom: none; }
 .hero-stat__v.neg { color: var(--accent-red); }
 @media (max-width: 700px) { .hero-stats { grid-template-columns: 1fr; } .hero-stat__v { font-size: 30px; } }
 @media (max-width: 600px) { .banner { flex-direction: column; gap: 6px; } }
+
+/* fund_v2 (contract v2.2): evaluation-only second fundamentals score */
+.fund-v2 { text-decoration: underline dotted; text-underline-offset: 2px; cursor: help; }

@@ -688,6 +688,49 @@ section("v2.1 track record: fixed stake headline, matrix selection, n=0 stream")
   ok(!/NaN|undefined|\[object Object\]/.test(pm) && /not published/.test(pm), "partial stake block renders dashes");
 }
 
+section("v2.2 fund_v2 next to the current fundamentals score (evaluation only)");
+{
+  const full = { symbol: "STO.AX", fund_score: 45, fund_label: "ROE=4.7% NM=14.7%", fund_v2: 62.4,
+    fund_v2_pillars: { valuation: 71.2, cash: 58, quality: 66.4, balance: 40, growth: null },
+    fund_v2_label: "vs Energy: cheap (growth n/a)", fund_v2_coverage: 0.8, sector: "Energy" };
+  const h = S(TODAY.fundamentalsHtml(full));
+  ok(h.includes("Fundamentals: 45 (current) \u00b7 ") && h.includes("v2: 62 \u2014 valuation 71, cash 58, quality 66, balance 40, growth \u2014"),
+    "current + v2 + pillars, null pillar shown as a dash");
+  ok(h.includes('title="v2 is being evaluated; it does not affect rankings yet"') && /sr-only/.test(h), "tooltip (and screen-reader text) says v2 does not rank");
+  ok(h.includes("current: ROE=4.7% NM=14.7%") && h.includes("v2 vs Energy: cheap (growth n/a)"), "both labels shown");
+  eq(TODAY.fundV2Text({ fund_v2: null, fund_v2_pillars: { valuation: null, cash: null, quality: null, balance: null, growth: null } }),
+    "v2: \u2014 \u2014 valuation \u2014, cash \u2014, quality \u2014, balance \u2014, growth \u2014", "all-null pillars / null fund_v2");
+  const etf = S(TODAY.fundamentalsHtml({ fund_score: 26, fund_label: "ETF | BS=6/20 Mkt=0/20", fund_v2: null,
+    fund_v2_pillars: null, fund_v2_label: "not applicable (ETF/fund)", fund_v2_coverage: 0 }));
+  ok(etf.includes("v2: \u2014 \u2014 valuation \u2014") && etf.includes("not applicable (ETF/fund)"), "ETF: v2 n/a, missing pillars object tolerated");
+  const noV1 = S(TODAY.fundamentalsHtml({ fund_score: null, fund_label: null, fund_v2: 50, fund_v2_pillars: { valuation: 50 } }));
+  ok(noV1.includes("Fundamentals: \u2014 (current)") && noV1.includes("valuation 50, cash \u2014") && !noV1.includes("current:"), "no current score: dash; absent pillar keys = dash");
+  eq(S(TODAY.fundamentalsHtml({ fund_score: 45, fund_label: "ROE=1%" })), "Fundamentals 45/100: ROE=1%", "pre-v2.2 row: unchanged old line");
+  eq(S(TODAY.fundamentalsHtml({ fund_score: null })), "", "no fundamentals at all: nothing");
+  ok(!TODAY.hasFundV2({ fund_score: 1 }) && TODAY.hasFundV2({ fund_v2: null }), "hasFundV2 keys off the field, not its value");
+  const xss = S(TODAY.fundamentalsHtml({ fund_score: 1, fund_v2: 2, fund_v2_label: "<img src=x onerror=1>", fund_v2_pillars: {} }));
+  ok(!xss.includes("<img") && xss.includes("&lt;img"), "fund_v2_label escaped");
+  // through the Today order cards / detail rows and the Pre-close page
+  const addV2 = (r, i) => Object.assign({}, r, { fund_v2: 40 + i, fund_v2_pillars: { valuation: 70, cash: null, quality: 60, balance: 50, growth: i % 2 ? null : 30 },
+    fund_v2_label: "vs peers: cheap", fund_v2_coverage: 0.8, sector: "Energy" });
+  const td = J("dev/fixtures/today.json");
+  const td2 = Object.assign({}, td, { recommended_orders: (td.recommended_orders || []).map(addV2), setups: (td.setups || []).map(addV2), watchlist_full: (td.watchlist_full || []).map(addV2) });
+  const nd2 = TODAY.normalizeData(td2);
+  const keyOpen = "Setups|" + nd2.setups[0].symbol + "|" + nd2.setups[0].strategy;
+  const page = S(TODAY.renderSections(td2, nd2, TODAY.normalizePrefs({}), { names: {}, edges: {}, now: new Date("2026-11-24T00:00:00Z"), validFor: td2.valid_for, open: new Set([keyOpen]) }));
+  ok((page.match(/class="order"[\s\S]*?fund-line/g) || []).length >= 2 && /\(current\) \u00b7 <span class="fund-v2"/.test(page), "Today order cards show current + v2");
+  ok((page.match(/<p class="small fund-line"/g) || []).length >= nd2.setups.length, "Today setup detail rows show current + v2");
+  ok(!/NaN|undefined|\[object Object\]/.test(page), "Today with fund_v2: no NaN/undefined");
+  const old = S(TODAY.renderSections(td, TODAY.normalizeData(td), TODAY.normalizePrefs({}), { names: {}, edges: {}, now: new Date("2026-11-24T00:00:00Z"), validFor: td.valid_for }));
+  ok(!/fund-v2/.test(old), "Today without fund_v2 (pre-v2.2 file): no v2 text");
+  const pc = J("dev/fixtures/preclose.json");
+  const pc2 = Object.assign({}, pc, { recommended_orders: (pc.recommended_orders || []).map(addV2), setups: (pc.setups || []).map(addV2) });
+  const pnd = PRE.normalize(pc2);
+  const ppage = S(PRE.renderSections(pc2, pnd, TODAY.normalizePrefs({}), { names: {}, edges: {}, now: new Date("2026-11-24T04:30:00Z") }));
+  ok(/v2: 40 \u2014 valuation 70, cash \u2014, quality 60, balance 50, growth 30/.test(ppage) && ppage.includes("does not affect rankings yet"), "Pre-close cards show v2 with null pillars as dashes");
+  ok(!/NaN|undefined|\[object Object\]/.test(ppage), "Pre-close with fund_v2: no NaN/undefined");
+}
+
 section("current production files still render (no v2.1 fields yet)");
 {
   const now = new Date();
