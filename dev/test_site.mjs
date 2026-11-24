@@ -261,7 +261,7 @@ section("today page logic");
   eq((one.match(/class="row-detail" hidden/g) || []).length, nd.setups.length - 1, "remembered open row stays expanded across re-render");
   ok(/id="watchDetails" open/.test(S(TODAY.renderSections(td, nd, TODAY.normalizePrefs({ watchOpen: true }), Object.assign({}, ctx0, { watchOpen: true })))), "watchlist open state honoured");
   ok(/id="watchDetails" open/.test(S(TODAY.renderSections(td, nd, TODAY.normalizePrefs({ view: "watch" }), ctx0))), "watchlist view forces it open");
-  ok(/class="order"/.test(closed) && /Exit plan:<\/b> Initial stop/.test(closed), "recommended cards stay fully expanded");
+  ok(/class="order"/.test(closed) && /<b>Exit plans<\/b>/.test(closed) && /Sell at close of day 5 \(by Mon 30 Nov\)/.test(closed), "recommended cards stay fully expanded (with all exit plans)");
   const now = new Date("2026-11-24T00:00:00Z");
   for (const [name, data] of [["v2", td], ["edge", J("dev/fixtures/edge/today.json")], ["v1", J("dev/fixtures/v1/today.json")], ["empty", {}]]) {
     let err = null, html = "";

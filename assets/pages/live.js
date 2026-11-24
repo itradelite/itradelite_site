@@ -75,6 +75,43 @@
     return html`<span class="${cls}">${FILL_LABELS[s] || s}</span>`;
   }
 
+  /** Per-policy trail levels / exit-by dates for a filled item (v2.1
+   *  items[].trails). Default policy first and marked; it drives the verdict. */
+  function trailsBlock(it, ctx) {
+    const tr = it && it.trails && typeof it.trails === "object" && !Array.isArray(it.trails) ? it.trails : null;
+    if (!tr) return html``;
+    const def = (ctx && ctx.defaultPolicy) || ITL.DEFAULT_POLICY;
+    const order = [];
+    const add = (id) => { if (id && order.indexOf(id) < 0 && tr[id] !== undefined) order.push(id); };
+    add(def);
+    ((ctx && ctx.tracked) || ITL.TRACKED_POLICIES).forEach(add);
+    Object.keys(tr).forEach(add);
+    if (!order.length) return html``;
+    const cells = order.map(id => {
+      const t = tr[id] && typeof tr[id] === "object" ? tr[id] : {};
+      const st = String(t.status || "").toUpperCase();
+      const badge = st === "HOLD" || st === "EXIT" ? html`<span class="badge badge--${st}">${st}</span>` : html`<span class="badge badge--NA">${t.status ? String(t.status) : "n/a"}</span>`;
+      const isTime = /^fixed_\d+d$/.test(id) || (ITL.parseYmd(t.exit_by_date) && num(t.trail_level) === null);
+      const lvl = isTime
+        ? html`sell at close ${ITL.parseYmd(t.exit_by_date) ? fmtDate(t.exit_by_date, { noYear: true }) : DASH}`
+        : html`trail ${fmtPrice(t.trail_level, it)}${num(t.peak_since_fill) !== null ? html` · peak ${fmtPrice(t.peak_since_fill, it)}` : ""}`;
+      return html`<div class="trail ${id === def ? "is-default" : ""}"><div class="trail__head"><span class="trail__name">${ITL.policyName(id)}${id === def ? html` <span class="chip chip--info xp-def">default</span>` : ""}</span>${badge}</div><div class="trail__lvl">${lvl}</div></div>`;
+    });
+    return html`<div class="small" style="margin-top:6px;"><b>Exit policies tracked</b> (the verdict follows the default; the others are tracked for comparison):</div><div class="trails">${cells}</div>`;
+  }
+
+  function peakCell(it, filled, ctx) {
+    if (!filled) return html`—`;
+    let sub;
+    if (num(it.trail_level) !== null) sub = html`trail ${fmtPrice(it.trail_level, it)}`;
+    else {
+      const def = (ctx && ctx.defaultPolicy) || ITL.DEFAULT_POLICY;
+      const t = it.trails && typeof it.trails === "object" && it.trails[def] && typeof it.trails[def] === "object" ? it.trails[def] : null;
+      sub = t && ITL.parseYmd(t.exit_by_date) ? html`exit ${fmtDate(t.exit_by_date, { noYear: true })}` : html`trail ${DASH}`;
+    }
+    return html`${fmtPrice(it.peak_since_fill, it)}<span class="lvl small">${sub}</span>`;
+  }
+
   function renderItems(items, ctx) {
     if (!items.length) {
       return html`<section class="card"><div class="empty-state"><div class="empty-state__title">No picks to check</div>
@@ -93,12 +130,13 @@
         <td data-label="Day O / H / L" class="mono right nowrap">${fmtPrice(it.day_open, it)} / ${fmtPrice(it.day_high, it)} / ${fmtPrice(it.day_low, it)}</td>
         <td data-label="Gap" class="mono right">${gapCell(it)}</td>
         <td data-label="Fill">${fillCell(it)}${num(it.fill_price_est) !== null ? html`<span class="lvl small mono">est. ${fmtPrice(it.fill_price_est, it)}</span>` : ""}</td>
-        <td data-label="Peak / trail" class="mono right">${filled ? html`${fmtPrice(it.peak_since_fill, it)}<span class="lvl small">trail ${fmtPrice(it.trail_level, it)}</span>` : "—"}</td>
-        <td data-label="Verdict">${verdictBadge(it)}</td>
+        <td data-label="Peak / trail" class="mono right">${peakCell(it, filled, ctx)}</td>
+        <td data-label="Verdict">${verdictBadge(it)}${it.trails && typeof it.trails === "object" ? html`<span class="lvl small" title="The verdict follows the default exit policy">per ${ITL.policyName((ctx && ctx.defaultPolicy) || ITL.DEFAULT_POLICY)}</span>` : ""}</td>
       </tr>
       <tr class="row-note"><td colspan="10" class="td-full">
         ${reasons.length ? html`<ul class="health-list">${reasons.map(r => html`<li>${r}</li>`)}</ul>` : html`<span class="dim">No reasons given.</span>`}
         ${valid === false ? html`<div class="small neg">Signal no longer valid on revalidation.</div>` : ""}
+        ${filled ? trailsBlock(it, ctx) : ""}
       </td></tr>`;
     });
     return html`<section class="card" aria-label="Live check">
@@ -162,9 +200,18 @@
       <span class="pill ${st.stale ? "pill--bad" : ""}">Fresh until <b>${st.staleAfter ? fmtDateTime(st.staleAfter) : DASH}</b></span>`;
   }
 
+  function liveCtx(d, names) {
+    const ep = d && d.exit_policy && typeof d.exit_policy === "object" ? d.exit_policy : null;
+    return {
+      names: names || {},
+      defaultPolicy: d && d.default_policy_id ? String(d.default_policy_id) : ep && (ep.id || ep.policy_id) ? String(ep.id || ep.policy_id) : ITL.DEFAULT_POLICY,
+      tracked: d && Array.isArray(d.tracked_policy_ids) && d.tracked_policy_ids.length ? d.tracked_policy_ids : ITL.TRACKED_POLICIES,
+    };
+  }
+
   function boot() {
     const $ = (id) => document.getElementById(id);
-    const state = { data: null, today: null, names: {} };
+    const state = { data: null, today: null, names: {}, preclose: null };
 
     function setStatus(text, s) { const el = $("refreshStatus"); el.textContent = text; el.setAttribute("data-state", s || "info"); }
 
@@ -173,20 +220,20 @@
       if (!d) return;
       const n = ITL.now();
       const items = Array.isArray(d.items) ? d.items.filter(x => x && typeof x === "object") : [];
-      ITL.setHtml($("banners"), html`${renderBanners(d, n, state.today)}`);
+      ITL.setHtml($("banners"), html`${ITL.precloseBanner(state.preclose, n)}${renderBanners(d, n, state.today)}`);
       ITL.setHtml($("meta"), renderMeta(d, n));
       const c = verdictCounts(items);
       ITL.setHtml($("kpis"), html`${["ENTER", "HOLD", "WAIT", "SKIP", "EXIT"].map(v => html`<div class="kpiBox"><div class="kpiLabel">${v}</div><div class="kpiValue">${String(c[v] || 0)}</div><div class="kpiSub">${VERDICT_HELP[v]}</div></div>`)}`);
       const stale = !d._legacy && (ITL.picksStale(d, n).stale || ITL.staleness(d, n).stale === true);
-      const table = d.skipped ? html`<section class="card"><div class="empty-state"><div class="empty-state__title">No check today</div>The market was closed.</div></section>` : renderItems(items, { names: state.names });
+      const table = d.skipped ? html`<section class="card"><div class="empty-state"><div class="empty-state__title">No check today</div>The market was closed.</div></section>` : renderItems(items, liveCtx(d, state.names));
       ITL.setHtml($("items"), stale ? html`<div class="dimmed">${table}</div>` : table);
     }
 
     async function load() {
       $("reloadBtn").disabled = true;
       try {
-        const [res, today, names] = await Promise.all([ITL.tryFetchJSON(DATA_PATH), ITL.tryFetchJSON("/public/today.json"), ITL.loadNames()]);
-        state.names = names; state.today = today.data;
+        const [res, today, names, pc] = await Promise.all([ITL.tryFetchJSON(DATA_PATH), ITL.tryFetchJSON("/public/today.json"), ITL.loadNames(), ITL.tryFetchJSON("/public/preclose.json")]);
+        state.names = names; state.today = today.data; state.preclose = pc.data;
         if (res.data) state.data = res.data;
         else if (res.error && res.error.kind === "missing") {
           const legacy = await ITL.fetchJSON(LEGACY_PATH);
@@ -219,5 +266,5 @@
     setInterval(render, 60000);
   }
 
-  return { DATA_PATH, adaptLegacy, verdictBadge, renderItems, renderBanners, renderMeta, verdictCounts, boot };
+  return { DATA_PATH, adaptLegacy, verdictBadge, renderItems, renderBanners, renderMeta, verdictCounts, trailsBlock, liveCtx, boot };
 });

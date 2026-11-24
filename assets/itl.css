@@ -392,3 +392,56 @@ details.card--fold:not([open]) > summary { border-bottom: none; }
   table.stack.compact td .company-name { margin-left: 0; }
   table.stack.compact td[data-label="Strategy"], table.stack.compact td[data-label="Sentiment"] { display: none; }
 }
+
+/* ── Exit plans (three tracked policies, default marked) ──────────────── */
+.xplans { font-size: 12.5px; margin-top: 10px; color: var(--text-body); }
+.xplans__head b { color: var(--text-main); }
+.xplans ul { list-style: none; margin: 4px 0 0; padding: 0; }
+.xplans li { margin: 2px 0; padding-left: 14px; position: relative; }
+.xplans li::before { content: "\25cb"; position: absolute; left: 0; top: 0; color: var(--text-dimmed); font-size: 10px; line-height: 1.9; }
+.xplans li.is-default::before { content: "\25cf"; color: var(--accent); }
+.xplans .xp-name { font-weight: 700; color: var(--text-main); margin-right: 4px; }
+.xplans .xp-def { margin-right: 4px; padding: 0 6px; font-size: 10px; vertical-align: 1px; }
+.xplans li:not(.is-default) .xp-rule { color: var(--text-muted); }
+
+/* Per-policy trails on the Live page */
+.trails { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 6px 12px; margin-top: 8px; }
+.trail { border: 1px solid var(--border); border-radius: 9px; padding: 6px 9px; font-size: 12px; background: rgba(255,255,255,0.02); }
+.trail.is-default { border-color: rgba(56,189,248,0.45); background: rgba(56,189,248,0.05); }
+.trail__head { display: flex; justify-content: space-between; align-items: center; gap: 6px; }
+.trail__name { font-weight: 700; color: var(--text-main); }
+.trail .badge { font-size: 10.5px; padding: 1px 7px; }
+.trail__lvl { font-family: var(--mono-font); color: var(--text-body); margin-top: 2px; }
+.badge--NA { color: var(--text-dimmed); }
+
+/* ── Pre-close page ───────────────────────────────────────────────────── */
+.deadline { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 22px; padding: 14px 18px; }
+.deadline__big { font: 700 26px var(--mono-font); color: var(--accent-violet); }
+.deadline__big.passed { color: var(--text-dimmed); }
+.deadline__big.urgent { color: var(--accent-gold); }
+.deadline__label { font-size: 11px; font-weight: 800; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.06em; }
+.deadline__val { font: 600 15px var(--sans-font); color: var(--text-main); }
+
+/* ── Track record: fixed-stake matrix ─────────────────────────────────── */
+.matrix { width: 100%; border-collapse: separate; border-spacing: 6px; }
+.matrix th { border: none; padding: 4px 6px; }
+.matrix td { border: none; padding: 0; }
+.matrix th.rowh { text-transform: none; letter-spacing: 0; font-size: 13px; color: var(--text-main); white-space: normal; min-width: 140px; }
+.matrix th.rowh .small { display: block; font-weight: 400; }
+.mcell { width: 100%; text-align: left; background: rgba(255,255,255,0.03); border: 1px solid var(--border); border-radius: 10px; padding: 9px 11px; color: var(--text-main); cursor: pointer; font: inherit; min-height: 58px; }
+.mcell:hover { border-color: var(--border-hover); }
+.mcell[aria-pressed="true"] { border-color: var(--accent); background: rgba(56,189,248,0.10); box-shadow: inset 0 0 0 1px var(--accent); }
+.mcell__v { display: block; font: 600 16px var(--mono-font); }
+.mcell__n { display: block; font-size: 11px; color: var(--text-muted); }
+.mcell--empty .mcell__v { font: 500 12px var(--sans-font); color: var(--text-muted); }
+.seg { display: inline-flex; border: 1px solid var(--border); border-radius: 9px; overflow: hidden; }
+.seg button { background: transparent; color: var(--text-muted); border: none; padding: 7px 12px; font: 600 12px var(--sans-font); cursor: pointer; }
+.seg button[aria-pressed="true"] { background: rgba(56,189,248,0.14); color: var(--accent); }
+.cmp-list { margin: 6px 0 0; padding-left: 18px; font-size: 13px; color: var(--text-body); }
+.cmp-list li { margin: 4px 0; }
+@media (max-width: 760px) {
+  .matrix { border-spacing: 4px; }
+  .matrix th.rowh { min-width: 0; font-size: 12px; }
+  .mcell { padding: 7px 8px; }
+  .mcell__v { font-size: 13px; }
+}

@@ -108,7 +108,7 @@
 
   // ── Fragments ───────────────────────────────────────────────────────────
   function orderTypeLabel(t) {
-    return ({ LIMIT: "LIMIT", STOP: "STOP", STOP_LIMIT: "STOP-LIMIT", MARKET_OPEN: "MARKET @ OPEN" })[t] || (t ? String(t) : DASH);
+    return ({ LIMIT: "LIMIT", STOP: "STOP", STOP_LIMIT: "STOP-LIMIT", MARKET_OPEN: "MARKET @ OPEN", MARKET_CLOSE: "MARKET @ CLOSE" })[t] || (t ? String(t) : DASH);
   }
 
   function orderLevels(row) {
@@ -118,6 +118,7 @@
     if (t === "STOP") return html`${lv("trig", row.trigger)}`;
     if (t === "STOP_LIMIT") return html`${lv("trig", row.trigger)}${lv("lim", row.limit)}`;
     if (t === "MARKET_OPEN") return html`<span class="lvl">at the open</span>`;
+    if (t === "MARKET_CLOSE") return html`<span class="lvl"><span>ref</span>${fmtPrice(row.entry_ref, row)}</span>`;
     return html`<span class="lvl">${row.entry_text || DASH}</span>`;
   }
 
@@ -248,8 +249,9 @@
   }
 
   // ── Header / banners ────────────────────────────────────────────────────
-  function renderBanners(data, nd, now) {
+  function renderBanners(data, nd, now, preclose) {
     const out = [];
+    if (preclose) out.push(ITL.precloseBanner(preclose, now));
     if (nd.legacy) out.push(ITL.outdatedBanner("today.json", nd.info));
     out.push(ITL.staleBanner(data, now, "today.json (tonight's picks)"));
     const today = ITL.sydneyDate(now);
@@ -313,14 +315,15 @@
       <div class="order__grid">
         ${row.order_type === "STOP" || row.order_type === "STOP_LIMIT" ? html`<div><span class="k">Trigger</span><span class="v">${fmtPrice(row.trigger, row)}</span></div>` : ""}
         ${row.order_type === "LIMIT" || row.order_type === "STOP_LIMIT" ? html`<div><span class="k">Limit</span><span class="v">${fmtPrice(row.limit, row)}</span></div>` : ""}
-        <div><span class="k">Entry ref</span><span class="v">${fmtPrice(row.entry_ref, row)}</span></div>
+        <div><span class="k">${row.order_type === "MARKET_CLOSE" ? "Entry ref (live)" : "Entry ref"}</span><span class="v">${fmtPrice(row.entry_ref, row)}</span></div>
         <div><span class="k">Stop</span><span class="v neg">${fmtPrice(row.stop, row)}</span></div>
         <div><span class="k">TP1 / TP2</span><span class="v">${fmtPrice(row.tp1, row)} / ${fmtPrice(row.tp2, row)}</span></div>
         <div><span class="k">R multiple</span><span class="v">${fmtNum(row.r_mult, 2)}</span></div>
         <div><span class="k">Last close</span><span class="v">${fmtPrice(row.last_close, row)}</span></div>
       </div>
+      ${row.order_type === "MARKET_CLOSE" ? html`<div class="order__exit"><b>How to buy:</b> in the closing auction, or at market before ${ctx.tradeBy || "the close"}. Entry ref is the live price${ctx.priceAsOf ? " at " + ctx.priceAsOf : ""} (worst case used for sizing).</div>` : ""}
       ${sizeSummary(s, row, prefs)}
-      <div class="order__exit"><b>Exit plan:</b> ${exitPlanText(row.exit_plan, row)}</div>
+      ${ITL.exitPlansHtml(row, { defaultId: ctx.defaultPolicy })}
       <div class="chips">${rowChips(row, ctx)}</div>
       ${row.plain_english ? html`<div class="order__note">${row.plain_english}</div>` : ""}
       ${row.fund_label ? html`<div class="small" style="margin-top:6px;">Fundamentals ${fmtNum(row.fund_score, 0)}/100: ${row.fund_label}</div>` : ""}
@@ -328,13 +331,14 @@
   }
 
   function renderOrders(rows, prefs, ctx) {
+    const pre = ctx.stream === "preclose";
     if (!rows.length) {
-      return html`<section class="card"><div class="card__head"><h2>Recommended orders</h2><span class="count">0</span></div>
-        <div class="empty-state"><div class="empty-state__title">No recommended orders for ${fmtDate(ctx.validFor)}</div>
-        ${ctx.published === false ? "Publishing was withheld (see the notice above)." : "No setup passed the final selection tonight, or your filters hide them."}</div></section>`;
+      return html`<section class="card"><div class="card__head"><h2>${pre ? "Pre-close orders" : "Recommended orders"}</h2><span class="count">0</span></div>
+        <div class="empty-state"><div class="empty-state__title">No ${pre ? "pre-close" : "recommended"} orders for ${fmtDate(ctx.validFor)}</div>
+        ${ctx.published === false ? "Publishing was withheld (see the notice above)." : pre ? "No setup passed the final selection in this pre-close scan, or your filters hide them." : "No setup passed the final selection tonight, or your filters hide them."}</div></section>`;
     }
-    return html`<section class="card" aria-label="Recommended orders">
-      <div class="card__head"><h2>Recommended orders</h2><span class="count">${rows.length} (max 2, one per symbol) · place for ${fmtDate(ctx.validFor)}</span></div>
+    return html`<section class="card" aria-label="${pre ? "Pre-close orders" : "Recommended orders"}">
+      <div class="card__head"><h2>${pre ? "Pre-close orders" : "Recommended orders"}</h2><span class="count">${rows.length} (max 2, one per symbol) · ${pre ? "buy before the close of" : "place for"} ${fmtDate(ctx.validFor)}</span></div>
       <div class="orders">${rows.map(r => orderCard(r, prefs, ctx))}</div>
     </section>`;
   }
@@ -372,7 +376,7 @@
         <tr class="row-detail"${isOpen ? "" : html` hidden`}><td colspan="11" class="td-full">
           <div class="chips">${rowChips(r, ctx)}</div>
           <div class="small" style="margin-top:5px;"><b>Entry ref</b> ${fmtPrice(r.entry_ref, r)} \u00b7 <b>TP1 / TP2</b> ${fmtPrice(r.tp1, r)} / ${fmtPrice(r.tp2, r)} \u00b7 <b>Last close</b> ${fmtPrice(r.last_close, r)}</div>
-          <div class="small" style="margin-top:3px;"><b>Exit plan:</b> ${exitPlanText(r.exit_plan, r)}</div>
+          ${ITL.exitPlansHtml(r, { defaultId: ctx.defaultPolicy })}
           ${r.plain_english ? html`<p class="small" style="margin:6px 0 0;">${r.plain_english}</p>` : ""}
           ${r.fund_label ? html`<p class="small" style="margin:4px 0 0;">Fundamentals ${fmtNum(r.fund_score, 0)}/100: ${r.fund_label}</p>` : ""}
         </td></tr>`;
@@ -417,11 +421,17 @@
     return html`${parts}`;
   }
 
+  /** Default exit policy id published with the file (exit_policy.id). */
+  function defaultPolicyId(data) {
+    const ep = data && data.exit_policy && typeof data.exit_policy === "object" ? data.exit_policy : null;
+    return ep && (ep.id || ep.policy_id) ? String(ep.id || ep.policy_id) : null;
+  }
+
   // ── Browser boot ────────────────────────────────────────────────────────
   function boot() {
     const $ = (id) => document.getElementById(id);
     const prefs = normalizePrefs(ITL.store.get(PREFS_KEY));
-    const state = { data: null, nd: null, names: {}, edges: {}, showAllWatch: false, open: new Set() };
+    const state = { data: null, nd: null, names: {}, edges: {}, showAllWatch: false, open: new Set(), preclose: null };
     const now = () => ITL.now();
 
     function save() { ITL.store.set(PREFS_KEY, prefs); }
@@ -439,7 +449,7 @@
       if (!state.data) return;
       const data = state.data, nd = state.nd, n = now();
       const st = ITL.staleness(data, n);
-      ITL.setHtml($("banners"), html`${renderBanners(data, nd, n)}`);
+      ITL.setHtml($("banners"), html`${renderBanners(data, nd, n, state.preclose)}`);
       ITL.setHtml($("meta"), renderMeta(data, nd, n));
       $("kpiRec").textContent = String(nd.rec.length);
       $("kpiSetups").textContent = String(nd.setups.filter(r => r.status === "Valid").length) + " / " + nd.setups.length;
@@ -447,7 +457,7 @@
       $("kpiRisk").textContent = data.risk_mode ? String(data.risk_mode).replace(/_/g, " ").toUpperCase() : DASH;
       const ctx = { names: state.names, edges: state.edges, now: n, validFor: data.valid_for, published: data.published,
         dim: st.stale === true || data.data_fresh === false, showAllWatch: state.showAllWatch,
-        open: state.open, watchOpen: prefs.watchOpen };
+        open: state.open, watchOpen: prefs.watchOpen, defaultPolicy: defaultPolicyId(data) };
       ITL.setHtml($("tables"), renderSections(data, nd, prefs, ctx));
       const more = document.querySelector('[data-more="watch"]');
       if (more) more.addEventListener("click", () => { state.showAllWatch = true; render(); });
@@ -477,8 +487,8 @@
     async function load() {
       $("reloadBtn").disabled = true;
       try {
-        const [data, names, edges] = await Promise.all([ITL.fetchJSON(DATA_PATH), ITL.loadNames(), ITL.loadEdgeVerdicts()]);
-        state.data = data; state.nd = normalizeData(data); state.names = names; state.edges = edges;
+        const [data, names, edges, pc] = await Promise.all([ITL.fetchJSON(DATA_PATH), ITL.loadNames(), ITL.loadEdgeVerdicts(), ITL.tryFetchJSON("/public/preclose.json")]);
+        state.data = data; state.nd = normalizeData(data); state.names = names; state.edges = edges; state.preclose = pc.data;
         ITL.setHtml($("loadError"), html``);
         populateStrategies();
         render();
@@ -539,7 +549,8 @@
 
   return {
     DATA_PATH, PREFS_KEY, DEFAULT_PREFS, RISK_OPTIONS,
-    normalizePrefs, strategyOptions, parseEntryText, normalizeRow, normalizeData, v1Sentiment,
+    normalizePrefs, strategyOptions, parseEntryText, normalizeRow, normalizeData, v1Sentiment, defaultPolicyId,
+    sizeSummary, orderCard,
     orderTypeLabel, exitPlanText, sentimentChips, earningsChip, sizeFor, applyFilters,
     renderBanners, renderMeta, renderOrders, renderTable, tableCard, watchCard, renderSections, boot,
   };

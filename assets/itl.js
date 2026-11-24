@@ -426,13 +426,16 @@
     "/public/intraday.json": "/dev/fixtures/intraday.json",
     "/public/status.json": "/dev/fixtures/status.json",
     "/public/pending_exits.json": "/dev/fixtures/pending_exits.json",
+    "/public/preclose.json": "/dev/fixtures/preclose.json",
     "/track-record/metrics.json": "/dev/fixtures/metrics.json",
   };
 
   // Fixture sets (?fixtures=1&set=NAME) override only the files listed.
   const FIXTURE_SETS = {
     preopen: ["live", "intraday", "status"],
-    edge: ["today", "live", "intraday", "status", "pending_exits", "metrics"],
+    edge: ["today", "live", "intraday", "status", "pending_exits", "metrics", "preclose"],
+    pcstale: ["preclose"],   // pre-close picks from an older session
+    pcunpub: ["preclose"],   // pre-close scan ran but published=false
   };
 
   function resolvePath(path, search) {
@@ -553,6 +556,178 @@
     if (!issues || !issues.length) return html``;
     const items = issues.map(i => html`<li><b>${i.job}</b>: ${i.self ? "status file itself is stale" : (i.failed && !i.stale ? "last run " + i.last_status : "stale")}${i.last_success_utc ? html` · last success ${fmtDateTime(i.last_success_utc)} (${ago(i.last_success_utc, now)})` : " · no recorded success"}${i.expected_every ? html` · expected ${i.expected_every}` : ""}</li>`);
     return banner("health", "Pipeline health: " + issues.length + " job(s) need attention", html`<ul class="health-list">${items}</ul>`, "HEALTH");
+  }
+
+  // ── Exit policies (contract v2.1: three tracked policies) ───────────────
+  const TRACKED_POLICIES = ["fixed_5d", "trail_2atr", "trail_1pct"];
+  const DEFAULT_POLICY = "fixed_5d";
+  const POLICY_NAMES = { fixed_5d: "Fixed 5 days", trail_2atr: "Trail 2×ATR", trail_1pct: "Trail 1%" };
+
+  /** Short human name for a policy id ("trail_2atr" -> "Trail 2×ATR"). */
+  function policyName(id) {
+    if (!id) return DASH;
+    const s = String(id);
+    if (POLICY_NAMES[s]) return POLICY_NAMES[s];
+    let m = s.match(/^fixed_(\d+)d$/);
+    if (m) return "Fixed " + m[1] + " days";
+    m = s.match(/^trail_(\d+(?:\.\d+)?)(pct|atr)(_after_(\d+(?:\.\d+)?)r)?$/);
+    if (m) return "Trail " + m[1] + (m[2] === "pct" ? "%" : "×ATR") + (m[3] ? " after +" + m[4] + "R" : "");
+    return s;
+  }
+
+  /** The row's exit plans: exit_plans[] (v2.1) or the single exit_plan. */
+  function exitPlansOf(row) {
+    if (!row || typeof row !== "object") return [];
+    if (Array.isArray(row.exit_plans)) {
+      const list = row.exit_plans.filter(p => p && typeof p === "object");
+      if (list.length) return list;
+    }
+    return row.exit_plan && typeof row.exit_plan === "object" ? [row.exit_plan] : [];
+  }
+
+  function planKind(plan) {
+    if (!plan || typeof plan !== "object") return null;
+    if (plan.kind === "time" || plan.kind === "trail_pct" || plan.kind === "trail_atr") return plan.kind;
+    if (num(plan.trail_pct) !== null) return "trail_pct";
+    if (num(plan.trail_atr_aud) !== null || num(plan.atr_mult) !== null || num(plan.trail_atr_mult) !== null) return "trail_atr";
+    if (/^fixed_\d+d$/.test(String(plan.policy_id || "")) || num(plan.days) !== null) return "time";
+    return null;
+  }
+
+  /** Plain-words exit rule, e.g. "Sell at close of day 5 (by Mon 30 Nov)",
+   *  "Trail 2×ATR = A$0.17 below the highest price since entry". */
+  function exitPlanPhrase(plan, row) {
+    const kind = planKind(plan);
+    if (!kind) return plan && plan.label ? String(plan.label) : DASH;
+    const days = num(plan.time_stop_days);
+    if (kind === "time") {
+      const m = String(plan.policy_id || "").match(/^fixed_(\d+)d$/);
+      const n = num(plan.days) !== null ? num(plan.days) : m ? Number(m[1]) : days;
+      const by = parseYmd(plan.exit_by_date) ? " (by " + fmtDate(plan.exit_by_date, { noYear: true }) + ")" : "";
+      return n !== null ? "Sell at close of day " + fmtInt(n) + by : "Time exit" + by;
+    }
+    let trail;
+    if (kind === "trail_pct") {
+      const pct = num(plan.trail_pct);
+      trail = "trail " + (pct !== null ? fmtNum(pct, pct % 1 ? 1 : 0) + "%" : DASH + "%") + " below the highest price since entry";
+    } else {
+      const mult = num(plan.atr_mult) !== null ? num(plan.atr_mult) : num(plan.trail_atr_mult);
+      const aud = num(plan.trail_atr_aud);
+      const ref = row && typeof row === "object" ? (num(row.entry_ref) !== null ? row.entry_ref : row.last_close) : null;
+      const dp = priceDecimals(ref, row);
+      trail = "trail " + (mult !== null ? fmtNum(mult, mult % 1 ? 1 : 0) + "×ATR" : "ATR") +
+        (aud !== null ? " = A$" + fixed(aud, dp) : "") + " below the highest price since entry";
+    }
+    const act = num(plan.activate_after_r);
+    let s = act !== null && act > 0 ? "Once up +" + fmtNum(act, act % 1 ? 1 : 0) + "R, " + trail : trail.charAt(0).toUpperCase() + trail.slice(1);
+    if (days !== null) s += " (max " + fmtInt(days) + " days)";
+    return s;
+  }
+
+  /** The default plan's id: the row's exit_plan, else the first exit plan
+   *  (the contract puts the default first). */
+  function defaultPolicyOf(row, fallback) {
+    if (row && row.exit_plan && typeof row.exit_plan === "object" && row.exit_plan.policy_id) return String(row.exit_plan.policy_id);
+    const plans = exitPlansOf(row);
+    if (plans.length && plans[0].policy_id) return String(plans[0].policy_id);
+    return fallback || DEFAULT_POLICY;
+  }
+
+  /** Compact list of every tracked exit plan, default marked. */
+  function exitPlansHtml(row, opts) {
+    const o = opts || {};
+    const plans = exitPlansOf(row);
+    if (!plans.length) return html`<div class="xplans"><b>Exit plan:</b> ${DASH} <span class="small">(not published)</span></div>`;
+    const defId = o.defaultId || defaultPolicyOf(row);
+    const def = plans.find(p => p.policy_id === defId) || plans[0];
+    const stop = num(def.initial_stop) !== null ? def.initial_stop : (row ? row.stop : null);
+    const items = plans.map(p => {
+      const isDef = p === def;
+      return html`<li class="${isDef ? "is-default" : ""}"><span class="xp-name">${policyName(p.policy_id || null) === DASH ? (p.label || DASH) : policyName(p.policy_id)}</span>${isDef ? html`<span class="chip chip--info xp-def" title="The official policy: the live verdict and the track-record headline follow it">default</span>` : ""} <span class="xp-rule">${exitPlanPhrase(p, row)}</span></li>`;
+    });
+    return html`<div class="xplans"><div class="xplans__head"><b>Exit plans</b>${num(stop) !== null ? html` · initial stop <span class="mono neg">${fmtPrice(stop, row)}</span> for all` : ""}${plans.length > 1 ? html` · <span class="small">all ${String(plans.length)} tracked, default first</span>` : ""}</div><ul>${items}</ul></div>`;
+  }
+
+  // ── Pre-close stream timing ─────────────────────────────────────────────
+  /** Sydney wall-clock time on a calendar date -> Date (DST-aware). */
+  function sydneyWallToDate(dateStr, hhmm) {
+    const d = parseYmd(dateStr);
+    const m = String(hhmm || "").match(/^(\d{1,2}):(\d{2})$/);
+    if (!d || !m) return null;
+    const h = Number(m[1]), mi = Number(m[2]);
+    if (h > 23 || mi > 59) return null;
+    const wall = Date.UTC(d.year, d.month - 1, d.day, h, mi);
+    let t = wall - 600 * 60000;
+    for (let i = 0; i < 2; i++) {
+      const p = zonedParts(new Date(t), TZ_SYD);
+      if (!p) return null;
+      t = wall - p.offsetMin * 60000;
+    }
+    return new Date(t);
+  }
+
+  /** Trade-by deadline of a pre-close file: trade_by_utc, else
+   *  signal_session + trade_by_syd (Sydney), else market_state close - 1 min. */
+  function precloseDeadline(pc) {
+    if (!pc || typeof pc !== "object") return null;
+    const direct = parseIso(pc.trade_by_utc);
+    if (direct) return direct;
+    const ms = pc.market_state && typeof pc.market_state === "object" ? pc.market_state : {};
+    const session = pc.signal_session || sessionDateOf(ms);
+    const viaSyd = sydneyWallToDate(session, pc.trade_by_syd);
+    if (viaSyd) return viaSyd;
+    const close = parseIso(ms.close_syd || ms.close_utc || ms.close);
+    return close ? new Date(close.getTime() - 60000) : null;
+  }
+
+  /** "15:59 Sydney (14:59 Brisbane)" */
+  function tradeByText(deadline) {
+    if (!deadline) return DASH;
+    return fmtTime(deadline, { tz: TZ_SYD, noTz: true }) + " Sydney (" + fmtTime(deadline, { noTz: true }) + " Brisbane)";
+  }
+
+  function countdown(deadline, now) {
+    const d = parseIso(deadline);
+    if (!d) return { known: false, passed: false, text: DASH, ms: null };
+    const ms = d.getTime() - (now || new Date()).getTime();
+    if (ms <= 0) return { known: true, passed: true, text: "trade-by time passed", ms };
+    const s = Math.floor(ms / 1000), h = Math.floor(s / 3600), m = Math.floor((s % 3600) / 60), sec = s % 60;
+    const text = h > 0 ? h + " h " + pad2(m) + " min left" : m >= 10 ? m + " min left" : m + ":" + pad2(sec) + " left";
+    return { known: true, passed: false, text, ms };
+  }
+
+  /** Should Today / Live show the pre-close banner? Only for a file about
+   *  TODAY's Sydney session, from 59 min before the trade-by time (15:00 on a
+   *  normal day) until the end of the closing auction (+11 min). */
+  function precloseWindow(pc, now) {
+    const n = now || new Date();
+    if (!pc || typeof pc !== "object" || !pc.signal_session) return { show: false };
+    if (String(pc.signal_session) !== sydneyDate(n)) return { show: false, reason: "other_session" };
+    const dl = precloseDeadline(pc);
+    if (!dl) return { show: false, reason: "no_deadline" };
+    const t = n.getTime();
+    if (t < dl.getTime() - 59 * 60000 || t > dl.getTime() + 11 * 60000) return { show: false, reason: "outside_window", deadline: dl };
+    return { show: true, deadline: dl, published: pc.published !== false };
+  }
+
+  /** Link that keeps ?fixtures=… in fixtures mode. */
+  function siteHref(path) {
+    return path + (fixturesMode() ? _search() : "");
+  }
+
+  function precloseBanner(pc, now) {
+    const w = precloseWindow(pc, now);
+    if (!w.show) return html``;
+    const cd = countdown(w.deadline, now);
+    const recs = Array.isArray(pc.recommended_orders) ? pc.recommended_orders.filter(r => r && typeof r === "object") : [];
+    const href = siteHref("/preclose/");
+    if (!w.published) {
+      return banner("info", "Pre-close scan ran: no picks published today",
+        html`${pc.reason ? "Reason: " + pc.reason + ". " : ""}Details on <a href="${href}">Pre-close picks</a>.`, "PRE-CLOSE");
+    }
+    const syms = recs.map(r => r.symbol || DASH).join(", ");
+    return banner("violet", "Pre-close picks are out: " + recs.length + " order(s)" + (syms ? " — " + syms : ""),
+      html`Buy in the closing auction / at market before the close. Trade by <b>${tradeByText(w.deadline)}</b> · <b>${cd.text}</b>. <a href="${href}">Open pre-close picks →</a>`, "PRE-CLOSE");
   }
 
   // ── Worker refresh + poll ───────────────────────────────────────────────
@@ -818,6 +993,8 @@
     param, fixturesMode, resolvePath, now, fetchJSON, tryFetchJSON, store,
     banner, staleBanner, outdatedBanner, errorBox, symbolCell, yahooLink, healthBanner,
     isUnknownWorkflow, createRefresher,
+    TRACKED_POLICIES, DEFAULT_POLICY, POLICY_NAMES, policyName, exitPlansOf, planKind, exitPlanPhrase, defaultPolicyOf, exitPlansHtml,
+    sydneyWallToDate, precloseDeadline, tradeByText, countdown, precloseWindow, precloseBanner, siteHref,
     initNav, bootCommon, loadNames, loadEdgeVerdicts, edgeBadge,
     STRATEGY_LABELS, ALL_STRATEGIES, strategyLabel,
   };
