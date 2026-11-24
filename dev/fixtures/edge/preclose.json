@@ -1,0 +1,19 @@
+{
+ "schema": "itl.preclose.v2",
+ "job": "preclose_scan",
+ "generated_at_utc": "2026-11-24T04:16:40+00:00",
+ "signal_session": "2026-11-24",
+ "published": true,
+ "recommended_orders": [
+  {
+   "symbol": "<b>EVIL</b>.AX",
+   "strategy": "MEAN_REVERSION",
+   "order_type": "MARKET_CLOSE",
+   "entry_ref": null,
+   "stop": 1.2,
+   "exit_plans": "not-a-list",
+   "plain_english": "<img src=x onerror=alert(1)>"
+  }
+ ],
+ "setups": null
+}

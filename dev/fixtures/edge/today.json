@@ -82,11 +82,14 @@
    "r_mult": 2.5,
    "risk_per_share": 9.76,
    "exit_plan": {
-    "policy_id": "trail_2pct",
-    "trail_pct": 2.0,
+    "policy_id": "fixed_5d",
+    "label": "Legacy: exit at close of day 5",
+    "kind": "time",
+    "initial_stop": null,
+    "days": 5,
+    "time_stop_days": 5,
     "activate_after_r": null,
-    "time_stop_days": 20,
-    "initial_stop": 178.0
+    "exit_by_date": null
    },
    "composite_score": 70.8,
    "sentiment": {
@@ -121,7 +124,38 @@
    },
    "plain_english": "Mean Reversion (oversold bounce): LIMIT buy near 187.76. RSI(2) and Bollinger Band signals suggest a short-term oversold condition — the setup anticipates a snap-back toward the mean, not a new uptrend. Stop 178.00 (~1.2 ATR below entry). Reward/risk 2.5R. TA score 86/100. Respect position sizing — mean reversion trades carry higher failure rates than trend trades. Fundamentals (54/100): strong ROE, healthy margins, low debt. mixed fundamentals.",
    "fail_gates": [],
-   "also_fired": []
+   "also_fired": [],
+   "exit_plans": [
+    {
+     "policy_id": "fixed_5d",
+     "label": "Legacy: exit at close of day 5",
+     "kind": "time",
+     "initial_stop": null,
+     "days": 5,
+     "time_stop_days": 5,
+     "activate_after_r": null,
+     "exit_by_date": null
+    },
+    {
+     "policy_id": "trail_2atr",
+     "label": "Trail 2x ATR from peak",
+     "kind": "trail_atr",
+     "initial_stop": null,
+     "atr_mult": 2.0,
+     "trail_atr_aud": null,
+     "activate_after_r": null,
+     "time_stop_days": 20
+    },
+    {
+     "policy_id": "trail_1pct",
+     "label": "Trail 1% from peak",
+     "kind": "trail_pct",
+     "initial_stop": null,
+     "trail_pct": 1.0,
+     "activate_after_r": null,
+     "time_stop_days": 20
+    }
+   ]
   },
   {
    "symbol": "AFI.AX",
@@ -142,11 +176,14 @@
    "r_mult": 2.5,
    "risk_per_share": 0.11,
    "exit_plan": {
-    "policy_id": "trail_2pct",
-    "trail_pct": 2.0,
+    "policy_id": "fixed_5d",
+    "label": "Legacy: exit at close of day 5",
+    "kind": "time",
+    "initial_stop": 6.6,
+    "days": 5,
+    "time_stop_days": 5,
     "activate_after_r": null,
-    "time_stop_days": 20,
-    "initial_stop": 6.6
+    "exit_by_date": null
    },
    "composite_score": 70.3,
    "sentiment": {
@@ -181,7 +218,38 @@
    },
    "plain_english": "Mean Reversion (oversold bounce): LIMIT buy near 6.71. RSI(2) and Bollinger Band signals suggest a short-term oversold condition — the setup anticipates a snap-back toward the mean, not a new uptrend. Stop 6.60 (~1.2 ATR below entry). Reward/risk 2.5R. TA score 86/100. Respect position sizing — mean reversion trades carry higher failure rates than trend trades. Fundamentals (32/100): modest ROE, healthy margins. ⚠ weak fundamentals — treat as speculative.",
    "fail_gates": [],
-   "also_fired": []
+   "also_fired": [],
+   "exit_plans": [
+    {
+     "policy_id": "fixed_5d",
+     "label": "Legacy: exit at close of day 5",
+     "kind": "time",
+     "initial_stop": 6.6,
+     "days": 5,
+     "time_stop_days": 5,
+     "activate_after_r": null,
+     "exit_by_date": null
+    },
+    {
+     "policy_id": "trail_2atr",
+     "label": "Trail 2x ATR from peak",
+     "kind": "trail_atr",
+     "initial_stop": 6.6,
+     "atr_mult": 2.0,
+     "trail_atr_aud": null,
+     "activate_after_r": null,
+     "time_stop_days": 20
+    },
+    {
+     "policy_id": "trail_1pct",
+     "label": "Trail 1% from peak",
+     "kind": "trail_pct",
+     "initial_stop": 6.6,
+     "trail_pct": 1.0,
+     "activate_after_r": null,
+     "time_stop_days": 20
+    }
+   ]
   }
  ]
 }

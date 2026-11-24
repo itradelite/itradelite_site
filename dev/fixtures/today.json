@@ -52,11 +52,14 @@
    "r_mult": 2.5,
    "risk_per_share": 0.1,
    "exit_plan": {
-    "policy_id": "trail_2pct",
-    "trail_pct": 2.0,
+    "policy_id": "fixed_5d",
+    "label": "Legacy: exit at close of day 5",
+    "kind": "time",
+    "initial_stop": 1.895,
+    "days": 5,
+    "time_stop_days": 5,
     "activate_after_r": null,
-    "time_stop_days": 20,
-    "initial_stop": 1.895
+    "exit_by_date": "2026-11-30"
    },
    "composite_score": 71.6,
    "sentiment": {
@@ -91,7 +94,38 @@
    },
    "plain_english": "Mean Reversion (oversold bounce): LIMIT buy near 2.00. RSI(2) and Bollinger Band signals suggest a short-term oversold condition — the setup anticipates a snap-back toward the mean, not a new uptrend. Stop 1.89 (~1.2 ATR below entry). Reward/risk 2.5R. TA score 94/100. Respect position sizing — mean reversion trades carry higher failure rates than trend trades. Fundamentals (20/100): modest ROE, thin margins; but: high debt, tight liquidity. ⚠ weak fundamentals — treat as speculative.",
    "fail_gates": [],
-   "also_fired": []
+   "also_fired": [],
+   "exit_plans": [
+    {
+     "policy_id": "fixed_5d",
+     "label": "Legacy: exit at close of day 5",
+     "kind": "time",
+     "initial_stop": 1.895,
+     "days": 5,
+     "time_stop_days": 5,
+     "activate_after_r": null,
+     "exit_by_date": "2026-11-30"
+    },
+    {
+     "policy_id": "trail_2atr",
+     "label": "Trail 2x ATR from peak",
+     "kind": "trail_atr",
+     "initial_stop": 1.895,
+     "atr_mult": 2.0,
+     "trail_atr_aud": 0.167,
+     "activate_after_r": null,
+     "time_stop_days": 20
+    },
+    {
+     "policy_id": "trail_1pct",
+     "label": "Trail 1% from peak",
+     "kind": "trail_pct",
+     "initial_stop": 1.895,
+     "trail_pct": 1.0,
+     "activate_after_r": null,
+     "time_stop_days": 20
+    }
+   ]
   },
   {
    "symbol": "PME.AX",
@@ -112,11 +146,14 @@
    "r_mult": 2.5,
    "risk_per_share": 9.76,
    "exit_plan": {
-    "policy_id": "trail_2pct",
-    "trail_pct": 2.0,
+    "policy_id": "fixed_5d",
+    "label": "Legacy: exit at close of day 5",
+    "kind": "time",
+    "initial_stop": 178.0,
+    "days": 5,
+    "time_stop_days": 5,
     "activate_after_r": null,
-    "time_stop_days": 20,
-    "initial_stop": 178.0
+    "exit_by_date": "2026-11-30"
    },
    "composite_score": 70.80000000000001,
    "sentiment": {
@@ -153,6 +190,37 @@
    "fail_gates": [],
    "also_fired": [
     "TREND_PULLBACK"
+   ],
+   "exit_plans": [
+    {
+     "policy_id": "fixed_5d",
+     "label": "Legacy: exit at close of day 5",
+     "kind": "time",
+     "initial_stop": 178.0,
+     "days": 5,
+     "time_stop_days": 5,
+     "activate_after_r": null,
+     "exit_by_date": "2026-11-30"
+    },
+    {
+     "policy_id": "trail_2atr",
+     "label": "Trail 2x ATR from peak",
+     "kind": "trail_atr",
+     "initial_stop": 178.0,
+     "atr_mult": 2.0,
+     "trail_atr_aud": 16.27,
+     "activate_after_r": null,
+     "time_stop_days": 20
+    },
+    {
+     "policy_id": "trail_1pct",
+     "label": "Trail 1% from peak",
+     "kind": "trail_pct",
+     "initial_stop": 178.0,
+     "trail_pct": 1.0,
+     "activate_after_r": null,
+     "time_stop_days": 20
+    }
    ]
   }
  ],
@@ -176,11 +244,14 @@
    "r_mult": 2.5,
    "risk_per_share": 0.1,
    "exit_plan": {
-    "policy_id": "trail_2pct",
-    "trail_pct": 2.0,
+    "policy_id": "fixed_5d",
+    "label": "Legacy: exit at close of day 5",
+    "kind": "time",
+    "initial_stop": 1.895,
+    "days": 5,
+    "time_stop_days": 5,
     "activate_after_r": null,
-    "time_stop_days": 20,
-    "initial_stop": 1.895
+    "exit_by_date": "2026-11-30"
    },
    "composite_score": 71.6,
    "sentiment": {
@@ -215,7 +286,38 @@
    },
    "plain_english": "Mean Reversion (oversold bounce): LIMIT buy near 2.00. RSI(2) and Bollinger Band signals suggest a short-term oversold condition — the setup anticipates a snap-back toward the mean, not a new uptrend. Stop 1.89 (~1.2 ATR below entry). Reward/risk 2.5R. TA score 94/100. Respect position sizing — mean reversion trades carry higher failure rates than trend trades. Fundamentals (20/100): modest ROE, thin margins; but: high debt, tight liquidity. ⚠ weak fundamentals — treat as speculative.",
    "fail_gates": [],
-   "also_fired": []
+   "also_fired": [],
+   "exit_plans": [
+    {
+     "policy_id": "fixed_5d",
+     "label": "Legacy: exit at close of day 5",
+     "kind": "time",
+     "initial_stop": 1.895,
+     "days": 5,
+     "time_stop_days": 5,
+     "activate_after_r": null,
+     "exit_by_date": "2026-11-30"
+    },
+    {
+     "policy_id": "trail_2atr",
+     "label": "Trail 2x ATR from peak",
+     "kind": "trail_atr",
+     "initial_stop": 1.895,
+     "atr_mult": 2.0,
+     "trail_atr_aud": 0.167,
+     "activate_after_r": null,
+     "time_stop_days": 20
+    },
+    {
+     "policy_id": "trail_1pct",
+     "label": "Trail 1% from peak",
+     "kind": "trail_pct",
+     "initial_stop": 1.895,
+     "trail_pct": 1.0,
+     "activate_after_r": null,
+     "time_stop_days": 20
+    }
+   ]
   },
   {
    "symbol": "PME.AX",
@@ -236,11 +338,14 @@
    "r_mult": 2.5,
    "risk_per_share": 9.76,
    "exit_plan": {
-    "policy_id": "trail_2pct",
-    "trail_pct": 2.0,
+    "policy_id": "fixed_5d",
+    "label": "Legacy: exit at close of day 5",
+    "kind": "time",
+    "initial_stop": 178.0,
+    "days": 5,
+    "time_stop_days": 5,
     "activate_after_r": null,
-    "time_stop_days": 20,
-    "initial_stop": 178.0
+    "exit_by_date": "2026-11-30"
    },
    "composite_score": 70.8,
    "sentiment": {
@@ -277,6 +382,37 @@
    "fail_gates": [],
    "also_fired": [
     "TREND_PULLBACK"
+   ],
+   "exit_plans": [
+    {
+     "policy_id": "fixed_5d",
+     "label": "Legacy: exit at close of day 5",
+     "kind": "time",
+     "initial_stop": 178.0,
+     "days": 5,
+     "time_stop_days": 5,
+     "activate_after_r": null,
+     "exit_by_date": "2026-11-30"
+    },
+    {
+     "policy_id": "trail_2atr",
+     "label": "Trail 2x ATR from peak",
+     "kind": "trail_atr",
+     "initial_stop": 178.0,
+     "atr_mult": 2.0,
+     "trail_atr_aud": 16.27,
+     "activate_after_r": null,
+     "time_stop_days": 20
+    },
+    {
+     "policy_id": "trail_1pct",
+     "label": "Trail 1% from peak",
+     "kind": "trail_pct",
+     "initial_stop": 178.0,
+     "trail_pct": 1.0,
+     "activate_after_r": null,
+     "time_stop_days": 20
+    }
    ]
   },
   {
@@ -358,11 +494,14 @@
    "r_mult": 3.0,
    "risk_per_share": 4.6,
    "exit_plan": {
-    "policy_id": "trail_2pct",
-    "trail_pct": 2.0,
+    "policy_id": "fixed_5d",
+    "label": "Legacy: exit at close of day 5",
+    "kind": "time",
+    "initial_stop": 226.8,
+    "days": 5,
+    "time_stop_days": 5,
     "activate_after_r": null,
-    "time_stop_days": 20,
-    "initial_stop": 226.8
+    "exit_by_date": "2026-11-30"
    },
    "composite_score": 65.4,
    "sentiment": {
@@ -397,7 +536,38 @@
    },
    "plain_english": "Trend pullback: LIMIT buy at 231.40 near the 20-day mean inside an uptrend. Stop 226.80. Earnings date unknown — check before trading.",
    "fail_gates": [],
-   "also_fired": []
+   "also_fired": [],
+   "exit_plans": [
+    {
+     "policy_id": "fixed_5d",
+     "label": "Legacy: exit at close of day 5",
+     "kind": "time",
+     "initial_stop": 226.8,
+     "days": 5,
+     "time_stop_days": 5,
+     "activate_after_r": null,
+     "exit_by_date": "2026-11-30"
+    },
+    {
+     "policy_id": "trail_2atr",
+     "label": "Trail 2x ATR from peak",
+     "kind": "trail_atr",
+     "initial_stop": 226.8,
+     "atr_mult": 2.0,
+     "trail_atr_aud": 7.66,
+     "activate_after_r": null,
+     "time_stop_days": 20
+    },
+    {
+     "policy_id": "trail_1pct",
+     "label": "Trail 1% from peak",
+     "kind": "trail_pct",
+     "initial_stop": 226.8,
+     "trail_pct": 1.0,
+     "activate_after_r": null,
+     "time_stop_days": 20
+    }
+   ]
   },
   {
    "symbol": "AFI.AX",
@@ -418,11 +588,14 @@
    "r_mult": 2.5,
    "risk_per_share": 0.11,
    "exit_plan": {
-    "policy_id": "trail_2pct",
-    "trail_pct": 2.0,
+    "policy_id": "fixed_5d",
+    "label": "Legacy: exit at close of day 5",
+    "kind": "time",
+    "initial_stop": 6.6,
+    "days": 5,
+    "time_stop_days": 5,
     "activate_after_r": null,
-    "time_stop_days": 20,
-    "initial_stop": 6.6
+    "exit_by_date": "2026-11-30"
    },
    "composite_score": 70.3,
    "sentiment": {
@@ -457,7 +630,38 @@
    },
    "plain_english": "Mean Reversion (oversold bounce): LIMIT buy near 6.71. RSI(2) and Bollinger Band signals suggest a short-term oversold condition — the setup anticipates a snap-back toward the mean, not a new uptrend. Stop 6.60 (~1.2 ATR below entry). Reward/risk 2.5R. TA score 86/100. Respect position sizing — mean reversion trades carry higher failure rates than trend trades. Fundamentals (32/100): modest ROE, healthy margins. ⚠ weak fundamentals — treat as speculative.",
    "fail_gates": [],
-   "also_fired": []
+   "also_fired": [],
+   "exit_plans": [
+    {
+     "policy_id": "fixed_5d",
+     "label": "Legacy: exit at close of day 5",
+     "kind": "time",
+     "initial_stop": 6.6,
+     "days": 5,
+     "time_stop_days": 5,
+     "activate_after_r": null,
+     "exit_by_date": "2026-11-30"
+    },
+    {
+     "policy_id": "trail_2atr",
+     "label": "Trail 2x ATR from peak",
+     "kind": "trail_atr",
+     "initial_stop": 6.6,
+     "atr_mult": 2.0,
+     "trail_atr_aud": 0.185,
+     "activate_after_r": null,
+     "time_stop_days": 20
+    },
+    {
+     "policy_id": "trail_1pct",
+     "label": "Trail 1% from peak",
+     "kind": "trail_pct",
+     "initial_stop": 6.6,
+     "trail_pct": 1.0,
+     "activate_after_r": null,
+     "time_stop_days": 20
+    }
+   ]
   },
   {
    "symbol": "BEN.AX",
@@ -478,11 +682,14 @@
    "r_mult": 2.4242,
    "risk_per_share": 0.23,
    "exit_plan": {
-    "policy_id": "trail_2pct",
-    "trail_pct": 2.0,
+    "policy_id": "fixed_5d",
+    "label": "Legacy: exit at close of day 5",
+    "kind": "time",
+    "initial_stop": 10.18,
+    "days": 5,
+    "time_stop_days": 5,
     "activate_after_r": null,
-    "time_stop_days": 20,
-    "initial_stop": 10.18
+    "exit_by_date": "2026-11-30"
    },
    "composite_score": 69.2,
    "sentiment": {
@@ -517,7 +724,38 @@
    },
    "plain_english": "Mean Reversion (oversold bounce): LIMIT buy near 10.41. RSI(2) and Bollinger Band signals suggest a short-term oversold condition — the setup anticipates a snap-back toward the mean, not a new uptrend. Stop 10.18 (~1.2 ATR below entry). Reward/risk 2.4R. TA score 86/100. Respect position sizing — mean reversion trades carry higher failure rates than trend trades. Fundamentals (27/100): modest ROE, healthy margins. ⚠ weak fundamentals — treat as speculative.",
    "fail_gates": [],
-   "also_fired": []
+   "also_fired": [],
+   "exit_plans": [
+    {
+     "policy_id": "fixed_5d",
+     "label": "Legacy: exit at close of day 5",
+     "kind": "time",
+     "initial_stop": 10.18,
+     "days": 5,
+     "time_stop_days": 5,
+     "activate_after_r": null,
+     "exit_by_date": "2026-11-30"
+    },
+    {
+     "policy_id": "trail_2atr",
+     "label": "Trail 2x ATR from peak",
+     "kind": "trail_atr",
+     "initial_stop": 10.18,
+     "atr_mult": 2.0,
+     "trail_atr_aud": 0.385,
+     "activate_after_r": null,
+     "time_stop_days": 20
+    },
+    {
+     "policy_id": "trail_1pct",
+     "label": "Trail 1% from peak",
+     "kind": "trail_pct",
+     "initial_stop": 10.18,
+     "trail_pct": 1.0,
+     "activate_after_r": null,
+     "time_stop_days": 20
+    }
+   ]
   },
   {
    "symbol": "BSL.AX",
@@ -538,11 +776,14 @@
    "r_mult": 2.5,
    "risk_per_share": 1.01,
    "exit_plan": {
-    "policy_id": "trail_2pct",
-    "trail_pct": 2.0,
+    "policy_id": "fixed_5d",
+    "label": "Legacy: exit at close of day 5",
+    "kind": "time",
+    "initial_stop": 29.75,
+    "days": 5,
+    "time_stop_days": 5,
     "activate_after_r": null,
-    "time_stop_days": 20,
-    "initial_stop": 29.75
+    "exit_by_date": "2026-11-30"
    },
    "composite_score": 65.4,
    "sentiment": {
@@ -577,7 +818,38 @@
    },
    "plain_english": "Mean Reversion (oversold bounce): LIMIT buy near 30.76. RSI(2) and Bollinger Band signals suggest a short-term oversold condition — the setup anticipates a snap-back toward the mean, not a new uptrend. Stop 29.75 (~1.2 ATR below entry). Reward/risk 2.5R. TA score 95/100. Respect position sizing — mean reversion trades carry higher failure rates than trend trades. Fundamentals (32/100): modest ROE, low debt. ⚠ weak fundamentals — treat as speculative.",
    "fail_gates": [],
-   "also_fired": []
+   "also_fired": [],
+   "exit_plans": [
+    {
+     "policy_id": "fixed_5d",
+     "label": "Legacy: exit at close of day 5",
+     "kind": "time",
+     "initial_stop": 29.75,
+     "days": 5,
+     "time_stop_days": 5,
+     "activate_after_r": null,
+     "exit_by_date": "2026-11-30"
+    },
+    {
+     "policy_id": "trail_2atr",
+     "label": "Trail 2x ATR from peak",
+     "kind": "trail_atr",
+     "initial_stop": 29.75,
+     "atr_mult": 2.0,
+     "trail_atr_aud": 1.685,
+     "activate_after_r": null,
+     "time_stop_days": 20
+    },
+    {
+     "policy_id": "trail_1pct",
+     "label": "Trail 1% from peak",
+     "kind": "trail_pct",
+     "initial_stop": 29.75,
+     "trail_pct": 1.0,
+     "activate_after_r": null,
+     "time_stop_days": 20
+    }
+   ]
   },
   {
    "symbol": "DHHF.AX",
@@ -598,11 +870,14 @@
    "r_mult": 2.5,
    "risk_per_share": 0.57,
    "exit_plan": {
-    "policy_id": "trail_2pct",
-    "trail_pct": 2.0,
+    "policy_id": "fixed_5d",
+    "label": "Legacy: exit at close of day 5",
+    "kind": "time",
+    "initial_stop": 39.9,
+    "days": 5,
+    "time_stop_days": 5,
     "activate_after_r": null,
-    "time_stop_days": 20,
-    "initial_stop": 39.9
+    "exit_by_date": "2026-11-30"
    },
    "composite_score": 65.4,
    "sentiment": {
@@ -637,7 +912,38 @@
    },
    "plain_english": "Mean Reversion (oversold bounce): LIMIT buy near 40.47. RSI(2) and Bollinger Band signals suggest a short-term oversold condition — the setup anticipates a snap-back toward the mean, not a new uptrend. Stop 39.90 (~1.2 ATR below entry). Reward/risk 2.5R. TA score 89/100. Respect position sizing — mean reversion trades carry higher failure rates than trend trades. Fundamentals (26/100): ETF/LIC — no earnings data; scored on size and balance sheet.",
    "fail_gates": [],
-   "also_fired": []
+   "also_fired": [],
+   "exit_plans": [
+    {
+     "policy_id": "fixed_5d",
+     "label": "Legacy: exit at close of day 5",
+     "kind": "time",
+     "initial_stop": 39.9,
+     "days": 5,
+     "time_stop_days": 5,
+     "activate_after_r": null,
+     "exit_by_date": "2026-11-30"
+    },
+    {
+     "policy_id": "trail_2atr",
+     "label": "Trail 2x ATR from peak",
+     "kind": "trail_atr",
+     "initial_stop": 39.9,
+     "atr_mult": 2.0,
+     "trail_atr_aud": 0.95,
+     "activate_after_r": null,
+     "time_stop_days": 20
+    },
+    {
+     "policy_id": "trail_1pct",
+     "label": "Trail 1% from peak",
+     "kind": "trail_pct",
+     "initial_stop": 39.9,
+     "trail_pct": 1.0,
+     "activate_after_r": null,
+     "time_stop_days": 20
+    }
+   ]
   },
   {
    "symbol": "DPM.AX",
@@ -658,11 +964,14 @@
    "r_mult": 2.5,
    "risk_per_share": 3.27,
    "exit_plan": {
-    "policy_id": "trail_2pct",
-    "trail_pct": 2.0,
+    "policy_id": "fixed_5d",
+    "label": "Legacy: exit at close of day 5",
+    "kind": "time",
+    "initial_stop": 39.75,
+    "days": 5,
+    "time_stop_days": 5,
     "activate_after_r": null,
-    "time_stop_days": 20,
-    "initial_stop": 39.75
+    "exit_by_date": "2026-11-30"
    },
    "composite_score": 72.2,
    "sentiment": {
@@ -699,7 +1008,38 @@
    "fail_gates": [
     "score 75 < 80 (Valid threshold)"
    ],
-   "also_fired": []
+   "also_fired": [],
+   "exit_plans": [
+    {
+     "policy_id": "fixed_5d",
+     "label": "Legacy: exit at close of day 5",
+     "kind": "time",
+     "initial_stop": 39.75,
+     "days": 5,
+     "time_stop_days": 5,
+     "activate_after_r": null,
+     "exit_by_date": "2026-11-30"
+    },
+    {
+     "policy_id": "trail_2atr",
+     "label": "Trail 2x ATR from peak",
+     "kind": "trail_atr",
+     "initial_stop": 39.75,
+     "atr_mult": 2.0,
+     "trail_atr_aud": 5.45,
+     "activate_after_r": null,
+     "time_stop_days": 20
+    },
+    {
+     "policy_id": "trail_1pct",
+     "label": "Trail 1% from peak",
+     "kind": "trail_pct",
+     "initial_stop": 39.75,
+     "trail_pct": 1.0,
+     "activate_after_r": null,
+     "time_stop_days": 20
+    }
+   ]
   },
   {
    "symbol": "NST.AX",
@@ -720,11 +1060,14 @@
    "r_mult": 2.5,
    "risk_per_share": 1.29,
    "exit_plan": {
-    "policy_id": "trail_2pct",
-    "trail_pct": 2.0,
+    "policy_id": "fixed_5d",
+    "label": "Legacy: exit at close of day 5",
+    "kind": "time",
+    "initial_stop": 20.66,
+    "days": 5,
+    "time_stop_days": 5,
     "activate_after_r": null,
-    "time_stop_days": 20,
-    "initial_stop": 20.66
+    "exit_by_date": "2026-11-30"
    },
    "composite_score": 69.1,
    "sentiment": {
@@ -762,7 +1105,38 @@
     "score 75 < 80 (Valid threshold)",
     "composite 69.1 < 70"
    ],
-   "also_fired": []
+   "also_fired": [],
+   "exit_plans": [
+    {
+     "policy_id": "fixed_5d",
+     "label": "Legacy: exit at close of day 5",
+     "kind": "time",
+     "initial_stop": 20.66,
+     "days": 5,
+     "time_stop_days": 5,
+     "activate_after_r": null,
+     "exit_by_date": "2026-11-30"
+    },
+    {
+     "policy_id": "trail_2atr",
+     "label": "Trail 2x ATR from peak",
+     "kind": "trail_atr",
+     "initial_stop": 20.66,
+     "atr_mult": 2.0,
+     "trail_atr_aud": 2.15,
+     "activate_after_r": null,
+     "time_stop_days": 20
+    },
+    {
+     "policy_id": "trail_1pct",
+     "label": "Trail 1% from peak",
+     "kind": "trail_pct",
+     "initial_stop": 20.66,
+     "trail_pct": 1.0,
+     "activate_after_r": null,
+     "time_stop_days": 20
+    }
+   ]
   },
   {
    "symbol": "CSC.AX",
@@ -783,11 +1157,14 @@
    "r_mult": 2.5,
    "risk_per_share": 0.72,
    "exit_plan": {
-    "policy_id": "trail_2pct",
-    "trail_pct": 2.0,
+    "policy_id": "fixed_5d",
+    "label": "Legacy: exit at close of day 5",
+    "kind": "time",
+    "initial_stop": 8.12,
+    "days": 5,
+    "time_stop_days": 5,
     "activate_after_r": null,
-    "time_stop_days": 20,
-    "initial_stop": 8.12
+    "exit_by_date": "2026-11-30"
    },
    "composite_score": 68.8,
    "sentiment": {
@@ -825,7 +1202,38 @@
     "score 75 < 80 (Valid threshold)",
     "composite 68.8 < 70"
    ],
-   "also_fired": []
+   "also_fired": [],
+   "exit_plans": [
+    {
+     "policy_id": "fixed_5d",
+     "label": "Legacy: exit at close of day 5",
+     "kind": "time",
+     "initial_stop": 8.12,
+     "days": 5,
+     "time_stop_days": 5,
+     "activate_after_r": null,
+     "exit_by_date": "2026-11-30"
+    },
+    {
+     "policy_id": "trail_2atr",
+     "label": "Trail 2x ATR from peak",
+     "kind": "trail_atr",
+     "initial_stop": 8.12,
+     "atr_mult": 2.0,
+     "trail_atr_aud": 1.2,
+     "activate_after_r": null,
+     "time_stop_days": 20
+    },
+    {
+     "policy_id": "trail_1pct",
+     "label": "Trail 1% from peak",
+     "kind": "trail_pct",
+     "initial_stop": 8.12,
+     "trail_pct": 1.0,
+     "activate_after_r": null,
+     "time_stop_days": 20
+    }
+   ]
   },
   {
    "symbol": "CDA.AX",
@@ -846,11 +1254,14 @@
    "r_mult": 2.5,
    "risk_per_share": 3.52,
    "exit_plan": {
-    "policy_id": "trail_2pct",
-    "trail_pct": 2.0,
+    "policy_id": "fixed_5d",
+    "label": "Legacy: exit at close of day 5",
+    "kind": "time",
+    "initial_stop": 45.52,
+    "days": 5,
+    "time_stop_days": 5,
     "activate_after_r": null,
-    "time_stop_days": 20,
-    "initial_stop": 45.52
+    "exit_by_date": "2026-11-30"
    },
    "composite_score": 67.8,
    "sentiment": {
@@ -887,7 +1298,38 @@
    "fail_gates": [
     "composite 67.8 < 70"
    ],
-   "also_fired": []
+   "also_fired": [],
+   "exit_plans": [
+    {
+     "policy_id": "fixed_5d",
+     "label": "Legacy: exit at close of day 5",
+     "kind": "time",
+     "initial_stop": 45.52,
+     "days": 5,
+     "time_stop_days": 5,
+     "activate_after_r": null,
+     "exit_by_date": "2026-11-30"
+    },
+    {
+     "policy_id": "trail_2atr",
+     "label": "Trail 2x ATR from peak",
+     "kind": "trail_atr",
+     "initial_stop": 45.52,
+     "atr_mult": 2.0,
+     "trail_atr_aud": 5.87,
+     "activate_after_r": null,
+     "time_stop_days": 20
+    },
+    {
+     "policy_id": "trail_1pct",
+     "label": "Trail 1% from peak",
+     "kind": "trail_pct",
+     "initial_stop": 45.52,
+     "trail_pct": 1.0,
+     "activate_after_r": null,
+     "time_stop_days": 20
+    }
+   ]
   },
   {
    "symbol": "ALQ.AX",
@@ -908,11 +1350,14 @@
    "r_mult": 2.5,
    "risk_per_share": 0.69,
    "exit_plan": {
-    "policy_id": "trail_2pct",
-    "trail_pct": 2.0,
+    "policy_id": "fixed_5d",
+    "label": "Legacy: exit at close of day 5",
+    "kind": "time",
+    "initial_stop": 18.61,
+    "days": 5,
+    "time_stop_days": 5,
     "activate_after_r": null,
-    "time_stop_days": 20,
-    "initial_stop": 18.61
+    "exit_by_date": "2026-11-30"
    },
    "composite_score": 67.0,
    "sentiment": {
@@ -950,7 +1395,38 @@
     "score 75 < 80 (Valid threshold)",
     "composite 67.0 < 70"
    ],
-   "also_fired": []
+   "also_fired": [],
+   "exit_plans": [
+    {
+     "policy_id": "fixed_5d",
+     "label": "Legacy: exit at close of day 5",
+     "kind": "time",
+     "initial_stop": 18.61,
+     "days": 5,
+     "time_stop_days": 5,
+     "activate_after_r": null,
+     "exit_by_date": "2026-11-30"
+    },
+    {
+     "policy_id": "trail_2atr",
+     "label": "Trail 2x ATR from peak",
+     "kind": "trail_atr",
+     "initial_stop": 18.61,
+     "atr_mult": 2.0,
+     "trail_atr_aud": 1.15,
+     "activate_after_r": null,
+     "time_stop_days": 20
+    },
+    {
+     "policy_id": "trail_1pct",
+     "label": "Trail 1% from peak",
+     "kind": "trail_pct",
+     "initial_stop": 18.61,
+     "trail_pct": 1.0,
+     "activate_after_r": null,
+     "time_stop_days": 20
+    }
+   ]
   },
   {
    "symbol": "LTR.AX",
@@ -971,11 +1447,14 @@
    "r_mult": 2.5,
    "risk_per_share": 0.05,
    "exit_plan": {
-    "policy_id": "trail_2pct",
-    "trail_pct": 2.0,
+    "policy_id": "fixed_5d",
+    "label": "Legacy: exit at close of day 5",
+    "kind": "time",
+    "initial_stop": 0.505,
+    "days": 5,
+    "time_stop_days": 5,
     "activate_after_r": null,
-    "time_stop_days": 20,
-    "initial_stop": 0.505
+    "exit_by_date": "2026-11-30"
    },
    "composite_score": 67.0,
    "sentiment": {
@@ -1013,7 +1492,38 @@
     "score 75 < 80 (Valid threshold)",
     "composite 67.0 < 70"
    ],
-   "also_fired": []
+   "also_fired": [],
+   "exit_plans": [
+    {
+     "policy_id": "fixed_5d",
+     "label": "Legacy: exit at close of day 5",
+     "kind": "time",
+     "initial_stop": 0.505,
+     "days": 5,
+     "time_stop_days": 5,
+     "activate_after_r": null,
+     "exit_by_date": "2026-11-30"
+    },
+    {
+     "policy_id": "trail_2atr",
+     "label": "Trail 2x ATR from peak",
+     "kind": "trail_atr",
+     "initial_stop": 0.505,
+     "atr_mult": 2.0,
+     "trail_atr_aud": 0.083,
+     "activate_after_r": null,
+     "time_stop_days": 20
+    },
+    {
+     "policy_id": "trail_1pct",
+     "label": "Trail 1% from peak",
+     "kind": "trail_pct",
+     "initial_stop": 0.505,
+     "trail_pct": 1.0,
+     "activate_after_r": null,
+     "time_stop_days": 20
+    }
+   ]
   },
   {
    "symbol": "MIN.AX",
@@ -1034,11 +1544,14 @@
    "r_mult": 2.5,
    "risk_per_share": 2.87,
    "exit_plan": {
-    "policy_id": "trail_2pct",
-    "trail_pct": 2.0,
+    "policy_id": "fixed_5d",
+    "label": "Legacy: exit at close of day 5",
+    "kind": "time",
+    "initial_stop": 35.82,
+    "days": 5,
+    "time_stop_days": 5,
     "activate_after_r": null,
-    "time_stop_days": 20,
-    "initial_stop": 35.82
+    "exit_by_date": "2026-11-30"
    },
    "composite_score": 65.6,
    "sentiment": {
@@ -1076,7 +1589,38 @@
     "score 73 < 80 (Valid threshold)",
     "composite 65.6 < 70"
    ],
-   "also_fired": []
+   "also_fired": [],
+   "exit_plans": [
+    {
+     "policy_id": "fixed_5d",
+     "label": "Legacy: exit at close of day 5",
+     "kind": "time",
+     "initial_stop": 35.82,
+     "days": 5,
+     "time_stop_days": 5,
+     "activate_after_r": null,
+     "exit_by_date": "2026-11-30"
+    },
+    {
+     "policy_id": "trail_2atr",
+     "label": "Trail 2x ATR from peak",
+     "kind": "trail_atr",
+     "initial_stop": 35.82,
+     "atr_mult": 2.0,
+     "trail_atr_aud": 4.78,
+     "activate_after_r": null,
+     "time_stop_days": 20
+    },
+    {
+     "policy_id": "trail_1pct",
+     "label": "Trail 1% from peak",
+     "kind": "trail_pct",
+     "initial_stop": 35.82,
+     "trail_pct": 1.0,
+     "activate_after_r": null,
+     "time_stop_days": 20
+    }
+   ]
   },
   {
    "symbol": "AAI.AX",
@@ -1097,11 +1641,14 @@
    "r_mult": 2.5,
    "risk_per_share": 2.58,
    "exit_plan": {
-    "policy_id": "trail_2pct",
-    "trail_pct": 2.0,
+    "policy_id": "fixed_5d",
+    "label": "Legacy: exit at close of day 5",
+    "kind": "time",
+    "initial_stop": 49.72,
+    "days": 5,
+    "time_stop_days": 5,
     "activate_after_r": null,
-    "time_stop_days": 20,
-    "initial_stop": 49.72
+    "exit_by_date": "2026-11-30"
    },
    "composite_score": 65.1,
    "sentiment": {
@@ -1139,7 +1686,38 @@
     "score 63 < 80 (Valid threshold)",
     "composite 65.1 < 70"
    ],
-   "also_fired": []
+   "also_fired": [],
+   "exit_plans": [
+    {
+     "policy_id": "fixed_5d",
+     "label": "Legacy: exit at close of day 5",
+     "kind": "time",
+     "initial_stop": 49.72,
+     "days": 5,
+     "time_stop_days": 5,
+     "activate_after_r": null,
+     "exit_by_date": "2026-11-30"
+    },
+    {
+     "policy_id": "trail_2atr",
+     "label": "Trail 2x ATR from peak",
+     "kind": "trail_atr",
+     "initial_stop": 49.72,
+     "atr_mult": 2.0,
+     "trail_atr_aud": 4.3,
+     "activate_after_r": null,
+     "time_stop_days": 20
+    },
+    {
+     "policy_id": "trail_1pct",
+     "label": "Trail 1% from peak",
+     "kind": "trail_pct",
+     "initial_stop": 49.72,
+     "trail_pct": 1.0,
+     "activate_after_r": null,
+     "time_stop_days": 20
+    }
+   ]
   },
   {
    "symbol": "NEM.AX",
@@ -1160,11 +1738,14 @@
    "r_mult": 2.5,
    "risk_per_share": 7.82,
    "exit_plan": {
-    "policy_id": "trail_2pct",
-    "trail_pct": 2.0,
+    "policy_id": "fixed_5d",
+    "label": "Legacy: exit at close of day 5",
+    "kind": "time",
+    "initial_stop": 136.89,
+    "days": 5,
+    "time_stop_days": 5,
     "activate_after_r": null,
-    "time_stop_days": 20,
-    "initial_stop": 136.89
+    "exit_by_date": "2026-11-30"
    },
    "composite_score": 64.6,
    "sentiment": {
@@ -1202,7 +1783,38 @@
     "score 61 < 80 (Valid threshold)",
     "composite 64.6 < 70"
    ],
-   "also_fired": []
+   "also_fired": [],
+   "exit_plans": [
+    {
+     "policy_id": "fixed_5d",
+     "label": "Legacy: exit at close of day 5",
+     "kind": "time",
+     "initial_stop": 136.89,
+     "days": 5,
+     "time_stop_days": 5,
+     "activate_after_r": null,
+     "exit_by_date": "2026-11-30"
+    },
+    {
+     "policy_id": "trail_2atr",
+     "label": "Trail 2x ATR from peak",
+     "kind": "trail_atr",
+     "initial_stop": 136.89,
+     "atr_mult": 2.0,
+     "trail_atr_aud": 13.03,
+     "activate_after_r": null,
+     "time_stop_days": 20
+    },
+    {
+     "policy_id": "trail_1pct",
+     "label": "Trail 1% from peak",
+     "kind": "trail_pct",
+     "initial_stop": 136.89,
+     "trail_pct": 1.0,
+     "activate_after_r": null,
+     "time_stop_days": 20
+    }
+   ]
   }
  ],
  "watchlist_full": [
@@ -1225,11 +1837,14 @@
    "r_mult": 2.5,
    "risk_per_share": 0.1,
    "exit_plan": {
-    "policy_id": "trail_2pct",
-    "trail_pct": 2.0,
+    "policy_id": "fixed_5d",
+    "label": "Legacy: exit at close of day 5",
+    "kind": "time",
+    "initial_stop": 1.895,
+    "days": 5,
+    "time_stop_days": 5,
     "activate_after_r": null,
-    "time_stop_days": 20,
-    "initial_stop": 1.895
+    "exit_by_date": "2026-11-30"
    },
    "composite_score": 71.6,
    "sentiment": {
@@ -1264,7 +1879,38 @@
    },
    "plain_english": "Mean Reversion (oversold bounce): LIMIT buy near 2.00. RSI(2) and Bollinger Band signals suggest a short-term oversold condition — the setup anticipates a snap-back toward the mean, not a new uptrend. Stop 1.89 (~1.2 ATR below entry). Reward/risk 2.5R. TA score 94/100. Respect position sizing — mean reversion trades carry higher failure rates than trend trades. Fundamentals (20/100): modest ROE, thin margins; but: high debt, tight liquidity. ⚠ weak fundamentals — treat as speculative.",
    "fail_gates": [],
-   "also_fired": []
+   "also_fired": [],
+   "exit_plans": [
+    {
+     "policy_id": "fixed_5d",
+     "label": "Legacy: exit at close of day 5",
+     "kind": "time",
+     "initial_stop": 1.895,
+     "days": 5,
+     "time_stop_days": 5,
+     "activate_after_r": null,
+     "exit_by_date": "2026-11-30"
+    },
+    {
+     "policy_id": "trail_2atr",
+     "label": "Trail 2x ATR from peak",
+     "kind": "trail_atr",
+     "initial_stop": 1.895,
+     "atr_mult": 2.0,
+     "trail_atr_aud": 0.167,
+     "activate_after_r": null,
+     "time_stop_days": 20
+    },
+    {
+     "policy_id": "trail_1pct",
+     "label": "Trail 1% from peak",
+     "kind": "trail_pct",
+     "initial_stop": 1.895,
+     "trail_pct": 1.0,
+     "activate_after_r": null,
+     "time_stop_days": 20
+    }
+   ]
   },
   {
    "symbol": "PME.AX",
@@ -1285,11 +1931,14 @@
    "r_mult": 2.5,
    "risk_per_share": 9.76,
    "exit_plan": {
-    "policy_id": "trail_2pct",
-    "trail_pct": 2.0,
+    "policy_id": "fixed_5d",
+    "label": "Legacy: exit at close of day 5",
+    "kind": "time",
+    "initial_stop": 178.0,
+    "days": 5,
+    "time_stop_days": 5,
     "activate_after_r": null,
-    "time_stop_days": 20,
-    "initial_stop": 178.0
+    "exit_by_date": "2026-11-30"
    },
    "composite_score": 70.8,
    "sentiment": {
@@ -1324,7 +1973,38 @@
    },
    "plain_english": "Mean Reversion (oversold bounce): LIMIT buy near 187.76. RSI(2) and Bollinger Band signals suggest a short-term oversold condition — the setup anticipates a snap-back toward the mean, not a new uptrend. Stop 178.00 (~1.2 ATR below entry). Reward/risk 2.5R. TA score 86/100. Respect position sizing — mean reversion trades carry higher failure rates than trend trades. Fundamentals (54/100): strong ROE, healthy margins, low debt. mixed fundamentals.",
    "fail_gates": [],
-   "also_fired": []
+   "also_fired": [],
+   "exit_plans": [
+    {
+     "policy_id": "fixed_5d",
+     "label": "Legacy: exit at close of day 5",
+     "kind": "time",
+     "initial_stop": 178.0,
+     "days": 5,
+     "time_stop_days": 5,
+     "activate_after_r": null,
+     "exit_by_date": "2026-11-30"
+    },
+    {
+     "policy_id": "trail_2atr",
+     "label": "Trail 2x ATR from peak",
+     "kind": "trail_atr",
+     "initial_stop": 178.0,
+     "atr_mult": 2.0,
+     "trail_atr_aud": 16.27,
+     "activate_after_r": null,
+     "time_stop_days": 20
+    },
+    {
+     "policy_id": "trail_1pct",
+     "label": "Trail 1% from peak",
+     "kind": "trail_pct",
+     "initial_stop": 178.0,
+     "trail_pct": 1.0,
+     "activate_after_r": null,
+     "time_stop_days": 20
+    }
+   ]
   },
   {
    "symbol": "AFI.AX",
@@ -1345,11 +2025,14 @@
    "r_mult": 2.5,
    "risk_per_share": 0.11,
    "exit_plan": {
-    "policy_id": "trail_2pct",
-    "trail_pct": 2.0,
+    "policy_id": "fixed_5d",
+    "label": "Legacy: exit at close of day 5",
+    "kind": "time",
+    "initial_stop": 6.6,
+    "days": 5,
+    "time_stop_days": 5,
     "activate_after_r": null,
-    "time_stop_days": 20,
-    "initial_stop": 6.6
+    "exit_by_date": "2026-11-30"
    },
    "composite_score": 70.3,
    "sentiment": {
@@ -1384,7 +2067,38 @@
    },
    "plain_english": "Mean Reversion (oversold bounce): LIMIT buy near 6.71. RSI(2) and Bollinger Band signals suggest a short-term oversold condition — the setup anticipates a snap-back toward the mean, not a new uptrend. Stop 6.60 (~1.2 ATR below entry). Reward/risk 2.5R. TA score 86/100. Respect position sizing — mean reversion trades carry higher failure rates than trend trades. Fundamentals (32/100): modest ROE, healthy margins. ⚠ weak fundamentals — treat as speculative.",
    "fail_gates": [],
-   "also_fired": []
+   "also_fired": [],
+   "exit_plans": [
+    {
+     "policy_id": "fixed_5d",
+     "label": "Legacy: exit at close of day 5",
+     "kind": "time",
+     "initial_stop": 6.6,
+     "days": 5,
+     "time_stop_days": 5,
+     "activate_after_r": null,
+     "exit_by_date": "2026-11-30"
+    },
+    {
+     "policy_id": "trail_2atr",
+     "label": "Trail 2x ATR from peak",
+     "kind": "trail_atr",
+     "initial_stop": 6.6,
+     "atr_mult": 2.0,
+     "trail_atr_aud": 0.185,
+     "activate_after_r": null,
+     "time_stop_days": 20
+    },
+    {
+     "policy_id": "trail_1pct",
+     "label": "Trail 1% from peak",
+     "kind": "trail_pct",
+     "initial_stop": 6.6,
+     "trail_pct": 1.0,
+     "activate_after_r": null,
+     "time_stop_days": 20
+    }
+   ]
   },
   {
    "symbol": "BEN.AX",
@@ -1405,11 +2119,14 @@
    "r_mult": 2.4242,
    "risk_per_share": 0.23,
    "exit_plan": {
-    "policy_id": "trail_2pct",
-    "trail_pct": 2.0,
+    "policy_id": "fixed_5d",
+    "label": "Legacy: exit at close of day 5",
+    "kind": "time",
+    "initial_stop": 10.18,
+    "days": 5,
+    "time_stop_days": 5,
     "activate_after_r": null,
-    "time_stop_days": 20,
-    "initial_stop": 10.18
+    "exit_by_date": "2026-11-30"
    },
    "composite_score": 69.2,
    "sentiment": {
@@ -1444,7 +2161,38 @@
    },
    "plain_english": "Mean Reversion (oversold bounce): LIMIT buy near 10.41. RSI(2) and Bollinger Band signals suggest a short-term oversold condition — the setup anticipates a snap-back toward the mean, not a new uptrend. Stop 10.18 (~1.2 ATR below entry). Reward/risk 2.4R. TA score 86/100. Respect position sizing — mean reversion trades carry higher failure rates than trend trades. Fundamentals (27/100): modest ROE, healthy margins. ⚠ weak fundamentals — treat as speculative.",
    "fail_gates": [],
-   "also_fired": []
+   "also_fired": [],
+   "exit_plans": [
+    {
+     "policy_id": "fixed_5d",
+     "label": "Legacy: exit at close of day 5",
+     "kind": "time",
+     "initial_stop": 10.18,
+     "days": 5,
+     "time_stop_days": 5,
+     "activate_after_r": null,
+     "exit_by_date": "2026-11-30"
+    },
+    {
+     "policy_id": "trail_2atr",
+     "label": "Trail 2x ATR from peak",
+     "kind": "trail_atr",
+     "initial_stop": 10.18,
+     "atr_mult": 2.0,
+     "trail_atr_aud": 0.385,
+     "activate_after_r": null,
+     "time_stop_days": 20
+    },
+    {
+     "policy_id": "trail_1pct",
+     "label": "Trail 1% from peak",
+     "kind": "trail_pct",
+     "initial_stop": 10.18,
+     "trail_pct": 1.0,
+     "activate_after_r": null,
+     "time_stop_days": 20
+    }
+   ]
   },
   {
    "symbol": "BSL.AX",
@@ -1465,11 +2213,14 @@
    "r_mult": 2.5,
    "risk_per_share": 1.01,
    "exit_plan": {
-    "policy_id": "trail_2pct",
-    "trail_pct": 2.0,
+    "policy_id": "fixed_5d",
+    "label": "Legacy: exit at close of day 5",
+    "kind": "time",
+    "initial_stop": 29.75,
+    "days": 5,
+    "time_stop_days": 5,
     "activate_after_r": null,
-    "time_stop_days": 20,
-    "initial_stop": 29.75
+    "exit_by_date": "2026-11-30"
    },
    "composite_score": 65.4,
    "sentiment": {
@@ -1504,7 +2255,38 @@
    },
    "plain_english": "Mean Reversion (oversold bounce): LIMIT buy near 30.76. RSI(2) and Bollinger Band signals suggest a short-term oversold condition — the setup anticipates a snap-back toward the mean, not a new uptrend. Stop 29.75 (~1.2 ATR below entry). Reward/risk 2.5R. TA score 95/100. Respect position sizing — mean reversion trades carry higher failure rates than trend trades. Fundamentals (32/100): modest ROE, low debt. ⚠ weak fundamentals — treat as speculative.",
    "fail_gates": [],
-   "also_fired": []
+   "also_fired": [],
+   "exit_plans": [
+    {
+     "policy_id": "fixed_5d",
+     "label": "Legacy: exit at close of day 5",
+     "kind": "time",
+     "initial_stop": 29.75,
+     "days": 5,
+     "time_stop_days": 5,
+     "activate_after_r": null,
+     "exit_by_date": "2026-11-30"
+    },
+    {
+     "policy_id": "trail_2atr",
+     "label": "Trail 2x ATR from peak",
+     "kind": "trail_atr",
+     "initial_stop": 29.75,
+     "atr_mult": 2.0,
+     "trail_atr_aud": 1.685,
+     "activate_after_r": null,
+     "time_stop_days": 20
+    },
+    {
+     "policy_id": "trail_1pct",
+     "label": "Trail 1% from peak",
+     "kind": "trail_pct",
+     "initial_stop": 29.75,
+     "trail_pct": 1.0,
+     "activate_after_r": null,
+     "time_stop_days": 20
+    }
+   ]
   },
   {
    "symbol": "XSS.AX",
@@ -1525,11 +2307,14 @@
    "r_mult": 1.7408,
    "risk_per_share": 0.33,
    "exit_plan": {
-    "policy_id": "trail_2pct",
-    "trail_pct": 2.0,
+    "policy_id": "fixed_5d",
+    "label": "Legacy: exit at close of day 5",
+    "kind": "time",
+    "initial_stop": 14.37,
+    "days": 5,
+    "time_stop_days": 5,
     "activate_after_r": null,
-    "time_stop_days": 20,
-    "initial_stop": 14.37
+    "exit_by_date": "2026-11-30"
    },
    "composite_score": 55.0,
    "sentiment": {
@@ -1567,7 +2352,38 @@
     "<i>gate</i> with markup",
     "score 61 < 80 (Valid threshold)"
    ],
-   "also_fired": []
+   "also_fired": [],
+   "exit_plans": [
+    {
+     "policy_id": "fixed_5d",
+     "label": "Legacy: exit at close of day 5",
+     "kind": "time",
+     "initial_stop": 14.37,
+     "days": 5,
+     "time_stop_days": 5,
+     "activate_after_r": null,
+     "exit_by_date": "2026-11-30"
+    },
+    {
+     "policy_id": "trail_2atr",
+     "label": "Trail 2x ATR from peak",
+     "kind": "trail_atr",
+     "initial_stop": 14.37,
+     "atr_mult": 2.0,
+     "trail_atr_aud": 0.55,
+     "activate_after_r": null,
+     "time_stop_days": 20
+    },
+    {
+     "policy_id": "trail_1pct",
+     "label": "Trail 1% from peak",
+     "kind": "trail_pct",
+     "initial_stop": 14.37,
+     "trail_pct": 1.0,
+     "activate_after_r": null,
+     "time_stop_days": 20
+    }
+   ]
   },
   {
    "symbol": "DHHF.AX",
@@ -1588,11 +2404,14 @@
    "r_mult": 2.5,
    "risk_per_share": 0.57,
    "exit_plan": {
-    "policy_id": "trail_2pct",
-    "trail_pct": 2.0,
+    "policy_id": "fixed_5d",
+    "label": "Legacy: exit at close of day 5",
+    "kind": "time",
+    "initial_stop": 39.9,
+    "days": 5,
+    "time_stop_days": 5,
     "activate_after_r": null,
-    "time_stop_days": 20,
-    "initial_stop": 39.9
+    "exit_by_date": "2026-11-30"
    },
    "composite_score": 65.4,
    "sentiment": {
@@ -1627,7 +2446,38 @@
    },
    "plain_english": "Mean Reversion (oversold bounce): LIMIT buy near 40.47. RSI(2) and Bollinger Band signals suggest a short-term oversold condition — the setup anticipates a snap-back toward the mean, not a new uptrend. Stop 39.90 (~1.2 ATR below entry). Reward/risk 2.5R. TA score 89/100. Respect position sizing — mean reversion trades carry higher failure rates than trend trades. Fundamentals (26/100): ETF/LIC — no earnings data; scored on size and balance sheet.",
    "fail_gates": [],
-   "also_fired": []
+   "also_fired": [],
+   "exit_plans": [
+    {
+     "policy_id": "fixed_5d",
+     "label": "Legacy: exit at close of day 5",
+     "kind": "time",
+     "initial_stop": 39.9,
+     "days": 5,
+     "time_stop_days": 5,
+     "activate_after_r": null,
+     "exit_by_date": "2026-11-30"
+    },
+    {
+     "policy_id": "trail_2atr",
+     "label": "Trail 2x ATR from peak",
+     "kind": "trail_atr",
+     "initial_stop": 39.9,
+     "atr_mult": 2.0,
+     "trail_atr_aud": 0.95,
+     "activate_after_r": null,
+     "time_stop_days": 20
+    },
+    {
+     "policy_id": "trail_1pct",
+     "label": "Trail 1% from peak",
+     "kind": "trail_pct",
+     "initial_stop": 39.9,
+     "trail_pct": 1.0,
+     "activate_after_r": null,
+     "time_stop_days": 20
+    }
+   ]
   },
   {
    "symbol": "DPM.AX",
@@ -1648,11 +2498,14 @@
    "r_mult": 2.5,
    "risk_per_share": 3.27,
    "exit_plan": {
-    "policy_id": "trail_2pct",
-    "trail_pct": 2.0,
+    "policy_id": "fixed_5d",
+    "label": "Legacy: exit at close of day 5",
+    "kind": "time",
+    "initial_stop": 39.75,
+    "days": 5,
+    "time_stop_days": 5,
     "activate_after_r": null,
-    "time_stop_days": 20,
-    "initial_stop": 39.75
+    "exit_by_date": "2026-11-30"
    },
    "composite_score": 72.2,
    "sentiment": {
@@ -1689,7 +2542,38 @@
    "fail_gates": [
     "score 75 < 80 (Valid threshold)"
    ],
-   "also_fired": []
+   "also_fired": [],
+   "exit_plans": [
+    {
+     "policy_id": "fixed_5d",
+     "label": "Legacy: exit at close of day 5",
+     "kind": "time",
+     "initial_stop": 39.75,
+     "days": 5,
+     "time_stop_days": 5,
+     "activate_after_r": null,
+     "exit_by_date": "2026-11-30"
+    },
+    {
+     "policy_id": "trail_2atr",
+     "label": "Trail 2x ATR from peak",
+     "kind": "trail_atr",
+     "initial_stop": 39.75,
+     "atr_mult": 2.0,
+     "trail_atr_aud": 5.45,
+     "activate_after_r": null,
+     "time_stop_days": 20
+    },
+    {
+     "policy_id": "trail_1pct",
+     "label": "Trail 1% from peak",
+     "kind": "trail_pct",
+     "initial_stop": 39.75,
+     "trail_pct": 1.0,
+     "activate_after_r": null,
+     "time_stop_days": 20
+    }
+   ]
   },
   {
    "symbol": "ZIP.AX",
@@ -1710,11 +2594,14 @@
    "r_mult": 2.5,
    "risk_per_share": 1.01,
    "exit_plan": {
-    "policy_id": "trail_2pct",
-    "trail_pct": 2.0,
+    "policy_id": "fixed_5d",
+    "label": "Legacy: exit at close of day 5",
+    "kind": "time",
+    "initial_stop": 81.51,
+    "days": 5,
+    "time_stop_days": 5,
     "activate_after_r": null,
-    "time_stop_days": 20,
-    "initial_stop": 81.51
+    "exit_by_date": "2026-11-30"
    },
    "composite_score": 55.0,
    "sentiment": {
@@ -1752,7 +2639,38 @@
     "gap not confirmed",
     "liquidity < A$2m/day"
    ],
-   "also_fired": []
+   "also_fired": [],
+   "exit_plans": [
+    {
+     "policy_id": "fixed_5d",
+     "label": "Legacy: exit at close of day 5",
+     "kind": "time",
+     "initial_stop": 81.51,
+     "days": 5,
+     "time_stop_days": 5,
+     "activate_after_r": null,
+     "exit_by_date": "2026-11-30"
+    },
+    {
+     "policy_id": "trail_2atr",
+     "label": "Trail 2x ATR from peak",
+     "kind": "trail_atr",
+     "initial_stop": 81.51,
+     "atr_mult": 2.0,
+     "trail_atr_aud": 1.685,
+     "activate_after_r": null,
+     "time_stop_days": 20
+    },
+    {
+     "policy_id": "trail_1pct",
+     "label": "Trail 1% from peak",
+     "kind": "trail_pct",
+     "initial_stop": 81.51,
+     "trail_pct": 1.0,
+     "activate_after_r": null,
+     "time_stop_days": 20
+    }
+   ]
   },
   {
    "symbol": "NST.AX",
@@ -1773,11 +2691,14 @@
    "r_mult": 2.5,
    "risk_per_share": 1.29,
    "exit_plan": {
-    "policy_id": "trail_2pct",
-    "trail_pct": 2.0,
+    "policy_id": "fixed_5d",
+    "label": "Legacy: exit at close of day 5",
+    "kind": "time",
+    "initial_stop": 20.66,
+    "days": 5,
+    "time_stop_days": 5,
     "activate_after_r": null,
-    "time_stop_days": 20,
-    "initial_stop": 20.66
+    "exit_by_date": "2026-11-30"
    },
    "composite_score": 69.1,
    "sentiment": {
@@ -1815,7 +2736,38 @@
     "score 75 < 80 (Valid threshold)",
     "composite 69.1 < 70"
    ],
-   "also_fired": []
+   "also_fired": [],
+   "exit_plans": [
+    {
+     "policy_id": "fixed_5d",
+     "label": "Legacy: exit at close of day 5",
+     "kind": "time",
+     "initial_stop": 20.66,
+     "days": 5,
+     "time_stop_days": 5,
+     "activate_after_r": null,
+     "exit_by_date": "2026-11-30"
+    },
+    {
+     "policy_id": "trail_2atr",
+     "label": "Trail 2x ATR from peak",
+     "kind": "trail_atr",
+     "initial_stop": 20.66,
+     "atr_mult": 2.0,
+     "trail_atr_aud": 2.15,
+     "activate_after_r": null,
+     "time_stop_days": 20
+    },
+    {
+     "policy_id": "trail_1pct",
+     "label": "Trail 1% from peak",
+     "kind": "trail_pct",
+     "initial_stop": 20.66,
+     "trail_pct": 1.0,
+     "activate_after_r": null,
+     "time_stop_days": 20
+    }
+   ]
   },
   {
    "symbol": "CSC.AX",
@@ -1836,11 +2788,14 @@
    "r_mult": 2.5,
    "risk_per_share": 0.72,
    "exit_plan": {
-    "policy_id": "trail_2pct",
-    "trail_pct": 2.0,
+    "policy_id": "fixed_5d",
+    "label": "Legacy: exit at close of day 5",
+    "kind": "time",
+    "initial_stop": 8.12,
+    "days": 5,
+    "time_stop_days": 5,
     "activate_after_r": null,
-    "time_stop_days": 20,
-    "initial_stop": 8.12
+    "exit_by_date": "2026-11-30"
    },
    "composite_score": 68.8,
    "sentiment": {
@@ -1878,7 +2833,38 @@
     "score 75 < 80 (Valid threshold)",
     "composite 68.8 < 70"
    ],
-   "also_fired": []
+   "also_fired": [],
+   "exit_plans": [
+    {
+     "policy_id": "fixed_5d",
+     "label": "Legacy: exit at close of day 5",
+     "kind": "time",
+     "initial_stop": 8.12,
+     "days": 5,
+     "time_stop_days": 5,
+     "activate_after_r": null,
+     "exit_by_date": "2026-11-30"
+    },
+    {
+     "policy_id": "trail_2atr",
+     "label": "Trail 2x ATR from peak",
+     "kind": "trail_atr",
+     "initial_stop": 8.12,
+     "atr_mult": 2.0,
+     "trail_atr_aud": 1.2,
+     "activate_after_r": null,
+     "time_stop_days": 20
+    },
+    {
+     "policy_id": "trail_1pct",
+     "label": "Trail 1% from peak",
+     "kind": "trail_pct",
+     "initial_stop": 8.12,
+     "trail_pct": 1.0,
+     "activate_after_r": null,
+     "time_stop_days": 20
+    }
+   ]
   },
   {
    "symbol": "CDA.AX",
@@ -1899,11 +2885,14 @@
    "r_mult": 2.5,
    "risk_per_share": 3.52,
    "exit_plan": {
-    "policy_id": "trail_2pct",
-    "trail_pct": 2.0,
+    "policy_id": "fixed_5d",
+    "label": "Legacy: exit at close of day 5",
+    "kind": "time",
+    "initial_stop": 45.52,
+    "days": 5,
+    "time_stop_days": 5,
     "activate_after_r": null,
-    "time_stop_days": 20,
-    "initial_stop": 45.52
+    "exit_by_date": "2026-11-30"
    },
    "composite_score": 67.8,
    "sentiment": {
@@ -1940,7 +2929,38 @@
    "fail_gates": [
     "composite 67.8 < 70"
    ],
-   "also_fired": []
+   "also_fired": [],
+   "exit_plans": [
+    {
+     "policy_id": "fixed_5d",
+     "label": "Legacy: exit at close of day 5",
+     "kind": "time",
+     "initial_stop": 45.52,
+     "days": 5,
+     "time_stop_days": 5,
+     "activate_after_r": null,
+     "exit_by_date": "2026-11-30"
+    },
+    {
+     "policy_id": "trail_2atr",
+     "label": "Trail 2x ATR from peak",
+     "kind": "trail_atr",
+     "initial_stop": 45.52,
+     "atr_mult": 2.0,
+     "trail_atr_aud": 5.87,
+     "activate_after_r": null,
+     "time_stop_days": 20
+    },
+    {
+     "policy_id": "trail_1pct",
+     "label": "Trail 1% from peak",
+     "kind": "trail_pct",
+     "initial_stop": 45.52,
+     "trail_pct": 1.0,
+     "activate_after_r": null,
+     "time_stop_days": 20
+    }
+   ]
   },
   {
    "symbol": "ALQ.AX",
@@ -1961,11 +2981,14 @@
    "r_mult": 2.5,
    "risk_per_share": 0.69,
    "exit_plan": {
-    "policy_id": "trail_2pct",
-    "trail_pct": 2.0,
+    "policy_id": "fixed_5d",
+    "label": "Legacy: exit at close of day 5",
+    "kind": "time",
+    "initial_stop": 18.61,
+    "days": 5,
+    "time_stop_days": 5,
     "activate_after_r": null,
-    "time_stop_days": 20,
-    "initial_stop": 18.61
+    "exit_by_date": "2026-11-30"
    },
    "composite_score": 67.0,
    "sentiment": {
@@ -2003,7 +3026,38 @@
     "score 75 < 80 (Valid threshold)",
     "composite 67.0 < 70"
    ],
-   "also_fired": []
+   "also_fired": [],
+   "exit_plans": [
+    {
+     "policy_id": "fixed_5d",
+     "label": "Legacy: exit at close of day 5",
+     "kind": "time",
+     "initial_stop": 18.61,
+     "days": 5,
+     "time_stop_days": 5,
+     "activate_after_r": null,
+     "exit_by_date": "2026-11-30"
+    },
+    {
+     "policy_id": "trail_2atr",
+     "label": "Trail 2x ATR from peak",
+     "kind": "trail_atr",
+     "initial_stop": 18.61,
+     "atr_mult": 2.0,
+     "trail_atr_aud": 1.15,
+     "activate_after_r": null,
+     "time_stop_days": 20
+    },
+    {
+     "policy_id": "trail_1pct",
+     "label": "Trail 1% from peak",
+     "kind": "trail_pct",
+     "initial_stop": 18.61,
+     "trail_pct": 1.0,
+     "activate_after_r": null,
+     "time_stop_days": 20
+    }
+   ]
   },
   {
    "symbol": "LTR.AX",
@@ -2024,11 +3078,14 @@
    "r_mult": 2.5,
    "risk_per_share": 0.05,
    "exit_plan": {
-    "policy_id": "trail_2pct",
-    "trail_pct": 2.0,
+    "policy_id": "fixed_5d",
+    "label": "Legacy: exit at close of day 5",
+    "kind": "time",
+    "initial_stop": 0.505,
+    "days": 5,
+    "time_stop_days": 5,
     "activate_after_r": null,
-    "time_stop_days": 20,
-    "initial_stop": 0.505
+    "exit_by_date": "2026-11-30"
    },
    "composite_score": 67.0,
    "sentiment": {
@@ -2066,7 +3123,38 @@
     "score 75 < 80 (Valid threshold)",
     "composite 67.0 < 70"
    ],
-   "also_fired": []
+   "also_fired": [],
+   "exit_plans": [
+    {
+     "policy_id": "fixed_5d",
+     "label": "Legacy: exit at close of day 5",
+     "kind": "time",
+     "initial_stop": 0.505,
+     "days": 5,
+     "time_stop_days": 5,
+     "activate_after_r": null,
+     "exit_by_date": "2026-11-30"
+    },
+    {
+     "policy_id": "trail_2atr",
+     "label": "Trail 2x ATR from peak",
+     "kind": "trail_atr",
+     "initial_stop": 0.505,
+     "atr_mult": 2.0,
+     "trail_atr_aud": 0.083,
+     "activate_after_r": null,
+     "time_stop_days": 20
+    },
+    {
+     "policy_id": "trail_1pct",
+     "label": "Trail 1% from peak",
+     "kind": "trail_pct",
+     "initial_stop": 0.505,
+     "trail_pct": 1.0,
+     "activate_after_r": null,
+     "time_stop_days": 20
+    }
+   ]
   },
   {
    "symbol": "MIN.AX",
@@ -2087,11 +3175,14 @@
    "r_mult": 2.5,
    "risk_per_share": 2.87,
    "exit_plan": {
-    "policy_id": "trail_2pct",
-    "trail_pct": 2.0,
+    "policy_id": "fixed_5d",
+    "label": "Legacy: exit at close of day 5",
+    "kind": "time",
+    "initial_stop": 35.82,
+    "days": 5,
+    "time_stop_days": 5,
     "activate_after_r": null,
-    "time_stop_days": 20,
-    "initial_stop": 35.82
+    "exit_by_date": "2026-11-30"
    },
    "composite_score": 65.6,
    "sentiment": {
@@ -2129,7 +3220,38 @@
     "score 73 < 80 (Valid threshold)",
     "composite 65.6 < 70"
    ],
-   "also_fired": []
+   "also_fired": [],
+   "exit_plans": [
+    {
+     "policy_id": "fixed_5d",
+     "label": "Legacy: exit at close of day 5",
+     "kind": "time",
+     "initial_stop": 35.82,
+     "days": 5,
+     "time_stop_days": 5,
+     "activate_after_r": null,
+     "exit_by_date": "2026-11-30"
+    },
+    {
+     "policy_id": "trail_2atr",
+     "label": "Trail 2x ATR from peak",
+     "kind": "trail_atr",
+     "initial_stop": 35.82,
+     "atr_mult": 2.0,
+     "trail_atr_aud": 4.78,
+     "activate_after_r": null,
+     "time_stop_days": 20
+    },
+    {
+     "policy_id": "trail_1pct",
+     "label": "Trail 1% from peak",
+     "kind": "trail_pct",
+     "initial_stop": 35.82,
+     "trail_pct": 1.0,
+     "activate_after_r": null,
+     "time_stop_days": 20
+    }
+   ]
   },
   {
    "symbol": "AAI.AX",
@@ -2150,11 +3272,14 @@
    "r_mult": 2.5,
    "risk_per_share": 2.58,
    "exit_plan": {
-    "policy_id": "trail_2pct",
-    "trail_pct": 2.0,
+    "policy_id": "fixed_5d",
+    "label": "Legacy: exit at close of day 5",
+    "kind": "time",
+    "initial_stop": 49.72,
+    "days": 5,
+    "time_stop_days": 5,
     "activate_after_r": null,
-    "time_stop_days": 20,
-    "initial_stop": 49.72
+    "exit_by_date": "2026-11-30"
    },
    "composite_score": 65.1,
    "sentiment": {
@@ -2192,7 +3317,38 @@
     "score 63 < 80 (Valid threshold)",
     "composite 65.1 < 70"
    ],
-   "also_fired": []
+   "also_fired": [],
+   "exit_plans": [
+    {
+     "policy_id": "fixed_5d",
+     "label": "Legacy: exit at close of day 5",
+     "kind": "time",
+     "initial_stop": 49.72,
+     "days": 5,
+     "time_stop_days": 5,
+     "activate_after_r": null,
+     "exit_by_date": "2026-11-30"
+    },
+    {
+     "policy_id": "trail_2atr",
+     "label": "Trail 2x ATR from peak",
+     "kind": "trail_atr",
+     "initial_stop": 49.72,
+     "atr_mult": 2.0,
+     "trail_atr_aud": 4.3,
+     "activate_after_r": null,
+     "time_stop_days": 20
+    },
+    {
+     "policy_id": "trail_1pct",
+     "label": "Trail 1% from peak",
+     "kind": "trail_pct",
+     "initial_stop": 49.72,
+     "trail_pct": 1.0,
+     "activate_after_r": null,
+     "time_stop_days": 20
+    }
+   ]
   },
   {
    "symbol": "NEM.AX",
@@ -2213,11 +3369,14 @@
    "r_mult": 2.5,
    "risk_per_share": 7.82,
    "exit_plan": {
-    "policy_id": "trail_2pct",
-    "trail_pct": 2.0,
+    "policy_id": "fixed_5d",
+    "label": "Legacy: exit at close of day 5",
+    "kind": "time",
+    "initial_stop": 136.89,
+    "days": 5,
+    "time_stop_days": 5,
     "activate_after_r": null,
-    "time_stop_days": 20,
-    "initial_stop": 136.89
+    "exit_by_date": "2026-11-30"
    },
    "composite_score": 64.6,
    "sentiment": {
@@ -2255,7 +3414,38 @@
     "score 61 < 80 (Valid threshold)",
     "composite 64.6 < 70"
    ],
-   "also_fired": []
+   "also_fired": [],
+   "exit_plans": [
+    {
+     "policy_id": "fixed_5d",
+     "label": "Legacy: exit at close of day 5",
+     "kind": "time",
+     "initial_stop": 136.89,
+     "days": 5,
+     "time_stop_days": 5,
+     "activate_after_r": null,
+     "exit_by_date": "2026-11-30"
+    },
+    {
+     "policy_id": "trail_2atr",
+     "label": "Trail 2x ATR from peak",
+     "kind": "trail_atr",
+     "initial_stop": 136.89,
+     "atr_mult": 2.0,
+     "trail_atr_aud": 13.03,
+     "activate_after_r": null,
+     "time_stop_days": 20
+    },
+    {
+     "policy_id": "trail_1pct",
+     "label": "Trail 1% from peak",
+     "kind": "trail_pct",
+     "initial_stop": 136.89,
+     "trail_pct": 1.0,
+     "activate_after_r": null,
+     "time_stop_days": 20
+    }
+   ]
   },
   {
    "symbol": "RIO.AX",
@@ -2276,11 +3466,14 @@
    "r_mult": 2.5,
    "risk_per_share": 5.08,
    "exit_plan": {
-    "policy_id": "trail_2pct",
-    "trail_pct": 2.0,
+    "policy_id": "fixed_5d",
+    "label": "Legacy: exit at close of day 5",
+    "kind": "time",
+    "initial_stop": 129.97,
+    "days": 5,
+    "time_stop_days": 5,
     "activate_after_r": null,
-    "time_stop_days": 20,
-    "initial_stop": 129.97
+    "exit_by_date": "2026-11-30"
    },
    "composite_score": 64.6,
    "sentiment": {
@@ -2318,7 +3511,38 @@
     "score 75 < 80 (Valid threshold)",
     "composite 64.6 < 70"
    ],
-   "also_fired": []
+   "also_fired": [],
+   "exit_plans": [
+    {
+     "policy_id": "fixed_5d",
+     "label": "Legacy: exit at close of day 5",
+     "kind": "time",
+     "initial_stop": 129.97,
+     "days": 5,
+     "time_stop_days": 5,
+     "activate_after_r": null,
+     "exit_by_date": "2026-11-30"
+    },
+    {
+     "policy_id": "trail_2atr",
+     "label": "Trail 2x ATR from peak",
+     "kind": "trail_atr",
+     "initial_stop": 129.97,
+     "atr_mult": 2.0,
+     "trail_atr_aud": 8.47,
+     "activate_after_r": null,
+     "time_stop_days": 20
+    },
+    {
+     "policy_id": "trail_1pct",
+     "label": "Trail 1% from peak",
+     "kind": "trail_pct",
+     "initial_stop": 129.97,
+     "trail_pct": 1.0,
+     "activate_after_r": null,
+     "time_stop_days": 20
+    }
+   ]
   },
   {
    "symbol": "ASX.AX",
@@ -2339,11 +3563,14 @@
    "r_mult": 1.8809,
    "risk_per_share": 1.35,
    "exit_plan": {
-    "policy_id": "trail_2pct",
-    "trail_pct": 2.0,
+    "policy_id": "fixed_5d",
+    "label": "Legacy: exit at close of day 5",
+    "kind": "time",
+    "initial_stop": 63.9,
+    "days": 5,
+    "time_stop_days": 5,
     "activate_after_r": null,
-    "time_stop_days": 20,
-    "initial_stop": 63.9
+    "exit_by_date": "2026-11-30"
    },
    "composite_score": 64.2,
    "sentiment": {
@@ -2381,7 +3608,38 @@
     "score 67 < 80 (Valid threshold)",
     "composite 64.2 < 70"
    ],
-   "also_fired": []
+   "also_fired": [],
+   "exit_plans": [
+    {
+     "policy_id": "fixed_5d",
+     "label": "Legacy: exit at close of day 5",
+     "kind": "time",
+     "initial_stop": 63.9,
+     "days": 5,
+     "time_stop_days": 5,
+     "activate_after_r": null,
+     "exit_by_date": "2026-11-30"
+    },
+    {
+     "policy_id": "trail_2atr",
+     "label": "Trail 2x ATR from peak",
+     "kind": "trail_atr",
+     "initial_stop": 63.9,
+     "atr_mult": 2.0,
+     "trail_atr_aud": 2.25,
+     "activate_after_r": null,
+     "time_stop_days": 20
+    },
+    {
+     "policy_id": "trail_1pct",
+     "label": "Trail 1% from peak",
+     "kind": "trail_pct",
+     "initial_stop": 63.9,
+     "trail_pct": 1.0,
+     "activate_after_r": null,
+     "time_stop_days": 20
+    }
+   ]
   },
   {
    "symbol": "BHP.AX",
@@ -2402,11 +3660,14 @@
    "r_mult": 2.5,
    "risk_per_share": 2.22,
    "exit_plan": {
-    "policy_id": "trail_2pct",
-    "trail_pct": 2.0,
+    "policy_id": "fixed_5d",
+    "label": "Legacy: exit at close of day 5",
+    "kind": "time",
+    "initial_stop": 49.18,
+    "days": 5,
+    "time_stop_days": 5,
     "activate_after_r": null,
-    "time_stop_days": 20,
-    "initial_stop": 49.18
+    "exit_by_date": "2026-11-30"
    },
    "composite_score": 63.8,
    "sentiment": {
@@ -2444,7 +3705,38 @@
     "score 75 < 80 (Valid threshold)",
     "composite 63.8 < 70"
    ],
-   "also_fired": []
+   "also_fired": [],
+   "exit_plans": [
+    {
+     "policy_id": "fixed_5d",
+     "label": "Legacy: exit at close of day 5",
+     "kind": "time",
+     "initial_stop": 49.18,
+     "days": 5,
+     "time_stop_days": 5,
+     "activate_after_r": null,
+     "exit_by_date": "2026-11-30"
+    },
+    {
+     "policy_id": "trail_2atr",
+     "label": "Trail 2x ATR from peak",
+     "kind": "trail_atr",
+     "initial_stop": 49.18,
+     "atr_mult": 2.0,
+     "trail_atr_aud": 3.7,
+     "activate_after_r": null,
+     "time_stop_days": 20
+    },
+    {
+     "policy_id": "trail_1pct",
+     "label": "Trail 1% from peak",
+     "kind": "trail_pct",
+     "initial_stop": 49.18,
+     "trail_pct": 1.0,
+     "activate_after_r": null,
+     "time_stop_days": 20
+    }
+   ]
   },
   {
    "symbol": "IGO.AX",
@@ -2465,11 +3757,14 @@
    "r_mult": 2.5,
    "risk_per_share": 0.32,
    "exit_plan": {
-    "policy_id": "trail_2pct",
-    "trail_pct": 2.0,
+    "policy_id": "fixed_5d",
+    "label": "Legacy: exit at close of day 5",
+    "kind": "time",
+    "initial_stop": 4.18,
+    "days": 5,
+    "time_stop_days": 5,
     "activate_after_r": null,
-    "time_stop_days": 20,
-    "initial_stop": 4.18
+    "exit_by_date": "2026-11-30"
    },
    "composite_score": 63.2,
    "sentiment": {
@@ -2507,7 +3802,38 @@
     "score 75 < 80 (Valid threshold)",
     "composite 63.2 < 70"
    ],
-   "also_fired": []
+   "also_fired": [],
+   "exit_plans": [
+    {
+     "policy_id": "fixed_5d",
+     "label": "Legacy: exit at close of day 5",
+     "kind": "time",
+     "initial_stop": 4.18,
+     "days": 5,
+     "time_stop_days": 5,
+     "activate_after_r": null,
+     "exit_by_date": "2026-11-30"
+    },
+    {
+     "policy_id": "trail_2atr",
+     "label": "Trail 2x ATR from peak",
+     "kind": "trail_atr",
+     "initial_stop": 4.18,
+     "atr_mult": 2.0,
+     "trail_atr_aud": 0.535,
+     "activate_after_r": null,
+     "time_stop_days": 20
+    },
+    {
+     "policy_id": "trail_1pct",
+     "label": "Trail 1% from peak",
+     "kind": "trail_pct",
+     "initial_stop": 4.18,
+     "trail_pct": 1.0,
+     "activate_after_r": null,
+     "time_stop_days": 20
+    }
+   ]
   },
   {
    "symbol": "ARG.AX",
@@ -2528,11 +3854,14 @@
    "r_mult": 2.5,
    "risk_per_share": 0.13,
    "exit_plan": {
-    "policy_id": "trail_2pct",
-    "trail_pct": 2.0,
+    "policy_id": "fixed_5d",
+    "label": "Legacy: exit at close of day 5",
+    "kind": "time",
+    "initial_stop": 9.09,
+    "days": 5,
+    "time_stop_days": 5,
     "activate_after_r": null,
-    "time_stop_days": 20,
-    "initial_stop": 9.09
+    "exit_by_date": "2026-11-30"
    },
    "composite_score": 63.1,
    "sentiment": {
@@ -2570,7 +3899,38 @@
     "score 70 < 80 (Valid threshold)",
     "composite 63.1 < 70"
    ],
-   "also_fired": []
+   "also_fired": [],
+   "exit_plans": [
+    {
+     "policy_id": "fixed_5d",
+     "label": "Legacy: exit at close of day 5",
+     "kind": "time",
+     "initial_stop": 9.09,
+     "days": 5,
+     "time_stop_days": 5,
+     "activate_after_r": null,
+     "exit_by_date": "2026-11-30"
+    },
+    {
+     "policy_id": "trail_2atr",
+     "label": "Trail 2x ATR from peak",
+     "kind": "trail_atr",
+     "initial_stop": 9.09,
+     "atr_mult": 2.0,
+     "trail_atr_aud": 0.215,
+     "activate_after_r": null,
+     "time_stop_days": 20
+    },
+    {
+     "policy_id": "trail_1pct",
+     "label": "Trail 1% from peak",
+     "kind": "trail_pct",
+     "initial_stop": 9.09,
+     "trail_pct": 1.0,
+     "activate_after_r": null,
+     "time_stop_days": 20
+    }
+   ]
   },
   {
    "symbol": "EVN.AX",
@@ -2591,11 +3951,14 @@
    "r_mult": 2.5,
    "risk_per_share": 0.83,
    "exit_plan": {
-    "policy_id": "trail_2pct",
-    "trail_pct": 2.0,
+    "policy_id": "fixed_5d",
+    "label": "Legacy: exit at close of day 5",
+    "kind": "time",
+    "initial_stop": 9.53,
+    "days": 5,
+    "time_stop_days": 5,
     "activate_after_r": null,
-    "time_stop_days": 20,
-    "initial_stop": 9.53
+    "exit_by_date": "2026-11-30"
    },
    "composite_score": 62.8,
    "sentiment": {
@@ -2633,7 +3996,38 @@
     "score 70 < 80 (Valid threshold)",
     "composite 62.8 < 70"
    ],
-   "also_fired": []
+   "also_fired": [],
+   "exit_plans": [
+    {
+     "policy_id": "fixed_5d",
+     "label": "Legacy: exit at close of day 5",
+     "kind": "time",
+     "initial_stop": 9.53,
+     "days": 5,
+     "time_stop_days": 5,
+     "activate_after_r": null,
+     "exit_by_date": "2026-11-30"
+    },
+    {
+     "policy_id": "trail_2atr",
+     "label": "Trail 2x ATR from peak",
+     "kind": "trail_atr",
+     "initial_stop": 9.53,
+     "atr_mult": 2.0,
+     "trail_atr_aud": 1.385,
+     "activate_after_r": null,
+     "time_stop_days": 20
+    },
+    {
+     "policy_id": "trail_1pct",
+     "label": "Trail 1% from peak",
+     "kind": "trail_pct",
+     "initial_stop": 9.53,
+     "trail_pct": 1.0,
+     "activate_after_r": null,
+     "time_stop_days": 20
+    }
+   ]
   },
   {
    "symbol": "LLC.AX",
@@ -2654,11 +4048,14 @@
    "r_mult": 2.5,
    "risk_per_share": 0.185,
    "exit_plan": {
-    "policy_id": "trail_2pct",
-    "trail_pct": 2.0,
+    "policy_id": "fixed_5d",
+    "label": "Legacy: exit at close of day 5",
+    "kind": "time",
+    "initial_stop": 1.445,
+    "days": 5,
+    "time_stop_days": 5,
     "activate_after_r": null,
-    "time_stop_days": 20,
-    "initial_stop": 1.445
+    "exit_by_date": "2026-11-30"
    },
    "composite_score": 62.8,
    "sentiment": {
@@ -2696,7 +4093,38 @@
     "score 75 < 80 (Valid threshold)",
     "composite 62.8 < 70"
    ],
-   "also_fired": []
+   "also_fired": [],
+   "exit_plans": [
+    {
+     "policy_id": "fixed_5d",
+     "label": "Legacy: exit at close of day 5",
+     "kind": "time",
+     "initial_stop": 1.445,
+     "days": 5,
+     "time_stop_days": 5,
+     "activate_after_r": null,
+     "exit_by_date": "2026-11-30"
+    },
+    {
+     "policy_id": "trail_2atr",
+     "label": "Trail 2x ATR from peak",
+     "kind": "trail_atr",
+     "initial_stop": 1.445,
+     "atr_mult": 2.0,
+     "trail_atr_aud": 0.308,
+     "activate_after_r": null,
+     "time_stop_days": 20
+    },
+    {
+     "policy_id": "trail_1pct",
+     "label": "Trail 1% from peak",
+     "kind": "trail_pct",
+     "initial_stop": 1.445,
+     "trail_pct": 1.0,
+     "activate_after_r": null,
+     "time_stop_days": 20
+    }
+   ]
   },
   {
    "symbol": "PDN.AX",
@@ -2717,11 +4145,14 @@
    "r_mult": 2.5,
    "risk_per_share": 0.61,
    "exit_plan": {
-    "policy_id": "trail_2pct",
-    "trail_pct": 2.0,
+    "policy_id": "fixed_5d",
+    "label": "Legacy: exit at close of day 5",
+    "kind": "time",
+    "initial_stop": 5.24,
+    "days": 5,
+    "time_stop_days": 5,
     "activate_after_r": null,
-    "time_stop_days": 20,
-    "initial_stop": 5.24
+    "exit_by_date": "2026-11-30"
    },
    "composite_score": 60.8,
    "sentiment": {
@@ -2759,7 +4190,38 @@
     "score 75 < 80 (Valid threshold)",
     "composite 60.8 < 70"
    ],
-   "also_fired": []
+   "also_fired": [],
+   "exit_plans": [
+    {
+     "policy_id": "fixed_5d",
+     "label": "Legacy: exit at close of day 5",
+     "kind": "time",
+     "initial_stop": 5.24,
+     "days": 5,
+     "time_stop_days": 5,
+     "activate_after_r": null,
+     "exit_by_date": "2026-11-30"
+    },
+    {
+     "policy_id": "trail_2atr",
+     "label": "Trail 2x ATR from peak",
+     "kind": "trail_atr",
+     "initial_stop": 5.24,
+     "atr_mult": 2.0,
+     "trail_atr_aud": 1.015,
+     "activate_after_r": null,
+     "time_stop_days": 20
+    },
+    {
+     "policy_id": "trail_1pct",
+     "label": "Trail 1% from peak",
+     "kind": "trail_pct",
+     "initial_stop": 5.24,
+     "trail_pct": 1.0,
+     "activate_after_r": null,
+     "time_stop_days": 20
+    }
+   ]
   },
   {
    "symbol": "A2M.AX",
@@ -2780,11 +4242,14 @@
    "r_mult": 2.5,
    "risk_per_share": 0.31,
    "exit_plan": {
-    "policy_id": "trail_2pct",
-    "trail_pct": 2.0,
+    "policy_id": "fixed_5d",
+    "label": "Legacy: exit at close of day 5",
+    "kind": "time",
+    "initial_stop": 6.16,
+    "days": 5,
+    "time_stop_days": 5,
     "activate_after_r": null,
-    "time_stop_days": 20,
-    "initial_stop": 6.16
+    "exit_by_date": "2026-11-30"
    },
    "composite_score": 60.6,
    "sentiment": {
@@ -2822,7 +4287,38 @@
     "score 71 < 80 (Valid threshold)",
     "composite 60.6 < 70"
    ],
-   "also_fired": []
+   "also_fired": [],
+   "exit_plans": [
+    {
+     "policy_id": "fixed_5d",
+     "label": "Legacy: exit at close of day 5",
+     "kind": "time",
+     "initial_stop": 6.16,
+     "days": 5,
+     "time_stop_days": 5,
+     "activate_after_r": null,
+     "exit_by_date": "2026-11-30"
+    },
+    {
+     "policy_id": "trail_2atr",
+     "label": "Trail 2x ATR from peak",
+     "kind": "trail_atr",
+     "initial_stop": 6.16,
+     "atr_mult": 2.0,
+     "trail_atr_aud": 0.515,
+     "activate_after_r": null,
+     "time_stop_days": 20
+    },
+    {
+     "policy_id": "trail_1pct",
+     "label": "Trail 1% from peak",
+     "kind": "trail_pct",
+     "initial_stop": 6.16,
+     "trail_pct": 1.0,
+     "activate_after_r": null,
+     "time_stop_days": 20
+    }
+   ]
   },
   {
    "symbol": "NAB.AX",
@@ -2843,11 +4339,14 @@
    "r_mult": 2.5,
    "risk_per_share": 1.19,
    "exit_plan": {
-    "policy_id": "trail_2pct",
-    "trail_pct": 2.0,
+    "policy_id": "fixed_5d",
+    "label": "Legacy: exit at close of day 5",
+    "kind": "time",
+    "initial_stop": 35.05,
+    "days": 5,
+    "time_stop_days": 5,
     "activate_after_r": null,
-    "time_stop_days": 20,
-    "initial_stop": 35.05
+    "exit_by_date": "2026-11-30"
    },
    "composite_score": 60.1,
    "sentiment": {
@@ -2885,7 +4384,38 @@
     "score 73 < 80 (Valid threshold)",
     "composite 60.1 < 70"
    ],
-   "also_fired": []
+   "also_fired": [],
+   "exit_plans": [
+    {
+     "policy_id": "fixed_5d",
+     "label": "Legacy: exit at close of day 5",
+     "kind": "time",
+     "initial_stop": 35.05,
+     "days": 5,
+     "time_stop_days": 5,
+     "activate_after_r": null,
+     "exit_by_date": "2026-11-30"
+    },
+    {
+     "policy_id": "trail_2atr",
+     "label": "Trail 2x ATR from peak",
+     "kind": "trail_atr",
+     "initial_stop": 35.05,
+     "atr_mult": 2.0,
+     "trail_atr_aud": 1.985,
+     "activate_after_r": null,
+     "time_stop_days": 20
+    },
+    {
+     "policy_id": "trail_1pct",
+     "label": "Trail 1% from peak",
+     "kind": "trail_pct",
+     "initial_stop": 35.05,
+     "trail_pct": 1.0,
+     "activate_after_r": null,
+     "time_stop_days": 20
+    }
+   ]
   },
   {
    "symbol": "XYZ.AX",
@@ -2906,11 +4436,14 @@
    "r_mult": 2.5,
    "risk_per_share": 5.3,
    "exit_plan": {
-    "policy_id": "trail_2pct",
-    "trail_pct": 2.0,
+    "policy_id": "fixed_5d",
+    "label": "Legacy: exit at close of day 5",
+    "kind": "time",
+    "initial_stop": 105.45,
+    "days": 5,
+    "time_stop_days": 5,
     "activate_after_r": null,
-    "time_stop_days": 20,
-    "initial_stop": 105.45
+    "exit_by_date": "2026-11-30"
    },
    "composite_score": 60.0,
    "sentiment": {
@@ -2948,7 +4481,38 @@
     "score 60 < 80 (Valid threshold)",
     "composite 60.0 < 70"
    ],
-   "also_fired": []
+   "also_fired": [],
+   "exit_plans": [
+    {
+     "policy_id": "fixed_5d",
+     "label": "Legacy: exit at close of day 5",
+     "kind": "time",
+     "initial_stop": 105.45,
+     "days": 5,
+     "time_stop_days": 5,
+     "activate_after_r": null,
+     "exit_by_date": "2026-11-30"
+    },
+    {
+     "policy_id": "trail_2atr",
+     "label": "Trail 2x ATR from peak",
+     "kind": "trail_atr",
+     "initial_stop": 105.45,
+     "atr_mult": 2.0,
+     "trail_atr_aud": 8.83,
+     "activate_after_r": null,
+     "time_stop_days": 20
+    },
+    {
+     "policy_id": "trail_1pct",
+     "label": "Trail 1% from peak",
+     "kind": "trail_pct",
+     "initial_stop": 105.45,
+     "trail_pct": 1.0,
+     "activate_after_r": null,
+     "time_stop_days": 20
+    }
+   ]
   },
   {
    "symbol": "SFR.AX",
@@ -2969,11 +4533,14 @@
    "r_mult": 2.5,
    "risk_per_share": 1.23,
    "exit_plan": {
-    "policy_id": "trail_2pct",
-    "trail_pct": 2.0,
+    "policy_id": "fixed_5d",
+    "label": "Legacy: exit at close of day 5",
+    "kind": "time",
+    "initial_stop": 15.04,
+    "days": 5,
+    "time_stop_days": 5,
     "activate_after_r": null,
-    "time_stop_days": 20,
-    "initial_stop": 15.04
+    "exit_by_date": "2026-11-30"
    },
    "composite_score": 59.9,
    "sentiment": {
@@ -3011,7 +4578,38 @@
     "score 75 < 80 (Valid threshold)",
     "composite 59.9 < 70"
    ],
-   "also_fired": []
+   "also_fired": [],
+   "exit_plans": [
+    {
+     "policy_id": "fixed_5d",
+     "label": "Legacy: exit at close of day 5",
+     "kind": "time",
+     "initial_stop": 15.04,
+     "days": 5,
+     "time_stop_days": 5,
+     "activate_after_r": null,
+     "exit_by_date": "2026-11-30"
+    },
+    {
+     "policy_id": "trail_2atr",
+     "label": "Trail 2x ATR from peak",
+     "kind": "trail_atr",
+     "initial_stop": 15.04,
+     "atr_mult": 2.0,
+     "trail_atr_aud": 2.05,
+     "activate_after_r": null,
+     "time_stop_days": 20
+    },
+    {
+     "policy_id": "trail_1pct",
+     "label": "Trail 1% from peak",
+     "kind": "trail_pct",
+     "initial_stop": 15.04,
+     "trail_pct": 1.0,
+     "activate_after_r": null,
+     "time_stop_days": 20
+    }
+   ]
   },
   {
    "symbol": "NXG.AX",
@@ -3032,11 +4630,14 @@
    "r_mult": 2.5,
    "risk_per_share": 0.58,
    "exit_plan": {
-    "policy_id": "trail_2pct",
-    "trail_pct": 2.0,
+    "policy_id": "fixed_5d",
+    "label": "Legacy: exit at close of day 5",
+    "kind": "time",
+    "initial_stop": 9.61,
+    "days": 5,
+    "time_stop_days": 5,
     "activate_after_r": null,
-    "time_stop_days": 20,
-    "initial_stop": 9.61
+    "exit_by_date": "2026-11-30"
    },
    "composite_score": 59.8,
    "sentiment": {
@@ -3074,7 +4675,38 @@
     "score 75 < 80 (Valid threshold)",
     "composite 59.8 < 70"
    ],
-   "also_fired": []
+   "also_fired": [],
+   "exit_plans": [
+    {
+     "policy_id": "fixed_5d",
+     "label": "Legacy: exit at close of day 5",
+     "kind": "time",
+     "initial_stop": 9.61,
+     "days": 5,
+     "time_stop_days": 5,
+     "activate_after_r": null,
+     "exit_by_date": "2026-11-30"
+    },
+    {
+     "policy_id": "trail_2atr",
+     "label": "Trail 2x ATR from peak",
+     "kind": "trail_atr",
+     "initial_stop": 9.61,
+     "atr_mult": 2.0,
+     "trail_atr_aud": 0.965,
+     "activate_after_r": null,
+     "time_stop_days": 20
+    },
+    {
+     "policy_id": "trail_1pct",
+     "label": "Trail 1% from peak",
+     "kind": "trail_pct",
+     "initial_stop": 9.61,
+     "trail_pct": 1.0,
+     "activate_after_r": null,
+     "time_stop_days": 20
+    }
+   ]
   },
   {
    "symbol": "RMS.AX",
@@ -3095,11 +4727,14 @@
    "r_mult": 2.5,
    "risk_per_share": 0.22,
    "exit_plan": {
-    "policy_id": "trail_2pct",
-    "trail_pct": 2.0,
+    "policy_id": "fixed_5d",
+    "label": "Legacy: exit at close of day 5",
+    "kind": "time",
+    "initial_stop": 2.92,
+    "days": 5,
+    "time_stop_days": 5,
     "activate_after_r": null,
-    "time_stop_days": 20,
-    "initial_stop": 2.92
+    "exit_by_date": "2026-11-30"
    },
    "composite_score": 59.7,
    "sentiment": {
@@ -3137,7 +4772,38 @@
     "score 61 < 80 (Valid threshold)",
     "composite 59.7 < 70"
    ],
-   "also_fired": []
+   "also_fired": [],
+   "exit_plans": [
+    {
+     "policy_id": "fixed_5d",
+     "label": "Legacy: exit at close of day 5",
+     "kind": "time",
+     "initial_stop": 2.92,
+     "days": 5,
+     "time_stop_days": 5,
+     "activate_after_r": null,
+     "exit_by_date": "2026-11-30"
+    },
+    {
+     "policy_id": "trail_2atr",
+     "label": "Trail 2x ATR from peak",
+     "kind": "trail_atr",
+     "initial_stop": 2.92,
+     "atr_mult": 2.0,
+     "trail_atr_aud": 0.365,
+     "activate_after_r": null,
+     "time_stop_days": 20
+    },
+    {
+     "policy_id": "trail_1pct",
+     "label": "Trail 1% from peak",
+     "kind": "trail_pct",
+     "initial_stop": 2.92,
+     "trail_pct": 1.0,
+     "activate_after_r": null,
+     "time_stop_days": 20
+    }
+   ]
   },
   {
    "symbol": "NHF.AX",
@@ -3158,11 +4824,14 @@
    "r_mult": 2.0785,
    "risk_per_share": 0.15,
    "exit_plan": {
-    "policy_id": "trail_2pct",
-    "trail_pct": 2.0,
+    "policy_id": "fixed_5d",
+    "label": "Legacy: exit at close of day 5",
+    "kind": "time",
+    "initial_stop": 6.6,
+    "days": 5,
+    "time_stop_days": 5,
     "activate_after_r": null,
-    "time_stop_days": 20,
-    "initial_stop": 6.6
+    "exit_by_date": "2026-11-30"
    },
    "composite_score": 59.4,
    "sentiment": {
@@ -3200,7 +4869,38 @@
     "score 60 < 80 (Valid threshold)",
     "composite 59.4 < 70"
    ],
-   "also_fired": []
+   "also_fired": [],
+   "exit_plans": [
+    {
+     "policy_id": "fixed_5d",
+     "label": "Legacy: exit at close of day 5",
+     "kind": "time",
+     "initial_stop": 6.6,
+     "days": 5,
+     "time_stop_days": 5,
+     "activate_after_r": null,
+     "exit_by_date": "2026-11-30"
+    },
+    {
+     "policy_id": "trail_2atr",
+     "label": "Trail 2x ATR from peak",
+     "kind": "trail_atr",
+     "initial_stop": 6.6,
+     "atr_mult": 2.0,
+     "trail_atr_aud": 0.25,
+     "activate_after_r": null,
+     "time_stop_days": 20
+    },
+    {
+     "policy_id": "trail_1pct",
+     "label": "Trail 1% from peak",
+     "kind": "trail_pct",
+     "initial_stop": 6.6,
+     "trail_pct": 1.0,
+     "activate_after_r": null,
+     "time_stop_days": 20
+    }
+   ]
   },
   {
    "symbol": "BPT.AX",
@@ -3221,11 +4921,14 @@
    "r_mult": 2.5,
    "risk_per_share": 0.035,
    "exit_plan": {
-    "policy_id": "trail_2pct",
-    "trail_pct": 2.0,
+    "policy_id": "fixed_5d",
+    "label": "Legacy: exit at close of day 5",
+    "kind": "time",
+    "initial_stop": 0.795,
+    "days": 5,
+    "time_stop_days": 5,
     "activate_after_r": null,
-    "time_stop_days": 20,
-    "initial_stop": 0.795
+    "exit_by_date": "2026-11-30"
    },
    "composite_score": 59.2,
    "sentiment": {
@@ -3263,7 +4966,38 @@
     "score 75 < 80 (Valid threshold)",
     "composite 59.2 < 70"
    ],
-   "also_fired": []
+   "also_fired": [],
+   "exit_plans": [
+    {
+     "policy_id": "fixed_5d",
+     "label": "Legacy: exit at close of day 5",
+     "kind": "time",
+     "initial_stop": 0.795,
+     "days": 5,
+     "time_stop_days": 5,
+     "activate_after_r": null,
+     "exit_by_date": "2026-11-30"
+    },
+    {
+     "policy_id": "trail_2atr",
+     "label": "Trail 2x ATR from peak",
+     "kind": "trail_atr",
+     "initial_stop": 0.795,
+     "atr_mult": 2.0,
+     "trail_atr_aud": 0.058,
+     "activate_after_r": null,
+     "time_stop_days": 20
+    },
+    {
+     "policy_id": "trail_1pct",
+     "label": "Trail 1% from peak",
+     "kind": "trail_pct",
+     "initial_stop": 0.795,
+     "trail_pct": 1.0,
+     "activate_after_r": null,
+     "time_stop_days": 20
+    }
+   ]
   },
   {
    "symbol": "SIG.AX",
@@ -3284,11 +5018,14 @@
    "r_mult": 0.7836,
    "risk_per_share": 0.06,
    "exit_plan": {
-    "policy_id": "trail_2pct",
-    "trail_pct": 2.0,
+    "policy_id": "fixed_5d",
+    "label": "Legacy: exit at close of day 5",
+    "kind": "time",
+    "initial_stop": 2.83,
+    "days": 5,
+    "time_stop_days": 5,
     "activate_after_r": null,
-    "time_stop_days": 20,
-    "initial_stop": 2.83
+    "exit_by_date": "2026-11-30"
    },
    "composite_score": 58.8,
    "sentiment": {
@@ -3326,7 +5063,38 @@
     "score 60 < 80 (Valid threshold)",
     "composite 58.8 < 70"
    ],
-   "also_fired": []
+   "also_fired": [],
+   "exit_plans": [
+    {
+     "policy_id": "fixed_5d",
+     "label": "Legacy: exit at close of day 5",
+     "kind": "time",
+     "initial_stop": 2.83,
+     "days": 5,
+     "time_stop_days": 5,
+     "activate_after_r": null,
+     "exit_by_date": "2026-11-30"
+    },
+    {
+     "policy_id": "trail_2atr",
+     "label": "Trail 2x ATR from peak",
+     "kind": "trail_atr",
+     "initial_stop": 2.83,
+     "atr_mult": 2.0,
+     "trail_atr_aud": 0.1,
+     "activate_after_r": null,
+     "time_stop_days": 20
+    },
+    {
+     "policy_id": "trail_1pct",
+     "label": "Trail 1% from peak",
+     "kind": "trail_pct",
+     "initial_stop": 2.83,
+     "trail_pct": 1.0,
+     "activate_after_r": null,
+     "time_stop_days": 20
+    }
+   ]
   },
   {
    "symbol": "S32.AX",
@@ -3347,11 +5115,14 @@
    "r_mult": 2.5,
    "risk_per_share": 0.19,
    "exit_plan": {
-    "policy_id": "trail_2pct",
-    "trail_pct": 2.0,
+    "policy_id": "fixed_5d",
+    "label": "Legacy: exit at close of day 5",
+    "kind": "time",
+    "initial_stop": 3.83,
+    "days": 5,
+    "time_stop_days": 5,
     "activate_after_r": null,
-    "time_stop_days": 20,
-    "initial_stop": 3.83
+    "exit_by_date": "2026-11-30"
    },
    "composite_score": 58.7,
    "sentiment": {
@@ -3389,7 +5160,38 @@
     "score 65 < 80 (Valid threshold)",
     "composite 58.7 < 70"
    ],
-   "also_fired": []
+   "also_fired": [],
+   "exit_plans": [
+    {
+     "policy_id": "fixed_5d",
+     "label": "Legacy: exit at close of day 5",
+     "kind": "time",
+     "initial_stop": 3.83,
+     "days": 5,
+     "time_stop_days": 5,
+     "activate_after_r": null,
+     "exit_by_date": "2026-11-30"
+    },
+    {
+     "policy_id": "trail_2atr",
+     "label": "Trail 2x ATR from peak",
+     "kind": "trail_atr",
+     "initial_stop": 3.83,
+     "atr_mult": 2.0,
+     "trail_atr_aud": 0.315,
+     "activate_after_r": null,
+     "time_stop_days": 20
+    },
+    {
+     "policy_id": "trail_1pct",
+     "label": "Trail 1% from peak",
+     "kind": "trail_pct",
+     "initial_stop": 3.83,
+     "trail_pct": 1.0,
+     "activate_after_r": null,
+     "time_stop_days": 20
+    }
+   ]
   },
   {
    "symbol": "ANZ.AX",
@@ -3410,11 +5212,14 @@
    "r_mult": 1.6962,
    "risk_per_share": 1.12,
    "exit_plan": {
-    "policy_id": "trail_2pct",
-    "trail_pct": 2.0,
+    "policy_id": "fixed_5d",
+    "label": "Legacy: exit at close of day 5",
+    "kind": "time",
+    "initial_stop": 37.46,
+    "days": 5,
+    "time_stop_days": 5,
     "activate_after_r": null,
-    "time_stop_days": 20,
-    "initial_stop": 37.46
+    "exit_by_date": "2026-11-30"
    },
    "composite_score": 58.6,
    "sentiment": {
@@ -3452,7 +5257,38 @@
     "score 77 < 80 (Valid threshold)",
     "composite 58.6 < 70"
    ],
-   "also_fired": []
+   "also_fired": [],
+   "exit_plans": [
+    {
+     "policy_id": "fixed_5d",
+     "label": "Legacy: exit at close of day 5",
+     "kind": "time",
+     "initial_stop": 37.46,
+     "days": 5,
+     "time_stop_days": 5,
+     "activate_after_r": null,
+     "exit_by_date": "2026-11-30"
+    },
+    {
+     "policy_id": "trail_2atr",
+     "label": "Trail 2x ATR from peak",
+     "kind": "trail_atr",
+     "initial_stop": 37.46,
+     "atr_mult": 2.0,
+     "trail_atr_aud": 1.865,
+     "activate_after_r": null,
+     "time_stop_days": 20
+    },
+    {
+     "policy_id": "trail_1pct",
+     "label": "Trail 1% from peak",
+     "kind": "trail_pct",
+     "initial_stop": 37.46,
+     "trail_pct": 1.0,
+     "activate_after_r": null,
+     "time_stop_days": 20
+    }
+   ]
   },
   {
    "symbol": "ORI.AX",
@@ -3473,11 +5309,14 @@
    "r_mult": 2.5,
    "risk_per_share": 0.97,
    "exit_plan": {
-    "policy_id": "trail_2pct",
-    "trail_pct": 2.0,
+    "policy_id": "fixed_5d",
+    "label": "Legacy: exit at close of day 5",
+    "kind": "time",
+    "initial_stop": 19.6,
+    "days": 5,
+    "time_stop_days": 5,
     "activate_after_r": null,
-    "time_stop_days": 20,
-    "initial_stop": 19.6
+    "exit_by_date": "2026-11-30"
    },
    "composite_score": 58.5,
    "sentiment": {
@@ -3515,7 +5354,38 @@
     "score 75 < 80 (Valid threshold)",
     "composite 58.5 < 70"
    ],
-   "also_fired": []
+   "also_fired": [],
+   "exit_plans": [
+    {
+     "policy_id": "fixed_5d",
+     "label": "Legacy: exit at close of day 5",
+     "kind": "time",
+     "initial_stop": 19.6,
+     "days": 5,
+     "time_stop_days": 5,
+     "activate_after_r": null,
+     "exit_by_date": "2026-11-30"
+    },
+    {
+     "policy_id": "trail_2atr",
+     "label": "Trail 2x ATR from peak",
+     "kind": "trail_atr",
+     "initial_stop": 19.6,
+     "atr_mult": 2.0,
+     "trail_atr_aud": 1.615,
+     "activate_after_r": null,
+     "time_stop_days": 20
+    },
+    {
+     "policy_id": "trail_1pct",
+     "label": "Trail 1% from peak",
+     "kind": "trail_pct",
+     "initial_stop": 19.6,
+     "trail_pct": 1.0,
+     "activate_after_r": null,
+     "time_stop_days": 20
+    }
+   ]
   },
   {
    "symbol": "QBE.AX",
@@ -3536,11 +5406,14 @@
    "r_mult": 1.4456,
    "risk_per_share": 0.59,
    "exit_plan": {
-    "policy_id": "trail_2pct",
-    "trail_pct": 2.0,
+    "policy_id": "fixed_5d",
+    "label": "Legacy: exit at close of day 5",
+    "kind": "time",
+    "initial_stop": 25.52,
+    "days": 5,
+    "time_stop_days": 5,
     "activate_after_r": null,
-    "time_stop_days": 20,
-    "initial_stop": 25.52
+    "exit_by_date": "2026-11-30"
    },
    "composite_score": 57.4,
    "sentiment": {
@@ -3578,7 +5451,49 @@
     "score 60 < 80 (Valid threshold)",
     "composite 57.4 < 70"
    ],
-   "also_fired": []
+   "also_fired": [],
+   "exit_plans": [
+    {
+     "policy_id": "fixed_5d",
+     "label": "Legacy: exit at close of day 5",
+     "kind": "time",
+     "initial_stop": 25.52,
+     "days": 5,
+     "time_stop_days": 5,
+     "activate_after_r": null,
+     "exit_by_date": "2026-11-30"
+    },
+    {
+     "policy_id": "trail_2atr",
+     "label": "Trail 2x ATR from peak",
+     "kind": "trail_atr",
+     "initial_stop": 25.52,
+     "atr_mult": 2.0,
+     "trail_atr_aud": 0.985,
+     "activate_after_r": null,
+     "time_stop_days": 20
+    },
+    {
+     "policy_id": "trail_1pct",
+     "label": "Trail 1% from peak",
+     "kind": "trail_pct",
+     "initial_stop": 25.52,
+     "trail_pct": 1.0,
+     "activate_after_r": null,
+     "time_stop_days": 20
+    }
+   ]
   }
+ ],
+ "exit_policy": {
+  "id": "fixed_5d",
+  "label": "Legacy: exit at close of day 5",
+  "kind": "time",
+  "days": 5
+ },
+ "tracked_policy_ids": [
+  "fixed_5d",
+  "trail_2atr",
+  "trail_1pct"
  ]
 }

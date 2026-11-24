@@ -1,0 +1,633 @@
+{
+ "schema": "itl.preclose.v2",
+ "job": "preclose_scan",
+ "generated_at_utc": "2026-11-24T04:16:40+00:00",
+ "generated_at_bne": "2026-11-24T14:16:40+10:00",
+ "market_state": {
+  "now_syd": "2026-11-24T15:16:40+11:00",
+  "now_bne": "2026-11-24T14:16:40+10:00",
+  "trading_day": true,
+  "phase": "open",
+  "session_date": "2026-11-24",
+  "open_syd": "2026-11-24T10:00:00+11:00",
+  "close_syd": "2026-11-24T16:00:00+11:00",
+  "minutes_to_close": 43.3,
+  "minutes_since_open": 316.7,
+  "last_completed_session": "2026-11-23",
+  "next_session": "2026-11-25"
+ },
+ "stale_after_utc": "2026-11-24T05:10:00+00:00",
+ "run_id": "45399911111.1",
+ "signal_mode": "preclose",
+ "signal_session": "2026-11-24",
+ "valid_for": "2026-11-24",
+ "price_as_of_utc": "2026-11-24T04:15:00+00:00",
+ "trade_by_syd": "15:59",
+ "scan_started_utc": "2026-11-24T04:13:05+00:00",
+ "scan_finished_utc": "2026-11-24T04:16:31+00:00",
+ "scan_completed_at_utc": "2026-11-24T04:16:31+00:00",
+ "published": true,
+ "reason": null,
+ "reasons": [],
+ "is_preview": false,
+ "data_fresh": true,
+ "risk_mode": "risk_off",
+ "regime": {
+  "axjo_close": 8412.3,
+  "ma50": 8530.1,
+  "ma200": 8475.6,
+  "risk_on": false
+ },
+ "coverage": {
+  "universe": 147,
+  "downloaded": 145,
+  "fresh": 145,
+  "coverage_pct": 98.6
+ },
+ "exit_policy": {
+  "id": "fixed_5d",
+  "label": "Legacy: exit at close of day 5",
+  "kind": "time",
+  "days": 5
+ },
+ "tracked_policy_ids": [
+  "fixed_5d",
+  "trail_2atr",
+  "trail_1pct"
+ ],
+ "recommended_orders": [
+  {
+   "symbol": "LTR.AX",
+   "strategy": "MEAN_REVERSION",
+   "status": "Valid",
+   "score": 91.0,
+   "order_type": "MARKET_CLOSE",
+   "trigger": null,
+   "limit": null,
+   "entry_ref": 0.555,
+   "entry_text": "market on close (closing auction); ref 0.555",
+   "last_close": 0.553,
+   "stop": 0.505,
+   "tp1": 0.62,
+   "tp2": 0.68,
+   "atr14": 0.0417,
+   "price_decimals": 3,
+   "r_mult": 2.5,
+   "risk_per_share": 0.05,
+   "exit_plan": {
+    "policy_id": "fixed_5d",
+    "label": "Legacy: exit at close of day 5",
+    "kind": "time",
+    "initial_stop": 0.505,
+    "days": 5,
+    "time_stop_days": 5,
+    "activate_after_r": null,
+    "exit_by_date": "2026-12-01"
+   },
+   "composite_score": 72.4,
+   "sentiment": {
+    "score": 100.0,
+    "components": {
+     "news": {
+      "score": null,
+      "status": "failed",
+      "label": "news score failed: HTTP 429 from news provider",
+      "weight_used": 0.0
+     },
+     "insider": {
+      "score": 100.0,
+      "status": "ok",
+      "label": "strong insider buying (25,504 bought vs 0 sold)",
+      "weight_used": 0.4
+     },
+     "trends": {
+      "score": null,
+      "status": "no_data",
+      "label": "trends not used (pytrends rate-limited)",
+      "weight_used": 0.0
+     }
+    }
+   },
+   "fund_score": 32.1,
+   "fund_label": "ROE=3.5% NM=86.1% | CR=4.5 | MCap=$8.2B Inst=2%",
+   "earnings": {
+    "days_to": null,
+    "suppress": false,
+    "status": "unknown"
+   },
+   "plain_english": "Mean reversion (oversold into the close): buy in the closing auction or at market before 15:59 Sydney. Live price 0.553 at 15:15; stop 0.505 (~1.2 ATR). Reward/risk 3.0R.",
+   "fail_gates": [],
+   "also_fired": [],
+   "exit_plans": [
+    {
+     "policy_id": "fixed_5d",
+     "label": "Legacy: exit at close of day 5",
+     "kind": "time",
+     "initial_stop": 0.505,
+     "days": 5,
+     "time_stop_days": 5,
+     "activate_after_r": null,
+     "exit_by_date": "2026-12-01"
+    },
+    {
+     "policy_id": "trail_2atr",
+     "label": "Trail 2x ATR from peak",
+     "kind": "trail_atr",
+     "initial_stop": 0.505,
+     "atr_mult": 2.0,
+     "trail_atr_aud": 0.083,
+     "activate_after_r": null,
+     "time_stop_days": 20
+    },
+    {
+     "policy_id": "trail_1pct",
+     "label": "Trail 1% from peak",
+     "kind": "trail_pct",
+     "initial_stop": 0.505,
+     "trail_pct": 1.0,
+     "activate_after_r": null,
+     "time_stop_days": 20
+    }
+   ]
+  },
+  {
+   "symbol": "BSL.AX",
+   "strategy": "TREND_PULLBACK",
+   "status": "Valid",
+   "score": 86.0,
+   "order_type": "MARKET_CLOSE",
+   "trigger": null,
+   "limit": null,
+   "entry_ref": 30.81,
+   "entry_text": "market on close (closing auction); ref 30.81",
+   "last_close": 30.81,
+   "stop": 29.75,
+   "tp1": 32.07,
+   "tp2": 33.34,
+   "atr14": 0.8417,
+   "price_decimals": 2,
+   "r_mult": 2.38,
+   "risk_per_share": 1.06,
+   "exit_plan": {
+    "policy_id": "fixed_5d",
+    "label": "Legacy: exit at close of day 5",
+    "kind": "time",
+    "initial_stop": 29.75,
+    "days": 5,
+    "time_stop_days": 5,
+    "activate_after_r": null,
+    "exit_by_date": "2026-12-01"
+   },
+   "composite_score": 70.1,
+   "sentiment": {
+    "score": 100.0,
+    "components": {
+     "news": {
+      "score": null,
+      "status": "failed",
+      "label": "news score failed: HTTP 429 from news provider",
+      "weight_used": 0.0
+     },
+     "insider": {
+      "score": 100.0,
+      "status": "ok",
+      "label": "strong insider buying (25,504 bought vs 0 sold)",
+      "weight_used": 0.4
+     },
+     "trends": {
+      "score": null,
+      "status": "no_data",
+      "label": "trends not used (pytrends rate-limited)",
+      "weight_used": 0.0
+     }
+    }
+   },
+   "fund_score": 32.1,
+   "fund_label": "ROE=3.5% NM=86.1% | CR=4.5 | MCap=$8.2B Inst=2%",
+   "earnings": {
+    "days_to": null,
+    "suppress": false,
+    "status": "unknown"
+   },
+   "plain_english": "Trend Pullback on today's bar (live price 30.81 spliced in): buy in the closing auction / at market before the close. Stop 29.75.",
+   "fail_gates": [],
+   "also_fired": [],
+   "exit_plans": [
+    {
+     "policy_id": "fixed_5d",
+     "label": "Legacy: exit at close of day 5",
+     "kind": "time",
+     "initial_stop": 29.75,
+     "days": 5,
+     "time_stop_days": 5,
+     "activate_after_r": null,
+     "exit_by_date": "2026-12-01"
+    },
+    {
+     "policy_id": "trail_2atr",
+     "label": "Trail 2x ATR from peak",
+     "kind": "trail_atr",
+     "initial_stop": 29.75,
+     "atr_mult": 2.0,
+     "trail_atr_aud": 1.685,
+     "activate_after_r": null,
+     "time_stop_days": 20
+    },
+    {
+     "policy_id": "trail_1pct",
+     "label": "Trail 1% from peak",
+     "kind": "trail_pct",
+     "initial_stop": 29.75,
+     "trail_pct": 1.0,
+     "activate_after_r": null,
+     "time_stop_days": 20
+    }
+   ]
+  }
+ ],
+ "withheld_orders": [],
+ "excluded": [],
+ "setups": [
+  {
+   "symbol": "LTR.AX",
+   "strategy": "MEAN_REVERSION",
+   "status": "Valid",
+   "score": 91.0,
+   "order_type": "MARKET_CLOSE",
+   "trigger": null,
+   "limit": null,
+   "entry_ref": 0.555,
+   "entry_text": "market on close (closing auction); ref 0.555",
+   "last_close": 0.553,
+   "stop": 0.505,
+   "tp1": 0.62,
+   "tp2": 0.68,
+   "atr14": 0.0417,
+   "price_decimals": 3,
+   "r_mult": 2.5,
+   "risk_per_share": 0.05,
+   "exit_plan": {
+    "policy_id": "fixed_5d",
+    "label": "Legacy: exit at close of day 5",
+    "kind": "time",
+    "initial_stop": 0.505,
+    "days": 5,
+    "time_stop_days": 5,
+    "activate_after_r": null,
+    "exit_by_date": "2026-12-01"
+   },
+   "composite_score": 72.4,
+   "sentiment": {
+    "score": 100.0,
+    "components": {
+     "news": {
+      "score": null,
+      "status": "failed",
+      "label": "news score failed: HTTP 429 from news provider",
+      "weight_used": 0.0
+     },
+     "insider": {
+      "score": 100.0,
+      "status": "ok",
+      "label": "strong insider buying (25,504 bought vs 0 sold)",
+      "weight_used": 0.4
+     },
+     "trends": {
+      "score": null,
+      "status": "no_data",
+      "label": "trends not used (pytrends rate-limited)",
+      "weight_used": 0.0
+     }
+    }
+   },
+   "fund_score": 32.1,
+   "fund_label": "ROE=3.5% NM=86.1% | CR=4.5 | MCap=$8.2B Inst=2%",
+   "earnings": {
+    "days_to": null,
+    "suppress": false,
+    "status": "unknown"
+   },
+   "plain_english": "Mean reversion (oversold into the close): buy in the closing auction or at market before 15:59 Sydney. Live price 0.553 at 15:15; stop 0.505 (~1.2 ATR). Reward/risk 3.0R.",
+   "fail_gates": [],
+   "also_fired": [],
+   "exit_plans": [
+    {
+     "policy_id": "fixed_5d",
+     "label": "Legacy: exit at close of day 5",
+     "kind": "time",
+     "initial_stop": 0.505,
+     "days": 5,
+     "time_stop_days": 5,
+     "activate_after_r": null,
+     "exit_by_date": "2026-12-01"
+    },
+    {
+     "policy_id": "trail_2atr",
+     "label": "Trail 2x ATR from peak",
+     "kind": "trail_atr",
+     "initial_stop": 0.505,
+     "atr_mult": 2.0,
+     "trail_atr_aud": 0.083,
+     "activate_after_r": null,
+     "time_stop_days": 20
+    },
+    {
+     "policy_id": "trail_1pct",
+     "label": "Trail 1% from peak",
+     "kind": "trail_pct",
+     "initial_stop": 0.505,
+     "trail_pct": 1.0,
+     "activate_after_r": null,
+     "time_stop_days": 20
+    }
+   ]
+  },
+  {
+   "symbol": "BSL.AX",
+   "strategy": "TREND_PULLBACK",
+   "status": "Valid",
+   "score": 86.0,
+   "order_type": "MARKET_CLOSE",
+   "trigger": null,
+   "limit": null,
+   "entry_ref": 30.81,
+   "entry_text": "market on close (closing auction); ref 30.81",
+   "last_close": 30.81,
+   "stop": 29.75,
+   "tp1": 32.07,
+   "tp2": 33.34,
+   "atr14": 0.8417,
+   "price_decimals": 2,
+   "r_mult": 2.38,
+   "risk_per_share": 1.06,
+   "exit_plan": {
+    "policy_id": "fixed_5d",
+    "label": "Legacy: exit at close of day 5",
+    "kind": "time",
+    "initial_stop": 29.75,
+    "days": 5,
+    "time_stop_days": 5,
+    "activate_after_r": null,
+    "exit_by_date": "2026-12-01"
+   },
+   "composite_score": 70.1,
+   "sentiment": {
+    "score": 100.0,
+    "components": {
+     "news": {
+      "score": null,
+      "status": "failed",
+      "label": "news score failed: HTTP 429 from news provider",
+      "weight_used": 0.0
+     },
+     "insider": {
+      "score": 100.0,
+      "status": "ok",
+      "label": "strong insider buying (25,504 bought vs 0 sold)",
+      "weight_used": 0.4
+     },
+     "trends": {
+      "score": null,
+      "status": "no_data",
+      "label": "trends not used (pytrends rate-limited)",
+      "weight_used": 0.0
+     }
+    }
+   },
+   "fund_score": 32.1,
+   "fund_label": "ROE=3.5% NM=86.1% | CR=4.5 | MCap=$8.2B Inst=2%",
+   "earnings": {
+    "days_to": null,
+    "suppress": false,
+    "status": "unknown"
+   },
+   "plain_english": "Trend Pullback on today's bar (live price 30.81 spliced in): buy in the closing auction / at market before the close. Stop 29.75.",
+   "fail_gates": [],
+   "also_fired": [],
+   "exit_plans": [
+    {
+     "policy_id": "fixed_5d",
+     "label": "Legacy: exit at close of day 5",
+     "kind": "time",
+     "initial_stop": 29.75,
+     "days": 5,
+     "time_stop_days": 5,
+     "activate_after_r": null,
+     "exit_by_date": "2026-12-01"
+    },
+    {
+     "policy_id": "trail_2atr",
+     "label": "Trail 2x ATR from peak",
+     "kind": "trail_atr",
+     "initial_stop": 29.75,
+     "atr_mult": 2.0,
+     "trail_atr_aud": 1.685,
+     "activate_after_r": null,
+     "time_stop_days": 20
+    },
+    {
+     "policy_id": "trail_1pct",
+     "label": "Trail 1% from peak",
+     "kind": "trail_pct",
+     "initial_stop": 29.75,
+     "trail_pct": 1.0,
+     "activate_after_r": null,
+     "time_stop_days": 20
+    }
+   ]
+  },
+  {
+   "symbol": "NST.AX",
+   "strategy": "MEAN_REVERSION",
+   "status": "Watch",
+   "score": 78.0,
+   "order_type": "MARKET_CLOSE",
+   "trigger": null,
+   "limit": null,
+   "entry_ref": 21.93,
+   "entry_text": "market on close (closing auction); ref 21.93",
+   "last_close": 21.93,
+   "stop": 20.66,
+   "tp1": 23.54,
+   "tp2": 25.16,
+   "atr14": 1.075,
+   "price_decimals": 2,
+   "r_mult": 2.54,
+   "risk_per_share": 1.27,
+   "exit_plan": {
+    "policy_id": "fixed_5d",
+    "label": "Legacy: exit at close of day 5",
+    "kind": "time",
+    "initial_stop": 20.66,
+    "days": 5,
+    "time_stop_days": 5,
+    "activate_after_r": null,
+    "exit_by_date": "2026-12-01"
+   },
+   "composite_score": 64.0,
+   "sentiment": {
+    "score": 100.0,
+    "components": {
+     "news": {
+      "score": null,
+      "status": "failed",
+      "label": "news score failed: HTTP 429 from news provider",
+      "weight_used": 0.0
+     },
+     "insider": {
+      "score": 100.0,
+      "status": "ok",
+      "label": "strong insider buying (25,504 bought vs 0 sold)",
+      "weight_used": 0.4
+     },
+     "trends": {
+      "score": null,
+      "status": "no_data",
+      "label": "trends not used (pytrends rate-limited)",
+      "weight_used": 0.0
+     }
+    }
+   },
+   "fund_score": 32.1,
+   "fund_label": "ROE=3.5% NM=86.1% | CR=4.5 | MCap=$8.2B Inst=2%",
+   "earnings": {
+    "days_to": null,
+    "suppress": false,
+    "status": "unknown"
+   },
+   "plain_english": "Mean Reversion on today's bar (live price 21.93 spliced in): buy in the closing auction / at market before the close. Stop 20.66.",
+   "fail_gates": [
+    "score 78 < 80 (Valid threshold)",
+    "composite 64.0 < 70"
+   ],
+   "also_fired": [],
+   "exit_plans": [
+    {
+     "policy_id": "fixed_5d",
+     "label": "Legacy: exit at close of day 5",
+     "kind": "time",
+     "initial_stop": 20.66,
+     "days": 5,
+     "time_stop_days": 5,
+     "activate_after_r": null,
+     "exit_by_date": "2026-12-01"
+    },
+    {
+     "policy_id": "trail_2atr",
+     "label": "Trail 2x ATR from peak",
+     "kind": "trail_atr",
+     "initial_stop": 20.66,
+     "atr_mult": 2.0,
+     "trail_atr_aud": 2.15,
+     "activate_after_r": null,
+     "time_stop_days": 20
+    },
+    {
+     "policy_id": "trail_1pct",
+     "label": "Trail 1% from peak",
+     "kind": "trail_pct",
+     "initial_stop": 20.66,
+     "trail_pct": 1.0,
+     "activate_after_r": null,
+     "time_stop_days": 20
+    }
+   ]
+  },
+  {
+   "symbol": "CDA.AX",
+   "strategy": "MEAN_REVERSION",
+   "status": "Valid",
+   "score": 81.0,
+   "order_type": "MARKET_CLOSE",
+   "trigger": null,
+   "limit": null,
+   "entry_ref": 48.95,
+   "entry_text": "market on close (closing auction); ref 48.95",
+   "last_close": 48.95,
+   "stop": 45.52,
+   "tp1": 53.35,
+   "tp2": 57.75,
+   "atr14": 2.9333,
+   "price_decimals": 2,
+   "r_mult": 2.57,
+   "risk_per_share": 3.43,
+   "exit_plan": {
+    "policy_id": "fixed_5d",
+    "label": "Legacy: exit at close of day 5",
+    "kind": "time",
+    "initial_stop": 45.52,
+    "days": 5,
+    "time_stop_days": 5,
+    "activate_after_r": null,
+    "exit_by_date": "2026-12-01"
+   },
+   "composite_score": 70.6,
+   "sentiment": {
+    "score": 100.0,
+    "components": {
+     "news": {
+      "score": null,
+      "status": "failed",
+      "label": "news score failed: HTTP 429 from news provider",
+      "weight_used": 0.0
+     },
+     "insider": {
+      "score": 100.0,
+      "status": "ok",
+      "label": "strong insider buying (25,504 bought vs 0 sold)",
+      "weight_used": 0.4
+     },
+     "trends": {
+      "score": null,
+      "status": "no_data",
+      "label": "trends not used (pytrends rate-limited)",
+      "weight_used": 0.0
+     }
+    }
+   },
+   "fund_score": 32.1,
+   "fund_label": "ROE=3.5% NM=86.1% | CR=4.5 | MCap=$8.2B Inst=2%",
+   "earnings": {
+    "days_to": null,
+    "suppress": false,
+    "status": "unknown"
+   },
+   "plain_english": "Mean Reversion on today's bar (live price 48.95 spliced in): buy in the closing auction / at market before the close. Stop 45.52.",
+   "fail_gates": [],
+   "also_fired": [],
+   "exit_plans": [
+    {
+     "policy_id": "fixed_5d",
+     "label": "Legacy: exit at close of day 5",
+     "kind": "time",
+     "initial_stop": 45.52,
+     "days": 5,
+     "time_stop_days": 5,
+     "activate_after_r": null,
+     "exit_by_date": "2026-12-01"
+    },
+    {
+     "policy_id": "trail_2atr",
+     "label": "Trail 2x ATR from peak",
+     "kind": "trail_atr",
+     "initial_stop": 45.52,
+     "atr_mult": 2.0,
+     "trail_atr_aud": 5.87,
+     "activate_after_r": null,
+     "time_stop_days": 20
+    },
+    {
+     "policy_id": "trail_1pct",
+     "label": "Trail 1% from peak",
+     "kind": "trail_pct",
+     "initial_stop": 45.52,
+     "trail_pct": 1.0,
+     "activate_after_r": null,
+     "time_stop_days": 20
+    }
+   ]
+  }
+ ],
+ "watchlist_full": [],
+ "warnings": []
+}

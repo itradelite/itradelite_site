@@ -73,7 +73,8 @@
     "Opened at 186.90, below the 187.76 limit — filled at the open (est.).",
     "Trail (2% below peak 188.42) is 184.65; initial stop 178.00.",
     "Price 185.10 is above the trail — hold."
-   ]
+   ],
+   "trails": "not-an-object"
   },
   {
    "symbol": "BHP.AX",
@@ -110,7 +111,20 @@
    "verdict": "EXIT",
    "reasons": [
     "Trail 157.80 broken."
-   ]
+   ],
+   "trails": {
+    "fixed_5d": {
+     "status": "EXIT"
+    },
+    "trail_2atr": {
+     "trail_level": 157.8,
+     "status": "EXIT"
+    },
+    "trail_9pct": {
+     "trail_level": null,
+     "status": "n/a"
+    }
+   }
   }
  ]
 }

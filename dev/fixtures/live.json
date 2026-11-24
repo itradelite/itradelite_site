@@ -44,7 +44,8 @@
     "Low so far 2.010 is above the 1.995 limit — order not filled yet.",
     "Opened +1.75% above last close; still inside the setup's range.",
     "Leave the limit order in; re-check at ~12:30 Sydney."
-   ]
+   ],
+   "trails": null
   },
   {
    "symbol": "PME.AX",
@@ -67,13 +68,45 @@
    "signal_still_valid": true,
    "revalidated_score": 84,
    "peak_since_fill": 188.42,
-   "trail_level": 184.65,
+   "trail_level": null,
    "verdict": "HOLD",
    "reasons": [
     "Opened at 186.90, below the 187.76 limit — filled at the open (est.).",
-    "Trail (2% below peak 188.42) is 184.65; initial stop 178.00.",
-    "Price 185.10 is above the trail — hold."
-   ]
+    "Default exit (fixed 5 days): hold, sell at the close on Mon 30 Nov; initial stop 178.00.",
+    "Tracked alternatives: 2×ATR trail 184.65 (hold); 1% trail 186.54 was broken at 185.10 (would exit)."
+   ],
+   "effective_stop": 178.0,
+   "trails": {
+    "fixed_5d": {
+     "peak_since_fill": 188.42,
+     "trail_level": null,
+     "exit_by_date": "2026-11-30",
+     "status": "HOLD"
+    },
+    "trail_2atr": {
+     "peak_since_fill": 188.42,
+     "trail_level": 184.65,
+     "exit_by_date": null,
+     "status": "HOLD"
+    },
+    "trail_1pct": {
+     "peak_since_fill": 188.42,
+     "trail_level": 186.54,
+     "exit_by_date": null,
+     "status": "EXIT"
+    }
+   }
   }
+ ],
+ "exit_policy": {
+  "id": "fixed_5d",
+  "label": "Legacy: exit at close of day 5",
+  "kind": "time",
+  "days": 5
+ },
+ "tracked_policy_ids": [
+  "fixed_5d",
+  "trail_2atr",
+  "trail_1pct"
  ]
 }
