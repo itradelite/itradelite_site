@@ -49,7 +49,7 @@
     if (!s.oldSession) out.push(ITL.staleBanner(pc, now, "preclose.json"));
     if (pc && pc.published === false) {
       out.push(ITL.banner("error", "Not published: no pre-close picks from this scan",
-        html`${pc.reason ? "Reason: " + pc.reason + ". " : "The pre-close scan withheld its orders. "}It withholds when the market is not open, there are under 15 min to the close, coverage is below 90% or live prices are over 20 min old. Do not trade the withheld orders below; they are shown for reference only.`, "WITHHELD"));
+        html`${pc.reason ? "Reason: " + pc.reason + ". " : "The pre-close scan withheld its orders. "}It withholds when the market is not open, there are under 15 min to the close, coverage is below 90% or live prices are over 30 min old (Yahoo ASX prices are ~20 min delayed). Do not trade the withheld orders below; they are shown for reference only.`, "WITHHELD"));
     }
     if (pc && pc.data_fresh === false) {
       out.push(ITL.banner("stale", "Live prices not confirmed fresh", "The scan could not confirm its live prices were current; treat every row as unconfirmed.", "NOT FRESH"));
@@ -111,7 +111,7 @@
       <div class="card__head"><h2>Why this page exists</h2><a class="small" href="${ITL.siteHref("/track-record/")}">Night vs pre-close on the track record &rarr;</a></div>
       <div class="card__body small">
         <p style="margin-top:0;">The night scan uses the completed daily bar, so its picks can only be traded at the <b>next open</b> — when everyone else running similar scans has the same signals. The pre-close scan runs the same strategies ~45 minutes before the close on <b>today's</b> bar (live price spliced in), so you can buy in the closing auction or at market before the close instead of waiting for tomorrow's open.</p>
-        <p>Same rules as the night scan: max 2 orders, one per symbol, same stops, targets, sizing and exit plans. Entry ref is the live price rounded up a tick (worst case for sizing); the real fill is the closing price.</p>
+        <p>Same rules as the night scan: max 2 orders, one per symbol, same stops, targets, sizing and exit plans. Entry ref is the live price (about 20 min delayed) rounded up to a valid ASX tick; the real fill is the closing price.</p>
         <p style="margin-bottom:0;">It is an experiment, tracked against the night picks: the track record shows a <i>historical estimate</i> (night signals entered at that day's close) and the <i>forward-tracked</i> real pre-close picks, collected from 25 Nov 2026.</p>
       </div></section>`;
   }

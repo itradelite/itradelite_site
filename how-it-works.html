@@ -82,7 +82,7 @@
         <li><b>STOP</b>: buy once price trades up through the trigger.</li>
         <li><b>STOP-LIMIT</b>: like STOP, but never pay more than the limit; if the stock gaps above the limit the order is not filled.</li>
         <li><b>Market on open</b>: buy at the opening price.</li>
-        <li><b>Market on close</b> (pre-close picks): buy in the closing auction, or at market before the close. Entry ref is the live price rounded up a tick; the real fill is the closing price.</li>
+        <li><b>Market on close</b> (pre-close picks): buy in the closing auction, or at market before the close. Entry ref is the live price (about 20 min delayed) rounded up to a valid ASX tick; the real fill is the closing price.</li>
       </ul>
       <p><b>Entry ref</b> is the worst-case fill price (the limit for STOP-LIMIT) and is what sizing uses. Prices are shown to the ASX tick: 3 decimals under A$2.00, 2 decimals otherwise. At most two orders are recommended per night and never two for the same stock.</p>
 
@@ -123,7 +123,7 @@ actual risk = qty &times; |entry ref &minus; stop|</div>
         <li><b>Pre-close &middot; historical estimate</b>: the past night signals replayed as if bought at the signal day's close (closing price plus slippage). An honest proxy, because the pre-close scan itself only exists from now on.</li>
         <li><b>Pre-close &middot; forward tracking</b>: the real pre-close picks, filled at that session's close, collected from 25 Nov 2026. It will show &ldquo;n = 0&rdquo; for a while.</li>
       </ul>
-      <p>A paired comparison (each signal compared with itself under both entry methods) says whether the difference is consistent or could still be noise. The pre-close scan withholds its picks when the market is not open, there are under 15 minutes to the close, data coverage is below 90% or live prices are more than 20 minutes old.</p>
+      <p>A paired comparison (each signal compared with itself under both entry methods) says whether the difference is consistent or could still be noise. The pre-close scan withholds its picks when the market is not open, there are under 15 minutes to the close, data coverage is below 90% or live prices are more than 30 minutes old (Yahoo ASX prices are about 20 minutes delayed).</p>
 
       <h2>9. Signals and context</h2>
       <p>Each row shows a TA score, a composite score, sentiment (news, insider trades, search trends) and the next earnings date. A sentiment component that <i>failed</i> or had <i>no data</i> is shown as such and is left out of the score; it is never treated as neutral. Stocks too close to earnings are suppressed from recommendations; an unknown earnings date is flagged.</p>
