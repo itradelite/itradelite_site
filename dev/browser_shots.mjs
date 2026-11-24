@@ -5,7 +5,7 @@ const { chromium } = await import(process.env.PW_CORE || 'playwright-core');
 const [base, out, filter] = process.argv.slice(2);
 const NOW = '2026-11-24T00:00:00Z';
 const pages = [
-  ['home', '/'], ['today', '/today/'], ['live', '/live/'], ['intraday', '/intraday/'],
+  ['home', '/'], ['today', '/today/'], ['live', '/live/'], ['preclose', '/preclose/'], ['intraday', '/intraday/'],
   ['track', '/track-record/'], ['decay', '/strategy-decay/'], ['how', '/how-it-works.html'],
   ['about', '/about.html'], ['before-close', '/before-close/'],
 ];
@@ -15,14 +15,22 @@ const variants = [
   ['edge', `fixtures=1&set=edge&now=${NOW}`],
   ['stale', `fixtures=1&now=2026-11-26T03:00:00Z`],
   ['v1', `fixtures=v1&now=2026-11-23T11:00:00Z`],
+  // pre-close window (15:30 Sydney): banner on Today / Live, countdown on /preclose/
+  ['pcwindow', `fixtures=1&now=2026-11-24T04:30:00Z`, ['today', 'live', 'preclose']],
+  ['pcstale', `fixtures=1&set=pcstale&now=2026-11-24T04:30:00Z`, ['preclose']],
+  ['pcunpub', `fixtures=1&set=pcunpub&now=2026-11-24T04:30:00Z`, ['preclose']],
+  ['pcpassed', `fixtures=1&now=2026-11-24T05:20:00Z`, ['preclose']],
+  // the real v2.1 simulator output (dev/fixtures/real/metrics.json)
+  ['real', `fixtures=1&set=real&now=2026-11-24T09:00:00Z`, ['track', 'home']],
 ];
 const browser = await chromium.launch({ executablePath: process.env.CHROME || '/usr/bin/google-chrome', args: ['--no-sandbox'] });
 let failures = 0;
-for (const [vname, qs] of variants) {
+for (const [vname, qs, only] of variants) {
   for (const [name, path] of pages) {
     if (filter && !`${vname}:${name}`.includes(filter)) continue;
+    if (only && !only.includes(name)) continue;
     for (const width of [1280, 390]) {
-      if (vname !== 'v2' && width === 390 && !['today','live','track'].includes(name)) continue;
+      if (vname !== 'v2' && width === 390 && !['today','live','track','preclose'].includes(name)) continue;
       const ctx = await browser.newContext({ viewport: { width, height: 900 }, deviceScaleFactor: 1 });
       const page = await ctx.newPage();
       const errors = [];

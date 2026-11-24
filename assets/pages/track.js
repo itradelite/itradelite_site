@@ -320,8 +320,6 @@
   ];
   const LIVE_SINCE_DEFAULT = "2026-11-25";
 
-  const STREAM_PROSE = { night: "the night order (next open)", preclose_proxy: "buying at the signal day's close", preclose_live: "the real pre-close picks" };
-  function streamProse(id) { return STREAM_PROSE[id] || streamLabel(id); }
   function streamLabel(id) { const s = STREAMS.find(x => x.id === id); return s ? s.label : String(id || DASH); }
 
   function obj(x) { return x && typeof x === "object" && !Array.isArray(x) ? x : null; }
@@ -350,7 +348,8 @@
   function liveSince(data) {
     const sl = obj(data && data.streams) && obj(data.streams.preclose_live);
     const st = obj(data && data.stake);
-    const since = (sl && sl.since) || (st && st.preclose_live_since) || LIVE_SINCE_DEFAULT;
+    const arch = sl && obj(sl.archive);
+    const since = (sl && sl.since) || (arch && arch.first_session) || (st && st.preclose_live_since) || LIVE_SINCE_DEFAULT;
     return ITL.parseYmd(since) ? since : LIVE_SINCE_DEFAULT;
   }
 
@@ -369,15 +368,20 @@
     const block = stakeBlock(data, sel.stream, sel.policy, sel.all) || {};
     const box = (label, val, cls, sub) => html`<div class="kpiBox"><div class="kpiLabel">${label}</div><div class="kpiValue ${cls || ""}">${val}</div>${sub ? html`<div class="kpiSub">${sub}</div>` : ""}</div>`;
     const n = num(block.n);
+    const none = !n;
     const rpc = num(block.return_on_peak_capital);
+    const nOpen = num(block.n_open);
+    const ci = Array.isArray(block.pnl_ci95_aud) && num(block.pnl_ci95_aud[0]) !== null ? block.pnl_ci95_aud : null;
+    const stake = stakeAud(data);
     return html`
-      ${box("Total P&L", signedAud(block.total_pnl_aud), sgnCls(block.total_pnl_aud), "added up, after costs")}
-      ${box("Trades", fmtInt(block.n), "", n === 0 ? "none yet" : "every signal taken")}
-      ${box("Avg per trade", signedAud(block.avg_pnl_aud), sgnCls(block.avg_pnl_aud), "per " + (stakeAud(data) !== null ? fmtAud(stakeAud(data), 0) : "fixed") + " stake")}
-      ${box("Win rate", fmtRate(block.winrate), "", "")}
+      ${box("Total P&L", none ? DASH : signedAud(block.total_pnl_aud), none ? "" : sgnCls(block.total_pnl_aud), nOpen ? "closed trades; +" + fmtInt(nOpen) + " open (" + signedAud(block.open_pnl_aud_mtm) + " at last close)" : "closed trades, after costs")}
+      ${box("Trades", fmtInt(block.n), "", none ? "none yet" : "every signal taken")}
+      ${box("Avg per trade", signedAud(block.avg_pnl_aud), sgnCls(block.avg_pnl_aud), ci ? "95% range " + shortSigned(ci[0]) + " to " + shortSigned(ci[1]) : num(block.median_pnl_aud) !== null ? "median " + signedAud(block.median_pnl_aud) : "per " + (stake !== null ? fmtAud(stake, 0) : "fixed") + " stake")}
+      ${box("Win rate", fmtRate(block.winrate), "", num(block.median_pnl_aud) !== null ? "median trade " + signedAud(block.median_pnl_aud) : "")}
       ${box("Best / worst", html`<span class="${sgnCls(block.best_aud)}">${shortSigned(block.best_aud)}</span> <span class="dim">/</span> <span class="${sgnCls(block.worst_aud)}">${shortSigned(block.worst_aud)}</span>`, "kpiValue--split", "single trade")}
-      ${box("Peak capital needed", fmtAud(block.peak_capital_aud, 0), "", "max open positions at once × stake")}
-      ${box("Return on peak capital", fmtPct(rpc, { fraction: true, sign: true }), sgnCls(rpc), "total P&L ÷ peak capital")}`;
+      ${box("Peak capital needed", none ? DASH : fmtAud(block.peak_capital_aud, 0), "", num(block.peak_concurrent_positions) && !none ? fmtInt(block.peak_concurrent_positions) + " positions at once" + (block.peak_capital_date ? " on " + fmtDate(block.peak_capital_date) : "") : "max open positions × stake")}
+      ${box("Return on peak capital", fmtPct(rpc, { fraction: true, sign: true }), sgnCls(rpc), "total P&L ÷ peak capital")}
+      ${box("Max drawdown", none ? DASH : signedAud(block.max_drawdown_aud), num(block.max_drawdown_aud) < 0 ? "neg" : "", num(block.avg_capital_deployed_aud) !== null && !none ? "avg deployed " + fmtAudShort(num(block.avg_capital_deployed_aud)) : "of cumulative P&L")}`;
   }
 
   function stakeMatrix(data, sel) {
@@ -396,42 +400,98 @@
     return html`<div class="tableWrap"><table class="matrix" aria-label="Total P&L by stream and exit policy"><thead>${head}</thead><tbody>${rows}</tbody></table></div>`;
   }
 
-  /** streams.comparison in plain words. Accepts {pair: {policy: stats}} or
-   *  {pair: stats} (stats = {n, mean_diff_r, se, t, mean_diff_aud, better_share}). */
-  function comparisonItems(data, sel) {
+  // ── streams.comparison (real simulator shape, v2.1) ─────────────────────
+  // DIFF = {n, mean_diff, median_diff, se, t, boot_ci95, share_a_better, sum_diff}
+  function tWords(t) {
+    const v = num(t);
+    if (v === null) return "";
+    const a = Math.abs(v);
+    return "t = " + fmtNum(v, 2) + (a >= 2 ? ", a consistent difference" : a >= 1.65 ? ", marginal" : ", could still be noise");
+  }
+  function audDiffWords(d, perWhat, than) {
+    const m = num(d && d.mean_diff);
+    if (m === null) return null;
+    const ci = Array.isArray(d.boot_ci95) && num(d.boot_ci95[0]) !== null && num(d.boot_ci95[1]) !== null
+      ? "; 95% range " + signedAud(d.boot_ci95[0]) + " to " + signedAud(d.boot_ci95[1]) : "";
+    return { better: m >= 0, text: (m >= 0 ? "better" : "worse") + (than ? " than " + than : "") + " by " + fmtAud(Math.abs(m), 0) + " " + perWhat + " (" + tWords(d.t) + ci + ")" };
+  }
+
+  /** The comparison block for the current selection: all setups or
+   *  recommended orders, and the selected tracked policy. */
+  function comparisonSource(data, sel) {
     const cmp = obj(obj(data && data.streams) && data.streams.comparison);
-    if (!cmp) return [];
+    if (!cmp) return null;
+    return sel && sel.all ? obj(cmp.all_setups) : cmp;
+  }
+
+  /** Plain-English paragraphs: [{key, text}] (empty when not published). */
+  function comparisonItems(data, sel) {
+    const src = comparisonSource(data, sel);
+    if (!src) return [];
+    const pid = sel.policy;
+    const pname = ITL.policyName(pid);
     const out = [];
-    const def = defaultPolicy(data);
-    Object.keys(cmp).forEach(pair => {
-      const v = obj(cmp[pair]);
-      if (!v) return;
-      const m = pair.match(/^(.+)_vs_(.+)$/);
-      const a = m ? m[1] : pair, b = m ? m[2] : "night";
-      const isStats = num(v.n) !== null || v.mean_diff_r !== undefined;
-      const entries = isStats ? [[v.policy_id || def, v]] : Object.keys(v).map(k => [k, obj(v[k])]).filter(e => e[1]);
-      entries.forEach(([pid, st]) => {
-        const n = num(st.n), d = num(st.mean_diff_r), t = num(st.t), aud = num(st.mean_diff_aud), share = num(st.better_share);
-        let text;
-        if (!n) text = a === "preclose_live" ? "no paired trades yet — forward tracking started " + fmtDate(liveSince(data)) + "." : "no paired trades.";
-        else if (d === null) text = "n = " + fmtInt(n) + " paired signals; difference not published.";
-        else {
-          text = "on the same " + fmtInt(n) + " signals, " + streamProse(a) + " averaged " + fmtR(Math.abs(d)).replace("+", "") + " per trade " + (d >= 0 ? "better" : "worse") + " than " + streamProse(b) +
-            (aud !== null ? " (≈ " + (aud >= 0 ? "+" : "-") + fmtAud(Math.abs(aud), 0) + " per trade at the fixed stake)" : "") + "." +
-            (share !== null ? " It came out ahead on " + fmtRate(share) + " of signals." : "") +
-            (t !== null ? (Math.abs(t) >= 2 ? " t = " + fmtNum(t, 2) + ": a consistent difference (|t| ≥ 2)." : " t = " + fmtNum(t, 2) + ": could still be noise (needs |t| ≥ 2 to count as evidence).") : "");
+    const paired = obj(obj(src.preclose_proxy_minus_night) && obj(src.preclose_proxy_minus_night.by_policy) && src.preclose_proxy_minus_night.by_policy[pid]);
+    const per = obj(obj(src.preclose_proxy_minus_night_per_signal) && obj(src.preclose_proxy_minus_night_per_signal.by_policy) && src.preclose_proxy_minus_night_per_signal.by_policy[pid]);
+    const fg = obj(src.fills_and_gaps);
+    if (paired) {
+      const n = num(paired.n_pairs) !== null ? paired.n_pairs : paired.aud_at_stake && paired.aud_at_stake.n;
+      const w = audDiffWords(paired.aud_at_stake, "per trade", "the next-day order");
+      if (w) out.push({ key: "paired", text: "On the " + fmtInt(n) + " signals both methods traded, buying at the signal day's close did " + w.text + "." });
+    }
+    if (per) {
+      const night = fg && obj(fg.night_next_day_order);
+      const missed = night ? (num(night.unfilled_never_touched) || 0) + (num(night.gapped_past_limit) || 0) : null;
+      const base = fg && num(fg.n_signals_actionable) !== null ? num(fg.n_signals_actionable) : num(per.n_signals);
+      const w = audDiffWords(per.aud_at_stake, "per signal seen");
+      if (w) {
+        let t = (out.length ? "But " : "") + (missed !== null && base ? "the next-day order missed " + fmtInt(missed) + " signals (" + fmtPct(missed / base * 100, { dp: 0 }) + ": " + fmtInt(night.unfilled_never_touched) + " never reached the limit/trigger, " + fmtInt(night.gapped_past_limit) + " gapped past it)" : "some signals were never filled by the next-day order");
+        t += "; counting those as A$0 for the night stream, buying at the close was " + w.text + ".";
+        if (num(per.a_total_aud) !== null && num(per.b_total_aud) !== null) t += " Totals over " + fmtInt(per.n_signals) + " signals: close " + signedAud(per.a_total_aud) + " vs next-day order " + signedAud(per.b_total_aud) + ".";
+        const h1 = obj(per.first_half), h2 = obj(per.second_half);
+        if (h1 && h2 && num(h1.mean_diff) !== null && num(h2.mean_diff) !== null) {
+          t += " By half (split " + (per.split_date ? fmtDate(per.split_date, { noYear: false }) : DASH) + "): " + signedAud(h1.mean_diff) + " (t " + fmtNum(h1.t, 2) + ") then " + signedAud(h2.mean_diff) + " (t " + fmtNum(h2.t, 2) + ").";
         }
-        out.push({ pair, a, b, policy: pid, selected: pid === sel.policy, text });
-      });
-    });
+        out.push({ key: "per_signal", text: t });
+      }
+    }
+    if (fg) {
+      const byPol = obj(fg.missed_by_policy) && obj(fg.missed_by_policy[pid]);
+      const blocks = byPol || (fg.policy_id_for_pnl_blocks === pid ? fg : null);
+      const miss = blocks && obj(blocks.preclose_on_signals_night_missed);
+      const gap = obj(obj(fg.overnight_gap_pct) && obj(fg.overnight_gap_pct.by_night_status) && fg.overnight_gap_pct.by_night_status.unfilled);
+      if (miss && num(miss.total_pnl_aud) !== null) {
+        out.push({ key: "missed", text: "Why: the signals the next-day order missed were mostly ones that gapped up overnight" + (gap && num(gap.mean) !== null ? " (average opening gap " + fmtPct(gap.mean, { dp: 1, sign: true }) + ", up on " + fmtRate(gap.share_positive) + " of them)" : "") +
+          ". Bought at the close, those " + fmtInt(miss.n_closed !== undefined ? miss.n_closed : miss.n_signals) + " made " + signedAud(miss.total_pnl_aud) + " under " + pname +
+          (num(miss.total_ex_best5_aud) !== null ? " (" + signedAud(miss.total_ex_best5_aud) + " without the best 5 trades)" : "") + "." });
+      }
+      const fvc = obj(fg.night_fill_vs_close_buy_pct);
+      if (fvc && num(fvc.mean) !== null) {
+        out.push({ key: "fill", text: "When the next-day order did fill, it paid on average " + fmtPct(Math.abs(fvc.mean), { dp: 2 }) + (fvc.mean < 0 ? " less" : " more") + " than buying at the previous close (" + fmtRate(fvc.share_positive) + " of fills cost more) — the limit orders buy dips, which explains much of the paired gap above." });
+      }
+    }
+    const pw = obj(src.tracked_policies_pairwise) && obj(src.tracked_policies_pairwise[sel.stream]);
+    if (pw) {
+      const bits = Object.keys(pw).map(k => {
+        const m = k.match(/^(.+)_minus_(.+)$/);
+        const d = obj(pw[k]) && obj(pw[k].aud_at_stake);
+        if (!m || !d || num(d.mean_diff) === null) return null;
+        return ITL.policyName(m[1]) + " vs " + ITL.policyName(m[2]).toLowerCase() + " " + signedAud(d.mean_diff) + "/trade (" + tWords(d.t) + ")";
+      }).filter(Boolean);
+      if (bits.length) out.push({ key: "policies", text: "Exit policies within " + streamLabel(sel.stream).toLowerCase() + ": " + bits.join("; ") + "." });
+    }
+    const arch = obj(obj(data.streams) && obj(data.streams.preclose_live) && data.streams.preclose_live.archive);
+    const liveN = num(arch && arch.n_files);
+    out.push({ key: "live", text: liveN ? "Forward tracking: " + fmtInt(liveN) + " pre-close scan(s) archived since " + fmtDate(liveSince(data)) + "; too few to compare yet." : "Forward tracking of the real pre-close picks: no archived scans yet — collecting data since " + fmtDate(liveSince(data)) + "." });
     return out;
   }
 
   function comparisonBlock(data, sel) {
     const items = comparisonItems(data, sel);
-    if (!items.length) return html`<p class="small">Paired night vs pre-close comparison not published yet.</p>`;
-    return html`<ul class="cmp-list">${items.map(i => html`<li${i.selected ? html` style="color:var(--text-main)"` : ""}><b>${streamLabel(i.a)} vs ${streamLabel(i.b).toLowerCase()}, ${ITL.policyName(i.policy)}</b>: ${i.text}</li>`)}</ul>
-      <p class="small">Paired = each signal compared with itself under both entry methods, so market luck cancels out. R = profit in units of the initial risk (entry − stop).</p>`;
+    if (!items.length) return html`<p class="small">Night vs pre-close comparison not published yet.</p>`;
+    return html`<p class="small" style="margin:0 0 4px;">For <b>${ITL.policyName(sel.policy)}</b>${sel.all ? ", all setups" : ", recommended orders"} (change the policy by clicking a matrix column).</p>
+      <ul class="cmp-list">${items.map(i => html`<li data-k="${i.key}">${i.text}</li>`)}</ul>
+      <p class="small">Each signal is compared with itself under both entry methods, so market luck largely cancels out. "Per signal seen" counts a signal the method did not trade as A$0. |t| ≥ 2 is a consistent difference; 1.65–2 marginal; below that it could be noise.</p>`;
   }
 
   function stakeMethodText(data, sel) {
@@ -618,6 +678,6 @@
     load();
   }
 
-  return { STREAMS, stakeBy, stakeBlock, stakeSeries, stakeKpis, stakeMatrix, comparisonItems, comparisonBlock, stakeMethodText, normalizeSel, liveSince, trackedPolicies,
+  return { STREAMS, stakeBy, stakeBlock, stakeSeries, stakeKpis, stakeMatrix, comparisonItems, comparisonBlock, tWords, stakeMethodText, normalizeSel, liveSince, trackedPolicies,
     DATA_PATH, fmtAudTick, cleanSeries, toAud, chartModel, chartSvg, valueAt, maxDrawdown, verdictLine, policyTable, strategyTable, tradesTable, notesBlock, universeBlock, legacyView, kpis, boot };
 });

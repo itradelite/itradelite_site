@@ -18,6 +18,7 @@ const INTRA = require(path.join(ROOT, "assets/pages/intraday.js"));
 const TRACK = require(path.join(ROOT, "assets/pages/track.js"));
 const HOME = require(path.join(ROOT, "assets/pages/home.js"));
 const DECAY = require(path.join(ROOT, "assets/pages/decay.js"));
+const PRE = require(path.join(ROOT, "assets/pages/preclose.js"));
 const J = (p) => JSON.parse(readFileSync(path.join(ROOT, p), "utf8"));
 
 let pass = 0, fail = 0;
@@ -485,6 +486,193 @@ section("fixtures / environment helpers");
   ok(/\?v=\d+/.test(calls[0]), "cache-buster appended");
   e = null; try { await ITL.fetchJSON("/p.json", { fetch: async () => ({ ok: true, status: 200, text: async () => "{bad" }) }); } catch (x) { e = x; }
   ok(e && e.kind === "parse", "invalid JSON => parse error");
+}
+
+
+// ── 12. Contract v2.1: exit plans, pre-close stream, fixed stake ─────────
+section("v2.1 exit plans: wording, default marked, tolerant");
+{
+  const P = (plan, row) => ITL.exitPlanPhrase(plan, row || {});
+  eq(P({ policy_id: "fixed_5d", kind: "time", days: 5, exit_by_date: "2026-11-30" }), "Sell at close of day 5 (by Mon 30 Nov)", "fixed with exit_by_date");
+  eq(P({ policy_id: "fixed_5d", kind: "time", time_stop_days: 5 }), "Sell at close of day 5", "fixed without date (real v2 exit_plan shape: no 'days')");
+  eq(P({ policy_id: "fixed_5d", exit_by_date: "bad" }), "Sell at close of day 5", "junk exit_by_date ignored");
+  eq(P({ policy_id: "trail_2atr", kind: "trail_atr", atr_mult: 2, trail_atr_aud: 1.69 }, { entry_ref: 30.81 }), "Trail 2×ATR = A$1.69 below the highest price since entry", "ATR trail, 2dp stock");
+  eq(P({ policy_id: "trail_2atr", kind: "trail_atr", atr_mult: 2, trail_atr_aud: 0.083, time_stop_days: 20 }, { entry_ref: 0.555 }), "Trail 2×ATR = A$0.083 below the highest price since entry (max 20 days)", "ATR trail, sub-A$2 stock uses 3dp");
+  eq(P({ policy_id: "trail_2atr", kind: "trail_atr", trail_atr_mult: 2, trail_atr_aud: null }), "Trail 2×ATR below the highest price since entry", "ATR trail without A$ (real key trail_atr_mult)");
+  eq(P({ policy_id: "trail_1pct", kind: "trail_pct", trail_pct: 1 }), "Trail 1% below the highest price since entry", "1% trail");
+  eq(P({ trail_pct: 2, activate_after_r: 1 }), "Once up +1R, trail 2% below the highest price since entry", "after +1R, kind inferred");
+  eq(P(null), "—", "missing plan => dash");
+  eq(ITL.exitPlansOf({ exit_plans: "x", exit_plan: { policy_id: "fixed_5d" } }).length, 1, "non-list exit_plans falls back to exit_plan");
+  eq(ITL.exitPlansOf({ exit_plans: [null, 3] }).length, 0, "junk entries dropped");
+  eq([ITL.policyName("trail_2atr"), ITL.policyName("trail_2pct_after_1r"), ITL.policyName("fixed_3d"), ITL.policyName(null)], ["Trail 2×ATR", "Trail 2% after +1R", "Fixed 3 days", "—"], "policy names");
+  const td = J("dev/fixtures/today.json");
+  const card = S(TODAY.orderCard(td.recommended_orders[0], TODAY.normalizePrefs({}), { names: {}, edges: {}, defaultPolicy: "fixed_5d" }));
+  eq((card.match(/<li /g) || []).length, 3, "recommended card lists all three exit plans");
+  eq((card.match(/xp-def/g) || []).length, 1, "exactly one plan marked default");
+  ok(/class="is-default"[^>]*><span class="xp-rule">Sell at close of day 5 \(by Mon 30 Nov\)/.test(card), "default (fixed_5d) marked and listed first");
+  ok(/Trail 2×ATR = A\$0\.167 below the highest price since entry/.test(card) && /Trail 1% below the highest price since entry/.test(card), "trail plans worded");
+  const nd = TODAY.normalizeData(td);
+  const openAll = new Set(nd.setups.map(r => "Setups|" + r.symbol + "|" + r.strategy));
+  const det = S(TODAY.renderSections(td, nd, TODAY.normalizePrefs({}), { names: {}, edges: {}, now: new Date(), validFor: td.valid_for, open: openAll }));
+  ok((det.match(/Sell at close of day 5/g) || []).length >= nd.setups.length - 1, "row details show the exit plans too");
+  ok(/Initial stop 43\.62\. Once up \+1R/.test(det) || /Once up \+1R, trail 2% below the highest price since entry/.test(det), "legacy single exit_plan row (WTC) still worded");
+  ok(/not published/.test(S(ITL.exitPlansHtml({ symbol: "X" }))), "no exit plan => 'not published', no crash");
+  const edge = J("dev/fixtures/edge/today.json"), en = TODAY.normalizeData(edge);
+  const eo = S(TODAY.renderSections(edge, en, TODAY.normalizePrefs({}), { names: {}, edges: {}, now: new Date(), watchOpen: true, open: new Set(en.watch.map(r => "Full watchlist|" + r.symbol + "|" + r.strategy)) }));
+  ok(!/NaN|undefined|\[object Object\]/.test(eo) && /Sell at close of day 5</.test(eo), "edge: exit plans without exit_by_date / A$ render cleanly");
+}
+
+section("v2.1 pre-close timing: trade-by in both DST offsets, countdown, banner window");
+{
+  const iso = (d) => d && d.toISOString();
+  eq(iso(ITL.sydneyWallToDate("2026-11-24", "15:59")), "2026-11-24T04:59:00.000Z", "15:59 AEDT (summer) = 04:59Z");
+  eq(iso(ITL.sydneyWallToDate("2026-06-10", "15:59")), "2026-06-10T05:59:00.000Z", "15:59 AEST (winter) = 05:59Z");
+  eq(iso(ITL.sydneyWallToDate("2026-10-05", "15:59")), "2026-10-05T04:59:00.000Z", "first Monday after DST starts");
+  eq(iso(ITL.sydneyWallToDate("2026-04-06", "15:59")), "2026-04-06T05:59:00.000Z", "first Monday after DST ends");
+  eq(iso(ITL.sydneyWallToDate("2026-04-02", "15:59")), "2026-04-02T04:59:00.000Z", "last Thursday of DST");
+  eq(ITL.sydneyWallToDate("2026-02-30", "15:59"), null, "invalid date => null");
+  eq(ITL.sydneyWallToDate("2026-11-24", "25:00"), null, "invalid time => null");
+  eq(ITL.tradeByText(ITL.sydneyWallToDate("2026-11-24", "15:59")), "15:59 Sydney (14:59 Brisbane)", "summer: Brisbane one hour behind");
+  eq(ITL.tradeByText(ITL.sydneyWallToDate("2026-06-10", "15:59")), "15:59 Sydney (15:59 Brisbane)", "winter: same wall time");
+  eq(ITL.tradeByText(null), "—", "no deadline => dash");
+  const pc = J("dev/fixtures/preclose.json");
+  eq(iso(ITL.precloseDeadline(pc)), "2026-11-24T04:59:00.000Z", "deadline from signal_session + trade_by_syd");
+  eq(iso(ITL.precloseDeadline({ signal_session: "2026-12-24", trade_by_syd: "14:09" })), "2026-12-24T03:09:00.000Z", "early close (14:10) => trade by 14:09");
+  eq(iso(ITL.precloseDeadline({ signal_session: "2026-06-10", market_state: { close_syd: "2026-06-10T16:00:00+10:00" } })), "2026-06-10T05:59:00.000Z", "fallback: market_state close - 1 min (winter)");
+  eq(iso(ITL.precloseDeadline({ trade_by_utc: "2026-11-24T04:58:00Z", trade_by_syd: "15:59", signal_session: "2026-11-24" })), "2026-11-24T04:58:00.000Z", "explicit trade_by_utc wins");
+  eq(ITL.precloseDeadline({ signal_session: "2026-11-24" }), null, "nothing to go on => null");
+  const dl = ITL.precloseDeadline(pc);
+  eq(ITL.countdown(dl, new Date("2026-11-24T04:30:00Z")).text, "29 min left", "countdown minutes");
+  eq(ITL.countdown(dl, new Date("2026-11-24T04:54:55Z")).text, "4:05 left", "countdown m:ss under 10 min");
+  eq(ITL.countdown(dl, new Date("2026-11-24T03:54:00Z")).text, "1 h 05 min left", "countdown hours");
+  eq([ITL.countdown(dl, new Date("2026-11-24T05:00:00Z")).passed, ITL.countdown(dl, new Date("2026-11-24T05:00:00Z")).text], [true, "trade-by time passed"], "countdown passed");
+  eq(ITL.countdown(null, new Date()).text, "—", "no deadline => dash");
+  const w = (t, d) => ITL.precloseWindow(d || pc, new Date(t)).show;
+  eq([w("2026-11-24T03:30:00Z"), w("2026-11-24T04:00:00Z"), w("2026-11-24T04:30:00Z"), w("2026-11-24T05:09:00Z"), w("2026-11-24T05:12:00Z")], [false, true, true, true, false], "banner window 15:00 Sydney .. end of closing auction (16:10)");
+  eq(w("2026-11-24T04:30:00Z", J("dev/fixtures/pcstale/preclose.json")), false, "no banner for another session's file");
+  const winter = { signal_session: "2026-06-10", trade_by_syd: "15:59", published: true, recommended_orders: [] };
+  eq([w("2026-06-10T04:30:00Z", winter), w("2026-06-10T05:30:00Z", winter)], [false, true], "winter window: 15:30 AEST is 05:30Z");
+  const b = S(ITL.precloseBanner(pc, new Date("2026-11-24T04:30:00Z")));
+  ok(/Pre-close picks are out: 2 order\(s\) — LTR\.AX, BSL\.AX/.test(b) && /15:59 Sydney \(14:59 Brisbane\)/.test(b) && /29 min left/.test(b) && /href="\/preclose\/"/.test(b), "banner: orders, trade-by, countdown, link");
+  ok(/no picks published today/.test(S(ITL.precloseBanner(J("dev/fixtures/pcunpub/preclose.json"), new Date("2026-11-24T04:30:00Z")))), "unpublished => info banner");
+  eq(S(ITL.precloseBanner(pc, new Date("2026-11-24T00:00:00Z"))), "", "morning => no banner");
+  eq(S(ITL.precloseBanner(null, new Date())), "", "missing preclose.json => no banner");
+  const td = J("dev/fixtures/today.json");
+  ok(/Pre-close picks are out/.test(TODAY.renderBanners(td, TODAY.normalizeData(td), new Date("2026-11-24T04:30:00Z"), pc).map(S).join("")), "Today shows the banner in the window");
+  ok(!/Pre-close/.test(TODAY.renderBanners(td, TODAY.normalizeData(td), new Date("2026-11-24T00:00:00Z"), pc).map(S).join("")), "Today: no banner outside the window");
+}
+
+section("v2.1 pre-close page: published / stale / unpublished / passed / edge");
+{
+  const prefs = TODAY.normalizePrefs({});
+  const render = (pc, now) => {
+    const nd = PRE.normalize(pc);
+    return PRE.renderBanners(pc, now).map(S).join("") + S(PRE.deadlineCard(pc, now, null)) + S(PRE.renderSections(pc, nd, prefs, { names: {}, edges: {}, now }));
+  };
+  const at = new Date("2026-11-24T04:30:00Z");
+  const base = render(J("dev/fixtures/preclose.json"), at);
+  ok(!/STALE|Not published|Trade-by time has passed/.test(base), "fresh, published, before trade-by: no warning banners");
+  ok(/29 min left/.test(base) && /15:59 Sydney \(14:59 Brisbane\)/.test(base) && /15:15 Sydney \(14:15 Brisbane\)/.test(base), "deadline card: countdown, trade-by and price_as_of in both zones");
+  ok(/MARKET @ CLOSE/.test(base) && /How to buy:<\/b> in the closing auction/.test(base) && /Entry ref \(live\)/.test(base), "MARKET_CLOSE orders explained");
+  ok(/Pre-close orders/.test(base) && (base.match(/class="order"/g) || []).length === 2 && !/class="dimmed"/.test(base), "two order cards, not dimmed");
+  ok(/Buy <b>20,000<\/b> sh/.test(base.replace(/\s+/g, " ")), "sizing uses the same formula as Today (LTR 100k/1%/25%)");
+  ok((base.match(/Sell at close of day 5 \(by Tue 1 Dec\)/g) || []).length >= 2, "exit plans on pre-close cards");
+  const stale = render(J("dev/fixtures/pcstale/preclose.json"), at);
+  ok(/STALE: these pre-close picks were for Fri 20 Nov 2026/.test(stale) && /class="dimmed"/.test(stale) && /not today&#39;s session/.test(stale), "old session => STALE banner, dimmed, countdown says so");
+  const un = render(J("dev/fixtures/pcunpub/preclose.json"), at);
+  ok(/Not published/.test(un) && /live prices older than 20 min/.test(un) && /Withheld orders/.test(un) && /NOT published/.test(un) && /class="dimmed"/.test(un), "published=false => reason, withheld orders labelled, dimmed");
+  ok(/No pre-close orders/.test(un), "no recommended orders when unpublished");
+  const passed = render(J("dev/fixtures/preclose.json"), new Date("2026-11-24T05:20:00Z"));
+  ok(/Trade-by time has passed/.test(passed) && /trade-by time passed/.test(passed) && /class="dimmed"/.test(passed), "after trade-by: closed state, dimmed");
+  let err = null, eo = "";
+  try { eo = render(J("dev/fixtures/edge/preclose.json"), at) + render({}, at); } catch (e) { err = e; }
+  ok(!err, "edge / empty preclose renders without throwing " + (err ? err.stack : ""));
+  ok(!/NaN|undefined|\[object Object\]/.test(eo) && !/<b>EVIL<\/b>|<img src=x/.test(eo) && /&lt;b&gt;EVIL/.test(eo), "edge: dashes, data escaped");
+  ok(/Data format outdated/.test(render({ signal_session: "2026-11-24" }, at)), "no schema => outdated notice");
+  ok(/No pre-close scan published yet/.test(S(PRE.emptyState({ kind: "missing" }))), "404 => friendly empty state, not an error");
+  ok(/pill--bad/.test(S(PRE.jobPill(J("dev/fixtures/edge/status.json").jobs.preclose_scan, at))) && /pill--ok/.test(S(PRE.jobPill(J("dev/fixtures/status.json").jobs.preclose_scan, at))), "preclose_scan job pill ok / bad");
+  ok(ITL.healthIssues(J("dev/fixtures/edge/status.json"), at).some(i => i.job === "preclose_scan"), "health banner includes a failing preclose_scan");
+  eq(ITL.resolvePath("/public/preclose.json", "?fixtures=1&set=pcunpub"), "/dev/fixtures/pcunpub/preclose.json", "preclose fixture sets");
+}
+
+section("v2.1 live trails per policy");
+{
+  const lv = J("dev/fixtures/live.json");
+  const out = S(LIVE.renderItems(lv.items, LIVE.liveCtx(lv, {})));
+  eq((out.match(/class="trail /g) || []).length, 3, "three policy cells for the filled pick only");
+  ok(/trail is-default"><div class="trail__head"><span class="trail__name">Fixed 5 days/.test(out), "default first and marked");
+  ok(/sell at close Mon 30 Nov/.test(out) && /trail 184\.65 · peak 188\.42/.test(out) && /trail 186\.54/.test(out), "exit-by date and trail levels");
+  ok(/badge--EXIT">EXIT/.test(out) && /per Fixed 5 days/.test(out) && /badge--HOLD" title/.test(out), "1% trail says EXIT while the main verdict (HOLD) follows the default");
+  ok(/exit Mon 30 Nov/.test(out), "peak column shows the default exit date when the default has no trail");
+  const edge = J("dev/fixtures/edge/live.json");
+  let err = null, eo = "";
+  try { eo = S(LIVE.renderItems(edge.items, LIVE.liveCtx(edge, {}))); } catch (e) { err = e; }
+  ok(!err && !/NaN|undefined|\[object Object\]/.test(eo) && /Trail 9%/.test(eo) && /badge--NA">n\/a/.test(eo), "edge trails (partial / non-object / unknown policy) render");
+}
+
+section("v2.1 track record: fixed stake headline, matrix selection, n=0 stream");
+{
+  const m = J("dev/fixtures/metrics.json");
+  let sel = TRACK.normalizeSel(m, null);
+  eq(sel, { stream: "night", policy: "fixed_5d", all: false }, "default selection: night + default policy");
+  eq(TRACK.normalizeSel(m, { stream: "bogus", policy: "trail_9pct", all: "x" }), sel, "corrupt saved selection ignored");
+  const pressed = (h) => [...h.matchAll(/data-stream="([^"]+)" data-policy="([^"]+)" aria-pressed="true"/g)].map(x => x[1] + "/" + x[2]);
+  let mx = S(TRACK.stakeMatrix(m, sel));
+  eq(pressed(mx), ["night/fixed_5d"], "one cell pressed (the selection)");
+  eq((mx.match(/<button type="button" class="mcell/g) || []).length, 9, "3 streams x 3 tracked policies");
+  ok((mx.match(/collecting data since Wed 25 Nov 2026/g) || []).length === 3, "pre-close live n=0 => 'collecting data since 25 Nov 2026'");
+  // fixture stake/streams are the REAL simulator blocks (dev/real_metrics_v21.json)
+  const nb = m.stake.by.night.fixed_5d;
+  let k = S(TRACK.stakeKpis(m, sel));
+  ok(k.includes(">" + ITL.fmtInt(nb.n) + "<") && k.includes((nb.total_pnl_aud > 0 ? "+" : "") + ITL.fmtAud(nb.total_pnl_aud, 0)) && k.includes(ITL.fmtAud(nb.peak_capital_aud, 0)), "KPIs from stake.by.night.fixed_5d (n, total, peak capital)");
+  ok(k.includes(ITL.fmtPct(nb.return_on_peak_capital, { fraction: true, sign: true })) && k.includes(ITL.fmtRate(nb.winrate)), "return on peak capital and win rate are fractions");
+  ok(nb.n_open ? /open \(/.test(k) : true, "open positions disclosed beside the closed-trade total");
+  sel = TRACK.normalizeSel(m, { stream: "preclose_proxy", policy: "trail_1pct", all: false });
+  mx = S(TRACK.stakeMatrix(m, sel));
+  eq(pressed(mx), ["preclose_proxy/trail_1pct"], "clicking a cell moves the selection");
+  k = S(TRACK.stakeKpis(m, sel));
+  ok(k.includes(">" + ITL.fmtInt(m.stake.by.preclose_proxy.trail_1pct.n) + "<") && k.includes(ITL.fmtAud(Math.abs(m.stake.by.preclose_proxy.trail_1pct.total_pnl_aud), 0)), "KPIs switch with the cell");
+  eq(TRACK.stakeSeries(m.stake.by.preclose_proxy.trail_1pct).length, m.stake.by.preclose_proxy.trail_1pct.pnl_curve.length, "chart series from pnl_curve");
+  const live0 = S(TRACK.stakeKpis(m, { stream: "preclose_live", policy: "fixed_5d", all: false }));
+  ok(!/NaN|undefined/.test(live0) && /none yet/.test(live0) && !/A\$0\.00/.test(live0), "n=0 stream KPIs: dashes (no A$0 peak capital), no NaN");
+  eq(TRACK.stakeSeries(m.stake.by.preclose_live.fixed_5d).length, 0, "n=0 => empty chart series");
+  eq(TRACK.stakeSeries({ pnl_curve: null }).length, 0, "pnl_curve null (untracked policy) => empty series");
+  const all = S(TRACK.stakeKpis(m, { stream: "night", policy: "fixed_5d", all: true }));
+  ok(all.includes(">" + ITL.fmtInt(m.stake.all_setups.night.fixed_5d.n) + "<"), "all-setups toggle reads stake.all_setups (no .by level in the real shape)");
+  ok(/every setup/.test(TRACK.stakeMethodText(m, { all: true })) && /no compounding/.test(TRACK.stakeMethodText(m, sel)), "method text explains the model");
+  const real = J("dev/fixtures/real/metrics.json");
+  const ci = TRACK.comparisonItems(real, { stream: "night", policy: "fixed_5d", all: false });
+  const txt = (key) => (ci.find(i => i.key === key) || {}).text || "";
+  ok(/^On the 143 signals both methods traded, buying at the signal day's close did worse than the next-day order by A\$154 per trade \(t = -3\.09, a consistent difference/.test(txt("paired")), "paired: worse by A$154/trade, t=-3.09: " + txt("paired"));
+  ok(/missed 64 signals \(30%/.test(txt("per_signal")) && /better by A\$174 per signal seen \(t = 1\.97, marginal/.test(txt("per_signal")), "per signal seen: missed 64 (30%), better by A$174 (t=1.97, marginal)");
+  ok(/gapped up overnight/.test(txt("missed")) && /\+A\$57,819/.test(txt("missed")), "why: missed signals gapped up; +A$57,819 bought at the close");
+  ok(/Trail 2×ATR vs fixed 5 days \+A\$93\/trade/.test(txt("policies")), "tracked-policy pairwise within the stream");
+  ok(/collecting data since Wed 25 Nov 2026/.test(txt("live")), "live archive n=0 => collecting data");
+  const ca = TRACK.comparisonItems(real, { stream: "night", policy: "trail_1pct", all: true });
+  ok(ca.some(i => i.key === "paired" && /345 signals/.test(i.text)), "all-setups toggle switches the comparison source");
+  eq([TRACK.tWords(-3.09), TRACK.tWords(1.7), TRACK.tWords(0.4)].map(x => x.replace(/^t = [-\d.]+, /, "")), ["a consistent difference", "marginal", "could still be noise"], "t-stat wording");
+  eq(TRACK.comparisonItems({}, { policy: "fixed_5d" }), [], "no comparison published => nothing (block says not published)");
+  const realK = S(TRACK.stakeKpis(real, TRACK.normalizeSel(real, null)));
+  ok(/\+A\$19,601/.test(realK) && /A\$200,000/.test(realK) && /\+9\.8%/.test(realK), "real file headline: +A$19,601, peak A$200,000, +9.8% on peak");
+  eq(TRACK.stakeBy(J("dev/fixtures/edge/metrics.json"), false), null, "metrics without stake => null (page says 'not published yet')");
+  const partial = { stake: { stake_aud: 25000, by: { night: { fixed_5d: { n: 3 } } } } };
+  const pm = S(TRACK.stakeMatrix(partial, TRACK.normalizeSel(partial, null))) + S(TRACK.stakeKpis(partial, TRACK.normalizeSel(partial, null)));
+  ok(!/NaN|undefined|\[object Object\]/.test(pm) && /not published/.test(pm), "partial stake block renders dashes");
+}
+
+section("current production files still render (no v2.1 fields yet)");
+{
+  const now = new Date();
+  let err = null, out = "";
+  try {
+    const td = J("public/today.json"), nd = TODAY.normalizeData(td);
+    out += S(TODAY.renderSections(td, nd, TODAY.normalizePrefs({}), { names: {}, edges: {}, now, validFor: td.valid_for, defaultPolicy: TODAY.defaultPolicyId(td) }));
+    const lv = J("public/live.json");
+    out += S(LIVE.renderItems(lv.items || [], LIVE.liveCtx(lv, {})));
+    const m = J("track-record/metrics.json");
+    out += S(TRACK.stakeMatrix(m, TRACK.normalizeSel(m, null))) + S(TRACK.policyTable(m));
+  } catch (e) { err = e; }
+  ok(!err && !/NaN|\bundefined\b|\[object Object\]/.test(out), "production today/live/metrics render " + (err ? err.stack : ""));
 }
 
 console.log(`\n${pass} passed, ${fail} failed`);

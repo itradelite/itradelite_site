@@ -447,7 +447,7 @@ details.card--fold:not([open]) > summary { border-bottom: none; }
 }
 .kpiValue--split { font-size: 16px; margin-top: 10px; }
 .chart-svg .zero { stroke: rgba(255,255,255,0.35); }
-.kpiGrid--7 { grid-template-columns: repeat(auto-fit, minmax(138px, 1fr)); gap: 10px; }
+.kpiGrid--7 { grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 10px; }
 .kpiGrid--7 .kpiBox { padding: 12px 12px; }
 .kpiGrid--7 .kpiValue { font-size: 20px; }
 @media (max-width: 600px) { .kpiGrid--7 { grid-template-columns: repeat(2, 1fr); } }

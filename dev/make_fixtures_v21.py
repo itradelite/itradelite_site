@@ -14,7 +14,9 @@ v2.1 (DATA_CONTRACT.md "v2.1 additions"):
   - NEW preclose.json (itl.preclose.v2) + sets: pcstale/ (old session),
     pcunpub/ (published=false), edge/ (missing fields)
   - metrics.json: tracked_policy_ids, streams{night, preclose_proxy,
-    preclose_live, comparison}, stake{by, all_setups}
+    preclose_live, comparison}, stake{by, all_setups} -- copied from
+    dev/real_metrics_v21.json when present (real simulator shape), and the
+    whole real file as set real/ (synthetic fallback otherwise)
   - status.json: preclose_scan job
 These are NOT pipeline outputs; never copy them into public/.
 """
@@ -305,6 +307,27 @@ mt["stake"] = {
     "by": by_from(SPEC),
     "all_setups": {"by": by_from(ALL_SPEC)},
 }
+# Prefer the REAL simulator output's v2.1 blocks when it is available
+# (dev/real_metrics_v21.json, supplied by the coordinator, not committed as
+# live data): stake / streams / tracked_policy_ids are copied verbatim so the
+# fixtures have the exact production shape; the synthetic blocks above are
+# only the fallback.
+REAL = os.path.join(ROOT, "dev", "real_metrics_v21.json")
+if os.path.exists(REAL):
+    with open(REAL) as f:
+        real = json.load(f)
+    for k in ("stake", "streams", "tracked_policy_ids"):
+        if k in real:
+            mt[k] = real[k]
+    # whole real file as its own fixture set (?fixtures=1&set=real), with a
+    # stale_after far enough out that screenshots do not show STALE
+    rr = copy.deepcopy(real)
+    rr["stale_after_utc"] = "2026-12-31T00:00:00+00:00"
+    rp = os.path.join(FX, "real", "metrics.json")
+    os.makedirs(os.path.dirname(rp), exist_ok=True)
+    with open(rp, "w") as f:  # compact: it is big
+        json.dump(rr, f, ensure_ascii=False, separators=(",", ":"))
+        f.write("\n")
 dump("metrics.json", mt)
 
 # edge metrics: no stake / streams at all (older backend) -> site must say "not published yet"
