@@ -1,0 +1,1037 @@
+{
+ "production_variant": "OPTION1",
+ "ranking_version": "option1_v1",
+ "variants": [
+  "OPTION1",
+  "LEGACY_V1_25",
+  "V2_25",
+  "TA_ONLY",
+  "TA_SENT"
+ ],
+ "descriptions": {
+  "OPTION1": "production (option1_v1): 0.55 TA + 0.25 fund_v2 + 0.20 sentiment; bottom-20% fund_v2 not eligible; trend/momentum growth tiebreak within 3 pts",
+  "LEGACY_V1_25": "previous production: 0.55 TA + 0.25 v1 fund_score + 0.20 sentiment",
+  "V2_25": "0.55 TA + 0.25 fund_v2 + 0.20 sentiment, no filter, no tiebreak",
+  "TA_ONLY": "TA score only",
+  "TA_SENT": "0.55 TA + 0.20 sentiment (renormalised), no fundamentals"
+ },
+ "live_from": "2026-11-25",
+ "default_policy_id": "fixed_5d",
+ "policies": [
+  "fixed_5d",
+  "trail_2atr",
+  "trail_1pct"
+ ],
+ "streams": [
+  "night",
+  "preclose_proxy"
+ ],
+ "stake_aud": 25000.0,
+ "pool_rule": "PLACE ORDER rows of the watchlist_full slate live before each session's open (sim/history.py); same pool and pick rule (max 2, one per symbol, max 1 per class) for every variant",
+ "pit_source": "data/fund_v2_pit.csv",
+ "pit_note": "backtest fund_v2 is a point-in-time RECONSTRUCTION (today's Yahoo statements used only after period end + 60 days, today's peer groups, no analyst revisions): see docs/FUNDAMENTALS_AUDIT.md",
+ "live_sessions_skipped_without_fund_v2": [],
+ "pool_info": {
+  "n_slates": 198,
+  "n_mid_session_skipped": 2,
+  "n_unusable": {}
+ },
+ "periods": {
+  "backtest": {
+   "n_sessions": 137,
+   "n_candidates": 431,
+   "first_session": "2026-02-16",
+   "last_session": "2026-11-24",
+   "fund_v2_source": {
+    "pit": 137
+   },
+   "n_sessions_degraded": 0,
+   "n_sessions_more_than_2_candidates": 59,
+   "n_filtered_candidates": 74,
+   "n_tiebreak_decided_sessions": 2,
+   "sessions_differ_vs_option1": {
+    "LEGACY_V1_25": 63,
+    "V2_25": 36,
+    "TA_ONLY": 66,
+    "TA_SENT": 62
+   },
+   "by": {
+    "OPTION1": {
+     "night": {
+      "fixed_5d": {
+       "n": 123,
+       "n_picks": 181,
+       "total_pnl_aud": 25204.51,
+       "avg_pnl_aud": 204.91,
+       "winrate": 0.439,
+       "additive_pct_after_interest": 90.04,
+       "n_open": 5,
+       "paired_vs_option1": null,
+       "n_sessions_differ": 0
+      },
+      "trail_2atr": {
+       "n": 123,
+       "n_picks": 181,
+       "total_pnl_aud": 47417.46,
+       "avg_pnl_aud": 385.51,
+       "winrate": 0.3252,
+       "additive_pct_after_interest": 168.13,
+       "n_open": 5,
+       "paired_vs_option1": null,
+       "n_sessions_differ": 0
+      },
+      "trail_1pct": {
+       "n": 127,
+       "n_picks": 181,
+       "total_pnl_aud": 2435.27,
+       "avg_pnl_aud": 19.18,
+       "winrate": 0.4409,
+       "additive_pct_after_interest": 9.35,
+       "n_open": 1,
+       "paired_vs_option1": null,
+       "n_sessions_differ": 0
+      }
+     },
+     "preclose_proxy": {
+      "fixed_5d": {
+       "n": 171,
+       "n_picks": 181,
+       "total_pnl_aud": 37642.88,
+       "avg_pnl_aud": 220.13,
+       "winrate": 0.462,
+       "additive_pct_after_interest": 132.14,
+       "n_open": 5,
+       "paired_vs_option1": null,
+       "n_sessions_differ": 0
+      },
+      "trail_2atr": {
+       "n": 170,
+       "n_picks": 181,
+       "total_pnl_aud": 36577.01,
+       "avg_pnl_aud": 215.16,
+       "winrate": 0.3588,
+       "additive_pct_after_interest": 103.76,
+       "n_open": 6,
+       "paired_vs_option1": null,
+       "n_sessions_differ": 0
+      },
+      "trail_1pct": {
+       "n": 175,
+       "n_picks": 181,
+       "total_pnl_aud": 5411.93,
+       "avg_pnl_aud": 30.93,
+       "winrate": 0.3486,
+       "additive_pct_after_interest": 17.49,
+       "n_open": 1,
+       "paired_vs_option1": null,
+       "n_sessions_differ": 0
+      }
+     }
+    },
+    "LEGACY_V1_25": {
+     "night": {
+      "fixed_5d": {
+       "n": 147,
+       "n_picks": 212,
+       "total_pnl_aud": 27017.79,
+       "avg_pnl_aud": 183.79,
+       "winrate": 0.4218,
+       "additive_pct_after_interest": 96.1,
+       "n_open": 5,
+       "paired_vs_option1": {
+        "n": 59,
+        "mean_diff": -17.28,
+        "t": -0.104,
+        "se": 165.78,
+        "boot_ci95": [
+         -363.26,
+         283.29
+        ],
+        "sum_diff": -1019.25,
+        "share_better": 0.339
+       },
+       "n_sessions_differ": 63
+      },
+      "trail_2atr": {
+       "n": 147,
+       "n_picks": 212,
+       "total_pnl_aud": 40102.03,
+       "avg_pnl_aud": 272.8,
+       "winrate": 0.3265,
+       "additive_pct_after_interest": 132.75,
+       "n_open": 5,
+       "paired_vs_option1": {
+        "n": 59,
+        "mean_diff": -156.98,
+        "t": -1.163,
+        "se": 134.94,
+        "boot_ci95": [
+         -428.65,
+         98.59
+        ],
+        "sum_diff": -9261.54,
+        "share_better": 0.2712
+       },
+       "n_sessions_differ": 63
+      },
+      "trail_1pct": {
+       "n": 152,
+       "n_picks": 212,
+       "total_pnl_aud": 1926.28,
+       "avg_pnl_aud": 12.67,
+       "winrate": 0.4145,
+       "additive_pct_after_interest": 7.34,
+       "n_open": 0,
+       "paired_vs_option1": {
+        "n": 59,
+        "mean_diff": -27.07,
+        "t": -0.523,
+        "se": 51.72,
+        "boot_ci95": [
+         -127.95,
+         74.37
+        ],
+        "sum_diff": -1597.0,
+        "share_better": 0.2881
+       },
+       "n_sessions_differ": 63
+      }
+     },
+     "preclose_proxy": {
+      "fixed_5d": {
+       "n": 204,
+       "n_picks": 212,
+       "total_pnl_aud": 35807.65,
+       "avg_pnl_aud": 175.53,
+       "winrate": 0.4755,
+       "additive_pct_after_interest": 121.13,
+       "n_open": 5,
+       "paired_vs_option1": {
+        "n": 59,
+        "mean_diff": -79.61,
+        "t": -0.409,
+        "se": 194.63,
+        "boot_ci95": [
+         -470.25,
+         274.84
+        ],
+        "sum_diff": -4697.0,
+        "share_better": 0.5424
+       },
+       "n_sessions_differ": 63
+      },
+      "trail_2atr": {
+       "n": 203,
+       "n_picks": 212,
+       "total_pnl_aud": 23044.77,
+       "avg_pnl_aud": 113.52,
+       "winrate": 0.3498,
+       "additive_pct_after_interest": 39.94,
+       "n_open": 6,
+       "paired_vs_option1": {
+        "n": 59,
+        "mean_diff": -263.29,
+        "t": -1.771,
+        "se": 148.65,
+        "boot_ci95": [
+         -549.37,
+         30.25
+        ],
+        "sum_diff": -15534.2,
+        "share_better": 0.322
+       },
+       "n_sessions_differ": 63
+      },
+      "trail_1pct": {
+       "n": 208,
+       "n_picks": 212,
+       "total_pnl_aud": -370.3,
+       "avg_pnl_aud": -1.78,
+       "winrate": 0.3654,
+       "additive_pct_after_interest": -7.65,
+       "n_open": 1,
+       "paired_vs_option1": {
+        "n": 60,
+        "mean_diff": -73.75,
+        "t": -1.002,
+        "se": 73.58,
+        "boot_ci95": [
+         -211.43,
+         72.9
+        ],
+        "sum_diff": -4425.28,
+        "share_better": 0.3833
+       },
+       "n_sessions_differ": 63
+      }
+     }
+    },
+    "V2_25": {
+     "night": {
+      "fixed_5d": {
+       "n": 145,
+       "n_picks": 212,
+       "total_pnl_aud": 33143.76,
+       "avg_pnl_aud": 228.58,
+       "winrate": 0.4345,
+       "additive_pct_after_interest": 121.42,
+       "n_open": 5,
+       "paired_vs_option1": {
+        "n": 35,
+        "mean_diff": 169.05,
+        "t": 0.962,
+        "se": 175.82,
+        "boot_ci95": [
+         -140.44,
+         530.63
+        ],
+        "sum_diff": 5916.86,
+        "share_better": 0.3143
+       },
+       "n_sessions_differ": 36
+      },
+      "trail_2atr": {
+       "n": 145,
+       "n_picks": 212,
+       "total_pnl_aud": 46131.88,
+       "avg_pnl_aud": 318.15,
+       "winrate": 0.3241,
+       "additive_pct_after_interest": 158.47,
+       "n_open": 5,
+       "paired_vs_option1": {
+        "n": 35,
+        "mean_diff": -78.72,
+        "t": -0.413,
+        "se": 190.74,
+        "boot_ci95": [
+         -415.87,
+         301.71
+        ],
+        "sum_diff": -2755.2,
+        "share_better": 0.2286
+       },
+       "n_sessions_differ": 36
+      },
+      "trail_1pct": {
+       "n": 149,
+       "n_picks": 212,
+       "total_pnl_aud": 1677.44,
+       "avg_pnl_aud": 11.26,
+       "winrate": 0.4228,
+       "additive_pct_after_interest": 6.28,
+       "n_open": 1,
+       "paired_vs_option1": {
+        "n": 35,
+        "mean_diff": -22.49,
+        "t": -0.363,
+        "se": 61.98,
+        "boot_ci95": [
+         -135.95,
+         102.99
+        ],
+        "sum_diff": -787.02,
+        "share_better": 0.2571
+       },
+       "n_sessions_differ": 36
+      }
+     },
+     "preclose_proxy": {
+      "fixed_5d": {
+       "n": 202,
+       "n_picks": 212,
+       "total_pnl_aud": 34414.44,
+       "avg_pnl_aud": 170.37,
+       "winrate": 0.4604,
+       "additive_pct_after_interest": 115.46,
+       "n_open": 5,
+       "paired_vs_option1": {
+        "n": 35,
+        "mean_diff": -140.17,
+        "t": -0.81,
+        "se": 173.14,
+        "boot_ci95": [
+         -460.5,
+         205.84
+        ],
+        "sum_diff": -4906.0,
+        "share_better": 0.4
+       },
+       "n_sessions_differ": 36
+      },
+      "trail_2atr": {
+       "n": 201,
+       "n_picks": 212,
+       "total_pnl_aud": 20089.66,
+       "avg_pnl_aud": 99.95,
+       "winrate": 0.3383,
+       "additive_pct_after_interest": 29.34,
+       "n_open": 6,
+       "paired_vs_option1": {
+        "n": 35,
+        "mean_diff": -513.01,
+        "t": -1.846,
+        "se": 277.91,
+        "boot_ci95": [
+         -1074.78,
+         11.09
+        ],
+        "sum_diff": -17955.5,
+        "share_better": 0.2286
+       },
+       "n_sessions_differ": 36
+      },
+      "trail_1pct": {
+       "n": 206,
+       "n_picks": 212,
+       "total_pnl_aud": 2045.97,
+       "avg_pnl_aud": 9.93,
+       "winrate": 0.3544,
+       "additive_pct_after_interest": 2.32,
+       "n_open": 1,
+       "paired_vs_option1": {
+        "n": 35,
+        "mean_diff": -92.11,
+        "t": -1.169,
+        "se": 78.78,
+        "boot_ci95": [
+         -241.03,
+         62.06
+        ],
+        "sum_diff": -3223.69,
+        "share_better": 0.3714
+       },
+       "n_sessions_differ": 36
+      }
+     }
+    },
+    "TA_ONLY": {
+     "night": {
+      "fixed_5d": {
+       "n": 144,
+       "n_picks": 212,
+       "total_pnl_aud": 36140.96,
+       "avg_pnl_aud": 250.98,
+       "winrate": 0.4167,
+       "additive_pct_after_interest": 134.21,
+       "n_open": 5,
+       "paired_vs_option1": {
+        "n": 62,
+        "mean_diff": 99.32,
+        "t": 0.736,
+        "se": 134.87,
+        "boot_ci95": [
+         -150.84,
+         374.22
+        ],
+        "sum_diff": 6157.99,
+        "share_better": 0.3226
+       },
+       "n_sessions_differ": 66
+      },
+      "trail_2atr": {
+       "n": 144,
+       "n_picks": 212,
+       "total_pnl_aud": 53110.21,
+       "avg_pnl_aud": 368.82,
+       "winrate": 0.3403,
+       "additive_pct_after_interest": 186.9,
+       "n_open": 5,
+       "paired_vs_option1": {
+        "n": 62,
+        "mean_diff": -9.9,
+        "t": -0.062,
+        "se": 158.65,
+        "boot_ci95": [
+         -302.06,
+         317.98
+        ],
+        "sum_diff": -613.79,
+        "share_better": 0.3226
+       },
+       "n_sessions_differ": 66
+      },
+      "trail_1pct": {
+       "n": 149,
+       "n_picks": 212,
+       "total_pnl_aud": 2441.5,
+       "avg_pnl_aud": 16.39,
+       "winrate": 0.4161,
+       "additive_pct_after_interest": 9.51,
+       "n_open": 0,
+       "paired_vs_option1": {
+        "n": 62,
+        "mean_diff": -18.75,
+        "t": -0.4,
+        "se": 46.82,
+        "boot_ci95": [
+         -107.41,
+         74.88
+        ],
+        "sum_diff": -1162.27,
+        "share_better": 0.3226
+       },
+       "n_sessions_differ": 66
+      }
+     },
+     "preclose_proxy": {
+      "fixed_5d": {
+       "n": 203,
+       "n_picks": 212,
+       "total_pnl_aud": 48938.49,
+       "avg_pnl_aud": 241.08,
+       "winrate": 0.468,
+       "additive_pct_after_interest": 176.28,
+       "n_open": 5,
+       "paired_vs_option1": {
+        "n": 62,
+        "mean_diff": 94.57,
+        "t": 0.702,
+        "se": 134.62,
+        "boot_ci95": [
+         -163.57,
+         357.8
+        ],
+        "sum_diff": 5863.09,
+        "share_better": 0.5161
+       },
+       "n_sessions_differ": 66
+      },
+      "trail_2atr": {
+       "n": 202,
+       "n_picks": 212,
+       "total_pnl_aud": 38508.67,
+       "avg_pnl_aud": 190.64,
+       "winrate": 0.3663,
+       "additive_pct_after_interest": 104.1,
+       "n_open": 6,
+       "paired_vs_option1": {
+        "n": 62,
+        "mean_diff": -81.52,
+        "t": -0.556,
+        "se": 146.72,
+        "boot_ci95": [
+         -361.1,
+         207.85
+        ],
+        "sum_diff": -5054.16,
+        "share_better": 0.4032
+       },
+       "n_sessions_differ": 66
+      },
+      "trail_1pct": {
+       "n": 207,
+       "n_picks": 212,
+       "total_pnl_aud": 3551.57,
+       "avg_pnl_aud": 17.16,
+       "winrate": 0.3816,
+       "additive_pct_after_interest": 8.37,
+       "n_open": 1,
+       "paired_vs_option1": {
+        "n": 63,
+        "mean_diff": -12.98,
+        "t": -0.187,
+        "se": 69.25,
+        "boot_ci95": [
+         -149.75,
+         120.45
+        ],
+        "sum_diff": -817.47,
+        "share_better": 0.4444
+       },
+       "n_sessions_differ": 66
+      }
+     }
+    },
+    "TA_SENT": {
+     "night": {
+      "fixed_5d": {
+       "n": 146,
+       "n_picks": 212,
+       "total_pnl_aud": 32115.1,
+       "avg_pnl_aud": 219.97,
+       "winrate": 0.4178,
+       "additive_pct_after_interest": 117.47,
+       "n_open": 5,
+       "paired_vs_option1": {
+        "n": 58,
+        "mean_diff": 36.76,
+        "t": 0.225,
+        "se": 163.4,
+        "boot_ci95": [
+         -276.36,
+         353.2
+        ],
+        "sum_diff": 2132.13,
+        "share_better": 0.3276
+       },
+       "n_sessions_differ": 62
+      },
+      "trail_2atr": {
+       "n": 146,
+       "n_picks": 212,
+       "total_pnl_aud": 48901.39,
+       "avg_pnl_aud": 334.94,
+       "winrate": 0.3493,
+       "additive_pct_after_interest": 168.87,
+       "n_open": 5,
+       "paired_vs_option1": {
+        "n": 58,
+        "mean_diff": -83.15,
+        "t": -0.359,
+        "se": 231.5,
+        "boot_ci95": [
+         -564.59,
+         333.66
+        ],
+        "sum_diff": -4822.61,
+        "share_better": 0.2931
+       },
+       "n_sessions_differ": 62
+      },
+      "trail_1pct": {
+       "n": 150,
+       "n_picks": 212,
+       "total_pnl_aud": 2710.97,
+       "avg_pnl_aud": 18.07,
+       "winrate": 0.4133,
+       "additive_pct_after_interest": 10.48,
+       "n_open": 1,
+       "paired_vs_option1": {
+        "n": 58,
+        "mean_diff": -7.41,
+        "t": -0.149,
+        "se": 49.72,
+        "boot_ci95": [
+         -105.11,
+         92.95
+        ],
+        "sum_diff": -429.59,
+        "share_better": 0.3276
+       },
+       "n_sessions_differ": 62
+      }
+     },
+     "preclose_proxy": {
+      "fixed_5d": {
+       "n": 203,
+       "n_picks": 212,
+       "total_pnl_aud": 39736.44,
+       "avg_pnl_aud": 195.75,
+       "winrate": 0.4729,
+       "additive_pct_after_interest": 137.78,
+       "n_open": 5,
+       "paired_vs_option1": {
+        "n": 58,
+        "mean_diff": -57.57,
+        "t": -0.377,
+        "se": 152.57,
+        "boot_ci95": [
+         -354.63,
+         230.76
+        ],
+        "sum_diff": -3338.96,
+        "share_better": 0.5172
+       },
+       "n_sessions_differ": 62
+      },
+      "trail_2atr": {
+       "n": 202,
+       "n_picks": 212,
+       "total_pnl_aud": 23943.21,
+       "avg_pnl_aud": 118.53,
+       "winrate": 0.3663,
+       "additive_pct_after_interest": 44.48,
+       "n_open": 6,
+       "paired_vs_option1": {
+        "n": 58,
+        "mean_diff": -338.27,
+        "t": -1.582,
+        "se": 213.8,
+        "boot_ci95": [
+         -779.08,
+         55.6
+        ],
+        "sum_diff": -19619.61,
+        "share_better": 0.3448
+       },
+       "n_sessions_differ": 62
+      },
+      "trail_1pct": {
+       "n": 206,
+       "n_picks": 212,
+       "total_pnl_aud": -1496.28,
+       "avg_pnl_aud": -7.26,
+       "winrate": 0.3641,
+       "additive_pct_after_interest": -12.62,
+       "n_open": 2,
+       "paired_vs_option1": {
+        "n": 58,
+        "mean_diff": -111.64,
+        "t": -1.56,
+        "se": 71.55,
+        "boot_ci95": [
+         -250.39,
+         28.31
+        ],
+        "sum_diff": -6475.07,
+        "share_better": 0.3621
+       },
+       "n_sessions_differ": 62
+      }
+     }
+    }
+   }
+  },
+  "live": {
+   "n_sessions": 0,
+   "n_candidates": 0,
+   "first_session": null,
+   "last_session": null,
+   "fund_v2_source": {},
+   "n_sessions_degraded": 0,
+   "n_sessions_more_than_2_candidates": 0,
+   "n_filtered_candidates": 0,
+   "n_tiebreak_decided_sessions": 0,
+   "sessions_differ_vs_option1": {
+    "LEGACY_V1_25": 0,
+    "V2_25": 0,
+    "TA_ONLY": 0,
+    "TA_SENT": 0
+   },
+   "by": {
+    "OPTION1": {
+     "night": {
+      "fixed_5d": {
+       "n": 0,
+       "n_picks": 0,
+       "total_pnl_aud": 0.0,
+       "avg_pnl_aud": null,
+       "winrate": null,
+       "additive_pct_after_interest": null,
+       "paired_vs_option1": null,
+       "n_sessions_differ": 0
+      },
+      "trail_2atr": {
+       "n": 0,
+       "n_picks": 0,
+       "total_pnl_aud": 0.0,
+       "avg_pnl_aud": null,
+       "winrate": null,
+       "additive_pct_after_interest": null,
+       "paired_vs_option1": null,
+       "n_sessions_differ": 0
+      },
+      "trail_1pct": {
+       "n": 0,
+       "n_picks": 0,
+       "total_pnl_aud": 0.0,
+       "avg_pnl_aud": null,
+       "winrate": null,
+       "additive_pct_after_interest": null,
+       "paired_vs_option1": null,
+       "n_sessions_differ": 0
+      }
+     },
+     "preclose_proxy": {
+      "fixed_5d": {
+       "n": 0,
+       "n_picks": 0,
+       "total_pnl_aud": 0.0,
+       "avg_pnl_aud": null,
+       "winrate": null,
+       "additive_pct_after_interest": null,
+       "paired_vs_option1": null,
+       "n_sessions_differ": 0
+      },
+      "trail_2atr": {
+       "n": 0,
+       "n_picks": 0,
+       "total_pnl_aud": 0.0,
+       "avg_pnl_aud": null,
+       "winrate": null,
+       "additive_pct_after_interest": null,
+       "paired_vs_option1": null,
+       "n_sessions_differ": 0
+      },
+      "trail_1pct": {
+       "n": 0,
+       "n_picks": 0,
+       "total_pnl_aud": 0.0,
+       "avg_pnl_aud": null,
+       "winrate": null,
+       "additive_pct_after_interest": null,
+       "paired_vs_option1": null,
+       "n_sessions_differ": 0
+      }
+     }
+    },
+    "LEGACY_V1_25": {
+     "night": {
+      "fixed_5d": {
+       "n": 0,
+       "n_picks": 0,
+       "total_pnl_aud": 0.0,
+       "avg_pnl_aud": null,
+       "winrate": null,
+       "additive_pct_after_interest": null,
+       "paired_vs_option1": null,
+       "n_sessions_differ": 0
+      },
+      "trail_2atr": {
+       "n": 0,
+       "n_picks": 0,
+       "total_pnl_aud": 0.0,
+       "avg_pnl_aud": null,
+       "winrate": null,
+       "additive_pct_after_interest": null,
+       "paired_vs_option1": null,
+       "n_sessions_differ": 0
+      },
+      "trail_1pct": {
+       "n": 0,
+       "n_picks": 0,
+       "total_pnl_aud": 0.0,
+       "avg_pnl_aud": null,
+       "winrate": null,
+       "additive_pct_after_interest": null,
+       "paired_vs_option1": null,
+       "n_sessions_differ": 0
+      }
+     },
+     "preclose_proxy": {
+      "fixed_5d": {
+       "n": 0,
+       "n_picks": 0,
+       "total_pnl_aud": 0.0,
+       "avg_pnl_aud": null,
+       "winrate": null,
+       "additive_pct_after_interest": null,
+       "paired_vs_option1": null,
+       "n_sessions_differ": 0
+      },
+      "trail_2atr": {
+       "n": 0,
+       "n_picks": 0,
+       "total_pnl_aud": 0.0,
+       "avg_pnl_aud": null,
+       "winrate": null,
+       "additive_pct_after_interest": null,
+       "paired_vs_option1": null,
+       "n_sessions_differ": 0
+      },
+      "trail_1pct": {
+       "n": 0,
+       "n_picks": 0,
+       "total_pnl_aud": 0.0,
+       "avg_pnl_aud": null,
+       "winrate": null,
+       "additive_pct_after_interest": null,
+       "paired_vs_option1": null,
+       "n_sessions_differ": 0
+      }
+     }
+    },
+    "V2_25": {
+     "night": {
+      "fixed_5d": {
+       "n": 0,
+       "n_picks": 0,
+       "total_pnl_aud": 0.0,
+       "avg_pnl_aud": null,
+       "winrate": null,
+       "additive_pct_after_interest": null,
+       "paired_vs_option1": null,
+       "n_sessions_differ": 0
+      },
+      "trail_2atr": {
+       "n": 0,
+       "n_picks": 0,
+       "total_pnl_aud": 0.0,
+       "avg_pnl_aud": null,
+       "winrate": null,
+       "additive_pct_after_interest": null,
+       "paired_vs_option1": null,
+       "n_sessions_differ": 0
+      },
+      "trail_1pct": {
+       "n": 0,
+       "n_picks": 0,
+       "total_pnl_aud": 0.0,
+       "avg_pnl_aud": null,
+       "winrate": null,
+       "additive_pct_after_interest": null,
+       "paired_vs_option1": null,
+       "n_sessions_differ": 0
+      }
+     },
+     "preclose_proxy": {
+      "fixed_5d": {
+       "n": 0,
+       "n_picks": 0,
+       "total_pnl_aud": 0.0,
+       "avg_pnl_aud": null,
+       "winrate": null,
+       "additive_pct_after_interest": null,
+       "paired_vs_option1": null,
+       "n_sessions_differ": 0
+      },
+      "trail_2atr": {
+       "n": 0,
+       "n_picks": 0,
+       "total_pnl_aud": 0.0,
+       "avg_pnl_aud": null,
+       "winrate": null,
+       "additive_pct_after_interest": null,
+       "paired_vs_option1": null,
+       "n_sessions_differ": 0
+      },
+      "trail_1pct": {
+       "n": 0,
+       "n_picks": 0,
+       "total_pnl_aud": 0.0,
+       "avg_pnl_aud": null,
+       "winrate": null,
+       "additive_pct_after_interest": null,
+       "paired_vs_option1": null,
+       "n_sessions_differ": 0
+      }
+     }
+    },
+    "TA_ONLY": {
+     "night": {
+      "fixed_5d": {
+       "n": 0,
+       "n_picks": 0,
+       "total_pnl_aud": 0.0,
+       "avg_pnl_aud": null,
+       "winrate": null,
+       "additive_pct_after_interest": null,
+       "paired_vs_option1": null,
+       "n_sessions_differ": 0
+      },
+      "trail_2atr": {
+       "n": 0,
+       "n_picks": 0,
+       "total_pnl_aud": 0.0,
+       "avg_pnl_aud": null,
+       "winrate": null,
+       "additive_pct_after_interest": null,
+       "paired_vs_option1": null,
+       "n_sessions_differ": 0
+      },
+      "trail_1pct": {
+       "n": 0,
+       "n_picks": 0,
+       "total_pnl_aud": 0.0,
+       "avg_pnl_aud": null,
+       "winrate": null,
+       "additive_pct_after_interest": null,
+       "paired_vs_option1": null,
+       "n_sessions_differ": 0
+      }
+     },
+     "preclose_proxy": {
+      "fixed_5d": {
+       "n": 0,
+       "n_picks": 0,
+       "total_pnl_aud": 0.0,
+       "avg_pnl_aud": null,
+       "winrate": null,
+       "additive_pct_after_interest": null,
+       "paired_vs_option1": null,
+       "n_sessions_differ": 0
+      },
+      "trail_2atr": {
+       "n": 0,
+       "n_picks": 0,
+       "total_pnl_aud": 0.0,
+       "avg_pnl_aud": null,
+       "winrate": null,
+       "additive_pct_after_interest": null,
+       "paired_vs_option1": null,
+       "n_sessions_differ": 0
+      },
+      "trail_1pct": {
+       "n": 0,
+       "n_picks": 0,
+       "total_pnl_aud": 0.0,
+       "avg_pnl_aud": null,
+       "winrate": null,
+       "additive_pct_after_interest": null,
+       "paired_vs_option1": null,
+       "n_sessions_differ": 0
+      }
+     }
+    },
+    "TA_SENT": {
+     "night": {
+      "fixed_5d": {
+       "n": 0,
+       "n_picks": 0,
+       "total_pnl_aud": 0.0,
+       "avg_pnl_aud": null,
+       "winrate": null,
+       "additive_pct_after_interest": null,
+       "paired_vs_option1": null,
+       "n_sessions_differ": 0
+      },
+      "trail_2atr": {
+       "n": 0,
+       "n_picks": 0,
+       "total_pnl_aud": 0.0,
+       "avg_pnl_aud": null,
+       "winrate": null,
+       "additive_pct_after_interest": null,
+       "paired_vs_option1": null,
+       "n_sessions_differ": 0
+      },
+      "trail_1pct": {
+       "n": 0,
+       "n_picks": 0,
+       "total_pnl_aud": 0.0,
+       "avg_pnl_aud": null,
+       "winrate": null,
+       "additive_pct_after_interest": null,
+       "paired_vs_option1": null,
+       "n_sessions_differ": 0
+      }
+     },
+     "preclose_proxy": {
+      "fixed_5d": {
+       "n": 0,
+       "n_picks": 0,
+       "total_pnl_aud": 0.0,
+       "avg_pnl_aud": null,
+       "winrate": null,
+       "additive_pct_after_interest": null,
+       "paired_vs_option1": null,
+       "n_sessions_differ": 0
+      },
+      "trail_2atr": {
+       "n": 0,
+       "n_picks": 0,
+       "total_pnl_aud": 0.0,
+       "avg_pnl_aud": null,
+       "winrate": null,
+       "additive_pct_after_interest": null,
+       "paired_vs_option1": null,
+       "n_sessions_differ": 0
+      },
+      "trail_1pct": {
+       "n": 0,
+       "n_picks": 0,
+       "total_pnl_aud": 0.0,
+       "avg_pnl_aud": null,
+       "winrate": null,
+       "additive_pct_after_interest": null,
+       "paired_vs_option1": null,
+       "n_sessions_differ": 0
+      }
+     }
+    }
+   },
+   "note": "collecting since 25 Nov 2026"
+  }
+ },
+ "runtime_sec": 1.1
+}

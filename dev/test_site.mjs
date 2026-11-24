@@ -27,6 +27,21 @@ function ok(cond, name) { if (cond) pass++; else { fail++; failures.push(name); 
 function eq(a, b, name) { const s = JSON.stringify(a) === JSON.stringify(b); if (!s) name += ` (got ${JSON.stringify(a)}, want ${JSON.stringify(b)})`; ok(s, name); }
 function section(n) { console.log("\u2022 " + n); }
 const S = (safe) => String(safe); // SafeHtml -> string
+// The default fixtures carry the contract v2.3 (ranking) fields since
+// dev/make_fixtures_v23.py; older-path tests strip them (pre-v2.2 / v2.2 files).
+const ROW_KEYS_V22 = ["fund_v2", "fund_v2_pillars", "fund_v2_label", "fund_v2_coverage", "sector"];
+const ROW_KEYS_V23 = ["composite_v1_legacy", "fund_v2_percentile", "fund_filter", "tiebreak_note"];
+function stripFields(d, rowKeys, runKeys) {
+  const out = Object.assign({}, d);
+  (runKeys || []).forEach(k => { delete out[k]; });
+  ["recommended_orders", "setups", "watchlist_full", "withheld_orders"].forEach(k => {
+    if (Array.isArray(out[k])) out[k] = out[k].map(r => { const x = Object.assign({}, r); rowKeys.forEach(c => { delete x[c]; }); return x; });
+  });
+  return out;
+}
+const RUN_KEYS_V23 = ["ranking_version", "ranking", "ranking_degraded"];
+const pre23 = (d) => stripFields(d, ROW_KEYS_V23, RUN_KEYS_V23);
+const pre22 = (d) => stripFields(d, ROW_KEYS_V22.concat(ROW_KEYS_V23), RUN_KEYS_V23);
 
 // Reference Sydney offset (hours): AEDT from 02:00 AEST on the first Sunday
 // of October until 03:00 AEDT on the first Sunday of April (both = 16:00 UTC
@@ -713,7 +728,7 @@ section("v2.2 fund_v2 next to the current fundamentals score (evaluation only)")
   // through the Today order cards / detail rows and the Pre-close page
   const addV2 = (r, i) => Object.assign({}, r, { fund_v2: 40 + i, fund_v2_pillars: { valuation: 70, cash: null, quality: 60, balance: 50, growth: i % 2 ? null : 30 },
     fund_v2_label: "vs peers: cheap", fund_v2_coverage: 0.8, sector: "Energy" });
-  const td = J("dev/fixtures/today.json");
+  const td = pre22(J("dev/fixtures/today.json"));
   const td2 = Object.assign({}, td, { recommended_orders: (td.recommended_orders || []).map(addV2), setups: (td.setups || []).map(addV2), watchlist_full: (td.watchlist_full || []).map(addV2) });
   const nd2 = TODAY.normalizeData(td2);
   const keyOpen = "Setups|" + nd2.setups[0].symbol + "|" + nd2.setups[0].strategy;
@@ -723,12 +738,101 @@ section("v2.2 fund_v2 next to the current fundamentals score (evaluation only)")
   ok(!/NaN|undefined|\[object Object\]/.test(page), "Today with fund_v2: no NaN/undefined");
   const old = S(TODAY.renderSections(td, TODAY.normalizeData(td), TODAY.normalizePrefs({}), { names: {}, edges: {}, now: new Date("2026-11-24T00:00:00Z"), validFor: td.valid_for }));
   ok(!/fund-v2/.test(old), "Today without fund_v2 (pre-v2.2 file): no v2 text");
-  const pc = J("dev/fixtures/preclose.json");
+  const pc = pre22(J("dev/fixtures/preclose.json"));
   const pc2 = Object.assign({}, pc, { recommended_orders: (pc.recommended_orders || []).map(addV2), setups: (pc.setups || []).map(addV2) });
   const pnd = PRE.normalize(pc2);
   const ppage = S(PRE.renderSections(pc2, pnd, TODAY.normalizePrefs({}), { names: {}, edges: {}, now: new Date("2026-11-24T04:30:00Z") }));
   ok(/v2: 40 \u2014 valuation 70, cash \u2014, quality 60, balance 50, growth 30/.test(ppage) && ppage.includes("does not affect rankings yet"), "Pre-close cards show v2 with null pillars as dashes");
   ok(!/NaN|undefined|\[object Object\]/.test(ppage), "Pre-close with fund_v2: no NaN/undefined");
+}
+
+section("v2.3 ranking option1: version, fundamentals filter badge, tiebreak note, variants table");
+{
+  // fragments
+  const ex = { symbol: "AMP.AX", fund_v2: 22, fund_filter: { eligible: false, reason: "fundamentals bottom 20% (v2 = 22.0, cutoff 38.22)", cutoff: 38.22 } };
+  const exb = S(TODAY.filterBadge(ex, true));
+  ok(exb.includes("excluded: fundamentals bottom 20%") && exb.includes('title="fundamentals bottom 20% (v2 = 22.0, cutoff 38.22) — not eligible for a recommended order"') && /chip--excluded/.test(exb), "excluded badge: muted, full reason in tooltip");
+  ok(S(TODAY.filterBadge(ex, false)).includes("sr-only"), "excluded badge in details also has screen-reader reason");
+  eq(S(TODAY.filterBadge({ fund_filter: { eligible: true, reason: null, cutoff: 38 } }, false)), "", "eligible row without reason: no badge");
+  const nd0 = S(TODAY.filterBadge({ fund_filter: { eligible: true, reason: "fundamentals: no data", cutoff: 38 } }, false));
+  ok(nd0.includes("fundamentals: no data") && S(TODAY.filterBadge({ fund_filter: { eligible: true, reason: "fundamentals: no data" } }, true)) === "", "no-data note in details only");
+  eq(S(TODAY.filterBadge({ symbol: "X" }, false)), "", "older row (no fund_filter): nothing");
+  ok(TODAY.isExcluded(ex) && !TODAY.isExcluded({}) && !TODAY.isExcluded({ fund_filter: { eligible: true } }), "isExcluded only on eligible=false");
+  ok(S(TODAY.filterBadge({ fund_filter: { eligible: false, reason: "fundamentals bottom 15% (v2 = 9.0, cutoff 12.00)" } }, true)).includes("bottom 15%"), "badge follows the configured percentage");
+  const tb = S(TODAY.tiebreakNoteHtml({ tiebreak_note: "tiebreak: growth 81 vs 22 for <b>WTC.AX</b>" }));
+  ok(tb.includes("Tiebreak decided this order:") && tb.includes("&lt;b&gt;WTC.AX") && !tb.includes("<b>WTC"), "tiebreak note shown, escaped");
+  eq(S(TODAY.tiebreakNoteHtml({ tiebreak_note: null })), "", "no tiebreak note: nothing");
+  const pills = S(TODAY.rankingPills({ ranking_version: "option1_v1", ranking: { weights: { ta: 0.55, fund_v2: 0.25, sentiment: 0.2 }, fund_filter: { bottom_pct: 20 }, tiebreak: { window_points: 3 } }, ranking_degraded: { degraded: false } }));
+  ok(pills.includes("Ranking <b>option1_v1</b>") && pills.includes("TA 55% · fundamentals v2 25% · sentiment 20%; bottom 20% fundamentals excluded") && !pills.includes("DEGRADED"), "ranking version pill with weights tooltip");
+  const dpill = S(TODAY.rankingPills({ ranking_version: "option1_v1", ranking_degraded: { degraded: true, reason: "fund_v2 coverage 12% < 50%" } }));
+  ok(dpill.includes("DEGRADED") && dpill.includes("fund_v2 coverage 12% &lt; 50%"), "degraded pill with reason");
+  eq(S(TODAY.rankingPills({})), "", "older file: no ranking pill");
+  ok(TODAY.rankingBanner({ ranking_degraded: { degraded: false } }) === null && TODAY.rankingBanner({}) === null, "no degraded banner normally");
+  const bn = S(TODAY.rankingBanner({ ranking_degraded: { degraded: true, reason: "fund_v2 coverage 0% < 50% (0/117 scanned symbols scored)" } }));
+  ok(bn.includes("Ranking degraded: fundamentals not used") && bn.includes("TA and sentiment only"), "degraded banner");
+  const f23 = S(TODAY.fundamentalsHtml({ fund_score: 45, fund_label: "ROE=4.7%", fund_v2: 62.4, fund_v2_percentile: 73.1,
+    fund_v2_pillars: { valuation: 71, cash: 58, quality: 66, balance: 40, growth: null }, fund_v2_label: "vs Energy: cheap", fund_filter: { eligible: true, reason: null } }));
+  ok(f23.includes("v2: 62 — valuation 71") && f23.includes("percentile 73") && f23.includes("25% of the composite") && f23.includes("v1 (info only): 45 — ROE=4.7%"), "v2.3 fundamentals line: v2 ranks, v1 info only");
+  ok(f23.includes(TODAY.FUND_V2_RANK_TIP) && !f23.includes("does not affect rankings yet"), "v2.3 tooltip says v2 ranks");
+  ok(S(TODAY.fundamentalsHtml({ fund_score: 45, fund_v2: 50, fund_v2_pillars: {} })).includes("does not affect rankings yet"), "v2.2 row keeps the evaluation-only line");
+  // Today page with the default (v2.3) fixture
+  const td = J("dev/fixtures/today.json");
+  const nd = TODAY.normalizeData(td);
+  const ctx = { names: {}, edges: {}, now: new Date("2026-11-23T10:00:00Z"), validFor: td.valid_for };
+  const page = S(TODAY.renderSections(td, nd, TODAY.normalizePrefs({}), ctx));
+  ok(/BEN\.AX[\s\S]*?excluded: fundamentals bottom 20%/.test(page), "Today: excluded setup flagged in the compact row");
+  ok((page.match(/excluded: fundamentals bottom 20%/g) || []).length >= 2, "Today: badge in row + details");
+  ok(!/NaN|undefined|\[object Object\]/.test(page), "Today v2.3: no NaN/undefined");
+  const meta = S(TODAY.renderMeta(td, nd, new Date("2026-11-23T10:00:00Z")));
+  ok(meta.includes("Ranking <b>option1_v1</b>"), "Today meta: ranking version");
+  // pick order kept for ranked files (default sort), TA sort for older files
+  const swapped = Object.assign({}, td, { recommended_orders: [Object.assign({}, td.recommended_orders[1], { score: 10 }), td.recommended_orders[0]] });
+  const pg2 = S(TODAY.renderOrders(TODAY.applyFilters(TODAY.normalizeData(swapped).rec, Object.assign({}, TODAY.normalizePrefs({}), { sort: "published" })), TODAY.normalizePrefs({}), ctx));
+  const s2 = S(TODAY.renderSections(swapped, TODAY.normalizeData(swapped), TODAY.normalizePrefs({}), ctx));
+  ok(s2.indexOf(swapped.recommended_orders[0].symbol + "</span>") < s2.indexOf(swapped.recommended_orders[1].symbol + "</span>") && pg2.length > 0, "Today: recommended orders keep the engine's pick order");
+  const old = pre23(swapped);
+  const s3 = S(TODAY.renderSections(old, TODAY.normalizeData(old), TODAY.normalizePrefs({}), ctx));
+  ok(s3.indexOf(old.recommended_orders[1].symbol + "</span>") < s3.indexOf(old.recommended_orders[0].symbol + "</span>"), "older file: recommended orders by TA score as before");
+  ok(!/excluded: fundamentals|Ranking <b>/.test(s3 + S(TODAY.renderMeta(old, TODAY.normalizeData(old), new Date()))), "older file: no ranking UI");
+  // degraded run through the Today banners
+  const deg = Object.assign({}, td, { ranking_degraded: { degraded: true, reason: "fund_v2 coverage 0% < 50%" } });
+  ok(S(TODAY.renderBanners(deg, TODAY.normalizeData(deg), new Date("2026-11-23T10:00:00Z"))).includes("Ranking degraded"), "Today: degraded banner");
+  // real v2.3 night scan output (20 Nov 2026 evening, full universe)
+  const rt = J("dev/fixtures/real/today.json");
+  const rnd = TODAY.normalizeData(rt);
+  eq(rnd.rec.map(r => r.symbol), ["PME.AX", "ANZ.AX"], "real today: option1 picks");
+  const rpage = S(TODAY.renderSections(rt, rnd, TODAY.normalizePrefs({}), Object.assign({}, ctx, { validFor: rt.valid_for })));
+  ok(/AMP\.AX[\s\S]*?excluded: fundamentals bottom 20%/.test(rpage) && !/NaN|undefined|\[object Object\]/.test(rpage), "real today: AMP.AX excluded, clean render");
+  ok(S(TODAY.orderCard(rnd.rec[0], TODAY.normalizePrefs({}), ctx)).includes("25% of the composite"), "real today: order card fundamentals line");
+  // Pre-close (shares the renderers)
+  const pc = J("dev/fixtures/preclose.json");
+  const pnd = PRE.normalize(pc);
+  const ppage = S(PRE.renderSections(pc, pnd, TODAY.normalizePrefs({}), { names: {}, edges: {}, now: new Date("2026-11-24T04:30:00Z") }));
+  ok(ppage.includes("Tiebreak decided this order:") && ppage.includes("tiebreak: growth 81 vs 22 for WTC.AX"), "Pre-close: tiebreak note on the order that it decided");
+  ok(ppage.includes("excluded: fundamentals bottom 20%") && !/NaN|undefined|\[object Object\]/.test(ppage), "Pre-close: excluded setup flagged, clean render");
+  ok(S(PRE.deadlineCard(pc, new Date("2026-11-24T04:30:00Z"), null)).includes("Ranking <b>option1_v1</b>"), "Pre-close: ranking version pill");
+  const pdeg = Object.assign({}, pc, { ranking_degraded: { degraded: true, reason: "no fund_v2 population" } });
+  ok(PRE.renderBanners(pdeg, new Date("2026-11-24T04:30:00Z")).map(S).join("").includes("Ranking degraded"), "Pre-close: degraded banner");
+  // Track record: ranking variants table
+  const real = J("dev/fixtures/real/metrics.json");
+  const rv = S(TRACK.rankingVariantsBlock(real));
+  ["Option 1 (production)", "Legacy (v1 fund 25%)", "v2 fund 25%, no filter", "TA only", "TA + sentiment"].forEach(l => ok(rv.includes(l), "variants table lists " + l));
+  ok(rv.includes("Night (next-day order)") && rv.includes("Pre-close (historical estimate)"), "variants: night and pre-close columns");
+  ok(rv.includes("Backtest") && rv.includes("Live: collecting since Wed 25 Nov 2026") && rv.includes("n = 0 so far"), "variants: backtest table + live empty state");
+  const bt = real.ranking_variants.periods.backtest.by;
+  const o1 = bt.OPTION1.night.fixed_5d.total_pnl_aud;
+  ok(rv.includes((o1 > 0 ? "+" : "") + ITL.fmtAud(o1, 0)), "variants: OPTION1 total A$ shown");
+  ok(/vs Opt 1: [+-]?A\$[\d,]+\/session \(t -?\d/.test(rv) && rv.includes("reference"), "variants: paired vs OPTION1 with t");
+  ok(rv.includes("after interest") && !/NaN|undefined|\[object Object\]/.test(rv), "variants: additive % after interest, clean");
+  const live = JSON.parse(JSON.stringify(real));
+  live.ranking_variants.periods.live = JSON.parse(JSON.stringify(live.ranking_variants.periods.backtest));
+  const rvl = S(TRACK.rankingVariantsBlock(live));
+  ok(!rvl.includes("collecting since") && (rvl.match(/<table class="rv stack"/g) || []).length === 2, "variants: live table when live n > 0");
+  const zero = JSON.parse(JSON.stringify(live));
+  zero.ranking_variants.periods.live.by.TA_ONLY.night.fixed_5d = { n: 0, n_picks: 0, total_pnl_aud: 0 };
+  ok(S(TRACK.rankingVariantsBlock(zero)).includes("no trades yet"), "variants: n=0 cell in live");
+  ok(S(TRACK.rankingVariantsBlock({})).includes("Not published yet"), "variants: block missing");
+  ok(S(TRACK.rankingVariantsBlock({ ranking_variants: { error: "ValueError: <x>" } })).includes("ValueError: &lt;x&gt;"), "variants: soft error shown, escaped");
 }
 
 section("current production files still render (no v2.1 fields yet)");

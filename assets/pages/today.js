@@ -273,6 +273,8 @@
         html`${fmtInt(data.coverage.fresh)} fresh of ${fmtInt(data.coverage.universe)} symbols. Missing symbols could not generate signals.`, "COVERAGE"));
     }
     if (data.is_preview === true) out.push(ITL.banner("violet", "Pre-close preview", "Built from intraday prices before the close; the final night scan replaces it.", "PREVIEW"));
+    const rb = rankingBanner(data);
+    if (rb) out.push(rb);
     return out;
   }
 
@@ -293,6 +295,7 @@
       <span class="pill">Generated <b>${fmtDateTime(data.generated_at_utc)}</b> (${ago(data.generated_at_utc, now)})</span>
       <span class="pill ${st.stale ? "pill--bad" : ""}">Fresh until <b>${st.staleAfter ? fmtDateTime(st.staleAfter) : DASH}</b></span>
       ${ph.key ? html`<span class="pill" title="Market phase when this file was generated (from market_state)">Phase at generation <b>${ph.label}</b></span>` : ""}
+      ${rankingPills(data)}
     `;
   }
 
@@ -313,19 +316,79 @@
     return "v2: " + fmtNum(row && row.fund_v2, 0) + " \u2014 " + parts.join(", ");
   }
 
+  // ── Ranking option1 (contract v2.3): fund_v2 ranks, bottom-20% filter, tiebreak ──
+  const FUND_V2_RANK_TIP = "fund_v2 is 25% of the composite (ranking option1); the v1 score is shown for information only";
+
+  function fundFilter(row) { const f = row && row.fund_filter; return f && typeof f === "object" && !Array.isArray(f) ? f : null; }
+  /** true only when the engine said so (rows from older files are eligible). */
+  function isExcluded(row) { const f = fundFilter(row); return !!f && f.eligible === false; }
+
+  /** Muted "excluded: fundamentals bottom 20%" badge (full reason in the
+   *  tooltip); in details also the "fundamentals: no data" note. */
+  function filterBadge(row, compact) {
+    const f = fundFilter(row);
+    if (!f) return "";
+    if (f.eligible === false) {
+      const m = String(f.reason || "").match(/bottom\s+(\d+(?:\.\d+)?)%/i);
+      const why = (f.reason ? f.reason : "fundamentals filter") + " \u2014 not eligible for a recommended order";
+      return html`<span class="chip chip--excluded" title="${why}">excluded: fundamentals bottom ${m ? m[1] : "20"}%</span>${compact ? "" : html`<span class="sr-only"> (${why})</span>`}`;  // same words in rows and details
+    }
+    if (!compact && f.reason) return html`<span class="chip chip--nodata" title="Fundamentals filter">${f.reason}</span>`;
+    return "";
+  }
+
+  function tiebreakNoteHtml(row) {
+    if (!row || !row.tiebreak_note) return "";
+    return html`<div class="small tiebreak-note"><b>Tiebreak decided this order:</b> ${row.tiebreak_note}</div>`;
+  }
+
+  function rankingWeightsText(data) {
+    const rk = data && data.ranking && typeof data.ranking === "object" ? data.ranking : null;
+    const w = rk && rk.weights && typeof rk.weights === "object" ? rk.weights : { ta: 0.55, fund_v2: 0.25, sentiment: 0.20 };
+    const pc = (x) => fmtNum(num(x) !== null ? num(x) * 100 : null, 0) + "%";
+    const ff = rk && rk.fund_filter && typeof rk.fund_filter === "object" ? rk.fund_filter : { bottom_pct: 20 };
+    const tb = rk && rk.tiebreak && typeof rk.tiebreak === "object" ? rk.tiebreak : { window_points: 3 };
+    return "TA " + pc(w.ta) + " \u00b7 fundamentals v2 " + pc(w.fund_v2) + " \u00b7 sentiment " + pc(w.sentiment) +
+      "; bottom " + fmtNum(ff.bottom_pct, 0) + "% fundamentals excluded; trend/momentum tiebreak on growth within " + fmtNum(tb.window_points, 1) + " pts";
+  }
+
+  /** Run-level pills: ranking version (+ DEGRADED). Nothing for older files. */
+  function rankingPills(data) {
+    if (!data || !data.ranking_version) return "";
+    const deg = data.ranking_degraded && typeof data.ranking_degraded === "object" && data.ranking_degraded.degraded === true;
+    return html`<span class="pill" title="${rankingWeightsText(data)}">Ranking <b>${String(data.ranking_version)}</b></span>${deg ? html`<span class="pill pill--warn" title="${data.ranking_degraded.reason || ""}">Ranking <b>DEGRADED</b></span>` : ""}`;
+  }
+
+  function rankingBanner(data) {
+    const rd = data && data.ranking_degraded;
+    if (!rd || typeof rd !== "object" || rd.degraded !== true) return null;
+    return ITL.banner("warn", "Ranking degraded: fundamentals not used in this run",
+      html`${rd.reason ? rd.reason + ". " : ""}Orders are ranked on TA and sentiment only; no fundamentals filter or tiebreak.`, "RANKING");
+  }
+
   /** Fundamentals line for order cards and row details. Without v2 fields
-   *  it is exactly the pre-v2.2 line ("Fundamentals 45/100: label"). */
+   *  it is exactly the pre-v2.2 line ("Fundamentals 45/100: label"); v2.2
+   *  rows (fund_v2, no fund_filter) keep the "evaluation only" line; v2.3
+   *  rows (fund_filter present) show v2 as the ranking input. */
   function fundamentalsHtml(row) {
     if (!row) return "";
     if (!hasFundV2(row)) {
       return row.fund_label ? html`Fundamentals ${fmtNum(row.fund_score, 0)}/100: ${row.fund_label}` : "";
+    }
+    if (fundFilter(row)) {
+      const pct = num(row.fund_v2_percentile);
+      const v2l = row.fund_v2_label ? html`<br><span class="dim">v2 ${row.fund_v2_label}</span>` : "";
+      const v1s = num(row.fund_score) !== null ? fmtNum(row.fund_score, 0) + (row.fund_label ? " \u2014 " + row.fund_label : "") : (row.fund_label || "");
+      const v1 = v1s ? html`<br><span class="dim">v1 (info only): ${v1s}</span>` : "";
+      return html`Fundamentals <span class="fund-v2" title="${FUND_V2_RANK_TIP}">${fundV2Text(row)}</span>${pct !== null ? " \u00b7 percentile " + fmtNum(pct, 0) : ""} \u00b7 25% of the composite<span class="sr-only"> (${FUND_V2_RANK_TIP})</span>${v2l}${v1}`;
     }
     const v2Label = row.fund_v2_label ? html`<br><span class="dim">v2 ${row.fund_v2_label}</span>` : "";
     return html`Fundamentals: ${fmtNum(row.fund_score, 0)} (current) \u00b7 <span class="fund-v2" title="${FUND_V2_TIP}">${fundV2Text(row)}</span><span class="sr-only"> (${FUND_V2_TIP})</span>${row.fund_label ? html`<br><span class="dim">current: ${row.fund_label}</span>` : ""}${v2Label}`;
   }
 
   function rowChips(row, ctx) {
-    return [ITL.edgeBadge(row.strategy, ctx.edges)].concat(sentimentChips(row), [earningsChip(row.earnings)], gateChips(row), alsoFiredChips(row));
+    const fb = filterBadge(row, false);
+    return [ITL.edgeBadge(row.strategy, ctx.edges)].concat(fb ? [fb] : [], sentimentChips(row), [earningsChip(row.earnings)], gateChips(row), alsoFiredChips(row));
   }
 
   function orderCard(row, prefs, ctx) {
@@ -353,6 +416,7 @@
       ${ITL.exitPlansHtml(row, { defaultId: ctx.defaultPolicy })}
       <div class="chips">${rowChips(row, ctx)}</div>
       ${row.plain_english ? html`<div class="order__note">${row.plain_english}</div>` : ""}
+      ${tiebreakNoteHtml(row)}
       ${(row.fund_label || hasFundV2(row)) ? html`<div class="small fund-line" style="margin-top:6px;">${fundamentalsHtml(row)}</div>` : ""}
     </article>`;
   }
@@ -398,13 +462,14 @@
           <td data-label="Sentiment">${sentimentChips(r)[0]}</td>
           <td data-label="Qty" class="mono right">${qtyCell(s, r)}</td>
           <td data-label="Risk" class="mono right">${riskCell(s)}</td>
-          <td data-label="Status" class="nowrap">${statusCell(r.status)}${gates ? html` <span class="dim small" title="Failed gates: see details">(${String(gates)})</span>` : ""}</td>
+          <td data-label="Status" class="nowrap">${statusCell(r.status)}${gates ? html` <span class="dim small" title="Failed gates: see details">(${String(gates)})</span>` : ""}${isExcluded(r) ? html`<div class="excl-line">${filterBadge(r, true)}</div>` : ""}</td>
         </tr>
         <tr class="row-detail"${isOpen ? "" : html` hidden`}><td colspan="11" class="td-full">
           <div class="chips">${rowChips(r, ctx)}</div>
           <div class="small" style="margin-top:5px;"><b>Entry ref</b> ${fmtPrice(r.entry_ref, r)} \u00b7 <b>TP1 / TP2</b> ${fmtPrice(r.tp1, r)} / ${fmtPrice(r.tp2, r)} \u00b7 <b>Last close</b> ${fmtPrice(r.last_close, r)}</div>
           ${ITL.exitPlansHtml(r, { defaultId: ctx.defaultPolicy })}
           ${r.plain_english ? html`<p class="small" style="margin:6px 0 0;">${r.plain_english}</p>` : ""}
+          ${tiebreakNoteHtml(r)}
           ${(r.fund_label || hasFundV2(r)) ? html`<p class="small fund-line" style="margin:4px 0 0;">${fundamentalsHtml(r)}</p>` : ""}
         </td></tr>`;
     });
@@ -435,7 +500,9 @@
 
   function renderSections(data, nd, prefs, ctx) {
     const dim = ctx.dim;
-    const rec = applyFilters(nd.rec, Object.assign({}, prefs, { sort: prefs.sort === "status_score" ? "score_desc" : prefs.sort }));
+    // default: the engine's pick order (ranking.py); older files: TA score as before
+    const ranked = !!(data && data.ranking_version);
+    const rec = applyFilters(nd.rec, Object.assign({}, prefs, { sort: prefs.sort === "status_score" ? (ranked ? "published" : "score_desc") : prefs.sort }));
     const setups = applyFilters(nd.setups, prefs);
     const watch = applyFilters(nd.watch, prefs);
     const parts = [];
@@ -578,6 +645,7 @@
     DATA_PATH, PREFS_KEY, DEFAULT_PREFS, RISK_OPTIONS,
     normalizePrefs, strategyOptions, parseEntryText, normalizeRow, normalizeData, v1Sentiment, defaultPolicyId,
     sizeSummary, orderCard, FUND_V2_PILLARS, FUND_V2_TIP, hasFundV2, fundV2Text, fundamentalsHtml,
+    FUND_V2_RANK_TIP, fundFilter, isExcluded, filterBadge, tiebreakNoteHtml, rankingPills, rankingBanner, rankingWeightsText,
     orderTypeLabel, exitPlanText, sentimentChips, earningsChip, sizeFor, applyFilters,
     renderBanners, renderMeta, renderOrders, renderTable, tableCard, watchCard, renderSections, boot,
   };

@@ -58,6 +58,8 @@
     if (cov !== null && cov !== undefined && cov < 90) {
       out.push(ITL.banner("warn", "Low data coverage: " + ITL.fmtPct(cov, { dp: 1 }) + " of the universe", "Missing symbols could not generate signals.", "COVERAGE"));
     }
+    const rb = TODAY.rankingBanner(pc);
+    if (rb) out.push(rb);
     return out;
   }
 
@@ -80,6 +82,7 @@
         <span class="pill">Generated <b>${fmtDateTime(pc && pc.generated_at_utc)}</b> (${ago(pc && pc.generated_at_utc, now)})</span>
         <span class="pill" title="Market phase when the scan ran (from market_state)">Phase at scan <b>${ph.label}</b>${num(ms.minutes_to_close) !== null ? " · " + fmtNum(ms.minutes_to_close, 0) + " min to close" : ""}</span>
         <span class="pill">Mode <b>${pc && pc.signal_mode ? String(pc.signal_mode) : DASH}</b></span>
+        ${TODAY.rankingPills(pc)}
         ${jobPill(job, now)}
       </div>`;
   }
@@ -111,7 +114,7 @@
       <div class="card__head"><h2>Why this page exists</h2><a class="small" href="${ITL.siteHref("/track-record/")}">Night vs pre-close on the track record &rarr;</a></div>
       <div class="card__body small">
         <p style="margin-top:0;">The night scan uses the completed daily bar, so its picks can only be traded at the <b>next open</b> — when everyone else running similar scans has the same signals. The pre-close scan runs the same strategies ~45 minutes before the close on <b>today's</b> bar (live price spliced in), so you can buy in the closing auction or at market before the close instead of waiting for tomorrow's open.</p>
-        <p>Same rules as the night scan: max 2 orders, one per symbol, same stops, targets, sizing and exit plans. Entry ref is the live price (about 20 min delayed) rounded up to a valid ASX tick; the real fill is the closing price.</p>
+        <p>Same rules as the night scan: same ranking (the fundamentals filter uses last night's cutoff), max 2 orders, one per symbol, same stops, targets, sizing and exit plans. Entry ref is the live price (about 20 min delayed) rounded up to a valid ASX tick; the real fill is the closing price.</p>
         <p style="margin-bottom:0;">It is an experiment, tracked against the night picks: the track record shows a <i>historical estimate</i> (night signals entered at that day's close) and the <i>forward-tracked</i> real pre-close picks, collected from 25 Nov 2026.</p>
       </div></section>`;
   }

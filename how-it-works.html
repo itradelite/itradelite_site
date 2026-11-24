@@ -76,7 +76,18 @@
         <li><b>Risk-off:</b> trend, momentum and breakout style strategies are gated off. Mean reversion is still allowed, so risk-off nights can still have picks (often all mean reversion).</li>
       </ul>
 
-      <h2>4. Orders</h2>
+      <h2>4. Choosing the two orders (ranking)</h2>
+      <p>Every setup that passes all its gates gets a <b>composite score</b>: <b>55% technical score + 25% fundamentals (v2) + 20% sentiment</b>. A missing fundamentals or sentiment score is left out and the other weights are scaled up; it is never counted as neutral. This is ranking <b>option1_v1</b> (since 25 Nov 2026), used by both the night and the pre-close scan.</p>
+      <ul>
+        <li><b>Fundamentals v2</b> compares each company with its sector peers across the ASX universe on five pillars: valuation, cash generation, quality, balance sheet and growth (0&ndash;100, higher is better; ETFs are not scored).</li>
+        <li><b>Fundamentals filter</b>: a stock whose v2 score is in the <b>bottom 20%</b> of that night&rsquo;s scanned universe cannot be a recommended order. It still appears as a setup, marked <i>excluded: fundamentals bottom 20%</i> with its score and the cutoff. A stock with no fundamentals data is not penalised. The pre-close scan uses the cutoff from the previous night&rsquo;s universe.</li>
+        <li><b>Trend / momentum tiebreak</b>: when two trend, momentum, breakout, gap or earnings-drift setups are within <b>3 points</b> of each other, the one with the stronger <b>growth</b> pillar ranks first. Mean-reversion setups are not affected. When this decides an order, the order card says so.</li>
+        <li>Then the top two are taken: never two orders for the same stock and at most one per sector class.</li>
+        <li>If fundamentals cannot be computed for most of the universe on a run, the ranking falls back to technical + sentiment only, with no filter or tiebreak, and the page shows <i>Ranking DEGRADED</i>.</li>
+      </ul>
+      <p>The previous fundamentals score (v1) is still shown for information but no longer affects the ranking. Because the backtest could not separate the options statistically, the alternatives &mdash; the old ranking, v2 at 25% without the filter, technical only, and technical + sentiment &mdash; are <b>tracked side by side</b> on the <a href="/track-record/">track record</a> (&ldquo;Ranking variants&rdquo;), re-picked every session from the same candidates, so the choice can be revisited on live results.</p>
+
+      <h2>5. Orders</h2>
       <ul>
         <li><b>LIMIT</b>: buy only at or below the limit price.</li>
         <li><b>STOP</b>: buy once price trades up through the trigger.</li>
@@ -86,7 +97,7 @@
       </ul>
       <p><b>Entry ref</b> is the worst-case fill price (the limit for STOP-LIMIT) and is what sizing uses. Prices are shown to the ASX tick: 3 decimals under A$2.00, 2 decimals otherwise. At most two orders are recommended per night and never two for the same stock.</p>
 
-      <h2>5. Position sizing</h2>
+      <h2>6. Position sizing</h2>
       <div class="formula">risk budget = portfolio &times; risk %
 risk qty    = floor( risk budget / |entry ref &minus; stop| )
 position cap= floor( portfolio &times; max position % / entry ref )
@@ -95,7 +106,7 @@ qty         = min( risk qty, position cap, cash cap )
 actual risk = qty &times; |entry ref &minus; stop|</div>
       <p>Example: A$100,000 portfolio, 1% risk (A$1,000), entry 10.00, stop 9.80. Risk qty = 1,000 / 0.20 = 5,000 shares (A$50,000). With max position 25% the cap is 2,500 shares (A$25,000), so the order is <b>2,500 (cap)</b> and the actual risk is A$500, half the budget. The Today page shows <i>(cap)</i> and the actual A$ risk whenever a cap binds. Rows without an entry price are not sized.</p>
 
-      <h2>6. Exits</h2>
+      <h2>7. Exits</h2>
       <p>Every trade starts with the strategy&rsquo;s <b>initial stop</b>. If the stock opens below the stop, the exit is at the open (gap-through), not at the stop price.</p>
       <p>After entry, the position is managed by an <b>exit policy</b>. Three policies are <b>tracked side by side</b> on every pick, and each pick lists all three in plain words:</p>
       <ul>
@@ -113,11 +124,11 @@ actual risk = qty &times; |entry ref &minus; stop|</div>
       </ul>
       <p>The default stays <b>fixed 5 days</b> unless the simulation (hourly bars where available) shows another policy is better by a margin that is unlikely to be luck; it is marked on the <a href="/track-record/">track record</a>. Targets (TP1 / TP2) are reference levels from ATR, not automatic exits.</p>
 
-      <h2>7. How the track record is reported</h2>
+      <h2>8. How the track record is reported</h2>
       <p>The headline is the model you trade: a <b>fixed A$25,000 on every signal</b>. Every recommended order is taken, capital is assumed to be sufficient (no &ldquo;max two positions&rdquo; or position-size caps), and the A$ results are simply added up &mdash; no compounding. The headline number is the <b>additive return</b>: the sum of every trade's net % on its stake, after <b>margin interest</b> under your funding model &mdash; your own capital (one A$25,000 stake by default) pays for the first open trade and every further trade open at the same time is bought on margin at 9% p.a., charged per day held. The A$ P&amp;L after interest sits beside it, and a risk note says plainly when peak borrowing would exceed the ~70% loan-to-value most ASX margin lenders allow, or when the worst drawdown would be over half of your own capital (margin-call territory). Alongside the total P&amp;L it shows the <b>peak capital needed</b> (the most positions open at once &times; A$25,000) and the return on that peak capital. A toggle shows the same for <i>all setups</i>, not only the recommended orders.</p>
       <p>A secondary section keeps the older view: one A$100,000 account with risk-% sizing and caps, compared with buying an ASX200 ETF.</p>
 
-      <h2>8. Night picks vs pre-close picks</h2>
+      <h2>9. Night picks vs pre-close picks</h2>
       <p>Night signals use the completed daily bar, so they can only be traded at the <b>next open</b> &mdash; by then everyone running similar scans has the same signals. The pre-close scan exists to test whether buying <b>before today's close</b> is better. It is tracked as two streams next to the night picks:</p>
       <ul>
         <li><b>Pre-close &middot; historical estimate</b>: the past night signals replayed as if bought at the signal day's close (closing price plus slippage). An honest proxy, because the pre-close scan itself only exists from now on.</li>
@@ -125,8 +136,8 @@ actual risk = qty &times; |entry ref &minus; stop|</div>
       </ul>
       <p>A paired comparison (each signal compared with itself under both entry methods) says whether the difference is consistent or could still be noise. The pre-close scan withholds its picks when the market is not open, there are under 15 minutes to the close, data coverage is below 90% or live prices are more than 30 minutes old (Yahoo ASX prices are about 20 minutes delayed).</p>
 
-      <h2>9. Signals and context</h2>
-      <p>Each row shows a TA score, a composite score, sentiment (news, insider trades, search trends) and the next earnings date. A sentiment component that <i>failed</i> or had <i>no data</i> is shown as such and is left out of the score; it is never treated as neutral. Stocks too close to earnings are suppressed from recommendations; an unknown earnings date is flagged.</p>
+      <h2>10. Signals and context</h2>
+      <p>Each row shows a TA score, a composite score (see section 4), fundamentals (v2 with its percentile, v1 for information), sentiment (news, insider trades, search trends) and the next earnings date. A sentiment component that <i>failed</i> or had <i>no data</i> is shown as such and is left out of the score; it is never treated as neutral. Stocks too close to earnings are suppressed from recommendations; an unknown earnings date is flagged.</p>
     </div>
 
     <footer class="site-foot">Not financial advice. Trading involves risk of loss.</footer>

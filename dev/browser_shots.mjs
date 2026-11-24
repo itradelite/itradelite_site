@@ -22,6 +22,8 @@ const variants = [
   ['pcpassed', `fixtures=1&now=2026-11-24T05:20:00Z`, ['preclose']],
   // the real v2.1 simulator output (dev/fixtures/real/metrics.json)
   ['real', `fixtures=1&set=real&now=2026-11-24T09:00:00Z`, ['track', 'home']],
+  // the real v2.3 night scan (ranking option1) as of 20 Nov 2026 evening (dev/fixtures/real/today.json)
+  ['realtoday', `fixtures=1&set=real&now=2026-11-20T11:30:00Z`, ['today']],
 ];
 const browser = await chromium.launch({ executablePath: process.env.CHROME || '/usr/bin/google-chrome', args: ['--no-sandbox'] });
 let failures = 0;

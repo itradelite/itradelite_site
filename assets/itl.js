@@ -436,7 +436,7 @@
     edge: ["today", "live", "intraday", "status", "pending_exits", "metrics", "preclose"],
     pcstale: ["preclose"],   // pre-close picks from an older session
     pcunpub: ["preclose"],   // pre-close scan ran but published=false
-    real: ["metrics"],       // the real v2.1 simulator output (derived fixture)
+    real: ["metrics", "today"], // real engine outputs (metrics: simulator; today: v2.3 night scan as of 20 Nov)
   };
 
   function resolvePath(path, search) {

@@ -475,3 +475,23 @@ details.card--fold:not([open]) > summary { border-bottom: none; }
 
 /* fund_v2 (contract v2.2): evaluation-only second fundamentals score */
 .fund-v2 { text-decoration: underline dotted; text-underline-offset: 2px; cursor: help; }
+.chip--excluded { color: var(--text-dimmed); border-style: dashed; background: transparent; white-space: nowrap; }
+.excl-line { margin-top: 3px; }
+.excl-line .chip--excluded { font-size: 10.5px; padding: 1px 6px; white-space: normal; display: inline-block; max-width: 140px; line-height: 1.35; border-radius: 6px; }
+.tiebreak-note { margin-top: 6px; color: var(--text-muted); }
+
+/* Track record: ranking variants (contract v2.3) */
+table.rv { width: 100%; border-collapse: collapse; }
+table.rv th, table.rv td { padding: 6px 8px; border-bottom: 1px solid var(--border, rgba(148,163,184,0.18)); vertical-align: top; }
+table.rv .rv__cell { text-align: right; }
+.rv__tot { display: block; font-weight: 600; font-variant-numeric: tabular-nums; }
+.rv__add, .rv__pair { display: block; font-size: 12px; color: var(--text-muted); font-variant-numeric: tabular-nums; }
+.rv__pair.pos { color: var(--accent-green, #22c55e); }
+.rv__pair.neg { color: var(--accent-red, #ef4444); }
+tr.rv--prod th, tr.rv--prod td { background: rgba(59,130,246,0.06); }
+table.rv .rv__name { font-size: 12px; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; color: var(--text-body); }
+@media (max-width: 760px) {
+  table.rv.stack td.rv__name { padding-top: 8px; }
+  table.rv.stack td.rv__cell { padding-left: 46%; }
+  table.rv.stack td::before { max-width: 42%; }
+}

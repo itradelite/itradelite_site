@@ -483,6 +483,63 @@
     return html`<div class="tableWrap"><table class="matrix" aria-label="Additive return by stream and exit policy"><thead>${head}</thead><tbody>${rows}</tbody></table></div>`;
   }
 
+  // ── ranking_variants (contract v2.3) ─────────────────────────────────────
+  const RV_LABELS = { OPTION1: "Option 1 (production)", LEGACY_V1_25: "Legacy (v1 fund 25%)", V2_25: "v2 fund 25%, no filter",
+    TA_ONLY: "TA only", TA_SENT: "TA + sentiment" };
+  const RV_STREAMS = [{ id: "night", label: "Night (next-day order)" }, { id: "preclose_proxy", label: "Pre-close (historical estimate)" }];
+  function rvLabel(v) { return RV_LABELS[v] || String(v || DASH); }
+
+  /** One variant x stream cell: total A$, additive % after interest, n, paired vs OPTION1. */
+  function rvCell(x, isProd, period, label) {
+    const dl = label || "";
+    if (!obj(x)) return html`<td class="mono right dim" data-label="${dl}">not published</td>`;
+    const n = num(x.n);
+    if (!n) return html`<td class="mono right dim" data-label="${dl}">${period === "live" ? "no trades yet" : "n = 0"}</td>`;
+    const pv = obj(x.paired_vs_option1);
+    let pair = "";
+    if (isProd) pair = html`<span class="rv__pair dim">reference</span>`;
+    else if (pv && num(pv.n) > 0) {
+      const m = num(pv.mean_diff);
+      pair = html`<span class="rv__pair ${sgnCls(m)}" title="${"Per session whose picks differ from Option 1 (" + fmtInt(pv.n) + " sessions): this variant minus Option 1, A$ at the fixed stake" + (num(pv.t) !== null ? "; t = " + fmtNum(pv.t, 2) : "")}">vs Opt 1: ${signedAud(m)}/session${num(pv.t) !== null ? " (t " + fmtNum(pv.t, 1) + ", n " + fmtInt(pv.n) + ")" : " (n " + fmtInt(pv.n) + ")"}</span>`;
+    } else pair = html`<span class="rv__pair dim">same picks as Opt 1</span>`;
+    return html`<td class="rv__cell" data-label="${dl}"><span class="rv__tot ${sgnCls(x.total_pnl_aud)}">${signedAud(x.total_pnl_aud)}</span><span class="rv__add">${addPct(x.additive_pct_after_interest)} after interest · n = ${fmtInt(n)}</span>${pair}</td>`;
+  }
+
+  function rvTable(rv, period, pid) {
+    const per = obj(obj(rv.periods) && rv.periods[period]);
+    const vs = Array.isArray(rv.variants) ? rv.variants : Object.keys(RV_LABELS);
+    const prod = rv.production_variant || "OPTION1";
+    if (!per) return html`<p class="small dim">Period not published.</p>`;
+    if (!num(per.n_sessions)) {
+      return html`<div class="empty-state"><div class="empty-state__title">Live: collecting since ${fmtDate(rv.live_from)}</div>n = 0 so far. From ${fmtDate(rv.live_from)} each night's published candidates are re-ranked under every variant from the published rows only.</div>`;
+    }
+    const by = obj(per.by) || {};
+    const head = html`<tr><th>Variant</th>${RV_STREAMS.map(s => html`<th class="right">${s.label}</th>`)}</tr>`;
+    const rows = vs.map(v => html`<tr class="row-main${v === prod ? " rv--prod" : ""}"><td class="rowh td-full rv__name">${rvLabel(v)}${v === prod ? html` <span class="chip chip--info">live ranking</span>` : ""}</td>${RV_STREAMS.map(s => {
+      const cell = obj(obj(by[v]) && obj(by[v][s.id]) && by[v][s.id][pid]);
+      return rvCell(cell, v === prod, period, s.label);
+    })}</tr>`);
+    return html`<div class="tableWrap"><table class="rv stack" aria-label="${"Ranking variants, " + period}"><thead>${head}</thead><tbody>${rows}</tbody></table></div>
+      <p class="small dim" style="margin:4px 0 0;">${fmtInt(per.n_sessions)} sessions (${fmtDate(per.first_session)} – ${fmtDate(per.last_session)}), ${fmtInt(per.n_candidates)} candidates${num(per.n_filtered_candidates) !== null ? "; " + fmtInt(per.n_filtered_candidates) + " excluded by the fundamentals filter" : ""}${num(per.n_tiebreak_decided_sessions) !== null ? "; the tiebreak changed the picks in " + fmtInt(per.n_tiebreak_decided_sessions) + " session(s)" : ""}${num(per.n_sessions_degraded) ? "; " + fmtInt(per.n_sessions_degraded) + " degraded session(s)" : ""}.</p>`;
+  }
+
+  /** Track record "Ranking variants (tracked)" card body. */
+  function rankingVariantsBlock(data) {
+    const rv = obj(data && data.ranking_variants);
+    if (!rv) return html`<div class="empty-state"><div class="empty-state__title">Not published yet</div>metrics.json has no <code>ranking_variants</code> block yet; it appears after the next metrics run.</div>`;
+    if (rv.error) return html`<div class="empty-state"><div class="empty-state__title">Ranking variants unavailable</div>The last metrics run could not build them (${String(rv.error)}). The track record above is unaffected.</div>`;
+    const pid = rv.default_policy_id || defaultPolicy(data);
+    const desc = obj(rv.descriptions) || {};
+    const vs = Array.isArray(rv.variants) ? rv.variants : [];
+    return html`<p class="small" style="margin:0 0 8px;">The production ranking (<b>${rv.ranking_version || "option1"}</b>) and its alternatives, re-picked on the <b>same candidates</b> every session with the same rules (max 2, one per symbol, one per class). Fixed ${num(rv.stake_aud) !== null ? fmtAud(rv.stake_aud, 0) : "A$25,000"} stake, exit <b>${ITL.policyName(pid)}</b> (default). Each cell: total A$, additive return after margin interest, closed trades, and the paired difference vs Option 1 per session where the picks differ (t near 0 = could be noise).</p>
+      <h3 style="margin:8px 0 4px;font-size:15px;">Backtest <span class="small dim">(sessions before ${fmtDate(rv.live_from)}; fundamentals reconstructed point-in-time)</span></h3>
+      ${rvTable(rv, "backtest", pid)}
+      <h3 style="margin:14px 0 4px;font-size:15px;">Live <span class="small dim">(from ${fmtDate(rv.live_from)}, published rows only)</span></h3>
+      ${rvTable(rv, "live", pid)}
+      <details class="small" style="margin-top:8px;"><summary>What the variants are</summary><ul style="margin:6px 0 0;">${vs.map(v => html`<li><b>${rvLabel(v)}</b>: ${desc[v] || v}</li>`)}</ul>
+        <p style="margin:6px 0 0;">${rv.pit_note || ""}</p></details>`;
+  }
+
   // ── streams.comparison (real simulator shape, v2.1) ─────────────────────
   // DIFF = {n, mean_diff, median_diff, se, t, boot_ci95, share_a_better, sum_diff}
   function tWords(t) {
@@ -734,6 +791,11 @@
       ITL.setHtml($("chartTable"), html`<table><thead><tr><th>Month end</th><th class="right">System</th><th class="right">${p.benchmark && p.benchmark.symbol ? p.benchmark.symbol : "ETF"}</th></tr></thead><tbody>
         ${Object.keys(months).map(m => { const pt = months[m]; const b = valueAt(state.bm, pt.t); return html`<tr><td class="mono">${pt.date}</td><td class="mono right">${fmtAud(pt.v, 0)}</td><td class="mono right">${b ? fmtAud(b.v, 0) : DASH}</td></tr>`; })}
       </tbody></table>`);
+      if ($("rankVariants")) {
+        ITL.setHtml($("rankVariants"), rankingVariantsBlock(d));
+        const rv = obj(d.ranking_variants);
+        ITL.setHtml($("rankVariantsSub"), html`${rv && !rv.error ? "live: " + (rv.periods && rv.periods.live && num(rv.periods.live.n_sessions) ? fmtInt(rv.periods.live.n_sessions) + " sessions" : "collecting since " + fmtDate(rv.live_from)) : ""}`);
+      }
       ITL.setHtml($("policies"), policyTable(d));
       ITL.setHtml($("strategies"), strategyTable(d, state.edges));
       ITL.setHtml($("universe"), universeBlock(d));
@@ -767,6 +829,6 @@
     load();
   }
 
-  return { stakeHero, riskNote, marginKpis, marginOf, pctTick, STREAMS, stakeBy, stakeBlock, stakeSeries, stakeKpis, stakeMatrix, comparisonItems, comparisonBlock, tWords, stakeMethodText, normalizeSel, liveSince, trackedPolicies,
+  return { rankingVariantsBlock, rvTable, rvCell, rvLabel, RV_LABELS, stakeHero, riskNote, marginKpis, marginOf, pctTick, STREAMS, stakeBy, stakeBlock, stakeSeries, stakeKpis, stakeMatrix, comparisonItems, comparisonBlock, tWords, stakeMethodText, normalizeSel, liveSince, trackedPolicies,
     DATA_PATH, fmtAudTick, cleanSeries, toAud, chartModel, chartSvg, valueAt, maxDrawdown, verdictLine, policyTable, strategyTable, tradesTable, notesBlock, universeBlock, legacyView, kpis, boot };
 });
