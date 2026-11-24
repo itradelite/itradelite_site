@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Pre-close picks — iTradeLite</title>
+  <meta name="description" content="iTradeLite pre-close scan: today's ASX signals ~45 minutes before the close, to buy in the closing auction instead of at the next open. Countdown, sizing and three tracked exit plans. Not financial advice." />
+  <link rel="canonical" href="https://www.itradelite.com/preclose/" />
+  <meta property="og:title" content="Pre-close picks — iTradeLite" />
+  <meta property="og:url" content="https://www.itradelite.com/preclose/" />
+  <meta property="og:image" content="https://www.itradelite.com/assets/og.png" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="icon" href="/favicon-96x96.png" sizes="96x96" type="image/png" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+  <script src="/assets/analytics-config.js"></script>
+  <script src="/assets/analytics.js"></script>
+  <link rel="stylesheet" href="/assets/itl.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="container topbar__inner">
+      <a class="brand" href="/" aria-label="iTradeLite home"><img src="/assets/logo.png" alt="" width="26" height="26" /><span>iTradeLite</span></a>
+      <button class="hamburger" id="hamburgerBtn" aria-label="Toggle menu" aria-expanded="false" aria-controls="mainNav">&#9776;</button>
+      <nav class="nav" id="mainNav" aria-label="Primary">
+        <a href="/today/">Today</a>
+        <a href="/live/">Live check</a>
+        <a href="/preclose/">Pre-close</a>
+        <a href="/intraday/">Intraday</a>
+        <a href="/track-record/">Track record</a>
+        <a href="/strategy-decay/">Strategy decay</a>
+        <a href="/how-it-works.html">How it works</a>
+        <a href="/about.html">About</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container pagePad">
+    <div id="itl-health"></div>
+
+    <div class="page-head">
+      <div>
+        <h1>Pre-close picks</h1>
+        <p>Today's signals from a scan ~45 minutes before the close, on today's bar with the live price spliced in. Buy in the closing auction or at market before the close instead of waiting for tomorrow's open. Runs ~15:15 Sydney on trading days; the button runs one on demand (~2&ndash;4 min).</p>
+      </div>
+      <div>
+        <div class="btn-row">
+          <button class="btn btn--ghost" id="reloadBtn" type="button">Reload</button>
+          <button class="btn btn--violet" id="refreshBtn" type="button">Run pre-close scan now</button>
+        </div>
+        <div class="refresh-status" id="refreshStatus" role="status" aria-live="polite"></div>
+      </div>
+    </div>
+
+    <div id="loadError"></div>
+    <div id="banners"></div>
+
+    <section class="card" aria-label="Trade-by deadline">
+      <div class="card__head"><h2>Deadline</h2><a class="small" href="/today/">Night picks (next open) &rarr;</a></div>
+      <div id="deadline"><div class="meta"><span class="pill">Loading&hellip;</span></div></div>
+    </section>
+
+    <section class="controls" aria-label="Sizing">
+      <div class="field"><label for="portfolio">Portfolio (A$)</label>
+        <input id="portfolio" type="text" inputmode="decimal" placeholder="100k" autocomplete="off" />
+        <span class="hint" id="portfolioHint"></span></div>
+      <div class="field"><label for="riskPct">Risk / trade</label>
+        <select id="riskPct"></select></div>
+      <div class="field"><label for="maxPos">Max position %</label>
+        <input id="maxPos" type="number" min="1" max="100" step="1" inputmode="decimal" />
+        <span class="hint" id="maxPosHint">of portfolio per position</span></div>
+      <div class="field field--grow"><span class="hint" style="min-height:0;">Same sizing settings as the Today page (shared). Qty = min(risk budget &divide; |entry ref &minus; stop|, portfolio &times; max position % &divide; entry ref, portfolio &divide; entry ref).</span></div>
+    </section>
+
+    <div id="tables"></div>
+    <div id="why"></div>
+
+    <footer class="site-foot">
+      Rule-based output from delayed live prices; the closing-auction price can differ from the entry ref. Personal research tool, not financial advice.
+      &middot; <a href="/how-it-works.html">How it works</a> &middot; <a href="/track-record/">Track record</a>
+    </footer>
+  </main>
+
+  <script src="/assets/itl.js"></script>
+  <script src="/assets/pages/today.js"></script>
+  <script src="/assets/pages/preclose.js"></script>
+  <script>ITL_PRECLOSE.boot();</script>
+</body>
+</html>

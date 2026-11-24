@@ -643,7 +643,8 @@
     const stop = num(def.initial_stop) !== null ? def.initial_stop : (row ? row.stop : null);
     const items = plans.map(p => {
       const isDef = p === def;
-      return html`<li class="${isDef ? "is-default" : ""}"><span class="xp-name">${policyName(p.policy_id || null) === DASH ? (p.label || DASH) : policyName(p.policy_id)}</span>${isDef ? html`<span class="chip chip--info xp-def" title="The official policy: the live verdict and the track-record headline follow it">default</span>` : ""} <span class="xp-rule">${exitPlanPhrase(p, row)}</span></li>`;
+      const name = p.policy_id ? policyName(p.policy_id) : (p.label || DASH);
+      return html`<li class="${isDef ? "is-default" : ""}" title="${name + (p.label ? " — " + p.label : "")}"><span class="xp-rule">${exitPlanPhrase(p, row)}</span>${isDef ? html` <span class="chip chip--info xp-def" title="The official policy: the live verdict and the track-record headline follow it">default</span>` : ""}</li>`;
     });
     return html`<div class="xplans"><div class="xplans__head"><b>Exit plans</b>${num(stop) !== null ? html` · initial stop <span class="mono neg">${fmtPrice(stop, row)}</span> for all` : ""}${plans.length > 1 ? html` · <span class="small">all ${String(plans.length)} tracked, default first</span>` : ""}</div><ul>${items}</ul></div>`;
   }
@@ -684,6 +685,12 @@
   function tradeByText(deadline) {
     if (!deadline) return DASH;
     return fmtTime(deadline, { tz: TZ_SYD, noTz: true }) + " Sydney (" + fmtTime(deadline, { noTz: true }) + " Brisbane)";
+  }
+
+  /** "15:15 Sydney (14:15 Brisbane)" for any instant. */
+  function sydBneTime(x) {
+    const d = parseIso(x);
+    return d ? tradeByText(d) : DASH;
   }
 
   function countdown(deadline, now) {
@@ -994,7 +1001,7 @@
     banner, staleBanner, outdatedBanner, errorBox, symbolCell, yahooLink, healthBanner,
     isUnknownWorkflow, createRefresher,
     TRACKED_POLICIES, DEFAULT_POLICY, POLICY_NAMES, policyName, exitPlansOf, planKind, exitPlanPhrase, defaultPolicyOf, exitPlansHtml,
-    sydneyWallToDate, precloseDeadline, tradeByText, countdown, precloseWindow, precloseBanner, siteHref,
+    sydneyWallToDate, precloseDeadline, tradeByText, sydBneTime, countdown, precloseWindow, precloseBanner, siteHref,
     initNav, bootCommon, loadNames, loadEdgeVerdicts, edgeBadge,
     STRATEGY_LABELS, ALL_STRATEGIES, strategyLabel,
   };

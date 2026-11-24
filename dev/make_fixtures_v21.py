@@ -188,11 +188,11 @@ pc.update({
 dump("preclose.json", pc)
 
 ps = copy.deepcopy(pc)
-ps.update({"generated_at_utc": "2026-11-21T04:17:00+00:00", "generated_at_bne": "2026-11-21T14:17:00+10:00",
-           "signal_session": "2026-11-21", "valid_for": "2026-11-21", "price_as_of_utc": "2026-11-21T04:15:00+00:00",
-           "stale_after_utc": "2026-11-21T05:10:00+00:00"})
-ps["market_state"] = dict(pc["market_state"], session_date="2026-11-21", close_syd="2026-11-21T16:00:00+11:00",
-                          now_syd="2026-11-21T15:17:00+11:00")
+ps.update({"generated_at_utc": "2026-11-20T04:17:00+00:00", "generated_at_bne": "2026-11-20T14:17:00+10:00",
+           "signal_session": "2026-11-20", "valid_for": "2026-11-20", "price_as_of_utc": "2026-11-20T04:15:00+00:00",
+           "stale_after_utc": "2026-11-20T05:10:00+00:00"})
+ps["market_state"] = dict(pc["market_state"], session_date="2026-11-20", close_syd="2026-11-20T16:00:00+11:00",
+                          now_syd="2026-11-20T15:17:00+11:00")
 dump("pcstale/preclose.json", ps)
 
 pu = copy.deepcopy(pc)
