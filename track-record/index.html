@@ -53,7 +53,10 @@
           <div class="card__head"><h2 id="stakeTitle">Fixed stake on every signal</h2><div class="seg" id="stakeToggle" role="group" aria-label="Which signals"></div></div>
           <div class="card__body">
             <p class="small" id="stakeMethod" style="margin:0;"></p>
-            <div class="kpiGrid kpiGrid--7" id="stakeKpis" style="margin-bottom:12px;"></div>
+            <div id="stakeHero"></div>
+            <div id="stakeRisk"></div>
+            <div class="kpiGrid kpiGrid--7" id="stakeKpis" style="margin-bottom:10px;"></div>
+            <div class="kpiGrid kpiGrid--7" id="stakeMarginKpis" style="margin:0 0 12px;"></div>
             <section class="chart-panel" aria-label="Cumulative P&amp;L" style="margin-bottom:12px;">
               <h3 id="stakeChartTitle">Cumulative P&amp;L (A$)</h3>
               <div class="chart-note" id="stakeChartNote"></div>
@@ -62,7 +65,7 @@
               <details class="data-table"><summary>Show the numbers (month-end values)</summary><div class="tableWrap" id="stakeChartTable"></div></details>
             </section>
             <h3 style="margin:6px 0 2px;font-size:15px;">Night vs pre-close &times; exit policy</h3>
-            <p class="small" style="margin:0 0 4px;">Total P&amp;L and number of trades for each signal stream and tracked exit policy. <b>Pre-close &middot; historical estimate</b> replays past night signals as if bought at that day's close (the pre-close scan itself only exists from now on); <b>pre-close &middot; forward tracking</b> is the real pre-close picks, collected going forward.</p>
+            <p class="small" style="margin:0 0 4px;">Additive return after margin interest (A$ P&amp;L after interest and number of trades beneath) for each signal stream and tracked exit policy; &#9888; = leverage warning. <b>Pre-close &middot; historical estimate</b> replays past night signals as if bought at that day's close (the pre-close scan itself only exists from now on); <b>pre-close &middot; forward tracking</b> is the real pre-close picks, collected going forward.</p>
             <div id="stakeMatrix"></div>
             <h3 style="margin:14px 0 2px;font-size:15px;">Is pre-close better? (paired comparison)</h3>
             <div id="stakeCmp"></div>

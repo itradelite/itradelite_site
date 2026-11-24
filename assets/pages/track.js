@@ -110,7 +110,7 @@
     for (let i = 1; i < endLabels.length; i++) if (endLabels[i].y - endLabels[i - 1].y < 14) endLabels[i].y = endLabels[i - 1].y + 14;
     return html`<svg class="chart-svg" viewBox="0 0 ${w} ${h}" width="${w}" height="${h}" role="img" aria-label="${o.ariaLabel || "Equity chart"}">
       ${model.yTicks.map(t => html`<line class="grid" x1="${pad.padL}" x2="${w - pad.padR}" y1="${t.y.toFixed(1)}" y2="${t.y.toFixed(1)}"></line>
-        <text x="${pad.padL - 8}" y="${(t.y + 4).toFixed(1)}" text-anchor="end">${fmtAudTick(t.v, model.step)}</text>`)}
+        <text x="${pad.padL - 8}" y="${(t.y + 4).toFixed(1)}" text-anchor="end">${o.tickFmt ? o.tickFmt(t.v, model.step) : fmtAudTick(t.v, model.step)}</text>`)}
       <line class="base" x1="${pad.padL}" x2="${w - pad.padR}" y1="${h - pad.padB}" y2="${h - pad.padB}"></line>
       ${o.zeroLine && model.y0 < 0 && model.y1 > 0 ? html`<line class="base zero" x1="${pad.padL}" x2="${w - pad.padR}" y1="${model.y(0).toFixed(1)}" y2="${model.y(0).toFixed(1)}" stroke-dasharray="4 3"></line>` : ""}
       ${model.xTicks.map(t => html`<text x="${t.x.toFixed(1)}" y="${h - pad.padB + 18}" text-anchor="middle">${t.label}</text>`)}
@@ -356,12 +356,93 @@
   function stakeAud(data) { const st = obj(data && data.stake); return st && num(st.stake_aud) !== null ? num(st.stake_aud) : null; }
 
   function signedAud(v) { const n = num(v); return n === null ? DASH : (n > 0 ? "+" : "") + fmtAud(n, 0); }
+  function signedAudC(v) { const n = num(v); return n === null ? DASH : (n > 0 ? "+" : "") + fmtAud(n, Math.abs(n) < 100 && n !== 0 ? 2 : 0); }
   function shortSigned(v) { const n = num(v); return n === null ? DASH : (n > 0 ? "+" : "") + fmtAudShort(n); }
   function sgnCls(v) { const n = num(v); return n === null || n === 0 ? "" : n > 0 ? "pos" : "neg"; }
 
   function stakeSeries(block) {
     const arr = block && Array.isArray(block.pnl_curve) ? block.pnl_curve : [];
     return cleanSeries(arr.map(p => p && typeof p === "object" ? { date: p.date, equity: p.cum_pnl_aud } : null));
+  }
+
+  // ── Owner's funding model: own capital + margin (stake.by[s][p].margin) ─
+  function marginOf(block) { return obj(block && block.margin); }
+  function addPct(v) { const n = num(v); return n === null ? DASH : fmtPct(n, { dp: 1, sign: true }); }
+  function pctTick(v, step) { return (v > 0 ? "+" : "") + fmtNum(v, step >= 1 ? 0 : 1) + "%"; }
+
+  /** Headline: additive % after interest (owner's model) next to the A$ P&L. */
+  function stakeHero(data, sel) {
+    const block = stakeBlock(data, sel.stream, sel.policy, sel.all) || {};
+    const m = marginOf(block);
+    const none = !num(block.n);
+    const stake = stakeAud(data);
+    if (!m) {
+      return html`<div class="hero-stats"><div class="hero-stat"><div class="kpiLabel">Total P&L (A$)</div><div class="hero-stat__v ${none ? "" : sgnCls(block.total_pnl_aud)}">${none ? DASH : signedAud(block.total_pnl_aud)}</div><div class="kpiSub">additive return on the margin model not published in this file yet</div></div></div>`;
+    }
+    const st = obj(data && data.stake) || {};
+    const own = num(m.own_capital_aud) !== null ? num(m.own_capital_aud) : num(st.own_capital_aud);
+    const rate = num(m.margin_rate_pa) !== null ? num(m.margin_rate_pa) : num(st.margin_rate_pa);
+    const gross = num(m.additive_pct), netp = num(m.additive_pct_after_interest);
+    const wiped = !none && gross !== null && netp !== null && netp < 0 && gross >= netp ? (gross > 0 ? "Margin interest more than wiped out the gross return." : "Negative even before interest; interest made it worse.") : "";
+    return html`<div class="hero-stats">
+      <div class="hero-stat hero-stat--main"><div class="kpiLabel">Additive return (your model)</div>
+        <div class="hero-stat__v ${none ? "" : sgnCls(m.additive_pct_after_interest)}">${none ? DASH : addPct(m.additive_pct_after_interest)}</div>
+        <div class="kpiSub">after margin interest · before interest ${none ? DASH : addPct(m.additive_pct)} · interest ${none ? DASH : "-" + fmtAud(Math.abs(num(m.interest_aud) || 0), 0)}</div>
+        ${wiped ? html`<div class="kpiSub neg"><b>${wiped}</b></div>` : ""}
+        <div class="kpiSub">sum of every trade's net % on its ${stake !== null ? fmtAud(stake, 0) : "fixed"} stake; own capital ${own !== null ? fmtAud(own, 0) : DASH} funds the first trade, each further open trade is on margin at ${rate !== null ? fmtPct(rate, { fraction: true, dp: rate * 100 % 1 ? 1 : 0 }) : DASH} p.a.</div></div>
+      <div class="hero-stat"><div class="kpiLabel">P&L after interest (A$)</div>
+        <div class="hero-stat__v ${none ? "" : sgnCls(m.net_pnl_after_interest_aud)}">${none ? DASH : signedAud(m.net_pnl_after_interest_aud)}</div>
+        <div class="kpiSub">before interest ${none ? DASH : signedAud(block.total_pnl_aud)} · ${fmtInt(block.n)} closed trades</div></div>
+    </div>`;
+  }
+
+  function lvrThreshold(data) {
+    const st = obj(data && data.stake);
+    const t = st ? num(st.lvr_warning_threshold) : null;
+    return t !== null && t > 0 && t < 2 ? t : 0.7;
+  }
+
+  function equityWords(m) {
+    const me = num(m.min_equity_aud);
+    if (me === null) return "";
+    return me < 0 ? " (equity went negative, lowest " + signedAud(me) + ": the loan exceeded the positions' value)" : " (lowest equity " + fmtAud(me, 0) + ")";
+  }
+
+  /** Factual leverage / drawdown note; never hidden when a flag is set.
+   *  peak_lvr = worst DAILY borrowed / position value (what a lender checks). */
+  function riskNote(data, sel) {
+    const block = stakeBlock(data, sel.stream, sel.policy, sel.all) || {};
+    const m = marginOf(block);
+    if (!m || !num(block.n)) return html``;
+    const lvr = num(m.peak_lvr), dd = num(m.max_drawdown_pct_of_own_capital);
+    const thr = lvrThreshold(data);
+    const parts = [];
+    if (lvr !== null) parts.push("Peak borrowing would have been " + fmtPct(lvr, { fraction: true, dp: 0 }) + " of position value" + (m.peak_lvr_date ? " (" + fmtDate(m.peak_lvr_date) + ")" : "") + (m.lvr_warning ? " — above the ~" + fmtPct(thr, { fraction: true, dp: 0 }) + " most ASX margin lenders allow" : ""));
+    if (dd !== null) parts.push("worst drawdown " + fmtPct(-Math.abs(dd), { dp: 0 }) + " of your own capital" + equityWords(m) + (m.margin_call_risk ? " → margin-call territory" : ""));
+    if (num(m.peak_borrowed_aud)) parts.push("most borrowed " + fmtAud(m.peak_borrowed_aud, 0) + (m.peak_borrowed_date ? " on " + fmtDate(m.peak_borrowed_date) : ""));
+    if (num(m.worst_day_mtm_loss_aud) !== null) parts.push("worst single day " + signedAud(m.worst_day_mtm_loss_aud) + (m.worst_day_mtm_loss_date ? " (" + fmtDate(m.worst_day_mtm_loss_date) + ")" : "") + " marked to market");
+    if (!parts.length) return html``;
+    const flagged = m.lvr_warning === true || m.margin_call_risk === true;
+    const text = parts.join("; ") + ".";
+    const cap = text.charAt(0).toUpperCase() + text.slice(1);
+    return flagged
+      ? ITL.banner("warn", "Leverage risk in this model", html`${cap} Drawdown is measured from the equity peak and divided by your own capital, so it can exceed −100% while equity stays positive. The additive return assumes every trade could be funded and no position was force-sold.`, m.margin_call_risk ? "MARGIN CALL RISK" : "HIGH LVR")
+      : html`<p class="small" style="margin:6px 0 0;">${cap}</p>`;
+  }
+
+  function marginKpis(data, sel) {
+    const block = stakeBlock(data, sel.stream, sel.policy, sel.all) || {};
+    const m = marginOf(block);
+    if (!m) return html``;
+    const none = !num(block.n);
+    const box = (label, val, cls, sub) => html`<div class="kpiBox"><div class="kpiLabel">${label}</div><div class="kpiValue ${cls || ""}">${val}</div>${sub ? html`<div class="kpiSub">${sub}</div>` : ""}</div>`;
+    const dd = num(m.max_drawdown_pct_of_own_capital);
+    const me = num(m.min_equity_aud);
+    return html`
+      ${box("Peak borrowed", none ? DASH : fmtAud(m.peak_borrowed_aud, 0), "", (m.peak_borrowed_date ? fmtDate(m.peak_borrowed_date) + " · " : "") + (num(m.avg_borrowed_aud) !== null ? "avg " + fmtAudShort(num(m.avg_borrowed_aud)) : "beyond your own capital"))}
+      ${box("Peak LVR (daily)", none ? DASH : fmtPct(m.peak_lvr, { fraction: true, dp: 0 }), m.lvr_warning ? "neg" : "", m.lvr_warning ? "above ~" + fmtPct(lvrThreshold(data), { fraction: true, dp: 0 }) + " lender limit" : "borrowed ÷ position value")}
+      ${box("Max drawdown (own capital)", none || dd === null ? DASH : fmtPct(-Math.abs(dd), { dp: 0 }), dd ? "neg" : "", me !== null && !none ? (me < 0 ? "equity went negative: " + signedAud(me) : "lowest equity " + fmtAud(me, 0)) + (m.margin_call_risk ? " · margin-call territory" : "") : "of own capital")}
+      ${box("Worst day (MTM)", none ? DASH : signedAud(m.worst_day_mtm_loss_aud), num(m.worst_day_mtm_loss_aud) < 0 ? "neg" : "", m.worst_day_mtm_loss_date ? fmtDate(m.worst_day_mtm_loss_date) : "open positions marked to market")}`;
   }
 
   function stakeKpis(data, sel) {
@@ -376,12 +457,12 @@
     return html`
       ${box("Total P&L", none ? DASH : signedAud(block.total_pnl_aud), none ? "" : sgnCls(block.total_pnl_aud), nOpen ? "closed trades; +" + fmtInt(nOpen) + " open (" + signedAud(block.open_pnl_aud_mtm) + " at last close)" : "closed trades, after costs")}
       ${box("Trades", fmtInt(block.n), "", none ? "none yet" : "every signal taken")}
-      ${box("Avg per trade", signedAud(block.avg_pnl_aud), sgnCls(block.avg_pnl_aud), ci ? "95% range " + shortSigned(ci[0]) + " to " + shortSigned(ci[1]) : num(block.median_pnl_aud) !== null ? "median " + signedAud(block.median_pnl_aud) : "per " + (stake !== null ? fmtAud(stake, 0) : "fixed") + " stake")}
+      ${box("Avg per trade", signedAudC(block.avg_pnl_aud), sgnCls(block.avg_pnl_aud), ci ? "95% range " + shortSigned(ci[0]) + " to " + shortSigned(ci[1]) : num(block.median_pnl_aud) !== null ? "median " + signedAud(block.median_pnl_aud) : "per " + (stake !== null ? fmtAud(stake, 0) : "fixed") + " stake")}
       ${box("Win rate", fmtRate(block.winrate), "", num(block.median_pnl_aud) !== null ? "median trade " + signedAud(block.median_pnl_aud) : "")}
       ${box("Best / worst", html`<span class="${sgnCls(block.best_aud)}">${shortSigned(block.best_aud)}</span> <span class="dim">/</span> <span class="${sgnCls(block.worst_aud)}">${shortSigned(block.worst_aud)}</span>`, "kpiValue--split", "single trade")}
       ${box("Peak capital needed", none ? DASH : fmtAud(block.peak_capital_aud, 0), "", num(block.peak_concurrent_positions) && !none ? fmtInt(block.peak_concurrent_positions) + " positions at once" + (block.peak_capital_date ? " on " + fmtDate(block.peak_capital_date) : "") : "max open positions × stake")}
       ${box("Return on peak capital", fmtPct(rpc, { fraction: true, sign: true }), sgnCls(rpc), "total P&L ÷ peak capital")}
-      ${box("Max drawdown", none ? DASH : signedAud(block.max_drawdown_aud), num(block.max_drawdown_aud) < 0 ? "neg" : "", num(block.avg_capital_deployed_aud) !== null && !none ? "avg deployed " + fmtAudShort(num(block.avg_capital_deployed_aud)) : "of cumulative P&L")}`;
+      ${box("Max drawdown (A$)", none ? DASH : signedAud(block.max_drawdown_aud), num(block.max_drawdown_aud) < 0 ? "neg" : "", num(block.avg_capital_deployed_aud) !== null && !none ? "avg deployed " + fmtAudShort(num(block.avg_capital_deployed_aud)) : "of cumulative P&L")}`;
   }
 
   function stakeMatrix(data, sel) {
@@ -394,10 +475,12 @@
       const n = b ? num(b.n) : null;
       const pressed = sel.stream === st.id && sel.policy === p;
       const empty = !b || n === 0 || n === null;
-      const val = !b ? "not published" : n === 0 ? (st.id === "preclose_live" ? "collecting data since " + fmtDate(since) : "no trades") : signedAud(b.total_pnl_aud);
-      return html`<td><button type="button" class="mcell ${empty ? "mcell--empty" : ""}" data-stream="${st.id}" data-policy="${p}" aria-pressed="${pressed ? "true" : "false"}" title="${"Show " + st.label + " · " + ITL.policyName(p)}"><span class="mcell__v ${empty ? "" : sgnCls(b.total_pnl_aud)}">${val}</span><span class="mcell__n">n = ${n === null ? DASH : fmtInt(n)}${b && n ? " · avg " + signedAud(b.avg_pnl_aud) : ""}</span></button></td>`;
+      const mg = marginOf(b);
+      const val = !b ? "not published" : n === 0 ? (st.id === "preclose_live" ? "collecting data since " + fmtDate(since) : "no trades") : mg ? addPct(mg.additive_pct_after_interest) : signedAud(b.total_pnl_aud);
+      const valCls = empty ? "" : sgnCls(mg ? mg.additive_pct_after_interest : b.total_pnl_aud);
+      return html`<td><button type="button" class="mcell ${empty ? "mcell--empty" : ""}" data-stream="${st.id}" data-policy="${p}" aria-pressed="${pressed ? "true" : "false"}" title="${"Show " + st.label + " · " + ITL.policyName(p)}"><span class="mcell__v ${valCls}">${val}</span><span class="mcell__n">${mg && n ? signedAud(mg.net_pnl_after_interest_aud) + " · " : ""}n = ${n === null ? DASH : fmtInt(n)}${b && n && !mg ? " · avg " + signedAud(b.avg_pnl_aud) : ""}${mg && n && (mg.lvr_warning || mg.margin_call_risk) ? " · ⚠" : ""}</span></button></td>`;
     })}</tr>`);
-    return html`<div class="tableWrap"><table class="matrix" aria-label="Total P&L by stream and exit policy"><thead>${head}</thead><tbody>${rows}</tbody></table></div>`;
+    return html`<div class="tableWrap"><table class="matrix" aria-label="Additive return by stream and exit policy"><thead>${head}</thead><tbody>${rows}</tbody></table></div>`;
   }
 
   // ── streams.comparison (real simulator shape, v2.1) ─────────────────────
@@ -499,7 +582,8 @@
     const stake = stakeAud(data);
     return (stake !== null ? fmtAud(stake, 0) : "A fixed stake") + " on every " + (sel.all ? "setup (valid and near-miss, not only the recommended orders)" : "recommended order") +
       ", capital assumed sufficient (no max-2 or position caps), P&L simply added up — no compounding" +
-      (num(st.brokerage_per_side_aud) !== null ? "; brokerage " + fmtAud(st.brokerage_per_side_aud, 2) + " per side" : "") + ".";
+      (num(st.brokerage_per_side_aud) !== null ? "; brokerage " + fmtAud(st.brokerage_per_side_aud, 2) + " per side" : "") + "." +
+      (marginOf(stakeBlock(data, sel.stream, sel.policy, sel.all)) ? " Funding: your own capital pays for the first open trade; every further trade open at the same time is bought on margin, interest charged per day held." : "");
   }
 
   function normalizeSel(data, saved) {
@@ -527,7 +611,7 @@
       const narrow = w < 560;
       const h = narrow ? 240 : (opts.height || 320);
       const model = chartModel(list.filter(s => s.points.length), w, h, { padL: narrow ? 58 : 66, padR: narrow ? 10 : (opts.padR || 140) });
-      ITL.setHtml(host, chartSvg(model, { endLabels: !narrow && opts.endLabels !== false, ariaLabel: opts.ariaLabel, zeroLine: opts.zeroLine, emptyText: opts.emptyText }));
+      ITL.setHtml(host, chartSvg(model, { endLabels: !narrow && opts.endLabels !== false, ariaLabel: opts.ariaLabel, zeroLine: opts.zeroLine, emptyText: opts.emptyText, tickFmt: opts.tickFmt }));
       if (ids.legend) ITL.setHtml($(ids.legend), opts.legend || html``);
       const svg = host.querySelector("svg");
       const tip = $(ids.tip);
@@ -578,19 +662,21 @@
       if (!state.data || !$("stakeChartHost")) return;
       const sel = state.sel;
       const block = stakeBlock(state.data, sel.stream, sel.policy, sel.all);
-      const pts = stakeSeries(block);
+      const mg = marginOf(block);
+      const useAdd = !!(mg && Array.isArray(mg.additive_curve));
+      const pts = useAdd ? cleanSeries(mg.additive_curve.map(p => p && typeof p === "object" ? { date: p.date, equity: p.cum_additive_pct_after_interest } : null)) : stakeSeries(block);
       const label = streamLabel(sel.stream) + " · " + ITL.policyName(sel.policy);
       const empty = block && num(block.n) === 0 && sel.stream === "preclose_live" ? "No trades yet: forward tracking is collecting data since " + fmtDate(liveSince(state.data)) + "." : "No P&L curve published for this stream / policy yet.";
-      drawLines({ host: "stakeChartHost", tip: "stakeChartTip" }, [{ key: "pnl", label: "Cumulative P&L", color: C_SYS, points: pts }], {
-        ariaLabel: "Cumulative P&L in A$ by date: " + label, zeroLine: true, emptyText: empty, padR: 16, endLabels: false,
-        fmt: (v) => signedAud(v),
+      drawLines({ host: "stakeChartHost", tip: "stakeChartTip" }, [{ key: "pnl", label: useAdd ? "Additive return" : "Cumulative P&L", color: C_SYS, points: pts }], {
+        ariaLabel: (useAdd ? "Cumulative additive return after interest, % of stake, by date: " : "Cumulative P&L in A$ by date: ") + label, zeroLine: true, emptyText: empty, padR: 16, endLabels: false,
+        fmt: useAdd ? (v) => addPct(v) : (v) => signedAud(v), tickFmt: useAdd ? pctTick : null,
       });
-      ITL.setHtml($("stakeChartTitle"), html`Cumulative P&L (A$) — ${label}${sel.all ? " · all setups" : ""}`);
+      ITL.setHtml($("stakeChartTitle"), html`${useAdd ? "Additive return after interest (%)" : "Cumulative P&L (A$)"} — ${label}${sel.all ? " · all setups" : ""}`);
       const first = pts[0], last = pts[pts.length - 1];
-      ITL.setHtml($("stakeChartNote"), html`${first ? html`${fmtDate(first.date)} – ${fmtDate(last.date)}. ` : ""}Running total of every trade's A$ result on its exit date${sel.stream === "preclose_proxy" ? html` · <b>historical estimate</b>: the night signals as if bought at that day's close` : sel.stream === "preclose_live" ? html` · <b>forward tracking</b> of the real pre-close picks` : ""}.`);
+      ITL.setHtml($("stakeChartNote"), html`${first ? html`${fmtDate(first.date)} – ${fmtDate(last.date)}. ` : ""}${useAdd ? "Running sum of every trade's net % on its stake, minus margin interest, by exit date" : "Running total of every trade's A$ result on its exit date"}${sel.stream === "preclose_proxy" ? html` · <b>historical estimate</b>: the night signals as if bought at that day's close` : sel.stream === "preclose_live" ? html` · <b>forward tracking</b> of the real pre-close picks` : ""}.`);
       const months = {};
       pts.forEach(pt => { months[pt.date.slice(0, 7)] = pt; });
-      ITL.setHtml($("stakeChartTable"), pts.length ? html`<table><thead><tr><th>Month end</th><th class="right">Cumulative P&L</th></tr></thead><tbody>${Object.keys(months).map(m => html`<tr><td class="mono">${months[m].date}</td><td class="mono right">${signedAud(months[m].v)}</td></tr>`)}</tbody></table>` : html`<p class="small">No data.</p>`);
+      ITL.setHtml($("stakeChartTable"), pts.length ? html`<table><thead><tr><th>Month end</th><th class="right">${useAdd ? "Additive % after interest" : "Cumulative P&L"}</th></tr></thead><tbody>${Object.keys(months).map(m => html`<tr><td class="mono">${months[m].date}</td><td class="mono right">${useAdd ? addPct(months[m].v) : signedAud(months[m].v)}</td></tr>`)}</tbody></table>` : html`<p class="small">No data.</p>`);
     }
 
     function renderStake() {
@@ -607,7 +693,10 @@
       ITL.setHtml($("stakeTitle"), html`${stake !== null ? fmtAud(stake, 0) : "Fixed stake"} on every signal`);
       ITL.setHtml($("stakeToggle"), html`<button type="button" data-all="0" aria-pressed="${sel.all ? "false" : "true"}">Recommended orders</button><button type="button" data-all="1" aria-pressed="${sel.all ? "true" : "false"}"${hasAll ? "" : html` disabled title="stake.all_setups not published"`}>All setups</button>`);
       ITL.setHtml($("stakeMethod"), html`${stakeMethodText(d, sel)} Showing <b>${streamLabel(sel.stream)}</b> with exit <b>${ITL.policyName(sel.policy)}</b>${sel.policy === defaultPolicy(d) ? " (default)" : ""}; click another cell of the matrix to switch.`);
+      ITL.setHtml($("stakeHero"), stakeHero(d, sel));
+      ITL.setHtml($("stakeRisk"), riskNote(d, sel));
       ITL.setHtml($("stakeKpis"), stakeKpis(d, sel));
+      ITL.setHtml($("stakeMarginKpis"), marginKpis(d, sel));
       ITL.setHtml($("stakeMatrix"), stakeMatrix(d, sel));
       ITL.setHtml($("stakeCmp"), comparisonBlock(d, sel));
       drawStakeChart();
@@ -678,6 +767,6 @@
     load();
   }
 
-  return { STREAMS, stakeBy, stakeBlock, stakeSeries, stakeKpis, stakeMatrix, comparisonItems, comparisonBlock, tWords, stakeMethodText, normalizeSel, liveSince, trackedPolicies,
+  return { stakeHero, riskNote, marginKpis, marginOf, pctTick, STREAMS, stakeBy, stakeBlock, stakeSeries, stakeKpis, stakeMatrix, comparisonItems, comparisonBlock, tWords, stakeMethodText, normalizeSel, liveSince, trackedPolicies,
     DATA_PATH, fmtAudTick, cleanSeries, toAud, chartModel, chartSvg, valueAt, maxDrawdown, verdictLine, policyTable, strategyTable, tradesTable, notesBlock, universeBlock, legacyView, kpis, boot };
 });

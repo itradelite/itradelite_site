@@ -462,3 +462,13 @@ details.card--fold:not([open]) > summary { border-bottom: none; }
   .mcell { min-height: 0; }
   .mcell--empty .mcell__v { font-size: 11px; }
 }
+
+/* Track record hero: additive return (owner's model) */
+.hero-stats { display: grid; grid-template-columns: 1.4fr 1fr; gap: 12px; margin: 12px 0 4px; }
+.hero-stat { background: var(--card-bg-2); border: 1px solid var(--border); border-radius: 12px; padding: 14px 16px; }
+.hero-stat--main { border-left: 4px solid var(--accent); }
+.hero-stat__v { font: 600 38px var(--mono-font); margin: 4px 0 2px; color: var(--text-main); letter-spacing: -1px; }
+.hero-stat__v.pos { color: var(--accent-green); }
+.hero-stat__v.neg { color: var(--accent-red); }
+@media (max-width: 700px) { .hero-stats { grid-template-columns: 1fr; } .hero-stat__v { font-size: 30px; } }
+@media (max-width: 600px) { .banner { flex-direction: column; gap: 6px; } }

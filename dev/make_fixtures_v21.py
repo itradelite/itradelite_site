@@ -312,6 +312,67 @@ mt["stake"] = {
 # live data): stake / streams / tracked_policy_ids are copied verbatim so the
 # fixtures have the exact production shape; the synthetic blocks above are
 # only the fallback.
+RATE = 0.09
+
+
+def add_margin(stake_root, own=25000.0):
+    """FIXTURE ESTIMATE of the owner's funding model (coordinator spec,
+    24 Nov): own capital = one stake funds the first trade, every further
+    concurrent trade is on margin at 9% p.a. The simulator computes this
+    exactly per day held; here it is approximated from avg_capital_deployed
+    so the site has the right SHAPE until the real file arrives. Replaces
+    any existing margin block (idempotent)."""
+    by_roots = [stake_root.get("by") or {}]
+    a = stake_root.get("all_setups")
+    if isinstance(a, dict):
+        by_roots.append(a.get("by") if isinstance(a.get("by"), dict) else a)
+    for by in by_roots:
+        for stream, pols in by.items():
+            if not isinstance(pols, dict):
+                continue
+            for pid, b in pols.items():
+                if not isinstance(b, dict):
+                    continue
+                n = b.get("n") or 0
+                curve = b.get("pnl_curve") if isinstance(b.get("pnl_curve"), list) else None
+                if not n:
+                    b["margin"] = {"own_capital_aud": own, "margin_rate_pa": RATE, "additive_pct": 0.0, "interest_aud": 0.0,
+                                   "net_pnl_after_interest_aud": 0.0, "additive_pct_after_interest": 0.0, "peak_borrowed_aud": 0.0,
+                                   "peak_lvr": None, "max_drawdown_pct_of_own_capital": None, "worst_day_mtm_loss_aud": None,
+                                   "additive_curve": [] if curve is not None else None, "lvr_warning": False, "margin_call_risk": False}
+                    continue
+                stake = STAKE
+                avg_ret = b.get("avg_ret_pct_on_stake")
+                add = round(avg_ret * n, 2) if avg_ret is not None else round((b.get("total_pnl_aud") or 0) / stake * 100, 2)
+                dates = [c["date"] for c in (curve or [])]
+                span = (date.fromisoformat(dates[-1]) - date.fromisoformat(dates[0])).days if len(dates) > 1 else 280
+                deployed = b.get("avg_capital_deployed_aud") or own
+                interest = round(max(0.0, deployed - own) * RATE * span / 365.0, 2)
+                peak = b.get("peak_capital_aud") or 0.0
+                borrowed = max(0.0, peak - own)
+                lvr = round(borrowed / peak, 4) if peak else None
+                mdd = b.get("max_drawdown_aud")
+                mdd_pct = round((mdd - interest * 0.1) / own * 100, 1) if mdd is not None else None
+                ac = None
+                if curve is not None:
+                    ac = []
+                    for i, c in enumerate(curve):
+                        frac = (i + 1) / len(curve)
+                        ac.append({"date": c["date"], "cum_additive_pct_after_interest": round((c["cum_pnl_aud"] - interest * frac) / stake * 100, 2)})
+                b["margin"] = {
+                    "own_capital_aud": own, "margin_rate_pa": RATE,
+                    "additive_pct": add, "interest_aud": interest,
+                    "net_pnl_after_interest_aud": round((b.get("total_pnl_aud") or 0) - interest, 2),
+                    "additive_pct_after_interest": round(add - interest / stake * 100, 2),
+                    "peak_borrowed_aud": borrowed, "peak_lvr": lvr,
+                    "max_drawdown_pct_of_own_capital": mdd_pct,
+                    "worst_day_mtm_loss_aud": round(min(b.get("worst_aud") or 0, 0) * 1.4, 2),
+                    "additive_curve": ac,
+                    "lvr_warning": bool(lvr is not None and lvr > 0.70),
+                    "margin_call_risk": bool(mdd_pct is not None and mdd_pct < -50),
+                }
+
+
 REAL = os.path.join(ROOT, "dev", "real_metrics_v21.json")
 if os.path.exists(REAL):
     with open(REAL) as f:
@@ -322,12 +383,16 @@ if os.path.exists(REAL):
     # whole real file as its own fixture set (?fixtures=1&set=real), with a
     # stale_after far enough out that screenshots do not show STALE
     rr = copy.deepcopy(real)
+    if not any(isinstance(pb, dict) and "margin" in pb for pols in (rr.get("stake", {}).get("by") or {}).values() for pb in pols.values()):
+        add_margin(rr["stake"])  # real file predates the margin block: fixture estimate
     rr["stale_after_utc"] = "2026-12-31T00:00:00+00:00"
     rp = os.path.join(FX, "real", "metrics.json")
     os.makedirs(os.path.dirname(rp), exist_ok=True)
     with open(rp, "w") as f:  # compact: it is big
         json.dump(rr, f, ensure_ascii=False, separators=(",", ":"))
         f.write("\n")
+if not any(isinstance(pb, dict) and "margin" in pb for pols in (mt["stake"].get("by") or {}).values() for pb in pols.values()):
+    add_margin(mt["stake"])  # synthetic / pre-margin real blocks: fixture estimate
 dump("metrics.json", mt)
 
 # edge metrics: no stake / streams at all (older backend) -> site must say "not published yet"
