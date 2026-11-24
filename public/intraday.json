@@ -1,23 +1,23 @@
 {
   "schema": "itl.intraday.v2",
   "job": "intraday_scan",
-  "generated_at_utc": "2026-11-23T23:11:14+00:00",
-  "generated_at_bne": "2026-11-24T09:11:14+10:00",
+  "generated_at_utc": "2026-11-24T03:20:52+00:00",
+  "generated_at_bne": "2026-11-24T13:20:52+10:00",
   "market_state": {
-    "now_syd": "2026-11-24T10:11:14.073233+11:00",
-    "now_bne": "2026-11-24T09:11:14.073233+10:00",
+    "now_syd": "2026-11-24T14:20:52.276083+11:00",
+    "now_bne": "2026-11-24T13:20:52.276083+10:00",
     "trading_day": true,
     "phase": "open",
     "session_date": "2026-11-24",
     "open_syd": "2026-11-24T10:00:00+11:00",
     "close_syd": "2026-11-24T16:00:00+11:00",
-    "minutes_to_close": 348.7654461166667,
-    "minutes_since_open": 11.234553883333332,
+    "minutes_to_close": 99.12873195,
+    "minutes_since_open": 260.87126805,
     "last_completed_session": "2026-11-23",
     "next_session": "2026-11-25"
   },
-  "stale_after_utc": "2026-11-24T01:41:14+00:00",
-  "run_id": "45286520955.1",
+  "stale_after_utc": "2026-11-24T05:30:00+00:00",
+  "run_id": "45318830845.1",
   "session_closed": false,
   "market_open": true,
   "scanned_in_session": true,
@@ -47,5 +47,328 @@
   },
   "errors": [],
   "reason": null,
-  "signals": []
+  "signals": [
+    {
+      "strategy": "Trend Pullback",
+      "direction": "long",
+      "entry": 64.67,
+      "stop": 64.4607,
+      "target": 64.9239,
+      "score": 100,
+      "signal_time": "13:00 AEST 24 Nov",
+      "note": "Intraday pullback to EMA20 (64.618), RSI14=49.5, vol dry. ATR=0.1693. Stop below 64.4607.",
+      "symbol": "AMC.AX",
+      "interval": "30m",
+      "bar_time_utc": "2026-11-24T03:00:00+00:00",
+      "bar_is_complete": false,
+      "bar_elapsed_fraction": 0.696,
+      "other_signals": [
+        {
+          "interval": "15m",
+          "strategy": "Trend Pullback",
+          "score": 100
+        }
+      ]
+    },
+    {
+      "strategy": "Trend Pullback",
+      "direction": "long",
+      "entry": 5.27,
+      "stop": 5.1811,
+      "target": 5.3284,
+      "score": 100,
+      "signal_time": "13:00 AEST 24 Nov",
+      "note": "Intraday pullback to EMA20 (5.270), RSI14=43.6, vol dry. ATR=0.0389. Stop below 5.1811.",
+      "symbol": "MPL.AX",
+      "interval": "1h",
+      "bar_time_utc": "2026-11-24T03:00:00+00:00",
+      "bar_is_complete": false,
+      "bar_elapsed_fraction": 0.348,
+      "other_signals": [
+        {
+          "interval": "30m",
+          "strategy": "Trend Pullback",
+          "score": 100
+        },
+        {
+          "interval": "15m",
+          "strategy": "Trend Pullback",
+          "score": 100
+        }
+      ]
+    },
+    {
+      "strategy": "Trend Pullback",
+      "direction": "long",
+      "entry": 6.67,
+      "stop": 6.6243,
+      "target": 6.7086,
+      "score": 100,
+      "signal_time": "13:00 AEST 24 Nov",
+      "note": "Intraday pullback to EMA20 (6.669), RSI14=48.5, vol dry. ATR=0.0257. Stop below 6.6243.",
+      "symbol": "NHF.AX",
+      "interval": "15m",
+      "bar_time_utc": "2026-11-24T03:00:00+00:00",
+      "bar_is_complete": true,
+      "bar_elapsed_fraction": 1.0
+    },
+    {
+      "strategy": "Trend Pullback",
+      "direction": "long",
+      "entry": 21.72,
+      "stop": 21.5804,
+      "target": 21.8245,
+      "score": 100,
+      "signal_time": "13:00 AEST 24 Nov",
+      "note": "Intraday pullback to EMA20 (21.704), RSI14=42.7, vol dry. ATR=0.0696. Stop below 21.5804.",
+      "symbol": "SHL.AX",
+      "interval": "15m",
+      "bar_time_utc": "2026-11-24T03:00:00+00:00",
+      "bar_is_complete": true,
+      "bar_elapsed_fraction": 1.0
+    },
+    {
+      "strategy": "Trend Pullback",
+      "direction": "long",
+      "entry": 5.505,
+      "stop": 5.4261,
+      "target": 5.5634,
+      "score": 100,
+      "signal_time": "13:00 AEST 24 Nov",
+      "note": "Intraday pullback to EMA20 (5.496), RSI14=57.1, vol dry. ATR=0.0389. Stop below 5.4261.",
+      "symbol": "TLC.AX",
+      "interval": "1h",
+      "bar_time_utc": "2026-11-24T03:00:00+00:00",
+      "bar_is_complete": false,
+      "bar_elapsed_fraction": 0.348,
+      "other_signals": [
+        {
+          "interval": "30m",
+          "strategy": "Trend Pullback",
+          "score": 100
+        },
+        {
+          "interval": "15m",
+          "strategy": "Trend Pullback",
+          "score": 100
+        }
+      ]
+    },
+    {
+      "strategy": "Trend Pullback",
+      "direction": "long",
+      "entry": 3.985,
+      "stop": 3.9425,
+      "target": 4.0112,
+      "score": 100,
+      "signal_time": "13:00 AEST 24 Nov",
+      "note": "Intraday pullback to EMA20 (3.979), RSI14=57.1, vol dry. ATR=0.0175. Stop below 3.9425.",
+      "symbol": "TPG.AX",
+      "interval": "30m",
+      "bar_time_utc": "2026-11-24T03:00:00+00:00",
+      "bar_is_complete": false,
+      "bar_elapsed_fraction": 0.696,
+      "other_signals": [
+        {
+          "interval": "15m",
+          "strategy": "Trend Pullback",
+          "score": 100
+        }
+      ]
+    },
+    {
+      "strategy": "Trend Pullback",
+      "direction": "long",
+      "entry": 168.46,
+      "stop": 166.7397,
+      "target": 169.5405,
+      "score": 100,
+      "signal_time": "13:00 AEST 24 Nov",
+      "note": "Intraday pullback to EMA20 (168.204), RSI14=58.2, vol dry. ATR=0.7204. Stop below 166.7397.",
+      "symbol": "CBA.AX",
+      "interval": "30m",
+      "bar_time_utc": "2026-11-24T03:00:00+00:00",
+      "bar_is_complete": false,
+      "bar_elapsed_fraction": 0.696
+    },
+    {
+      "strategy": "Trend Pullback",
+      "direction": "long",
+      "entry": 11.77,
+      "stop": 11.7114,
+      "target": 11.8429,
+      "score": 100,
+      "signal_time": "13:00 AEST 24 Nov",
+      "note": "Intraday pullback to EMA20 (11.769), RSI14=52.7, vol dry. ATR=0.0486. Stop below 11.7114.",
+      "symbol": "CGF.AX",
+      "interval": "30m",
+      "bar_time_utc": "2026-11-24T03:00:00+00:00",
+      "bar_is_complete": false,
+      "bar_elapsed_fraction": 0.696
+    },
+    {
+      "strategy": "Trend Pullback",
+      "direction": "long",
+      "entry": 150.575,
+      "stop": 149.5039,
+      "target": 151.6191,
+      "score": 100,
+      "signal_time": "13:00 AEST 24 Nov",
+      "note": "Intraday pullback to EMA20 (150.503), RSI14=54.7, vol dry. ATR=0.6961. Stop below 149.5039.",
+      "symbol": "COH.AX",
+      "interval": "30m",
+      "bar_time_utc": "2026-11-24T03:00:00+00:00",
+      "bar_is_complete": false,
+      "bar_elapsed_fraction": 0.696
+    },
+    {
+      "strategy": "Trend Pullback",
+      "direction": "long",
+      "entry": 46.71,
+      "stop": 46.4389,
+      "target": 47.0491,
+      "score": 100,
+      "signal_time": "13:00 AEST 24 Nov",
+      "note": "Intraday pullback to EMA20 (46.603), RSI14=58.4, vol dry. ATR=0.2261. Stop below 46.4389.",
+      "symbol": "CPU.AX",
+      "interval": "30m",
+      "bar_time_utc": "2026-11-24T03:00:00+00:00",
+      "bar_is_complete": false,
+      "bar_elapsed_fraction": 0.696
+    },
+    {
+      "strategy": "Trend Pullback",
+      "direction": "long",
+      "entry": 5.955,
+      "stop": 5.9068,
+      "target": 6.0048,
+      "score": 100,
+      "signal_time": "13:00 AEST 24 Nov",
+      "note": "Intraday pullback to EMA20 (5.947), RSI14=58.7, vol dry. ATR=0.0332. Stop below 5.9068.",
+      "symbol": "DXS.AX",
+      "interval": "30m",
+      "bar_time_utc": "2026-11-24T03:00:00+00:00",
+      "bar_is_complete": false,
+      "bar_elapsed_fraction": 0.696
+    },
+    {
+      "strategy": "Trend Pullback",
+      "direction": "long",
+      "entry": 3.405,
+      "stop": 3.3268,
+      "target": 3.4398,
+      "score": 100,
+      "signal_time": "13:00 AEST 24 Nov",
+      "note": "Intraday pullback to EMA20 (3.395), RSI14=54.5, vol dry. ATR=0.0232. Stop below 3.3268.",
+      "symbol": "EDV.AX",
+      "interval": "30m",
+      "bar_time_utc": "2026-11-24T03:00:00+00:00",
+      "bar_is_complete": false,
+      "bar_elapsed_fraction": 0.696
+    },
+    {
+      "strategy": "Trend Pullback",
+      "direction": "long",
+      "entry": 26.78,
+      "stop": 26.1693,
+      "target": 27.1861,
+      "score": 100,
+      "signal_time": "13:00 AEST 24 Nov",
+      "note": "Intraday pullback to EMA20 (26.713), RSI14=52.8, vol dry. ATR=0.2707. Stop below 26.1693.",
+      "symbol": "GYG.AX",
+      "interval": "30m",
+      "bar_time_utc": "2026-11-24T03:00:00+00:00",
+      "bar_is_complete": false,
+      "bar_elapsed_fraction": 0.696
+    },
+    {
+      "strategy": "Trend Pullback",
+      "direction": "long",
+      "entry": 2.9,
+      "stop": 2.845,
+      "target": 2.93,
+      "score": 100,
+      "signal_time": "13:00 AEST 24 Nov",
+      "note": "Intraday pullback to EMA20 (2.896), RSI14=47.8, vol dry. ATR=0.0200. Stop below 2.8450.",
+      "symbol": "SIG.AX",
+      "interval": "1h",
+      "bar_time_utc": "2026-11-24T03:00:00+00:00",
+      "bar_is_complete": false,
+      "bar_elapsed_fraction": 0.348,
+      "other_signals": [
+        {
+          "interval": "30m",
+          "strategy": "Trend Pullback",
+          "score": 100
+        }
+      ]
+    },
+    {
+      "strategy": "Trend Pullback",
+      "direction": "long",
+      "entry": 32.68,
+      "stop": 31.4814,
+      "target": 33.2479,
+      "score": 100,
+      "signal_time": "13:00 AEST 24 Nov",
+      "note": "Intraday pullback to EMA20 (32.599), RSI14=52.9, vol dry. ATR=0.3786. Stop below 31.4814.",
+      "symbol": "TNE.AX",
+      "interval": "1h",
+      "bar_time_utc": "2026-11-24T03:00:00+00:00",
+      "bar_is_complete": false,
+      "bar_elapsed_fraction": 0.348,
+      "other_signals": [
+        {
+          "interval": "30m",
+          "strategy": "Trend Pullback",
+          "score": 100
+        }
+      ]
+    },
+    {
+      "strategy": "Trend Pullback",
+      "direction": "long",
+      "entry": 5.04,
+      "stop": 4.8929,
+      "target": 5.0882,
+      "score": 100,
+      "signal_time": "13:00 AEST 24 Nov",
+      "note": "Intraday pullback to EMA20 (5.030), RSI14=53.3, vol dry. ATR=0.0321. Stop below 4.8929.",
+      "symbol": "GPT.AX",
+      "interval": "1h",
+      "bar_time_utc": "2026-11-24T03:00:00+00:00",
+      "bar_is_complete": false,
+      "bar_elapsed_fraction": 0.348
+    },
+    {
+      "strategy": "Trend Pullback",
+      "direction": "long",
+      "entry": 4.38,
+      "stop": 4.2289,
+      "target": 4.4416,
+      "score": 100,
+      "signal_time": "13:00 AEST 24 Nov",
+      "note": "Intraday pullback to EMA20 (4.380), RSI14=51.6, vol dry. ATR=0.0411. Stop below 4.2289.",
+      "symbol": "SGP.AX",
+      "interval": "1h",
+      "bar_time_utc": "2026-11-24T03:00:00+00:00",
+      "bar_is_complete": false,
+      "bar_elapsed_fraction": 0.348
+    },
+    {
+      "strategy": "Trend Pullback",
+      "direction": "long",
+      "entry": 42.09,
+      "stop": 41.1129,
+      "target": 42.5207,
+      "score": 100,
+      "signal_time": "13:00 AEST 24 Nov",
+      "note": "Intraday pullback to EMA20 (41.980), RSI14=47.1, vol dry. ATR=0.2871. Stop below 41.1129.",
+      "symbol": "WOW.AX",
+      "interval": "1h",
+      "bar_time_utc": "2026-11-24T03:00:00+00:00",
+      "bar_is_complete": false,
+      "bar_elapsed_fraction": 0.348
+    }
+  ]
 }
