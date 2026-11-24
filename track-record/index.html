@@ -40,7 +40,7 @@
     <div class="page-head">
       <div>
         <h1>Track record</h1>
-        <p>Every recommended order the system has published, replayed with the same fill rules as the live check, costs included, and compared with simply buying an ASX200 ETF.</p>
+        <p>Every recommended order the system has published, replayed with the same fill rules as the live check, costs included. Headline: a fixed stake on every signal, added up. Below it: one risk-sized account compared with simply buying an ASX200 ETF.</p>
       </div>
     </div>
     <div id="loadError"></div>
@@ -48,6 +48,30 @@
     <div id="content"><div class="card"><div class="card__body small">Loading&hellip;</div></div></div>
 
     <div id="v2" hidden>
+      <div id="stake">
+        <section class="card" aria-label="Fixed stake on every signal">
+          <div class="card__head"><h2 id="stakeTitle">Fixed stake on every signal</h2><div class="seg" id="stakeToggle" role="group" aria-label="Which signals"></div></div>
+          <div class="card__body">
+            <p class="small" id="stakeMethod" style="margin:0;"></p>
+            <div class="kpiGrid kpiGrid--7" id="stakeKpis" style="margin-bottom:12px;"></div>
+            <section class="chart-panel" aria-label="Cumulative P&amp;L" style="margin-bottom:12px;">
+              <h3 id="stakeChartTitle">Cumulative P&amp;L (A$)</h3>
+              <div class="chart-note" id="stakeChartNote"></div>
+              <div id="stakeChartHost" style="position:relative;"></div>
+              <div class="chart-tip" id="stakeChartTip"></div>
+              <details class="data-table"><summary>Show the numbers (month-end values)</summary><div class="tableWrap" id="stakeChartTable"></div></details>
+            </section>
+            <h3 style="margin:6px 0 2px;font-size:15px;">Night vs pre-close &times; exit policy</h3>
+            <p class="small" style="margin:0 0 4px;">Total P&amp;L and number of trades for each signal stream and tracked exit policy. <b>Pre-close &middot; historical estimate</b> replays past night signals as if bought at that day's close (the pre-close scan itself only exists from now on); <b>pre-close &middot; forward tracking</b> is the real pre-close picks, collected going forward.</p>
+            <div id="stakeMatrix"></div>
+            <h3 style="margin:14px 0 2px;font-size:15px;">Is pre-close better? (paired comparison)</h3>
+            <div id="stakeCmp"></div>
+          </div>
+        </section>
+      </div>
+
+      <h2 style="margin:28px 0 4px;font-size:20px;">If you ran one A$100k account with risk-based sizing</h2>
+      <p class="small" style="margin:0 0 6px;">Secondary view: one compounding account, risk % sizing with position caps, at most a few positions at once, compared with buying the ETF.</p>
       <div id="verdict"></div>
       <div class="kpiGrid" id="kpis"></div>
 

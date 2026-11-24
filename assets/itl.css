@@ -445,3 +445,20 @@ details.card--fold:not([open]) > summary { border-bottom: none; }
   .mcell { padding: 7px 8px; }
   .mcell__v { font-size: 13px; }
 }
+.kpiValue--split { font-size: 16px; margin-top: 10px; }
+.chart-svg .zero { stroke: rgba(255,255,255,0.35); }
+.kpiGrid--7 { grid-template-columns: repeat(auto-fit, minmax(138px, 1fr)); gap: 10px; }
+.kpiGrid--7 .kpiBox { padding: 12px 12px; }
+.kpiGrid--7 .kpiValue { font-size: 20px; }
+@media (max-width: 600px) { .kpiGrid--7 { grid-template-columns: repeat(2, 1fr); } }
+.kpiValue--split span { white-space: nowrap; }
+@media (max-width: 760px) {
+  .matrix, .matrix thead, .matrix tbody { display: block; }
+  .matrix tr { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 4px; margin-bottom: 6px; }
+  .matrix thead th:first-child { display: none; }
+  .matrix thead th { white-space: normal; font-size: 10px; }
+  .matrix th.rowh { grid-column: 1 / -1; padding: 6px 2px 0; }
+  .matrix th.rowh .small { display: inline; margin-left: 4px; }
+  .mcell { min-height: 0; }
+  .mcell--empty .mcell__v { font-size: 11px; }
+}
