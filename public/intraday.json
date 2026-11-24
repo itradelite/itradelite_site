@@ -1,32 +1,31 @@
 {
   "schema": "itl.intraday.v2",
   "job": "intraday_scan",
-  "generated_at_utc": "2026-11-24T03:20:52+00:00",
-  "generated_at_bne": "2026-11-24T13:20:52+10:00",
+  "generated_at_utc": "2026-11-24T22:27:42+00:00",
+  "generated_at_bne": "2026-11-25T08:27:42+10:00",
   "market_state": {
-    "now_syd": "2026-11-24T14:20:52.276083+11:00",
-    "now_bne": "2026-11-24T13:20:52.276083+10:00",
+    "now_syd": "2026-11-25T09:27:42.005326+11:00",
+    "now_bne": "2026-11-25T08:27:42.005326+10:00",
     "trading_day": true,
-    "phase": "open",
-    "session_date": "2026-11-24",
-    "open_syd": "2026-11-24T10:00:00+11:00",
-    "close_syd": "2026-11-24T16:00:00+11:00",
-    "minutes_to_close": 99.12873195,
-    "minutes_since_open": 260.87126805,
-    "last_completed_session": "2026-11-23",
+    "phase": "pre_open",
+    "session_date": "2026-11-25",
+    "open_syd": "2026-11-25T10:00:00+11:00",
+    "close_syd": "2026-11-25T16:00:00+11:00",
+    "minutes_to_close": null,
+    "minutes_since_open": null,
+    "last_completed_session": "2026-11-24",
     "next_session": "2026-11-25"
   },
-  "stale_after_utc": "2026-11-24T05:30:00+00:00",
-  "run_id": "45318830845.1",
-  "session_closed": false,
-  "market_open": true,
-  "scanned_in_session": true,
+  "stale_after_utc": "2026-11-25T01:00:00+00:00",
+  "run_id": "45501090222.1",
+  "session_closed": true,
+  "market_open": false,
+  "scanned_in_session": false,
+  "degraded": false,
   "signals_session": "2026-11-24",
-  "generated": "2026-11-24",
-  "valid_for": "2026-11-24",
+  "signals_generated_at_utc": "2026-11-24T03:20:52+00:00",
   "interval": "15m,30m,1h",
   "universe_size": 147,
-  "degraded": false,
   "coverage": {
     "universe": 147,
     "usable_by_interval": {
@@ -45,8 +44,6 @@
     "daily_coverage_pct": 97.3,
     "min_coverage_pct": 80.0
   },
-  "errors": [],
-  "reason": null,
   "signals": [
     {
       "strategy": "Trend Pullback",
@@ -370,5 +367,6 @@
       "bar_is_complete": false,
       "bar_elapsed_fraction": 0.348
     }
-  ]
+  ],
+  "reason": "ASX not in continuous trading (pre_open); showing signals from the last in-session scan (2026-11-24T03:20:52+00:00)."
 }
