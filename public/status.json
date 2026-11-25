@@ -1,24 +1,24 @@
 {
   "schema": "itl.status.v2",
   "job": "status",
-  "generated_at_utc": "2026-11-25T04:12:20+00:00",
-  "generated_at_bne": "2026-11-25T14:12:20+10:00",
+  "generated_at_utc": "2026-11-25T04:12:32+00:00",
+  "generated_at_bne": "2026-11-25T14:12:32+10:00",
   "market_state": {
-    "now_syd": "2026-11-25T15:12:20.958601+11:00",
-    "now_bne": "2026-11-25T14:12:20.958601+10:00",
+    "now_syd": "2026-11-25T15:12:32.784470+11:00",
+    "now_bne": "2026-11-25T14:12:32.784470+10:00",
     "trading_day": true,
     "phase": "open",
     "session_date": "2026-11-25",
     "open_syd": "2026-11-25T10:00:00+11:00",
     "close_syd": "2026-11-25T16:00:00+11:00",
-    "minutes_to_close": 47.650689983333336,
-    "minutes_since_open": 312.34931001666666,
+    "minutes_to_close": 47.45359216666667,
+    "minutes_since_open": 312.5464078333333,
     "last_completed_session": "2026-11-24",
     "next_session": "2026-11-26"
   },
-  "stale_after_utc": "2026-11-26T04:12:20+00:00",
-  "run_id": "45544985770.1",
-  "updated_by": "intraday_scan",
+  "stale_after_utc": "2026-11-26T04:12:32+00:00",
+  "run_id": "45545123566.1",
+  "updated_by": "live_check",
   "any_stale": false,
   "jobs": {
     "intraday_scan": {
@@ -34,10 +34,10 @@
       "health": "ok"
     },
     "live_check": {
-      "last_attempt_utc": "2026-11-25T04:01:23+00:00",
+      "last_attempt_utc": "2026-11-25T04:12:32+00:00",
       "last_status": "success",
-      "last_run_id": "45543843457.1",
-      "last_success_utc": "2026-11-25T04:01:23+00:00",
+      "last_run_id": "45545123566.1",
+      "last_success_utc": "2026-11-25T04:12:32+00:00",
       "detail": null,
       "expected_every": "trading_day@10:20,12:30,15:00 Sydney",
       "stale": false,
