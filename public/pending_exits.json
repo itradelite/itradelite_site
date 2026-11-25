@@ -1,34 +1,39 @@
 {
   "schema": "itl.pending_exits.v2",
   "job": "night_scan",
-  "generated_at_utc": "2026-11-24T08:10:13+00:00",
-  "generated_at_bne": "2026-11-24T18:10:13+10:00",
+  "generated_at_utc": "2026-11-25T06:20:04+00:00",
+  "generated_at_bne": "2026-11-25T16:20:04+10:00",
   "market_state": {
-    "now_syd": "2026-11-24T19:10:13.160633+11:00",
-    "now_bne": "2026-11-24T18:10:13.160633+10:00",
+    "now_syd": "2026-11-25T17:20:04.587238+11:00",
+    "now_bne": "2026-11-25T16:20:04.587238+10:00",
     "trading_day": true,
     "phase": "post_close",
-    "session_date": "2026-11-24",
-    "open_syd": "2026-11-24T10:00:00+11:00",
-    "close_syd": "2026-11-24T16:00:00+11:00",
+    "session_date": "2026-11-25",
+    "open_syd": "2026-11-25T10:00:00+11:00",
+    "close_syd": "2026-11-25T16:00:00+11:00",
     "minutes_to_close": null,
     "minutes_since_open": null,
-    "last_completed_session": "2026-11-24",
-    "next_session": "2026-11-25"
+    "last_completed_session": "2026-11-25",
+    "next_session": "2026-11-26"
   },
-  "stale_after_utc": "2026-11-25T08:30:00+00:00",
-  "run_id": "45353256242.1",
-  "as_of_session": "2026-11-24",
-  "as_of": "2026-11-24 18:10:13 AEST",
+  "stale_after_utc": "2026-11-26T08:30:00+00:00",
+  "run_id": "45559295693.1",
+  "as_of_session": "2026-11-25",
+  "as_of": "2026-11-25 16:20:04 AEST",
   "exit_policy": {
     "id": "fixed_5d",
     "label": "Legacy: exit at close of day 5",
     "kind": "time",
     "days": 5
   },
+  "tracked_policy_ids": [
+    "fixed_5d",
+    "trail_2atr",
+    "trail_1pct"
+  ],
   "positions": [],
   "pending_exits": [],
   "recent_auto_closes": [],
   "errors": [],
-  "notes": "positions: every row of journal/my_positions.csv with its FROZEN initial stop, the default exit policy's trailing level (peak ratchets up only) and effective stop = max(initial, trail). pending_exits: positions flagged SELL_STOP/SELL_TRAIL/SELL_TIME or TAKE_PROFIT_2R/3R for 3+ consecutive ASX trading days with no action. Exit flags auto-close at 10 consecutive trading days (recent_auto_closes); profit-take flags are never auto-closed."
+  "notes": "positions: every row of journal/my_positions.csv with its FROZEN initial stop, the default exit policy's trailing level (peak ratchets up only) and effective stop = max(initial, trail); `policies` repeats that for every tracked exit policy (fixed_5d / trail_2atr / trail_1pct), but only the default policy drives action, streaks and auto-close. pending_exits: positions flagged SELL_STOP/SELL_TRAIL/SELL_TIME or TAKE_PROFIT_2R/3R for 3+ consecutive ASX trading days with no action. Exit flags auto-close at 10 consecutive trading days (recent_auto_closes); profit-take flags are never auto-closed."
 }
