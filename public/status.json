@@ -1,11 +1,11 @@
 {
   "schema": "itl.status.v2",
   "job": "status",
-  "generated_at_utc": "2026-11-26T05:12:03+00:00",
-  "generated_at_bne": "2026-11-26T15:12:03+10:00",
+  "generated_at_utc": "2026-11-26T06:20:33+00:00",
+  "generated_at_bne": "2026-11-26T16:20:33+10:00",
   "market_state": {
-    "now_syd": "2026-11-26T16:12:03.648284+11:00",
-    "now_bne": "2026-11-26T15:12:03.648284+10:00",
+    "now_syd": "2026-11-26T17:20:33.837667+11:00",
+    "now_bne": "2026-11-26T16:20:33.837667+10:00",
     "trading_day": true,
     "phase": "post_close",
     "session_date": "2026-11-26",
@@ -16,9 +16,9 @@
     "last_completed_session": "2026-11-26",
     "next_session": "2026-11-27"
   },
-  "stale_after_utc": "2026-11-27T05:12:03+00:00",
-  "run_id": "45759997365.1",
-  "updated_by": "watchdog",
+  "stale_after_utc": "2026-11-27T06:20:33+00:00",
+  "run_id": "45766976832.1",
+  "updated_by": "night_scan",
   "any_stale": false,
   "jobs": {
     "intraday_scan": {
@@ -58,15 +58,15 @@
       "health": "ok"
     },
     "night_scan": {
-      "last_attempt_utc": "2026-11-25T06:20:19+00:00",
+      "last_attempt_utc": "2026-11-26T06:20:33+00:00",
       "last_status": "success",
-      "last_run_id": "45559295693.1",
-      "last_success_utc": "2026-11-25T06:20:19+00:00",
-      "last_session": "2026-11-25",
+      "last_run_id": "45766976832.1",
+      "last_success_utc": "2026-11-26T06:20:33+00:00",
+      "last_session": "2026-11-26",
       "detail": "ok",
       "expected_every": "trading_day@16:30 Sydney (retry 18:30); must land by close+3h30",
       "stale": false,
-      "stale_after_utc": "2026-11-26T19:30:00+11:00",
+      "stale_after_utc": "2026-11-27T19:30:00+11:00",
       "health": "ok"
     },
     "preclose_scan": {
