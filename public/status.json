@@ -1,11 +1,11 @@
 {
   "schema": "itl.status.v2",
   "job": "status",
-  "generated_at_utc": "2026-11-27T06:20:46+00:00",
-  "generated_at_bne": "2026-11-27T16:20:46+10:00",
+  "generated_at_utc": "2026-11-27T06:22:46+00:00",
+  "generated_at_bne": "2026-11-27T16:22:46+10:00",
   "market_state": {
-    "now_syd": "2026-11-27T17:20:46.930509+11:00",
-    "now_bne": "2026-11-27T16:20:46.930509+10:00",
+    "now_syd": "2026-11-27T17:22:46.152670+11:00",
+    "now_bne": "2026-11-27T16:22:46.152670+10:00",
     "trading_day": true,
     "phase": "post_close",
     "session_date": "2026-11-27",
@@ -16,9 +16,9 @@
     "last_completed_session": "2026-11-27",
     "next_session": "2026-11-30"
   },
-  "stale_after_utc": "2026-11-28T06:20:46+00:00",
-  "run_id": "45950725490.1",
-  "updated_by": "night_scan",
+  "stale_after_utc": "2026-11-28T06:22:46+00:00",
+  "run_id": "45951267883.1",
+  "updated_by": "metrics",
   "any_stale": false,
   "jobs": {
     "intraday_scan": {
@@ -46,15 +46,15 @@
       "last_session": "2026-11-27"
     },
     "metrics": {
-      "last_attempt_utc": "2026-11-26T06:22:40+00:00",
+      "last_attempt_utc": "2026-11-27T06:22:46+00:00",
       "last_status": "success",
-      "last_run_id": "45767541224.1",
-      "last_success_utc": "2026-11-26T06:22:40+00:00",
-      "last_session": "2026-11-26",
+      "last_run_id": "45951267883.1",
+      "last_success_utc": "2026-11-27T06:22:46+00:00",
+      "last_session": "2026-11-27",
       "detail": "/home/runner/work/itradelite/itradelite/payload/public/r_results_5d.json missing; /home/runner/work/itradelite/itradelite/payload/public/r_summary_5d.json missing",
       "expected_every": "after each night scan; stale if >3 trading days old",
       "stale": false,
-      "stale_after_utc": "2026-12-02T19:30:00+11:00",
+      "stale_after_utc": "2026-12-03T19:30:00+11:00",
       "health": "ok"
     },
     "night_scan": {
